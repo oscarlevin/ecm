@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<backmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="backmatter">
+  <!-- <title>Backmatter</title> -->
+
+
+
+  <xi:include href="./app-sets-functions.ptx"/>
+  <xi:include href="./app-logic-proofs.ptx"/>
+  <xi:include href="./app-induction.ptx"/>
+
+
+  <appendix>
+      <title>Selected Solutions</title>
+      <solution-list/>
+  </appendix>
+
+
+
+<appendix>
+  <title>List of Symbols</title>
+
+  <notation-list/>
+</appendix>
+
+
+<index>
+  <title>Index</title>
+  <index-list/>
+</index>
+
+<colophon>
+  <p>
+    This book was authored in <pretext />.
+  </p>
+</colophon>
+
+</backmatter>

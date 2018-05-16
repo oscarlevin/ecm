@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_graphtheory">
+  <title>Graph Theory</title>
+
+
+  <introduction>
+    Two problems about discrete math you can solve with graph theory: handshakes at a party and card matching puzzle.
+
+    Studying graph theory will give us an opportunity to review some basic mathematical objects and reasoning used in discrete math.
+  </introduction>
+
+  <xi:include href="sec_gt-intro.ptx"/>
+  <xi:include href="sec_gt-paths.ptx"/>
+  <xi:include href="sec_gt-eulerformula.ptx"/>
+  <xi:include href="sec_gt-eulerapps.ptx"/>
+  <xi:include href="sec_gt-coloring.ptx"/>
+  <!-- <xi:include href="sec_gt-matchings.ptx"/> -->
+  <!-- <xi:include href="sec_gt-conc.ptx"/> -->
+</chapter>

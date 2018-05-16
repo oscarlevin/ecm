@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_coloring">
+<title>Counting Colorings and the Chromatic Polynomial</title>
+
+<p>
+  ADD A SECTION ON THIS TOPIC, AS A TRANSITION TO COMBINATORICS.
+</p>
+
+
+<!-- <xi:include href="exercises/gt-chromaticpoly.ptx"/> -->
+
+</section>
