@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_adv-linearparts">
+<title>Linear Partitions</title>
+  <p>
+    The very interesting history of the theory of linear partitions dates back to the Middle Ages, where certain special problems in partitions were encountered.  The first major discoveries were made by L. Euler in the 18th century, followed by contributions by Cayley, Gauss, Hardy, Jacobi, Lagrange, Legendre, Littlewoood, Rademacher, Ramanujan, Schur, and Sylvester.
+  </p>
+
+  <p>
+    A <term>partition</term> <m>\lambda = (a_1, a_2, a_3, \ldots, a_k)</m> of an integer <m>n</m> is an array of integers <m>a_i</m> such that <m>n = a_1+ a_2 + a_3 + \cdots + a_k</m> and <m>a_1 \ge a_2 \ge \cdots \ge a_k \ge 0</m>.  For example, the seven partitions of <m>n = 5</m> are <m>(5)</m>, <m>(4,1)</m>, <m>(3,2)</m>, <m>(3,1,1)</m>, <m>(2,2,1)</m>, <m>(2,1,1,1)</m>, and <m>(1,1,1,1,1)</m>.
+    Each <m>a_i</m> is called a <term>summand</term> or a <term>part</term> of <m>n</m>; <m>\lambda</m> has <m>k</m> parts, with largest part being <m>a_1</m>.
+  </p>
+
+  <p>
+    A <term>Ferrers graph</term> consists of rows of dots, left justified, with the length of row <m>i</m> less than or equal to the length of row <m>j</m> if <m>i \gt j</m>.  A partition of <m>n</m> can be represented by a Ferrers graph by letting row <m>i</m> in the graph correspond to the part <m>a_i</m>.  For example, the partition <m>\lambda = (6,3,2,1)</m> of <m>n = 12</m> looks like,
+  </p>
+
+  <sidebyside width="25%">
+    <image xml:id="img_ferrersex">
+      <latex-image>
+        \begin{tikzpicture}[scale=.5]
+          \draw (0,0) \v (0,1) \v (1,1) \v (0,2) \v (1,2) \v (2,2) \v (0,3) \v (1,3) \v (2,3) \v (3,3) \v (4,3) \v (5,3) \v (6,3) \v;
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </sidebyside>
+
+  <p>
+    If <m>\lambda = (a_1, a_2, \ldots, a_k)</m> is a partition of <m>n</m>, we may define a new partition <m>\lambda' = (a_1', a_2', \ldots, a_k')</m> by choosing <m>a_i'</m> as the number of parts of <m>\lambda</m> that are at least <m>i</m>.  We call <m>\lambda'</m> the <term>conjugate</term> of <m>\lambda</m>.  It is clear that conjugation is an involution of the partitions of <m>n</m>, i.e., <m>(\lambda')' = \lambda</m>.
+  </p>
+
+  <p>
+    A partition <m>\lambda</m> of <m>n</m> is called <term>self-conjugate</term> if its Ferrers graph is invariante under interchagne of rows and columns, i.e., if <m>\lambda = \lambda'</m>.  The <term>Durfee square</term> of a Ferrers graph is the largest square of nodes appearing inthe graph.  The <term>Durfee triangle</term> is the largest isosceles right triangle of nodes.  The above representations are named after Norman-Macleod Ferrers (1829 - 1903).
+  </p>
+
+  <definition xml:id="def-numpartitions">
+    <statement>
+      <p>
+        For <m>k \in \Z^+ = \{1,2,\ldots\}</m> and <m>n \in \N</m>, we let <m>p_k(n)</m> denote the number of partitions of <m>n</m> into <m>k</m> or fewer parts.
+      </p>
+    </statement>
+  </definition>
+
+  <example xml:id="ex_partitions3parts">
+    <statement>
+      <p>
+        Find <m>p_3(4)</m> and <m>p_3(6)</m> by listing all the relevant partitions.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <m>p_3(4) = 4</m>, counting the partitions <m>(4)</m>, <m>(3,1)</m>, <m>(2,2)</m>, <m>(2,1,1)</m>.
+      </p>
+      <p>
+        <m>p_3(6) = 7</m>.  The partitions are <m>(6)</m>, <m>(5,1)</m>, <m>(4,2)</m>, <m>(4,1,1)</m>, <m>(3,3)</m>, <m>(3,2,1)</m>, <m>(2,2,2)</m>.
+      </p>
+    </solution>
+  </example>
+
+  <theorem xml:id="thm-positiveparts">
+    <statement>
+      <p>
+        For <m>n \ge k</m>, the number of partitions of <m>n</m> into <m>k</m> positive parts is <m>p_k(n-k)</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        The mapping <m>\beta: (a_1, a_2, \ldots, a_k) \mapsto (a_1 - 1, a_2, -1, \ldots, a_k-1)</m> is a bijection from the set of all partitions of <m>n</m> into <m>k</m> positive parts onto the set of all partitions of <m>n-k</m> into <m>k</m> or fewer parts.
+      </p>
+    </proof>
+  </theorem>
+
+  <theorem xml:id="thm-partitionrecurrence">
+    <statement>
+      <p>
+        <m>p_k(n) = p_k(n-k) + p_{k-1}(n)</m> for <m>2 \le k \le n</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Either <m>a_k \ge 1</m> for any partition <m>(a_1, a_2, \ldots, a_k)</m> of <m>n</m> into <m>k</m> parts.
+      </p>
+    </proof>
+  </theorem>
+
+  <example>
+    <statement>
+      <p>
+        <m>p_2(7) = p_2(5) + p_1(7) = p_2(3) + p_1(5) + p_1(7) = p_2(1) + p_1(3) + p_1(5) + p_1(7) = 1 + 1 + 1 + 1 = 4</m>, using the recursion.
+      </p>
+    </statement>
+  </example>
+
+  <theorem xml:id="thm-largestpart">
+    <statement>
+      <p>
+        The number of partitions of <m>n</m> into parts, the largest of which is <m>k</m>, is <m>p_k(n)</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Transpose the Ferrers graph of a given partition, obtaining the conjugate <m>\lambda'</m>.  The rest is clear.
+      </p>
+    </proof>
+  </theorem>
+
+  
+  <p>
+    For example, the following are the seven partitions of <m>n = 6</m> having 3 as largest part: <m>(1,1,1,1,1,1)</m>, <m>(2,1,1,1,1)</m>, <m>(2,2,1,1)</m>, <m>(3,1,1,1)</m>, <m>(2,2,2)</m>, <m>(3,2,1)</m>, <m>(3,3)</m>.  These are given in the same order as their counterparts listed in <xref ref="ex_partitions3parts"/>.
+  </p>
+
+  <p>
+    We denote by <m>p(n)</m>, the number of unrestricted partitions of <m>n</m>.  Clearly <m>p_n(n) = p(n)</m>.
+  </p>
+
+
+</section>

@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_counting-combperm">
+  <title>Catalan Numbers and Bijections</title>
+
+
+    <p>
+      (Notes of a talk presented by Professor Richard Grassl, Muhlenberg
+      College, March 15, 1991)
+    </p>
+
+    <p>
+      The sequence of Catalan numbers, named after Eugene Catalan who along with Euler discovered many of the properties of these numbers, is <m>1, 1, 2, 5, 14, 42, 132, \ldots</m>. The characterizations below show that a formula for these numbers is given by
+      <me>
+        C_{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
+      </me>
+      with <m>C_1 = 1</m>, <m>C_2 = 1</m>, etc.
+    </p>
+
+
+    <paragraphs>
+        <title>Parenthesizing</title>
+        <p> In how many ways can you insert parentheses
+        in the nonassociative product <m>abcd</m>? The five ways are displayed
+
+        <me>
+        (ab)(cd)\quad ((ab)c)d \quad a(b(cd)) \quad (a(bc))d \quad a((bc)d).
+        </me>
+      </p>
+
+      <p>
+        There are two ways for <m>abc</m>, namely <m>a(bc)</m> and <m>(ab)c</m>, and one for <m>ab</m>. For a product of <m>n</m> symbols
+        <m>a_{1}a_{2}\ldots a_{n}</m>, break it at the <m>k</m>th symbol:
+      <me>
+        (a_{1}a_{2}a_{3}\ldots a_{k})(a_{k + 1}\ldots a_{n}).
+      </me>
+      Let <m>P_{n}</m> denote the number of ways of inserting parentheses
+      into this product. There are <m>P_k</m> ways of inserting parentheses in <m>\left(a_{1}\ldots a_{k} \right)</m> and <m>P_{n - k}</m> ways for the factor <m>(a_{k + 1}\ldots a_{n})</m> . Letting <m>k</m> range from 1
+    to <m>n - 1</m> we have that
+    <me>
+      P_{n} = \sum_{k = 1}^{n - 1} P_{k}P_{n - k} = P_{1}P_{n - 1} + P_{2}P_{n - 2} + \ldots + P_{n - 1}P_{1}.
+    </me>
+    </p>
+  </paragraphs>
+
+  <paragraphs>
+    <title>The H-D sequences:</title>
+    <p>
+      <m>2n</m> people stand in line at a theatre.
+      Admission is 50 cents, (denoted by H), and the box office starts with no change.
+      <m>n</m> of the people have H and <m>n</m> have <dollar />1 (denoted D). In how many ways can the <m>2n</m> people line up so that all can be admitted?
+     Here we enumerate the number of workable sequences of n H's and n D's such that at each point in the sequence the number of H's is not less than the number of D's
+      </p>
+
+      <p>
+        The total number of sequences of <m>n</m> H's and <m>n</m> D's is <m>\binom{2n}{n}</m>. We delete the number of
+        <em>nonworkable</em> sequences. Each such sequence has a first snag as
+        shown by the highlighted D in
+
+        <me>\text{H\ H\ D\ D\ \alert{D}\ H\ H\ D\ D\ D\ H\ H}
+        </me>
+
+        Reverse each letter up to and including the snag, obtaining
+
+        <me>
+        \text{D D H H H H H D D D H H},
+        </me>
+        a sequence of <m>n+1</m> H's and <m>n-1</m> D's. For <m>n = 3</m> , H D \alert{D} D H H is a nonworkable sequence with the snag indicated. Its mate, found by reversing the first three letters, is D H H D H H, a sequence of 2D's and 4H's. <em>Any</em> arrangement of
+        2D's and 4H's will correspond to exactly one nonworkable sequence;
+        simply scan through and see the <em>first</em> time the H's dominate the
+        D's and then reverse through that spot. There are <m>\binom{6}{3}
+        = 20</m> arrangements of 3H's and 3D's. There are <m>\binom{6}{2}
+        = 15</m> arrangements of 2D's and 4H's each of which
+        corresponds to a nonworkable sequence. Hence there are <m>\binom{6}{3}
+        -\binom{6}{2} = 5</m> workable sequences. In general, <m>\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}</m> gives the number of workable sequences. See <xref ref="catalaninpascal">Figure</xref>
+      </p>
+
+      <p>
+        For <m>n=3</m>, the matching of the 5 workable sequences with one of the 5
+        ways of parenthesizing, given by the bijection which sends an H to a left parenthesis and a D to a letter, is presented below.
+      </p>
+    <md>
+    <mrow>\text{H H H D D D} \leftrightarrow  (((abcd </mrow>
+    <mrow>\text{H H D H D D} \leftrightarrow  ((a(bcd </mrow>
+    <mrow>\text{H H D D H D} \leftrightarrow  ((ab(cd </mrow>
+    <mrow>\text{H D H H D D} \leftrightarrow  (a((bcd </mrow>
+    <mrow>\text{H D H D H D} \leftrightarrow  (a(b(cd </mrow>
+    </md>
+
+      <TODO> Add somethign about where the right parenteses go.</TODO>
+  </paragraphs>
+
+  <paragraphs>
+    <title>Paths</title>
+
+    <p>
+      A point <m>(a, b)</m> in the plane is a <term>lattice point</term> if <m>a</m> and <m>b</m> are integers. How many paths of length <m>2n</m>, consisting of horizontal and vertical segments of unit length, are there from <m>(0, 0)</m> to <m>(n, n)</m> such that the path never goes above the line <m>y = x</m>? One such path to <m>(3, 3)</m> is shown in <xref ref="catalanpathex" />.
+    </p>
+
+    <figure xml:id="catalanpathex">
+      <caption> One of the acceptable lattice paths from <m>(0,0)</m> to <m>(3,3)</m>.</caption>
+      <image width="50%">
+        <latex-image>
+          <![CDATA[\begin{tikzpicture}
+      \draw[very thin, color=gray!50] (0,0) grid (3.5, 3.5);
+      \draw[thin] (0,0) -- (3.5,0) node[right]{$x$} (0,0) -- (0,3.5) node[above]{$y$};
+      \draw (0,0) node[below left]{$(0,0)$} (3,3) node[above right] {$(3,3)$};
+      \draw[very thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,3);
+    \end{tikzpicture}]]>
+  </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      Using R for right and U for up, the sequence R U R R U U gives the path.
+    The bijection mathing R with H and U with D links paths to H-D sequences.
+    </p>
+
+  </paragraphs>
+
+  <paragraphs>
+    <title>Triangulations of convex <m>n</m>-gons</title>
+      <p>
+        Fix <m>n</m> vertices. In how many ways can diagonals be inserted so as to decompose the <m>n</m>-gon into triangles? For <m>n = 5</m> the five
+        figures are shown in <xref ref="five5gons" />.
+      </p>
+
+        <figure xml:id="five5gons">
+          <caption>
+            The five triangulations of a convex pentagon.
+          </caption>
+          <sidebyside>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (a) -- (d) -- (b);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (b) -- (e) -- (c);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (d) -- (a) -- (c);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (e) -- (b) -- (d);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (e) -- (c) -- (a);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+        </figure>
+
+
+    <p>
+    There are two drawings for <m>n=4</m>:
+    <sidebyside width="20%">
+      <image>
+        <latex-image>
+          \begin{tikzpicture}
+            \draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- (0,0) -- (1,1);
+            \draw (2,0) -- (3,0) -- (3,1) -- (2,1) -- (2,0) (2,1) -- (3,0);
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </sidebyside>
+    A bijection between triangulations and parenthesizing is illustrated
+    next:
+  </p>
+
+    <figure xml:id="triangulationbijection">
+      <caption>
+        An example of a bijection between triangulations of <m>n</m>-gons and parenthesizing.
+      </caption>
+    <image width="50%">
+      <latex-image>
+        \begin{tikzpicture}
+          \fivegon;
+          {\footnotesize
+          \draw (a) -- (b) node[midway, above]{$c$};
+          \draw (b) -- (c) node[midway, right]{$d$};
+          \draw (c) -- (d) node[midway, below]{$((ab)c)d$};
+          \draw (d) -- (e) node[midway, left]{$a$};
+          \draw (e) -- (a) node[midway, above]{$b$};
+          \draw (a) -- (d) node[midway, left]{$(ab)$};
+          \draw (d) -- (b) node[midway, above]{$(ab)c$};
+          }
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </figure>
+  </paragraphs>
+
+
+  <paragraphs>
+    <title>Tableau Insertion</title>
+      <p>
+      Insert the integers <m>1, 2, \ldots, 2n</m> into a 2 by <m>n</m> rectangle of boxes such that the entries are monotonic in rows and columns. For <m>n=3</m> there are five arrangements:
+
+      <sidebyside>
+        <tabular top="minor" left="minor" valign="middle" halign="center">
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <row bottom="minor">
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+          </row>
+          <row bottom="minor">
+            <cell>4</cell>
+            <cell>5</cell>
+            <cell>6</cell>
+          </row>
+        </tabular>
+
+        <tabular top="minor" left="minor" valign="middle" halign="center">
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <row bottom="minor">
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>4</cell>
+          </row>
+          <row bottom="minor">
+            <cell>3</cell>
+            <cell>5</cell>
+            <cell>6</cell>
+          </row>
+        </tabular>
+
+        <tabular top="minor" left="minor" valign="middle" halign="center">
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <row bottom="minor">
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>5</cell>
+          </row>
+          <row bottom="minor">
+            <cell>3</cell>
+            <cell>4</cell>
+            <cell>6</cell>
+          </row>
+        </tabular>
+
+        <tabular top="minor" left="minor" valign="middle" halign="center">
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <row bottom="minor">
+            <cell>1</cell>
+            <cell>3</cell>
+            <cell>4</cell>
+          </row>
+          <row bottom="minor">
+            <cell>2</cell>
+            <cell>5</cell>
+            <cell>6</cell>
+          </row>
+        </tabular>
+
+        <tabular top="minor" left="minor" valign="middle" halign="center">
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <row bottom="minor">
+            <cell>1</cell>
+            <cell>3</cell>
+            <cell>5</cell>
+          </row>
+          <row bottom="minor">
+            <cell>2</cell>
+            <cell>4</cell>
+            <cell>6</cell>
+          </row>
+        </tabular>
+      </sidebyside>
+    </p>
+
+    <p>
+      A bijection to the path problem is: an entry in the top row corresponds to R. For example, the middle arrangement corresponds to R R U U R U.
+    </p>
+  </paragraphs>
+
+  <paragraphs>
+    <title>Trivalent rooted trees:</title>
+    <p>
+      A <term>tree</term> is a connected graph that has no cycles. <term>Trivalent</term> means that each interior vertex has degree 3. The
+      <term>leaves</term> or endpoints have degree 1. The number of trivalent rooted trees having <m>n</m> vertices (not counting the root) is <m>C_n</m>.
+    </p>
+
+    <p>
+      The cases <m>n = 1, 2, 3, 4</m> are drawn in FIGURE 2 along with bijections linking H-D sequences and parenthesizing. For the bijection, label interior vertices with 1 and leaves with 0. Start at the root, keep bearing to the right, and call off the sequence of 0's and 1's, not repeating them once called.
+    </p>
+
+    <p>
+      A link between a particular triangulation of a 5-gon and its associated tree is displayed in the following diagram:
+
+      <sidebyside>
+        <image>
+          \begin{tikzpicture}
+            \fivegon;
+            \draw (d) -- (a) -- (c);
+            \draw (0,-.5) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \vl{$b$};
+            \draw (-1,1.3) -- (-2,.8) \vl{$a$};
+            \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \vr{$c$};
+            \draw (1,1.2) -- (2,.7) \vr{$d$};
+          \end{tikzpicture}
+        </image>
+        <image>
+          \begin{tikzpicture}
+            \draw (0,0) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \va{$a$};
+            \draw (-1,1.3) -- (-.5,2.5) \va{$b$};
+            \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \va{$d$};
+            \draw (1,1.2) -- (.5,2.5) \va{$c$};
+          \end{tikzpicture}
+        </image>
+      </sidebyside>
+
+
+      Place a vertex in each triangle, connect the three vertices and run leaves out all edges, including the bottom which forms the root.
+      Straighten the tree out! FIGURE 3 shows the five triangulations of a convex pentagon along with their trees.
+    </p>
+  </paragraphs>
+
+  <paragraphs>
+    <title>Rhyme schemes for <m>n</m> line stanzas</title>
+    <p>
+      A 2-line poem can have just two rhyme schemes
+      <me>
+        \begin{matrix}a \\ a\end{matrix} \qquad \text{or} \qquad \begin{matrix}a \\ b\end{matrix}
+      </me>
+    </p>
+
+    <p>
+    A 3-line poem can have five schemes:
+    <me>
+      \begin{matrix} a \\ a \\ a \end{matrix} \qquad
+      \begin{matrix} a \\ a \\ b \end{matrix} \qquad
+      \begin{matrix} a \\ b \\ a \end{matrix} \qquad
+      \begin{matrix} a \\ b \\ b \end{matrix} \qquad
+      \begin{matrix} a \\ b \\ c \end{matrix} \qquad
+    </me>
+    The last pattern indicates that no line rhymes with any other.
+    </p>
+    <p>
+      The Catalan numbers seem to be popping up again. For <m>n=4</m> there happen to be 15 (not 14) patterns:
+      <me>
+        \begin{matrix} a \\ a \\ a \\ a \end{matrix} \quad ~
+        \begin{matrix} a \\ a \\ a \\ b \end{matrix} \quad ~
+        \begin{matrix} a \\ a \\ b \\ a \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ a \\ a \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ b \\ b \end{matrix} \quad ~
+        \begin{matrix} a \\ a \\ b \\ b \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ b \\ a \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ a \\ b \end{matrix} \quad ~
+        \begin{matrix} a \\ a \\ b \\ c \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ a \\ c \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ c \\ a \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ b \\ c \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ c \\ b \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ c \\ c \end{matrix} \quad ~
+        \begin{matrix} a \\ b \\ c \\ d \end{matrix} \quad ~
+      </me>
+    One of these, <m>abab</m>, is special in that it is the only <q>non-planar</q> scheme. In this pattern, you cannot connect the <m>a</m>'s with an arc and the
+    <m>b</m>'s with an arc without the arcs crossing.
+  </p>
+
+  <p>
+    The planar rhyme schemes are enumerated by the Catalan numbers. These
+    numbers are a subsequence of the Bell numbers, which enumerate all rhyme
+    schemes.
+  </p>
+</paragraphs>
+
+  <p>
+  Thus far, we have the following bijections:
+
+<sidebyside>
+  <tabular>
+    <col halign="right" />
+    <col halign="center" />
+    <col halign="left" />
+    <row>
+      <cell>Parentheses</cell>
+      <cell><m>\leftrightarrow</m></cell>
+      <cell>H-D sequences</cell>
+    </row>
+    <row>
+      <cell>H-D sequences</cell>
+      <cell><m>\leftrightarrow</m></cell>
+      <cell>Paths</cell>
+    </row>
+    <row>
+      <cell>Triangulations</cell>
+      <cell><m>\leftrightarrow</m></cell>
+      <cell>Parentheses</cell>
+    </row>
+    <row>
+      <cell>Insertions</cell>
+      <cell><m>\leftrightarrow</m></cell>
+      <cell>Paths</cell>
+    </row>
+    <row>
+      <cell>Trees</cell>
+      <cell><m>\leftrightarrow</m></cell>
+      <cell>Parentheses</cell>
+    </row>
+  </tabular>
+</sidebyside>
+
+See if you can connect the rhyme schemes to any of the above.
+</p>
+
+
+<figure xml:id="catalaninpascal">
+  <caption>
+    The Catalan numbers inside Pascal's triangle.
+  </caption>
+    <image>
+      <latex-image>
+        <![CDATA[\begin{tikzpicture}
+      \def\r{.6}
+      \foreach \row in {0,...,10} {
+        \hexbox{\row}{0}{\large 1}
+        \coordinate (r\row) at (-cos{30}*\r*10+cos{30}*11*\r*2, -\r*\row-sin{30}*\r*\row);
+      }
+      %fill in the rest of the triangle:
+      \foreach \row in {1,...,10} {
+        \pgfmathsetmacro{\entry}{1};
+        \foreach \col in {1,...,\row} {
+          % iterative formula : val = precval * (row-col+1)/col
+          % (+ 0.5 to bypass rounding errors)
+          \pgfmathtruncatemacro{\entry}{\entry*((\row-\col+1)/\col)+0.5};
+          \global\let\entry=\entry
+          \ifnum \entry<100
+      \hexbox{\row}{\col}{\large \entry}
+          \else \ifnum \entry<1000
+      \hexbox{\row}{\col}{\entry}
+          \else \ifnum \entry<10000
+      \hexbox{\row}{\col}{\footnotesize \entry}
+      \else
+      \hexbox{\row}{\col}{\scriptsize \entry}
+      \fi
+          \fi
+          \fi
+        }
+      }
+      \squarebox{0}{0}
+      \foreach \row in {2,4,6,8,10}{
+          \squarebox{\row}{\row/2}
+          \pgfmathsetmacro{\col}{\row/2+1}
+          \squarebox{\row}{\col}
+      }
+      \draw (r0) node{1} (r2) node{1} (r4) node{2} (r6) node{5} (r8) node{14} (r10) node{42};
+      \node[above] at (0,2) {\Large The Catalan Numbers};
+      \end{tikzpicture}]]>
+    </latex-image>
+    </image>
+  </figure>
+
+
+
+  <figure xml:id="trivalenttrees">
+    <caption>Trivalent, planted trees with <m>n</m> leaves.</caption>
+    <image width="100%" source="../images/tri-trees" />
+  </figure>
+
+  <figure xml:id="catalanbijections">
+    <caption></caption>
+    <image width="100%" source="../images/catalan-bijections.png" />
+  </figure>
+
+
+
+
+  <exercises>
+    <title>Problems on Catalan Numbers</title>
+
+
+
+      <exercise>
+        <statement>
+          <p>
+            Use the recursion for <m>P_{n}</m> and compute
+          <m>P_{6}</m>, and <m>P_{7}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Use the closed formula for <m>P_n</m> and compute
+            <m>P_{6}</m> and <m>P_{7}</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Use <m>G = P_{1}x + P_{2}x^{2} +\cdots</m> and the recursion for <m>P_{n}</m> to determine a closed formula for <m>P_{n}</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="prob-workseq">
+        <statement>
+          <p>
+            List the workable sequences for <m>n = 4</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="prob-parenth">
+        <statement>
+          <p>
+            List the <m>P_{6}</m> ways of parenthesizing <m>abcdef</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Display a bijection between the 14 sequences in <xref ref="prob-workseq" text="type-local" /> and the 14
+            products in <xref ref="prob-parenth" text="type-local" />.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Find the nonworkable sequence associated with each:
+            <ol>
+              <li> <p>
+                H H H D D H
+              </p></li>
+              <li><p>
+                D H H H H D
+              </p></li>
+              <li><p>
+                D D D H H H H H
+              </p></li>
+              <li><p>
+                D D H H D H H H
+              </p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Draw the <m>T_{6}</m> triangulations of a convex hexagon.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Display a bijection between the 5 ways of parenthesizing <m>abcd</m> and the
+            5 triangulations of a convex pentagon.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Let <m>C_{n} = \frac{1}{n + 1}\binom{2n}{n}.</m> Verifiy
+            the formula:
+      <me>
+        C_{n} = \binom{n}{1} C_{n - 1} - \binom{n - 1}{2} C_{n - 2} + \binom{n - 2}{3} C_{n - 3} - \cdots
+      </me>
+        </p>
+      </statement>
+    </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Verify that <m>H_{3} = 5</m> by drawing the required paths.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Assign the appropriate binary sequences to each of the 5 trees for <m>n=3</m>
+            in <xref ref="trivalenttrees">Figure</xref>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercisegroup>
+        <introduction>
+      <p>
+        For each of the following, investigate bijections that relate one to
+        another.
+      </p>
+    </introduction>
+
+      <exercise>
+        <statement>
+          <p>
+            A and B each receive <m>n</m> votes. Let <m>V_{n}</m> denote the number of ways that the <m>2n</m> votes can be tallied so that A never trails B. Let <m>V_{0} = 1</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Place <m>2n</m> points on the circumference of a circle and draw <m>n</m>  nonintersecting chords in <m>D_{n}</m> ways; <m>D_{0} = 1</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            In how many ways can <m>1, 2, 3, \ldots, 2n</m> be inserted into a <m>2\times n</m> rectangle such that the entries are increasing in rows and columns.  Let the answer be <m>Y_n</m>; <m>Y_1 = 1</m>, <m>Y_2 = 2</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Place <m>2n</m> points on a line segment and join them in pairs by
+            nonintersecting arcs above the segment. In how many ways can this be
+            done? Call the answer <m>S_{n}</m>; <m>S_{1}=1</m>,
+            <m>S_{2}=2</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            A rook on an <m>n + 1</m> by <m>n + 1</m> chessboard must move from the lower left corner to the upper right corner never going above the diagonal. How many paths are possible? Let <m>K_{n}</m> be the answer.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            On an <m>n + 1</m> by <m>n + 1</m> chessboard a king starts on the first row and moves one square forward or back along a fixed column and ends on the starting square after <m>2n</m> moves. In how many ways, <m>G_{n}</m> , can this be done?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Count the number of planar rhyme schemes for a stanza consisting of <m>n</m> lines. Joanne Growney showed in her doctoral thesis that the Bell numbers, which count all rhyme schemes, have the Catalan numbers as a subsequence and that these enumerate precisely the planar rhyme schemes. For example, of the <m>B_4 = 15</m> rhyme schemes, <m>C_4 = 14</m> are planar. The nonplanar one is given by <m>abab</m>.
+          </p>
+        </statement>
+      </exercise>
+
+    </exercisegroup>
+  </exercises>
+
+
+</section>

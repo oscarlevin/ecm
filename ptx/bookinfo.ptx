@@ -6,6 +6,28 @@
 
 
 <macros>
+  \newcommand{\cycle}[1]{\arraycolsep 5 pt
+  \left(\begin{array}#1\end{array}\right)}
+  \newcommand{\importantarrow}{\Rightarrow}
+  \newcommand{\qchoose}[2]{\left[{#1\atop#2}\right]_q}
+  \def\neg1choose#1#2{\left[{#1\atop#2}\right]_{-1}}
+  \newcommand{\bp}{
+  \begin{enumerate}{\setcounter{enumi}{\value{problemnumber}}}}
+  \newcommand{\ep}{\setcounter{problemnumber}{\value{enumi}}
+  \end{enumerate}}
+  \newcommand{\ignore}[1]{}
+  \renewcommand{\bottomfraction}{.8}
+  \renewcommand{\topfraction}{.8}
+  \newcommand{\apple}{\text{&#x1F34E;}}
+  \newcommand{\ap}{\apple}
+  \newcommand{\banana}{\text{&#x1F34C;}}
+  \newcommand{\ba}{\banana}
+  \newcommand{\pear}{\text{&#x1F350;}}
+  \newcommand{\pe}{\pear}
+  \DeclareMathOperator{\Fix}{Fix}
+  \DeclareMathOperator{\Orb}{Orb}
+  \newcommand{\F}{\mathcal{F}}
+\newcommand{\alert}{\fbox}
 \def\d{\displaystyle}
 \def\course{Math 228}
 \newcommand{\f}[1]{\mathfrak #1}
@@ -88,12 +110,25 @@
 </macros>
 
 <latex-image-preamble>
+  \usepackage{tikz}
+  \usepackage{tkz-graph}
+  \usepackage{tkz-euclide}
+  \usepackage{chemfig}
+  \usetikzlibrary{patterns}
+  \usetikzlibrary{positioning}
+  \usetikzlibrary{matrix,arrows}
+  \usetikzlibrary{calc}
+  \usetikzlibrary{shapes}
+  \usetikzlibrary{through,intersections,decorations,shadows,fadings}
 
-\usepackage{tikz, pgfplots}
+  \usepackage{pgfplots}
 
-\usetikzlibrary{positioning,matrix,arrows}
+  \tikzset{vertex/.style = {shape=circle, draw, minimum size = 3ex, inner sep = 2pt}}
+  \tikzset{svertex/.style = {shape=circle, draw, fill=gray, minimum size = 5pt, inner sep = 2pt}}
+  \tikzset{evertex/.style = {shape=ellipse, draw, minimum width = 6ex, inner sep = 2pt}}
+  \tikzset{dedge/.style = {->, > = latex'}}
 
-\usetikzlibrary{shapes,decorations,shadows,fadings,patterns}
+
 \usetikzlibrary{decorations.markings}
 
 \usepackage{skak} %for chessboards etc.
@@ -101,6 +136,22 @@
 \tikzset{-&gt;-/.style={decoration={
   markings,
   mark=at position .5 with {\arrow{&gt;}}},postaction={decorate}}}
+
+
+  \newcommand{\squarebox}[2]{
+    \def\x{-cos{30}*\r*#1+cos{30}*#2*\r*2}
+    \def\y{-\r*#1-sin{30}*\r*#1}
+    \draw (\x,\y) +(45:\r) -- +(135:\r) -- +(-135:\r) -- +(-45:\r) -- cycle;
+  }
+
+  \def\fivegon{%
+    \coordinate (a) at (0,2.5);
+    \coordinate (b) at (2,1.4);
+    \coordinate (c) at (1,0);
+    \coordinate (d) at (-.5,0);
+    \coordinate (e) at (-2,1.5);
+    \draw (a) -- (b) -- (c) -- (d) -- (e) -- (a);
+  }
 
 
 %% Imported from https://upload.wikimedia.org/wikipedia/commons/3/32/Blank_US_Map.svg

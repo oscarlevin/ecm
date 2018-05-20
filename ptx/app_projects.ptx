@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appendix xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="app_projects">
+<title>Group Projects</title>
+<introduction>
+  <p>
+    <ol>
+      <li>Paths and Binomial Coefficients</li>
+      <li>On Triangular Number</li>
+      <li>Fibonacci Numbers</li>
+      <li>Generalized Pascal Triangles</li>
+      <li>A Pascal-like Triangle of Eulerian Numbers</li>
+      <li>Leibnitz Harmonic Triangle</li>
+      <li>The Twelve Days of Christmas</li>
+    </ol>
+  </p>
+</introduction>
+
+<exercises>
+  <title>Project 1: Paths and Binomial Coefficients</title>
+
+
+<exercise xml:id="ex-count-paths">
+<statement>
+<p>
+  A path consists of vertical and horizontal line segments of length 1.
+  Determine the number of paths
+  <ol>
+    <li>
+      <p>
+        of length 7 from the origin <m>\left( 0,0 \right)</m> and <m>(4,3)</m> .
+      </p>
+    </li>
+    <li>
+      <p>
+        of length <m>a + b</m> from <m>\left( 0,0 \right)</m> and <m>(a,b)</m> .
+      </p>
+    </li>
+  </ol>
+</p>
+</statement>
+</exercise>
+
+<exercise xml:id="ex-paths-on-lines">
+<statement>
+<p>
+  A lattice point in the plane is a point <m>(m,n)</m> with <m>m,n \in \Z</m>.
+  <ol>
+
+    <li>
+      <p>
+        How many paths of length 4 are there from <m>(0,0)</m> to lattice
+        points on the line <m>y = - x + 4</m> ?
+      </p>
+    </li>
+    <li>
+      <p>
+        Determine the number of paths of length 10 from <m>(0,0)</m> to the
+        lattice points on <m>y = 10 - x</m> .
+      </p>
+    </li>
+  </ol>
+</p>
+</statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Give a geometrical (path argument) for the identity <m>2^{n} =
+      \binom{n}{0}
+      +
+      \binom{n}{1}
+      + \ldots +
+      \binom{n}{n}</m> using the idea in <xref ref="ex-paths-on-lines"/>.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Generalize <xref ref="ex-count-paths"/> to three dimensions; introduce obstructions; use inclusion-exclusion.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Give a path proof for <m>\binom{n}{k}
+      =
+      \binom{n - 1}{k}
+      +
+      \binom{n - 1}{k - 1}</m> .
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      How many lattice paths from <m>\left( 0,0 \right)</m> to all lattice
+      points on the line <m>x + 2y = n</m> are there?
+    </p>
+  </statement>
+</exercise>
+<exercise xml:id="ex-paths-to-plane">
+  <statement>
+    <p>
+      Determine the number of lattice paths from <m>\left( 0,0,0 \right)</m> to lattice points on that portion of the
+      plane <m>x + y + z = 2</m> that lies in the first octant.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Generalize <xref ref="ex-paths-to-plane"/>.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Determine the number of lattice paths from <m>\left( 0,0 \right)</m> to <m>(n,n)</m> that do not cross over (they may touch) the
+      line <m>y = x</m>.
+    </p>
+  </statement>
+</exercise>
+</exercises>
+
+
+<exercises>
+<title>Project 2: On Triangular Numbers</title>
+
+<introduction>
+  <p>
+    Let <m>T_{n} = \frac{n\left( n + 1 \right)}{2}</m> denote the <m>n^{\text{th}}</m> triangular number.
+  </p>
+</introduction>
+<exercise>
+  <statement>
+    <p>
+      Give a geometric interpretation for <m>T_{n} + T_{n + 1} = \left( n + 1 \right)^{2}.</m>
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Verify that <m>T_{n} + T_{m} + mn = T_{m + n}</m> algebraically.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Give a geometric interpretation of the formula in \#2.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Verify that <m>T_{n}^{2} + T_{n - 1}^{2} = T_{n^{2}}</m> .
+    </p>
+  </statement>
+</exercise>
+<exercise>
+<statement>
+<p>
+  Verify the following:
+  <ol>
+  <li>
+      <p>
+        <m>3T_{n} + T_{n + 1} = T_{2n + 1}</m>
+      </p>
+  </li>
+  <li>
+      <p>
+        <m>3T_{n} + T_{n - 1} = T_{2n}</m> (also give a geometrical proof)
+      </p>
+  </li>
+</ol>
+</p>
+</statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Determine the values <m>T_{6},T_{66},T_{666},T_{6666},\ldots</m> .
+      Make a general statement and prove it.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Determine the formula for <m>T_{3} + T_{6} + T_{9} + \ldots + T_{3n}.</m>
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+<statement>
+<p>
+  Verify:
+  <ol>
+    <li>
+      <p>
+        <m>1 + 3 + 6 + 10 + 15 = 1^{2} + 3^{2} + 5^{2}</m>
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>1 + 3 + 6 + 10 + 15 + 21 = 2^{2} + 4^{2} + 6^{2}</m>
+      </p>
+    </li>
+    <li>
+      <p>
+        Generalize and prove your generalization.
+      </p>
+    </li>
+  </ol>
+</p>
+</statement>
+</exercise>
+<!-- There is an image in the original here.  Perhaps just decoration? -->
+</exercises>
+
+<exercises>
+<title>Project 3: Fibonacci </title>
+
+<exercise>
+  <statement>
+    <p>
+      Briefly address history.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+<statement>
+<p>
+  Using a variety of proof methods (geometric, induction, matrices,
+  recursion, telescoping sum) prove identities such as:
+  <ol>
+    <li>
+      <p>
+        <m>F_{1} + F_{2} + \ldots + F_{n} = F_{n + 2} - 1</m>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        <m>F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2} = F_{n}F_{n + 1}</m>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        <m>F_{n + 1}^{2} - F_{n}F_{n + 2} = \left( - 1 \right)^{n}</m>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        <m>F_{n + 2} = \binom{n + 1}{0} + \binom{n}{1} + \binom{n - 1}{2} + \cdots</m>
+      </p>
+    </li>
+  </ol>
+</p>
+</statement>
+</exercise>
+
+<exercise>
+<statement>
+<p>
+  Prove the <q>Binet Formula,</q> <m>F_{n} = \frac{\alpha^{n} - \beta^{n}}{\alpha - \beta}</m> , where <m>\alpha,\beta</m> satisfy <m>x^{2} - x - 1 = 0</m> .
+  <ol>
+    <li>
+      <p>
+        By induction.
+      </p>
+    </li>
+    <li>
+      <p>
+        Using generating series.
+      </p>
+    </li>
+  </ol>
+</p>
+</statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Use the Binet Formula to prove,
+      <me>
+      \binom{n}{0}F_{0} + \binom{n}{1} F_{1} + \ldots + \binom{n}{n}F_{0} = F_{2n}.
+      </me>
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Investigate the geometric interpretations of the <m>F_{n}</m> .
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Prove that,
+      <me>
+      _{n} = \left\lbrack \binom{n}{1}  + \binom{n}{3} 5 + \binom{n}{5} 5^{2}\ldots \right\rbrack + \left\lbrack \binom{n}{0}  + \binom{n}{2}  + \binom{n}{4}  + \ldots \right\rbrack.
+      </me>
+    </p>
+  </statement>
+</exercise>
+<exercise>
+<statement>
+<p>
+  Let <m>Q =\begin{pmatrix}1 \amp 1 \\ 1 \amp 0\end{pmatrix}</m> . Prove:
+  <ol>
+    <li>
+      <p>
+        <m>Q^{n} = \begin{pmatrix} F_{n + 1} \amp F_{n}\\ F_{n} \amp F_{n - 1} \end{pmatrix}</m> .
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>Q^{2} = Q + I</m>; use <m>Q^{2n}</m> to prove the identity in \#4.
+      </p>
+    </li>
+    <li>
+      <p>
+        Use <m>Q^{2n + 1} = Q^{n}Q^{n + 1}</m> to show <m>F_{2n + 1} = F_{n + 1}^{2} - F_{n}^{2}</m> and other identities.
+      </p>
+    </li>
+  </ol>
+</p>
+</statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Show that if <m>x^{2} = x + 1</m> then <m>x^{n} = F_{n}x + F_{n - 1}</m> for <m>n \geq 2</m> . Use this result to prove the Binet Formula, namely
+      that <m>F_{n} = \frac{\alpha^{n} - \beta^{n}}{\alpha - \beta}</m> .
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Investigate Lucas, Tribonacci, Tetranacci numbers.
+    </p>
+  </statement>
+</exercise>
+<conclusion>
+  <p>
+    References: The Fibonacci Quarterly; The Golden Section by Garth E. Runion; The Divine Proportion by H.E. Huntley
+  </p>
+  </conclusion>
+</exercises>
+
+
+<exercises>
+<title>Project 4: Generalized Pascal Triangles</title>
+
+<exercise>
+  <statement>
+    <p>
+      Expand <m>{\left( 1 + x + x^{2} \right)}^{2}</m>, <m>\left( 1 + x + x^{2} \right)^{3}</m>, and <m>\left( 1 + x + x^{2} \right)^{4}</m>.
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Organize the coefficients as in the following triangle:
+    </p>
+    <sidebyside width="80%">
+      <tabular>
+        <row>
+          <cell/><cell/><cell/><cell/>
+          <cell> 1 </cell>
+          <cell/><cell/><cell/><cell/>
+        </row>
+        <row>
+          <cell/><cell/><cell/>
+          <cell> 1 </cell>
+          <cell> 1 </cell>
+          <cell> 1 </cell>
+          <cell/><cell/><cell/>
+        </row>
+        <row>
+          <cell/><cell/>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>2</cell>
+          <cell>1</cell>
+          <cell/><cell/>
+        </row>
+        <row>
+          <cell/>
+          <cell>1</cell>
+          <cell>3</cell>
+          <cell>6</cell>
+          <cell>7</cell>
+          <cell>6</cell>
+          <cell>3</cell>
+          <cell>1</cell>
+          <cell/>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell>4</cell>
+          <cell>10</cell>
+          <cell>16</cell>
+          <cell>19</cell>
+          <cell>16</cell>
+          <cell>10</cell>
+          <cell>4</cell>
+          <cell>1</cell>
+        </row>
+      </tabular>
+    </sidebyside>
+  </statement>
+</exercise>
+
+<exercise>
+<statement>
+<p>
+  Investigate the properties of this triangle:
+  <ol>
+    <li>
+      <p>
+        Produce the next row.
+      </p>
+    </li>
+    <li>
+      <p>
+        Give a recursion that produces elements in this triangle.
+      </p>
+    </li>
+    <li>
+      <p>
+        What are the row sums? Prove it!
+      </p>
+    </li>
+    <li>
+      <p>
+        What is the sum <m>1^{2} + 2^{2} + 3^{2} + 2^{2} + 1^{2}</m> ?
+        Generalize and prove.
+      </p>
+    </li>
+    <li>
+      <p>
+        Is there a hockey stick theorem?
+      </p>
+    </li>
+  </ol>
+</p>
+</statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Investigate 3-dimensional versions of <m>\left( 1 + x + x^{2} \right)^{n}</m> and <m>\left( x + y + z \right)^{n}.</m>
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Investigate <m>\left( 1 + x + x^{2} + x^{3} \right)^{n}</m> .
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Investigate <m>\left( 1 + x + x^{2} + \ldots + x^{k} \right)^{n}</m> .
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Where do the <q>Fibonacci</q> numbers get involved in the Pascal
+      triangle?
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Where do the <q>Tribonacci</q> numbers appear in the triangle in \#2?
+    </p>
+  </statement>
+</exercise>
+</exercises>
+
+<exercises>
+<title>Project 5: A Pascal-like Triangle of Eulerian Numbers</title>
+
+<exercise>
+  <statement>
+    <p>
+      Show algebraically and geometrically that <m>\binom{n}{2}
+      +
+      \binom{n + 1}{2}
+      = n^{2}</m> .
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Show that <m>\binom{n}{3}
+      + 4
+      \binom{n + 1}{3}
+      +
+      \binom{n + 2}{3}
+      = n^{3}</m> .
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Use \#1 and the hockey stick theorem to find a nice formula for <m>1^{2} + 2^{2} + 3^{2} + \ldots + n^{2}</m> . Contrast with the
+      version usually seen in calculus.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Use \#2 to find a nice formula for <m>1^{3} + 2^{3} + 3^{3} + \ldots + n^{3}</m> .
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Express <m>n^{4}</m> as in problems \#1 and \#2.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Use \#5 to find a nice formula for <m>1^{4} + 2^{4} + 3^{4} + \ldots + n^{4}</m> .
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Here is an alternate way of accomplishing \#6:  Find integers <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m> so that
+      <me>
+      1^{4} + 2^{4} + 3^{4} + \ldots + n^{4} = a\binom{n + 1}{5}  + b\binom{n + 2}{5}  + c\binom{n + 3}{5}  + d\binom{n + 4}{5}
+      </me>
+      using <m>n=1, 2, 3, 4</m>. This sometimes referred to as <q>Polynomial
+      Fitting.</q>
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Express <m>n^{3}</m> as in problems \#1 and \#2.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Express <m>1^{5} + 2^{5} + 3^{5} + \ldots + n^{5}</m> as a sum of
+      multiples of binomial coefficients.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      In problem \#1, \#2, \#5, and \#7, <m>n^{2},n^{3},n^{4},</m> and <m>n^{5}</m> were expressed as sums of binomial coefficients with integer
+      coefficients. Arrange these expressions in a Pascal-like triangle,
+      concentrating on these integer coefficients. The coefficients are
+      called Eulerian numbers.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Investigate the properties of this triangle. Include a discussion of
+      row sums, how entries are found, and a possible recursion. Use <m>\begin{bmatrix}
+      n\\
+      k
+      \end{bmatrix}</m> for notation.
+    </p>
+  </statement>
+</exercise>
+</exercises>
+
+
+<exercises>
+<title>Project 6: The Leibnitz Harmonic Triangle</title>
+  <sidebyside width="100%">
+    <tabular>
+      <row>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{1}</m></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{2}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{2}</m></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{3}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{6}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{3}</m></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell></cell>
+        <cell><m>\frac{1}{4}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{12}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{12}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{4}</m></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>\frac{1}{5}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{20}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{30}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{20}</m></cell>
+        <cell></cell>
+        <cell><m>\frac{1}{5}</m></cell>
+      </row>
+    </tabular>
+  </sidebyside>
+
+<exercise>
+  <statement>
+    <p>
+      State the rule used to form each entry, and produce the next two rows.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      What are the <q>initial conditions</q> needed to generate the entries?
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Use <m>\begin{bmatrix} n\\ k \end{bmatrix}</m> as the notation for entries and state properties analogous to those found in the Pascal Triangle. Include closed formulas for each entry, row sums (alternating also), hockey stick theorem, hexagon property, sum of squares of row entries, etc. Indicate how partial fractions help in verifying the (infinite) hockey stick theorem.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      See if you can find any papers on this topic. Check <em>Pi Mu Epsilon
+      Journal</em>, <em>The Mathematical Gazette</em>, <em>Mathematics Magazine</em>,
+      <em>Delta-Undergraduate Mathematics Journal</em>, etc.
+    </p>
+  </statement>
+</exercise>
+
+</exercises>
+
+<exercises>
+  <title>Project 7: The Twelve Days of Christmas (in the Discrete Math Style)</title>
+
+  <introduction>
+    <p>
+        According to the song, <em>The Twelve Days Of Christmas</em> the <q>true love</q> received the following number of (not so practical) gifts:
+    </p>
+
+    <sidebyside width="60%">
+      <tabular>
+        <row bottom="medium">
+          <cell>
+            Day's Gift
+          </cell>
+          <cell>
+            Number received
+          </cell>
+          <cell>
+            Total
+          </cell>
+        </row>
+        <row>
+          <cell>
+            First
+          </cell>
+          <cell>
+            <m>1 \times 12</m>
+          </cell>
+          <cell>
+            12
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Second
+          </cell>
+          <cell>
+            <m>2 \times 11</m>
+          </cell>
+          <cell>
+            22
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Third
+          </cell>
+          <cell>
+            <m>3 \times 10</m>
+          </cell>
+          <cell>
+            30
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Fourth
+          </cell>
+          <cell>
+            <m>4 \times 9</m>
+          </cell>
+          <cell>
+            36
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Fifth
+          </cell>
+          <cell>
+            <m>5 \times 8</m>
+          </cell>
+          <cell>
+            40
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Sixth
+          </cell>
+          <cell>
+            <m>6 \times 7</m>
+          </cell>
+          <cell>
+            42
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Seventh
+          </cell>
+          <cell>
+            <m>7 \times 6</m>
+          </cell>
+          <cell>
+            42
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Eighth
+          </cell>
+          <cell>
+            <m>8 \times 5</m>
+          </cell>
+          <cell>
+            40
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Ninth
+          </cell>
+          <cell>
+            <m>9 \times 4</m>
+          </cell>
+          <cell>
+            36
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Tenth
+          </cell>
+          <cell>
+            <m>10 \times 3</m>
+          </cell>
+          <cell>
+            30
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Eleventh
+          </cell>
+          <cell>
+            <m>11 \times 2</m>
+          </cell>
+          <cell>
+            22
+          </cell>
+        </row>
+        <row>
+          <cell>
+            Twelfth
+          </cell>
+          <cell>
+            <m>12 \times 1</m>
+          </cell>
+          <cell>
+            12
+          </cell>
+        </row>
+        <row>
+          <cell>
+          </cell>
+          <cell>
+          </cell>
+          <cell>
+            Grand Total = 364
+          </cell>
+        </row>
+      </tabular>
+    </sidebyside>
+
+    <sidebyside width="80%">
+      <tabular>
+        <row>
+          <cell/><cell/>
+          <cell/><cell/>
+          <cell>1</cell>
+          <cell/><cell/>
+          <cell/><cell/>
+        </row>
+        <row>
+          <cell/><cell/>
+          <cell/>
+          <cell>2</cell>
+          <cell></cell>
+          <cell>2</cell>
+          <cell/>
+          <cell/><cell/>
+        </row>
+        <row>
+          <cell/>
+          <cell/>
+          <cell>3</cell>
+          <cell/>
+          <cell>4</cell>
+          <cell/>
+          <cell>3</cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell/>
+          <cell>4</cell>
+          <cell></cell>
+          <cell>6</cell>
+          <cell></cell>
+          <cell>6</cell>
+          <cell></cell>
+          <cell>4</cell>
+          <cell/>
+        </row>
+        <row>
+          <cell>5</cell>
+          <cell/>
+          <cell>8</cell>
+          <cell/>
+          <cell>9</cell>
+          <cell/>
+          <cell>8</cell>
+          <cell/>
+          <cell>5</cell>
+        </row>
+
+
+      </tabular>
+
+    </sidebyside>
+    <p>The first five rows of a triangle are given above.</p>
+  </introduction>
+
+<exercise>
+  <statement>
+    <p>
+      Make the next few rows.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Where have you seen this triangle before?
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Experiment with factoring each integer in the 6th row. Repeat with other rows.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      What are the entries in row 12?
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Where does the expression <m>1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \cdots + n \cdot 1</m> show up in the triangle?
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Explain why <m>1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \cdots + n \cdot 1 =
+      \binom{n + 2}{3}</m> .
+    </p>
+  </statement>
+</exercise>
+</exercises>
+</appendix>

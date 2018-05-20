@@ -3,9 +3,10 @@
 	<title>Definitions</title>
 
 	<activity>
+		<!-- TODO: check that we have a good number of vertices and edges -->
 		<statement>
 			<p>
-				For now, let's say that a <term>graph</term> is simply a collection of vertices, some of which are connected by an edge.  Draw all graphs that have exactly five vertics and six edges.  How many are there?  How do you know?
+				For now, let's say that a <term>graph</term> is simply a collection of vertices, some of which are connected by an edge.  Draw all graphs that have exactly five vertices and six edges.  How many are there?  How do you know?
 			</p>
 		 </statement>
 	</activity>

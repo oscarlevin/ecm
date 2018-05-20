@@ -28,6 +28,7 @@
 	%\DeclareMathSymbol{+}{\mathbin}{myoperators}{"2B}
 	%\DeclareMathSymbol{-}{\mathbin}{mysymbols}{"00}
 	%\DeclareMathSymbol{=}{\mathrel}{myoperators}{"3D}
+	\DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
 
 
 
@@ -63,6 +64,60 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%  Nicely styled environments: %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%  Nicely styled environments: %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+\usetikzlibrary{positioning,shadows}
+
+
+\tcbset{probstyle/.style={%
+	breakable,
+	enhanced,
+	colback=white,
+	top=.5em,
+	before skip=1em,
+	after skip=.5em,
+	sharp corners=all,
+	frame hidden,
+	%Draw breakable decorations:
+	overlay first={%
+		\draw[black!60, path fading=west] (frame.north) -- (frame.north east) -- (frame.south east);
+		},
+	overlay middle={%
+		\draw[black!60] (frame.south east) -- (frame.north east);
+		},
+	 overlay last={%
+		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
+		\draw[black!60, path fading=west] (frame.south) -- (frame.south east);
+		\draw[black!60] (frame.north east) -- (frame.south east);
+		},
+	overlay unbroken={%
+		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
+		\draw[black!60, path fading=west] (frame.south) -- (frame.south east);
+		\draw[black!60, path fading=west] (frame.north) -- (frame.north east) -- (frame.south east);
+		}
+	}
+}
+
+
+\newtheorem{myproblem}[project]{Problem}
+
+%Redefine ``example'' to call the new mdexample, and put a paragraph break after it.
+\renewenvironment{activity}{%
+\begin{tcolorbox}[probstyle]
+\begin{myproblem}
+}{%
+\end{myproblem}
+\end{tcolorbox}
+\par\medskip
+}
+
+
 
 %create a mdframe style for examples:
 \mdfdefinestyle{examplestyle}{%
@@ -167,7 +222,7 @@
 
 
 %%%%%%% Set chapters to start at 0 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{chapter}{-1}
+% \setcounter{chapter}{-1}
 
 
 %Fix widows and orphans (single lines at top/bottom of page):

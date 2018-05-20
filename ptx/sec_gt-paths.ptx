@@ -3,7 +3,6 @@
 <title>Euler Paths and Circuits</title>
 
 
-<introduction>
   <introduction>
     <activity>
       <p>
@@ -193,6 +192,7 @@ The converse is also true: if all the vertices of a graph have even degree, then
 Since the bridges of Königsberg graph has all four vertices with odd degree, there is no Euler path through the graph.  Thus there is no way for the townspeople to cross every bridge exactly once.
 </p>
 </introduction>
+
 <subsection>
   <title>Interlude: Implications and Proofs</title>
   <p>
@@ -205,7 +205,7 @@ Since the bridges of Königsberg graph has all four vertices with odd degree, th
 </subsection>
 <subsection>
   <title>Proof of Euler Paths theorem</title>
-    
+
 </subsection>
 
 

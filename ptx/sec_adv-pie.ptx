@@ -525,12 +525,17 @@
     <p>
     While it is possible to interpret combinations as functions, perhaps the better advice is to instead use combinations (or stars and bars) when functions are not quite the right way to interpret the counting question.
     </p>
-
-
-
+    
   </subsection>
 
-
+  <subsection>
+    <title>Chromatic Polynomials (again)</title>
+    
+    As a final application of the Principle of Inclusion/Exclusion, let's consider again the chromatic polynomial of a graph.
+    
+    <!-- TODO: look at the travels book -->
+    
+  </subsection>
 
 <xi:include href="exercises/counting-advPIE.ptx"/>
 

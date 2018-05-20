@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_counting">
-<title>Counting</title>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_basic-combinatorics">
+<title>Basic Combinatorics</title>
 
 
 <introduction>
+  <!-- TODO: add example related to graphs -->
 <p>
 One of the first things you learn in mathematics is how to count. Now we want to count large collections of things quickly and precisely. For example:
 <ul>
@@ -32,12 +33,12 @@ Before tackling questions like these, let's look at the basics of counting.
 
 
 </introduction>
-<xi:include href="sec_counting-addmult.ptx"/>
-<xi:include href="sec_counting-binom.ptx"/>
-<xi:include href="sec_counting-combperm.ptx"/>
-<!-- <xi:include href="sec_counting-proofs.ptx"/> -->
-<!-- <xi:include href="sec_counting-starsbars.ptx"/> -->
-<!-- <xi:include href="sec_counting-advPIE.ptx"/> -->
-<xi:include href="sec_counting-conc.ptx"/>
+
+<xi:include href="sec_basic-pascal.ptx"/>
+<xi:include href="sec_basic-combproofs.ptx"/>
+<xi:include href="sec_basic-quotient.ptx"/>
+<xi:include href="sec_basic-sequences.ptx"/>
+<xi:include href="sec_basic-catalan.ptx"/>
+
 
 </chapter>

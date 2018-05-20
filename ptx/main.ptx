@@ -3,7 +3,7 @@
 
 <xi:include href="./bookinfo.ptx"/>
 
-<book xml:id="dmoi">
+<book xml:id="mdm">
     <title>More Discrete Mathematics</title>
     <subtitle>via Graph Theory</subtitle>
 

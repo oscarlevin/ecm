@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec_adv-stirling" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Sterling Numbers of the 2nd Kind</title>
+
+
+  <introduction>
+    <activity>
+      <title>Worksheet on Stirling numbers of the 2nd kind</title>
+      <introduction>
+        <p>
+          <em>DEFINITION:</em> <m>S\left( n,k \right)</m> is the number of ways of partitioning an <m>n</m>-set into <m>k</m> nonempty subsets.
+        </p>
+      </introduction>
+
+      <task>
+        <statement>
+          <p>
+            Compute <m>S(3,1)</m>, <m>S(4,1)</m> and <m>S(n,1)</m>.
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Compute <m>S(2,2)</m>, <m>S(3,2)</m> and <m>S(4,2)</m> .
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Compute <m>S(3,3)</m>, and <m>S(4,3)</m>.
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Find formulas and give proofs for <m>S(n,n)</m>, <m>S(n,2)</m>
+            <m>S(n,n - 1)</m>, and <m>S(n,n-2)</m>.
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Determine a recursion for <m>S(n,k)</m> by examining the following:
+            In computing <m>S\left( 4,3 \right)</m> look back at the two cases:
+            <ol>
+              <li>
+                <p>
+                  <q>Social</q>: The element 4 is part of another set.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <q>Antisocial</q>: The element 4 stands alone.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Deduce a recursion <m>S\left( n,k \right) =</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+          </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Make the first 5 rows of the Stirling Triangle.
+          </p>
+        </statement>
+      </task>
+    </activity>
+
+
+
+    <p>
+      A distribution of 4 different (often we say distinguishable) objects <m>1,2,3,4</m> into 3 similar (often we say indistinguishable) boxes, each
+    of which becomes non-empty is modeled by partitioning <m>\{ 1,2,3,4\}</m> into 3 nonempty subsets. The six ways of doing this are listed next:
+    </p>
+
+    <sidebyside width="50%">
+      <tabular>
+        <row>
+          <cell><m>\{4\}, \{1\}, \{2,3\}</m></cell>
+          <cell><m>\{1,4\}, \{2\}, \{3\}</m></cell>
+        </row>
+        <row>
+          <cell><m>\{4\}, \{2\}, \{1,3\}</m></cell>
+          <cell><m>\{1\}, \{2,4\}, \{3\}</m></cell>
+        </row>
+        <row>
+          <cell><m>\{4\}, \{3\}, \{1,2\}</m></cell>
+          <cell><m>\{1\}, \{2\}, \{3,4\}</m></cell>
+        </row>
+      </tabular>
+    </sidebyside>
+
+    <p>
+      The Stirling numbers of the second kind, denoted by <m>S(n,k)</m>, give the number of ways of partitioning an <m>n</m>-set into <m>k</m> non-empty subsets.
+      Here <m>k \in \{1,2,\ldots\}</m> and <m>n \geq k</m>.
+      The above example shows <m>S(4, 3) = 6</m>.
+      Also notice that there are two cases: 4 is alone, or 4 is in some other batch; we can conclude that <m>S(4, 3) = 3S(3,3) + S(3,2)</m> since if 4 is in a singleton set just partition the remaining 3 into 2 sets and otherwise 4 can join any of the 3 batches of 3 elements.
+    </p>
+
+    <theorem xml:id="thm-stirling-recursion">
+      <statement>
+        <p>
+          <m>S(n,k) = kS(n - 1,k) + S(n - 1,k - 1)</m>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          We partition <m>\{1,2,\ldots,n\}</m> into <m>k</m> non-empty subsets in <m>S(n,k)</m> ways. If <m>n</m> is in a singleton set, there are <m>S(n - 1,k - 1)</m> ways to partition the remaining <m>n - 1</m> elements into <m>k - 1</m> subsets. Otherwise, the element <m>n</m> can join any of the <m>k</m> batches of <m>n-1</m> elements in <m>kS(n - 1,k)</m> ways.
+        </p>
+      </proof>
+    </theorem>
+
+    <p>
+      Polya, in Notes on Introductory Combinatorics, refers to these as the
+      <q>antisocial</q> and <q>social</q> cases.
+    </p>
+
+    <p>
+      The reader should check that <m>S(3,3) = 1</m> and that <m>S(3,2) = 3</m> so that <m>S(4,3) = 3 \cdot 1 + 3 = 6</m>.
+    </p>
+
+    <paragraphs>
+      <title>Border Formulas</title>
+
+    <p>
+      The reader should verify that <m>S(n,1) = 1</m> and <m>S(n,n) = 1</m> for <m>n \in Z^{+}</m>.
+      From these border formulas and the recursion in <xref ref="thm-stirling-recursion"/> the following Stirling's Second Triangle can be made.
+    </p>
+
+    <sidebyside width="50%">
+      <tabular>
+        <row>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell>1</cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell/><cell/><cell/>
+          <cell>1</cell>
+          <cell></cell>
+          <cell>1</cell>
+          <cell/><cell/><cell/>
+        </row>
+        <row>
+          <cell/><cell/>
+          <cell>1</cell>
+          <cell></cell>
+          <cell>3</cell>
+          <cell></cell>
+          <cell>1</cell>
+          <cell/><cell/>
+        </row>
+        <row>
+          <cell/>
+          <cell>1</cell>
+          <cell></cell>
+          <cell>7</cell>
+          <cell></cell>
+          <cell>7</cell>
+          <cell></cell>
+          <cell>1</cell>
+          <cell/>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell></cell>
+          <cell>15</cell>
+          <cell></cell>
+          <cell>25</cell>
+          <cell></cell>
+          <cell>10</cell>
+          <cell></cell>
+          <cell>1</cell>
+        </row>
+      </tabular>
+    </sidebyside>
+
+    <theorem xml:id="thm-stirling-border">
+      <statement>
+      <p>
+        <ol>
+          <li>
+            <p>
+              <m>S\left( n,n - 1 \right) =\binom{n}{2}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S\left( n,2 \right) = 2^{n - 1} - 1</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S\left( n,n - 2 \right) =\binom{n}{3}
+              + 3\binom{n}{4}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S\left( n,n - 3 \right) =\binom{n}{4}
+              + 10\binom{n}{5}
+              + 15\binom{n}{6}</m>
+            </p>
+          </li>
+
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+
+    <p>
+      You are asked to prove these in the problems.
+    </p>
+</paragraphs>
+
+    <p>
+      The entries in the Pascal Triangle, <m>\binom{n}{k}</m>, satisfy the nice recursion <m>\binom{n}{k} = \binom{n - 1}{k} + \binom{n - 1}{k - 1}</m> and also have a closed formula: <m>\binom{n}{k} = \frac{n!}{k!(n - k)!}</m>.
+      <xref ref="thm-stirling-recursion"/> gives us a
+      recursion for the Stirling numbers <m>S(n,k)</m> and, unfortunately, the best we can do for a <q>closed</q> formula is contained
+      in the following.
+    </p>
+
+    <theorem xml:id="thm-stirling-closed">
+      <statement>
+        <p>
+          <me>S(n,k) = \frac{1}{k!}\left[k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n} \right] </me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The following argument is due to Polya.
+          Suppose you wished to paint n houses and you have <m>k</m> different colors available.
+          The first house can be painted in <m>k</m> different ways, the second in <m>k</m> different ways, etc.
+          So there are <m>k^{n}</m> ways.
+          How many ways actually use all <m>k</m> colors?
+          Let <m>\alpha_{i}</m> be the property that no house is painted with the <m>i</m>th color, and let <m>N(\alpha_{i})</m> denote the number of ways of painting the <m>n</m> houses without using the <m>i</m>th color.
+          Analogously for <m>N(\alpha_{i},\alpha_{j})</m>, <m>N(\alpha_{i},\alpha_{j},\alpha_{k})</m>, etc.
+          Since <m>N(\alpha_{i}) = (k - 1)^{n}</m>, <m>N(a_{i},\alpha_{j}) = ( k - 2)^{n}</m> and so on, the number of ways of painting <m>n</m> houses using all <m>k</m> colors is, using PIE,
+          <m>k^{n} -\binom{k}{1} \left(k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3}      \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k}\binom{k}{k} 0^{n}</m>.
+        </p>
+        <p>
+          Alternately, we could first partition the <m>n</m> houses into <m>k</m> (non-empty) sets, and then paint each set. This can be    accomplished in <m>k!S(n,k)</m> ways. Now equate these two expressions.
+        </p>
+      </proof>
+    </theorem>
+
+    <corollary>
+      <statement>
+        <p>
+          <m>S\left( n,3 \right) = \frac{1}{2}\left\lbrack 3^{n - 1} - 2^{n} + 1 \right\rbrack</m>
+        </p>
+      </statement>
+    </corollary>
+
+    <theorem xml:id="thm-stirling-polynomial">
+      <statement>
+        <p>
+          <m>x^{n} = S\left( n,1 \right)x + S\left( n,2 \right)x\left( x - 1 \right) + S\left( n,3 \right)x\left( x - 1 \right)\left( x - 2 \right) + \cdots
+          + S\left( n,n \right)x\left( x - 1 \right)\cdots(x - n + 1)</m>
+
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Again, based on the proof by Polya.
+          We can paint <m>n</m> houses, with <m>x</m> colors available, in <m>x^{n}</m> ways. Using exactly one color, there are <m>S\left( n,1 \right)x</m> ways. Using exactly two colors there are <m>S\left( n,2 \right)x(x - 1)</m> ways. Continue in this manner.
+        </p>
+      </proof>
+    </theorem>
+
+
+    <p>
+      It is in this form that James Stirling originally developed these numbers.
+      <m>S(n,k)</m> is used to convert from powers to binomial  coefficients as shown in the following:
+    </p>
+
+    <theorem xml:id="thm-stirling-polynomial2">
+      <statement>
+        <p>
+          <m>x^{n} = S\left( n,1 \right)\binom{x}{1}1! + S\left( n,2 \right) \binom{x}{2}2! + \ldots + S\left( n,n \right)\binom{n}{n} n!</m>
+        </p>
+      </statement>
+    </theorem>
+  </introduction>
+
+  <exercises>
+    <title>Problems</title>
+
+    <exercise>
+      <statement>
+        <p>
+          Compute <m>S(4,2)</m> and <m>S(5,2)</m> by listing subsets.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Make the 6th row of the Stirling Triangle.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Prove the four parts of <xref ref="thm-stirling-border"/>.
+        </p>
+      </statement>
+    </exercise>
+
+
+    <exercise>
+      <statement>
+        <p>
+          List the sequence of elements that are row sums of the Stirling Triangle.
+        </p>
+      </statement>
+    </exercise>
+
+
+    <exercise>
+      <statement>
+        <p>
+          How many subsets <m>\{a,b,c\}</m> are there of <m>\{2,3,4,\ldots\}</m> such that <m>abc = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17</m>?
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Let <m>S = \{2,3,4,\ldots\}</m>.  How many ordered triples <m>(a,b,c)</m> are there in <m>S\times S \times S</m> such that <m>abc = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17</m>?
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Compute each of the following using <xref ref="thm-stirling-closed"/>.
+          <ol>
+            <li><m>S(5,3)</m></li>
+            <li><m>S(6,3)</m></li>
+            <li><m>S(n,2)</m></li>
+            <li><m>S(n,3)</m></li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Write out the proof of <xref ref="thm-stirling-closed"/> for <m>k=3</m>.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-stirling-cubic">
+      <statement>
+        <p>
+          Express <m>x^3</m> as suggested in <xref ref="thm-stirling-polynomial"/>.  Also, multiply your answer out to verify.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Use your results in <xref ref="ex-stirling-cubic"/> to express <m>x^3</m> as a linear combination of the binomial coefficients <m>\binom{x}{1}</m>, <m>\binom{x}{2}</m>, and <m>\binom{x}{3}</m>.
+        </p>
+      </statement>
+    </exercise>
+
+<!-- 11 -->
+    <exercise>
+      <statement>
+        <p>
+          Determine the following:
+          <ol>
+            <li>
+              <p>
+                <m>a, b, c</m> so that <m>n^4 = 24\binom{n}{4} + 6a\binom{n}{3}+2b\binom{n}{2} + c \binom{n}{1}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>a, b, c, d</m> so that <m>n^5 = 5!\binom{n}{5} + a\binom{n}{4} + b\binom{n}{3} + c \binom{n}{2} + d \binom{n}{1}</m>.
+              </p>
+            </li>
+
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+
+
+    <exercise>
+      <statement>
+        <p>
+          Express <m>1^4 + 2^4 + 3^4 + \cdots + n^4</m> as a polynomial in <m>n</m>.
+        </p>
+      </statement>
+    </exercise>
+
+
+    <exercise>
+      <statement>
+        <p>
+          The numbers <m>S(n,k)</m> and <m>k!S(n,k)</m> are solutions to two different distribution problems.  Describe each.
+        </p>
+      </statement>
+    </exercise>
+
+
+    <exercise>
+      <statement>
+        <p>
+          Prove <xref ref="thm-stirling-polynomial2"/>.
+        </p>
+      </statement>
+    </exercise>
+
+
+    <exercise>
+      <statement>
+        <p>
+          Why is <m>4^n - 4\cdot 3^n + 6\cdot 2^n - 4</m> always divisible by 24?
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
+
+</section>

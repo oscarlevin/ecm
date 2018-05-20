@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_basic-quotient">
+  <title>The Quotient Principle: Counting under Equivalence</title>
+
+
+<p>
+  Here we will discuss the relationship between combinations and permutations from an advanced mathematical perspective: we are counting equivalence classes.  We will then consider some other examples of this and some non-examples (why you cannot always do this).
+</p>
+
+
+
+ <!-- <xi:include href="exercises/basic-quotient.ptx"/> -->
+
+</section>

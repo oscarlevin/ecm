@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appendix xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_additionalTopics">
+<title>Background Material</title>
+<xi:include href="sec_background-sets.ptx"/>
+<xi:include href="sec_background-functions.ptx"/>
+<xi:include href="sec_background-logic.ptx"/>
+<xi:include href="sec_background-proofs.ptx"/>
+<xi:include href="sec_background-induction.ptx"/>
+</appendix>

@@ -14,13 +14,13 @@
 
 <colophon>
   <website>
-    <name><c>discrete.openmathbooks.org</c></name>
-    <address>http://discrete.openmathbooks.org</address>
+    <name><c>discrete.openmathbooks.org/more/</c></name>
+    <address>http://discrete.openmathbooks.org/more/</address>
   </website>
 
 
     <copyright>
-      <year>2013<ndash/>2017</year>
+      <year>2018</year>
       <holder>Oscar Levin</holder>
       <!-- <minilicense><image source="../images/by-sa.png" /></minilicense> -->
       <shortlicense>
@@ -40,40 +40,22 @@
  </p> -->
 </colophon>
 
-<dedication>
+<!-- <dedication>
 <p>
   For Madeline and Teagan
 </p>
-</dedication>
+</dedication> -->
 
 
 
 <acknowledgement>
-  <p>
-  This book would not exist if not for <q>Discrete and Combinatorial Mathematics</q> by Richard Grassl and Tabitha Mingus. It is the book I learned discrete math out of, and taught out of the semester before I began writing this text. I wanted to maintain the inquiry based feel of their book but update, expand and rearrange some of the material.  Some of the best exposition and exercises here were graciously donated from this source.
-  </p>
-
-  <p>
-  Thanks to Alees Seehausen who co-taught the Discrete Mathematics course with me in 2015 and helped develop many of the <em>Investigate!</em> activities and other problems currently used in the text. She also offered many suggestions for improvement of the expository text, for which I am quite grateful. Thanks also to Katie Morrison and Nate Eldredge for their suggestions after using parts of this text in their class.
-  </p>
-
-  <p>
-  While odds are that there are still errors and typos in the current book, there are many fewer thanks to the work of Michelle Morgan over the summer of 2016.
-  </p>
-
-  <p>
-    The book is now available in an interactive online format, and this is entirely thanks to the work of Rob Beezer and David Farmer along with the rest of the participants of the <url href="https://groups.google.com/forum/?fromgroups#!forum/mathbook-xml-support">mathbook-xml-support group</url>.  Thanks for
-  </p>
-
-  <p>
-  Finally, a thank you to the numerous students who have pointed out typos and made suggestions over the years and a thanks in advance to those who will do so in the future.
-  </p>
+<!-- TODO: this. -->
 </acknowledgement>
 
 
 
 <preface xml:id="preface">
-
+<!-- TODO: rewrite! -->
 <p>
 This text aims to give an introduction to select topics in discrete mathematics at a level appropriate for first or second year undergraduate math majors, especially those who intend to teach middle and high school mathematics. The book began as a set of notes for the Discrete Mathematics course at the University of Northern Colorado. This course serves both as a survey of the topics in discrete math and as the <q>bridge</q> course for math majors, as UNC does not offer a separate <q>introduction to proofs</q> course. Most students who take the course plan to teach, although there are a handful of students who will go on to graduate school or study applied math or computer science. For these students the current text hopefully is still of interest, but the intent is not to provide a solid mathematical foundation for computer science, unlike the majority of textbooks on the subject.
 </p>

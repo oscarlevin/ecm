@@ -4,9 +4,10 @@
 
 
 
-  <xi:include href="./app-sets-functions.ptx"/>
-  <xi:include href="./app-logic-proofs.ptx"/>
-  <xi:include href="./app-induction.ptx"/>
+  <xi:include href="./app_projects.ptx"/>
+  <xi:include href="./app_background.ptx"/>
+
+
 
 
   <appendix>
