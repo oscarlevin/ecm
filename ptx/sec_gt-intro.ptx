@@ -13,7 +13,7 @@
 
 
 
-	<activity>
+	<activity xml:id="activity-graphdiff">
 		<p>
 			Which (if any) of the graphs below are the same?
 		</p>
@@ -112,74 +112,74 @@
 			<image>
 				<latex-image>
 					\begin{tikzpicture}
-\coordinate (A) at (-1,0);
-\coordinate (B) at (-1, 1);
-\coordinate (C) at (0,0);
-\coordinate (D) at (0,1);
-\coordinate (E) at (1,0);
-\coordinate (F) at (1,1);
+						\coordinate (A) at (-1,0);
+						\coordinate (B) at (-1, 1);
+						\coordinate (C) at (0,0);
+						\coordinate (D) at (0,1);
+						\coordinate (E) at (1,0);
+						\coordinate (F) at (1,1);
 
-\draw (A) node[below] {\(a\)} -- (B) node[above] {\(b\)} -- (C) node[below] {\(c\)} -- (D) node[above] {\(d\)} -- (E) node[below] {\(e\)} -- (F) node[above] {\(f\)} -- (C) (A) -- (D);
-\foreach \x in {(A), (B), (C), (D), (E), (F)}{
-	\fill \x \v;
-}
-\end{tikzpicture}
+						\draw (A) node[below] {\(a\)} -- (B) node[above] {\(b\)} -- (C) node[below] {\(c\)} -- (D) node[above] {\(d\)} -- (E) node[below] {\(e\)} -- (F) node[above] {\(f\)} -- (C) (A) -- (D);
+						\foreach \x in {(A), (B), (C), (D), (E), (F)}{
+							\fill \x \v;
+						}
+					\end{tikzpicture}
 				</latex-image>
 			</image>
 			<image>
 				<latex-image>
 					\begin{tikzpicture}
-\coordinate (A) at (-1,0);
-\coordinate (B) at (-1, 1);
-\coordinate (C) at (0,1);
-\coordinate (D) at (0,0);
-\coordinate (E) at (1,0);
-\coordinate (F) at (1,1);
+						\coordinate (A) at (-1,0);
+						\coordinate (B) at (-1, 1);
+						\coordinate (C) at (0,1);
+						\coordinate (D) at (0,0);
+						\coordinate (E) at (1,0);
+						\coordinate (F) at (1,1);
 
-\draw (A) node[below] {\(a\)} -- (B) node[above] {\(b\)} -- (C) node[above] {\(c\)} -- (D) node[below] {\(d\)} -- (E) node[below] {\(e\)} -- (F) node[above] {\(f\)} -- (C) (A) -- (D);
-\foreach \x in {(A), (B), (C), (D), (E), (F)}{
-	\fill \x \v;
-}
-\end{tikzpicture}
+						\draw (A) node[below] {\(a\)} -- (B) node[above] {\(b\)} -- (C) node[above] {\(c\)} -- (D) node[below] {\(d\)} -- (E) node[below] {\(e\)} -- (F) node[above] {\(f\)} -- (C) (A) -- (D);
+						\foreach \x in {(A), (B), (C), (D), (E), (F)}{
+							\fill \x \v;
+						}
+					\end{tikzpicture}
 				</latex-image>
 			</image>
 			<image>
 				<latex-image>
 					\begin{tikzpicture}
-\coordinate (A) at (-1,0);
-\coordinate (B) at (-1, 1);
-\coordinate (C) at (0,0);
-\coordinate (D) at (0,1);
-\coordinate (E) at (1,0);
-\coordinate (F) at (1,1);
+						\coordinate (A) at (-1,0);
+						\coordinate (B) at (-1, 1);
+						\coordinate (C) at (0,0);
+						\coordinate (D) at (0,1);
+						\coordinate (E) at (1,0);
+						\coordinate (F) at (1,1);
 
-\draw (A) node[below] {\(a\)} -- (B) node[above] {\(c\)} -- (C) node[below] {\(e\)} -- (D) node[above] {\(b\)} -- (E) node[below] {\(d\)} -- (F) node[above] {\(f\)} -- (C) (A) -- (D);
-\foreach \x in {(A), (B), (C), (D), (E), (F)}{
-	\fill \x \v;
-}
-\end{tikzpicture}
+						\draw (A) node[below] {\(a\)} -- (B) node[above] {\(c\)} -- (C) node[below] {\(e\)} -- (D) node[above] {\(b\)} -- (E) node[below] {\(d\)} -- (F) node[above] {\(f\)} -- (C) (A) -- (D);
+						\foreach \x in {(A), (B), (C), (D), (E), (F)}{
+							\fill \x \v;
+						}
+					\end{tikzpicture}
 				</latex-image>
 			</image>
 			<image>
 				<latex-image>
 					\begin{tikzpicture}
-\coordinate (A) at (-1,0);
-\coordinate (B) at (-1, 1);
-\coordinate (C) at (0,1);
-\coordinate (D) at (0,0);
-\coordinate (E) at (1,0);
-\coordinate (F) at (1,1);
+						\coordinate (A) at (-1,0);
+						\coordinate (B) at (-1, 1);
+						\coordinate (C) at (0,1);
+						\coordinate (D) at (0,0);
+						\coordinate (E) at (1,0);
+						\coordinate (F) at (1,1);
 
-\draw (A) node[below] {\(v_6\)} -- (B) node[above] {\(v_1\)} -- (C) node[above] {\(v_2\)} -- (D) node[below] {\(v_5\)} -- (E) node[below] {\(v_4\)} -- (F) node[above] {\(v_3\)} -- (C) (A) -- (D);
-\foreach \x in {(A), (B), (C), (D), (E), (F)}{
-	\fill \x \v;
-}
-\end{tikzpicture}
+						\draw (A) node[below] {\(v_6\)} -- (B) node[above] {\(v_1\)} -- (C) node[above] {\(v_2\)} -- (D) node[below] {\(v_5\)} -- (E) node[below] {\(v_4\)} -- (F) node[above] {\(v_3\)} -- (C) (A) -- (D);
+						\foreach \x in {(A), (B), (C), (D), (E), (F)}{
+							\fill \x \v;
+						}
+					\end{tikzpicture}
 				</latex-image>
 			</image>
 		</sidebyside>
 		<p>
-			Actually, all the graphs we have seen above are just <em>drawings</em> of graphs. A graph is really an abstract mathematical object consisting of two sets <m>V</m> and <m>E</m> where <m>E</m> is a set of 2-element subsets of <m>V</m>.
+			You might also think of a graph as a set of vertices and a set of edges, where each edge is a set of two vertices.  
 			Are the graphs below the same or different?
 		<dl width="narrow">
 			<li>
@@ -204,7 +204,19 @@
 		</p>
 
 		<p>
-		  We want our definition to be precise and unambiguous, but it also must agree with our intuition for the objects we are studying.  It needs to be useful: we <em>could</em> define a graph to be a six legged mammal, but that would not let us solve any problems about bridges.  Instead, here is the (now) standard definition of a graph.
+		  We want our definition to be precise and unambiguous, but it also must agree with our intuition for the objects we are studying.  It needs to be useful: we <em>could</em> define a graph to be a six legged mammal, but that would not let us solve any problems about bridges.  
+		</p>
+
+		<activity>
+			<statement>
+				<p>
+					Write a definition for a <em>graph</em>.  Make sure that your definition can be helpful in making sense of <xref ref="activity-graphdiff"/>.
+				</p>
+			</statement>
+		</activity>
+
+		<p>
+		  Writing definitions is hard.  You should compare what you came up with to the following:
 		</p>
 
 		<assemblage>
@@ -225,8 +237,8 @@
 			<image>
 			<latex-image>
 				\begin{tikzpicture}[scale=0.7]
-	    \draw  (-1,1) \vl{\(a\)} -- (1,1) \vr{\(b\)} (-1,1) -- (-1,-1) \vl{\(c\)} -- (1,-1) \vr{\(d\)} -- (1,1) -- (-1,-1);
-	  \end{tikzpicture}
+			    \draw  (-1,1) \vl{\(a\)} -- (1,1) \vr{\(b\)} (-1,1) -- (-1,-1) \vl{\(c\)} -- (1,-1) \vr{\(d\)} -- (1,1) -- (-1,-1);
+			  \end{tikzpicture}
 			</latex-image>
 		</image>
 	</sidebyside>
@@ -239,19 +251,20 @@
 		<image>
 			<latex-image>
 				\begin{tikzpicture}[scale=0.7]
-	    \draw  (-1,1) \vl{\(a\)} -- (1,-1) \vr{\(b\)} (-1,1) -- (-1,-1) \vl{\(c\)} -- (1,1) \vr{\(d\)} -- (1,-1) -- (-1,-1);
-	  \end{tikzpicture}
+			    \draw  (-1,1) \vl{\(a\)} -- (1,-1) \vr{\(b\)} (-1,1) -- (-1,-1) \vl{\(c\)} -- (1,1) \vr{\(d\)} -- (1,-1) -- (-1,-1);
+			  \end{tikzpicture}
 			</latex-image>
 		</image>
 
 		<image>
 			<latex-image>
 				\begin{tikzpicture}[scale=0.7]
-	    \draw  (-1.5,0) \vb{\(a\)} -- (-.5,0) \vb{\(b\)} (-1.5,0) .. controls (-.5,1) .. (.5,0) \vb{\(c\)} -- (1.5,0) \vb{\(d\)} .. controls (.5,1) .. (-.5,0) -- (.5,0);
-	  \end{tikzpicture}
+			    \draw  (-1.5,0) \vb{\(a\)} -- (-.5,0) \vb{\(b\)} (-1.5,0) .. controls (-.5,1) .. (.5,0) \vb{\(c\)} -- (1.5,0) \vb{\(d\)} .. controls (.5,1) .. (-.5,0) -- (.5,0);
+			  \end{tikzpicture}
 			</latex-image>
 		</image>
 	</sidebyside>
+	
 	<p>
 		We should be careful about what it means for two graphs to be <q>the same.</q>  Actually, given our definition, this is easy: Are the vertex sets equal?  Are the edge sets equal?  We know what it means for sets to be equal, and graphs are nothing but a pair of two special sorts of sets. </p>
 
@@ -275,17 +288,13 @@
 		 <sidebyside width="60%">
 		 	<image>
 		 		<latex-image>
-
 					\begin{tikzpicture}
-					\draw (-3,0) \vb{\footnotesize $a$} -- (-2,0) \vb{\footnotesize $b$} -- (-1,0) \vb{\footnotesize $c$}  (3,0) \vb{\footnotesize $b$} -- (2,0) \vb{\footnotesize $c$} -- (1,0) \vb{$\footnotesize a$};
-					\node[above] at (-3,.5) {$G_1$} ;
-					\node[above] at (1, .5) {$G_2$};
+						\draw (-3,0) \vb{\footnotesize $a$} -- (-2,0) \vb{\footnotesize $b$} -- (-1,0) \vb{\footnotesize $c$}  (3,0) \vb{\footnotesize $b$} -- (2,0) \vb{\footnotesize $c$} -- (1,0) \vb{$\footnotesize a$};
+						\node[above] at (-3,.5) {$G_1$} ;
+						\node[above] at (1, .5) {$G_2$};
 					\end{tikzpicture}
-
 		 		</latex-image>
-
 		 	</image>
-
 		 </sidebyside>
 
 		<p>
@@ -294,8 +303,9 @@
 	<example>
 		<statement>
 			<p>
-				Consider the graphs:</p>
-<blockquote>
+				Consider the graphs:
+			</p>
+			<blockquote>
 			<p>
 				<m>G_1 = \{V_1, E_1\}</m> where <m>V_1 = \{a, b, c\}</m> and <m>E_1 = \{\{a,b\}, \{a,c\}, \{b,c\}\}</m>;
 			</p>
@@ -303,9 +313,9 @@
 			<p>
 				<m>G_2 = \{V_2, E_2\}</m> where <m>V_2 = \{u,v,w\}</m> and <m>E_2 = \{\{u,v\}, \{u,w\}, \{v,w\}\}</m>.
 			</p>
-</blockquote>
+			</blockquote>
 
-	<p>
+			<p>
 				Are these graphs the same?
 			</p>
 		</statement>
@@ -317,15 +327,15 @@
 				<image>
 					<latex-image>
 						\begin{tikzpicture}
-	\draw  (90:1) \va{\(a\)} -- (210:1) \vl{\(b\)} -- (-30:1) \vr{\(c\)} -- (90:1);
-	\end{tikzpicture}
+							\draw  (90:1) \va{\(a\)} -- (210:1) \vl{\(b\)} -- (-30:1) \vr{\(c\)} -- (90:1);
+						\end{tikzpicture}
 					</latex-image>
 				</image>
 				<image>
 					<latex-image>
 						\begin{tikzpicture}
-	\draw  (90:1) \va{\(u\)} -- (210:1) \vl{\(v\)} -- (-30:1) \vr{\(w\)} -- (90:1);
-	\end{tikzpicture}
+							\draw  (90:1) \va{\(u\)} -- (210:1) \vl{\(v\)} -- (-30:1) \vr{\(w\)} -- (90:1);
+						\end{tikzpicture}
 					</latex-image>
 				</image>
 			</sidebyside>
@@ -382,7 +392,6 @@
 				<sidebyside widths="23% 23%" margins="auto" valign="bottom">
 					<image>
 						<latex-image>
-
 							\begin{tikzpicture}
 								\coordinate (a) at (90:1);
 								\coordinate (b) at (0:1);
@@ -393,14 +402,11 @@
 								\draw (a) \va{\footnotesize $a$} (b) \vr{\footnotesize $b$} (c)\vb{\footnotesize $c$} (d) \vl{\footnotesize $d$};
 								\node at (-1,1) {$G_1$:};
 							\end{tikzpicture}
-
 						</latex-image>
-
 					</image>
 
 					<image>
 						<latex-image>
-
 							\begin{tikzpicture}
 								\coordinate (a) at (90:1);
 								\coordinate (b) at (0:1);
@@ -411,9 +417,7 @@
 								\draw (a) \va{\footnotesize $a$} (b) \vr{\footnotesize $b$} (c)\vb{\footnotesize $c$} (d) \vl{\footnotesize $d$};
 								\node at (-1,1) {$G_2$:};
 							\end{tikzpicture}
-
 						</latex-image>
-
 					</image>
 				</sidebyside>
 
@@ -453,16 +457,20 @@
 
 		<sidebyside width="20%" margins="auto">
 			<image>
-			<latex-image>\begin{tikzpicture}
-			      \foreach \x in {0,...,6}
-			      \draw  (\x*60:1) \v -- (\x*60+60:1) -- (\x*60+180:1) -- cycle;
-			    \end{tikzpicture}</latex-image>
+			<latex-image>
+				\begin{tikzpicture}
+		      \foreach \x in {0,...,6}
+		      \draw  (\x*60:1) \v -- (\x*60+60:1) -- (\x*60+180:1) -- cycle;
+		    \end{tikzpicture}
+			</latex-image>
 			</image>
 			<image>
-			<latex-image>\begin{tikzpicture}
-			      \foreach \x in {0,...,4}
-			      \draw  (\x*90:1) \v -- (\x*90+90:1) -- (\x*90+180:1) -- cycle;
-			    \end{tikzpicture}</latex-image>
+			<latex-image>
+				\begin{tikzpicture}
+		      \foreach \x in {0,...,4}
+		      \draw  (\x*90:1) \v -- (\x*90+90:1) -- (\x*90+180:1) -- cycle;
+		    \end{tikzpicture}
+			</latex-image>
 			</image>
 		</sidebyside>
 
@@ -470,13 +478,15 @@
 		 These are definitely not isomorphic, but notice that the graph on the right looks like it might be part of the graph on the left, especially if we draw it like this:
 	 </p>
 
-		 <sidebyside width="20%">
-			 <image>
-			 <latex-image>\begin{tikzpicture}
-						 \foreach \x in {0,...,6}
-						 \draw[very thin]  (\x*60:1) \v -- (\x*60+60:1) -- (\x*60+180:1) -- cycle;
-						 \draw[very thick] (0:1) -- (60:1) -- (180:1) -- (240:1) -- (0:1) -- (180:1) (60:1) -- (240:1);
-					 \end{tikzpicture}</latex-image>
+	 <sidebyside width="20%">
+		 <image>
+			 	<latex-image>
+				 \begin{tikzpicture}
+					 \foreach \x in {0,...,6}
+					 \draw[very thin]  (\x*60:1) \v -- (\x*60+60:1) -- (\x*60+180:1) -- cycle;
+					 \draw[very thick] (0:1) -- (60:1) -- (180:1) -- (240:1) -- (0:1) -- (180:1) (60:1) -- (240:1);
+				 \end{tikzpicture}
+				 </latex-image>
 			 </image>
 		 </sidebyside>
 	<p>
@@ -605,7 +615,7 @@
 
 	<!-- TODO: give picture example of bipartite and not bipartite graphs -->
 
-	<assemblage>
+	<paragraphs>
 		<title>Named Graphs</title>
 		<p>
 			Some graphs are used more than others, and get special names.
@@ -680,13 +690,13 @@
 			</image>
 		</sidebyside>
 
-	</assemblage>
+	</paragraphs>
 
 <p>
   There are a lot of definitions to keep track of in graph theory.  Here is a glossary of the terms we have already used and will soon encounter.
 </p>
 
-	<assemblage>
+	<paragraphs>
 		<title>Graph Theory Definitions</title>
 		<p>
 			<dl width="medium">
@@ -792,7 +802,7 @@
 				</li>
 			</dl>
 		</p>
-	</assemblage>
+	</paragraphs>
 
 
 <xi:include href="exercises/gt-intro.ptx"/>
