@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_basic-proofs">
+  <title>Proofs in Combinatorics</title>
+
+  <introduction>
+    <p>
+      We have already seen some basic proof techniques when we considered graph theory: direct proofs, proof by contrapositive, proof by contradiction, and proof by induction.  In this section, we will consider a few proof techniques particular to combinatorics.  Along the way we will establish some basic counting principles and further develop our understanding of binomial coefficients.
+    </p>
+    
+    <p>
+      Why do we care about proofs?  It is not because we doubt the truth of so called theorems or wish to establish new results to further mathematics as an academic discipline (although there is nothing wrong with doing that as well).  Rather, it is through creating proofs that we gain a deeper understanding of the big ideas present in this subject.  
+    </p>
+  </introduction>
+  
+  <subsection xml:id="subsec-basic-proofs-examples">
+    <title>Two Motivating Examples</title>
+    
+    <p>
+      To get started, let's consider two typical statements in combinatorics that we might wish to prove.
+    </p>
+    
+    <theorem xml:id="thm-pascalsym">
+      <statement>
+        <p>
+          For all <m>n \ge 0</m> and all <m>0 \le k \le n</m> we have <m>\binom{n}{k} = \binom{n}{n-k}</m>.  In other words, Pascal's triangle is symmetric reflected over its vertical altitude.
+        </p>
+      </statement>
+    </theorem>
+    
+    
+    <theorem xml:id="thm-pascalrowsum">
+      <statement>
+        <p>
+          For all <m>n \ge 0</m>, we have <m>\sum_{k=0}^n \binom{n}{k} = 2^n</m>.  That is, the sum of the entries in the <m>n</m>th row of Pascal's triangle is <m>2^n</m>.
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+      These is just two of the beautiful identities hidden in Pascal's triangle.  But why are they true?  
+    </p>
+    
+    <p>
+      There are a at least four very distinct proofs we could give of each binomial identity.  The next activities walk you through these.  
+    </p>
+    
+    <p>
+      Note: throughout this section especially, hints to problems are available.  Try the problem first, and if you get stuck, peek at the hint.
+    </p>
+    
+    <p>
+      First, let's try some proofs of <xref ref="thm-pascalsym"/>
+    </p>
+    
+    <activity>
+      <statement>
+        <p>
+          First, an algebraic proof.  We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k}!)}</m>, where <m>n! = n \cdot (n-1) \cdot (n-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>n</m> factorial</q>).  Using this algebraic formula, prove the identity.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          This should be really easy; don't let that fool you.  Note that a correct proof must start with one side of the identity and manipulate it into the other side.  The following is NOT a correct proof, because it starts by assuming the statement you wish to prove.
+          
+          <md>
+            <mrow>\binom{n}{k}  = \amp \binom{n}{n-k}</mrow>
+            <mrow>\frac{n!}{k!(n-k)!} =  \amp \frac{n!}{(n-k)!(n-(n-k)!)}</mrow>
+            <mrow>\frac{n!}{k!(n-k)!} =  \amp \frac{n!}{(n-k)!k!)}</mrow>
+            <mrow>\frac{n!}{k!(n-k)!} \cdot (k!(n-k)!)=  \amp \frac{n!}{(n-k)!(n-(n-k)!)}\cdot(k!(n-k)!)</mrow>
+            <mrow>n! =  \amp n!</mrow>
+          </md>
+        </p>
+      </hint>
+    </activity>
+    
+    <p>
+      Note that this proof was not by any means difficult, but it did rely on an algebraic identity we have yet to prove.  We will see in <xref ref="act-pascalrowsum-alg"/> that algebraic proofs can be very messy.  What's more, nothing about these proofs explain <em>why</em> the identity is true.  They lack meaning.  
+    </p>
+    
+    <activity>
+      <statement>
+        <p>
+          We claim the identity is true for all <m>n \ge 0</m>, so induction would be a natural proof technique to try.  Give a proof by mathematical induction on <m>n</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          You will probably want to use the Pascal recurrence <m>\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}</m>.  Note that once you pick your <m>n</m>, you should argue that the identity holds for all <m>0 \le k \le n</m>.  You shoudl not do double induction.
+        </p>
+      </hint>
+    </activity>
+    
+    <activity xml:id="act-pascalsym-dc">
+      <introduction>
+        <p>
+          Think about what <m>\binom{n}{k}</m> counts.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Suppose you own <m>n</m> bow ties, and want to choose <m>k</m> of them to take on a trip.  How many different collections of bow ties can you take?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            This is supposed to be very easy.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Why is the answer to the above question also <m>\binom{n}{n-k}</m>?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            What if you started with all bow ties in the suitcase and got rid of some?  How many do you need to remove?
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Why are the two parts above enough to establish the identity?
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
+    <p>
+      Finally, here is a subtly different proof.
+    </p>
+    
+    <activity xml:id="act-pascalsym-bij">
+      <introduction>
+        <p>
+          Consider the set <m>[n] = \{1,2,\ldots,n\}</m> and its power set <m>\pow([n])</m> of all subsets of <m>[n]</m>.  Define the function <m>f:\pow([n]) \to \pow([n])</m> by <m>f(A) = [n]\setminus A</m> for any <m>A \in \pow([n])</m> (that is, <m>f(A)</m> is the compliment of <m>A</m> in <m>[n]</m>).
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Prove that <m>f</m> is a bijection.  In fact, <m>f</m> is an <term>involution</term> in that it is its own inverse.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            For any set <m>A \in \pow([n])</m>, if <m>\card{A} = k</m>, what is the <m>\card{f(A)}</m>?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Is <m>f</m> still a bijection if we restrict it to just the subsets of <m>[n]</m> that have size <m>k</m>?  Explain.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Why is the above enough to establish the identity?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Recall the bijection principle tells us that if <m>f:X \to Y</m> is a bijection, then <m>\card{X} = \card{Y}</m>.  What is the cardinality of each of the subsets of <m>\pow([n])</m> that we are considering?
+          </p>
+        </hint>
+      </task>
+    </activity>
+    
+    <p>
+      How are <xref ref="act-pascalsym-dc"/> and <xref ref="act-pascalsym-bij"/> different?  The first consists of answering a single counting question in two different ways, and those ways are the two sides of the identity.  Such proofs are sometimes called <em>double counting proofs</em>, or sometimes just <em>combinatorial proofs</em>.  On the other hand, <xref ref="act-pascalsym-bij"/> proceeds by showing two different sets have the same size, using a bijection, and shows that these two sets are counted by each side of the identity.  These proofs are called <em>bijective proofs</em> (and are also sometimes grouped together with double counting proofs as combinatorial proofs).
+    </p>
+    
+    <p>
+      Both styles of combinatorial proof have the advantage that they do an excellent job of illustrating what is really going on in an identity.  They reinforce our understanding of how to solve counting problems and our understanding of basic combinatorial principles.  
+    </p>
+    
+    <p>
+      This is not to say that other proof techniques, especially mathematical induction, are not also helpful.  Inductive proofs demonstrate the importance of the recursive nature of combinatorics.  Even if we didn't know what Pascal's triangle told us about the real world, we would see that the identity was true entirely based on the recursive definition of its entries.
+    </p>
+    
+    <p>
+      Now here are four proofs of <xref ref="thm-pascalrowsum"/>.
+    </p>
+    
+    <activity xml:id="act-pascalrowsum-alg">
+      <statement>
+        <p>
+          We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k}!)}</m>, where <m>n! = n \cdot (n-1) \cdot (n-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>n</m> factorial</q>).  Using this algebraic formula, you should be able to find a common denominator in the sum <m>\sum_{k=0}^n \binom{n}{k}</m> and show that this simplifies to <m>2^n</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          We say <q>should</q>, but please don't waste your time doing this all the way out.  Unless you are really bored.
+        </p>
+      </hint>
+    </activity>
+    
+    
+    <activity>
+      <statement>
+        <p>
+          We wish to establish this identity for all natural numbers <m>n</m>, so it would be natural to give a proof by induction.  Do this. 
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Again, use the Pascal recurrence <m>\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}</m>.  Doing this for all summands will give you some repeats.
+        </p>
+      </hint>
+    </activity>
+    
+    <p>
+      There are lots of ways to give a combinatorial proof.  Here is one.
+    </p>
+    
+    <activity xml:id="activity-pascalrow-dc">
+      <introduction>
+        <p>
+          Consider the question: how many subsets of <m>[n]</m> are there?
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            How many subsets have cardinality 0?  How many have cardinality 1?  And so on.  How many would all of these give us all together?  
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Your final answer here should be a sum, since we have counted the number of subsets partitioned into disjoint collections.  
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Explain why the answer is also <m>2^n</m>.  
+          </p>
+          <hint>
+            <p>
+              Think about how many choices you have for each element.  You could put 1 in the subset or not.  You could include <m>2</m> in the subset or not.  
+            </p>
+          </hint>
+        </statement>
+      </task>
+      <conclusion>
+        <p>
+          Conclude: Since each side of the identity is the answer to the same counting question, we have established the identity.
+        </p>
+      </conclusion>
+    </activity>
+    
+    <p>
+      We will not give a bijective proof, although you might include this as part of the above if you didn't see why <m>2^n</m> was the number of subsets of <m>[n]</m>.  Instead, you might see directly that <m>2^n</m> is the number of <m>n</m>-bit strings (by writing the numbers 0 through <m>2^n - 1</m> in binary) and then define a bijection from <m>n</m>-bit strings to subsets of <m>[n]</m>.
+    </p>
+    
+    <p>
+      Finally, here is a clever proof of the identity.
+    </p>
+    
+    <activity xml:id="act-pascalrowsum-binom">
+      <statement>
+        <p>
+          What does the binomial theorem say again?  That is, expand <m>(x+y)^n</m>.  What happens when you substitute <m>x = y = 1</m>?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Just do it.
+        </p>
+      </hint>
+    </activity>
+    
+    <p>
+      This use of the binomial theorem is an example of one of the many uses for <em>generating functions</em> which we will return to later.  For now, you might enjoy plugging in other values to the binomial theorem to uncover new binomial identities.
+    </p>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-sumprod">
+    <title>Interlude: The Sum and Product Principles</title>
+    
+    <p>
+      Any proof you write in mathematics must assume some foundational principles.  In Euclidian geometry, you have axioms, common notions, and often other propositions, used as justification in your proof.  Let's pause to consider two foundational principles in combinatorics that, while intuitively obvious, are worth pointing out as foundational.
+    </p>
+    
+    <!-- TODO: Add material here -->
+  </subsection>
+  
+  <subsection xml:id="subsec-moreproofs">
+    <title>More Proofs</title>
+    <p>
+      We will use the proof techniques of double counting and bijections throughout the rest of the book, but for now, let's practice a bit.  The activities below ask you to give a combinatorial proof, and often also an alternative proof that has some nice features.
+    </p>
+    
+    
+      <theorem>
+          <statement>
+            <p>
+              <m>\binom{2n}{2}
+              = 2
+              \binom{n}{2}
+              + n^{2}</m>
+            </p>
+          </statement>
+
+        <proof>
+          <p>
+            Split the <m>2n</m> objects into two groups <m>A</m> and <m>B</m> each of size <m>n</m>.
+          </p>
+
+        <p>
+          First, you can choose 2 objects from a set of <m>2n</m> objects
+          in <m>\binom{2n}{2}</m> ways. Alternatively, you could select two from group <m>A</m> in <m>\binom{n}{2}</m> ways or two from group <m>B</m> in <m>\binom{n}{2}</m> ways or take one from each in <m>n \cdot n = n^{2}</m> ways. Now add <m>\binom{n}{2} + \binom{n}{2}+ n \cdot n</m> and the result follows.
+        </p>
+        </proof>
+      </theorem>
+
+      <p>
+        The reader should attempt an algebraic proof of the above result using the factorial formula for <m>\binom{n}{k}</m>.
+      </p>
+
+      <theorem>
+          <statement>
+            <p>
+              <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m>.
+            </p>
+          </statement>
+
+          <proof>
+            <p>
+              Suppose you have a group of m men and n women and you want to form men-women dancing pairs. This can clearly be done in mn ways. Or, you could choose 2 from the total of m + n and delete the men-men pairs (there are <m>\binom{m}{2}</m> of these) and delete the women-women pairs (also <m>\binom{n}{2}</m> of these). The result follows.
+            </p>
+          </proof>
+        </theorem>
+
+        <p>
+          The reader could attempt an algebraic proof or perhaps a geometric proof making use of figures consisting of triangular numbers. Also, as a challenge, the reader could formulate a similar result involving <m>\binom{a + b + c}{3}</m> and a corresponding proof.
+        </p>
+
+        <theorem>
+          <statement>
+            <p>
+            <m>\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \ldots + \binom{n}{n} = 2^{n}</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Here again we first create a question that is answered by either side of the given identity. Question: How many subsets does <m>\{ a_{1},a_{2},\ldots,a_{n}\}</m> have? An n-set has <m>\binom{n}{2}</m> subsets. The left-hand side counts these subsets by their size. There are <m>\binom{n}{k}</m> subsets of size k.
+            </p>
+          </proof>
+        </theorem>
+
+        <p>
+          In this situation the reader might <em>not</em> want to try this
+          algebraically.
+        </p>
+
+        <theorem xml:id="thm_anysizecommittee">
+          <statement>
+            <p>
+              <m>\binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n} = {n2}^{n - 1}</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Given a set of <m>n</m> people we can select a committee of size <m>k</m> along with a chair from that committee in <m>k \binom{n}{k}</m> ways. We can select a committee (of size 1, or size 2, or \ldots) and its chair in <m>\binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n}</m> ways. Alternatively, we can explain the term <m>n2^{n - 1}</m> as follows: choose one of the n people to chair any of the <m>2^{n - 1}</m> subsets of the remaining <m>n - 1</m> people.
+            </p>
+          </proof>
+        </theorem>
+
+        <p>
+          The reader is invited to investigate one or more of the following approaches: <m>n2^{n - 1}</m> looks like a derivative, so try differentiating <m>\left( 1 + x \right)^{n}</m>; a reverse and add approach also works; or, first prove <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m> and then use it.
+        </p>
+
+        <theorem>
+          <statement>
+            <p>
+              <m>\binom{n}{k} = \binom{n - 1}{k} + \binom{n - 1}{k - 1}</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              <m>\binom{n}{k}</m> is the number of subsets of <m>\{ a_{1},a_{2},a_{3},\ldots,a_{n}\}</m> of size <m>k</m>.
+              Now a subset <m>A</m> of size <m>k</m> either contains the fixed element <m>a_{i}</m> or it does not. If <m>A</m> contains <m>a_{i}</m>, the remaining <m>k - 1</m> elements can be selected in <m>\binom{n - 1}{k - 1}</m> ways.
+              If, on the other hand, <m>A</m> does not contain <m>a_{i}</m>, you can choose the <m>k</m> elements from the depressed set <m>\left\{ a_{1},a_{2},\ldots,a_{i - 1,}a_{i + 1,\ldots,}a_{n} \right\}</m> in <m>\binom{n - 1}{k}</m> ways. Since these two cases are mutually exclusive the theorem follows.
+            </p>
+          </proof>
+        </theorem>
+
+        <p>
+          Once again the reader is invited to attempt an algebraic proof.
+        </p>
+
+        <theorem>
+          <statement>
+            <p> Let <m>d_{n}</m> denote the number of derangements of 1,
+              2, 3, \ldots, n with <m>d_{0} = 1,d_{1} = 0</m>.  Then <m>d_{n} = \left( n - 1 \right)(d_{n - 1}{+ d}_{n - 2})</m> for <m>n \geq 2</m>.
+            </p>
+          </statement>
+
+        <proof>
+          <p>
+            In forming a derangement of <m>1, 2, 3, \ldots, n</m> the integer <m>n</m> can be placed in any of the <m>n - 1</m> spots <m>1, 2, 3, \ldots, n - 1</m>, say spot <m>i</m>. If <m>i</m> goes into spot <m>n</m> there are <m>d_{n - 2}</m> ways to finish it. If <m>i</m> does not go into spot <m>n</m> there are <m>d_{n - 1}</m> ways to complete the derangement.
+          </p>
+        </proof>
+      </theorem>
+
+      <p>
+        The reader can use the principle of inclusion-exclusion to derive a formula for <m>d_{n}</m> from which the new recursion <m>d_{n} = nd_{n - 1} + \left( - 1 \right)^{n}</m>, and the above recursion, can be derived.
+      </p>
+
+
+      <theorem>
+        <statement>
+          <p>
+            <m>\binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \ldots + \binom{n}{n}^{2} = \binom{2n}{n}</m>.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            Given a group of <m>2n</m> people consisting of <m>n</m> men and <m>n</m> women, in how many ways can one choose a group of <m>n</m> people? The answer to that question is just <m>\binom{2n}{n}</m>, the right side of the identity in question.
+            One could also form the group of <m>n</m> people in the following way:
+            choose 0 men and <m>n</m> women in <m>\binom{n}{0} \binom{n}{n} = \binom{n}{0}^{2}</m> ways, or, choose 1 man and <m>n - 1</m> women in <m>\binom{n}{1} \binom{n}{n - 1} = \binom{n}{1}^{2}</m> ways,
+            or choose 2 men and <m>n - 2</m> women in <m>\binom{n}{2} \binom{n}{n - 2} = \binom{n}{2}^{2}</m> ways and so on.
+            Now add these disjoint cases.
+          </p>
+        </proof>
+      </theorem>
+
+        <p>
+          An alternate algebraic proof is less interesting: Extract the
+          coefficient of <m>x^{n}</m> from both sides
+          of <m>\left\lbrack \left( x + 1 \right)^{n} \right\rbrack^{2} = \left(x + 1 \right)^{2n}</m>
+        </p>
+
+        <theorem>
+          <statement>
+            <p>
+              <m>\binom{2}{2} + \binom{3}{2} + \binom{4}{2} + \ldots + \binom{n}{2} = \binom{n + 1}{3}</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              The term <m>\binom{n + 1}{3}</m> is the number of binary strings of length <m>n + 1</m> consisting of three 1's (and the rest 0's). The left hand side counts these by where in the string the left-most 1 appears. Let <m>a_{1}a_{2}a_{3}\ldots a_{n + 1}</m> be a string of length <m>n + 1</m>. There are <m>\binom{n}{2}</m> strings when <m>a_{1} = 1</m>, <m>\binom{n - 1}{2}</m> strings when <m>a_{2} = 1</m> is the leftmost 1, and so on, up to <m>\binom{2}{2}</m> strings when <m>a_{n - 1} = 1</m> is the leftmost 1. In this last case the string looks like <m>000\ldots 0111</m>.
+            </p>
+          </proof>
+        </theorem>
+
+        <p>
+          Attempting a proof by mathematical induction is an easy option. An
+          algebraic approach is not!
+        </p>
+
+        <theorem>
+          <statement>
+            <p>
+              The number of positive integers that have their digits in strictly increasing order is <m>2^{9} - 1</m>. Include single digit numbers.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              There are <m>\binom{9}{1}</m> single digit type, <m>\binom{9}{2}</m> double digit type (just select 2 of the 9 digits <m>1, 2, 3, \ldots, 9</m> and arrange in order), \ldots, and so on to see that there are <m>\binom{9}{9}</m> nine digit type. The total is <m>\binom{9}{1} + \binom{9}{2} + \binom{9}{3} + \ldots + \binom{9}{9} = 2^{9} - 1</m>.
+          </p>
+        </proof>
+      </theorem>
+
+      <p>
+        Here is an alternative, more clever, proof. Look at 123456789. Any increasing number can be made by deleting <em>any</em> subset of digits, except all of them. There are <m>2^{9} - 1</m> such subsets. For example, delete the subset \{2, 4, 7, 9\} and you get 13568. Combining these two approaches actually gives you a nice proof that <m>\binom{9}{0} + \binom{9}{1} + \binom{9}{2} + \ldots + \binom{9}{9} = 2^{9}</m>.
+      </p>
+
+      <theorem>
+        <statement>
+          <p>
+            <m>\binom{3n}{3} = 3 \binom{n}{3} + 6n \binom{n}{2} + n^{3}</m>.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            This one is a little tougher. First rewrite as <m>n^{3} = \binom{3n}{3} - 3 \binom{n}{3} - 6n \binom{n}{2}</m>. Suppose you have <m>n</m> men, <m>n</m> women and <m>n</m> children and you want to select triples consisting of one man, one woman and one child. There are <m>n^{3}</m> ways to do this, just pick one from each group. Alternatively, select 3 of the <m>3n</m> people in <m>\binom{3n}{3}</m> ways and delete the <q>bad</q> ones.
+            Delete the ones where you selected all three from one group <mdash/> there are <m>3 \binom{n}{3}</m> of these. Now delete those where you had two from one group and one from another <mdash/> there are <m>2n \binom{n}{2} + 2n \binom{n}{2} + 2n \binom{n}{2}</m> of these.
+          </p>
+        </proof>
+        </theorem>
+
+        <theorem>
+          <statement>
+            <p>
+              <m>1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! + \ldots + n \cdot n! = \left( n + 1 \right)! - 1</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              In how many ways can you arrange the <m>n+1</m> numbers <m>0, 1, 2, \ldots, n</m> so that they are <em>not</em> in ascending order?
+              The answer is <m>\left( n + 1 \right)! - 1</m> since <m>0, 1, 2, \ldots, n</m> is the <em>only</em> arrangement in ascending order. Now lets separate into cases.
+              Let <m>a_{0},a_{1},a_{2},\ldots,a_{n}</m> represent an arrangement of these <m>n+1</m> numbers. If <m>a_{0} \neq 0</m>, there are <m>n</m> choices left for <m>a_{0}</m>, and then <m>n!</m> ways to fill out <m>a_{1},a_{2},\ldots,a_{n}</m> for a total of <m>n \cdot n!</m>.
+              Now let <m>a_{0} = 0</m> but <m>a_{1} \neq 1</m>.
+              There are <m>n - 1</m> choices for <m>a_{1}</m> and <m>\left(n - 1 \right)!</m> ways to complete for a total of <m>\left(n - 1 \right)\left(n - 1 \right)!</m>.
+              Now continue with <m>a_{0} = 1,a_{1} = 1</m> but <m>a_{2} \neq 2</m>.
+              There are <m>\left(n - 2 \right)\left(n - 2 \right)!</m> ways, and so on.
+            </p>
+          </proof>
+        </theorem>
+
+        <p>
+          The reader should attempt a collapsing sum or induction proof.
+        </p>
+
+
+        <theorem>
+          <statement>
+            <p> <m>1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \cdot 1 = \binom{n + 2}{3}</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Let <m>S = \{0,1,2,\ldots,n,n + 1\}</m>. The number of subsets of <m>S</m> of size 3 is <m>\binom{n + 2}{3}</m>. Each one looks like <m>\{a, b, c\}</m> with <m>a \lt b \lt c</m>.
+              Let's count these by looking at the size of the middle element <m>b</m>. If <m>b=1</m>, there is one choice for <m>a</m>, namely <m>a=0</m> and <m>n</m> choices for <m>c</m> for a total of <m>1 \cdot n</m>. If <m>b=2</m> there are 2 choices for <m>a</m>, and <m>n - 1</m> choices for <m>c</m> for a total of <m>2(n - 1)</m>. If <m>b=3</m> the total is <m>3(n - 2)</m>, and so on. The total derived by looking at cases is <m>1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \cdot 1</m> and this must equal <m>\binom{n + 2}{3}</m> since the cases are disjoint.
+            </p>
+          </proof>
+        </theorem>
+
+
+        <theorem>
+          <statement>
+            <p>
+            <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Suppose you have a group of <m>n</m> people and you wish to form a subcommittee of <m>k</m> people with one of those <m>k</m> people to serve as chair. Choose the subcommittee in <m>\binom{n}{k}</m> ways and the chair in <m>k</m> ways. The product rule gives <m>k \binom{n}{k}</m> as the number of ways of selecting such a chaired subcommittee.
+            </p>
+            <p>
+              Alternatively, you could first choose any one of the <m>n</m> people to serve as chair and then fill out the committee in <m>\binom{n - 1}{k - 1}</m> ways. There are <m>n \binom{n - 1}{k - 1}</m> ways to select a chaired subcommittee. Hence <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m>.
+            </p>
+          </proof>
+        </theorem>
+
+        <p>
+          The reader should attempt the easier algebraic technique by converting <m>\binom{n}{k}</m> to factorial form.
+        </p>
+
+        <theorem>
+          <statement>
+            <p>
+              <m>P(n,k) = k!\binom{n}{k}</m>.
+
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Question: How many permutations are there of <m>k</m> objects chosen from a collection of <m>n</m> objects? The LHS answers the question. There are <m>P(n,k) = n(n - 1)(n - 2)\cdots(n - k + 1)</m> ways. Alternatively, one could first choose the <m>k</m> objects from the <m>n</m> objects in <m>\binom{n}{k}</m> ways and then permute these in <m>k!</m> ways.
+            </p>
+          </proof>
+        </theorem>
+
+        <theorem>
+          <statement>
+            <p>
+              <m>n2^{n - 1} = 1 \binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n}</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Contrast this discussion with that presented in <xref ref="thm_anysizecommittee"/>. Look at the set of the first <m>2^{n}</m> nonnegative integers <m>0,1,2,\ldots,2^{n} - 1</m>. When you convert each to binary form what is the total number of 1s written?
+              This binary list will look like the standard listing in <m>B^{n}</m> the set of all binary strings of length <m>n</m>. For <m>n=3</m> <m>B^{3} = \{000,001,010,011,100,101,110,111\}</m>. In <m>B^{n}</m> each string has length <m>n</m> and there are <m>2^{n}</m> of them. But half of the <m>n \cdot 2^{n}</m> symbols are 1's. Then the total number of 1's is <m>n2^{n - 1}</m>. Alternatively, we could consider each string and count those with one 1, then those with two 1's, etc.
+              There are <m>1 \cdot \binom{n}{1}</m> with one 1, <m>2 \binom{n}{2}</m> total 1's in those binary numbers with exactly two 1's, <m>3 \binom{n}{3}</m> in those with exactly three 1's, and so on.
+              The total is <m>1 \binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n}</m>.  The result now follows by equating <m>n2^{n - 1}</m> to this sum.
+            </p>
+          </proof>
+        </theorem>
+
+
+        <theorem>
+          <statement>
+            <p>
+              <m>\binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \cdots + \binom{n}{n}^{2} = \binom{2n}{n}</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Let's revisit this identity using equivalence relations. A binary relation <m>R</m> on the set of all binary strings of length <m>n</m> is defined by specifying that <m>(\alpha,\beta) \in R</m> whenever <m>\alpha</m> and <m>\beta</m> have the same weight. This <m>R</m> is an equivalence relation.
+              For <m>n=3</m> there are four different equivalence classes, each containing strings of weight 0, 1, 2, or 3.
+              The relation <m>R</m> contains <m>1^{2} + 3^{2} + 3^{2} + 1^{2}</m> ordered pairs; for example, with weight 1 each of the three strings 001, 010, 100 can be paired with any one of those same strings for a total of <m>3^{2} = 9</m>.
+            </p>
+            <p>
+              These ordered pairs can be counted in another way. Each ordered pair looks like <m>(- - -,- - -)</m>.  Place 1's in any three positions, and 0's in the others.  If you take the complement of the entries in the second coordinate an element of <m>R</m> is produced.
+              Here is what one sequence of this process looks like:
+              <me>(- - -, - - -) \rightarrow (- 11,- - 1) \rightarrow (011,001) \rightarrow (011,110)</me>.
+            </p>
+            <p>
+              The reader can check that this process always produces an element of <m>R</m> and that the case of <m>n=3</m> extends easily to general <m>n</m>. Conclusion: choose the <m>n</m> positions for 1's in <m>\binom{2n}{n}</m> ways. The result follows.
+            </p>
+          </proof>
+        </theorem>
+
+        <theorem>
+          <statement>
+            <p>
+              <m>\binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \binom{n}{2} d_{2} + \ldots + \binom{n}{n} d_{n} = n!</m> where <m>d_{n}</m> denotes the <m>n</m>th derangement number, <m>d_{0} = 1,d_{1} = 0</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              The right-hand side, <m>n!</m>, gives the number of permutations of <m>n</m> objects. So the left-hand side must provide the same enumeration. The left side partitions the permutations according to how many elements are deranged (and the rest fixed). The term <m>\binom{n}{i} d_{i} = \binom{n}{n - i} d_{i}</m> gives the number of permutations of <m>n</m> where <m>n - i</m> elements are fixed and the remaining <m>i</m> elements are deranged.
+              Summing over all <m>i</m> yields
+              <me>\binom{n}{n} d_{0} + \binom{n}{n - 1} d_{1} + \cdots + \binom{n}{0} d_{n} = \binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \cdots + \binom{n}{n} d_{n} = n!</me>
+            </p>
+          </proof>
+        </theorem>
+
+        <theorem>
+          <statement>
+            <p>
+              <m>F_{n + 1} = \binom{n}{0} + \binom{n - 1}{1} + \binom{n - 2}{2} + \cdots</m> where <m>F_{n}</m> denotes the <m>n</m>th Fibonacci number.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Here is a question that might resolve the issue. How many different brick paths of length <m>n</m> (and width 1) can you make using <m>1\times 1</m> bricks and <m>1 \times 2</m> bricks? Let <m>a(n)</m> denote the number of such paths of length <m>n</m>. A few drawings will show that <m>a(1)=1</m>, <m>a(2)=2</m>, <m>a(3)=3</m>, <m>a(4)=5</m>. Since you can place a <m>1\times 1</m> brick in front of all paths of length <m>n - 1</m> or a <m>1\times 2</m> brick in front of all paths of length <m>n - 2</m> we have that <m>a(n) = a(n - 1) + a(n - 2)</m>. This recursion, along with the initial conditions, show that <m>a(n) = F_{n + 1}</m>, the left-hand side of the identity.
+            </p>
+            <p>
+              Now lets look at all paths of length <m>n</m> and count them by the number of <m>1\times 2</m> bricks. If there are <m>i</m> <m>1\times 2</m> bricks there are <m>n - i</m> total bricks making up the path of length <m>n</m>. Choose the positions of the <m>i</m> <m>1\times 2</m> bricks in <m>\binom{n - i}{i}</m> ways. Now sum as <m>i</m> ranges through the values <m>0, 1, 2, \ldots</m> and obtain <m>\binom{n}{0} + \binom{n - 1}{1} + \binom{n - 2}{2} + \cdots = F_{n + 1}</m>.
+            </p>
+          </proof>
+
+        </theorem>
+
+
+
+        <p>
+          The reader should draw all paths of length <m>n = 5</m>, for example, and
+          examine the cases with <m>i=0, 1, 2</m>. The reader could also explore other
+          proofs.
+        </p>
+
+        <theorem>
+          <statement>
+            <p>
+              <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m> (revisited).
+            </p>
+          </statement>
+          <proof>
+            <p>
+              We give three proofs:
+              <ol>
+                <li>
+                  <p>
+                    How many lines that are not vertical or horizontal can you form by connecting the points that are on the positive <m>x</m> and <m>y</m> axes? Since we really want only lines that are formed by connecting the <m>m</m> points with the <m>n</m> points, we could say we have <m>mn</m> lines. Or we could consider all <m>m + n</m> points and pick 2 in <m>\binom{m+n}{2}</m> ways and then delete those choices where you took 2 from <m>m</m> or 2 from <m>n</m>, since these formed vertical and horizontal lines, respectively.  Thus <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    There are <m>mn</m> one by one squares in the subdivided <m>m</m> by <m>n</m> rectangle.  Each choice of arrows (one horizontal, one vertical) specifies one of these squares.  Pick two arrows but don't take two from the top or two from the side.  Then <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Take <m>m</m> people in one group and <m>n</m> in another. How many handshakes can be accomplished? Among the <m>m</m> people there are <m>\binom{m}{2}</m> handshakes; among the <m>n</m> people there are <m>\binom{n}{2}</m> handshakes and between the two groups, <m>mn</m>. But, <m>\binom{m + n}{2}</m> also represents the total number of handshakes among the people. Then we get: <m>\binom{m}{2} + \binom{n}{2} + mn = \binom{m + n}{2}</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </proof>
+        </theorem>
+  </subsection>
+
+  <!-- <theorem xml:id="thm-prodprinc">
+    <title>The Product Principle</title>
+    <statement>
+      <p>
+        If event <m>A</m> can occur in <m>m</m> ways, and each possibility for <m>A</m> allows for exactly <m>n</m> ways for event <m>B</m>, then the event <q><m>A</m> and <m>B</m></q> can occur in <m>m \cdot n</m> ways.
+      </p>
+    </statement>
+  </theorem> -->
+<!--  Exercises!  -->
+
+
+
+</section>

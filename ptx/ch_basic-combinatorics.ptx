@@ -35,7 +35,7 @@ Before tackling questions like these, let's look at the basics of counting.
 </introduction>
 
 <xi:include href="sec_basic-pascal.ptx"/>
-<xi:include href="sec_basic-combproofs.ptx"/>
+<xi:include href="sec_basic-proofs.ptx"/>
 <xi:include href="sec_basic-quotient.ptx"/>
 <xi:include href="sec_basic-sequences.ptx"/>
 <xi:include href="sec_basic-catalan.ptx"/>
