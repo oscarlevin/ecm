@@ -292,8 +292,208 @@
       Any proof you write in mathematics must assume some foundational principles.  In Euclidean geometry, you have axioms, common notions, and often other propositions, used as justification in your proof.  Let's pause to consider two foundational principles in combinatorics that, while intuitively obvious, are worth pointing out as foundational.
     </p>
 
-    <!-- TODO: Add material here -->
+    <activity>
+      <task>
+        <p>A restaurant offers 8 appetizers and 14 entrées. How many choices do you have if:
+
+            <ol>
+              <li> you will eat one dish, either an appetizer or an entrée?
+              </li>
+              <li>
+                you are extra hungry and want to eat both an appetizer and an entrée?
+              </li>
+            </ol>
+          </p>
+        </task>
+
+          <task>
+            <p>Think about the methods you used to solve question 1. Write down the rules for these methods.</p>
+          </task>
+
+
+          <task>
+            <p>Do your rules work? A standard deck of playing cards has 26 red cards and 12 face cards.
+
+
+            <ol>
+              <li>
+                How many ways can you select a card which is either red or a face card?
+              </li>
+              <li>
+                How many ways can you select a card which is both red and a face card?
+              </li>
+              <li>
+                How many ways can you select two cards so that the first one is red and the second one is a face card?
+              </li>
+            </ol></p>
+          </task>
+    </activity>
+    
+    <p>
+      When solving a counting question, it is often advantageous to break the problem into parts.  If you think of the counting question as asking how many ways there are to complete a task, then you might break that task up in various ways, count the number of ways to complete each sub-task, and them combine those somehow to get the number of ways to complete the overall task.  How do you combine them?
+    </p>
+    
+    <assemblage>
+      <title>Sum Principle</title>
+      <p>
+        The
+        <term>sum principle</term><idx><h>sum principle</h></idx> states that if task <m>A</m> can be completed in <m>m</m> ways, and task <m>B</m> can be completed in <m>n</m>
+        <em>disjoint</em> ways, then completing <q><m>A</m> or <m>B</m></q> is a task that can be completed in <m>m + n</m> ways.
+      </p>
+    </assemblage>
+    
+    <assemblage>
+      <title>Product Principle</title>
+      <p>
+        The
+        <term>product principle</term><idx><h>product principle</h></idx> states that if task <m>A</m> can be completed in <m>m</m> ways, and each possibility for <m>A</m> allows for exactly <m>n</m> ways for task <m>B</m> to be completed, then the task <q><m>A</m> and <m>B</m></q> (or <q><m>A</m> followed by <m>B</m></q>) can be completed in <m>m \cdot n</m> ways.
+      </p>
+    </assemblage>
+    
+    <p>
+      Note, while both the sum and product principle are true for more than two subtasks, which you could prove easily by induction from the versions given above.  But how do we know these principles are true? 
+    </p>
+    
+    <p>
+      Consider the following propositions about sets.
+    </p>
+    
+    <proposition xml:id="prop-unioncard">
+      <statement>
+        <p>
+          If <m>A</m> and <m>B</m> are finite, disjoint sets (so <m>A \cap B = \emptyset</m>) then <m>\card{A \cup B} = \card{A} + \card{B}</m>.
+        </p>
+      </statement>
+    </proposition>
+    
+    <p>
+      Recall that <m>A \times B = \{(a,b) \st a \in A, b \in B\}</m> is the <term>Cartesian product</term> of <m>A</m> and <m>B</m>; the set of all ordered pairs where the first element comes from <m>A</m> and the second from <m>B</m>.
+    </p>
+    
+    <proposition xml:id="prop-prodcard">
+      <statement>
+        <p>
+          If <m>A</m> and <m>B</m> are finite sets, then <m>\card{A \times B} = \card{A} \cdot \card{B}</m>
+        </p>
+      </statement>
+    </proposition>
+    
+    <p>
+      These are propositions we could prove without too much trouble.  Then we must explain what they have to do with the sum and product principle.    
+    </p>
+    
+    <activity>
+      <task>
+        <statement>
+          <p>
+            Explain why <xref ref="prop-unioncard"/> is true. 
+          </p>
+        <statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            An incomplete deck of cards only has four face cards (the Jack, King and Queen of diamonds and the King of hearts) and five black cards (the 2 through 6 of spades).  A magician asks you to pick a card.  How many choices do you have?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How exactly does the counting question above relate to <xref ref="prop-unioncard"/>?  How exactly does it relate to the Sum Principle?  Illustrate both by listing specific outcomes.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Make explicit the connection between the Sum Principle and <xref ref="prop-unioncard"/>.  That is, justify the Sum Principle in terms of cardinality of sets.
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
+    <activity>
+      <task>
+        <statement>
+          <p>
+            Explain why <xref ref="prop-prodcard"/> is true.  Your explanation should make use of <xref ref="prop-unioncard"/>. 
+          </p>
+        <statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Using the same incomplete deck of cards (containing the Jack, King and Queen of diamonds, King of hearts, and 2 through 6 of spades), the magician asks you to put any face card face down under any face down black card.  How many choices do you have for this two card stack?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How exactly does the counting question above relate to <xref ref="prop-prodcard"/>?  How exactly does it relate to the Product Principle?  Illustrate both by listing specific outcomes.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Make explicit the connection between the Product Principle and <xref ref="prop-prodcard"/>.  That is, justify the Product Principle in terms of cardinality of sets.
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
+    <p>
+      The previous activity might obscure an important subtlety.  Perhaps you said that the set <m>A</m> corresponds to the face cards (or to the set of outcomes of the task of selecting a face card) and the set <m>B</m> corresponded to the black cards.  The set of outcomes of picking a two card stack is exactly then <m>A \times B</m>, so there are <m>4\cdot 5 = 20</m> outcomes.  This is completely correct.  But does it generalize?
+    </p>
+    
+    <activity xml:id="act-cardstacks">
+      <introduction>
+        <p>
+          Suppose the magician hands you 4 cards (the Ace, King, Queen, and Jack of clubs) and asks you to select any two cards (placing them face down in a stack).  How many choices do you have?  Assume the order the cards are placed down matters.
+        </p>
+      </introduction>
+      <task>
+        <p>
+          If you divide the task into two sub-tasks, what are they?  How many ways can you complete the first task?  How many ways can you complete the second?  What is the final answer?
+        </p>
+      </task>
+      <task>
+        <p>
+          If you think of this problem as counting a Cartesian product, what is set <m>A</m>?  What is set <m>B</m>?  What is wrong?
+        </p>
+      </task>
+    </activity>
+      
+    <p>
+      The Product Principle is not exactly analogous to finding the cardinality of a Cartesian product after all, in that tasks <m>A</m> and <m>B</m> do not need to be disjoint.  How do we make sense of the Product Principle then?
+    </p>
+      
+    <activity>
+      <task>
+        <p>
+          Write out all stacks of cards that are possible outcomes in <xref ref="act-cardstacks"/>.  Arrange these into a rectangle of appropriate dimensions.
+        </p>
+      </task>
+      <task>
+        <p>
+          How might you group the outcomes in a meaningful way?  How many groups and how many outcomes in each group?
+        </p>
+      </task>
+      <task>
+        <p>
+          Find some sets <m>A</m> and <m>B</m> and a bijection between the outcomes (stacks of 2 cards) and the set <m>A \times B</m>.  Describe how this would work in general.
+        </p>
+      </task>
+    </activity>
+      
+      
+      
+      
   </subsection>
+
+
 
   <subsection xml:id="subsec-moreproofs">
     <title>More Proofs</title>
@@ -691,7 +891,7 @@
           </solution>
         </activity>
 
-        <p>
+        <!-- <p>
           Here is one that you might have found in <xref ref="sec_basic-pascal"/>.
         </p>
 
@@ -710,7 +910,7 @@
             </p>
           </solution>
 
-        </activity>
+        </activity> 
 
 
 
@@ -718,6 +918,11 @@
           The reader should draw all paths of length <m>n = 5</m>, for example, and
           examine the cases with <m>i=0, 1, 2</m>. The reader could also explore other proofs.
         </p>
+      -->
+
+      <p>
+        To close this section, let's return to a binomial identity we considered before, and consider a few additional proofs.
+      </p>
 
         <theorem>
           <statement>
