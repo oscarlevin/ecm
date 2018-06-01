@@ -1,4 +1,4 @@
- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_basic-proofs">
   <title>Proofs in Combinatorics</title>
 
@@ -55,7 +55,7 @@
     <activity>
       <statement>
         <p>
-          First, an algebraic proof.  We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k}!)}</m>, where <m>n! = n \cdot (n-1) \cdot (n-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>n</m> factorial</q>).  Using this algebraic formula, prove the identity.
+          First, an algebraic proof.  We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k)!}</m>, where <m>n! = n \cdot (n-1) \cdot (n-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>n</m> factorial</q>).  Using this algebraic formula, prove the identity.
         </p>
       </statement>
       <hint>
@@ -193,7 +193,7 @@
     <activity xml:id="act-pascalrowsum-alg">
       <statement>
         <p>
-          We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k}!)}</m>, where <m>n! = n \cdot (n-1) \cdot (n-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>n</m> factorial</q>).  Using this algebraic formula, you should be able to find a common denominator in the sum <m>\sum_{k=0}^n \binom{n}{k}</m> and show that this simplifies to <m>2^n</m>.
+          We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k!)xs}</m>, where <m>n! = n \cdot (n-1) \cdot (n-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>n</m> factorial</q>).  Using this algebraic formula, you should be able to find a common denominator in the sum <m>\sum_{k=0}^n \binom{n}{k}</m> and show that this simplifies to <m>2^n</m>.
         </p>
       </statement>
       <hint>
@@ -307,32 +307,37 @@
         </task>
 
           <task>
-            <p>Think about the methods you used to solve question 1. Write down the rules for these methods.</p>
+            <p>Think about the methods you used to solve question (a). Write down the rules for these methods.</p>
           </task>
 
 
           <task>
             <p>Do your rules work? A standard deck of playing cards has 26 red cards and 12 face cards.
-
-
             <ol>
               <li>
-                How many ways can you select a card which is either red or a face card?
+                <p>
+                  How many ways can you select a card which is either red or a face card?
+                </p>
               </li>
               <li>
-                How many ways can you select a card which is both red and a face card?
+                <p>
+                  How many ways can you select a card which is both red and a face card?
+                </p>
               </li>
               <li>
-                How many ways can you select two cards so that the first one is red and the second one is a face card?
+                <p>
+                  How many ways can you select two cards so that the first one is red and the second one is a face card?
+                </p>
               </li>
-            </ol></p>
+            </ol>
+          </p>
           </task>
     </activity>
-    
+
     <p>
       When solving a counting question, it is often advantageous to break the problem into parts.  If you think of the counting question as asking how many ways there are to complete a task, then you might break that task up in various ways, count the number of ways to complete each sub-task, and them combine those somehow to get the number of ways to complete the overall task.  How do you combine them?
     </p>
-    
+
     <assemblage>
       <title>Sum Principle</title>
       <p>
@@ -341,7 +346,7 @@
         <em>disjoint</em> ways, then completing <q><m>A</m> or <m>B</m></q> is a task that can be completed in <m>m + n</m> ways.
       </p>
     </assemblage>
-    
+
     <assemblage>
       <title>Product Principle</title>
       <p>
@@ -349,15 +354,15 @@
         <term>product principle</term><idx><h>product principle</h></idx> states that if task <m>A</m> can be completed in <m>m</m> ways, and each possibility for <m>A</m> allows for exactly <m>n</m> ways for task <m>B</m> to be completed, then the task <q><m>A</m> and <m>B</m></q> (or <q><m>A</m> followed by <m>B</m></q>) can be completed in <m>m \cdot n</m> ways.
       </p>
     </assemblage>
-    
+
     <p>
-      Note, while both the sum and product principle are true for more than two subtasks, which you could prove easily by induction from the versions given above.  But how do we know these principles are true? 
+      Note, while both the sum and product principle are true for more than two subtasks, which you could prove easily by induction from the versions given above.  But how do we know these principles are true?
     </p>
-    
+
     <p>
-      Consider the following propositions about sets.
+      To make these principles more mathematically rigorous, consider operations on sets.
     </p>
-    
+
     <proposition xml:id="prop-unioncard">
       <statement>
         <p>
@@ -365,11 +370,14 @@
         </p>
       </statement>
     </proposition>
-    
+
     <p>
-      Recall that <m>A \times B = \{(a,b) \st a \in A, b \in B\}</m> is the <term>Cartesian product</term> of <m>A</m> and <m>B</m>; the set of all ordered pairs where the first element comes from <m>A</m> and the second from <m>B</m>.
+      This suggests that the union of (disjoint) sets somehow corresponds to the <em>disjunction</em> (or) of completing tasks.  You might guess that the set operation that corresponds to <em>conjunction</em> (and) of tasks is set intersection.  But this cannot be correct: the intersection of two sets is no larger than the smallest of the two sets, while combining tasks with conjunction apparently corresponds to multiplication.
     </p>
-    
+    <p>
+      A better way to think of the conjunction is as <em>concatination</em>.  You are performing one task, <em>followed</em> by the other.  Recall that <m>A \times B = \{(a,b) \st a \in A, b \in B\}</m> is the <term>Cartesian product</term> of <m>A</m> and <m>B</m>; the set of all ordered pairs where the first element comes from <m>A</m> and the second from <m>B</m>.  This is exactly what we need.
+    </p>
+
     <proposition xml:id="prop-prodcard">
       <statement>
         <p>
@@ -377,18 +385,18 @@
         </p>
       </statement>
     </proposition>
-    
+
     <p>
-      These are propositions we could prove without too much trouble.  Then we must explain what they have to do with the sum and product principle.    
+      We could prove these two propositions without too much trouble.  Then we must explain what they have to do with the sum and product principle.
     </p>
-    
+
     <activity>
       <task>
         <statement>
           <p>
-            Explain why <xref ref="prop-unioncard"/> is true. 
+            Explain why <xref ref="prop-unioncard"/> is true.
           </p>
-        <statement>
+        </statement>
       </task>
       <task>
         <statement>
@@ -412,14 +420,14 @@
         </statement>
       </task>
     </activity>
-    
+
     <activity>
       <task>
         <statement>
           <p>
-            Explain why <xref ref="prop-prodcard"/> is true.  Your explanation should make use of <xref ref="prop-unioncard"/>. 
+            Explain why <xref ref="prop-prodcard"/> is true.  Your explanation should make use of <xref ref="prop-unioncard"/>.
           </p>
-        <statement>
+        </statement>
       </task>
       <task>
         <statement>
@@ -443,11 +451,11 @@
         </statement>
       </task>
     </activity>
-    
+
     <p>
       The previous activity might obscure an important subtlety.  Perhaps you said that the set <m>A</m> corresponds to the face cards (or to the set of outcomes of the task of selecting a face card) and the set <m>B</m> corresponded to the black cards.  The set of outcomes of picking a two card stack is exactly then <m>A \times B</m>, so there are <m>4\cdot 5 = 20</m> outcomes.  This is completely correct.  But does it generalize?
     </p>
-    
+
     <activity xml:id="act-cardstacks">
       <introduction>
         <p>
@@ -465,11 +473,11 @@
         </p>
       </task>
     </activity>
-      
+
     <p>
-      The Product Principle is not exactly analogous to finding the cardinality of a Cartesian product after all, in that tasks <m>A</m> and <m>B</m> do not need to be disjoint.  How do we make sense of the Product Principle then?
+      The Product Principle is not exactly analogous to finding the cardinality of a Cartesian product after all, since tasks <m>A</m> and <m>B</m> do not need to be disjoint.  How do we make sense of the Product Principle then?
     </p>
-      
+
     <activity>
       <task>
         <p>
@@ -487,10 +495,307 @@
         </p>
       </task>
     </activity>
-      
-      
-      
-      
+
+    <p>
+      To illustrate just how fundamental these two principles are, here are a few counting problems that can be solved with them.  For each of these, say exactly where and how the sum and product principles are used.
+    </p>
+
+    <activity>
+      <introduction>
+        <p>
+          We have seen that the number of lattice paths from <m>(0,0)</m> to <m>(x,y)</m> is given by <m>\binom{x+y}{x}</m>.  Now with the sum and product principles, we can answer lots of questions about lattice paths.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            How many lattice paths from <m>(0,0)</m> to <m>(10,10)</m> pass through the point <m>(4,7)</m>?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Many students want this sort of question to be an example of the sum principle (presumably because to get an acceptable path you travel to <m>(4,7)</m> and then add on a path that gets you the rest of the way.  But notice that you are really concatinating two paths, and there are lots of choices for the first path and lots for the second.  This sounds more like an ordered pair.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many lattice paths from <m>(0,0)</m> to <m>(10,10)</m> do NOT pass through the point <m>(4,7)</m>?  In what way does this problem use the sum principle?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            If you knew the answer to this part and the previous part, what is another way you could compute the number of paths from <m>(0,0)</m> to <m>(10,10)</m>?
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many lattice paths from <m>(0,0)</m> to <m>(10,10)</m> pass through <m>(4,7)</m> or <m>(7,4)</m>?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Explain why can you NOT use the sum principle to answer this question: How many lattice paths from <m>(0,0)</m> to <m>(10,10)</m> pass through <m>(4,7)</m> or <m>(7,8)</m>?  What is the answer?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Compare to the question about how many playing cards are either red or a face card, and why the answer is not <m>26 + 12</m>.
+          </p>
+        </hint>
+      </task>
+    </activity>
+
+    <p>
+      The last part of the previous activity illustrates what can go wrong if the sets <m>A</m> and <m>B</m> are not disjoint.  In general, we have,
+      <me>
+        \card{A \cup B} = \card{A} + \card{B} - \card{A \cap B}.
+      </me>
+      This is an example of the <em>Principle of Inclusion/Exclusion</em>, which we will investigate further later.
+    </p>
+
+    <p>
+      This next set of questions you can answer entirely using the product principle.  While all the activities ask questions with a general <m>n</m> and <m>k</m>, it would be a good idea to first try to answer the corresponding question with specific numbers and then generalize.
+    </p>
+
+<!-- bogart: -->
+<activity xml:id="tennispairings1" category="interesting">
+    <introduction>
+        <p>
+    A tennis club has <m>2n</m> members. We want to pair up the
+    members by twos for singles matches.
+        </p>
+    </introduction>
+    <task>
+        <statement>
+            <p>
+      In how many ways may we pair up all the members of the club? (Hint: consider the cases
+        of 2, 4, and 6 members.)
+            </p>
+        </statement>
+      <hint>
+<p>
+Suppose you have a list in alphabetical order of names of the members of the
+club. In how many ways can you pair up the first person on the list? In how
+many ways can you pair up the next person who isn't already paired up?
+</p>
+</hint>
+      <solution>
+        <p>
+          Suppose we list the people in the club in some way, and keep that
+          list for the remainder of the problem. Take the first person from the list
+          and pair that person with any of the <m>2n-1</m> remaining people. Now take the
+          next <em>unpaired</em> person from the list and pair that person with any of the
+          remaining <m>2n-3</m> unpaired people. Continuing in this way, once <m>k</m> pairs have
+          been selected, take the next unpaired person from the list and pair that
+          person with any of the remaining <m>2n-2k-1</m> unpaired people. Every pairing
+          can arise in this way, and no pairing can arise twice in this process. Thus
+          the number of outcomes is <m>\prod_{i=0}^{n-1} 2n-2i-1</m>.
+        </p>
+      </solution>
+    </task>
+    <task>
+      <p>
+        Suppose that in addition to specifying who plays whom, for each
+          pairing we say who serves first.  Now in how many ways may we
+          specify our pairs?
+      </p>
+    </task>
+  </activity>
+
+  <!-- bogart: -->
+  <activity>
+    <statement>
+      <p>
+        A roller coaster car has <m>n</m> rows of seats, each of which
+        has room for two people. If <m>n</m> men and <m>n</m> women get into the car with a man and a woman in each row, in how many ways may they choose their seats?
+      </p>
+    </statement>
+    <hint>
+      <p>
+        In how many ways may you assign the men to their rows? The women? Once a woman and a man have a row to share, in how many ways may they choose their seats?
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        <m>(n!)^2 2^n</m>
+      </p>
+    </solution>
+  </activity>
+
+<!-- bogart -->
+  <activity>
+    <statement>
+      <p>
+        In how many ways can we pass out <m>k</m> distinct pieces of
+        fruit to
+        <m>n</m> children (with no restriction on how many pieces of fruit a child may
+        get)?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Either by the formula for the number of functions from an
+        <m>m</m>-element set to an <m>n</m>-element set or the general product principle, there
+        are <m>k^n</m> ways. (Each distribution is a function from the set of fruit to
+        the set of children, because each piece of fruit goes to one and only one
+        child.)
+      </p>
+    </solution>
+  </activity>
+
+
+  <activity xml:id="SubsetsFirstTime" category="essential">
+    <statement>
+      <p>
+        How many subsets does a set <m>S</m> with <m>n</m> elements have?
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Try applying the product principle in the case <m>n = 2</m> and <m>n = 3</m>. How might you apply it in general?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        For each of the <m>n</m> elements of <m>S</m>, we have two options:
+        either we put the element into the subset or we do not. Thus, the
+        general product principle tells us that there are <m>2^n</m> subsets of <m>S</m>.
+      </p>
+    </solution>
+  </activity>
+
+  <activity category="motivation">
+    <statement>
+      <p>
+        Assuming <m>k\le n</m>, in how many ways can we pass out <m>k</m>
+        distinct pieces of fruit to
+        <m>n</m> children if each child may get at most one? What is the number if
+        <m>k>n</m>? Assume for both questions that we pass out all the fruit.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Ask yourself if either the sum principle or product principle applies.
+      </p>
+    </hint>
+    <hint>
+      <p>
+        Remember that zero is a number.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        We are asking for the number of <m>k</m>-element permutations of <m>n</m>
+        children, which is <m>\prod_{i=1}^k n-i+1</m>, and is zero if <m>k>n</m>.
+      </p>
+    </solution>
+  </activity>
+
+    <p>
+      The last activity is an example of a <term>permutation</term>.  We are asking how to arrange <m>k</m> of the <m>n</m> kids (arranged by which fruit they get).  There are <m>n!</m> ways to arrange <m>n</m> elements, so there are <m>n!</m> permutations of <m>n</m> elements.  Often we only want to arrange some of these, so we would consider a <m>k</m>-permutation.   We will use this often enough that it deserves its own notation.
+    </p>
+
+    <assemblage xml:id="assemblage-permutation">
+      <title><m>k</m>-permutations of <m>n</m> elements</title>
+      <p>
+        <m>P(n,k)</m> is the number of <m>k</m>-permutations of <m>n</m> elements, the number of ways to <em>arrange</em> <m>k</m> objects chosen from <m>n</m> distinct objects.
+        <me>
+          P(n,k) = n\cdot (n-1) \cdot (n-2) \cdot \cdots \cdot (n-k+1) = \frac{n!}{(n-k)!}.
+        </me>
+
+      </p>
+    </assemblage>
+
+    <p>
+      Some other examples of questions where the answer is a permutation:
+      <ul>
+        <li>
+          <p>
+            How many 5-letter <q>words</q> (i.e., strings of symbols) contain no repeated letters?  There are 26 choices for the first letter, 25 for the second, 24 for the third, 23 for the fourth and 22 for the fifth, so there are <m>26\cdot 25 \cdot 24 \cdot 23 \cdot 22 = P(26,5)</m> such words.
+          </p>
+        </li>
+        <li>
+          <p>
+            How many different shuffled decks of cards are possible?  There are 52 choices for the bottom card, 51 for the next, and so on.  So the answer is <m>P(52,52) = 52!</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            How many <em>injective</em> functions from <m>[k]</m> to <m>[n]</m> are there?  There are <m>n</m> choices for where 1 is sent, <m>n-1</m> choices for where <m>2</m> is sent (since the function is injective, 2 cannot be sent to the same element as 1), and so on.  So the answer is <m>P(n,k)</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      While we are looking at permutations, let's also consider their counterpart, <em>combinations</em>. The key distinction is that while a permutation counts different arrangements as different outcomes, a combination does not.
+    </p>
+
+    <activity>
+      <introduction>
+        <p>
+          Suppose you have 17 books strewn around your room.  You decide you want to get organized.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            You decide to throw 10 books in the trash.  How many choices do you have for which books to get rid of?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            We are not necessarily looking for a numerical answer here, but you should be able to express the answer using notation we have developed already.  Or by using some sort of triangle.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <p>
+          You think twice about tossing your books, and you find a bookshelf that can hold 10 books.  How many ways can you fill the bookshelf?
+        </p>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many ways could you fill the 10 book bookshelf if the books were arranged alphabetically?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Should your answer be larger or smaller than if the books could be in any order?  How is this any different from throwing the books away?
+          </p>
+        </hint>
+      </task>
+    </activity>
+
+    <p>
+      Hopefully you realized that the number of <m>k</m>-combinations of <m>n</m> elements is just <m>\binom{n}{k}</m>.  This makes sense: you just need to choose which elements to take, you don't need to arrange them.
+    </p>
+
+    <p>
+      Notice though that combinations and permutations <em>are</em> related in some way.  What is that way?  Well, once you have chosen <m>k</m> elements from an <m>n</m>-element set, you could then <em>arrange</em> those <m>k</m> elements to get a permutation.
+    </p>
+
+    <activity>
+      <introduction>
+        <p>
+          
+        </p>
+      </introduction>
+      <task>
+        <p>
+          Explain why
+        </p>
+      </task>
+    </activity>
+
   </subsection>
 
 
@@ -808,7 +1113,7 @@
           </statement>
           <hint>
             <p>
-              Look back at <xref ref="act-act_anysizecommittee"/>.  This one is easier.
+              Look back at <xref ref="act_anysizecommittee"/>.  This one is easier.
             </p>
           </hint>
           <solution>
@@ -910,7 +1215,7 @@
             </p>
           </solution>
 
-        </activity> 
+        </activity>
 
 
 
