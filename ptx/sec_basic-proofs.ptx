@@ -55,7 +55,7 @@
     <activity>
       <statement>
         <p>
-          First, an algebraic proof.  We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k)!}</m>, where <m>n! = n \cdot (n-1) \cdot (n-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>n</m> factorial</q>).  Using this algebraic formula, prove the identity.
+          First, an algebraic proof.  We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k)!}</m>, where <m>r! = r \cdot (r-1) \cdot (r-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>r</m> factorial</q>).  Using this algebraic formula, prove the identity.
         </p>
       </statement>
       <hint>
@@ -193,7 +193,7 @@
     <activity xml:id="act-pascalrowsum-alg">
       <statement>
         <p>
-          We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k!)xs}</m>, where <m>n! = n \cdot (n-1) \cdot (n-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>n</m> factorial</q>).  Using this algebraic formula, you should be able to find a common denominator in the sum <m>\sum_{k=0}^n \binom{n}{k}</m> and show that this simplifies to <m>2^n</m>.
+          Using the formula <m>\binom{n}{k} = \frac{n!}{k!(n-k!)}</m>, you should be able to find a common denominator in the sum <m>\sum_{k=0}^n \binom{n}{k}</m> and show that this simplifies to <m>2^n</m>.
         </p>
       </statement>
       <hint>
@@ -244,12 +244,12 @@
           <p>
             Explain why the answer is also <m>2^n</m>.
           </p>
-          <hint>
-            <p>
-              Think about how many choices you have for each element.  You could put 1 in the subset or not.  You could include <m>2</m> in the subset or not.
-            </p>
-          </hint>
         </statement>
+        <hint>
+          <p>
+            Think about how many choices you have for each element.  You could put 1 in the subset or not.  You could include <m>2</m> in the subset or not.
+          </p>
+        </hint>
       </task>
       <conclusion>
         <p>
@@ -741,7 +741,7 @@ many ways can you pair up the next person who isn't already paired up?
     <activity>
       <introduction>
         <p>
-          Suppose you have 17 books strewn around your room.  You decide you want to get organized.
+          Suppose you have 17 books strewn around your room.  You resolve to get organized.
         </p>
       </introduction>
       <task>
@@ -786,15 +786,51 @@ many ways can you pair up the next person who isn't already paired up?
     <activity>
       <introduction>
         <p>
-          
+          How many 5-letter words can be made with distinct letters?
         </p>
       </introduction>
       <task>
         <p>
-          Explain why
+          Explain why the answer is <m>P(26,5)</m>.
         </p>
       </task>
+      <task>
+        <p>
+          Explain why the answer is also <m>\binom{26}{5}\cdot 5!</m>.
+        </p>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Express <m>P(26,5)</m> as the quotient of two factorials.  Use this to find a numerical value for <m>\binom{26,5}</m>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            You have <m>P(26,5) = \binom{26}{5}\cdot 5!</m>.  You know that <m>P(26,5) = \frac{26!}{21!}</m>, so you should be able to easily <q>solve</q> for <m>\binom{26}{5}</m>.
+          </p>
+        </hint>
+      </task>
     </activity>
+
+    <p>
+      There is nothing special about 26 and 5 in the above activity.  
+    </p>
+    
+    <activity>
+      <statement>
+        <p>
+          Give a combinatorial proof for the identity <m>P(n,k) = \binom{n}{k}\cdot k!</m>.
+        </p>
+        <p>
+          Conclude that <me>\binom{n}{k} = \frac{n!}{(n-k)!\cdot k!}</me>.
+        </p>
+      </statement>
+    </activity>
+
+    <p>
+      Notice that the only thing we needed to find the algebraic formula for binomial coefficients was the product principle and a willingness to solve a counting problem in two ways.  In <xref ref="sec_basic-quotient"/> we will consider this formula again from the other direction.
+    </p>
 
   </subsection>
 

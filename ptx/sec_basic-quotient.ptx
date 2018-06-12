@@ -2,11 +2,17 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_basic-quotient">
   <title>The Quotient Principle: Counting under Equivalence</title>
 
+<introduction>
+  <!-- Here we will discuss the relationship between combinations and permutations from an advanced mathematical perspective: we are counting equivalence classes.  We will then consider some other examples of this and some non-examples (why you cannot always do this). -->
 
 <p>
-  Here we will discuss the relationship between combinations and permutations from an advanced mathematical perspective: we are counting equivalence classes.  We will then consider some other examples of this and some non-examples (why you cannot always do this).
+  So far we have been able to solve our counting problems simply by use of the sum and product principles, together with the fact that the number of <m>k</m>-element subsets of an <m>n</m>-element set is <m>\binom{n}{k}</m> (the values of which can be found in Pascal's triangle). This means that we have always <em>built up</em> the set of outcomes by combining smaller sets of outcomes combined in various ways.
 </p>
 
+<p>
+  It is often useful to go the other way.  We could purposely over count the number of outcomes, but in a way that we can recover the correct set. 
+</p>
+</introduction>
 
 
  <!-- <xi:include href="exercises/basic-quotient.ptx"/> -->
