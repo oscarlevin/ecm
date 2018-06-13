@@ -814,10 +814,10 @@ many ways can you pair up the next person who isn't already paired up?
     </activity>
 
     <p>
-      There is nothing special about 26 and 5 in the above activity.  
+      There is nothing special about 26 and 5 in the above activity.
     </p>
-    
-    <activity>
+
+    <activity xml:id="act-binomformula">
       <statement>
         <p>
           Give a combinatorial proof for the identity <m>P(n,k) = \binom{n}{k}\cdot k!</m>.
