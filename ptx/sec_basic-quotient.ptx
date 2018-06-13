@@ -303,9 +303,14 @@
       </p>
 
       <p>
-        Describe a set of outcomes that has size <m>n!</m> that can be partitioned into blocks of size <m>(n-k)!k!</m> so that each block corrsponds to something <m>\binom{n}{k}</m> counts.
+        Describe a set of outcomes that has size <m>n!</m> that can be partitioned into blocks of size <m>(n-k)!k!</m> so that each block corresponds to something <m>\binom{n}{k}</m> counts.
       </p>
     </statement>
+    <hint>
+      <p>
+        You might try the next problem first to get an idea.
+      </p>
+    </hint>
     <hint>
       <p>
         One thing that <m>\binom{n}{k}</m> counts is all bit stings of length <m>n</m> and weight <m>k</m>.  What if instead of bit strings, we wanted all strings made up out of some number of distinct symbols that come in two types?  How can you make this be counted by <m>n!</m>?
@@ -313,8 +318,165 @@
     </hint>
   </activity>
 
+  <activity>
+    <statement>
+      <p>
+        How many anagrams of the word <q>anagram</q> are there? (An anagram is a rearrangement of <em>all</em> of the letters of a word.)
+      </p>
+    </statement>
+    <hint>
+      <p>
+        A much easier question would be, how many anagrams of the word <q>anbgrcm</q>?  Then use the quotient principle.
+      </p>
+    </hint>
+  </activity>
 
 </subsection>
+
+<subsection xml:id="subsec-ordermatters">
+  <title>When does Order Matter?</title>
+
+  <p>
+    One way to distinguish combinations from permutations is by asking whether <q>order matters</q>.  Both <m>\binom{n}{k}</m> and <m>P(n,k)</m> count the number of ways to select <m>k</m> objects from <m>n</m> objects without repeats, but you use the combination <m>\binom{n}{k}</m> when <q>order doesn't matter</q> and the permutation <m>P(n,k)</m> when <q>order matters</q>.  Despite the presence of the scare quotes, this is not a false statement, but we must understand what we mean when we say <q>order matters</q>.
+  </p>
+
+  <activity>
+    <introduction>
+      <p>
+        Each counting question below asks for two answers.  Decide which answer is a combination and which is a permutation, and why that makes sense.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          An ice-cream shop offers 31 flavors.  How many 3-scoop ice-cream cones are possible, assuming each scoop must be a different flavor?  How many 3-scoop milkshakes are possible, assuming each scoop must be a different flavor?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          This is not intended to be a trick question.  In fact, this example would be a good for thinking about how permutations and combinations are related in general.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          How many 5-digit numbers are there with distinct, non-zero digits for which the digits must be increasing?  How many are there for which the digits can come in any order?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The point of this question is to push back against your conception of what <q>order matters</q> means.  Since you know the answers must be <m>\binom{9}{5}</m> or <m>P(9,5)</m>, you should be able to answer correctly by deciding which set is bigger.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          How many injective functions <m>f:[k] \to [n]</m> are there all   together?  How many injective functions <m>f:[k] \to [n]</m> are there that are (strictly) increasing?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          You might as well assume that <m>k \le n</m> (otherwise the answers would both be 0).  If you are stuck, write out some examples of each using two-line notation for the functions.  What decisions do you need to make?
+        </p>
+      </hint>
+    </task>
+  </activity>
+
+  <activity>
+    <statement>
+      <p>
+        The number of <m>n</m>-bit strings of weight <m>k</m> is <m>\binom{n}{k}</m>, so a combination.  But in determining one bit string from another, all that matters is the order in which the <m>k</m> 1's and <m>n-k</m> 0's appear.  So does order matter?  In what sense does it not?
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Think about what <m>P(n,k)</m> would count when building a bit string.  Why does it make sense to quotient out by <m>k!</m>?
+      </p>
+    </hint>
+  </activity>
+
+  <activity>
+    <statement>
+      <p>
+        Write a clear sentence or two saying specifically what we mean when we say <q>order matters</q> to distinguish between combinations and permutations.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        They key here is to think about the set of outcomes that we are counting.  Ask yourself, the order of what?
+      </p>
+    </hint>
+  </activity>
+
+  <p>
+    Understanding the role of order in distinguishing outcomes often suggests the use of the quotien principle.  You might say we arive at combinations by counting permutations and modding out by the order.  Each block that corresponds to a single combination is a group of permutations that are only different because of their order.  Let's see if we can apply this to other counting questions.
+  </p>
+
+  <activity>
+    <introduction>
+      The ice cream shop is down to only 3 flavors.  If you wanted a 3-scoop cone or a 3-scoop shake, made without repeated flavors, there would only be 6 cones possible and only 1 shake.  But what if you allowed repeated flavors?
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          How many 3-scoop cones are possible?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          You should be able to use the multiplicative principle and nothing else here.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          How many 3-scoop shakes are there?  Write all of them down.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Maybe the flavors are chocolate, vanilla, and strawberry.  Some of the outcomes are <m>ccv</m> and <m>csv</m>, but notice that we would not also include <m>cvc</m> or <m>vcs</m> because in the blender, order doesn't matter.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Why doesn't the quotient principle apply here?  What goes wrong?  You might want to list out all 3-scoop cones and form the equivalence classes of shakes to see the issue.
+        </p>
+      </statement>
+    </task>
+  </activity>
+
+  <p>
+    The previous activity illustrates that you cannot always simply apply the quotient principle to eliminate order mattering.  What we are after in the 3-scoop shakes with possibly repeated flavors is a <term>multiset</term>, which is just like a set only we allow for elements to be in the set multiple times, but we still do not care in what order the elements are listed.  So an example of an <m>4</m>-element multiset of <m>[7]</m> is <m>\{1,3,3,6\}</m>, which is the same multiset as <m>\{1,6,3,3\}</m> but different from the multiset <m>\{1,3,6\}</m> (in particular, this multiset only has three elements).
+  </p>
+
+  <p>
+    What we tried to do above was to count multisets by first counting sequences with possibly repeated elements, and then divide out by the number of sequences that just differ by the arrangement of a particular multiset.  But this didn't work, because the size of each block was not the same.
+  </p>
+
+  <p>
+    However, we would still like to be able to count the number of multisets.  How can we do this?  Is it an application of the quotient principle after all?  To start, let's establish some notation.  The number of <m>k</m>-element subsets of <m>[n]</m> was given by <m>n</m> choose <m>k</m> (written <m>\binom{n}{k}</m>), so we will say that the number of <m>k</m>-element <em>multisets</em> of <m>[n]</m> will be <term><m>n</m> multichoose <m>k</m></term>, and write <m>\mchoose{n}{k}</m>.  From what we have seen above, we can say,
+    <me>
+      \mchoose{n}{k} \ne \frac{n^k}{k!}
+    </me>
+    despite the obvious allure of this possibility.
+  </p>
+
+  <p>
+    Our question now is, what <em>should</em> be in the numerator if not <m>n^k</m>?  First let's get more comfortable with thinking of multisets as a model for counting questions.
+  </p>
+
+  <activity>
+    <!-- TODO: write a problem about applications of multichoose.  Then write one introducing the other way of thinking about it.  -->
+  </activity>
+
+</subsection>
+
 
  <!-- <xi:include href="exercises/basic-quotient.ptx"/> -->
 
