@@ -472,9 +472,228 @@
   </p>
 
   <activity>
-    <!-- TODO: write a problem about applications of multichoose.  Then write one introducing the other way of thinking about it.  -->
+    <introduction>
+      <p>
+        Explain why each of the following counting problems have an answer in the form <m>\mchoose{n}{k}</m> (say what <m>n</m> and <m>k</m> should be).  That is, show how each of them is counting the number of <m>k</m>-element multisets of <m>[n]</m> (or a different set of size <m>n</m>).
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          If you have an unlimited supply of pennies, nickles, dimes and quarters, how many handfuls of 7 coins can you grab?
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          You roll 10 regular 6-sided dice (because you enjoy playing two games of Yahtzee at once).  Assuming the dice are indistinguishable, how many different outcomes are possible?
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          How many functions <m>f:[5] \to [7]</m> are non-decreasing?  For example, one such function is <m>f = \twoline{1 \amp 2 \amp 3 \amp 4 \amp 5}{2 \amp 5 \amp 5 \amp 6 \amp 7}</m>.
+        </p>
+      </statement>
+    </task>
   </activity>
 
+  <activity xml:id="act-distributionintro">
+    <introduction>
+      <p>
+        Explain why each of the following counting problems are also answered in the form <m>\mchoose{n}{k}</m> (and say what <m>n</m> and <m>k</m> are).  You should be able to explain why all of these are equivalent to each other, and then find a bijection from any of them to the set of <m>k</m>-element multisets of <m>[n]</m>.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          How many non-negative integer solutions are there to the equation <m>x_1 + x_2 + x_3 + x_4 = 10</m>?
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          How many ways are there to distribute 7 identical cookies to 5 kids? Some kids might not get any cookies, but you should distribute all 7 cookies.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          How many ways can you put 10 identical books on the 4 shelves of a bookcase?  Assume each shelf could hold up to 10 books, and that all the books are always shoved all the way to the left (so we are not worried about where the books are on an individual shelf, just which shelf they go on). 
+        </p>
+      </statement>
+    </task>
+  </activity>
+
+  <p>
+    The problems in <xref ref="act-distributionintro"/> are sometimes referred to as <q>distribution problems</q>, since we are asking for the number of ways to distribute some objects to some recipients.   This is a useful model for the other counting techniques we have seen as well.  For example, a permutation <m>P(n,k)</m> gives the number of ways to distribute <m>n</m> distinct objects to <m>k</m> distinct recipients, so that each recipient gets exactly one object.    
+  </p>
+
+  <p>
+    The claim implicit in <xref ref="act-distributionintro"/> is that the number of ways to distribute <m>n</m> identical objects to <m>k</m> distinct recipients (now allowing each recipient to recieve any number of objects, including zero) is <m>\mchoose{n}{k}</m>.  If this is the case, then we should be able to think of the set of <m>k</m>-element multisets of <m>[n]</m> as a distribution.  
+  </p>
+  
+  <activity>
+    <statement>
+      <p>
+        Consider <m>3</m>-element multisets of <m>[5]</m>.  One of these is <m>\{1,1,1\}</m>, and another is <m>\{2,4,5\}</m>.  How are these two multisets like distributing three objects among 5 recipients?  What are the objects that you are distributing?
+      </p>
+    </statement>
+  </activity>
+
+  <p>
+    Now let's consider a related distribution problem, where in some way, order now matters.  In fact, how is it that saying the distribution problems as in <xref ref="act-distributionintro"/> are ones for which order doesn't matter?  Look back at our standard example of order mattering or not:
+  </p>
+  
+  <activity>
+    <task>
+      <statement>
+        <p>
+          If <m>P(n,k)</m> counts the number of ways to distribute <m>n</m> distinct objects to <m>k</m> distinct recipients in which each recipient receives exactly one object (do you see why this is?), then what distribution does <m>\binom{n}{k}</m> count?  Explain what is playing the roll of <q>order mattering</q> in a distribution problem.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          We claim that counting the number of ways to distribute <m>n</m> identical books to <m>k</m> distinct shelves is counted by <m>\mchoose{n}{k}</m>, and this is a situation in which order does not matter (since we are counting multisets).  What would the distribution question be if order did matter?  Explain why the answer to that question is NOT <m>n^k</m>.
+        </p>
+      </statement>
+    </task>
+  </activity>
+  
+  <activity xml:id="bookcase" category="essential and interesting">
+      <introduction>
+          <p> Suppose we wish to place <m>k</m> distinct books onto the shelves
+        of a bookcase with <m>n</m> shelves. For simplicity, assume for now
+        that all of the books would fit on any of the shelves. Also, let's
+        imagine pushing the books on a shelf as far to the left as we can, so
+        that we are only thinking about how the books sit relative to each
+        other, not about the exact places where we put the books. Since the
+        books are distinct, we can think of a the first book, the second book
+        and so on. </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>How many places are there where we can place the first book? </p>
+        </statement>
+        <solution>
+          <p>
+            There are <m>n</m> places where we can place the first book.
+          </p>
+        </solution>
+
+      </task>
+
+      <task>
+        <statement>
+          <p>When we place the second book, if we decide to place it on the shelf that already has a book, does it matter if we place it to the left or right of the book that is already there?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Yes.
+          </p>
+        </solution>
+      </task>
+
+
+      <task>
+        <statement>
+          <p>
+            How many places are there where we can place the second book?
+          </p>
+        </statement>
+        <hint>
+          <p>
+        If you decide to put it on a shelf that already has a book, you have
+        two choices of where to put it on that shelf.
+          </p>
+        </hint>
+        <solution>
+          <p>
+            Once we have placed it, there are <m>n+1</m> places where we can
+            place the second book, because on the shelf that has one book, we
+            could put the second book to the left or to the right of the book
+            already there.
+          </p>
+        </solution>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Once we have <m>i-1</m> books placed, if we want to place book <m>i</m>  on a shelf that already has some books, is sliding it in to the left of all the books already there different from placing it to the right of all the books already or between two books already there?
+
+          </p>
+        </statement>
+        <solution>
+          <p>
+            All of these are different.
+          </p>
+        </solution>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            In how many ways may we place the <m>i</m>th book into the bookcase?
+          </p>
+        </statement>
+        <hint>
+          <p>
+        Among all the places you could put books, on all the shelves, how many are to the immediate left of some book? How many other places are there?
+          </p>
+        </hint>
+        <solution>
+          <p>
+            Once we have <m>i-1</m> books on the shelves the <m>i</m>th book could go on any shelf to the left of all books there, if any, giving us <m>n</m> places, or it could go to the immediate right of any book already there, giving us another <m>i-1</m> places. Thus there are <m>n+i-1</m> places where we could place book  <m>i</m>.
+          </p>
+        </solution>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            In how many ways may we place all the books?
+
+          </p>
+        </statement>
+        <solution>
+          <p>
+            From this, we can see that the number of ways to place all the books is
+            <me>
+              \prod_{i=1}^k (n+i-1).
+            </me>
+          </p>
+        </solution>
+      </task>
+
+    </activity>
+
+    <p>
+      The assignment of which books go to which shelves of a bookcase is simply a function from the books to the shelves. But a function doesn't determine which book sits to the left of which others on the shelf, and this information is part of how the books are arranged on the shelves. In other words, the order in which the shelves receive their books matters.  Our function must thus assign an ordered list of books to each shelf. We will call such a function an ordered function.
+      More precisely, an <term>ordered function</term><idx><h>ordered function</h></idx><idx><h>function</h><h>ordered</h></idx> from a set <m>S</m> to a set <m>T</m> is a function that assigns an (ordered) list of elements of <m>S</m> to some, but not necessarily all, elements of <m>T</m> in such a way that each element of <m>S</m> appears on one and only one of the lists.<fn>The phrase ordered function is not a standard one, because there is as yet no standard name for the result of an ordered distribution problem.</fn>
+    </p>
+
+    <theorem>
+      <statement>
+        <p>
+          The number of ordered functions from a <m>k</m>-element set to
+          an <m>n</m>-element set is
+          <me>
+            \prod_{i=1}^k (n+i-1) = \frac{(n+k-1)!}{(n-1)!} = P(n+k-1, k).
+          </me>
+        </p>
+      </statement>
+    </theorem>
+
+
+    <!-- TODO: now show how to use the quotient principle to find a formula for <m>\mchoose{n}{k}</m> -->
 </subsection>
 
 
