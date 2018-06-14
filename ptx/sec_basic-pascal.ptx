@@ -178,7 +178,7 @@
   <activity>
     <introduction>
       <p>
-        Recall that a <term>subset</term> <m>A</m> of a set <m>B</m> is a set all of whose elements are also elements of <m>B</m>; we write <m>a \subseteq B</m>.  For example, some of the subsets of <m>B = \{1,2,3,4,5\}</m> are <m>\{2,4,5\}</m>, <m>\{1,2,3,4,5\}</m> and <m>\emptyset</m>.  Recall also that the <term>cardinality</term> of a set is simply the number of elements in it.
+        Recall that a <term>subset</term> <m>A</m> of a set <m>B</m> is a set all of whose elements are also elements of <m>B</m>; we write <m>A \subseteq B</m>.  For example, some of the subsets of <m>B = \{1,2,3,4,5\}</m> are <m>\{2,4,5\}</m>, <m>\{1,2,3,4,5\}</m> and <m>\emptyset</m>.  Recall also that the <term>cardinality</term> of a set is simply the number of elements in it.
       </p>
       
       <p>
@@ -327,7 +327,7 @@
     </task>
     <task>
       <p>
-        What if <m>f:X \to Y</m> is <em>surjectiv</em> (i.e., onto)?  Now what can you say about <m>Y</m>?
+        What if <m>f:X \to Y</m> is <em>surjective</em> (i.e., onto)?  Now what can you say about <m>Y</m>?
       </p>
     </task>
     <task>
@@ -459,7 +459,7 @@
       </assemblage>
 
       <p>
-        The last piece of the puzzle is to connect this definition to all the others.  Of course givent he work done above, it would be enough to prove that any one of the models for binomial coefficients match the recurrence for Pascal's triangle, but it is instructive to check all four.
+        The last piece of the puzzle is to connect this definition to all the others.  Of course given the work done above, it would be enough to prove that any one of the models for binomial coefficients match the recurrence for Pascal's triangle, but it is instructive to check all four.
       </p>
 
       <activity>

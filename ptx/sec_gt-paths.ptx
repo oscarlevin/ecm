@@ -200,7 +200,7 @@ Since the bridges of Königsberg graph has all four vertices with odd degree, th
   </p>
 
   <p>
-    PUT MATERIAL FROM STATEMENTS SECTION HERE, AS WELL AS DIRECT AND CONTRAPOSITIVE PROOFS. NECESSARY AND SUFFICEINT CONDITIONS.
+    PUT MATERIAL FROM STATEMENTS SECTION HERE, AS WELL AS DIRECT AND CONTRAPOSITIVE PROOFS. NECESSARY AND SUFFICIENT CONDITIONS.
   </p>
 </subsection>
 <subsection>
@@ -212,7 +212,7 @@ Since the bridges of Königsberg graph has all four vertices with odd degree, th
 <subsection>
 <title>Hamilton Paths</title>
 <p>
-Suppose you wanted to tour Königsberg in such a way where you visit each land mass (the two islands and both banks) exactly once. This can be done. In graph theory terms, we are asking whether there is a path which visits every vertex exactly once. Such a path is called a <term>Hamilton path</term> (or <term>Hamiltonian path</term>)<idx><h>Hamilton path</h></idx>.  We could also consider <term>Hamilton cycles</term>, which are Hamliton paths which start and stop at the same vertex.
+Suppose you wanted to tour Königsberg in such a way where you visit each land mass (the two islands and both banks) exactly once. This can be done. In graph theory terms, we are asking whether there is a path which visits every vertex exactly once. Such a path is called a <term>Hamilton path</term> (or <term>Hamiltonian path</term>)<idx><h>Hamilton path</h></idx>.  We could also consider <term>Hamilton cycles</term>, which are Hamilton paths which start and stop at the same vertex.
 </p>
 
 <example>
@@ -282,7 +282,7 @@ Suppose you wanted to tour Königsberg in such a way where you visit each land m
 
 
 <p>
-It appears that finding Hamilton paths would be easier because graphs often have more edges than vertices, so there are fewer requirements to be met. However, nobody knows whether this is true. There is no known simple test for whether a graph has a Hamilton path. For small graphs this is not a problem, but as the size of the graph grows, it gets harder and harder to check wither there is a Hamilton path. In fact, this is an example of a question which as far as we know is too difficult for computers to solve; it is an example of a problem which is NP-complete<idx><h>NP-complete</h></idx>.
+It appears that finding Hamilton paths would be easier because graphs often have more edges than vertices, so there are fewer requirements to be met. However, nobody knows whether this is true. There is no known simple test for whether a graph has a Hamilton path. For small graphs this is not a problem, but as the size of the graph grows, it gets harder and harder to check whether there is a Hamilton path. In fact, this is an example of a question which as far as we know is too difficult for computers to solve; it is an example of a problem which is NP-complete<idx><h>NP-complete</h></idx>.
 </p>
 
 </subsection>

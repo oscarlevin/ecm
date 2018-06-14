@@ -291,7 +291,7 @@ The chromatic number of a graph <m>G</m> is at least the clique number of <m>G</
 </theorem>
 
 <p>
-There are times when the chromatic number of <m>G</m> is <em>equal</em> to the clique number. These graphs have a special name; they are called <term>perfect</term><idx><h>perfect graph</h></idx>. If you know that a graph is perfect, then finding the chromatic number is simply a matter of searching for the largest clique.<fn>There are special classes of graphs which can be proved to be perfect.  One such class is the set of <term>chordal</term> graphs, which have the property that every cycle in the graph contains a <term>chord</term><mdash/>an edge between two vertices in of the cycle which are not adjacent in the cycle.</fn> However, not all graphs are perfect.
+There are times when the chromatic number of <m>G</m> is <em>equal</em> to the clique number. These graphs have a special name; they are called <term>perfect</term><idx><h>perfect graph</h></idx>. If you know that a graph is perfect, then finding the chromatic number is simply a matter of searching for the largest clique.<fn>There are special classes of graphs which can be proved to be perfect.  One such class is the set of <term>chordal</term> graphs, which have the property that every cycle in the graph contains a <term>chord</term><mdash/>an edge between two vertices of the cycle which are not adjacent in the cycle.</fn> However, not all graphs are perfect.
 </p>
 
 <p>

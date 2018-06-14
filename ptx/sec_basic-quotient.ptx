@@ -55,7 +55,7 @@
   </activity>
 
   <p>
-    Let's look carefully at what we did above.  We had a set of permutations (all 60 of the 3-permutations of the set <m>\{a,b,c,d,e\}</m>).  Then we noticed that some of these permutations corresponded the the same subset.  Saying that these permutations were related like this feels like defininig a equivalence relation.
+    Let's look carefully at what we did above.  We had a set of permutations (all 60 of the 3-permutations of the set <m>\{a,b,c,d,e\}</m>).  Then we noticed that some of these permutations corresponded the the same subset.  Saying that these permutations were related like this feels like defining a equivalence relation.
   </p>
 
   <activity>
@@ -105,7 +105,7 @@
   </p>
 
   <p>
-    Look at the notation <m>T/\sim</m> that we used to denote the set of equivalence classes of <m>T</m> under <m>\sim</m>.  This set is sometimes callet the <term>quotient set</term> or <term>quotient space</term> of <m>T</m> by <m>\sim</m>.  This is a good name, as you are dividing up a set into parts.  It is also a good name because sometimes we can conclude
+    Look at the notation <m>T/\sim</m> that we used to denote the set of equivalence classes of <m>T</m> under <m>\sim</m>.  This set is sometimes called the <term>quotient set</term> or <term>quotient space</term> of <m>T</m> by <m>\sim</m>.  This is a good name, as you are dividing up a set into parts.  It is also a good name because sometimes we can conclude
     <me>
       |T/\sim| = |T|/|A|
     </me>
@@ -193,7 +193,7 @@
     </hint>
     <hint>
         <p>
-      When we cut the necklace and string it out on a table, there are 2n lists of beads we could get. Why is it <m>2n</m> rather than <m>n</m>?
+      When we cut the necklace and string it out on a table, there are <m>2n</m> lists of beads we could get. Why is it <m>2n</m> rather than <m>n</m>?
         </p>
     </hint>
     <solution>
@@ -260,7 +260,7 @@
      </hint>
     <solution>
       <p>
-        Choose people in ordered piars.  The first person in an ordered pair serves first.  There are <m>2n(2n-1)</m> ways to choose one pair, <m>(2n-2)(2n-3)</m> ways to choose a second pair, and once <m>k</m> pairs have been chosen, there are <m>(2n-2k)(2n-2k-1)</m> ways to choose the next pair.  The number of <em>lists</em> o pairs we get in this way is <m>\prod_{i=0}^{n-1} (2n-2i)(2n-2i-1) = (2n)!</m>.
+        Choose people in ordered pairs.  The first person in an ordered pair serves first.  There are <m>2n(2n-1)</m> ways to choose one pair, <m>(2n-2)(2n-3)</m> ways to choose a second pair, and once <m>k</m> pairs have been chosen, there are <m>(2n-2k)(2n-2k-1)</m> ways to choose the next pair.  The number of <em>lists</em> o pairs we get in this way is <m>\prod_{i=0}^{n-1} (2n-2i)(2n-2i-1) = (2n)!</m>.
         However, each way of pairing people gets listed <m>n!</m> times since we see all possible length <m>n</m> lists of pairs.  Therefore the number of actual pairings is <m>\frac{(2n)!}{n!} = (2n)^{\underline{n}}</m>.
       </p>
 
@@ -411,7 +411,7 @@
   </activity>
 
   <p>
-    Understanding the role of order in distinguishing outcomes often suggests the use of the quotien principle.  You might say we arive at combinations by counting permutations and modding out by the order.  Each block that corresponds to a single combination is a group of permutations that are only different because of their order.  Let's see if we can apply this to other counting questions.
+    Understanding the role of order in distinguishing outcomes often suggests the use of the quotient principle.  You might say we arrive at combinations by counting permutations and modding out by the order.  Each block that corresponds to a single combination is a group of permutations that are only different because of their order.  Let's see if we can apply this to other counting questions.
   </p>
 
   <activity>
@@ -534,7 +534,7 @@
   </p>
 
   <p>
-    The claim implicit in <xref ref="act-distributionintro"/> is that the number of ways to distribute <m>n</m> identical objects to <m>k</m> distinct recipients (now allowing each recipient to recieve any number of objects, including zero) is <m>\mchoose{n}{k}</m>.  If this is the case, then we should be able to think of the set of <m>k</m>-element multisets of <m>[n]</m> as a distribution.  
+    The claim implicit in <xref ref="act-distributionintro"/> is that the number of ways to distribute <m>n</m> identical objects to <m>k</m> distinct recipients (now allowing each recipient to receive any number of objects, including zero) is <m>\mchoose{n}{k}</m>.  If this is the case, then we should be able to think of the set of <m>k</m>-element multisets of <m>[n]</m> as a distribution.  
   </p>
   
   <activity>
@@ -820,7 +820,7 @@
 </activity>
   
   <p>
-    The previousl activity is an example of what we might call an <term>ordered surjection</term>.  As for ordered functions, we can apply the quotient principle to count distributions where the objects being distributed are no longer distinct.
+    The previous activity is an example of what we might call an <term>ordered surjection</term>.  As for ordered functions, we can apply the quotient principle to count distributions where the objects being distributed are no longer distinct.
   </p>
   
   
@@ -833,7 +833,7 @@
   </statement>
   <hint>
     <p>
-  We already know how to place k distinct books onto n distinct shelves so
+  We already know how to place <m>k</m> distinct books onto <m>n</m> distinct shelves so
   that each shelf gets at least one. Suppose we replace the distinct books
   with identical ones. If we permute the distinct books before replacement,
   does that affect the final outcome? There are other ways to solve this problem.
@@ -843,7 +843,7 @@
     <p>
       In <xref ref="bookcaseeveryshelf">problem</xref> we showed that with
       <m>k</m> distinct books we could place the books in
-      <m>k!\binom{k-1}{n-1}</m> ways. We can partition these arangements of
+      <m>k!\binom{k-1}{n-1}</m> ways. We can partition these arrangements of
       distinct books into blocks, where each block consists of all
       arrangements that we get just by permuting the books among themselves.
       Thus each block has <m>k!</m> arrangements in it, and each arrangement
@@ -905,7 +905,7 @@
 </activity>
   
   <p>
-    So far, we have only considered distribution problems in which the recipients are distinct.  There are plenty of situtions where we would want to consider recipients identical.  For example, a problem we will take up in <xref ref="ch_advanced"/> is how many ways we can partition an integer.  For example, we could partition 5 as <m>4+1</m> or <m>3+1+1</m>, but we would now want to also count <m>1+4</m> or <m>1+3+1</m> (doing so would be creating a <em>composition</em>, which we have already considered).  We can think of the integer partition problem as distributing the 5 units that make up 5 into some number of identical bins.
+    So far, we have only considered distribution problems in which the recipients are distinct.  There are plenty of situations where we would want to consider recipients identical.  For example, a problem we will take up in <xref ref="ch_advanced"/> is how many ways we can partition an integer.  For example, we could partition 5 as <m>4+1</m> or <m>3+1+1</m>, but we would now want to also count <m>1+4</m> or <m>1+3+1</m> (doing so would be creating a <em>composition</em>, which we have already considered).  We can think of the integer partition problem as distributing the 5 units that make up 5 into some number of identical bins.
   </p>
   
   <p>

@@ -45,7 +45,7 @@
   <paragraphs>
     <title>The H-D sequences:</title>
     <p>
-      <m>2n</m> people stand in line at a theatre.
+      <m>2n</m> people stand in line at a theater.
       Admission is 50 cents, (denoted by H), and the box office starts with no change.
       <m>n</m> of the people have H and <m>n</m> have <dollar />1 (denoted D). In how many ways can the <m>2n</m> people line up so that all can be admitted?
      Here we enumerate the number of workable sequences of n H's and n D's such that at each point in the sequence the number of H's is not less than the number of D's
@@ -86,7 +86,7 @@
     <mrow>\text{H D H D H D} \leftrightarrow  (a(b(cd </mrow>
     </md>
 
-      <TODO> Add somethign about where the right parenteses go.</TODO>
+      <TODO> Add something about where the right parentheses go.</TODO>
   </paragraphs>
 
   <paragraphs>
@@ -112,7 +112,7 @@
 
     <p>
       Using R for right and U for up, the sequence R U R R U U gives the path.
-    The bijection mathing R with H and U with D links paths to H-D sequences.
+    The bijection matching R with H and U with D links paths to H-D sequences.
     </p>
 
   </paragraphs>
