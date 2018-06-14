@@ -802,7 +802,7 @@ many ways can you pair up the next person who isn't already paired up?
       <task>
         <statement>
           <p>
-            Express <m>P(26,5)</m> as the quotient of two factorials.  Use this to find a numerical value for <m>\binom{26,5}</m>.
+            Express <m>P(26,5)</m> as the quotient of two factorials.  Use this to find a numerical value for <m>\binom{26}{5}</m>.
           </p>
         </statement>
         <hint>
