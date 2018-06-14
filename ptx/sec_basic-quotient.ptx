@@ -560,7 +560,7 @@
     <task>
       <statement>
         <p>
-          We claim that counting the number of ways to distribute <m>n</m> identical books to <m>k</m> distinct shelves is counted by <m>\mchoose{n}{k}</m>, and this is a situation in which order does not matter (since we are counting multisets).  What would the distribution question be if order did matter?  Explain why the answer to that question is NOT <m>n^k</m>.
+          We claim that counting the number of ways to distribute <m>n</m> identical books to <m>k</m> distinct shelves is counted by <m>\mchoose{n}{k}</m>, and this is a situation in which order does not matter (since we are counting multisets).  What would the distribution question be if order did matter?  Explain why the answer to that question is NOT <m>n^k</m>. (What distribution does <em>that</em> expression count?)
         </p>
       </statement>
     </task>
@@ -676,8 +676,12 @@
     </activity>
 
     <p>
-      The assignment of which books go to which shelves of a bookcase is simply a function from the books to the shelves. But a function doesn't determine which book sits to the left of which others on the shelf, and this information is part of how the books are arranged on the shelves. In other words, the order in which the shelves receive their books matters.  Our function must thus assign an ordered list of books to each shelf. We will call such a function an ordered function.
+      The assignment of which books go to which shelves of a bookcase is simply a function from the books to the shelves. But a function does not determine which book sits to the left of which others on the shelf, and this information is part of how the books are arranged on the shelves. In other words, the order in which the shelves receive their books matters.  Our function must thus assign an ordered list of books to each shelf. We will call such a function an ordered function.
       More precisely, an <term>ordered function</term><idx><h>ordered function</h></idx><idx><h>function</h><h>ordered</h></idx> from a set <m>S</m> to a set <m>T</m> is a function that assigns an (ordered) list of elements of <m>S</m> to some, but not necessarily all, elements of <m>T</m> in such a way that each element of <m>S</m> appears on one and only one of the lists.<fn>The phrase ordered function is not a standard one, because there is as yet no standard name for the result of an ordered distribution problem.</fn>
+    </p>
+    
+    <p>
+      We often think of functions as a rule that assigns an output to each input.  However, we could equally well specify a function by giving the complete inverse image of each element of the codomain.  That is, to define a (non-ordered) function <m>f:S \to T</m>, we could give the set <m>f\inv(t) = \{s \in S \st f(s) = t\}</m> for each <m>t \in T</m>.  The set of elements sent to <m>t</m> is a <em>set</em> for a function, but for an ordered function, it is a <em>sequence</em>.
     </p>
 
     <theorem>
@@ -686,16 +690,268 @@
           The number of ordered functions from a <m>k</m>-element set to
           an <m>n</m>-element set is
           <me>
-            \prod_{i=1}^k (n+i-1) = \frac{(n+k-1)!}{(n-1)!} = P(n+k-1, k).
+            \prod_{i=1}^k (n-1+i) = \frac{(n-1+k)!}{(n-1)!} = P(n-1+k, k).
           </me>
         </p>
       </statement>
     </theorem>
-
-
-    <!-- TODO: now show how to use the quotient principle to find a formula for <m>\mchoose{n}{k}</m> -->
+    
+    
+    <activity>
+      <task>
+        <statement>
+          <p>
+            In some sort of manufacturing mishap, your set of magnetic letters contains only the first 7 letters of the alphabet, and for some reason 5 identical exclamation marks.  How many ways can you arrange all 12 magnets in a single line?  (one such line is BG!AD!!!FEC!).
+          </p>
+        </statment>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What does this question have to do with placing <m>7</m> distinct books on <m>6</m> shelves?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Note, there are 5 exclamation marks, but 6 shelves.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Oh no! Your 5 year old left the 7 magnetic letters in the oven too long and now they are all identical blobs of plastic.  How many strings of the 12 magnets can you make now?  
+          </p>
+        </statement>
+        <hint>
+          <p>
+            One such string is *!!***!*!*!, which looks a lot like 01100010101.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What sort of distribution problem does the previous task correspond to?  Write a question about books and shelves that has the same answer.
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
+    <p>
+      AHA!  The previous activity suggests that to count multisets, which is the same as counting distributions of identical objects to distinct recipients, we should apply the quotient principle to ordered functions.
+    </p>
+    
+    <p>
+      What should the equivalence relation be?  Think about bookshelves.  An ordered function is a distribution of distinct books to distinct shelves.  A multiset is a distribution of identical books to distinct shelves.  So we want two ordered functions to be equivalent if their corresponding shelves contain the same number of books (we no longer care what those books are, just how many there are).
+    </p>
+    
+    <p>
+      Now, given any ordered function, how many ordered functions are in its equivalence class?  We can get any other element in the class by permuting the books (but keeping the numbers in each shelf constant).  There are <m>k</m> books, so there are <m>k!</m> ways to permute them.  This is the same for <em>every</em> ordered function, so the equivalence classes all have the same size.
+    </p>
+    
+    <p>
+      Applying the quotient principle, we arrive at the following.
+    </p>
+    
+    <theorem xml:id="thm-multisetsize">
+      <statement>
+        <p>
+          The number of <m>k</m>-element multisets of <m>[n]</m> is 
+          <me>
+            \mchoose{n}{k} = \frac{P(n-1+k, k)}{k!} = \binom{n-1+k}{k} 
+          </me>
+          
+        </p>
+      </statement>
+    </theorem>
+    
+  <!-- TODO: Add a few review/practice questions? -->
 </subsection>
 
+<subsection xml:id="subsec-moredistributions">
+  <title>More Distribution Problems</title>
+  
+  <p>
+    Both multisets and ordered functions allowed some of the recipients to receive nothing (or for some elements of <m>[n]</m> to not be included in the multiset).  What if we didn't want to allow this?
+  </p>
+  
+  <activity xml:id="bookcaseeveryshelf">
+    <statement>
+      <p>
+        Suppose we wish to place the books in <xref ref="bookcase"/>
+        (satisfying the assumptions we made there) so that each shelf gets at
+        least one book. Now in how many ways may we place the books? (Hint: how
+        can you make sure that each shelf gets at least one book before you start
+        the process described in <xref ref="bookcase" />?)
+      </p>
+    </statement>
+    <hint>
+      <p>
+    How can you make sure that each shelf gets at least one book before you
+    start the process described in <xref ref="bookcase" />?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        Choose <m>n</m> books from the <m>k</m> books in <m>\binom{k}{n}</m>
+        ways, and assign them to the <m>n</m> places shelves in <m>n!</m>
+        ways, giving us <m>k!/(k-n)!</m> ways to put a book on each shelf.
+        Now leaving these books at the far left of each shelf, place the
+        remaining books in
+        <me>
+          \prod_{i=1}^{k-n}
+          (n+i-1)=\frac{(n+(k-n)-1)!}{(n-1)!}=\frac{(k-1)!}{(n-1)!}
+        </me>
+        ways. Thus we have
+        <me>
+          \frac{k!(k-1)!}{(k-n)!(n-1)!}=k!\binom{k-1}{n-1}
+        </me>
+        ways to place the books. Of course the right hand side of that
+        equation cries out for a combinatorial explanation. Here it is.
+        Imagine lining up the <m>k</m> books in a row. Then there are
+        <m>k-1</m> places in between them. Choose <m>n-1</m> of these
+        places, and slide a piece of paper in there as a divider. Now put
+        the books before the first divider on shelf one, and the books after
+        divider <m>i</m> on shelf <m>i+1</m>. This gives an arrangement of
+        the books on the shelves so that every shelf has a book!
+      </p>
+    </solution>
+</activity>
+  
+  <p>
+    The previousl activity is an example of what we might call an <term>ordered surjection</term>.  As for ordered functions, we can apply the quotient principle to count distributions where the objects being distributed are no longer distinct.
+  </p>
+  
+  
+<activity category="essential for this or the next section">
+  <statement>
+    <p>
+      In how many ways may we put <m>k</m> identical books onto <m>n</m>
+      shelves if each shelf must get at least one book?
+    </p>
+  </statement>
+  <hint>
+    <p>
+  We already know how to place k distinct books onto n distinct shelves so
+  that each shelf gets at least one. Suppose we replace the distinct books
+  with identical ones. If we permute the distinct books before replacement,
+  does that affect the final outcome? There are other ways to solve this problem.
+    </p>
+  </hint>
+  <solution>
+    <p>
+      In <xref ref="bookcaseeveryshelf">problem</xref> we showed that with
+      <m>k</m> distinct books we could place the books in
+      <m>k!\binom{k-1}{n-1}</m> ways. We can partition these arangements of
+      distinct books into blocks, where each block consists of all
+      arrangements that we get just by permuting the books among themselves.
+      Thus each block has <m>k!</m> arrangements in it, and each arrangement
+      corresponds to an arrangement of identical books. Thus there are <m>\binom{k-1}{n-1}</m> ways to arrange identical books.
+    </p>
+  </solution>
+</activity>
+
+<activity xml:id="compositionagian" category="essential for this or the next section">
+  <statement>
+    <p>
+      A <term>composition</term> of the integer <m>k</m> into <m>n</m> parts is a list of <m>n</m> positive integers that add to <m>k</m>.  How many compositions are there of an integer <m>k</m> into <m>n</m> parts?
+    </p>
+  </statement>
+  <hint>
+    <p>
+  Do you see a relationship between compositions and something else we have
+  counted already?
+    </p>
+  </hint>
+  <solution>
+    <p>There is a bijection between compositions of <m>k</m> into <m>n</m> parts and arrangements of <m>k</m> identical books on <m>n</m> shelves so that each shelf gets a book. Namely, the number of books on shelf <m>i</m> is the <m>i</m>th element of the list. Thus the number of compositions of <m>k</m> into <m>n</m> parts is <m>\binom{k-1}{n-1}</m>.
+    </p>
+  </solution>
+</activity>
+
+<activity category="interesting">
+  <statement>
+    <p>Your answer in <xref ref="compositionagian">Problem</xref> can be expressed as a binomial coefficient. This means it should be possible to interpret a composition as a subset of some set. Find a bijection between compositions of <m>k</m> into <m>n</m> parts and certain subsets of some set.  Explain explicitly how to get the composition from the subset and the subset from the composition.
+    </p>
+  </statement>
+  <hint>
+    <p>
+      If we line up <m>k</m> identical books, how many adjacencies are there in between books?
+    </p>
+  </hint>
+  <solution>
+    <p>If we line up <m>k</m> identical books, there are <m>k-1</m> places in between two books. If we choose <m>n-1</m> of these places and slip dividers into those places, then we have a first clump of books, a second clump of books, and so on. The <m>i</m>th element of our list is the number of books in the <m>i</m>th clump. Clearly using books is irrelevant; we could line up any <m>k</m> identical objects and make the same argument. Our bijection is between compositions and <m>(n-1)</m>-element subsets of the set of <m>k-1</m> spaces between our objects.
+    </p>
+  </solution>
+</activity>
+
+<activity category="essential for this or the next section">
+  <statement>
+    <p>
+      Explain the connection between compositions of <m>k</m> into <m>n</m>
+      parts and the problem of distributing <m>k</m> identical objects to
+      <m>n</m> recipients so that each recipient gets at least one.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Since the recipients are distinct, we can think of them as a first
+      recipient, a second, and so on. Given a composition of <m>k</m> into
+      <m>n</m> parts, let the <m>i</m>th element of the list be the number
+      of objects given to recipient number <m>i</m>.
+    </p>
+  </solution>
+</activity>
+  
+  <p>
+    So far, we have only considered distribution problems in which the recipients are distinct.  There are plenty of situtions where we would want to consider recipients identical.  For example, a problem we will take up in <xref ref="ch_advanced"/> is how many ways we can partition an integer.  For example, we could partition 5 as <m>4+1</m> or <m>3+1+1</m>, but we would now want to also count <m>1+4</m> or <m>1+3+1</m> (doing so would be creating a <em>composition</em>, which we have already considered).  We can think of the integer partition problem as distributing the 5 units that make up 5 into some number of identical bins.
+  </p>
+  
+  <p>
+    Here is another example, which we already have the tools to address.
+  </p>
+  
+  <activity xml:id="brokenpermutation" category="essential for this or the next section, and interesting">
+    <statement>
+      <p>
+        In how many ways may we stack <m>k</m> distinct books into <m>n</m> identical boxes so that there is a stack in every box? There are two distinct ways to answer this question.  Find them both.
+      </p>
+    </statement>
+    <hint>
+        <p>Imagine taking a stack of <m>k</m> books, and breaking it up into stacks to put into the boxes in the same order they were originally stacked. If you are going to use <m>n</m> boxes, in how many places will you have to break the stack up into smaller stacks, and how many ways can you do this?
+        </p>
+    </hint>
+    <hint>
+        <p>
+            How many different bookcase arrangements correspond to the same way of stacking <m>k</m> books into <m>n</m> boxes so that each box has at least one book?
+        </p>
+    </hint>
+    <solution>
+      <p>
+        We can make a list of the <m>k</m> distinct books in <m>k!</m> ways. Then we have to choose <m>n-1</m> of the <m>k-1</m> places between the lists as the places where we will break the list. However the order in which we list the boxes is irrelevant, so we have equivalence classes of <m>n!</m> arrangements for each way of putting the books into boxes. Thus we can put the books in boxes in <m>k!\binom{k-1}{n-1}/n!</m> ways.
+      </p>
+
+      <p>
+        Alternately, we can take the number of ways to put <m>k</m> books onto <m>n</m> bookshelves so that each shelf gets at least one, and then divide by the number of shelves factorial. That gives us <m>k!\binom{k-1}{n-1}/n!</m> ways to arrange the books.
+      </p>
+    </solution>
+  </activity>
+
+  <p>
+    We can think of stacking books into identical boxes as partitioning the books and then ordering the blocks of the partition. This turns out not to be a useful computational way of visualizing the problem because the number of ways to order the books in the various stacks depends on the sizes of the stacks and not just the number of stacks. However this way of thinking actually led to the first hint in <xref ref="brokenpermutation" />. Instead of dividing a set up into nonoverlapping parts, we may think of dividing a <em>permutation</em> (thought of as a list) of our <m>k</m> objects up into <m>n</m> ordered blocks. We will say that a set of ordered lists of elements of a set <m>S</m> is a <term>broken permutation</term>
+    <idx><h>broken permutation</h></idx> <idx><h>permutation</h><h>broken</h></idx> 
+    of <m>S</m> if each element of <m>S</m> is in one and only one of these lists.<fn>The phrase broken permutation is not standard, because there is no standard name for the solution to this kind  of distribution problem.</fn> The number of broken permutations of a <m>k</m>-element set with <m>n</m> blocks is denoted by <m>L(k,n)</m>. The number <m>L(k,n)</m> is called a <term>Lah Number</term> and, from our solution to <xref ref="brokenpermutation"/>, is equal to <m>k!\binom{k-1}{n-1}/n!</m>.<idx><h>Lah number</h></idx>
+  </p>
+
+  <p>
+    The Lah numbers are the solution to the question <q>In how many ways may we
+    distribute <m>k</m> distinct objects to <m>n</m> identical recipients if order
+    matters and each recipient must get at least one?</q> 
+  </p>
+  
+  
+</subsection>
 
  <!-- <xi:include href="exercises/basic-quotient.ptx"/> -->
 
