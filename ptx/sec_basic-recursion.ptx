@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_basic-recursion">
+  <title>Counting with Recursion</title>
+
+  <!-- Here we will investigate the ways that sequences, especially those recursively defined, can be used to solve counting questions. -->
+
+<introduction>
+  <p>
+    What happens when you get stuck on a counting problem?  It is quite easy to miss the clever way of thinking about breaking down a task that leads to a solution.  Here is an example.
+  </p>
+  
+  <p>
+    Given any graph <m>G = (V, E)</m>, an <term>independent set</term> (of vertices) is a subset <m>I \subseteq V</m> so that no two vertices in <m>I</m> are adjacent.  Suppose you wished to count the number of independent sets of a particular graph.  In this example, lets do so for the path <m>P_{10}</m> (i.e., the graph containing 11 vertices and 10 edges arranged in a line).
+  </p>
+  
+  <p>
+    Let's label the vertices 1 through 11, and assume that vertices are adjacent to those with labels one more or one less than themselves (that is, the edge set is <m>E = \{(i,i+1) \st 1 \le i < 11\}</m>).  How might you build an independent set?
+  </p>
+  
+  <p>
+    A first attempt might be to start with vertex 1 and realize that you can put it in or keep it out of the independent set.  So there are two choices for vertex 1.  But now you might have two choices for vertex 2 (if vertex 1 was not in the set) or only once choice (to keep vertex 2 out, if vertex 1 was in the set).  Okay, so the multiplicative principle doesn't help.
+  </p>
+  
+  <p>
+    Say you can't think of anything else to try.  The problem seems just too hard.  So make it easier.  10 is way too big of a number; 1 would be much better.  How many independent sets of <m>P_1</m> are there?  Maybe then we also try the version with 2 and 3.
+  </p>
+  
+  <activity>
+    <statement>
+      <p> 
+        List all independent sets of <m>P_1</m>, <m>P_2</m>, and <m>P_3</m>.  Don't forget the empty set! Do you notice a pattern among these numbers?
+      </p>
+    </statement>
+    <hint>
+      <p>
+        You should find 3 independent sets in <m>P_1</m> and 5 in <m>C_4</m>.
+      </p>
+    </hint>
+  </activity>
+</introduction>
+
+<p>
+  We get is a sequence <m>(a_n)_{n \ge 1}</m> which gives the number of independent sets: the number of independent sets of <m>P_n</m> is simply <m>a_n</m>. 
+</p>
+
+<p>
+  The sequence we get is <m>3, 5, 8, 13, \ldots</m>.  It <em>appears</em> that this sequence satisfies a familiar recurrence relation, <m>a_n = a_{n-1} + a_{n-2}</m>, but unlike the Fibonacci sequence, here the initial terms are <m>a_1 = 3</m> and <m>a_2 = 5</m>.  Is this appearance deceiving?  Can we explain why this sequence should satisfy this recurrence?
+</p>
+
+<activity>
+  <statement>
+    <p>
+      Explain why <m>a_n</m> satisfies the recurrence <m>a_n = a_{n-1} + a_{n-2}</m>.  You will need to use the graphs <m>P_n</m>, <m>P_{n-1}</m> and <m>P_{n-2}</m> and their independent sets to do this.  Show how you can <q>find</q> the independent sets of <m>P_{n-1}</m> and <m>P_{n-2}</m> among the independent set of <m>P_{n}</m> (perhaps using some sort of bijection).  
+    </p>
+  </statement>
+  <hint>
+    <p>
+      Which independent sets contain the vertex <m>n+1</m>?
+    </p>
+  </hint>
+</activity>
+
+<p>
+  Once we have a proof that our sequence really does give the answers to all the versions of the counting question we are interested in, then  we can start investigating properties of this sequence.  Sometimes, we might even be able to find a closed formula for the <m>n</m>th term of the sequence, so we can compute values without relying on the recurrence.
+</p>
+
+
+<subsection xml:id="subsec-recursionfinding">
+  <title>Finding Recurrence Relations</title>
+  
+  <p>
+    Before investigating properties of sequences given by recurrence relations, we must be able to find those sequences and the recurrence relations.  The following activities give some practice with moving from a counting question to a recurrence relation for the sequence of answers.  Many of these context will be familiar, and you might be able to answer the counting questions with what we have already discovered.  Don't do this.  The point of these is to start thinking about these counting problems recursively.
+  </p>
+  
+  <activity>
+    <statement>
+      <p>
+        Let <m>a_n</m> be the number of subsets of <m>[n]</m>.  Find a recurrence relation for the sequence <m>(a_n)_{n \ge 0}</m>.  Prove the recurrence relation is correct.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        You should ask yourself, how are the subsets of <m>[n]</m> related to the subsets of <m>[n-1]</m>.  If you are stuck, you could always <q>cheat</q> and use your knowledge of the value of <m>a_n</m>, but try to do this without thinking about that.
+      </p>
+    </hint>
+  </activity>
+  
+  <activity>
+    <statement>
+      <p>
+        Let <m>k_n</m> be the number of edges in the complete graph <m>K_n</m>.  Find a recurrence relation for the sequence <m>(k_n)_{n \ge 1}</m> and prove you are correct.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        What would you need to do to the graph <m>K_n</m> to get the graph <m>K_{n-1}</m>?  How does this affect the number of edges?
+      </p>
+    </hint>
+  </activity>
+  
+  <activity>
+    <statement>
+      <p>
+        Let <m>b_n</m> be the number of bijections from an <m>n</m>-element set to and <m>n</m>-element set.  Find a recurrence relation for the sequence <m>(b_n)_{n \ge 1}</m> and prove you are correct.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        To determine a bijection <m>f:[n] \to [n]</m>, you could first say what <m>f(n)</m> is.  What do you still need to do?  Your answer to this question should be one single step (that inductively, you know how to do).
+      </p>
+    </hint>
+  </activity>
+  
+  <activity xml:id="HanoiProblem" category="interesting">
+    <statement>
+      <p>
+        The <q>Towers of Hanoi</q> puzzle has three rods rising from a rectangular base with <m>n</m> rings of different sizes stacked in decreasing order of size on one rod. A legal move consists of moving a ring from one rod to another so that it does not land on top of a smaller ring. If <m>m_n</m> is the number of moves required to move all the rings from the initial rod to another rod that you choose, give a recurrence for <m>m_n</m>. 
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Suppose you already knew the number of moves needed to solve the puzzle with <m>n-1</m> rings.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        We can solve the puzzle in one step if there is one ring, so <m>m_1=1</m>. If <m>n>0</m> and we want to move all the rings from the initial rod to rod 3, then first we solve the problem of moving all but the bottom ring to rod 2; this takes <m>m_{n-1}</m> steps, then we move the bottom ring to rod 3, then we solve the problem of moving all the remaining rings from rod 2 to rod 3. Thus we have <m>m_n=2m_{n-1}+1</m>.
+      </p>
+    </solution>
+  </activity>
+
+  <activity xml:id="circlesinplane" category="interesting">
+    <statement>
+      <p>
+        We draw <m>n</m> mutually intersecting circles in the plane so that each one crosses each other one exactly twice and no three intersect in the same point. (As examples, think of Venn diagrams with two or three mutually intersecting sets.) Find a recurrence for the number <m>r_n</m> of regions into which the plane is divided by <m>n</m> circles. (One circle divides the plane into two regions, the inside and the outside.) Find the number of regions with <m>n</m> circles. For what values of <m>n</m> can you draw a Venn diagram showing all the possible intersections of <m>n</m> sets using circles to represent each of the sets?
+      </p>
+    </statement>
+    <hint>
+      <p> 
+        If we have <m>n - 1</m> circles drawn in such a way that they define <m>r_{n-1}</m> regions, and we draw a new circle, each time it crosses another circle, except for the last time, it finishes dividing one region into two parts and starts dividing a new region into two parts.
+      </p>
+    </hint>
+    <hint>
+      <p> 
+        Compare <m>r_n</m> with the number of subsets of an <m>n</m>-element set.
+      </p>
+    </hint>
+    <solution>
+      <p> 
+        One circle defines two regions, the inside and outside. When we draw a second circle that intersects the first, we can start at one of the intersection points and go inside the first circle, cutting its region into two pieces, and then when we leave it we cut the outside region into two pieces. This suggests the general pattern. If we have drawn <m>n-1</m> circles and start a new one, each time we enter a circle, we start dividing a region into two pieces. Each time we leave a circle, we also start dividing a region into two pieces. Thus if we have <m>r_n</m> regions with <m>n</m> circles, to get the number of regions, we note that in going from <m>n-1</m> circles to <m>n</m> circles, we start with <m>r_{n-1}</m> regions, and divide <m>2(n-1)</m> of them in half, so we get <m>2n-2</m> new regions. This gives us <m>r_n=r_{n-1}+2(n-1)</m>. Notice that by substitution of the formula <m>r_{n-1}=r_{n-2} +2(n-2)</m>, we get <m>r_n=r_{n-2}+ 2(n-2) +2(n-1)</m>, and would guess that <m>r_n=r_{n-3}+2(n-3)+2(n-2) +2(n-1)</m>. This leads to the conjecture <me>   r_n=r_1  +2\cdot1+2\cdot2+\cdots+2\cdot(n-1)=r_1+2\sum_{i=1}^{n-1}   i=2+n(n-1). </me>
+      </p>
+
+      <p> 
+        We can prove this formula by induction. When <m>n=1</m> we have <m>2+1\cdot0</m> regions. Assuming that <m>n-1</m> circles give us <m>2+(n-1)(n-2)</m> regions, for <m>n</m> circles we have <m>2+(n-1)(n-2) +2(n-1)=2+n(n-1)</m> regions. Thus the correctness of our formula for <m>n-1</m> circles implies its correctness when we have <m>n</m> circles, so for all positive integers <m>n</m>, we get <m>2+n(n-1)</m> regions determined by <m>n</m> mutually intersecting circles. Two circles cannot touch more than twice, and if we let some of our <m>n</m> circles touch just once, or not at all, that would reduce the number of regions we would get. 
+        Similarly, allowing a circle to go through the intersection point of two other circles could only reduce the number of regions. So with <m>n</m> circles we could never have more than <m>2+n(n-1)</m> regions. In particular with 4 circles we get just 14 regions, rather than the 16 that would be required in a Venn diagram for four sets. We could prove, again by induction, that <m>2+n(n-1)\lt 2^n</m> for all <m>n>3</m>, so it is not possible to draw a Venn diagram using circles to illustrate the intersections of four or more sets.
+      </p>
+    </solution>
+  </activity>
+  
+  <p>
+    The activities above all have relatively simple recurrence relations.  In particular, they all make reference only to one previous term.  This need not be the case, as we saw when counting independent sets of paths and as the next few activities demonstrate.
+  </p>
+  
+  <activity xml:id="act-dominoes">
+    <introduction>
+      <p>
+        Suppose you have a large number of <m>1\times 1</m> squares and <m>1 \times 2</m> dominoes.  You wish to use these to tile a <m>1 \times n</m> path.  For <m>n = 4</m>, some examples of different paths are <m>ssss</m>, <m>ssd</m>, <m>sds</m>, <m>dss</m>, <m>dd</m> (in fact, these are all 5 of the possible paths).
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+         Let <m>a_n</m> be the number of ways to tile the <m>1 \times n</m> path.  Find a recurrence relation for the sequence <m>(a_n)_{n \ge 1}</m>, and prove you are correct.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          List out the first few values of <m>a_n</m> by enumerating all paths.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Now suppose your squares come in 3 colors and the dominoes come in 4 colors.  Let <m>b_n</m> count the number of paths you can tile.  Find an justify a recurrence relation for <m>(b_n)_{n \ge 1}</m>. 
+        </p>
+      </statement>
+    </task>
+  </activity>
+  
+  <activity>
+    <statement>
+      <p>
+        Let <m>c_n</m> be the number of independent sets of vertices in the cycle <m>C_n</m>.  For consistency, label the vertices of <m>C_n</m> with the integers <m>1, 2, \ldots, n</m> and assume <m>E = \{(i, i+1) \st 1 \le i \lt n\} \cup \{(n, 1)\}</m>. Find a recurrence relation for <m>(c_n)_{n\ge 4}</m> and prove you are correct.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Consider what happens to <m>C_n</m> when you <term>contract</term> along the edge <m>(n,1)</m> (in other words, remove the edge and glue the vertices <m>1</m> and <m>n</m> together).  This should give you a copy of <m>C_{n-1}</m>.  Now think about which independent sets in <m>C_n</m> are not represented by independent sets in <m>C_{n-1}</m>.
+      </p>
+    </hint>
+  </activity>
+  
+  <activity xml:id="act-catalanfirst">
+    <statement>
+      <p>
+        Consider a convex <m>n</m>-gon with labeled vertices.  In how many ways can diagonals be inserted so as to decompose the <m>n</m>-gon into triangles? For <m>n = 5</m> the five
+        figures are shown in <xref ref="five5gons" />.
+      </p>
+
+        <figure xml:id="five5gons">
+          <caption>
+            The five triangulations of a convex pentagon.
+          </caption>
+          <sidebyside>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (a) -- (d) -- (b);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (b) -- (e) -- (c);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (d) -- (a) -- (c);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (e) -- (b) -- (d);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \fivegon;
+              \draw (e) -- (c) -- (a);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+        </figure>
+
+        <p>
+          Let <m>t_n</m> be the number of triangulations.  Find a recurrence relation for <m>(t_n)_{n \ge 3}</m>.  Justify your answer.
+        </p>
+    </statement>
+    <hint>
+      <p>
+        Your recurrence relation will not have a fixed number of terms, but rather be in terms of all previous terms.
+      </p>
+    </hint>
+  </activity>
+  
+  <p>
+    We will study the recurrence relation in <xref ref="act-catalanfirst"/> again <xref ref="section-catalan"/>.  We mention it here because it is a nice example of how sometimes recurrence relations use up to all the previous terms of the sequence.  Sometimes we can find a simpler recurrence relation that captures the same sequence.
+  </p>
+  
+  <activity>
+    <statement>
+      <p>
+        Consider the sequence <m>(a_n)_{n \ge 1}</m> which satisfies the recurrence relation <m>a_n = \sum_{i = 1}^{n-1} a_i</m>.  That is, each term of the sequence is the sum of <em>all</em> previous terms in the sequence.
+      </p>
+      
+      <p>
+        Find a recurrence relation in terms of only the previous term for this sequence.  Prove that you are correct.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Try this out with some different initial conditions.  Once you see what the recurrence should be, proving it by induction should be easy.
+      </p>
+    </hint>
+  </activity>
+  
+  <!-- <p>
+    The previous three activities all had recurrence relations that defined a term in the sequence purely in terms of other terms of the sequence.  This is not necessary.  The following are all fine recurrence relations:
+    <me>
+      a_n = a_{n-1} + n^2
+    </me>
+    <me>
+      b_n = 3b_{n-1} - nb_{n-2} + 2
+    </me>
+    <me>
+      c_n = c_{n-1} + b_n + a_n
+    </me>
+    The last example defines <m>c_n</m> in terms of both previous terms in its own sequence, as well as terms in another sequence.      
+  </p> -->
+</subsection>
+
+<subsection xml:id="subsec-recursionclosed">
+  <title>Using Recurrence Relations</title>
+  
+  <p>
+    While it is often easier to find a recurrence relation governing a sequence, if we wish to use sequences to solve counting problems, we would really like to be able to find a closed formula for the terms in a sequence. If this is not possible, we can still use the recurrence relation to learn something about how the sequence behaves.
+  </p>
+  
+  <p>
+    We will start by consider some simple classes of recurrence relations for which we can find closed formulas.
+  </p>
+  
+  <activity xml:id="act-arithmetic">
+    <statement>
+      <p>
+        Let <m>(a_n)_{n \le 0}</m> satisfy <m>a_n = a_{n-1} + 3</m> with <m>a_0 = 2</m>.  For example, <m>a_n</m> might give the number of pushups you can do <m>n</m> days into your training, assuming you can do 3 more pushups each day, if you could do 2 pushups before you started training.  Find a closed formula for <m>a_n</m> and justify your answer.  Show how the recurrence relation is used.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        If you write out the sequence, it would be easy to guess at a closed formula, but the point here is to <em>use</em> the recurrence relation somehow.  Consider rewriting the recurrence relation as <m>a_n - a_{n-1} = 2</m>.  Note that <m>a_n - a_0 = (a_n - a_{n-1}) + (a_{n-1} + a_{n-2}) + \cdots + (a_2 - a_1) + (a_1 - a_0)</m>.
+      </p>
+    </hint>
+  </activity>
+  
+  <activity xml:id="act-geometric">
+    <statement>
+      <p>
+        Let <m>(a_n)_{n \le 0}</m> satisfy <m>a_n = 3a_{n-1}</m> with <m>a_0 = 2</m>.  For example, <m>a_n</m> might give the number of <m>n</m>-scoop ice-cream cones you can make from 3 available flavors in one of two kinds of cones.  Find a closed formula for <m>a_n</m> and justify your answer.  Show how the recurrence relation is used.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Again, if you write out the sequence, it would be easy to guess at a closed formula.  To see how the recurrence relation is used, try substituting in earlier values.
+      </p>
+    </hint>
+  </activity>
+  
+  <p>
+    The sequence in <xref ref="act-arithmetic"/> is an example of an <term>arithmetic sequence</term> (or arithmetic progression) in that the difference between terms is constant.  The sequence in <xref ref="act-geometric"/> is an example of a <term>geometric sequence</term> (or geometric progression) because the <em>ratio</em> between terms is constant.  Of course there is nothing special about 2 and 3 in the activities, so you should now see how to find the closed formula for any arithmetic or geometric sequence.
+  </p>
+  
+  <p>
+    The techniques used to get those closed formulas are also worth pointing out.  The method suggested in the hint to <xref ref="act-arithmetic"/> is called <term>telescoping</term> and the method suggested for <xref ref="act-geometric"/> is called <term>iteration</term>.
+  </p>
+  
+  <!-- TODO: add examples of telescoping or iteration here? -->
+  
+
+  <!-- TODO: Add examples of sums of arithmetic and geometric sequences? -->
+  
+  
+  <p>
+    Most sequences are not arithmetic, but it is still helpful to look at the difference between terms.  Often if we know something about the seqeunce of differences, we can deduce something about the original sequence.   We can also think about this as starting with the sequence of differences.
+  </p>
+  
+  <activity>
+    <introduction>
+      <p>
+        Given any sequence <m>(a_n)_{n \ge 1}</m>, we can form the <term>sequence of partial sums</term> <m>(b_n)_{n \ge 1}</m> given by <m>b_n = \sum_{i = 1}^n a_n</m>.  That is, <m>b_n</m> tells you what you get if you add up the first <m>n</m> terms of <m>(a_n)</m>.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          In general, what is a recurrence relation for <m>(b_n)</m>?  
+        </p>
+      </statement>
+      <hint>
+        <p>
+          If you have calculated <m>b_{n-1}</m>, what do you need to do to get <m>b_n</m>?
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          If <m>(a_n)_{n \ge 1}</m> is the sequence <m>1, 3, 5, 7, 9, \ldots</m>, find the sequence of partial sums <m>b_n</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          If <m>a_n = \binom{n}{2}</m>, find the sequence of partial sums <m>b_n</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          If <m>a_n = F_n</m>, the <m>n</m>-th Fibonacci number, find the sequence of partial sums <m>b_n</m>.
+        </p>
+      </statement>
+    </task>
+  </activity>
+
+  <p>
+    The sequences in the previous activity worked out nicely, but what can we say in general?  Here are a few things.
+  </p>
+  
+  <activity>
+    <introduction>
+      <p>
+        Let <m>(a_n)_{n \ge 1}</m> be any arithmetic sequence.  Say <m>a_n = dn + c</m> (so <m>d</m> is the common difference and <m>c = a_0</m>).  What can we say about the closed formula for <m>b_n = \sum_{i=1}^n a_i</m>?
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          As an example, what is <m>2+5+8+11+\cdots + 470</m>?  You might call this sum <m>S</m> and calculate:
+        </p>
+        <sidebyside>
+        <tabular>
+          <col halign="right"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/>
+          <row>
+            <cell><m>S  =</m></cell>
+            <cell><m>2</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>5</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>8</m></cell>
+            <cell><m>+ \cdots +</m></cell>
+            <cell><m>467</m></cell>
+            <cell><m>+</m></cell>
+            <cell>470</cell>
+          </row>
+          <row bottom="minor">
+            <cell><m>+ \quad S  =</m></cell>
+            <cell><m>470</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>467</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>464</m></cell>
+            <cell><m>+ \cdots +</m></cell>
+            <cell><m>5</m></cell>
+            <cell><m>+</m></cell>
+            <cell>2</cell>
+          </row>
+          <row>
+            <cell><m>2S  =</m></cell>
+            <cell><m>472</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>472</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>472</m></cell>
+            <cell><m>+ \cdots +</m></cell>
+            <cell><m>472</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>472</m></cell>
+          </row>
+        </tabular>
+      </sidebyside>
+      <p>
+        Why is that helpful?  What is the sum?
+      </p>
+      </statement>
+      <hint>
+        <p>
+          You will need to decide how many terms are on the right-hand side.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Generalize the previous computation to find the closed formula for <m>b_n</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          What is special about sums of arithmetic sequences that allow you to do this computation?  Explain.
+        </p>
+      </statement>
+    </task>
+  </activity>
+  
+  <p>
+    The previous activity shows that the sequence of partial sums of an arithmetic sequence is always a quadratic sequence.  Conversely, any quadratic sequence should arise in this way.
+  </p>
+
+  <activity>
+    <statement>
+      <p>
+        Given a seqeunce <m>(b_n)_{n \ge 1}</m> with a quadratic closed formula, say <m>b_n = an^2 + bn + c</m>, what will the closed formula for the sequence of differences be?  That is, what is the closed formula for <m>a_n = b_n - b_{n-1}</m>?  Why does this show that every quadratic sequence is the seqeunce of partial sums for some arithmetic sequence?
+      </p>
+    </statement>
+  </activity>
+  
+  <p>
+    It is helpful to have a guess for the <em>form</em> of a closed formula.  For example, if you believe that a sequence should have a closed formula that is say a cubic polynomial, then you can find a cubic polynomial that agrees with the first 4 terms of the sequence.  This woud be done by setting up a system of 4 equations with 4 unknowns and solving the system.
+  </p>
+  
+  <p>
+    Another time this guess-and-check approach is reasonable is when we believe a sequence to be exponential.
+  </p>
+  
+  <activity>
+    <introduction>
+      <p>
+        Consider the recurrence relation <m>a_n = 5a_{n-1} - 6a_{n-2}</m>.  
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Show that <m>a_n = 2^n</m> and <m>a_n = 3^n</m> are both solutions to the recurrence relation.  That is, they are sequences for which the recurrence relation holds.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          You could do a full proof by induction here, but really you are just plugging these in to see if the recurrence works for them.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Show that for any constants <m>\alpha, \beta</m>, <m>a_n = \alpha 2^n + \beta 3^n</m> is also a solution to the recurrence relation.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Might there be another solution to the recurrence relation?  Suppose <m>a_n = r^n</m> for some non-zero constant <m>r</m>.  Show that <m>r = 2</m> or <m>r = 3</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          If you do the substitution, you will get a degree <m>n</m> polynomial equation in the variable <m>r</m>.  Solving that equation amounts to finding the roots of the polynomial.
+        </p>
+      </hint>
+    </task>
+  </activity>
+  
+  <p>
+    This is a partial justification of the <term>characteristic root technique</term> (the polynomial whose roots are the base of the exponentials is called the <term>characteristic polynomial</term>).  Making the reasonable guess that recurrence relations which give <m>a_n</m> as a linear combination of <m>a_{n-1}</m> and <m>a_{n-2}</m> should have exponential closed formulas allows you to find the bases of those exponentials.  You can then use the initial conditions to find the constants <m>\alpha</m> and <m>\beta</m>.
+  </p>
+  
+  <activity>
+    <statement>
+      <p>
+        Find a closed formula for the sequence <m>(a_n)_{n \ge 1}</m> given recursively by <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial conditions <m>a_1 = 3</m> and <m>a_2 = 13</m>.  (This is the sequence of square-domino paths from <xref ref="act-dominoes"/>.)
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Guess that <m>r^n</m> is a solution, and use this to find two roots <m>r_1, r_2</m> of a polynomial.  Then use <m>3 = \alpha r_1^1 + \beta r_1^1</m> and <m>13 = \alpha r_2^2 + \beta r_2^2</m> to find <m>\alpha</m> and <m>\beta</m>.
+      </p>
+    </hint>
+  </activity>
+  
+  <activity>
+    <statement>
+      <p>
+        Find a closed formula for the <m>n</m>th Fibonacci number.  This is called Binet's Formula.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        You will need to use the quadratic formula to find the roots, and some careful algebra to find the coefficients.  The closed formula will include <m>\frac{1+\sqrt{5}}{2}</m>, the <em>Golden Ratio</em>.
+      </p>
+    </hint>
+  </activity>
+
+  
+</subsection>
+
+<!-- Maybe move this to its own section? -->
+<subsection xml:id="subsec-recursionfibonacci">
+  <title>Properties of the Fibonacci Sequence</title>
+  
+</subsection>
+
+ <!-- <xi:include href="exercises/basic-sequences.ptx"/> -->
+
+</section>
