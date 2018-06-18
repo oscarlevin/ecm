@@ -2,8 +2,6 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_basic-recursion">
   <title>Counting with Recursion</title>
 
-  <!-- Here we will investigate the ways that sequences, especially those recursively defined, can be used to solve counting questions. -->
-
 <introduction>
   <p>
     What happens when you get stuck on a counting problem?  It is quite easy to miss the clever way of thinking about breaking down a task that leads to a solution.  Here is an example.
@@ -14,7 +12,7 @@
   </p>
   
   <p>
-    Let's label the vertices 1 through 11, and assume that vertices are adjacent to those with labels one more or one less than themselves (that is, the edge set is <m>E = \{(i,i+1) \st 1 \le i < 11\}</m>).  How might you build an independent set?
+    Let's label the vertices 1 through 11, and assume that vertices are adjacent to those with labels one more or one less than themselves (that is, the edge set is <m>E = \{(i,i+1) \st 1 \le i \lt 11\}</m>).  How might you build an independent set?
   </p>
   
   <p>
@@ -37,7 +35,7 @@
       </p>
     </hint>
   </activity>
-</introduction>
+
 
 <p>
   We get is a sequence <m>(a_n)_{n \ge 1}</m> which gives the number of independent sets: the number of independent sets of <m>P_n</m> is simply <m>a_n</m>. 
@@ -64,6 +62,7 @@
   Once we have a proof that our sequence really does give the answers to all the versions of the counting question we are interested in, then  we can start investigating properties of this sequence.  Sometimes, we might even be able to find a closed formula for the <m>n</m>th term of the sequence, so we can compute values without relying on the recurrence.
 </p>
 
+</introduction>
 
 <subsection xml:id="subsec-recursionfinding">
   <title>Finding Recurrence Relations</title>
@@ -268,7 +267,7 @@
   </activity>
   
   <p>
-    We will study the recurrence relation in <xref ref="act-catalanfirst"/> again <xref ref="section-catalan"/>.  We mention it here because it is a nice example of how sometimes recurrence relations use up to all the previous terms of the sequence.  Sometimes we can find a simpler recurrence relation that captures the same sequence.
+    We will study the recurrence relation in <xref ref="act-catalanfirst"/> again in <xref ref="sec_basic-catalan"/>.  We mention it here because it is a nice example of how sometimes recurrence relations use up to all the previous terms of the sequence.  Sometimes we can find a simpler recurrence relation that captures the same sequence.
   </p>
   
   <activity>
@@ -317,7 +316,7 @@
   <activity xml:id="act-arithmetic">
     <statement>
       <p>
-        Let <m>(a_n)_{n \le 0}</m> satisfy <m>a_n = a_{n-1} + 3</m> with <m>a_0 = 2</m>.  For example, <m>a_n</m> might give the number of pushups you can do <m>n</m> days into your training, assuming you can do 3 more pushups each day, if you could do 2 pushups before you started training.  Find a closed formula for <m>a_n</m> and justify your answer.  Show how the recurrence relation is used.
+        Let <m>(a_n)_{n \le 0}</m> satisfy <m>a_n = a_{n-1} + 3</m> with <m>a_0 = 2</m>.  For example, <m>a_n</m> might give the number of push-ups you can do <m>n</m> days into your training, assuming you can do 3 more push-ups each day, if you could do 2 push-ups before you started training.  Find a closed formula for <m>a_n</m> and justify your answer.  Show how the recurrence relation is used.
       </p>
     </statement>
     <hint>
@@ -355,7 +354,7 @@
   
   
   <p>
-    Most sequences are not arithmetic, but it is still helpful to look at the difference between terms.  Often if we know something about the seqeunce of differences, we can deduce something about the original sequence.   We can also think about this as starting with the sequence of differences.
+    Most sequences are not arithmetic, but it is still helpful to look at the difference between terms.  Often if we know something about the sequence of differences, we can deduce something about the original sequence.   We can also think about this as starting with the sequence of differences.
   </p>
   
   <activity>
@@ -488,13 +487,13 @@
   <activity>
     <statement>
       <p>
-        Given a seqeunce <m>(b_n)_{n \ge 1}</m> with a quadratic closed formula, say <m>b_n = an^2 + bn + c</m>, what will the closed formula for the sequence of differences be?  That is, what is the closed formula for <m>a_n = b_n - b_{n-1}</m>?  Why does this show that every quadratic sequence is the seqeunce of partial sums for some arithmetic sequence?
+        Given a sequence <m>(b_n)_{n \ge 1}</m> with a quadratic closed formula, say <m>b_n = an^2 + bn + c</m>, what will the closed formula for the sequence of differences be?  That is, what is the closed formula for <m>a_n = b_n - b_{n-1}</m>?  Why does this show that every quadratic sequence is the sequence of partial sums for some arithmetic sequence?
       </p>
     </statement>
   </activity>
   
   <p>
-    It is helpful to have a guess for the <em>form</em> of a closed formula.  For example, if you believe that a sequence should have a closed formula that is say a cubic polynomial, then you can find a cubic polynomial that agrees with the first 4 terms of the sequence.  This woud be done by setting up a system of 4 equations with 4 unknowns and solving the system.
+    It is helpful to have a guess for the <em>form</em> of a closed formula.  For example, if you believe that a sequence should have a closed formula that is say a cubic polynomial, then you can find a cubic polynomial that agrees with the first 4 terms of the sequence.  This would be done by setting up a system of 4 equations with 4 unknowns and solving the system.
   </p>
   
   <p>
@@ -522,7 +521,7 @@
     <task>
       <statement>
         <p>
-          Show that for any constants <m>\alpha, \beta</m>, <m>a_n = \alpha 2^n + \beta 3^n</m> is also a solution to the recurrence relation.
+          Show that if <m>\alpha</m> and <m>\beta</m> are any constants, <m>a_n = \alpha 2^n + \beta 3^n</m> is also a solution to the recurrence relation.
         </p>
       </statement>
     </task>
@@ -547,7 +546,7 @@
   <activity>
     <statement>
       <p>
-        Find a closed formula for the sequence <m>(a_n)_{n \ge 1}</m> given recursively by <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial conditions <m>a_1 = 3</m> and <m>a_2 = 13</m>.  (This is the sequence of square-domino paths from <xref ref="act-dominoes"/>.)
+        Find a closed formula for the sequence <m>(a_n)_{n \ge 1}</m> given recursively by <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial conditions <m>a_1 = 3</m> and <m>a_2 = 13</m>.  (This is the sequence of square/domino paths from <xref ref="act-dominoes"/>.)
       </p>
     </statement>
     <hint>
@@ -557,7 +556,7 @@
     </hint>
   </activity>
   
-  <activity>
+  <activity xml:id="act-binet">
     <statement>
       <p>
         Find a closed formula for the <m>n</m>th Fibonacci number.  This is called Binet's Formula.
@@ -575,7 +574,250 @@
 
 <!-- Maybe move this to its own section? -->
 <subsection xml:id="subsec-recursionfibonacci">
-  <title>Properties of the Fibonacci Sequence</title>
+  <title>Exploring the Fibonacci Sequence</title>
+  
+  <p>
+    We now have the tools to do a deep dive into the Fibonacci numbers, the most famous recursively defined sequence.  The following activities are not strictly necessary for later material, but provide good practice in the techniques we have developed and are interesting in their own right.
+  </p>
+  
+  <p>
+    For consistency, let's agree that <m>F_n</m> is the <m>n</m>th Fibonacci number, where <m>F_0 = 0</m> and <m>F_1 = 1</m>, and for all other <m>n</m>, <m>F_n = F_{n-1} + F_{n-2}</m>.  
+  </p>
+  
+  <activity>
+    <introduction>
+      <p>
+        Determine a formula for each of the following sums, and prove you are correct.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          <m>F_{0} + F_{1} + F_{2} + \ldots + F_{n}</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          <m>F_{0} + F_{2} + F_{4} + \ldots + F_{2n}</m>. 
+        </p>
+      </statement>
+    </task>
+  </activity>
+
+  <activity>
+    <introduction>
+      <p>
+        Prove each of the following identities.
+      </p>
+    </introduction>
+    <task xml:id="diff-fib-squares">
+      <p>
+        <m>F_{n + 1}^{2} - F_{n}^{2} = F_{n - 1}F_{n + 2}</m>.
+      </p>
+    </task>
+    <task xml:id="fib-squares">
+      <p>
+        <m>F_{k}^{2} = F_{k}(F_{k + 1} - F_{k - 1})</m>.
+      </p>
+    </task>
+</activity>
+
+<activity>
+  <statement>
+    <p>Determine a closed expression for <m>F_{0}F_{3}
+        + F_{1}F_{4} + \cdots +
+        F_{n-1}F_{n+2}</m> using <xref ref="diff-fib-squares" />.
+    </p>
+  </statement>
+</activity>
+
+
+  <activity xml:id="fib-sum-squares">
+      <statement>
+        <p>
+          Determine a formula for <m>F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2}</m> in two ways.  First collect data and then prove your conjecture by mathematical induction.  Second, use <xref ref="fib-squares" /> and telescoping sums.
+        </p>
+      </statement>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          Give a geometrical <q>proof</q> for the result in <xref ref="fib-sum-squares" />.
+        </p>
+      </statement>
+    </activity>
+
+    <activity xml:id="fib-matrix">
+      <statement>
+        <p>
+          Consider the <m>2\times 2</m> matrix <m>Q = 
+          \begin{pmatrix}
+            0 \amp 1\\
+            1 \amp 1
+            \end{pmatrix}.</m>
+          Using standard matrix multiplication, compute <m>Q^2 = Q\cdot Q</m>, <m>Q^3</m>, and so on.  Conjecture a formula for <m>Q^n</m> and prove you are correct.
+      </p>
+      </statement>
+      <hint>
+        <p>
+          You should find that <m>Q^n = \begin{pmatrix}
+          F_{n - 1} \amp F_{n}\\
+          F_{n} \amp F_{n + 1}
+          \end{pmatrix}</m>.  Now prove this by induction.
+        </p>
+      </hint>
+    </activity>
+
+    <activity xml:id="fib-neg-one">
+      <statement>
+        <p>
+          Prove that <m>F_{n - 1}F_{n + 1} - F_{n}^{2} = (-1)^{n}</m> in two ways:  First use mathematical induction.  Then us <xref ref="fib-matrix" /> and determinants.
+        </p>
+      </statement>
+    </activity>
+
+
+
+    <activity>
+      <statement>
+        <p>
+          Is there a result analogous to that in <xref ref="fib-neg-one" /> for just the positive integers <m>1, 2, 3, 4, \ldots</m>?
+        </p>
+      </statement>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          Show that <m>Q^{2n + 1} = Q^{n}Q^{n+1}</m> and that <m>F_{2n + 1} = F_{n + 1}^{2} + F_{n}^{2}</m> .
+        </p>
+      </statement>
+    </activity>
+
+    <!-- <activity>
+      <statement>
+        <p>
+          Prove the Binet Formula: <m>F_{n = }\frac{a^{n} - b^{n}}{a - b}</m> where <m>a</m>, <m>b</m> are roots of <m>x^{2} - x - 1 = 0</m>.
+        </p>
+      </statement>
+    </activity> -->
+
+    <activity>
+      <statement>
+        <p>
+          Prove <m>\left( \frac{n}{0} \right)F_{0} + \left( \frac{n}{1} \right)F_{1} + \ldots + \left( \frac{n}{n} \right)F_{n} = F_{2n}</m> in two ways.  First, use the Binet Formula from <xref ref="act-binet"/>.  Then, use <m>Q</m>.
+        </p>
+      </statement>
+    </activity>
+
+    <activity>
+      <statement>
+        <p> Prove that <m>\sum_{n = 2}^{\infty}\frac{1}{F_{n - 1}F_{n + 1}} = 1</m>. </p>
+    </statement>
+    <hint>
+      <p> Show first that
+    <m>\frac{1}{F_{n - 1}F_{n + 1}} = \frac{1}{F_{n - 1}F_{n}} -
+    \frac{1}{F_{n}F_{n + 1}}</m>.</p>
+    </hint>
+  </activity>
+
+
+    <activity>
+      <statement>
+        <p>
+          Prove that <m>\sum_{n = 2}^{\infty}\frac{F_{n}}{F_{n - 1}F_{n + 1}} = 2.</m>
+        </p>
+      </statement>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          Prove that <m>\lim_{n\to\infty}\frac{F_{n + 1}}{F_{n}} = \frac{1 + \sqrt{5}}{2}.</m>
+        </p>
+      </statement>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          For which values of <m>n</m> is <m>F^{n}</m> a multiple of 3?
+        </p>
+      </statement>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          Can you have four distinct positive Fibonacci numbers in arithmetic progression?
+        </p>
+      </statement>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          How many Fibonacci numbers are perfect squares?
+        </p>
+      </statement>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          Find a closed formula for <m>\frac{1}{F_{1}} + \frac{1}{F_{2}} + \frac{1}{F_{4}} + \frac{1}{F_{8}} + \ldots.</m>
+        </p>
+      </statement>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          Conjecture and prove a formula for <m>\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2} + \cdots</m>.
+        </p>
+      </statement>
+    </activity>
+
+    <!-- <activity>
+      <statement>
+        <p>
+          In what sense is <m>\frac{x}{1 - x - x^{2}}</m> the generating function for the sequence of Fibonacci numbers?
+        </p>
+      </statement>
+    </activity> -->
+
+    <activity>
+      <statement>
+        <p>
+          Prove that <m>F_{5n + 5} = 3F_{5n} + 5F_{5n + 1}</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Use <m>Q^{5n + 5}</m>.
+        </p>
+      </hint>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          Let <m>\varphi</m> be the positive root of <m>x^{2} - x - 1 = 0</m>. Prove that <m>\varphi^{n} = F_{n}\varphi + F_{n - 1}</m>.
+        </p>
+      </statement>
+  </activity>
+
+    <activity>
+      <statement>
+        <p>
+          Can every positive integer be written as a sum of distinct Fibonacci numbers?  In fact, can every positive integer be written as a sum of non-consecutive Fibonacci numbers?  Further, can every positive integer be written as a sum of at most 5 non-consecutive Fibonacci numbers?  Prove your answers (i.e., either give a proof or provide a counterexample).
+        </p>
+      </statement>
+    </activity>
+
   
 </subsection>
 

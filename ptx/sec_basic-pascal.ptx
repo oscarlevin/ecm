@@ -160,7 +160,7 @@
     </introduction>
     <task>
       <p>
-        How many lattice paths are there between <m>(0,0)</m> and <m>(3,1)</m>?  Draw or list them all (you might was to invent some notation for describing a path without drawing it).
+        How many lattice paths are there between <m>(0,0)</m> and <m>(3,1)</m>?  Draw or list them all (you might want to invent some notation for describing a path without drawing it).
       </p>
     </task>
     <task>

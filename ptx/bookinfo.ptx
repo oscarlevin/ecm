@@ -6,7 +6,7 @@
 
 
 <macros>
-  \newcommand{\mchoose}[2]{\left(/!/!\binom{#1}{#2}\!\!\right)}
+  \newcommand{\mchoose}[2]{\left(\!\binom{#1}{#2}\!\right)}
   \newcommand{\cycle}[1]{\arraycolsep 5 pt
   \left(\begin{array}#1\end{array}\right)}
   \newcommand{\importantarrow}{\Rightarrow}

@@ -37,7 +37,7 @@
     </theorem>
 
     <p>
-      These is just two of the beautiful identities hidden in Pascal's triangle.  But why are they true?
+      These are just two of the beautiful identities hidden in Pascal's triangle.  But why are they true?
     </p>
 
     <p>
@@ -136,7 +136,7 @@
     <activity xml:id="act-pascalsym-bij">
       <introduction>
         <p>
-          Consider the set <m>[n] = \{1,2,\ldots,n\}</m> and its power set <m>\pow([n])</m> of all subsets of <m>[n]</m>.  Define the function <m>f:\pow([n]) \to \pow([n])</m> by <m>f(A) = [n]\setminus A</m> for any <m>A \in \pow([n])</m> (that is, <m>f(A)</m> is the compliment of <m>A</m> in <m>[n]</m>).
+          Consider the set <m>[n] = \{1,2,\ldots,n\}</m> and its power set <m>\pow([n])</m> of all subsets of <m>[n]</m>.  Define the function <m>f:\pow([n]) \to \pow([n])</m> by <m>f(A) = [n]\setminus A</m> for any <m>A \in \pow([n])</m> (that is, <m>f(A)</m> is the complement of <m>A</m> in <m>[n]</m>).
         </p>
       </introduction>
       <task>
@@ -375,7 +375,7 @@
       This suggests that the union of (disjoint) sets somehow corresponds to the <em>disjunction</em> (or) of completing tasks.  You might guess that the set operation that corresponds to <em>conjunction</em> (and) of tasks is set intersection.  But this cannot be correct: the intersection of two sets is no larger than the smallest of the two sets, while combining tasks with conjunction apparently corresponds to multiplication.
     </p>
     <p>
-      A better way to think of the conjunction is as <em>concatination</em>.  You are performing one task, <em>followed</em> by the other.  Recall that <m>A \times B = \{(a,b) \st a \in A, b \in B\}</m> is the <term>Cartesian product</term> of <m>A</m> and <m>B</m>; the set of all ordered pairs where the first element comes from <m>A</m> and the second from <m>B</m>.  This is exactly what we need.
+      A better way to think of the conjunction is as <em>concatenation</em>.  You are performing one task, <em>followed</em> by the other.  Recall that <m>A \times B = \{(a,b) \st a \in A, b \in B\}</m> is the <term>Cartesian product</term> of <m>A</m> and <m>B</m>; the set of all ordered pairs where the first element comes from <m>A</m> and the second from <m>B</m>.  This is exactly what we need.
     </p>
 
     <proposition xml:id="prop-prodcard">
@@ -514,7 +514,7 @@
         </statement>
         <hint>
           <p>
-            Many students want this sort of question to be an example of the sum principle (presumably because to get an acceptable path you travel to <m>(4,7)</m> and then add on a path that gets you the rest of the way.  But notice that you are really concatinating two paths, and there are lots of choices for the first path and lots for the second.  This sounds more like an ordered pair.
+            Many students want this sort of question to be an example of the sum principle (presumably because to get an acceptable path you travel to <m>(4,7)</m> and then add on a path that gets you the rest of the way.  But notice that you are really concatenating two paths, and there are lots of choices for the first path and lots for the second.  This sounds more like an ordered pair.
           </p>
         </hint>
       </task>
@@ -886,7 +886,7 @@ many ways can you pair up the next person who isn't already paired up?
             </hint>
           <solution>
             <p>
-              Suppose you have a set of <m>m</m> bow ties and <m>n</m> fezzes and you want to form fez-bow tie outfits. This can clearly be done in <m>mn</m> ways. Or, you could choose 2 from the totalof <m>m + n</m> items and delete the bow tie only pairs (there are <m>\binom{m}{2}</m> of these) and delete the fez only pairs (also <m>\binom{n}{2}</m> of these). Since we have counted this one set with two different expressions (the left hand side and the right hand side of the identity), those expressions are equal.
+              Suppose you have a set of <m>m</m> bow ties and <m>n</m> fezzes and you want to form fez-bow tie outfits. This can clearly be done in <m>mn</m> ways. Or, you could choose 2 from the total of <m>m + n</m> items and delete the bow tie only pairs (there are <m>\binom{m}{2}</m> of these) and delete the fez only pairs (also <m>\binom{n}{2}</m> of these). Since we have counted this one set with two different expressions (the left hand side and the right hand side of the identity), those expressions are equal.
             </p>
           </solution>
         </activity>
@@ -930,7 +930,7 @@ many ways can you pair up the next person who isn't already paired up?
           </hint>
           <solution>
             <p>
-              There are <m>\binom{9}{1}</m> single digit type, <m>\binom{9}{2}</m> double digit type (just select 2 of the 9 digits <m>1, 2, 3, \ldots, 9</m> and arrange in order), \ldots, and so on to see that there are <m>\binom{9}{9}</m> nine digit type. The total is <m>\binom{9}{1} + \binom{9}{2} + \binom{9}{3} + \ldots + \binom{9}{9} = 2^{9} - 1</m>.
+              There are <m>\binom{9}{1}</m> single digit type, <m>\binom{9}{2}</m> double digit type (just select 2 of the 9 digits <m>1, 2, 3, \ldots, 9</m> and arrange in order), <ellipsis />, and so on to see that there are <m>\binom{9}{9}</m> nine digit type. The total is <m>\binom{9}{1} + \binom{9}{2} + \binom{9}{3} + \ldots + \binom{9}{9} = 2^{9} - 1</m>.
             </p>
             <p>
               Here is an alternative, more clever, proof. Look at 123456789. Any increasing number can be made by deleting <em>any</em> subset of digits, except all of them. There are <m>2^{9} - 1</m> such subsets. For example, delete the subset \{2, 4, 7, 9\} and you get 13568. Combining these two approaches actually gives you a nice proof that <m>\binom{9}{0} + \binom{9}{1} + \binom{9}{2} + \ldots + \binom{9}{9} = 2^{9}</m>.
@@ -955,7 +955,7 @@ many ways can you pair up the next person who isn't already paired up?
           </hint>
           <solution>
             <p>
-              Given a set of <m>n</m> people we can select a committee of size <m>k</m> along with a chair from that committee in <m>k \binom{n}{k}</m> ways. We can select a committee (of size 1, or size 2, or \ldots) and its chair in <m>\binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n}</m> ways. Alternatively, we can explain the term <m>n2^{n - 1}</m> as follows: choose one of the <m>n</m> people to chair any of the <m>2^{n - 1}</m> subsets of the remaining <m>n - 1</m> people.
+              Given a set of <m>n</m> people we can select a committee of size <m>k</m> along with a chair from that committee in <m>k \binom{n}{k}</m> ways. We can select a committee (of size 1, or size 2, or <ellipsis />) and its chair in <m>\binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n}</m> ways. Alternatively, we can explain the term <m>n2^{n - 1}</m> as follows: choose one of the <m>n</m> people to chair any of the <m>2^{n - 1}</m> subsets of the remaining <m>n - 1</m> people.
             </p>
           </solution>
         </activity>

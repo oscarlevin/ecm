@@ -985,7 +985,7 @@
     <me>
       \forall x ((P(x) \wedge x \gt 2) \imp O(x)).
     </me>
-    In this case, we are using <m>P(x)</m> to denote <q><m>x</m> is prime</q> and <m>O(x)</m> to denote <q><m>x</m> is odd.</q>  These are not propositions, since their truth value depends on the input <m>x</m>.  Better to think of <m>P</m> and <m>O</m> as denoting <em>properties</em> of their input.  The technical term for these is <term>predicates</term> and when we study them in logic, we need to use <term>predicate logic</term>.</p>
+    In this case, we are using <m>P(x)</m> to denote <q><m>x</m> is prime</q> and <m>O(x)</m> to denote <q><m>x</m> is odd.</q>  These are not propositions, since their truth value depends on the input <m>x</m>.  Better to think of <m>P</m> and <m>O</m> as denoting <em>properties</em> of their input.  The technical term is <term>predicates</term> and when we study them in logic, we need to use <term>predicate logic</term>.</p>
 
     <p>
       It is important to stress that predicate logic <em>extends</em> propositional logic (much in the way quantum mechanics extends classical mechanics).  You will notice that our statement above still used the (propositional) logical connectives.  Everything that we learned about logical equivalence and deductions still applies.  However, predicate logic allows us to analyze statements at a higher resolution, digging down into the individual propositions <m>P</m>, <m>Q</m>, etc.
