@@ -9,7 +9,7 @@
       <li>Fibonacci Numbers</li>
       <li>Generalized Pascal Triangles</li>
       <li>A Pascal-like Triangle of Eulerian Numbers</li>
-      <li>Leibnitz Harmonic Triangle</li>
+      <li>Leibniz Harmonic Triangle</li>
       <li>The Twelve Days of Christmas</li>
     </ol>
   </p>
@@ -615,7 +615,7 @@
 
 
 <exercises>
-<title>Project 6: The Leibnitz Harmonic Triangle</title>
+<title>Project 6: The Leibniz Harmonic Triangle</title>
   <sidebyside width="100%">
     <tabular>
       <row>

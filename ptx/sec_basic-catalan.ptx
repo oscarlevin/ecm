@@ -1,56 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_basic-catalan">
-  <title>Catalan Numbers and Bijections</title>
+  <title>The Catalan Numbers</title>
+
+  <p>
+    Let's put all of the techniques we have developed in this chapter to work to solve some deeper counting problems.
+  </p>
+
+  <p>
+    The counting problems in the next few activities are not supposed to be easy to solve, but you have a lot of combinatorial tools to try.  Say as much as you can about as many as you can before moving on.  Starting with <xref ref="act-catalanprops1"/>, we will investigate the problems in more depth.
+  </p>
 
 
-    <p>
-      (Notes of a talk presented by Professor Richard Grassl, Muhlenberg
-      College, March 15, 1991)
-    </p>
-
-    <p>
-      The sequence of Catalan numbers, named after Eugene Catalan who along with Euler discovered many of the properties of these numbers, is <m>1, 1, 2, 5, 14, 42, 132, \ldots</m>. The characterizations below show that a formula for these numbers is given by
-      <me>
-        C_{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
-      </me>
-      with <m>C_1 = 1</m>, <m>C_2 = 1</m>, etc.
-    </p>
-
-
-    <paragraphs>
-        <title>Parenthesizing</title>
-        <p> In how many ways can you insert parentheses
-        in the nonassociative product <m>abcd</m>? The five ways are displayed
-
-        <me>
-        (ab)(cd)\quad ((ab)c)d \quad a(b(cd)) \quad (a(bc))d \quad a((bc)d).
-        </me>
-      </p>
-
+  <activity xml:id="act-parenthesizing">
+    <statement>
       <p>
-        There are two ways for <m>abc</m>, namely <m>a(bc)</m> and <m>(ab)c</m>, and one for <m>ab</m>. For a product of <m>n</m> symbols
-        <m>a_{1}a_{2}\ldots a_{n}</m>, break it at the <m>k</m>th symbol:
-      <me>
-        (a_{1}a_{2}a_{3}\ldots a_{k})(a_{k + 1}\ldots a_{n}).
-      </me>
-      Let <m>P_{n}</m> denote the number of ways of inserting parentheses
-      into this product. There are <m>P_k</m> ways of inserting parentheses in <m>\left(a_{1}\ldots a_{k} \right)</m> and <m>P_{n - k}</m> ways for the factor <m>(a_{k + 1}\ldots a_{n})</m> . Letting <m>k</m> range from 1
-    to <m>n - 1</m> we have that
-    <me>
-      P_{n} = \sum_{k = 1}^{n - 1} P_{k}P_{n - k} = P_{1}P_{n - 1} + P_{2}P_{n - 2} + \ldots + P_{n - 1}P_{1}.
-    </me>
-    </p>
-  </paragraphs>
-
-  <paragraphs>
-    <title>The H-D sequences:</title>
-    <p>
-      <m>2n</m> people stand in line at a theater.
-      Admission is 50 cents, (denoted by H), and the box office starts with no change.
-      <m>n</m> of the people have H and <m>n</m> have <dollar />1 (denoted D). In how many ways can the <m>2n</m> people line up so that all can be admitted?
-     Here we enumerate the number of workable sequences of n H's and n D's such that at each point in the sequence the number of H's is not less than the number of D's
+        If we multiply <m>n+1</m> numbers, say <m>a_1a_2\cdots a_n a_{n+1}</m>, we really should put in <m>n</m> pairs of parentheses since multiplication is a binary operation (and what if multiplication is not associative?).  How many ways can we do this?  For example, when <m>n = 3</m>, there are 5 ways:
+        <me>
+       (ab)(cd)\quad ((ab)c)d \quad a(b(cd)) \quad (a(bc))d \quad a((bc)d).
+       </me>
       </p>
+    </statement>
+    <hint>
+      <p>
+        Try working recursively.   For a product of <m>n+1</m> symbols
+        <m>a_{1}a_{2}\ldots a_{n+1}</m>, break it at the <m>k</m>th symbol:
+      <me>
+        (a_{1}a_{2}a_{3}\ldots a_{k})(a_{k + 1}\ldots a_{n+1}).
+      </me>
+      </p>
+    </hint>
+  </activity>
 
+  <activity xml:id="act-hdseq">
+    <statement>
+      <p>
+        <m>2n</m> people stand in line at a theater.
+        Admission is 50 cents, (denoted by H), and the box office starts with no change.
+        <m>n</m> of the people have H and <m>n</m> have <dollar />1 (denoted D). In how many ways can the <m>2n</m> people line up so that all can be admitted?
+      </p>
+    </statement>
+    <hint>
+      <p>
+         Here we enumerate the number of workable sequences of <m>n</m> H's and <m>n</m> D's such that at each point in the sequence the number of H's is not less than the number of D's.  Try writing out all HD sequences and see which ones are acceptable and which are not.
+      </p>
+    </hint>
+    <solution>
       <p>
         The total number of sequences of <m>n</m> H's and <m>n</m> D's is <m>\binom{2n}{n}</m>. We delete the number of
         <em>nonworkable</em> sequences. Each such sequence has a first snag as
@@ -87,265 +81,209 @@
     </md>
 
       <TODO> Add something about where the right parentheses go.</TODO>
-  </paragraphs>
+    </solution>
+  </activity>
 
-  <paragraphs>
-    <title>Paths</title>
+  <activity xml:id="act-lowerpaths">
+    <statement>
+        <p>
+          A point <m>(a, b)</m> in the plane is a <term>lattice point</term> if <m>a</m> and <m>b</m> are integers. How many paths of length <m>2n</m>, consisting of horizontal and vertical segments of unit length, are there from <m>(0, 0)</m> to <m>(n, n)</m> such that the path never goes above the line <m>y = x</m>? One such path to <m>(3, 3)</m> is shown in <xref ref="catalanpathex" />.
+        </p>
 
-    <p>
-      A point <m>(a, b)</m> in the plane is a <term>lattice point</term> if <m>a</m> and <m>b</m> are integers. How many paths of length <m>2n</m>, consisting of horizontal and vertical segments of unit length, are there from <m>(0, 0)</m> to <m>(n, n)</m> such that the path never goes above the line <m>y = x</m>? One such path to <m>(3, 3)</m> is shown in <xref ref="catalanpathex" />.
-    </p>
-
-    <figure xml:id="catalanpathex">
-      <caption> One of the acceptable lattice paths from <m>(0,0)</m> to <m>(3,3)</m>.</caption>
-      <image width="50%">
-        <latex-image>
-          <![CDATA[\begin{tikzpicture}
-      \draw[very thin, color=gray!50] (0,0) grid (3.5, 3.5);
-      \draw[thin] (0,0) -- (3.5,0) node[right]{$x$} (0,0) -- (0,3.5) node[above]{$y$};
-      \draw (0,0) node[below left]{$(0,0)$} (3,3) node[above right] {$(3,3)$};
-      \draw[very thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,3);
-    \end{tikzpicture}]]>
-  </latex-image>
-      </image>
-    </figure>
-
-    <p>
-      Using R for right and U for up, the sequence R U R R U U gives the path.
-    The bijection matching R with H and U with D links paths to H-D sequences.
-    </p>
-
-  </paragraphs>
-
-  <paragraphs>
-    <title>Triangulations of convex <m>n</m>-gons</title>
+        <figure xml:id="catalanpathex">
+          <caption> One of the acceptable lattice paths from <m>(0,0)</m> to <m>(3,3)</m>.</caption>
+          <image width="50%">
+            <latex-image>
+              <![CDATA[\begin{tikzpicture}
+          \draw[very thin, color=gray!50] (0,0) grid (3.5, 3.5);
+          \draw[thin] (0,0) -- (3.5,0) node[right]{$x$} (0,0) -- (0,3.5) node[above]{$y$};
+          \draw (0,0) node[below left]{$(0,0)$} (3,3) node[above right] {$(3,3)$};
+          \draw[very thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,3);
+        \end{tikzpicture}]]>
+      </latex-image>
+          </image>
+        </figure>
+    </statement>
+    <solution>
       <p>
-        Fix <m>n</m> vertices. In how many ways can diagonals be inserted so as to decompose the <m>n</m>-gon into triangles? For <m>n = 5</m> the five
-        figures are shown in <xref ref="five5gons" />.
+        Using R for right and U for up, the sequence R U R R U U gives the path.
+        The bijection matching R with H and U with D links paths to H-D sequences.
+      </p>
+    </solution>
+  </activity>
+
+  <activity xml:id="act-tableau">
+    <statement>
+      <p>
+        Insert the integers <m>1, 2, \ldots, 2n</m> into a 2 by <m>n</m> rectangle of boxes such that the entries are monotonic in rows and columns. How many ways can you do this?
+      </p>
+      <p>
+         For example, when <m>n=3</m>, there are five arrangements:
       </p>
 
-        <figure xml:id="five5gons">
-          <caption>
-            The five triangulations of a convex pentagon.
-          </caption>
-          <sidebyside>
-          <image>
-            <latex-image>
-              \begin{tikzpicture}
-              \fivegon;
-              \draw (a) -- (d) -- (b);
-              \end{tikzpicture}
-            </latex-image>
-          </image>
-          <image>
-            <latex-image>
-              \begin{tikzpicture}
-              \fivegon;
-              \draw (b) -- (e) -- (c);
-              \end{tikzpicture}
-            </latex-image>
-          </image>
-          <image>
-            <latex-image>
-              \begin{tikzpicture}
-              \fivegon;
-              \draw (d) -- (a) -- (c);
-              \end{tikzpicture}
-            </latex-image>
-          </image>
-          <image>
-            <latex-image>
-              \begin{tikzpicture}
-              \fivegon;
-              \draw (e) -- (b) -- (d);
-              \end{tikzpicture}
-            </latex-image>
-          </image>
-          <image>
-            <latex-image>
-              \begin{tikzpicture}
-              \fivegon;
-              \draw (e) -- (c) -- (a);
-              \end{tikzpicture}
-            </latex-image>
-          </image>
+        <sidebyside>
+          <tabular top="minor" left="minor" valign="middle" halign="center">
+            <col right="minor"/>
+            <col right="minor"/>
+            <col right="minor"/>
+            <row bottom="minor">
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+            </row>
+            <row bottom="minor">
+              <cell>4</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
+
+          <tabular top="minor" left="minor" valign="middle" halign="center">
+            <col right="minor"/>
+            <col right="minor"/>
+            <col right="minor"/>
+            <row bottom="minor">
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>4</cell>
+            </row>
+            <row bottom="minor">
+              <cell>3</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
+
+          <tabular top="minor" left="minor" valign="middle" halign="center">
+            <col right="minor"/>
+            <col right="minor"/>
+            <col right="minor"/>
+            <row bottom="minor">
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>5</cell>
+            </row>
+            <row bottom="minor">
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
+
+          <tabular top="minor" left="minor" valign="middle" halign="center">
+            <col right="minor"/>
+            <col right="minor"/>
+            <col right="minor"/>
+            <row bottom="minor">
+              <cell>1</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+            </row>
+            <row bottom="minor">
+              <cell>2</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
+
+          <tabular top="minor" left="minor" valign="middle" halign="center">
+            <col right="minor"/>
+            <col right="minor"/>
+            <col right="minor"/>
+            <row bottom="minor">
+              <cell>1</cell>
+              <cell>3</cell>
+              <cell>5</cell>
+            </row>
+            <row bottom="minor">
+              <cell>2</cell>
+              <cell>4</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
         </sidebyside>
-        </figure>
 
-
-    <p>
-    There are two drawings for <m>n=4</m>:
-    <sidebyside width="20%">
-      <image>
-        <latex-image>
-          \begin{tikzpicture}
-            \draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- (0,0) -- (1,1);
-            \draw (2,0) -- (3,0) -- (3,1) -- (2,1) -- (2,0) (2,1) -- (3,0);
-          \end{tikzpicture}
-        </latex-image>
-      </image>
-    </sidebyside>
-    A bijection between triangulations and parenthesizing is illustrated
-    next:
-  </p>
-
-    <figure xml:id="triangulationbijection">
-      <caption>
-        An example of a bijection between triangulations of <m>n</m>-gons and parenthesizing.
-      </caption>
-    <image width="50%">
-      <latex-image>
-        \begin{tikzpicture}
-          \fivegon;
-          {\footnotesize
-          \draw (a) -- (b) node[midway, above]{$c$};
-          \draw (b) -- (c) node[midway, right]{$d$};
-          \draw (c) -- (d) node[midway, below]{$((ab)c)d$};
-          \draw (d) -- (e) node[midway, left]{$a$};
-          \draw (e) -- (a) node[midway, above]{$b$};
-          \draw (a) -- (d) node[midway, left]{$(ab)$};
-          \draw (d) -- (b) node[midway, above]{$(ab)c$};
-          }
-        \end{tikzpicture}
-      </latex-image>
-    </image>
-  </figure>
-  </paragraphs>
-
-
-  <paragraphs>
-    <title>Tableau Insertion</title>
+    </statement>
+    <solution>
       <p>
-      Insert the integers <m>1, 2, \ldots, 2n</m> into a 2 by <m>n</m> rectangle of boxes such that the entries are monotonic in rows and columns. For <m>n=3</m> there are five arrangements:
+        A bijection to the path problem is: an entry in the top row corresponds to R. For example, the middle arrangement corresponds to R R U U R U.
+      </p>
+    </solution>
+  </activity>
 
-      <sidebyside>
-        <tabular top="minor" left="minor" valign="middle" halign="center">
-          <col right="minor"/>
-          <col right="minor"/>
-          <col right="minor"/>
-          <row bottom="minor">
-            <cell>1</cell>
-            <cell>2</cell>
-            <cell>3</cell>
-          </row>
-          <row bottom="minor">
-            <cell>4</cell>
-            <cell>5</cell>
-            <cell>6</cell>
-          </row>
-        </tabular>
 
-        <tabular top="minor" left="minor" valign="middle" halign="center">
-          <col right="minor"/>
-          <col right="minor"/>
-          <col right="minor"/>
-          <row bottom="minor">
-            <cell>1</cell>
-            <cell>2</cell>
-            <cell>4</cell>
-          </row>
-          <row bottom="minor">
-            <cell>3</cell>
-            <cell>5</cell>
-            <cell>6</cell>
-          </row>
-        </tabular>
 
-        <tabular top="minor" left="minor" valign="middle" halign="center">
-          <col right="minor"/>
-          <col right="minor"/>
-          <col right="minor"/>
-          <row bottom="minor">
-            <cell>1</cell>
-            <cell>2</cell>
-            <cell>5</cell>
-          </row>
-          <row bottom="minor">
-            <cell>3</cell>
-            <cell>4</cell>
-            <cell>6</cell>
-          </row>
-        </tabular>
+  <activity>
+    <statement>
+      <p>
+        Consider <term>rooted binary trees</term>.  Rooted trees are trees in the graph theory sense, except that one vertex is designated as the root, which puts a natural ordering on the vertices.  Vertices adjacent to the root are its <term>children</term>, and vertices adjacent to those (other than the root) are their children, and so on.  We are looking at <em>binary</em> trees, so each vertex will have either two children (designated the <term>left child</term> and <term>right child</term>) or no children at all (i.e., the vertex is a leaf).
+      </p>
 
-        <tabular top="minor" left="minor" valign="middle" halign="center">
-          <col right="minor"/>
-          <col right="minor"/>
-          <col right="minor"/>
-          <row bottom="minor">
-            <cell>1</cell>
-            <cell>3</cell>
-            <cell>4</cell>
-          </row>
-          <row bottom="minor">
-            <cell>2</cell>
-            <cell>5</cell>
-            <cell>6</cell>
-          </row>
-        </tabular>
-
-        <tabular top="minor" left="minor" valign="middle" halign="center">
-          <col right="minor"/>
-          <col right="minor"/>
-          <col right="minor"/>
-          <row bottom="minor">
-            <cell>1</cell>
-            <cell>3</cell>
-            <cell>5</cell>
-          </row>
-          <row bottom="minor">
-            <cell>2</cell>
-            <cell>4</cell>
-            <cell>6</cell>
-          </row>
-        </tabular>
-      </sidebyside>
-    </p>
-
-    <p>
-      A bijection to the path problem is: an entry in the top row corresponds to R. For example, the middle arrangement corresponds to R R U U R U.
-    </p>
-  </paragraphs>
-
-  <paragraphs>
-    <title>Trivalent rooted trees:</title>
-    <p>
-      A <term>tree</term> is a connected graph that has no cycles. <term>Trivalent</term> means that each interior vertex has degree 3. The
-      <term>leaves</term> or endpoints have degree 1. The number of trivalent rooted trees having <m>n</m> vertices (not counting the root) is <m>C_n</m>.
-    </p>
-
-    <p>
-      The cases <m>n = 1, 2, 3, 4</m> are drawn in FIGURE 2 along with bijections linking H-D sequences and parenthesizing. For the bijection, label interior vertices with 1 and leaves with 0. Start at the root, keep bearing to the right, and call off the sequence of 0's and 1's, not repeating them once called.
-    </p>
-
-    <p>
-      A link between a particular triangulation of a 5-gon and its associated tree is displayed in the following diagram:
-
-      <sidebyside>
+      <p>
+        How many rooted binary trees have exactly <m>n+1</m> leaves?  Note that because we designate children as left or right, the two trees below are counted as distinct.
+      </p>
+      <sidebyside widths="25%, 25%">
         <image>
-          \begin{tikzpicture}
-            \fivegon;
-            \draw (d) -- (a) -- (c);
-            \draw (0,-.5) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \vl{$b$};
-            \draw (-1,1.3) -- (-2,.8) \vl{$a$};
-            \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \vr{$c$};
-            \draw (1,1.2) -- (2,.7) \vr{$d$};
-          \end{tikzpicture}
+          <latex-image>
+            \begin{tikzpicture}
+              \coordinate (r) at (0,0);
+              \coordinate (rl) at (-1,1);
+              \coordinate (rr) at (1,1);
+              \coordinate (rll) at (-1.5,2);
+              \coordinate (rlr) at (-.5, 2);
+              \draw (r) \v -- (rl) \v -- (rll) \v (rl) -- (rlr) \v (r) -- (rr) \v;
+            \end{tikzpicture}
+          </latex-image>
         </image>
         <image>
-          \begin{tikzpicture}
-            \draw (0,0) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \va{$a$};
-            \draw (-1,1.3) -- (-.5,2.5) \va{$b$};
-            \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \va{$d$};
-            \draw (1,1.2) -- (.5,2.5) \va{$c$};
-          \end{tikzpicture}
+          <latex-image>
+            \begin{tikzpicture}
+              \coordinate (r) at (0,0);
+              \coordinate (rl) at (-1,1);
+              \coordinate (rr) at (1,1);
+              \coordinate (rll) at (-1.5,2);
+              \coordinate (rlr) at (-.5, 2);
+              \coordinate (rrl) at (.5,2);
+              \coordinate (rrr) at (1.5, 2);
+              \draw (r) \v -- (rr) \v -- (rrl) \v (rr) -- (rrr) \v (r) -- (rl) \v;
+            \end{tikzpicture}
+          </latex-image>
         </image>
       </sidebyside>
+    </statement>
+    <hint>
+      <p>
+        There should be 5 rooted binary trees with 4 leaves (the <m>n = 3</m> case).
+      </p>
+    </hint>
+  </activity>
 
 
-      Place a vertex in each triangle, connect the three vertices and run leaves out all edges, including the bottom which forms the root.
-      Straighten the tree out! FIGURE 3 shows the five triangulations of a convex pentagon along with their trees.
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>
+      The sequence of Catalan numbers, named after Eugene Catalan who along with Euler discovered many of the properties of these numbers, is <m>1, 1, 2, 5, 14, 42, 132, \ldots</m>. The characterizations below show that a formula for these numbers is given by
+      <me>
+        C_{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
+      </me>
+      with <m>C_1 = 1</m>, <m>C_2 = 1</m>, etc.
     </p>
-  </paragraphs>
+
+
+
+
+
+
 
   <paragraphs>
     <title>Rhyme schemes for <m>n</m> line stanzas</title>
