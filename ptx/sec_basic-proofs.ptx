@@ -500,7 +500,7 @@
       To illustrate just how fundamental these two principles are, here are a few counting problems that can be solved with them.  For each of these, say exactly where and how the sum and product principles are used.
     </p>
 
-    <activity>
+    <activity xml:id="act-latticepaths2">
       <introduction>
         <p>
           We have seen that the number of lattice paths from <m>(0,0)</m> to <m>(x,y)</m> is given by <m>\binom{x+y}{x}</m>.  Now with the sum and product principles, we can answer lots of questions about lattice paths.

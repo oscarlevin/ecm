@@ -2,282 +2,579 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_basic-catalan">
   <title>The Catalan Numbers</title>
 
-  <p>
-    Let's put all of the techniques we have developed in this chapter to work to solve some deeper counting problems.
-  </p>
+  <introduction>
+    <p>
+      Let's put all of the techniques we have developed in this chapter to work to solve some deeper counting problems.
+    </p>
+  </introduction>
 
-  <p>
-    The counting problems in the next few activities are not supposed to be easy to solve, but you have a lot of combinatorial tools to try.  Say as much as you can about as many as you can before moving on.  Starting with <xref ref="act-catalanprops1"/>, we will investigate the problems in more depth.
-  </p>
+  <subsection xml:id="subsec-catalanprobs">
+    <title>A Few Counting Problems</title>
+    
+    
+    <p>
+      The counting problems in <xref first="act-lowerpaths" last="act-rootedtrees">Activities</xref> are not supposed to be easy to solve, but you have a lot of combinatorial tools to try.  Say as much as you can about as many as you can before moving on.  At the very least, you should answer the counting problems for small values of <m>n</m> by writing out the set of outcomes.  In <xref ref="subsec-catalanseq"/>, we will investigate the problems in more depth and see how to answer them fully.
+    </p>
 
-
-  <activity xml:id="act-parenthesizing">
-    <statement>
-      <p>
-        If we multiply <m>n+1</m> numbers, say <m>a_1a_2\cdots a_n a_{n+1}</m>, we really should put in <m>n</m> pairs of parentheses since multiplication is a binary operation (and what if multiplication is not associative?).  How many ways can we do this?  For example, when <m>n = 3</m>, there are 5 ways:
-        <me>
-       (ab)(cd)\quad ((ab)c)d \quad a(b(cd)) \quad (a(bc))d \quad a((bc)d).
-       </me>
-      </p>
-    </statement>
-    <hint>
-      <p>
-        Try working recursively.   For a product of <m>n+1</m> symbols
-        <m>a_{1}a_{2}\ldots a_{n+1}</m>, break it at the <m>k</m>th symbol:
-      <me>
-        (a_{1}a_{2}a_{3}\ldots a_{k})(a_{k + 1}\ldots a_{n+1}).
-      </me>
-      </p>
-    </hint>
-  </activity>
-
-  <activity xml:id="act-hdseq">
-    <statement>
-      <p>
-        <m>2n</m> people stand in line at a theater.
-        Admission is 50 cents, (denoted by H), and the box office starts with no change.
-        <m>n</m> of the people have H and <m>n</m> have <dollar />1 (denoted D). In how many ways can the <m>2n</m> people line up so that all can be admitted?
-      </p>
-    </statement>
-    <hint>
-      <p>
-         Here we enumerate the number of workable sequences of <m>n</m> H's and <m>n</m> D's such that at each point in the sequence the number of H's is not less than the number of D's.  Try writing out all HD sequences and see which ones are acceptable and which are not.
-      </p>
-    </hint>
-    <solution>
-      <p>
-        The total number of sequences of <m>n</m> H's and <m>n</m> D's is <m>\binom{2n}{n}</m>. We delete the number of
-        <em>nonworkable</em> sequences. Each such sequence has a first snag as
-        shown by the highlighted D in
-
-        <me>\text{H\ H\ D\ D\ \alert{D}\ H\ H\ D\ D\ D\ H\ H}
-        </me>
-
-        Reverse each letter up to and including the snag, obtaining
-
-        <me>
-        \text{D D H H H H H D D D H H},
-        </me>
-        a sequence of <m>n+1</m> H's and <m>n-1</m> D's. For <m>n = 3</m> , H D \alert{D} D H H is a nonworkable sequence with the snag indicated. Its mate, found by reversing the first three letters, is D H H D H H, a sequence of 2D's and 4H's. <em>Any</em> arrangement of
-        2D's and 4H's will correspond to exactly one nonworkable sequence;
-        simply scan through and see the <em>first</em> time the H's dominate the
-        D's and then reverse through that spot. There are <m>\binom{6}{3}
-        = 20</m> arrangements of 3H's and 3D's. There are <m>\binom{6}{2}
-        = 15</m> arrangements of 2D's and 4H's each of which
-        corresponds to a nonworkable sequence. Hence there are <m>\binom{6}{3}
-        -\binom{6}{2} = 5</m> workable sequences. In general, <m>\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}</m> gives the number of workable sequences. See <xref ref="catalaninpascal">Figure</xref>
-      </p>
-
-      <p>
-        For <m>n=3</m>, the matching of the 5 workable sequences with one of the 5
-        ways of parenthesizing, given by the bijection which sends an H to a left parenthesis and a D to a letter, is presented below.
-      </p>
-    <md>
-    <mrow>\text{H H H D D D} \leftrightarrow  (((abcd </mrow>
-    <mrow>\text{H H D H D D} \leftrightarrow  ((a(bcd </mrow>
-    <mrow>\text{H H D D H D} \leftrightarrow  ((ab(cd </mrow>
-    <mrow>\text{H D H H D D} \leftrightarrow  (a((bcd </mrow>
-    <mrow>\text{H D H D H D} \leftrightarrow  (a(b(cd </mrow>
-    </md>
-
-      <TODO> Add something about where the right parentheses go.</TODO>
-    </solution>
-  </activity>
-
-  <activity xml:id="act-lowerpaths">
-    <statement>
+    <activity xml:id="act-lowerpaths">
+      <statement>
         <p>
-          A point <m>(a, b)</m> in the plane is a <term>lattice point</term> if <m>a</m> and <m>b</m> are integers. How many paths of length <m>2n</m>, consisting of horizontal and vertical segments of unit length, are there from <m>(0, 0)</m> to <m>(n, n)</m> such that the path never goes above the line <m>y = x</m>? One such path to <m>(3, 3)</m> is shown in <xref ref="catalanpathex" />.
+          We have already seen how to count lattice paths in <xref ref="act-latticepaths">Activities</xref> and <xref ref="act-latticepaths2" text="global"/>.  Now consider a variation.
+        </p>
+        <p>
+          How many paths of length <m>2n</m>, consisting of horizontal and vertical segments of unit length, are there from <m>(0, 0)</m> to <m>(n, n)</m> such that the path never goes above the line <m>y = x</m>? One such path to <m>(3, 3)</m> is shown in <xref ref="catalanpathex" />.
         </p>
 
         <figure xml:id="catalanpathex">
           <caption> One of the acceptable lattice paths from <m>(0,0)</m> to <m>(3,3)</m>.</caption>
           <image width="50%">
             <latex-image>
-              <![CDATA[\begin{tikzpicture}
-          \draw[very thin, color=gray!50] (0,0) grid (3.5, 3.5);
-          \draw[thin] (0,0) -- (3.5,0) node[right]{$x$} (0,0) -- (0,3.5) node[above]{$y$};
-          \draw (0,0) node[below left]{$(0,0)$} (3,3) node[above right] {$(3,3)$};
-          \draw[very thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,3);
-        \end{tikzpicture}]]>
-      </latex-image>
+              \begin{tikzpicture}
+                \draw[very thin, color=gray!50] (0,0) grid (3.5, 3.5);
+                \draw[thin] (0,0) -- (3.5,0) node[right]{$x$} (0,0) -- (0,3.5) node[above]{$y$};
+                \draw (0,0) node[below left]{$(0,0)$} (3,3) node[above right] {$(3,3)$};
+                \draw[very thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,3);
+              \end{tikzpicture}
+            </latex-image>
           </image>
         </figure>
-    </statement>
-    <solution>
-      <p>
-        Using R for right and U for up, the sequence R U R R U U gives the path.
-        The bijection matching R with H and U with D links paths to H-D sequences.
-      </p>
-    </solution>
-  </activity>
+      </statement>
+      <solution>
+        <p>
+          Using R for right and U for up, the sequence R U R R U U gives the path.
+          The bijection matching R with H and U with D links paths to H-D sequences.
+        </p>
+      </solution>
+    </activity>
 
-  <activity xml:id="act-tableau">
-    <statement>
-      <p>
-        Insert the integers <m>1, 2, \ldots, 2n</m> into a 2 by <m>n</m> rectangle of boxes such that the entries are monotonic in rows and columns. How many ways can you do this?
-      </p>
-      <p>
-         For example, when <m>n=3</m>, there are five arrangements:
-      </p>
 
-        <sidebyside>
-          <tabular top="minor" left="minor" valign="middle" halign="center">
-            <col right="minor"/>
-            <col right="minor"/>
-            <col right="minor"/>
-            <row bottom="minor">
-              <cell>1</cell>
-              <cell>2</cell>
-              <cell>3</cell>
-            </row>
-            <row bottom="minor">
-              <cell>4</cell>
-              <cell>5</cell>
-              <cell>6</cell>
-            </row>
-          </tabular>
+    <activity xml:id="act-hdseq">
+      <statement>
+        <p>
+          <m>2n</m> people stand in line at a old timey movie theater.
+          Admission is 50 cents, (denoted by H), and the box office starts with no change.
+          <m>n</m> of the people have H and <m>n</m> have <dollar />1 (denoted D). In how many ways can the <m>2n</m> people line up so that all can be admitted?
+        </p>
+      </statement>
+      <hint>
+        <p>
+           Here we enumerate the number of workable sequences of <m>n</m> H's and <m>n</m> D's such that at each point in the sequence the number of H's is not less than the number of D's.  Try writing out all HD sequences and see which ones are acceptable and which are not.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The total number of sequences of <m>n</m> H's and <m>n</m> D's is <m>\binom{2n}{n}</m>. We delete the number of
+          <em>nonworkable</em> sequences. Each such sequence has a first snag as
+          shown by the highlighted D in
 
-          <tabular top="minor" left="minor" valign="middle" halign="center">
-            <col right="minor"/>
-            <col right="minor"/>
-            <col right="minor"/>
-            <row bottom="minor">
-              <cell>1</cell>
-              <cell>2</cell>
-              <cell>4</cell>
-            </row>
-            <row bottom="minor">
-              <cell>3</cell>
-              <cell>5</cell>
-              <cell>6</cell>
-            </row>
-          </tabular>
+          <me>\text{H\ H\ D\ D\ \alert{D}\ H\ H\ D\ D\ D\ H\ H}
+          </me>
 
-          <tabular top="minor" left="minor" valign="middle" halign="center">
-            <col right="minor"/>
-            <col right="minor"/>
-            <col right="minor"/>
-            <row bottom="minor">
-              <cell>1</cell>
-              <cell>2</cell>
-              <cell>5</cell>
-            </row>
-            <row bottom="minor">
-              <cell>3</cell>
-              <cell>4</cell>
-              <cell>6</cell>
-            </row>
-          </tabular>
+          Reverse each letter up to and including the snag, obtaining
 
-          <tabular top="minor" left="minor" valign="middle" halign="center">
-            <col right="minor"/>
-            <col right="minor"/>
-            <col right="minor"/>
-            <row bottom="minor">
-              <cell>1</cell>
-              <cell>3</cell>
-              <cell>4</cell>
-            </row>
-            <row bottom="minor">
-              <cell>2</cell>
-              <cell>5</cell>
-              <cell>6</cell>
-            </row>
-          </tabular>
+          <me>
+          \text{D D H H H H H D D D H H},
+          </me>
+          a sequence of <m>n+1</m> H's and <m>n-1</m> D's. For <m>n = 3</m> , H D \alert{D} D H H is a non-workable sequence with the snag indicated. Its mate, found by reversing the first three letters, is D H H D H H, a sequence of 2D's and 4H's. <em>Any</em> arrangement of
+          2D's and 4H's will correspond to exactly one non-workable sequence;
+          simply scan through and see the <em>first</em> time the H's dominate the
+          D's and then reverse through that spot. There are <m>\binom{6}{3}
+          = 20</m> arrangements of 3H's and 3D's. There are <m>\binom{6}{2}
+          = 15</m> arrangements of 2D's and 4H's each of which
+          corresponds to a non-workable sequence. Hence there are <m>\binom{6}{3}
+          -\binom{6}{2} = 5</m> workable sequences. In general, <m>\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}</m> gives the number of workable sequences. See <xref ref="catalaninpascal">Figure</xref>
+        </p>
 
-          <tabular top="minor" left="minor" valign="middle" halign="center">
-            <col right="minor"/>
-            <col right="minor"/>
-            <col right="minor"/>
-            <row bottom="minor">
-              <cell>1</cell>
-              <cell>3</cell>
-              <cell>5</cell>
-            </row>
-            <row bottom="minor">
-              <cell>2</cell>
-              <cell>4</cell>
-              <cell>6</cell>
-            </row>
-          </tabular>
+        <p>
+          For <m>n=3</m>, the matching of the 5 workable sequences with one of the 5
+          ways of parenthesizing, given by the bijection which sends an H to a left parenthesis and a D to a letter, is presented below.
+        </p>
+      <md>
+      <mrow>\text{H H H D D D} \leftrightarrow  (((abcd </mrow>
+      <mrow>\text{H H D H D D} \leftrightarrow  ((a(bcd </mrow>
+      <mrow>\text{H H D D H D} \leftrightarrow  ((ab(cd </mrow>
+      <mrow>\text{H D H H D D} \leftrightarrow  (a((bcd </mrow>
+      <mrow>\text{H D H D H D} \leftrightarrow  (a(b(cd </mrow>
+      </md>
+
+        <TODO> Add something about where the right parentheses go.</TODO>
+      </solution>
+    </activity>
+
+
+
+
+
+    <activity xml:id="act-tableau">
+      <statement>
+        <p>
+          Insert the integers <m>1, 2, \ldots, 2n</m> into a 2 by <m>n</m> rectangle of boxes such that the entries are monotonic in rows and columns. How many ways can you do this?
+        </p>
+        <p>
+           For example, when <m>n=3</m>, there are five arrangements:
+        </p>
+
+          <sidebyside>
+            <tabular top="minor" left="minor" valign="middle" halign="center">
+              <col right="minor"/>
+              <col right="minor"/>
+              <col right="minor"/>
+              <row bottom="minor">
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>3</cell>
+              </row>
+              <row bottom="minor">
+                <cell>4</cell>
+                <cell>5</cell>
+                <cell>6</cell>
+              </row>
+            </tabular>
+
+            <tabular top="minor" left="minor" valign="middle" halign="center">
+              <col right="minor"/>
+              <col right="minor"/>
+              <col right="minor"/>
+              <row bottom="minor">
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>4</cell>
+              </row>
+              <row bottom="minor">
+                <cell>3</cell>
+                <cell>5</cell>
+                <cell>6</cell>
+              </row>
+            </tabular>
+
+            <tabular top="minor" left="minor" valign="middle" halign="center">
+              <col right="minor"/>
+              <col right="minor"/>
+              <col right="minor"/>
+              <row bottom="minor">
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>5</cell>
+              </row>
+              <row bottom="minor">
+                <cell>3</cell>
+                <cell>4</cell>
+                <cell>6</cell>
+              </row>
+            </tabular>
+
+            <tabular top="minor" left="minor" valign="middle" halign="center">
+              <col right="minor"/>
+              <col right="minor"/>
+              <col right="minor"/>
+              <row bottom="minor">
+                <cell>1</cell>
+                <cell>3</cell>
+                <cell>4</cell>
+              </row>
+              <row bottom="minor">
+                <cell>2</cell>
+                <cell>5</cell>
+                <cell>6</cell>
+              </row>
+            </tabular>
+
+            <tabular top="minor" left="minor" valign="middle" halign="center">
+              <col right="minor"/>
+              <col right="minor"/>
+              <col right="minor"/>
+              <row bottom="minor">
+                <cell>1</cell>
+                <cell>3</cell>
+                <cell>5</cell>
+              </row>
+              <row bottom="minor">
+                <cell>2</cell>
+                <cell>4</cell>
+                <cell>6</cell>
+              </row>
+            </tabular>
+          </sidebyside>
+
+      </statement>
+      <solution>
+        <p>
+          A bijection to the path problem is: an entry in the top row corresponds to R. For example, the middle arrangement corresponds to R R U U R U.
+        </p>
+      </solution>
+    </activity>
+    
+    
+
+    <activity xml:id="act-parenthesize">
+      <statement>
+        <p>
+          If we multiply <m>n+1</m> numbers, say <m>a_1a_2\cdots a_n a_{n+1}</m>, we really should put in <m>n</m> pairs of parentheses since multiplication is a binary operation (and what if multiplication is not associative?).  How many ways can we do this?  For example, when <m>n = 3</m>, there are 5 ways:
+          <me>
+         (ab)(cd)\quad ((ab)c)d \quad a(b(cd)) \quad (a(bc))d \quad a((bc)d).
+         </me>
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Try working recursively.   For a product of <m>n+1</m> symbols
+          <m>a_{1}a_{2}\ldots a_{n+1}</m>, break it at the <m>k</m>th symbol:
+        <me>
+          (a_{1}a_{2}a_{3}\ldots a_{k})(a_{k + 1}\ldots a_{n+1}).
+        </me>
+        </p>
+      </hint>
+    </activity>
+
+    <activity xml:id="act-traingulations">
+      <statement>
+        <p>
+          Consider a convex polygon with <m>(n+2)</m> labeled vertices.  In how many ways can non-intersecting diagonals be inserted so as to decompose the polygon into triangles? For <m>n = 3</m> the five
+          figures are shown below.
+        </p>
+
+            <sidebyside width="15%">
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                \fivegon;
+                \draw (a) -- (d) -- (b);
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                \fivegon;
+                \draw (b) -- (e) -- (c);
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                \fivegon;
+                \draw (d) -- (a) -- (c);
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                \fivegon;
+                \draw (e) -- (b) -- (d);
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                \fivegon;
+                \draw (e) -- (c) -- (a);
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </sidebyside>
+
+      </statement>
+      <hint>
+        <p>
+          You might have found a recursion for the sequence of answers in <xref ref="act-catalanfirst"/>.
+        </p>
+      </hint>
+    </activity>
+
+    <activity xml:id="act-rootedtrees">
+      <statement>
+        <p>
+          Consider <term>rooted binary trees</term>.  Rooted trees are trees in the graph theory sense, except that one vertex is designated as the root, which puts a natural ordering on the vertices.  Vertices adjacent to the root are its <term>children</term>, and vertices adjacent to those (other than the root) are their children, and so on.  We are looking at <em>binary</em> trees, so each vertex will have either two children (designated the <term>left child</term> and <term>right child</term>) or no children at all (i.e., the vertex is a leaf).
+        </p>
+
+        <p>
+          How many rooted binary trees have exactly <m>n+1</m> leaves?  Note that because we designate children as left or right, the two trees below are counted as distinct.
+        </p>
+        <sidebyside widths="25%, 25%">
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+                \coordinate (r) at (0,0);
+                \coordinate (rl) at (-1,1);
+                \coordinate (rr) at (1,1);
+                \coordinate (rll) at (-1.5,2);
+                \coordinate (rlr) at (-.5, 2);
+                \draw (r) \v -- (rl) \v -- (rll) \v (rl) -- (rlr) \v (r) -- (rr) \v;
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+                \coordinate (r) at (0,0);
+                \coordinate (rl) at (-1,1);
+                \coordinate (rr) at (1,1);
+                \coordinate (rll) at (-1.5,2);
+                \coordinate (rlr) at (-.5, 2);
+                \coordinate (rrl) at (.5,2);
+                \coordinate (rrr) at (1.5, 2);
+                \draw (r) \v -- (rr) \v -- (rrl) \v (rr) -- (rrr) \v (r) -- (rl) \v;
+              \end{tikzpicture}
+            </latex-image>
+          </image>
         </sidebyside>
+      </statement>
+      <hint>
+        <p>
+          There should be 5 rooted binary trees with 4 leaves (the <m>n = 3</m> case).
+        </p>
+      </hint>
+    </activity>
+    
+  </subsection>
 
-    </statement>
-    <solution>
-      <p>
-        A bijection to the path problem is: an entry in the top row corresponds to R. For example, the middle arrangement corresponds to R R U U R U.
-      </p>
-    </solution>
-  </activity>
-
-
-
-  <activity>
-    <statement>
-      <p>
-        Consider <term>rooted binary trees</term>.  Rooted trees are trees in the graph theory sense, except that one vertex is designated as the root, which puts a natural ordering on the vertices.  Vertices adjacent to the root are its <term>children</term>, and vertices adjacent to those (other than the root) are their children, and so on.  We are looking at <em>binary</em> trees, so each vertex will have either two children (designated the <term>left child</term> and <term>right child</term>) or no children at all (i.e., the vertex is a leaf).
-      </p>
-
-      <p>
-        How many rooted binary trees have exactly <m>n+1</m> leaves?  Note that because we designate children as left or right, the two trees below are counted as distinct.
-      </p>
-      <sidebyside widths="25%, 25%">
+  <subsection xml:id="subsec-catalanseq">
+    <title>The Catalan Numbers</title>
+    
+    <p>
+      The sequence of Catalan numbers, named after Eugene Catalan who along with Euler discovered many of the properties of these numbers, is the sequence <m>(C_n)_{n \ge 0}</m> starting, <me>1, 1, 2, 5, 14, 42, 132, \ldots</me>. All of the counting problems above should be answered by Catalan numbers.  Let's investigate this sequence and discover some of its properties.
+    </p>
+      
+    <p>
+      First, we should make sure that at the very least, all of the counting problems above have the same answer.  This will be hugely helpful, since then we could use any of them as a model to discuss the sequence. 
+    </p>
+      
+    <p>
+      How do you prove that two counting problems have the same answer?  The bijection principle tells us that if there is a bijection between two sets, then the sets have the same size.  So let's find some bijections.
+    </p>
+    
+    <activity xml:id="act-pathshdseq">
+      <statement>
+        <p>
+          Find a bijection between the set of lattice paths from <m>(0,0)</m> to <m>(n,n)</m> that do not rise above the line <m>y = x</m> (as in <xref ref="act-lowerpaths"/>) and the set of ways that the movie patrons in <xref ref="act-hdseq"/> can line up.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          How could you represent the lattice path using strings of two symbols?  What makes such a path acceptable?  
+        </p>
+      </hint>
+    </activity>
+    
+    <p>
+      Representing the set of outcomes as strings of sequences is useful, because it suggests a bijection between different types of problems.  The sequences of paths and movie theater lines from <xref ref="act-pathshdseq"/> are called <term>Dyck words</term>.  These are strings of an equal number of two symbols, say <m>x</m> and <m>y</m>, such that no initial segment of the string has more <m>y</m>'s than <m>x</m>'s.
+    </p>
+    
+    <p>
+      We now see that the number of Dyck words of length <m>2n</m> is <m>C_n</m>.  
+    </p>
+    
+    <activity>
+      <task>
+        <statement>
+          <p>
+            Show that the number of acceptable tableau insertions from <xref ref="act-tableau"/> is always a Catalan number.  That is, give a bijection between the set of Dyck words of length <m>2n</m> to the set of ways to insert the numbers 1 through <m>2n</m> into a <m>2\times n</m> tableau so that both rows and columns are increasing.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            If you put the numbers into the tableau in order, for each number, you must decide to put it in the top row or the bottom row.  Do you have any other choices?  What would constitute a mistake?
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Show the number of ways to parenthesize a product of <m>n+1</m> numbers is <m>C_n</m> (see <xref ref="act-parenthesize"/>).  
+          </p>
+        </statement>
+        <hint>
+          <p>
+            One way to parenthesize the product <m>abcd</m> is <m>a((bc)d)</m>, but this is really <m>(a((bc)d))</m>, so that the outer set set of parentheses belong with the product of <m>a</m> and <m>((bc)d)</m>.  Further, not that if we wrote this just as <m>(a((bcd</m>, there would be only one way to insert the right paretheses that would make the product parse correctly.
+          </p>
+        </hint>
+      </task>
+    </activity>
+    
+    <p>
+      Not all of the models for the Catalan numbers are easily represented by Dyck words (or at least not in an obvious way).
+    </p>
+    
+    <activity>
+      <statement>
+        <p>
+          Demonstrate a bijection between the set of acceptable ways to parenthesize the product of <m>n+1</m> terms and the set of rooted binary trees with <m>n+1</m> leaves (see <xref ref="act-rootedtrees"/>).
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Think about how students are taught to factor numbers.
+        </p>
+      </hint>
+    </activity>
+    
+    <p>
+      We have now verified that all our sample problems are Catalan numbers, except for the triangulations of polygons problem.  There is a clever way to associate each triangulation with a binary tree, as suggested by <xref ref="fig-triangulationtree"/>.  However, let's take this opportunity to illustrate another method for proving two problems have the same answers.
+    </p>
+    
+    <figure xml:id="fig-triangulationtree">
+      <caption>A triangulation of a 5-gon and associated rooted binary tree.</caption>
+      <sidebyside width="25%">
         <image>
-          <latex-image>
-            \begin{tikzpicture}
-              \coordinate (r) at (0,0);
-              \coordinate (rl) at (-1,1);
-              \coordinate (rr) at (1,1);
-              \coordinate (rll) at (-1.5,2);
-              \coordinate (rlr) at (-.5, 2);
-              \draw (r) \v -- (rl) \v -- (rll) \v (rl) -- (rlr) \v (r) -- (rr) \v;
-            \end{tikzpicture}
-          </latex-image>
+          \begin{tikzpicture}
+            \fivegon;
+            \draw (d) -- (a) -- (c);
+            \draw (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \vl{$b$};
+            \draw (-1,1.3) -- (-2,.8) \vl{$a$};
+            \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \vr{$c$};
+            \draw (1,1.2) -- (2,.7) \vr{$d$};
+          \end{tikzpicture}
         </image>
         <image>
-          <latex-image>
-            \begin{tikzpicture}
-              \coordinate (r) at (0,0);
-              \coordinate (rl) at (-1,1);
-              \coordinate (rr) at (1,1);
-              \coordinate (rll) at (-1.5,2);
-              \coordinate (rlr) at (-.5, 2);
-              \coordinate (rrl) at (.5,2);
-              \coordinate (rrr) at (1.5, 2);
-              \draw (r) \v -- (rr) \v -- (rrl) \v (rr) -- (rrr) \v (r) -- (rl) \v;
-            \end{tikzpicture}
-          </latex-image>
+          \begin{tikzpicture}
+            \draw (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \va{$a$};
+            \draw (-1,1.3) -- (-.5,2.5) \va{$b$};
+            \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \va{$d$};
+            \draw (1,1.2) -- (.5,2.5) \va{$c$};
+          \end{tikzpicture}
         </image>
       </sidebyside>
-    </statement>
-    <hint>
-      <p>
-        There should be 5 rooted binary trees with 4 leaves (the <m>n = 3</m> case).
-      </p>
-    </hint>
-  </activity>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </figure>
+    
+    
+    <activity>
+      <introduction>
+        <p>
+          Consider the recurrence relation 
+          <me>
+            C_{n + 1} = \sum_{i = 0}^n C_iC_{n-i} = C_{0}C_{n} + C_{1}C_{n - 1} + \ldots + C_{n}C_{0}
+          </me>
+          with <m>C_0 = 1</m>.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Calculate the first 6 values of the sequence from this recurrence relation, to verify that it appears to agree with the Catalan numbers.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Prove that the Catalan numbers satisfy the recurrence relation.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Look at rooted binary trees.  What happens when you remove the root?  You could also use the parenthesizing model by asking where <q>main product</q> occurs.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Prove that the number of triangulations of a convex polygon with <m>n+2</m> sides also satisfies this recurrence relation (if you haven't already done so in <xref ref="act-catalanfirst"/>).  Conclude that the triangulations problem is also solved by the Catalan numbers.
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
     <p>
-      The sequence of Catalan numbers, named after Eugene Catalan who along with Euler discovered many of the properties of these numbers, is <m>1, 1, 2, 5, 14, 42, 132, \ldots</m>. The characterizations below show that a formula for these numbers is given by
-      <me>
-        C_{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
-      </me>
-      with <m>C_1 = 1</m>, <m>C_2 = 1</m>, etc.
+      Next, we would like to find a closed formula for <m>C_n</m>.  We can do so using lattice paths.
     </p>
+
+    <activity>
+      <introduction>
+        <p>
+          Recall that <m>C_n</m> gives the number of lattice paths from <m>(0,0)</m> to <m>(n,n)</m> that do not cross the line <m>y = x</m> (but they may touch this line).  We will compare this to all the lattice paths from <m>(0,0)</m> to <m>(n,n)</m>.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Explain why the number of lattice paths from <m>(0,0)</m> to <m>(n,n)</m> that <em>do</em> cross the line <m>y = x</m> is the same as the number of lattice paths from <m>(0,0)</m> to <m>(n,n)</m> that touch or cross the line <m>y = x + 1</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If a lattice path between <m>(0,0)</m> and <m>(n,n)</m> goes outside the
+            triangle, it can only do so on an upstep. (A step from <m>(i,j)</m> to
+            <m>(i,j+1)</m>.) And an upstep must originate at a point with integer
+            coordinates. If <m>j\lt i</m> an upstep from <m>(i,j))</m> cannot leave the triangle.
+            Thus to leave the triangle, the upstep must leave from a point of the form
+            <m>(i,i)</m>, and go to <m>(i,i+1)</m>, which is on the line <m>y=x+1</m>.
+          </p>
+        </solution>
+      </task>
+      <task>
+        <statement>
+          <p>Find a bijection between lattice paths from <m>(0,0)</m> to <m>(n,n)</m>
+          that touch (or cross) the line <m>y=x+1</m> and lattice paths from
+          <m>(-1,1)</m> to <m>(n,n)</m>.
+        </p>
+        </statement>
+        <hint>
+          <p>
+        Given a path from <m>(0, 0)</m> to <m>(n, n)</m> which touches or crosses the line <m>y = x + 1</m>,
+        how can you modify the part of the path from <m>(0, 0)</m> to the first touch of <m>y = x + 1</m> so that the modified path starts instead at <m>(-1, 1)</m>? The trick is to do this in a systematic way that will give you your bijection.
+          </p>
+        </hint>
+        <solution>
+            <p>Suppose we have a lattice path form <m>(0,0)</m> to <m>(n,n)</m> which touches or crosses the line <m>y=x+1</m>. Let <m>(k,k+1)</m> be the first point on the line <m>y=x+1</m> that the lattice path touches. From that point, work backwards, replacing every upstep with a step one unit to the left and every rightstep with a step one unit down. The segment of the path you just changed will have moved left <m>k+1</m> times, so its leftmost <m>x</m> coordinate will be <m>-1</m>, and it will have moved down <m>k</m> times, so its lowest <m>y</m> coordinate will be 1.  Thus we now have a lattice path from <m>(-1,1)</m> to <m>(n,n)</m>. Further, given a lattice path from <m>(-1,1)</m> to <m>(n,n)</m>, it must cross the line <m>y=x+1</m> at least once, because it starts above the line and ends below it. At the first point where such a path touches the line <m>y=x+1</m>, say <m>(k',k'+1)</m>, work backwards replacing every upstep with a step to the left and every rightstep with a step downwards. The leftmost point on this path will have <m>x</m> coordinate 0, and the lowest point will have <m>y</m> coordinate 0, so the new path will be a lattice path from <m>(0,0)</m> to <m>(n,n)</m> that touches the line <m>y=x+1</m>. Clearly these two processes reverse each other, and so they give us a bijection between paths form <m>(0,0)</m> to <m>(n,n)</m> that touch the line <m>y=x+1</m> and lattice lattice paths from <m>(-1,1)</m> to <m>(n,n)</m>. Notice that geometrically what we are doing to get the bijection is to take the portion of a lattice path that goes from the initial point till the first touch of the line <m>y=x+1</m> and reflecting it around that line. This idea of reflection was introduced by Feller, and is called Feller's reflection principle.
+        </p>
+        </solution>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Find a formula for the number of lattice paths from <m>(0,0)</m> to <m>(n,n)</m> that do not cross the line <m>y=x</m>. That is, a formula for <m>C_n</m>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+        A path either touches the line <m>y = x + 1</m> or it doesn't. This partitions the set of paths into two blocks. 
+          </p>
+        </hint>
+        <solution>
+          <p>
+            <m>C_n=\binom{2n}{n} - \binom{2n}{n+1}=\frac{1}{n+1}\binom{2n}{n}.</m>
+          </p>
+        </solution>
+      </task>
+    </activity>
+    
+    <p>
+      So <m>C_n = \binom{2n}{n} - \binom{2n}{n+1}</m>.  Another formula you might run into is <m>C_n = \frac{1}{n+1}\binom{2n}{n}</m>.  Why is also correct?
+    </p>
+
+    <activity>
+      <task>
+        <statement>
+          <p>
+            Prove that <m>\binom{2n}{n} - \binom{2n}{n+1} = \frac{1}{n+1}\binom{2n}{n}</m> using a method of your choice.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            The algebraic formula for <m>\binom{n}{k}</m> would be appropriate here.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Challenge problem: explain the formula <m>C_n = \frac{1}{n+1}\binom{2n}{n+1}</m> using the quotient principle.  This would give an alternate proof for the closed formula for the Catalan numbers.
+          </p>
+        </statement>
+      </task>
+    </activity>
+  </subsection>
+
+
+
+
+
+
+
 
 
 
@@ -334,45 +631,6 @@
     schemes.
   </p>
 </paragraphs>
-
-  <p>
-  Thus far, we have the following bijections:
-
-<sidebyside>
-  <tabular>
-    <col halign="right" />
-    <col halign="center" />
-    <col halign="left" />
-    <row>
-      <cell>Parentheses</cell>
-      <cell><m>\leftrightarrow</m></cell>
-      <cell>H-D sequences</cell>
-    </row>
-    <row>
-      <cell>H-D sequences</cell>
-      <cell><m>\leftrightarrow</m></cell>
-      <cell>Paths</cell>
-    </row>
-    <row>
-      <cell>Triangulations</cell>
-      <cell><m>\leftrightarrow</m></cell>
-      <cell>Parentheses</cell>
-    </row>
-    <row>
-      <cell>Insertions</cell>
-      <cell><m>\leftrightarrow</m></cell>
-      <cell>Paths</cell>
-    </row>
-    <row>
-      <cell>Trees</cell>
-      <cell><m>\leftrightarrow</m></cell>
-      <cell>Parentheses</cell>
-    </row>
-  </tabular>
-</sidebyside>
-
-See if you can connect the rhyme schemes to any of the above.
-</p>
 
 
 <figure xml:id="catalaninpascal">

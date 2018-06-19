@@ -110,7 +110,7 @@
     Let's pause and just for fun consider a few discrete math questions that probably have nothing to do with Pascal's Triangle or each other.  Probably.
   </p>
 
-  <activity>
+  <activity xml:id="act-latticepaths">
     <introduction>
       <p>
         The <term>integer lattice</term> is the set of all points in the Cartesian plane for which both the <m>x</m> and <m>y</m> coordinates are integers. 
