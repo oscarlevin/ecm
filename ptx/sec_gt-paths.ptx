@@ -4,6 +4,7 @@
 
 
   <introduction>
+    <!-- TODO: move this to introduction, replace with domino or other problem? -->
     <activity>
       <p>
         In the time of Euler, in the town of Königsberg in Prussia, there was a river containing two islands. The islands were connected to the banks of the river by seven bridges (as seen below). The bridges were very beautiful, and on their days off, townspeople would spend time walking over the bridges. As time passed, a question arose: was it possible to plan a walk so that you cross each bridge once and only once? Euler was able to answer this question. Are you?
@@ -56,7 +57,7 @@ An <term>Euler path</term>, in a graph or multigraph, is a walk through the grap
 <ol>
   <li>
 <p>
-Which of the graphs below have Euler paths? Which have Euler circuits?
+Which of the graphs/multigraphs below have Euler paths? Which have Euler circuits?
 </p>
 <sidebyside widths="18% 18% 36% 22%" margins="auto" valign="bottom">
   <image>
@@ -87,7 +88,7 @@ Which of the graphs below have Euler paths? Which have Euler circuits?
 
 <li>
 <p>
-List the degrees of each vertex of the graphs above. Is there a connection between degrees and the existence of Euler paths and circuits?
+List the degrees of each vertex of the (multi)graphs above. Is there a connection between degrees and the existence of Euler paths and circuits?
 </p>
 </li>
 <li>
@@ -123,7 +124,7 @@ Below is <em>part</em> of a graph. Even though you can only see some of the vert
 
 </activity>
 <p>
-If we start at a vertex and trace along edges to get to other vertices, we create a <em>walk</em> through the graph.  More precisely, a <term>walk</term> in a graph is a sequence of vertices such that every vertex in the sequence is adjacent to the vertices before and after it in the sequence. If the walk travels along every edge exactly once, then the walk is called an <term>Euler path</term> (or <term>Euler walk</term>). If, in addition, the starting and ending vertices are the same (so you trace along every edge exactly once and end up where you started), then the walk is called an <term>Euler circuit</term> (or <term>Euler tour</term>). Of course if a graph is not connected, there is no hope of finding such a path or circuit. For the rest of this section, assume all the graphs discussed are connected.
+If we start at a vertex and trace along edges to get to other vertices, we create a <em>walk</em> through the graph.  More precisely, a <term>walk</term> in a graph is a sequence of vertices such that every vertex in the sequence is adjacent to the vertices before and after it in the sequence. If the walk travels along every edge exactly once, then the walk is called an <term>Euler path</term> (or <term>Euler trail</term> or <term>Euler walk</term>). If, in addition, the starting and ending vertices are the same (so you trace along every edge exactly once and end up where you started), then the walk is called an <term>Euler circuit</term> (or <term>Euler tour</term>). Of course if a graph is not connected, there is no hope of finding such a path or circuit. For the rest of this section, assume all the graphs discussed are connected.
 </p>
 
 <p>
@@ -170,7 +171,9 @@ What all this says is that if a graph has an Euler path and two vertices with od
 <p>
 The converse is also true: if all the vertices of a graph have even degree, then the graph has an Euler circuit, and if there are exactly two vertices with odd degree, the graph has an Euler path. To prove this is a little tricky, but the basic idea is that you will never get stuck because there is an <q>outbound</q> edge for every <q>inbound</q> edge at every vertex. If you try to make an Euler path and miss some edges, you will always be able to <q>splice in</q> a circuit using the edges you previously missed.
 </p>
-<assemblage>
+
+
+<theorem>
 <title>Euler Paths and Circuits</title>
 
 <p>
@@ -187,7 +190,8 @@ The converse is also true: if all the vertices of a graph have even degree, then
   </li>
   </ul>
 </p>
-</assemblage>
+</theorem>
+
 <p>
 Since the bridges of Königsberg graph has all four vertices with odd degree, there is no Euler path through the graph.  Thus there is no way for the townspeople to cross every bridge exactly once.
 </p>

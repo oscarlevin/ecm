@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_basic-quotient">
-  <title>Counting under Equivalence</title>
+  <title>Counting with Equivalence</title>
 
 <introduction>
   <!-- Here we will discuss the relationship between combinations and permutations from an advanced mathematical perspective: we are counting equivalence classes.  We will then consider some other examples of this and some non-examples (why you cannot always do this). -->

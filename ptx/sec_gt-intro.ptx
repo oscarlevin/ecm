@@ -179,7 +179,7 @@
 			</image>
 		</sidebyside>
 		<p>
-			You might also think of a graph as a set of vertices and a set of edges, where each edge is a set of two vertices.  
+			You might also think of a graph as a set of vertices and a set of edges, where each edge is a set of two vertices.
 			Are the graphs below the same or different?
 		<dl width="narrow">
 			<li>
@@ -204,7 +204,7 @@
 		</p>
 
 		<p>
-		  We want our definition to be precise and unambiguous, but it also must agree with our intuition for the objects we are studying.  It needs to be useful: we <em>could</em> define a graph to be a six legged mammal, but that would not let us solve any problems about bridges.  
+		  We want our definition to be precise and unambiguous, but it also must agree with our intuition for the objects we are studying.  It needs to be useful: we <em>could</em> define a graph to be a six legged mammal, but that would not let us solve any problems about bridges.
 		</p>
 
 		<activity>
@@ -219,10 +219,9 @@
 		  Writing definitions is hard.  You should compare what you came up with to the following:
 		</p>
 
-		<assemblage>
-			<title>Graph Definition</title>
+		<definition>
 			<p>	A <term>graph</term> is an ordered pair <m>G = (V, E)</m> consisting of a nonempty set <m>V</m> (called the <term>vertices</term>) and a set <m>E</m> (called the <term>edges</term>) of two-element subsets of <m>V</m>.</p>
-		</assemblage>
+		</definition>
 
 		<p>
 		 	Strange.  Nowhere in the definition is there talk of dots or lines.  From the definition, a graph could be <me>(\{a,b,c,d\}, \{\{a,b\}, \{a,c\}, \{b,c\}, \{b,d\}, \{c,d\}\}).</me>
@@ -264,7 +263,7 @@
 			</latex-image>
 		</image>
 	</sidebyside>
-	
+
 	<p>
 		We should be careful about what it means for two graphs to be <q>the same.</q>  Actually, given our definition, this is easy: Are the vertex sets equal?  Are the edge sets equal?  We know what it means for sets to be equal, and graphs are nothing but a pair of two special sorts of sets. </p>
 
@@ -347,8 +346,7 @@
 	<p>
 		Intuitively, graphs are <term>isomorphic</term> <idx><h>isomorphic</h></idx> if they are basically the same, or better yet, if they are the same except for the names of the vertices. To make the concept of renaming vertices precise, we give the following definitions:
 	</p>
-	<assemblage>
-		<title>Isomorphic Graphs</title>
+	<definition>
 		<p>
 			<idx><h>isomorphic</h></idx> An
 			<term>isomorphism</term><idx><h>isomorphism</h></idx> between two graphs <m>G_1</m> and <m>G_2</m> is a bijection <m>f:V_1 \to V_2</m> between the vertices of the graphs such that if <m>\{a,b\}</m> is an edge in <m>G_1</m> then <m>\{f(a), f(b)\}</m> is an edge in <m>G_2</m>.
@@ -358,7 +356,7 @@
 			Two graphs are
 			<term>isomorphic</term> if there is an isomorphism between them. In this case we write <m>G_1 \isom G_2</m>.
 		</p>
-	</assemblage>
+	</definition>
 	<p>
 		An isomorphism is simply a function which renames the vertices. It must be a bijection so every vertex gets a new name. These newly named vertices must be connected by edges precisely if they were connected by edges with their old names.
 	</p>
@@ -451,6 +449,155 @@
 		Sometimes we will talk about a graph with a special name (like <m>K_n</m> or the <em>Peterson graph</em>) or perhaps draw a graph without any labels. In this case we are really referring to <em>all</em> graphs isomorphic to any copy of that particular graph. A collection of isomorphic graphs is often called an <term>isomorphism class</term><idx><h>isomorphism class</h></idx>.<fn>This is not unlike geometry, where we might have more than one copy of a particular triangle. There instead of <em>isomorphic</em> we say <em>congruent</em>.</fn>
 	</p>
 
+	<activity>
+		<introduction>
+			<p>
+				Consider the following two graphs:
+			<dl width="narrow">
+				<li><title><m>G_1</m></title><p><m>V_1=\{a,b,c,d,e,f,g\}</m></p>
+					 <p><m>E_1=\{\{a,b\},\{a,d\},\{b,c\},\{b,d\},\{b,e\},\{b,f\},\{c,g\},\{d,e\},</m></p><p><m>\{e,f\},\{f,g\}\}</m>.</p></li>
+				<li><title><m>G_2</m></title><p><m>V_2=\{v_1,v_2,v_3,v_4,v_5,v_6,v_7\}</m>,</p>
+					 <p>
+						<m>E_2=\{\{v_1,v_4\},\{v_1,v_5\},\{v_1,v_7\},\{v_2,v_3\},\{v_2,v_6\},</m></p>
+						<p>
+						<m>\{v_3,v_5\},\{v_3,v_7\},\{v_4,v_5\},\{v_5,v_6\},\{v_5,v_7\}\}</m>
+					</p></li>
+			</dl>
+		</p>
+	</introduction>
+		<task>
+			<statement>
+			  <p>
+					<p>
+						Let <m>f:G_1 \rightarrow G_2</m> be a function that takes the vertices of Graph 1 to vertices of Graph 2. The function is given by the following table:
+					</p>
+						<sidebyside>
+							<tabular>
+								<row bottom="minor">
+									<cell right="minor"><m>x</m></cell>
+									<cell><m>a</m></cell>
+									<cell><m>b</m></cell>
+									<cell><m>c</m></cell>
+									<cell><m>d</m></cell>
+									<cell><m>e</m></cell>
+									<cell><m>f</m></cell>
+									<cell><m>g</m></cell>
+								</row>
+								<row>
+									<cell right="minor"><m>f(x)</m></cell>
+									<cell><m>v_4</m></cell>
+									<cell><m>v_5</m></cell>
+									<cell><m>v_1</m></cell>
+									<cell><m>v_6</m></cell>
+									<cell><m>v_2</m></cell>
+									<cell><m>v_3</m></cell>
+									<cell><m>v_7</m></cell>
+								</row>
+							</tabular>
+						</sidebyside>
+			  </p>
+			</statement>
+			<solution>
+				<p>
+					Recall that in order for <m>f</m> to define an isomorphism between <m>G1</m> and <m>G2</m>, it must preserve relationships between vertices. To put this into context, this means that since <m>a</m> and <m>b</m> are joined via an edge in <m>G1</m> that their corresponding vertices in <m>G2</m> must also be joined by an edge. This must be true for all of the vertices and edges. When examining the function, we can see that the vertex <m>g</m> goes to <m>v_7</m>, that is <m>f(g)=v_7</m>. BUT, <m>g</m> has exactly 2 edges (so <m>g</m> is degree 2) and <m>v_7</m> is degree 3. This means that <m>f</m> cannot possibly be an isomorphism. Similarly, we can see that <m>f</m> does not take <m>c</m> to the correct vertex either <m>c</m> is degree 2 and <m>v_1</m> has degree 3.
+				</p>
+			</solution>
+		</task>
+		<task>
+			<statement>
+				<p>
+					Define a new function <m>g</m> (with <m>g\not=f</m>) that defines an isomorphism between Graph 1 and Graph 2.
+				</p>
+			</statement>
+						<solution>
+							<sidebyside>
+								<tabular>
+								<row>
+									<cell><m>x</m></cell>
+									<cell><m>a</m></cell>
+									<cell><m>b</m></cell>
+									<cell><m>c</m></cell>
+									<cell><m>d</m></cell>
+									<cell><m>e</m></cell>
+									<cell><m>f</m></cell>
+									<cell><m>g</m></cell>
+								</row>
+								<row bottom="minor">
+									<cell></cell>
+									<cell></cell>
+								</row>
+								<row>
+									<cell><m>f(x)</m></cell>
+									<cell><m>v_4</m></cell>
+									<cell><m>v_5</m></cell>
+									<cell><m>v_6</m></cell>
+									<cell><m>v_1</m></cell>
+									<cell><m>v_7</m></cell>
+									<cell><m>v_3</m></cell>
+									<cell><m>v_2</m></cell>
+								</row>
+							</tabular>
+						</sidebyside>
+						</solution>
+					</task>
+					<task>
+						<statement>
+						  <p>
+								Is the graph pictured below isomorphic to Graph 1 and Graph 2? Explain.
+						  </p>
+							<sidebyside width="20%">
+								<image>
+									<latex-image>
+										\begin{tikzpicture}
+										\draw (-1, 0) coordinate (v1) -- (0,0) coordinate (v2) -- (1,0) coordinate (v3) -- (1,1) coordinate (v4) -- (0,1) coordinate (v5) -- (-1,1) coordinate (v6) -- (v1) --(0,.5) coordinate (v7) -- (v2) (v7) -- (v3) (v7) -- (v5);
+										\foreach \i in {1,...,7}{
+										\fill (v\i) \v;
+										}
+										\end{tikzpicture}
+									</latex-image>
+								</image>
+							</sidebyside>
+						</statement>
+						<solution>
+						<p>
+						No, it could not possibly be isomorphic. If you count up the degrees of each vertex in this picture, you can see that the highest degree is 4 (the center vertex). In order to be isomorphic to either <m>G1</m> or <m>G2</m> we would definitely need a vertex of degree 5, which we don't have.
+					</p>
+				</solution>
+		</statement>
+	</activity>
+
+
+	<activity>
+		<statement>
+			<p>
+				Is it possible for two <em>different</em> (non-isomorphic) graphs to have the same number of vertices and the same number of edges? What if the degrees of the vertices in the two graphs are the same (so both graphs have vertices with degrees 1, 2, 2, 3, and 4, for example)? Draw two such graphs or explain why not.
+			</p>
+		</statement>
+		<solution>
+			<p>
+				Yes. For example, both graphs below contain 6 vertices, 7 edges, and have degrees (2,2,2,2,3,3).
+			</p>
+			<sidebyside widths="40% 20%" margins="auto" valign="bottom">
+				<image>
+					<latex-image>
+						\begin{tikzpicture}
+		   \draw[thick] (-2,0) \v -- (-1,0) \v -- (-1.5,1) \v -- (-2,0) (-1.5,1) -- (1.5, 1) \v -- (1,0) \v -- (2,0) \v -- (1.5,1);
+		  \end{tikzpicture}
+					</latex-image>
+				</image>
+				<image>
+					<latex-image>
+						\begin{tikzpicture}
+		  \foreach \x in {0,...,5}
+		    \draw[thick] (\x*60:1) \v -- (\x*60 + 60:1);
+		    \draw[thick] (0:1) -- (180:1);
+		  \end{tikzpicture}
+					</latex-image>
+				</image>
+			</sidebyside>
+		</solution>
+	</activity>
+
 	<p>
 	  There are other relationships between graphs that we care about, other than equality and being isomorphic.  For example, compare the following pair of graphs:
 	</p>
@@ -497,16 +644,15 @@
 	  We should give a careful definition of this.  In fact, there are two reasonable notions for what a subgroup should mean.
 	</p>
 
-	<assemblage>
-		<title>Subgraphs</title>
+	<definition>
 		<p>
-		  We say that <m>G_1 = (V_1, E_1)</m> is a <term>subgraph</term><idx><h>subgraph</h></idx> of <m>G_2 = (V_2, E_2)</m> provided <m>V_1 \subseteq V_2</m> and <m>E_1 \subseteq E_2</m>.
+		  We say that <m>G' = (V', E')</m> is a <term>subgraph</term><idx><h>subgraph</h></idx> of <m>G = (V, E)</m>, and write <m>G' \subseteq G</m>, provided <m>V' \subseteq V</m> and <m>E' \subseteq E</m>.
 		</p>
 
 		<p>
-		  We say that <m>G_1 = (V_1, E_1)</m> is an <term>induced subgraph</term><idx><h>subgraph</h><h>induced</h></idx><idx><h>induced subgraph</h></idx> of <m>G_2 = (V_2, E_2)</m> provided <m>V_1 \subseteq V_2</m> and <m>E_1</m> contains all edges of <m>E_2</m> which are subsets of <m>V_1</m>.
+		  We say that <m>G' = (V', E')</m> is an <term>induced subgraph</term><idx><h>subgraph</h><h>induced</h></idx><idx><h>induced subgraph</h></idx> of <m>G = (V, E)</m> provided <m>V' \subseteq V</m> and every edge in <m>E</m> whose vertices are still in <m>V'</m> is also an edge in <m>E'</m>.
 		</p>
-	</assemblage>
+	</definition>
 
 		<p> Notice that every induced subgraph is also an ordinary subgraph, but not conversely.  Think of a subgraph as the result of deleting some vertices and edges from the larger graph.  For the subgraph to be an induced subgraph, we can still delete vertices, but now we only delete those edges that included the deleted vertices.
 		</p>
@@ -591,8 +737,11 @@
 	</p>
 
 	<p>
-		Each vertex in <m>K_n</m> is adjacent to <m>n-1</m> other vertices. We call the number of edges emanating from a given vertex the <term>degree</term> of that vertex. So every vertex in <m>K_n</m> has degree <m>n-1</m>. How many edges does <m>K_n</m> have? One might think the answer should be <m>n(n-1)</m>, since we count <m>n-1</m> edges <m>n</m> times (once for each vertex). However, each edge is incident to 2 vertices, so we counted every edge exactly twice. Thus there are <m>n(n-1)/2</m> edges in <m>K_n</m>. Alternatively, we can say there are <m>{n \choose 2}</m> edges, since to draw an edge we must choose 2 of the <m>n</m> vertices.
+		Each vertex in <m>K_n</m> is adjacent to <m>n-1</m> other vertices. We call the number of edges emanating from a given vertex the <term>degree</term> of that vertex. So every vertex in <m>K_n</m> has degree <m>n-1</m>. How many edges does <m>K_n</m> have? One might think the answer should be <m>n(n-1)</m>, since we count <m>n-1</m> edges <m>n</m> times (once for each vertex). However, each edge is incident to 2 vertices, so we counted every edge exactly twice. Thus there are <m>n(n-1)/2</m> edges in <m>K_n</m>.
+		<!-- Alternatively, we can say there are <m>{n \choose 2}</m> edges, since to draw an edge we must choose 2 of the <m>n</m> vertices. -->
 	</p>
+
+	<!-- TODO: put an activity introducing the handshake lemma here -->
 
 	<p>
 		In general, if we know the degrees of all the vertices in a graph, we can find the number of edges. The sum of the degrees of all vertices will always be <em>twice</em> the number of edges, since each edge adds to the degree of two vertices. Notice this means that the sum of the degrees of all vertices in any graph must be even!
@@ -643,8 +792,8 @@
 			<li>
 				<title><m>P_n</m></title>
 				<p>
-					The path on <m>n</m> vertices, just one long path.
-					<notation><usage>P_n</usage><description>the path on <m>n</m> vertices</description></notation>
+					The path on <m>n+1</m> vertices (so <m>n</m> edges), just one long path.
+					<notation><usage>P_n</usage><description>the path on <m>n+1</m> vertices</description></notation>
 				</p>
 			</li>
 		</dl>
@@ -684,7 +833,7 @@
 				<latex-image>
 					\begin{tikzpicture}[scale=.6]
 	  \draw  (-2,0) \v -- (-1,.5) \v -- (0,0) \v -- (1,.75) \v -- (.5,1.5) \v -- (2,2) \v;
-	  \draw (0,-.5) node[below]{ \(P_6\)};
+	  \draw (0,-.5) node[below]{ \(P_5\)};
 	\end{tikzpicture}
 				</latex-image>
 			</image>
@@ -804,7 +953,5 @@
 		</p>
 	</paragraphs>
 
-
-<xi:include href="exercises/gt-intro.ptx"/>
 
 </section>
