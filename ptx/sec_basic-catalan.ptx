@@ -10,8 +10,8 @@
 
   <subsection xml:id="subsec-catalanprobs">
     <title>A Few Counting Problems</title>
-    
-    
+
+
     <p>
       The counting problems in <xref first="act-lowerpaths" last="act-rootedtrees">Activities</xref> are not supposed to be easy to solve, but you have a lot of combinatorial tools to try.  Say as much as you can about as many as you can before moving on.  At the very least, you should answer the counting problems for small values of <m>n</m> by writing out the set of outcomes.  In <xref ref="subsec-catalanseq"/>, we will investigate the problems in more depth and see how to answer them fully.
     </p>
@@ -51,7 +51,7 @@
     <activity xml:id="act-hdseq">
       <statement>
         <p>
-          <m>2n</m> people stand in line at a old timey movie theater.
+          <m>2n</m> people stand in line at a old-timey movie theater.
           Admission is 50 cents, (denoted by H), and the box office starts with no change.
           <m>n</m> of the people have H and <m>n</m> have <dollar />1 (denoted D). In how many ways can the <m>2n</m> people line up so that all can be admitted?
         </p>
@@ -85,19 +85,6 @@
           -\binom{6}{2} = 5</m> workable sequences. In general, <m>\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}</m> gives the number of workable sequences. See <xref ref="catalaninpascal">Figure</xref>
         </p>
 
-        <p>
-          For <m>n=3</m>, the matching of the 5 workable sequences with one of the 5
-          ways of parenthesizing, given by the bijection which sends an H to a left parenthesis and a D to a letter, is presented below.
-        </p>
-      <md>
-      <mrow>\text{H H H D D D} \leftrightarrow  (((abcd </mrow>
-      <mrow>\text{H H D H D D} \leftrightarrow  ((a(bcd </mrow>
-      <mrow>\text{H H D D H D} \leftrightarrow  ((ab(cd </mrow>
-      <mrow>\text{H D H H D D} \leftrightarrow  (a((bcd </mrow>
-      <mrow>\text{H D H D H D} \leftrightarrow  (a(b(cd </mrow>
-      </md>
-
-        <TODO> Add something about where the right parentheses go.</TODO>
       </solution>
     </activity>
 
@@ -203,8 +190,8 @@
         </p>
       </solution>
     </activity>
-    
-    
+
+
 
     <activity xml:id="act-parenthesize">
       <statement>
@@ -328,24 +315,24 @@
         </p>
       </hint>
     </activity>
-    
+
   </subsection>
 
   <subsection xml:id="subsec-catalanseq">
     <title>The Catalan Numbers</title>
-    
+
     <p>
       The sequence of Catalan numbers, named after Eugene Catalan who along with Euler discovered many of the properties of these numbers, is the sequence <m>(C_n)_{n \ge 0}</m> starting, <me>1, 1, 2, 5, 14, 42, 132, \ldots</me>. All of the counting problems above should be answered by Catalan numbers.  Let's investigate this sequence and discover some of its properties.
     </p>
-      
+
     <p>
-      First, we should make sure that at the very least, all of the counting problems above have the same answer.  This will be hugely helpful, since then we could use any of them as a model to discuss the sequence. 
+      First, we should make sure that at the very least, all of the counting problems above have the same answer.  This will be hugely helpful, since then we could use any of them as a model to discuss the sequence.
     </p>
-      
+
     <p>
       How do you prove that two counting problems have the same answer?  The bijection principle tells us that if there is a bijection between two sets, then the sets have the same size.  So let's find some bijections.
     </p>
-    
+
     <activity xml:id="act-pathshdseq">
       <statement>
         <p>
@@ -354,19 +341,19 @@
       </statement>
       <hint>
         <p>
-          How could you represent the lattice path using strings of two symbols?  What makes such a path acceptable?  
+          How could you represent the lattice path using strings of two symbols?  What makes such a path acceptable?
         </p>
       </hint>
     </activity>
-    
+
     <p>
       Representing the set of outcomes as strings of sequences is useful, because it suggests a bijection between different types of problems.  The sequences of paths and movie theater lines from <xref ref="act-pathshdseq"/> are called <term>Dyck words</term>.  These are strings of an equal number of two symbols, say <m>x</m> and <m>y</m>, such that no initial segment of the string has more <m>y</m>'s than <m>x</m>'s.
     </p>
-    
+
     <p>
-      We now see that the number of Dyck words of length <m>2n</m> is <m>C_n</m>.  
+      We now see that the number of Dyck words of length <m>2n</m> is <m>C_n</m>.
     </p>
-    
+
     <activity>
       <task>
         <statement>
@@ -383,21 +370,21 @@
       <task>
         <statement>
           <p>
-            Show the number of ways to parenthesize a product of <m>n+1</m> numbers is <m>C_n</m> (see <xref ref="act-parenthesize"/>).  
+            Show the number of ways to parenthesize a product of <m>n+1</m> numbers is <m>C_n</m> (see <xref ref="act-parenthesize"/>).
           </p>
         </statement>
         <hint>
           <p>
-            One way to parenthesize the product <m>abcd</m> is <m>a((bc)d)</m>, but this is really <m>(a((bc)d))</m>, so that the outer set set of parentheses belong with the product of <m>a</m> and <m>((bc)d)</m>.  Further, not that if we wrote this just as <m>(a((bcd</m>, there would be only one way to insert the right paretheses that would make the product parse correctly.
+            One way to parenthesize the product <m>abcd</m> is <m>a((bc)d)</m>, but this is really <m>(a((bc)d))</m>, so that the outer set set of parentheses belong with the product of <m>a</m> and <m>((bc)d)</m>.  Further, not that if we wrote this just as <m>(a((bcd</m>, there would be only one way to insert the right parentheses that would make the product parse correctly.
           </p>
         </hint>
       </task>
     </activity>
-    
+
     <p>
       Not all of the models for the Catalan numbers are easily represented by Dyck words (or at least not in an obvious way).
     </p>
-    
+
     <activity>
       <statement>
         <p>
@@ -410,11 +397,11 @@
         </p>
       </hint>
     </activity>
-    
+
     <p>
       We have now verified that all our sample problems are Catalan numbers, except for the triangulations of polygons problem.  There is a clever way to associate each triangulation with a binary tree, as suggested by <xref ref="fig-triangulationtree"/>.  However, let's take this opportunity to illustrate another method for proving two problems have the same answers.
     </p>
-    
+
     <figure xml:id="fig-triangulationtree">
       <caption>A triangulation of a 5-gon and associated rooted binary tree.</caption>
       <sidebyside width="25%">
@@ -438,12 +425,12 @@
         </image>
       </sidebyside>
     </figure>
-    
-    
+
+
     <activity>
       <introduction>
         <p>
-          Consider the recurrence relation 
+          Consider the recurrence relation
           <me>
             C_{n + 1} = \sum_{i = 0}^n C_iC_{n-i} = C_{0}C_{n} + C_{1}C_{n - 1} + \ldots + C_{n}C_{0}
           </me>
@@ -477,7 +464,7 @@
         </statement>
       </task>
     </activity>
-    
+
     <p>
       Next, we would like to find a closed formula for <m>C_n</m>.  We can do so using lattice paths.
     </p>
@@ -497,10 +484,10 @@
         <solution>
           <p>
             If a lattice path between <m>(0,0)</m> and <m>(n,n)</m> goes outside the
-            triangle, it can only do so on an upstep. (A step from <m>(i,j)</m> to
-            <m>(i,j+1)</m>.) And an upstep must originate at a point with integer
-            coordinates. If <m>j\lt i</m> an upstep from <m>(i,j))</m> cannot leave the triangle.
-            Thus to leave the triangle, the upstep must leave from a point of the form
+            triangle, it can only do so on an up-step. (A step from <m>(i,j)</m> to
+            <m>(i,j+1)</m>.) And an up-step must originate at a point with integer
+            coordinates. If <m>j\lt i</m> an up-step from <m>(i,j))</m> cannot leave the triangle.
+            Thus to leave the triangle, the up-step must leave from a point of the form
             <m>(i,i)</m>, and go to <m>(i,i+1)</m>, which is on the line <m>y=x+1</m>.
           </p>
         </solution>
@@ -519,7 +506,7 @@
           </p>
         </hint>
         <solution>
-            <p>Suppose we have a lattice path form <m>(0,0)</m> to <m>(n,n)</m> which touches or crosses the line <m>y=x+1</m>. Let <m>(k,k+1)</m> be the first point on the line <m>y=x+1</m> that the lattice path touches. From that point, work backwards, replacing every upstep with a step one unit to the left and every rightstep with a step one unit down. The segment of the path you just changed will have moved left <m>k+1</m> times, so its leftmost <m>x</m> coordinate will be <m>-1</m>, and it will have moved down <m>k</m> times, so its lowest <m>y</m> coordinate will be 1.  Thus we now have a lattice path from <m>(-1,1)</m> to <m>(n,n)</m>. Further, given a lattice path from <m>(-1,1)</m> to <m>(n,n)</m>, it must cross the line <m>y=x+1</m> at least once, because it starts above the line and ends below it. At the first point where such a path touches the line <m>y=x+1</m>, say <m>(k',k'+1)</m>, work backwards replacing every upstep with a step to the left and every rightstep with a step downwards. The leftmost point on this path will have <m>x</m> coordinate 0, and the lowest point will have <m>y</m> coordinate 0, so the new path will be a lattice path from <m>(0,0)</m> to <m>(n,n)</m> that touches the line <m>y=x+1</m>. Clearly these two processes reverse each other, and so they give us a bijection between paths form <m>(0,0)</m> to <m>(n,n)</m> that touch the line <m>y=x+1</m> and lattice lattice paths from <m>(-1,1)</m> to <m>(n,n)</m>. Notice that geometrically what we are doing to get the bijection is to take the portion of a lattice path that goes from the initial point till the first touch of the line <m>y=x+1</m> and reflecting it around that line. This idea of reflection was introduced by Feller, and is called Feller's reflection principle.
+            <p>Suppose we have a lattice path form <m>(0,0)</m> to <m>(n,n)</m> which touches or crosses the line <m>y=x+1</m>. Let <m>(k,k+1)</m> be the first point on the line <m>y=x+1</m> that the lattice path touches. From that point, work backwards, replacing every up-step with a step one unit to the left and every right-step with a step one unit down. The segment of the path you just changed will have moved left <m>k+1</m> times, so its leftmost <m>x</m> coordinate will be <m>-1</m>, and it will have moved down <m>k</m> times, so its lowest <m>y</m> coordinate will be 1.  Thus we now have a lattice path from <m>(-1,1)</m> to <m>(n,n)</m>. Further, given a lattice path from <m>(-1,1)</m> to <m>(n,n)</m>, it must cross the line <m>y=x+1</m> at least once, because it starts above the line and ends below it. At the first point where such a path touches the line <m>y=x+1</m>, say <m>(k',k'+1)</m>, work backwards replacing every up-step with a step to the left and every right-step with a step downward. The leftmost point on this path will have <m>x</m> coordinate 0, and the lowest point will have <m>y</m> coordinate 0, so the new path will be a lattice path from <m>(0,0)</m> to <m>(n,n)</m> that touches the line <m>y=x+1</m>. Clearly these two processes reverse each other, and so they give us a bijection between paths form <m>(0,0)</m> to <m>(n,n)</m> that touch the line <m>y=x+1</m> and lattice lattice paths from <m>(-1,1)</m> to <m>(n,n)</m>. Notice that geometrically what we are doing to get the bijection is to take the portion of a lattice path that goes from the initial point till the first touch of the line <m>y=x+1</m> and reflecting it around that line. This idea of reflection was introduced by Feller, and is called Feller's reflection principle.
         </p>
         </solution>
       </task>
@@ -531,7 +518,7 @@
         </statement>
         <hint>
           <p>
-        A path either touches the line <m>y = x + 1</m> or it doesn't. This partitions the set of paths into two blocks. 
+        A path either touches the line <m>y = x + 1</m> or it doesn't. This partitions the set of paths into two blocks.
           </p>
         </hint>
         <solution>
@@ -541,7 +528,7 @@
         </solution>
       </task>
     </activity>
-    
+
     <p>
       So <m>C_n = \binom{2n}{n} - \binom{2n}{n+1}</m>.  Another formula you might run into is <m>C_n = \frac{1}{n+1}\binom{2n}{n}</m>.  Why is also correct?
     </p>
@@ -569,319 +556,159 @@
     </activity>
   </subsection>
 
+  <subsection xml:id="subsec-catalanproblems">
+    <title>More Problems</title>
+     <p>
+       Here are a few more activities to practice with the Catalan numbers.
+     </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-  <paragraphs>
-    <title>Rhyme schemes for <m>n</m> line stanzas</title>
-    <p>
-      A 2-line poem can have just two rhyme schemes
-      <me>
-        \begin{matrix}a \\ a\end{matrix} \qquad \text{or} \qquad \begin{matrix}a \\ b\end{matrix}
-      </me>
-    </p>
-
-    <p>
-    A 3-line poem can have five schemes:
-    <me>
-      \begin{matrix} a \\ a \\ a \end{matrix} \qquad
-      \begin{matrix} a \\ a \\ b \end{matrix} \qquad
-      \begin{matrix} a \\ b \\ a \end{matrix} \qquad
-      \begin{matrix} a \\ b \\ b \end{matrix} \qquad
-      \begin{matrix} a \\ b \\ c \end{matrix} \qquad
-    </me>
-    The last pattern indicates that no line rhymes with any other.
-    </p>
-    <p>
-      The Catalan numbers seem to be popping up again. For <m>n=4</m> there happen to be 15 (not 14) patterns:
-      <me>
-        \begin{matrix} a \\ a \\ a \\ a \end{matrix} \quad ~
-        \begin{matrix} a \\ a \\ a \\ b \end{matrix} \quad ~
-        \begin{matrix} a \\ a \\ b \\ a \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ a \\ a \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ b \\ b \end{matrix} \quad ~
-        \begin{matrix} a \\ a \\ b \\ b \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ b \\ a \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ a \\ b \end{matrix} \quad ~
-        \begin{matrix} a \\ a \\ b \\ c \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ a \\ c \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ c \\ a \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ b \\ c \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ c \\ b \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ c \\ c \end{matrix} \quad ~
-        \begin{matrix} a \\ b \\ c \\ d \end{matrix} \quad ~
-      </me>
-    One of these, <m>abab</m>, is special in that it is the only <q>non-planar</q> scheme. In this pattern, you cannot connect the <m>a</m>'s with an arc and the
-    <m>b</m>'s with an arc without the arcs crossing.
-  </p>
-
-  <p>
-    The planar rhyme schemes are enumerated by the Catalan numbers. These
-    numbers are a subsequence of the Bell numbers, which enumerate all rhyme
-    schemes.
-  </p>
-</paragraphs>
-
-
-<figure xml:id="catalaninpascal">
-  <caption>
-    The Catalan numbers inside Pascal's triangle.
-  </caption>
-    <image>
-      <latex-image>
-        <![CDATA[\begin{tikzpicture}
-      \def\r{.6}
-      \foreach \row in {0,...,10} {
-        \hexbox{\row}{0}{\large 1}
-        \coordinate (r\row) at (-cos{30}*\r*10+cos{30}*11*\r*2, -\r*\row-sin{30}*\r*\row);
-      }
-      %fill in the rest of the triangle:
-      \foreach \row in {1,...,10} {
-        \pgfmathsetmacro{\entry}{1};
-        \foreach \col in {1,...,\row} {
-          % iterative formula : val = precval * (row-col+1)/col
-          % (+ 0.5 to bypass rounding errors)
-          \pgfmathtruncatemacro{\entry}{\entry*((\row-\col+1)/\col)+0.5};
-          \global\let\entry=\entry
-          \ifnum \entry<100
-      \hexbox{\row}{\col}{\large \entry}
-          \else \ifnum \entry<1000
-      \hexbox{\row}{\col}{\entry}
-          \else \ifnum \entry<10000
-      \hexbox{\row}{\col}{\footnotesize \entry}
-      \else
-      \hexbox{\row}{\col}{\scriptsize \entry}
-      \fi
-          \fi
-          \fi
-        }
-      }
-      \squarebox{0}{0}
-      \foreach \row in {2,4,6,8,10}{
-          \squarebox{\row}{\row/2}
-          \pgfmathsetmacro{\col}{\row/2+1}
-          \squarebox{\row}{\col}
-      }
-      \draw (r0) node{1} (r2) node{1} (r4) node{2} (r6) node{5} (r8) node{14} (r10) node{42};
-      \node[above] at (0,2) {\Large The Catalan Numbers};
-      \end{tikzpicture}]]>
-    </latex-image>
-    </image>
-  </figure>
-
-
-
-  <figure xml:id="trivalenttrees">
-    <caption>Trivalent, planted trees with <m>n</m> leaves.</caption>
-    <image width="100%" source="../images/tri-trees" />
-  </figure>
-
-  <figure xml:id="catalanbijections">
-    <caption></caption>
-    <image width="100%" source="../images/catalan-bijections.png" />
-  </figure>
-
-
-
-
-  <exercises>
-    <title>Problems on Catalan Numbers</title>
-
-
-
-      <exercise>
+      <activity>
         <statement>
           <p>
-            Use the recursion for <m>P_{n}</m> and compute
-          <m>P_{6}</m>, and <m>P_{7}</m>.
+            Find <m>C_6</m> and <m>C_7</m> using both the recursive and closed formulas.
           </p>
         </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Use the closed formula for <m>P_n</m> and compute
-            <m>P_{6}</m> and <m>P_{7}</m>.
-          </p>
-        </statement>
-      </exercise>
+      </activity>
 
-      <exercise>
+      <activity>
         <statement>
           <p>
-            Use <m>G = P_{1}x + P_{2}x^{2} +\cdots</m> and the recursion for <m>P_{n}</m> to determine a closed formula for <m>P_{n}</m>.
+            Show by example, how the bijection between Dyck words and valid parenthesizing works.  To do this, list the <m>C_4 = 14</m> valid Dyck words, then list the <m>C_4 = 14</m> ways to parenthesize <m>abcde</m>, in the corresponding order.
           </p>
         </statement>
-      </exercise>
+      </activity>
 
-      <exercise xml:id="prob-workseq">
-        <statement>
-          <p>
-            List the workable sequences for <m>n = 4</m>.
-          </p>
-        </statement>
-      </exercise>
 
-      <exercise xml:id="prob-parenth">
-        <statement>
-          <p>
-            List the <m>P_{6}</m> ways of parenthesizing <m>abcdef</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Display a bijection between the 14 sequences in <xref ref="prob-workseq" text="type-local" /> and the 14
-            products in <xref ref="prob-parenth" text="type-local" />.
-          </p>
-        </statement>
-      </exercise>
-
-      <exercise>
-        <statement>
-          <p>
-            Find the nonworkable sequence associated with each:
-            <ol>
-              <li> <p>
-                H H H D D H
-              </p></li>
-              <li><p>
-                D H H H H D
-              </p></li>
-              <li><p>
-                D D D H H H H H
-              </p></li>
-              <li><p>
-                D D H H D H H H
-              </p></li>
-            </ol>
-          </p>
-        </statement>
-      </exercise>
-
-      <exercise>
-        <statement>
-          <p>
-            Draw the <m>T_{6}</m> triangulations of a convex hexagon.
-          </p>
-        </statement>
-      </exercise>
-
-      <exercise>
-        <statement>
-          <p>
-            Display a bijection between the 5 ways of parenthesizing <m>abcd</m> and the
-            5 triangulations of a convex pentagon.
-          </p>
-        </statement>
-      </exercise>
-
-      <exercise>
-        <statement>
-          <p>
-            Let <m>C_{n} = \frac{1}{n + 1}\binom{2n}{n}.</m> Verifiy
-            the formula:
-      <me>
-        C_{n} = \binom{n}{1} C_{n - 1} - \binom{n - 1}{2} C_{n - 2} + \binom{n - 2}{3} C_{n - 3} - \cdots
-      </me>
-        </p>
-      </statement>
-    </exercise>
-
-      <exercise>
-        <statement>
-          <p>
-            Verify that <m>H_{3} = 5</m> by drawing the required paths.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Assign the appropriate binary sequences to each of the 5 trees for <m>n=3</m>
-            in <xref ref="trivalenttrees">Figure</xref>.
-          </p>
-        </statement>
-      </exercise>
-
-      <exercisegroup>
+      <activity>
         <introduction>
+          <p>
+            Here is a way to establish the closed formula for <m>C_n</m> using Dyck words.  For simplicity, consider Dyck words using the symbols 0 and 1, insisting that no initial segment contains more 1's than 0's.
+          </p>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              Of all <m>2n</m>-bit strings of weight <m>n</m>, some are Dyck words and some are not.  Explain which are not.  What do all of these have in common?
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Suppose some initial segment of a bit string contains one more 1 than 0.  If you changed every 1 to a 0 and every 0 to a 1 in this initial segment, how many 0's and how many 1's would the entire bit string have?
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Describe a bijection between the set of <m>2n</m>-bit strings of weight <m>n-1</m> and the set of <m>2n</m>-bit strings of weight <m>n</m> that are NOT Dyck words.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Why does this prove that <m>C_n = \binom{2n}{n} - \binom{2n}{n-1}</m>?
+            </p>
+          </statement>
+        </task>
+      </activity>
+
+
+      <activity>
+        <statement>
+          <p>
+            Find a bijection between the ways of parenthesizing <m>n+1</m> terms and the ways of triangulating a convex polygon with <m>n+2</m> sides.  Illustrate this by matching up the outcomes for <m>n = 3</m>.
+          </p>
+        </statement>
+      </activity>
+
+
+
+      <activity>
+        <statement>
+          <p>
+            Let <m>C_{n} = \frac{1}{n + 1}\binom{2n}{n}</m>. Verify
+            the formula:
+            <me>
+              C_{n} = \binom{n}{1} C_{n - 1} - \binom{n - 1}{2} C_{n - 2} + \binom{n - 2}{3} C_{n - 3} - \cdots
+            </me>
+          </p>
+        </statement>
+      </activity>
+
       <p>
-        For each of the following, investigate bijections that relate one to
-        another.
+        We have considered 6 or 7 different interpretations of Catalan numbers so far.  There are many others.  In fact, Richard P. Stanley includes 66 different interpretations of the Catalan numbers in the book <em>Enumerative Combinatorics: Volumne 2</em>.
       </p>
-    </introduction>
 
-      <exercise>
-        <statement>
-          <p>
-            A and B each receive <m>n</m> votes. Let <m>V_{n}</m> denote the number of ways that the <m>2n</m> votes can be tallied so that A never trails B. Let <m>V_{0} = 1</m>.
-          </p>
-        </statement>
-      </exercise>
+      <p>
+        The remainder of this section contains some examples.  See if you can explain why each of these really are interpretations of <m>C_n</m>.
+      </p>
 
-      <exercise>
-        <statement>
-          <p>
-            Place <m>2n</m> points on the circumference of a circle and draw <m>n</m>  nonintersecting chords in <m>D_{n}</m> ways; <m>D_{0} = 1</m>
-          </p>
-        </statement>
-      </exercise>
 
-      <exercise>
-        <statement>
-          <p>
-            In how many ways can <m>1, 2, 3, \ldots, 2n</m> be inserted into a <m>2\times n</m> rectangle such that the entries are increasing in rows and columns.  Let the answer be <m>Y_n</m>; <m>Y_1 = 1</m>, <m>Y_2 = 2</m>.
-          </p>
-        </statement>
-      </exercise>
 
-      <exercise>
+      <activity>
         <statement>
           <p>
-            Place <m>2n</m> points on a line segment and join them in pairs by
-            nonintersecting arcs above the segment. In how many ways can this be
-            done? Call the answer <m>S_{n}</m>; <m>S_{1}=1</m>,
-            <m>S_{2}=2</m>.
+            A and B each receive <m>n</m> votes. How many ways are there that the <m>2n</m> votes can be tallied so that A never trails B.
           </p>
         </statement>
-      </exercise>
+      </activity>
 
-      <exercise>
+      <activity>
         <statement>
           <p>
-            A rook on an <m>n + 1</m> by <m>n + 1</m> chessboard must move from the lower left corner to the upper right corner never going above the diagonal. How many paths are possible? Let <m>K_{n}</m> be the answer.
+            Place <m>2n</m> points on the circumference of a circle and draw <m>n</m>  non-intersecting chords.  How many ways can you do this?  Equivalently, if <m>2n</m> people stand in a circle, how many ways can everyone shake hands with one other person so that no one's arms cross?  Assume these people have arbitrarily long arms.
           </p>
         </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            On an <m>n + 1</m> by <m>n + 1</m> chessboard a king starts on the first row and moves one square forward or back along a fixed column and ends on the starting square after <m>2n</m> moves. In how many ways, <m>G_{n}</m> , can this be done?
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Count the number of planar rhyme schemes for a stanza consisting of <m>n</m> lines. Joanne Growney showed in her doctoral thesis that the Bell numbers, which count all rhyme schemes, have the Catalan numbers as a subsequence and that these enumerate precisely the planar rhyme schemes. For example, of the <m>B_4 = 15</m> rhyme schemes, <m>C_4 = 14</m> are planar. The nonplanar one is given by <m>abab</m>.
-          </p>
-        </statement>
-      </exercise>
+      </activity>
 
-    </exercisegroup>
-  </exercises>
+      <activity>
+        <statement>
+          <p>
+            <m>2n</m> kids, all of different heights must line up for a class picture.  They will do this in two equal rows, but for variety, they will take a picture from the front and from the right.  How many ways can the kids line up so that both pictures don't have any taller kid blocking a shorter kid?
+          </p>
+        </statement>
+      </activity>
+
+      <activity>
+        <statement>
+          <p>
+            Consider the graph <m>P_n</m> (a path with <m>n</m> edges and <m>n+1</m> vertices).  Call one of the endpoints of the path <m>v</m>.  How many walks of length <m>2n</m> start and stop at <m>v</m>?  Recall a walk in a graph is a sequence of adjacent vertices (think of tracing along edges of the graph), that does allow for repeated vertices.
+          </p>
+        </statement>
+      </activity>
+
+      <activity>
+        <statement>
+          <p>
+            Draw a <m>n</m> by <m>n</m> right triangle using squares on graph paper (a sort of staircase shape, made up of <m>\frac{n(n+1)}{2}</m> squares).  Shade the squares into <m>n</m> rectangles of various dimensions.  How many ways can this be done?
+          </p>
+        </statement>
+      </activity>
+
+      <activity>
+        <statement>
+          <p>
+            If you have <m>2n</m> toothpicks, you could arrange them into a <q>mountain range</q> shape by putting half of the toothpicks angled upward, and the other half angled downward.  Assume the first toothpick starts at sea level, so no valleys dip below that height. In how many ways can this be done?
+          </p>
+          <p>
+            Alternatively, we can define a <term>diagonal lattice path</term> as one in which each segment travels from <m>(a,b)</m> to <m>(a+1, b+1)</m> or to <m>(a-1, b-1)</m>.  How many diagonal lattice paths from <m>(0,0)</m> to <m>(2n,0)</m> never dip below the <m>x</m>-axis?  Such diagonal lattice paths are sometimes called <term>Dyck paths</term> or <term>Catalan paths</term>.
+          </p>
+        </statement>
+      </activity>
+
+      <activity>
+        <statement>
+          <p>
+            How many permutations of <m>[n]</m> do not contain three consecutive numbers <m>abc</m> with <m>a \lt b \lt c</m>?  For example, the permutations <m>1324</m> and <m>1423</m> are both acceptable, but <m>2341</m> and <m>1342</m> are not.
+          </p>
+        </statement>
+      </activity>
+
+
+    </subsection>
 
 
 </section>
