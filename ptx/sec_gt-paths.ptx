@@ -169,47 +169,318 @@ What all this says is that if a graph has an Euler path and two vertices with od
 </p>
 
 <p>
-The converse is also true: if all the vertices of a graph have even degree, then the graph has an Euler circuit, and if there are exactly two vertices with odd degree, the graph has an Euler path. To prove this is a little tricky, but the basic idea is that you will never get stuck because there is an <q>outbound</q> edge for every <q>inbound</q> edge at every vertex. If you try to make an Euler path and miss some edges, you will always be able to <q>splice in</q> a circuit using the edges you previously missed.
+So there is clearly a connection between the parity of vertex degrees and Euler paths and circuits.  Here are two theorems the describe that connection.
 </p>
 
 
-<theorem>
-<title>Euler Paths and Circuits</title>
-
+<theorem xml:id="thm-eulercircuit">
 <p>
-  <ul>
-  <li>
-  <p>
-  A graph has an Euler circuit if and only if the degree of every vertex is even.
+  A connected graph has an Euler circuit if and only if the degree of every vertex is even.
   </p>
-  </li>
-  <li>
+</theorem>
+<theorem xml:id="thm-eulerpath">
   <p>
-  A graph has an Euler path if and only if there are at most two vertices with odd degree.
+  A connected graph has an Euler path if and only if there are at most two vertices with odd degree.
   </p>
-  </li>
-  </ul>
-</p>
 </theorem>
 
 <p>
-Since the bridges of Königsberg graph has all four vertices with odd degree, there is no Euler path through the graph.  Thus there is no way for the townspeople to cross every bridge exactly once.
+We will need to prove these theorems, and doing so will give us an excuse to think about proving theorems in general.  However, note that these theorems answer the bridges of Königsberg problem.  The graph has all four vertices with odd degree, there is no Euler path through the graph.  Thus there is no way for the townspeople to cross every bridge exactly once.
 </p>
 </introduction>
 
 <subsection>
   <title>Interlude: Implications and Proofs</title>
   <p>
-    We would like to prove the fact we discovered above about Euler paths and circuits.  To help us understand how we could do this, and to make sure our proof is correct, we should take a few moments to recall some basic facts about mathematical statements, their logical form, and how this can help us in writing proofs.  A more detailed discussion of these topics is found in the appendix.
+    We would like to prove the theorems we conjectured above about Euler paths and circuits.  To help us understand how we could do this, and to make sure our proof is correct, we should take a few moments to recall some basic facts about mathematical statements, their logical form, and how this can help us in writing proofs.  A more detailed discussion of these topics is found in <xref ref="sec_background-logic">Sections</xref> and <xref ref="sec_background-proofs" type="global"/>.
   </p>
 
   <p>
-    PUT MATERIAL FROM STATEMENTS SECTION HERE, AS WELL AS DIRECT AND CONTRAPOSITIVE PROOFS. NECESSARY AND SUFFICIENT CONDITIONS.
+    All mathematical statements have a <em>logical form</em> that determines the meaning of the statement and often suggests a method for proving (or disproving) the statement.  At the most basic level, a statement might be <term>atomic</term>, if it is not composed of simpler statements, or otherwise <term>molecular</term>.  A molecular statement is built up of smaller statements by connecting them with a <term>logical connective</term>.
+    Such statements might be a <term>conjunction</term> (two statements connected by an <q>and</q>) a <term>disjunction</term> (two statements connected by an <q>or</q>), an <term>implication</term> or <term>conditional</term> (usually in the form <q>if <ellipsis /> then <ellipsis /></q>), or a <term>negation</term> (claiming a statement is <em>not</em> true).
+  </p>
+
+  <p>
+    There are other logical connectives, used both in mathematical statements and in ordinary language, but every one can be reduced to these four (actually, you can get away with as few as two of them).   For example, it is very common in mathematics to encounter statements of the form <q><m>P</m> if and only if <m>Q</m>.</q>  This is called a <term>biconditional</term>, but it is nothing more than the conjunction of two implications.  That is, <q><m>P</m> if and only if <m>Q</m></q> means <q>if <m>P</m> then <m>Q</m>, and if <m>Q</m> then <m>P</m>.</q>
+  </p>
+
+  <p>
+    The truth of falsity of a molecular statement is determined entirely by the truth or falsity of its parts, governed by set rules of the connectives.  These rules can be communicated through <term>truth tables</term>.  We use the standard symbols <m>\wedge</m> for <q>and</q>, <m>\vee</m> for <q>or</q>, <m>\imp</m> for implications and <m>\neg</m> for negations.
+  </p>
+
+  <sidebyside width="20%" margins="auto">
+    <tabular halign="center">
+      <col right="minor"/>
+      <col right="medium"/>
+      <col/>
+      <row bottom="minor">
+        <cell><m>P</m></cell>
+        <cell><m>Q</m></cell>
+        <cell><m>P\wedge Q</m></cell>
+      </row>
+      <row>
+        <cell>T</cell>
+        <cell>T</cell>
+        <cell>T</cell>
+      </row>
+      <row>
+        <cell>T</cell>
+        <cell>F</cell>
+        <cell>F</cell>
+      </row>
+      <row>
+        <cell>F</cell>
+        <cell>T</cell>
+        <cell>F</cell>
+      </row>
+      <row>
+        <cell>F</cell>
+        <cell>F</cell>
+        <cell>F</cell>
+      </row>
+    </tabular>
+    <tabular halign="center">
+      <col right="minor"/>
+      <col right="medium"/>
+      <col/>
+      <row bottom="minor">
+        <cell><m>P</m></cell>
+        <cell><m>Q</m></cell>
+        <cell><m>P\vee Q</m></cell>
+      </row>
+      <row>
+        <cell>T</cell>
+        <cell>T</cell>
+        <cell>T</cell>
+      </row>
+      <row>
+        <cell>T</cell>
+        <cell>F</cell>
+        <cell>T</cell>
+      </row>
+      <row>
+        <cell>F</cell>
+        <cell>T</cell>
+        <cell>T</cell>
+      </row>
+      <row>
+        <cell>F</cell>
+        <cell>F</cell>
+        <cell>F</cell>
+      </row>
+    </tabular>
+    <tabular halign="center">
+      <col right="minor"/>
+      <col right="medium"/>
+      <col/>
+      <row bottom="minor">
+        <cell><m>P</m></cell>
+        <cell><m>Q</m></cell>
+        <cell><m>P\imp Q</m></cell>
+      </row>
+      <row>
+        <cell>T</cell>
+        <cell>T</cell>
+        <cell>T</cell>
+      </row>
+      <row>
+        <cell>T</cell>
+        <cell>F</cell>
+        <cell>F</cell>
+      </row>
+      <row>
+        <cell>F</cell>
+        <cell>T</cell>
+        <cell>T</cell>
+      </row>
+      <row>
+        <cell>F</cell>
+        <cell>F</cell>
+        <cell>T</cell>
+      </row>
+    </tabular>
+    <tabular halign="center">
+      <col right="medium"/>
+      <col/>
+      <row bottom="minor">
+        <cell><m>P</m></cell>
+        <cell><m>\neg P</m></cell>
+      </row>
+      <row>
+        <cell>T</cell>
+        <cell>F</cell>
+      </row>
+      <row>
+        <cell>F</cell>
+        <cell>T</cell>
+      </row>
+      <row>
+        <cell/>
+      </row>
+    </tabular>
+  </sidebyside>
+  <p>
+    Note that the truth table for <m>P \vee Q</m> shows us that we always mean the <em>inclusive or</em>, in that when both <m>P</m> and <m>Q</m> are true, we say that <m>P \vee Q</m> is true.
+  </p>
+
+  <p>
+    The other truth table worth looking closely at is the one for implications.  This might strike you as strange at first.  If <m>P</m> is false, the implication <m>P \imp Q</m> is true (no matter the truth value of <m>Q</m>).  Also, there is no need for <m>P</m> to <q>cause</q> <m>Q</m> to be true.  For example, the statement <q>If 2 is even, then 2 is prime</q> is true, despite there being no connection between the concepts of <q>even</q> and <q>prime</q>.
+  </p>
+
+  <activity>
+    <introduction>
+      <p>
+        Decide which of the statements below are true and which are false.
+      </p>
+    </introduction>
+    <task>
+      <p>
+        If 8 is prime, then the 7624th digit of <m>\pi</m> is an 8.
+      </p>
+    </task>
+    <task>
+      <p>
+        If the 7624th digit of <m>\pi</m> is an 8, then <m>5</m> is prime.
+      </p>
+    </task>
+    <task>
+      <p>
+        If 5 is prime, then most horses have 4 legs.
+      </p>
+    </task>
+    <task>
+      <p>
+        If 5 is prime, then 8 is prime.
+      </p>
+    </task>
+  </activity>
+
+  <p>
+    Examining the truth table for <m>P \imp Q</m> further, we notice that it is possible for <m>P \imp Q</m> to be true but <m>Q \imp P</m> to be false. (What would the truth values of <m>P</m> and <m>Q</m> need to be to make this the case?) We call <m>Q \imp P</m> the <term>converse</term> of <m>P \imp Q</m>.
+  </p>
+
+  <activity>
+    <statement>
+      <p>
+        Give three examples of implications which are true whose converse is false.  Then give three examples of implications which are true whose converse is true.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        You might think about the relationship between a function being continuous and being differentiable.  Or a shape being a square or a rectangle.
+      </p>
+    </hint>
+  </activity>
+
+  <p>
+    The claim <m>P</m> if and only if <m>Q</m> is the claim that both an implication and its converse are true.  This is the form that <xref ref="thm-eulercircuit">Theorems</xref> and <xref ref="thm-eulerpath" type="global"/> about Euler circuits and paths take.  Looking at the form, we see what it would take to prove them.
+  </p>
+
+  <p>
+    To prove a biconditional, you simply must prove both implications (the implication and its converse).  How do you prove an implication though?  Well, by looking at the truth table, we see that we must prove that we are always in rows 1, 3, or 4.  The only case we need to exclude is the one where <m>P</m> is true and <m>Q</m> is false.
+  </p>
+
+  <p>
+    So assume <m>P</m> is true (the other case is automatic).  Under this assumption, we argue that <m>Q</m> is true as well.
+  </p>
+
+  <p>
+    Alternatively, we could start by assuming <m>Q</m> is false.  If we can then conclude that <m>P</m> is also false, we have excluded the one suspect case, as we can conclude that <m>P \imp Q</m>.  You could also conclude that <m>\neg Q \imp \neg P</m>, which is the <term>contrapositive</term> of <m>P \imp Q</m>.  By comparing truth tables, it is easy to see that any implication is equivalent to its contrapositive, so proving a contrapositive is equivalent to proving its implication.
+  </p>
+
+  <p>
+    There is one important piece we should mention here: the use of quantifiers.
+  </p>
+
+  <activity>
+    <statement>
+      <p>
+        Is it possible for both a statement and its converse to be false?  What could you say about <m>P</m> and <m>Q</m> for such a statement?
+      </p>
+    </statement>
+  </activity>
+
+  <p>
+    What about the statement, <q>if <m>p</m> is prime, then <m>p</m> is odd</q>.  This statement is false.  So is its converse.  But the truth tables for <m>P \imp Q</m> and <m>Q \imp P</m> do not have a false in the same row.  So what is going on?
+  </p>
+
+  <p>
+    The key is that we are secretly adding a <term>universal quantifier</term> in front of statements like this.  What we really mean is that <em>for all <m>p</m></em>, if <m>p</m> is prime, then <m>p</m> is odd.  This is false, because <em>there exists</em> (the <term>existential quantifier</term>) some counterexample.  The converse of the statement is, for all <m>p</m>, if <m>p</m> is odd, then <m>p</m> is prime.  This is also false, because there exists a counterexample.  Necessarily, it will be a different counterexample than the one that proved the implication was false.
+  </p>
+
+  <p>
+    How do you prove a universally quantified statement is true?  You must prove the implication is true <em>for all</em> cases.  To prove that for all <m>n</m>, if <m>n^2</m> is even, then so is <m>n</m>, you must prove this for <m>n = 1</m>, <m>n = 2</m>, <m>n =3</m>, etc.  But to get on with your life, you might as well prove it for all of them at once.  Let <m>n</m> be an arbitrary integer.  Now prove the statement for that arbitrary <m>n</m>.  In this case, you might want to assume <m>n</m> is NOT even and prove that <m>n^2</m> is not even, to give a proof by contrapositive.  But since <m>n</m> was arbitrary, you have shown that your poof would work for <em>any</em> value of <m>n</m>.
   </p>
 </subsection>
 <subsection>
-  <title>Proof of Euler Paths theorem</title>
+  <title>Proofs for Euler Paths and Circuits</title>
 
+  <p>
+    Now let's try to prove <xref ref="thm-eulercircuit">Theorems</xref> and <xref ref="thm-eulerpath" type="global"/>.  Actually, we really only need to prove one of these, and the other one should follow from it.
+  </p>
+
+  <activity>
+    <introduction>
+      <p>
+        Suppose we have already proved <xref ref="thm-eulercircuit"/>, that a graph has an Euler circuit if and only if every vertex has even degree.  Suppose now we want to prove <xref ref="thm-eulerpath"/>, that a graph has an Euler path if and only if it has at most two odd degree vertices.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Given a graph with an Euler path, how can you get a graph that definitely has an Euler circuit?  How did this affect the number of odd degree vertices?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Add something to your graph so you can <q>finish</q> the Euler path.  Don't forget to consider the case that the start and end vertex are already adjacent.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Given a graph with at most two odd degree vertices, build a graph that has only even degree vertices.  If you have an Euler circuit of your new graph, what would that Euler circuit become if you looked at your original graph?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          If there are no odd degree vertices, you are done.  If there are two, you could connect them with an edge, except maybe they are already adjacent.  What could you do then?
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          What do each of the above tasks demonstrate?  That is, write a proof of <xref ref="thm-eulerpath"/> assuming <xref ref="thm-eulercircuit"/>.  Make sure you specify how each <q>direction</q> (implication and converse) of the proof is established by the tasks above.
+        </p>
+      </statement>
+    </task>
+  </activity>
+
+  <p>
+    Good, so we only need to prove <xref ref="thm-eulercircuit"/>.
+  </p>
+
+  <activity>
+    <statement>
+      <p>
+        Which of the two implications will be easier to prove?  State both implications and say specifically what it would take to prove each.  Say what would be required both for doing a direct proof and a proof by contrapositive.
+      </p>
+    </statement>
+  </activity>
+
+  <activity>
+    <statement>
+      <p>
+        Suppose you had a graph and were given an Euler circuit for that graph.  How might you represent that Euler circuit?  If you listed each edge in order, where each edge was given as a pair of vertices, how many times would each vertex appear in the list?  What have you just shown?
+      </p>
+    </statement>
+  </activity>
+
+  <p>
+    The other direction is harder.  If you know every vertex has even degree, you must now show there is an Euler circuit.  One thing you could do is to give a procedure for building one.  But then you must prove that this procedure is correct.  We will come back to this question when we look at mathematical induction.
+  </p>
 </subsection>
 
 
@@ -289,8 +560,64 @@ Suppose you wanted to tour Königsberg in such a way where you visit each land m
 It appears that finding Hamilton paths would be easier because graphs often have more edges than vertices, so there are fewer requirements to be met. However, nobody knows whether this is true. There is no known simple test for whether a graph has a Hamilton path. For small graphs this is not a problem, but as the size of the graph grows, it gets harder and harder to check whether there is a Hamilton path. In fact, this is an example of a question which as far as we know is too difficult for computers to solve; it is an example of a problem which is NP-complete<idx><h>NP-complete</h></idx>.
 </p>
 
+<p>
+  While a complete classification for which graphs have Hamilton paths is hard, there are some simpler things we can say.  The following is one example.
+</p>
+
+<activity>
+
+      <introduction>
+        <p>
+          Consider the following graph:
+        </p>
+        <sidebyside width="28%">
+          <image>
+            <latex-image>
+
+            \begin{tikzpicture}[scale=.7]
+            \foreach \x in {0, 45, ..., 315}
+              \draw  (\x:2) \v -- (\x+45:2);
+            \draw (0,0) \v -- (45:2) (0,0) -- (135:2) (0,0) -- (225:2) (0,0) -- (315:2);
+            \draw (-1,0) \v -- (90:2) (-1,0) -- (180:2) (-1,0) -- (270:2);
+            \draw (1,0) \v -- (90:2) (1,0) -- (0:2) (1,0) -- (270:2);
+            \end{tikzpicture}
+
+            </latex-image>
+          </image>
+        </sidebyside>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              Find a Hamilton path.  Can your path be extended to a Hamilton cycle?
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Is the graph bipartite? If so, how many vertices are in each <q>part</q>?
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Use your answer to part (b) to prove that the graph has no Hamilton cycle.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Suppose you have a bipartite graph <m>G</m> in which one part has at least two more vertices than the other.  Prove that <m>G</m> does not have a Hamilton path.
+            </p>
+          </statement>
+        </task>
+      </activity>
+
+
 </subsection>
 
-<xi:include href="exercises/gt-paths.ptx"/>
 
 </section>

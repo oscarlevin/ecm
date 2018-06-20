@@ -563,7 +563,7 @@
 						No, it could not possibly be isomorphic. If you count up the degrees of each vertex in this picture, you can see that the highest degree is 4 (the center vertex). In order to be isomorphic to either <m>G1</m> or <m>G2</m> we would definitely need a vertex of degree 5, which we don't have.
 					</p>
 				</solution>
-		</statement>
+		</task>
 	</activity>
 
 
