@@ -694,7 +694,7 @@
             If you have <m>2n</m> toothpicks, you could arrange them into a <q>mountain range</q> shape by putting half of the toothpicks angled upward, and the other half angled downward.  Assume the first toothpick starts at sea level, so no valleys dip below that height. In how many ways can this be done?
           </p>
           <p>
-            Alternatively, we can define a <term>diagonal lattice path</term> as one in which each segment travels from <m>(a,b)</m> to <m>(a+1, b+1)</m> or to <m>(a-1, b-1)</m>.  How many diagonal lattice paths from <m>(0,0)</m> to <m>(2n,0)</m> never dip below the <m>x</m>-axis?  Such diagonal lattice paths are sometimes called <term>Dyck paths</term> or <term>Catalan paths</term>.
+            Alternatively, we can define a <term>diagonal lattice path</term> as one in which each segment travels from <m>(a,b)</m> to <m>(a+1, b+1)</m> or to <m>(a+1, b-1)</m>.  How many diagonal lattice paths from <m>(0,0)</m> to <m>(2n,0)</m> never dip below the <m>x</m>-axis?  Such diagonal lattice paths are sometimes called <term>Dyck paths</term> or <term>Catalan paths</term>.
           </p>
         </statement>
       </activity>
