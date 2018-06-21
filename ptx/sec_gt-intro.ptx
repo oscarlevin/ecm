@@ -918,6 +918,13 @@
 						<term>multigraph</term> is just like a graph but can contain multiple edges between two vertices as well as single edge loops (that is an edge from a vertex to itself).</p>
 				</li>
 
+				<li>
+					<title>Path</title>
+					<idx><h>path</h></idx>
+				  <p>
+				    A <term>path</term> is a walk that doesn't repeat any vertices (or edges) except perhaps the first and last.  If a path starts and ends at the same vertex, it is called a <term>cycle</term>.
+				  </p>
+				</li>
 
 				<li>
 					<title>Planar</title>
@@ -946,8 +953,7 @@
 
 				<li>
 					<title>Walk</title>
-					<p><idx><h>walk</h></idx> A sequence of vertices such that consecutive vertices (in the sequence) are adjacent (in the graph). A walk in which no vertex is repeated is called
-						<term>simple</term>.</p>
+					<p><idx><h>walk</h></idx> A sequence of vertices such that consecutive vertices (in the sequence) are adjacent (in the graph). A walk in which no edge is repeated is called a <term>trail</term>, and a trail in which no vertex is repeated (except possibly the first and last) is called a <term>path</term>.</p>
 				</li>
 			</dl>
 		</p>

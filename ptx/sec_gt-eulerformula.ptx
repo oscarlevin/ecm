@@ -4,7 +4,7 @@
 
 
 <introduction>
-<investigation>
+<activity>
 <p>
 When a connected graph can be drawn without any edges crossing, it is called <term>planar</term>. When a planar graph is drawn in this way, it divides the plane into regions called <term>faces</term>.
 <ol>
@@ -21,7 +21,7 @@ Draw, if possible, two different planar graphs with the same number of vertices 
 </li>
 </ol>
 </p>
-</investigation>
+</activity>
 
 <p>
 When is it possible to draw a graph so that none of the edges cross? If this <em>is</em> possible, we say the graph is <term>planar</term><idx><h>planar</h></idx> (since you can draw it on the <em>plane</em>).
@@ -73,14 +73,32 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
   </image>
 </sidebyside>
 
-<p>
-If you try to count faces using the graph on the left, you might say there are 5 faces (including the outside). But drawing the graph with a planar representation shows that in fact there are only 4 faces.
-</p>
+    <p>
+      If you try to count faces using the graph on the left, you might say there are 5 faces (including the outside). But drawing the graph with a planar representation shows that in fact there are only 4 faces.
+    </p>
 
-<p>
-There is a connection between the number of vertices (<m>v</m>), the number of edges (<m>e</m>) and the number of faces (<m>f</m>) in any connected planar graph. This relationship is called Euler's formula.
-</p>
-<assemblage>
+
+
+    <p>
+      Is there a connection between the number of vertices (<m>v</m>), the number of edges (<m>e</m>) and the number of faces (<m>f</m>) in any connected planar graph?  Let's investigate this.  For each planar graph, we can associate a triple <m>(v,e,f)</m> containing the number of vertices, edges and faces.  For example, the triple for <m>K_4</m> drawn above is <m>(4,6,4)</m>.
+    </p>
+
+    <activity>
+      <statement>
+        <p>
+          Draw a lot of planar graphs and for each record the triple <m>(v,e,f)</m>.  What triples are possible? Is there a graph with the triple <m>(5, 9, 6)</m>?  What about <m>(5,7,5)</m>?
+        </p>
+      </statement>
+    </activity>
+
+    <p>
+      If we want to understand the relationship between the number of vertices, edges and faces of a planar graph, we could first try to decide which triples can be realized by a graph and which cannot.  At first this might seem like a daunting task.  The key is to think of it recursively.  Perhaps start with simple graphs and build up to more complicated ones.
+    </p>
+
+    <!-- TODO: Add more here -->
+
+
+<theorem>
 <title>Euler's Formula for Planar Graphs</title>
 <p>
 <idx><h>Euler's formula</h></idx>
@@ -89,7 +107,7 @@ For any (connected) planar graph with <m>v</m> vertices, <m>e</m> edges and <m>f
   v-e + f = 2
 </me>
 </p>
-</assemblage>
+</theorem>
 <p>
 Why is Euler's formula true? One way to convince yourself of its validity is to draw a planar graph step by step. Start with the graph <m>P_2</m>:
 </p>

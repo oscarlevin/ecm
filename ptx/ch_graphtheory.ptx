@@ -7,8 +7,8 @@
     <p>
       To start our journey into discrete mathematics, let's consider a few puzzles.
     </p>
-    
-    <question>
+
+    <investigation>
       <statement>
           <p>
             In the time of Euler, in the town of Königsberg in Prussia, there was a river containing two islands. The islands were connected to the banks of the river by seven bridges (as seen below). The bridges were very beautiful, and on their days off, townspeople would spend time walking over the bridges. As time passed, a question arose: was it possible to plan a walk so that you cross each bridge once and only once? Euler was able to answer this question. Are you?
@@ -52,36 +52,36 @@
             </image>
           </sidebyside>
       </statement>
-    </question>
-    
-    <question>
+    </investigation>
+
+    <investigation>
       <statement>
         <p>
-          Professor Evilish has invited 25 unsuspecting discrete math students to his estate for an evening of escape room fun.  Some of these students are already friends, but no student is friends with more than 3 other students.  The Professor wants to ensure that no escape rooms will contain a pair of students who are already friends.  Can he be sure that four escape rooms will be enough?
+          Professor Nefario has invited 25 unsuspecting discrete math students to his estate for an evening of escape room fun.  Some of these students are already friends, but no student is friends with more than 3 other students.  The Professor wants to ensure that no friends are sent to the same escape room.  Can he be sure that four escape rooms will be enough?
         </p>
       </statement>
-    </question>
-    
-    <question>
+    </investigation>
+
+    <investigation>
       <statement>
         <p>
-          Is it possible that amoung the 25 students, everyone has <em>exactly</em> three friends?
+          Is it possible that among the 25 students, everyone has <em>exactly</em> three friends?
         </p>
       </statement>
-    </question>
-    
-    <question>
+    </investigation>
+
+    <investigation>
       <statement>
         <p>
           Take a regular deck of 52 cards, shuffle well, and deal the cards into 13 piles.  Will it always be possible to select one card from each pile so that the 13 cards you select all have different values (ace, 2, 3, etc.)?
         </p>
       </statement>
-    </question>
-    
+    </investigation>
+
     <p>
       All the puzzles above have a feature in common: they involve the ways in which individual (discrete) objects can be related to each other.  This is what graph theory studies, and we will see that each of the puzzles can be solved with the tools of the subject.  Before we start developing those tools, take a moment to see why graphs are applicable to these problems.
     </p>
-    
+
     <p>
       In the bridges of Königsberg puzzle, all that really matters is which land masses are connected by bridges, and how many bridges connect them.  The length of the bridges and size of the land masses is unimportant.  So we can represent this puzzle with a graph like this:
     </p>
@@ -96,19 +96,19 @@
         </latex-image>
       </image>
     </sidebyside>
-    
+
     <p>
       Now we must decide whether it is possible to travel around that graph in a way that each edge is crossed exactly once.
     </p>
-    
+
     <p>
       When it comes to friendship, if we assume that it is always reciprocated, we can represent the people as vertices and connect two vertices with an edge if the people they represent are friends.  We can ask whether it is possible to have such a graph in which each vertex is incident to exactly three edges or whether it is possible to <q>color</q> the vertices with just four colors so that no pair of same colored vertices are adjacent (connected by an edge).
     </p>
-    
+
     <p>
       If we have thirteen piles of cards, we represent each pile as a vertex and each value as a vertex, and connect a pile vertex to a value vertex precisely when that value is in the pile.  We could then ask whether we could select a collection of thirteen edges that do not share any single vertex.
     </p>
-    
+
     <p>
       These puzzles give you just a small glimpse into the myriad of applications graph theory can address.  For us, we will use our study of graph theory to see how reasoning in discrete mathematics works and as an excuse to remind ourselves of the basic mathematical objects and proof techniques required to study the subject in general.
     </p>
@@ -120,6 +120,6 @@
   <xi:include href="sec_gt-eulerformula.ptx"/>
   <xi:include href="sec_gt-eulerapps.ptx"/>
   <xi:include href="sec_gt-coloring.ptx"/>
-  <!-- <xi:include href="sec_gt-matchings.ptx"/> -->
+  <xi:include href="sec_gt-matchings.ptx"/>
   <!-- <xi:include href="sec_gt-conc.ptx"/> -->
 </chapter>

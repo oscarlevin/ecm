@@ -4,12 +4,12 @@
 
 
   <introduction>
-  <question>
+  <investigation>
     <statement>
       <p>
         On the table rest 8 dominoes, as shown below.  If you were to line them up in a single row, so that any two sides touching had matching numbers, what would the sum of the two end numbers be?
       </p>
-      
+
       <sidebyside width="10%">
         <image>
           <latex-image>
@@ -18,7 +18,7 @@
               \draw (0,0) \fourdots (0,1) \twodots;;
             \end{tikzpicture}
           </latex-image>
-        </image>       
+        </image>
          <image>
           <latex-image>
             \begin{tikzpicture}
@@ -77,14 +77,77 @@
   </image>
       </sidebyside>
     </statement>
-  </question>
+  </investigation>
+
+  <p>
+    How might you use graph theory to solve the puzzle above?  One thing to try would be to create a graph consisting of six vertices, one for each value that appears on the dominoes.  Then connect the vertices if their numbers belong to the same domino.  This seems reasonable, but then how would you represent the line of matched up dominoes the puzzle requests?
+  </p>
+
+  <p>
+    Say you start with domino <m>(4,6)</m>.  That is an edge in our graph.  Next we need to place a domino with a 6 on it (or a 4, but let's say the 4 will be an endpoint).  This ammounts to selecting another edge, one that is incident to the vertex 6.  Say we pick <m>(6,5)</m>.  The edge we must select after that will need to be incident to vertex 5.  And so on.
+  </p>
+  <p>
+    The edges we select in the graph need to be linked up.  It makes sense to think about the selction of edges as traveling through the graph, moving along edges from vertex to vertex.  Let's capture this notion carefully.
+  </p>
+
+  <definition xml:id="def-walk">
+    <idx><h>walk</h></idx>
+    <idx><h>trail</h></idx>
+    <idx><h>path</h></idx>
+    <idx><h>circuit</h></idx>
+    <idx><h>cycle</h></idx>
+    <statement>
+      <p>
+        A <term>walk</term> in a graph <m>G = (V,E)</m> is a sequence of vertices <m>v_0, v_1, v_2, \ldots, v_n</m> such that for <m>\{v_i, v_{i+1}\} \in E</m> for all <m>0 \le i \lt n</m>.  That is, consecutive vertices in the sequence are adjacent in the graph.
+      </p>
+      <p>
+        A <term>trail</term> is a walk that does not repeat any edges.  If the trail starts and ends at the same vertex (i.e., <m>v_1 = v_n</m>) then it is called a <term>circuit</term>
+      </p>
+      <p>
+        A <term>path</term> is a trail that does not repeat any vertices, except perhaps for <m>v_0 = v_n</m>.  In the case that <m>v_0 = v_n</m>, the math is called a <term>cycle</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Do these definitions capture what a walk/trail/path should mean in a graph?  All three of these describe ways in which to move around in the graph, perhaps tracing along the edges without lifting up your pencil.
+  </p>
+
+  <p>
+    Note: some sources give slightly different definitions for these concepts.  For example, sometimes a walk is defined as a alternating sequence of vertices and edges <m>v_1e_1v_2e_2v_3\cdots e_{n-1}v_n</m> with the requirement that <m>v_i</m> is incident to <m>e_i</m>, which is incident to <m>v_{i+1}</m>.  We have not named our edges, so this definition would note make sense.  Another common way to define <em>path</em> is as a subgraph isomorphic to <m>P_n</m> for some <m>n</m>.  This is almost equivalent to our definition, except that we allow our paths to possibly be isomorphic to <m>C_n</m> for some <m>n</m> as well.  Some sources use <em>path</em> where we use <em>walk</em> and use <em>simple path</em> where we use <em>path</em>.
+  </p>
+
+  <p>
+    Walks and paths are useful for considering all sorts of graph theoretic concepts.  For example, you might want to find the <term>distance</term> between to vertices.  This would be defined as the shortest path starting at one and ending at the other (where the <term>length</term> of a path is the number of edges in it).  If you have a notion of distance, you can define the <em>center</em> and <em>radius</em> of a graph.  Graphs a <em>connected</em> provided between any two vertices, there is a path (or equivalently, a walk).
+  </p>
+</introduction>
+
+<subsection xml:id="subsec_eulerpaths">
+  <title>Euler paths and circuits</title>
+
+  <p>
+    To solve the domino problem, as well as the Bridges of Königsberg, we need to consider walks that use every edge exactly once.
+  </p>
+
+  <definition xml:id="def-eulerpath">
+    <statement>
+      <p>
+        A walk in a graph that uses every edge exactly once is called an <term>Euler path</term>.  An Euler path that starts and ends at the same vertex is called an <term>Euler circuit</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Although it is tradition, <em>Euler path</em> is a bad name.  These should be called an <term>Euler trail</term> or <term>Euler walk</term>, since by our definitions, an Euler path is usually not a path at all.  An Euler circuit is also sometimes called an <term>Euler tour</term>.
+  </p>
 
 <activity>
-<p>
-An <term>Euler path</term>, in a graph or multigraph, is a walk through the graph which uses every edge exactly once. An <term>Euler circuit</term> is an Euler path which starts and stops at the same vertex. Our goal is to find a quick way to check whether a graph (or multigraph) has an Euler path or circuit.
-
-<ol>
-  <li>
+<introduction>
+  <p>
+Our goal is to find a quick way to check whether a graph (or multigraph) has an Euler path or circuit.
+</p>
+</introduction>
+<task>
 <p>
 Which of the graphs/multigraphs below have Euler paths? Which have Euler circuits?
 </p>
@@ -113,24 +176,24 @@ Which of the graphs/multigraphs below have Euler paths? Which have Euler circuit
     \end{tikzpicture}</latex-image>
   </image>
 </sidebyside>
-</li>
+</task>
 
-<li>
+<task>
 <p>
 List the degrees of each vertex of the (multi)graphs above. Is there a connection between degrees and the existence of Euler paths and circuits?
 </p>
-</li>
-<li>
+</task>
+<task>
 <p>
 Is it possible for a graph with a degree 1 vertex to have an Euler circuit? If so, draw one. If not, explain why not. What about an Euler path?
 </p>
-</li>
-<li>
+</task>
+<task>
 <p>
 What if every vertex of the graph has degree 2. Is there an Euler path? An Euler circuit? Draw some graphs.
 </p>
-</li>
-<li>
+</task>
+<task>
 <p>
 Below is <em>part</em> of a graph. Even though you can only see some of the vertices, can you deduce whether the graph will have an Euler path or circuit?
 </p>
@@ -147,17 +210,14 @@ Below is <em>part</em> of a graph. Even though you can only see some of the vert
    \end{tikzpicture}</latex-image>
   </image>
 </sidebyside>
-</li>
-</ol>
-</p>
-
+</task>
 </activity>
 <p>
-If we start at a vertex and trace along edges to get to other vertices, we create a <em>walk</em> through the graph.  More precisely, a <term>walk</term> in a graph is a sequence of vertices such that every vertex in the sequence is adjacent to the vertices before and after it in the sequence. If the walk travels along every edge exactly once, then the walk is called an <term>Euler path</term> (or <term>Euler trail</term> or <term>Euler walk</term>). If, in addition, the starting and ending vertices are the same (so you trace along every edge exactly once and end up where you started), then the walk is called an <term>Euler circuit</term> (or <term>Euler tour</term>). Of course if a graph is not connected, there is no hope of finding such a path or circuit. For the rest of this section, assume all the graphs discussed are connected.
+ So what does it take for a graph to have an Euler path or circuit?  Of course if a graph is not connected, there is no hope of finding such a path or circuit. For the rest of this section, assume all the graphs discussed are connected.
 </p>
 
 <p>
-The bridges of Königsberg problem is really a question about the existence of Euler paths. There will be a route that crosses every bridge exactly once if and only if the graph below has an Euler path:
+The bridges of Königsberg problem is really a question about the existence of Euler paths. There will be a route that crosses every bridge exactly once if and only if the multigraph below has an Euler path:
 </p>
 
 
@@ -216,7 +276,7 @@ So there is clearly a connection between the parity of vertex degrees and Euler 
 <p>
 We will need to prove these theorems, and doing so will give us an excuse to think about proving theorems in general.  However, note that these theorems answer the bridges of Königsberg problem.  The graph has all four vertices with odd degree, there is no Euler path through the graph.  Thus there is no way for the townspeople to cross every bridge exactly once.
 </p>
-</introduction>
+</subsection>
 
 <subsection>
   <title>Interlude: Implications and Proofs</title>
