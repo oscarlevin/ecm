@@ -4,9 +4,115 @@
 
 
   <introduction>
-    Two problems about discrete math you can solve with graph theory: handshakes at a party and card matching puzzle.
+    <p>
+      To start our journey into discrete mathematics, let's consider a few puzzles.
+    </p>
+    
+    <question>
+      <statement>
+          <p>
+            In the time of Euler, in the town of Königsberg in Prussia, there was a river containing two islands. The islands were connected to the banks of the river by seven bridges (as seen below). The bridges were very beautiful, and on their days off, townspeople would spend time walking over the bridges. As time passed, a question arose: was it possible to plan a walk so that you cross each bridge once and only once? Euler was able to answer this question. Are you?
+          </p>
+          <sidebyside>
+            <image xml:id="gt-bridges-art">
+              <latex-image>
+                \begin{tikzpicture}[scale=0.9]
+    \definecolor{land}{HTML}{BCC3A6}
+    \definecolor{water}{HTML}{92A2FF}
+    \definecolor{bridge}{HTML}{D3AC6B}
+    \clip (-6,-2.8) rectangle (5.9,2.5);
+    \fill[color=water] (-6,-1.3) rectangle (5.5,1.19);
+    \draw[thick, fill=land] plot[smooth cycle] coordinates {(0,0) (-.5, .5) (-1,.6) (-2, .7) (-3,.5) (-3.3, -.7) (-2.8, -.8) (-1,-.7) (-.3, -.5)};
+    \draw[thick, fill=land] plot[smooth cycle] coordinates {(.5,0) (.4,.5) (1,.6) (2,.5) (2.7,0) (2.9,-.6) (2,-.8) (1,-.5) (.7,-.4)};
+    \shade[bottom color=land, top color=white!90!land] plot[smooth] coordinates {(-6,.2) (-4.5,.4) (-3,1) (0,.8) (1.5,1) (3,.5) (5.5,.2)} -- plot coordinates {(5.5,3) (-6,3)};
+    \draw[thick] plot[smooth] coordinates {(-6,.2) (-4.5,.4) (-3,1) (0,.8) (1.5,1) (3,.5) (5.5,.2)};
+    \shade[top color=land, bottom color=white!75!land] plot[smooth] coordinates {(-6,-.7) (-4.5,-.6) (-3,-1.2) (0,-1) (3,-1.1) (5,-.8) (5.5,-.7)} -- plot coordinates {(5.5,-3) (-6,-3)};
+    \draw[thick] plot[smooth] coordinates {(-6,-.7) (-4.5,-.6) (-3,-1.2) (0,-1) (3,-1.1) (5,-.8) (5.5,-.7)};
+    \path[fill=bridge] (-.3,.1) to[out=-10, in=190] (.8,.1) -- (.7, -.2) to[out=170, in=10] (-.35,-.2) -- cycle;
+    \draw[thick] (-.3,.1) to[out=-10, in=190] (.8,.1) (.7, -.2) to[out=170, in=10] (-.35,-.2);
+    \path[fill=bridge] (1.75,-1.5) to[out=100, in=260] (1.85,-.5) -- (1.55, -.4) to[out=280, in=80] (1.5,-1.4) -- cycle;
+    \draw[thick] (1.75,-1.5) to[out=100, in=260] (1.85,-.5) (1.55, -.4) to[out=280, in=80] (1.5,-1.4);
 
-    Studying graph theory will give us an opportunity to review some basic mathematical objects and reasoning used in discrete math.
+    \path[fill=bridge] (1.6,.35) to[out=100, in=280] (1.35,1.3) -- (1.1, 1.2) to[out=300, in=110] (1.4,.3) -- cycle;
+    \draw[thick] (1.6,.35) to[out=100, in=280] (1.35,1.3) (1.1, 1.2) to[out=300, in=110] (1.4,.3);
+
+    \path[fill=bridge] (-.7,.35) to[out=70, in=240] (-.3,1.1) -- (-.5, 1.2) to[out=250, in=60] (-.9,.45) -- cycle;
+    \draw[thick] (-.7,.35) to[out=70, in=240] (-.3,1.1) (-.5, 1.2) to[out=250, in=60] (-.9,.45);
+
+    \path[fill=bridge] (-2.05,.5) to[out=105, in=270] (-2.15,1.4) -- (-2.4, 1.35) to[out=280, in=90] (-2.3,.45) -- cycle;
+    \draw[thick] (-2.05,.5) to[out=105, in=270] (-2.15,1.4) (-2.4, 1.35) to[out=280, in=90] (-2.3,.45);
+
+    \path[fill=bridge] (-2.75,-1.5) to[out=85, in=250] (-2.5,-.6) -- (-2.75, -.5) to[out=260, in=75] (-3,-1.45) -- cycle;
+    \draw[thick] (-2.75,-1.5) to[out=85, in=250] (-2.5,-.6) (-2.75, -.5) to[out=260, in=75] (-3,-1.45);
+
+    \path[fill=bridge] (-.7,-1.5) to[out=100, in=260] (-.7,-.5) -- (-1, -.55) to[out=280, in=80] (-1,-1.45) -- cycle;
+    \draw[thick] (-.7,-1.5) to[out=100, in=260] (-.7,-.5) (-1, -.55) to[out=280, in=80] (-1,-1.45);
+    \end{tikzpicture}
+              </latex-image>
+            </image>
+          </sidebyside>
+      </statement>
+    </question>
+    
+    <question>
+      <statement>
+        <p>
+          Professor Evilish has invited 25 unsuspecting discrete math students to his estate for an evening of escape room fun.  Some of these students are already friends, but no student is friends with more than 3 other students.  The Professor wants to ensure that no escape rooms will contain a pair of students who are already friends.  Can he be sure that four escape rooms will be enough?
+        </p>
+      </statement>
+    </question>
+    
+    <question>
+      <statement>
+        <p>
+          Is it possible that amoung the 25 students, everyone has <em>exactly</em> three friends?
+        </p>
+      </statement>
+    </question>
+    
+    <question>
+      <statement>
+        <p>
+          Take a regular deck of 52 cards, shuffle well, and deal the cards into 13 piles.  Will it always be possible to select one card from each pile so that the 13 cards you select all have different values (ace, 2, 3, etc.)?
+        </p>
+      </statement>
+    </question>
+    
+    <p>
+      All the puzzles above have a feature in common: they involve the ways in which individual (discrete) objects can be related to each other.  This is what graph theory studies, and we will see that each of the puzzles can be solved with the tools of the subject.  Before we start developing those tools, take a moment to see why graphs are applicable to these problems.
+    </p>
+    
+    <p>
+      In the bridges of Königsberg puzzle, all that really matters is which land masses are connected by bridges, and how many bridges connect them.  The length of the bridges and size of the land masses is unimportant.  So we can represent this puzzle with a graph like this:
+    </p>
+
+    <sidebyside width="25%">
+      <image xml:id="gt-bridges-graph">
+        <latex-image>
+          \begin{tikzpicture}[scale=0.9, yscale=.5]
+\draw (-1,-2) \v to [out=120, in=240] (-1,0) \v to [out=120, in=240] (-1,2) \v to [out=300, in=60] (-1,0) to [out=300, in=60] (-1,-2);
+\draw (1,0) \v -- (-1,2) (-1,0) -- (1,0) -- (-1,-2);
+\end{tikzpicture}
+        </latex-image>
+      </image>
+    </sidebyside>
+    
+    <p>
+      Now we must decide whether it is possible to travel around that graph in a way that each edge is crossed exactly once.
+    </p>
+    
+    <p>
+      When it comes to friendship, if we assume that it is always reciprocated, we can represent the people as vertices and connect two vertices with an edge if the people they represent are friends.  We can ask whether it is possible to have such a graph in which each vertex is incident to exactly three edges or whether it is possible to <q>color</q> the vertices with just four colors so that no pair of same colored vertices are adjacent (connected by an edge).
+    </p>
+    
+    <p>
+      If we have thirteen piles of cards, we represent each pile as a vertex and each value as a vertex, and connect a pile vertex to a value vertex precisely when that value is in the pile.  We could then ask whether we could select a collection of thirteen edges that do not share any single vertex.
+    </p>
+    
+    <p>
+      These puzzles give you just a small glimpse into the myriad of applications graph theory can address.  For us, we will use our study of graph theory to see how reasoning in discrete mathematics works and as an excuse to remind ourselves of the basic mathematical objects and proof techniques required to study the subject in general.
+    </p>
+
   </introduction>
 
   <xi:include href="sec_gt-intro.ptx"/>
