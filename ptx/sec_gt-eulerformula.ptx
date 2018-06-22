@@ -95,202 +95,339 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
       If we want to understand the relationship between the number of vertices, edges and faces of a planar graph, we could first try to decide which triples can be realized by a graph and which cannot.  At first this might seem like a daunting task.  The key is to think of it recursively.  Perhaps start with simple graphs and build up to more complicated ones.
     </p>
 
-    <!-- TODO: Add more here -->
-
-
-<theorem>
-<title>Euler's Formula for Planar Graphs</title>
-<p>
-<idx><h>Euler's formula</h></idx>
-For any (connected) planar graph with <m>v</m> vertices, <m>e</m> edges and <m>f</m> faces, we have
-<me>
-  v-e + f = 2
-</me>
-</p>
-</theorem>
-<p>
-Why is Euler's formula true? One way to convince yourself of its validity is to draw a planar graph step by step. Start with the graph <m>P_2</m>:
-</p>
-<sidebyside width="10%">
-  <image>
-  <latex-image>\begin{tikzpicture}
-      \draw (-.5,-.5) \v -- (.5,.5)\v;
-    \end{tikzpicture}</latex-image>
-  </image>
-</sidebyside>
-
-<p>
-Any connected graph (besides just a single isolated vertex) must contain this subgraph. Now build up to your graph by adding edges and vertices. Each step will consist of either adding a new vertex connected by a new edge to part of your graph (so creating a new <q>spike</q>) or by connecting two vertices already in the graph with a new edge (completing a circuit).
-</p>
-
-<sidebyside widths="30% 20%" margins="auto" valign="bottom">
-  <image>
-  <latex-image>\begin{tikzpicture}
-      \draw (-1, 0) \v -- (-1,2) \v -- (1,2) \v -- (1,0) \v -- (-1,2);
-      \draw[dashed] (1,2) -- (2,1) \v;
-    \end{tikzpicture}</latex-image>
-  </image>
-  <image>
-  <latex-image>\begin{tikzpicture}
-      \draw (-1, 0) \v -- (-1,2) \v -- (1,2) \v -- (1,0) \v -- (-1,2);
-      \draw[dashed] (1,0) -- (-1,0);
-    \end{tikzpicture}</latex-image>
-  </image>
-</sidebyside>
-
-<p>
-What do these <q>moves</q> do? When adding the spike, the number of edges increases by 1, the number of vertices increases by one, and the number of faces remains the same. But this means that <m>v - e + f</m> does not change. Completing a circuit adds one edge, adds one face, and keeps the number of vertices the same. So again, <m>v - e + f</m> does not change.
-</p>
-
-<p>
-Since we can build any graph using a combination of these two moves, and doing so never changes the quantity <m>v - e + f</m>, that quantity will be the same for all graphs. But notice that our starting graph <m>P_2</m> has <m>v = 2</m>, <m>e = 1</m> and <m>f = 1</m>, so <m>v - e + f = 2</m>. This argument is essentially a proof by induction. A good exercise would be to rewrite it as a formal induction proof.
-</p>
+    <activity>
+      <introduction>
+        What happens to the triple <m>(v,e,f)</m> when you add an edge to a graph?
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Start with a single pair of adjacent vertices (that is, the graph <m>P_1</m>).  What is <m>(v,e,f)</m>?  What happens to the triple if you extend the path to <m>P_2</m>?  How do <m>v</m>, <m>e</m>, and <m>f</m> change?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            You could add another vertex and edge to <m>P_2</m> (which would either give <m>P_3</m> or a <em>star</em> graph), or you could add an edge connecting two vertices not already adjacent.  What would these two operations do to <m>(v,e,f)</m>?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Generalize.  Say you know a specific triple <m>(a,b,c)</m> describes a graph <m>G</m>.  Give two new triples that also describe some graphs, each with one more edge than <m>G</m>. 
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Conjecture a relationship between <m>v</m>, <m>e</m>, and <m>f</m> that should hold for any connected planar graph.
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
+    <p>
+      It appears that whenever <m>(v,e,f)</m> describes some graph, then there is a graph with triple <m>(v+1, e+1, f)</m> and a graph with triple <m>(v,e+1, f+1)</m>.  Perhaps there are other ways we could add an edge we haven't thought of yet, but so far it seems like this completely describes how any triple must be created.
+    </p>
+    
+    <p>
+      If this is the case, what could we conclude?  Every time we add an edge, either the number of vertices or the number of faces increases by 1.  Perhaps then <m>e = v + f</m>?  But this is not true, since for <m>P_1</m> we would have <m>1 = 2 + 1</m>, clearly false.  Okay, at least we might guess <m>v + f - e</m> is constant.  And from <m>P_1</m>, we see that constant would need to be <m>2 + 1 - 1 = 2</m>.  This leads us to conjecture the following theorem.
+    </p>
+    
+    <theorem xml:id="thm-eulerformula">
+      <statement>
+        <p>
+          For any planar graph with <m>v</m> vertices, <m>e</m> edges, and <m>f</m> faces, we have
+          <me>
+            v - e + f = 2
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+      We will soon see that this really is a theorem.  The equation <m>v-e+f = 2</m> is called <term>Euler's formula for planar graphs</term>.  To prove this, we will want to somehow capture the idea of building up more complicated graphs from simpler ones.  That is a job for mathematical induction!
+    </p>
 </introduction>
 
 <subsection>
   <title>Interlude: Mathematical Induction</title>
     <p>
-      The proof technique we will use to establish Euler's formula for planar graphs is called <term>mathematical induction</term>.  This is a technique we will return to many times throughout our studies, so let's take a few moments to understand the logical structure for this style of proof and why it is a valid proof technique.  Additional general practice on induction can be found in an appendix.
+      The proof technique we will use to establish Euler's formula for planar graphs is called <term>mathematical induction</term>.  This is a technique we will return to many times throughout our studies, so let's take a few moments to understand the logical structure for this style of proof and why it is a valid proof technique.  Additional general practice on induction can be found in <xref ref="sec_background-induction"/>.
+    </p>
+
+    <activity>
+      <introduction>
+        <p>
+          What is the units digit of <m>6^n</m>?  How do you know?
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Suppose you knew that the units digit of <m>6^{217}</m> was a 2.  Without calculating <m>6^{218}</m> directly, can you say what its units digit would be?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Is the units digit of <m>6^{217}</m> a 2?  How do you know?
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
+    <p>
+      We often wish to prove a statement is true for all natural numbers <m>n</m> (or all integers larger than some smallest example).  Mathematical induction uses the fact that the (infinitely many) cases we wish to prove are in a nice order with a least element.  To show that <m>6^n</m> has units digit 6 for all <m>n \ge 1</m>, we notice that <m>6^n = 6^{n-1}\cdot 6</m>.  Assuming that we have already shown that <m>6^{n-1}</m> has units digit 6, we can multiply this number by 6, and note that the units digit will still be a 6, since the units digit of <m>x \cdot 6</m> is just 6 times the units digit of <m>x</m>, and <m>6\cdot 6</m> has units digit 6. 
+    </p>
+    
+    <p>
+      But this seems sneaky.  Is it valid to assume that we already know the units digit of <m>6^{n-1}</m>?  That is the power of induction.  
+    </p>
+    
+    <p>
+      Suppose we hope to prove that <m>P(n)</m> is true for all <m>n \ge 0</m>.  What we will really prove is that <m>P(0)</m> is true, and that for all <m>k</m>, if <m>P(k-1)</m> is true, then <m>P(k)</m> is true.  In other words, we are proving the implication
+      <me>
+        \forall k \,(P(k) \imp P(k+1)).
+      </me>
+      This implication being true for all <m>k \ge 1</m> really means we have proved infinitely many implications
+      <md>
+        <mrow> P(0) \imp P(1)</mrow>
+        <mrow> P(1) \imp P(2)</mrow>
+        <mrow> P(2) \imp P(3)</mrow>
+        <mrow> \vdots</mrow>
+      </md>
+      
+    </p>
+    
+    <p>
+      Can we conclude <m>P(n)</m> is true for all <m>n</m>?  Well take any <m>n</m>.  For example, <m>n = 3</m>.  We know <m>P(0)</m> is true, and the implication <m>P(0) \imp P(1)</m> is true, so we can conclude <m>P(1)</m>.  From <m>P(1)</m> and <m>P(1) \imp P(2)</m>, we can conclude <m>P(2)</m>.  From <m>P(2)</m> and <m>P(2) \imp P(3)</m>, we can conclude <m>P(3)</m>.  If we wanted a different value of <m>n</m>, we would just need to keep going until we got up to it.  Since every value of <m>n</m> can be reached by some finite number of steps starting at 0, we will know, for each <m>n</m> that <m>P(n)</m> is true.
+    </p>
+    
+    <p>
+      The above discussion is meant to explain why it is reasonable to believe that induction is a valid proof technique.<fn>Technically, induction must be assumed as an axiom or deduced from the equivalent well-ordering principle which says that every subset of <m>\N</m> contains a least element; our justification for it is circular, since to prove the justification is valid would be done by induction itself.</fn>  Once we believe induction works, we can just use it.  That means just proving two things: <m>P(0)</m> and for all <m>n \ge 0</m>, <m>P(n) \imp P(n+1)</m>.  We call <m>P(0)</m> the <term>base case</term> and the implication the <term>inductive case</term>.  Here is an example of what a proof by induction looks like.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          Prove by induction that for all <m>n \ge 0</m>, the number <m>n^2 + n</m> is even.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First note that induction is NOT necessary here.  We could give a non-inductive prove as follows.
+        </p>
+        <proof>
+          <p>
+            Fix <m>n \ge 0</m>.  Now <m>n^2 + n = n(n+1)</m>.  Either <m>n</m> or <m>(n+1)</m> is even, and the product of an even number and an odd number is even, so <m>n^2 + n</m> is even.
+          </p>
+        </proof>
+        <p>
+          To contrast, here is a proof by induction.
+        </p>
+        <proof>
+          <p>
+            First note that <m>0^2 + 0 = 0</m> is even, so the case when <m>n = 0</m> is true.  Now assume for an arbitrary <m>n\ge 0</m> that <m>n^2 + n</m> is even.  Consider the case for <m>n+1</m>: 
+            <md>
+            <mrow>(n+1)^2 + n+1 \amp = n^2 + 2n + 1 + n + 1</mrow>
+            <mrow>\amp = n^2 + n + 2n + 2.</mrow>
+            </md>
+            But <m>n^2 + n</m> is even, and <m>2n + 2</m> is even, and the sum of two even numbers is even, so <m>(n+1)^2 + n+1</m> is even. 
+          </p>
+        </proof>
+      </solution>
+    </example>
+    
+    <p>
+      Now that we have some sense for mathematical induction in general, let's consider how induction can be applied in graph theory. 
+    </p>
+    
+    <p>
+      First, we need something to play the role of <m>n</m>, since induction is used to prove statements are true for all natural numbers <m>n</m>.  For the most part, we cannot think of all graphs as lined up in some natural order.  But we could use induction <em>on</em> the number of edges of a graph (or number of vertices, or any other notion of size).  That is we can prove that for all <m>n\ge 0</m>, all graphs with <m>n</m> edges have <ellipsis />.   
+    </p>
+    
+    <p>
+      Notice that the thing we are proving for all <m>n</m> is itself a universally quantified statement. This means that our base case become, <q>for all graphs with 0 edges <ellipsis /></q> (which for not-necessarily connected graphs is infinitely many graphs).  To prove the inductive case we <em>get to</em> assume that for all graphs with <m>n</m> edges <ellipsis />, but then we <em>must</em> prove that for all graphs with <m>n+1</m> edges <ellipsis />.   
+    </p>
+    
+    <p>
+      Because of this added complication, the usual way to approach the inductive case for graphs is to start with an arbitrary graph that has <m>n+1</m> edges.  Then remove an edge to drop down to a graph with <m>n</m> edges, which we know something about (our inductive hypothesis).  Then make sure that moving back to the original graph, we maintain our desired property.
     </p>
 
     <p>
-      ADD CONTENT ABOUT INDUCTION, IN GENERAL, AND FOR GRAPHS.
+      Let's try a simple example.
     </p>
+    
+    <activity>
+      <introduction>
+        <p>
+          Recall that a <term>tree</term> is a connected graph with no cycles.  We wish to prove that every tree with <m>v = n</m> vertices has <m>e = n-1</m> edges.  (This is actually a special case of Euler's formula for planar graphs, as a tree will always be a planar graph with 1 face).
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            First, prove a lemma (not using induction): every tree contains at least two vertices of degree 1.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Look at paths in the tree.  Let <m>v_0, v_1, \ldots, v_n</m> be a path of maximal length.  What can you say about <m>v_0</m> and <m>v_n</m>?
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            We will give a proof by induction on the number of vertices in a tree.  What should the base case be?  Prove it.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            What is the smallest number of vertices that make sense?  You will need to prove that <em>all</em> trees with one vertex have the correct number of edges.  This should be very easy.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Now for the inductive case.  Start with an arbitrary tree <m>T</m> with <m>n</m> vertices and assume that <em>all</em> trees with <m>n-1</m> vertices have <m>n-2</m> edges (why is the the right thing to assume)?  Prove that <m>T</m> has <m>n-1</m> edges.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            To get to a tree with <m>n-1</m> vertices, you need to <em>trim</em> <m>T</m> somehow.  Which vertex should you get rid of?  What will this do to the number of edges?
+          </p>
+        </hint>
+      </task>
+    </activity>
+    
+    <p>
+      We will use induction for many graph theory proofs, as well as proofs outside of graph theory.  As our first example, we will prove <xref ref="thm-eulerformula"/>
+    </p>
+    
+    
 </subsection>
 
 <subsection>
   <title>Proof of Euler's formula for planar graphs.</title>
+  
+  <p>
+    The proof we will give will be by induction on the number of edges of a graph.  This means we will need a way to reduce the number of edges, so we can get down to our inductive hypothesis.  There are two ways to remove an edge that will be useful here and for future problems.
+  </p>
+  
+  <p>
+    <idx><h>deletion</h></idx>
+    A <term>deletion</term> is the result of removing an edge from the edge set (everything else in the graph stays the same).  For a specific edge <m>e</m> in the graph <m>G</m>, we write the new graph as <m>G - e</m>.
+  </p>
+  
+  <p>
+    <idx><h>contraction</h></idx>
+    Slightly more complicated is a <term>contraction</term>.  The idea is we take an edge and shrink it down to a vertex.  The two endpoints of the vertex collide and all their incident edges follow along and become incident to this new vertex consisting of the edge and two vertices contracted together.  The resulting graph is written <m>G/e</m> (read <q><m>G</m> contract <m>e</m></q>).
+  </p>
+  
+  <p>
+    To be a little more precise, given a graph <m>G</m> and edge <m>e = \{u,v\}</m>, the graph <m>G/e</m> is formed by
+    <ol>
+      <li>
+        <p>
+          Removing vertices <m>u</m> and <m>v</m> and all their incident vertices.
+        </p>
+      </li>
+      <li>
+        <p>
+          Adding a new vertex <m>E</m> and edges from <m>E</m> to each vertex that was previously adjacent to <m>u</m> or <m>v</m>. 
+        </p>
+      </li>
+    </ol>
+    Notice that <m>G/e</m> might be a multigraph (if <m>u</m> and <m>v</m> were both adjacent to a common vertex).  If <m>G</m> was already a multigraph, and had two edges connecting <m>u</m> and <m>v</m>, then <m>E</m> will get a loop (since only one of the edges was contracted).  We can avoid multigraphs by being careful which edge we contract along.
+  </p>
+  
+  <activity>
+    <introduction>
+      <p>
+        Let <m>G</m> be any planar graph with <m>v</m> vertices, <m>e</m> edges, and <m>f</m> faces.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Let <m>e_0</m> be any edge part of a cycle in <m>G</m>.  Would it make more sense to remove <m>G</m> using a deletion or a contraction?  What will happen to <m>v - e + f</m>?
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Let <m>e_0</m> be an edge incident to a vertex of degree 1.  Should we remove <m>e_0</m> by deletion or contraction?  What will happen to <m>v- e + f</m>
+        </p>
+      </statement>
+    </task>
+  </activity>
+  
+  <activity>
+    <statement>
+      <p>
+        Prove Euler's formula for planar graphs using induction on the number of edges in the graph.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        You can take <m>n = e = 1</m> as your base case.  For the inductive case, start with an arbitrary graph with <m>n</m> edges.  Consider two cases: either <m>G</m> contains a cycle or it does not.
+      </p>
+    </hint>
+  </activity>
+  
+  <p>
+    It is a good exercise to give proofs by induction on the number of vertices or the number of faces.  You will need to think about how to remove a vertex or a face, and how doing so changes the other quantities.
+  </p>
+  
+  <!-- <p>
+    We conclude with a few exercises to further solidify these ideas.
+  </p>
+  
+  <activity>
+  <statement>
+  <p>
+  Euler's formula (<m>v - e + f = 2</m>) holds for all <em>connected</em> planar graphs. What if a graph is not connected? Suppose a planar graph has two components. What is the value of <m>v - e + f</m> now? What if it has <m>k</m> components?
+  </p>
+  </statement>
+  <solution>
+  <p>
+  Say the first component has <m>v_1</m> vertices, <m>e_1</m> edges and <m>f_1</m> faces. The second graph has <m>v_2</m> vertices, <m>e_2</m> edges and <m>f_2</m> faces. Thinking of each of these separately, we have
+  <me>
+    v_1 - e_1 + f_1 = 2,
+  </me>
+  </p>
+  <me>
+    v_2 - e_2 + f_2 = 2.
+  </me>
+  <p>
+  Adding these two equations gives
+  <me>
+    v - e + f = 4
+  </me>
+  </p>
+
+  <p>
+  (since the graph has <m>v = v_1 + v_2</m> vertices, etc). However, the two components have one common face (the outside of one of them must be contained in one of the faces of the other) so in fact we get
+  <me>
+    v - e + f = 3.
+  </me>
+  </p>
+
+  <p>
+  In general, a planar graph with <m>k</m> components will satisfy <m>v - e + f = 1 + k</m>.
+  </p>
+  </solution>
+</activity> -->
 
 </subsection>
 
-
-<!-- Maybe split this into two sections? -->
-<subsection>
-<title>Non-planar Graphs</title>
-<investigation>
-
-<p>
-For the complete graphs <m>K_n</m>, we would like to be able to say something about the number of vertices, edges, and (if the graph is planar) faces. Let's first consider <m>K_3</m>:
-<ol>
-<li>
-<p>
-How many vertices does <m>K_3</m> have? How many edges?
-</p>
-</li>
-<li>
-<p>
-If <m>K_3</m> is planar, how many faces should it have?
-</p>
-</li>
-</ol>
-</p>
-
-<p>
-Repeat parts (1) and (2) for <m>K_4</m>, <m>K_5</m>, and <m>K_{23}</m>.
-</p>
-
-<p>
-What about complete bipartite graphs? How many vertices, edges, and faces (if it were planar) does <m>K_{7,4}</m> have?  For which values of <m>m</m> and <m>n</m> are <m>K_n</m> and <m>K_{m,n}</m> planar?
-</p>
-</investigation>
-
-<p>
-Not all graphs are planar. If there are too many edges and too few vertices, then some of the edges will need to intersect. The first time this happens is in <m>K_5</m>.
-</p>
-<sidebyside width="20%">
-  <image>
-  <latex-image>\begin{tikzpicture}
-      \foreach \x in {0,...,4}
-      \draw (\x*72+18:1) \v -- (\x*72+90:1) -- (\x*72-54:1);
-    \end{tikzpicture}</latex-image>
-  </image>
-</sidebyside>
-<p>
-If you try to redraw this without edges crossing, you quickly get into trouble. There seems to be one edge too many. In fact, we can prove that no matter how you draw it, <m>K_5</m> will always have edges crossing.
-</p>
-
-<theorem>
-<statement>
-<p>
-<m>K_5</m> is not planar.
-</p>
-</statement>
-
-</theorem>
-
-<proof>
-  <p>
-    The proof is by contradiction. So assume that <m>K_5</m> is planar. Then the graph must satisfy Euler's formula for planar graphs. <m>K_5</m> has 5 vertices and 10 edges, so we get
-    <me>
-    5 - 10 + f = 2
-    </me>
-    which says that if the graph is drawn without any edges crossing, there would be <m>f = 7</m> faces.
-  </p>
-
-  <p>
-    Now consider how many edges surround each face. Each face must be surrounded by at least 3 edges. Let <m>B</m> be the total number of <em>boundaries</em> around all the faces in the graph. Thus we have that <m>B \ge 3f</m>. But also <m>B = 2e</m>, since each edge is used as a boundary exactly twice. Putting this together we get
-    <me>
-    3f \le 2e
-    </me>
-  </p>
-
-  <p>
-    But this is impossible, since we have already determined that <m>f = 7</m> and <m>e = 10</m>, and <m>21 \not\le 20</m>. This is a contradiction so in fact <m>K_5</m> is not planar.
-  </p>
-</proof>
-
-<p>
-The other simplest graph which is not planar is <m>K_{3,3}</m>
-</p>
-<sidebyside width="20%">
-  <image>
-  <latex-image>\begin{tikzpicture}[yscale=1.2]
-          \draw (-1,1) \v -- (-1,0)\v  -- (0,1) \v -- (0,0) \v -- (1,1) \v -- (1,0) \v -- (0,1) -- (-1,0) -- (1,1) (1,0) -- (-1,1) -- (0,0);
-        \end{tikzpicture}</latex-image>
-  </image>
-</sidebyside>
-<p>
-Proving that <m>K_{3,3}</m> is not planar answers the houses and utilities puzzle: it is not possible to connect each of three houses to each of three utilities without the lines crossing.
-</p>
-
-<theorem>
-<statement>
-<p>
-<m>K_{3,3}</m> is not planar.
-</p>
-</statement>
-</theorem>
-
-<proof>
-  <p>
-    Again, we proceed by contradiction. Suppose <m>K_{3,3}</m> were planar. Then by Euler's formula there will be 5 faces, since <m>v = 6</m>, <m>e = 9</m>, and <m>6 - 9 + f = 2</m>.
-  </p>
-
-  <p>
-    How many boundaries surround these 5 faces? Let <m>B</m> be this number. Since each edge is used as a boundary twice, we have <m>B = 2e</m>. Also, <m>B \ge 4f</m> since each face is surrounded by 4 or more boundaries. We know this is true because <m>K_{3,3}</m> is bipartite, so does not contain any 3-edge cycles. Thus
-    <me>
-    4f \le 2e.
-    </me>
-  </p>
-
-  <p>
-    But this would say that <m>20 \le 18</m>, which is clearly false. Thus <m>K_{3,3}</m> is not planar.
-  </p>
-</proof>
-
-<p>
-Note the similarities and differences in these proofs. Both are proofs by contradiction, and both start with using Euler's formula to derive the (supposed) number of faces in the graph. Then we find a relationship between the number of faces and the number of edges based on how many edges surround each face. This is the only difference. In the proof for <m>K_5</m>, we got <m>3f \le 2e</m> and for <m>K_{3,3}</m> we go <m>4f \le 2e</m>. The coefficient of <m>f</m> is the key. It is the smallest number of edges which could surround any face. If some number of edges surround a face, then these edges form a cycle. So that number is the size of the smallest cycle in the graph.
-</p>
-
-<p>
-In general, if we let <m>g</m> be the size of the smallest cycle in a graph (<m>g</m> stands for <em>girth</em><idx><h>girth</h></idx>, which is the technical term for this) then for any planar graph we have <m>gf \le 2e</m>. When this disagrees with Euler's formula, we know for sure that the graph cannot be planar.
-</p>
-</subsection>
-
-
-
-
-
-<xi:include href="exercises/gt-planar.ptx"/>
 
 </section>

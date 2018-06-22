@@ -8,7 +8,7 @@
 <p>
 Mapmakers in the fictional land of Euleria have drawn the borders of the various dukedoms of the land. To make the map pretty, they wish to color each region. Adjacent regions must be colored differently, but it is perfectly fine to color two distant regions with the same color. What is the fewest colors the mapmakers can use and still accomplish this task?
 </p>
-<sidebyside width="75%">
+<sidebyside width="50%">
 	<image>
 	<latex-image>\begin{tikzpicture}
 	\draw[thick]
@@ -27,6 +27,14 @@ Mapmakers in the fictional land of Euleria have drawn the borders of the various
 	\end{tikzpicture}</latex-image>
 	</image>
 </sidebyside>
+</investigation>
+
+<investigation>
+	<statement>
+	  <p>
+	    How many colors do you need to color the faces of a cube so that no two faces that share an edge are colored the same?  Is there a polyhedron that would require four colors to do this?  Is there a polyhedron that requires five?
+	  </p>
+	</statement>
 </investigation>
 
 <p>
@@ -97,7 +105,7 @@ The graph on the right is just <m>K_{2,3}</m>. As with all bipartite graphs, thi
 </solution>
 </example>
 <p>
-It appears that there is no limit to how large chromatic numbers can get. It should not come as a surprise that <m>K_n</m> has chromatic number <m>n</m>. So how could there possibly be an answer to the original map coloring question? If the chromatic number of graph can be arbitrarily large, then it seems like there would be no upper bound to the number of colors needed for any map. But there is.
+It appears that there is no limit to how large chromatic numbers can get; the graph <m>K_n</m> has chromatic number <m>n</m>. So how could there possibly be an answer to the original map coloring question? If the chromatic number of graph can be arbitrarily large, then it seems like there would be no upper bound to the number of colors needed for any map. But there is.
 </p>
 
 <p>
@@ -105,7 +113,7 @@ The key observation is that while it is true that for any number <m>n</m>, there
 </p>
 
 <p>
-So the question is, what is the largest chromatic number of any planar graph? The answer is the best known theorem of graph theory:
+So the question is, what is the largest chromatic number of any planar graph? The answer is the infomous Four Color Theorem.
 </p>
 
 <theorem>
@@ -121,43 +129,120 @@ If <m>G</m> is a planar graph, then the chromatic number of <m>G</m> is less tha
 <p>
 We will not prove this theorem. Really. Even though the theorem is easy to state and understand, the proof is not. In fact, there is currently no <q>easy</q> known proof of the theorem. The current best proof still requires powerful computers to check an <em>unavoidable set</em> of 633 <em>reducible configurations</em>. The idea is that every graph must contain one of these reducible configurations (this fact also needs to be checked by a computer) and that reducible configurations can, in fact, be colored in 4 or fewer colors.
 </p>
+
+<p>
+  Of course if every planar graph has chromatic number at most 4, then every graph has chromatic number no more than 6.  Proving this (without using the 4 color theorem) is not very difficult, and this at least shows that the chromatic numbers for planar graphs is bounded.
+</p>
+
+<activity>
+	<statement>
+	  <p>
+	    Prove that every planar graph can be properly vertex colored with 6 or fewer colors.  
+	  </p>
+	</statement>
+	<hint>
+	  <p>
+	    You will want to use a proof by induction on the number of vertices.  Use the fact that every planar graph has at least one vertex of degree at most 5.
+	  </p>
+	</hint>
+</activity>
+
+<p>
+  In 1879, Alfred Kempe published a proof of the Four Color Theorem.  It wasn't until 11 years later that Percy John Heawood found an error in the proof.  However, the failed proof did lead to a nice proof that every planar graph has chromatic number at most five.  The next activity walks you through that proof.
+</p>
+
+<activity>
+	<introduction>
+		<p>
+		  We will prove the Five Color Theorem, that every planar graph has a proper vertex coloring using five (or fewer) colors.  We proceed by induction on the number of vertices.  So assume that <m>G</m> is a planar graph with <m>n</m> vertices, and all planar graphs with fewer vertices have a proper 5-coloring.  We will use <m>\{1,2,3,4,5\}</m> as our set of colors.
+		</p>
+	</introduction>
+	<task>
+		<statement>
+		  <p>
+		    Let <m>v</m> be a vertex of degree five or less (why can we do this?).  Let <m>H</m> be the graph resulting from deleting <m>v</m> and all its incident edges.  What can you say about <m>H</m>?
+		  </p>
+		</statement>
+	</task>
+	<task>
+		<statement>
+		  <p>
+		    Let <m>v_1, v_2, v_3, v_4, v_5</m> be the vertices adjacent to <m>v</m> in <m>G</m>.  Why is it okay to assume there really are five and further that these five vertices are colored distinctly from each other?
+		  </p>
+		</statement>
+		<hint>
+		  <p>
+		    If not, what could we do with <m>v</m>?
+		  </p>
+		</hint>
+	</task>
+	<task>
+		<statement>
+		  <p>
+		    Assume <m>v_1, \ldots, v_5</m> are drawn in the plane in clockwise order around <m>v</m>, and further that they are colored <m>1,2,3,4,5</m> respectively.  Now consider the induced subgraph <m>H_{1,3}</m> of <m>H</m> consiting of all vertices colored 1 and 3 (and their edges).  Why can we assume that there is a path from <m>v_1</m> to <m>v_3</m> contained in <m>H_{1,3}</m>?
+		  </p>
+		</statement>
+		<hint>
+		  <p>
+		    If not, what would happen if we recolor <m>v_1</m> with color 3, and all its adjacent vertices in <m>H_{1,3}</m> with color 1 and so on?  That is, could we swap colors to free up color 1 for <m>v</m>?
+		  </p>
+		</hint>
+	</task>
+	<task>
+		<statement>
+		  <p>
+		    Now consider <m>H_{2,4}</m>, the induced subgraph of <m>H</m> of vertices colored 2 and 4.  Explain why their cannot be a path connecting <m>v_2</m> and <m>v_4</m>, and why this completes the proof.
+		  </p>
+		</statement>
+		<hint>
+		  <p>
+		    Remember where <m>v_2</m> and <m>v_4</m> are relative to the path connecting <m>v_1</m> and <m>v_3</m>.
+		  </p>
+		</hint>
+	</task>
+</activity>
+
+<p>
+  You will notice that the proof above doesn't ever use <m>v_5</m>, so it is tempting to apply this same technique towards a proof of the four color theorem.  See if you can find the error in doing so in fewer than 11 years.
+</p>
 </introduction>
 
 
 <subsection>
 <title>Coloring in General</title>
-<investigation>
-<p>
-The math department plans to offer 10 classes next semester. Some classes cannot run at the same time (perhaps they are taught by the same professor, or are required for seniors).
-</p>
-<sidebyside>
-	<tabular>
-		<col right="minor" halign="center"/><col/>
-	<row bottom="minor"><cell>Class:</cell><cell>Conflicts with:</cell></row>
-	<row><cell>A</cell><cell>D I</cell></row>
-	<row><cell>B</cell><cell>D I J</cell></row>
-	<row><cell>C</cell><cell>E F I</cell></row>
-	<row><cell>D</cell><cell>A B F</cell></row>
-	<row><cell>E</cell><cell>H I</cell></row>
-	<row><cell>F</cell><cell>I</cell></row>
-	<row><cell>G</cell><cell>J</cell></row>
-	<row><cell>H</cell><cell>E I J</cell></row>
-	<row><cell>I</cell><cell>A B C E F H</cell></row>
-	<row><cell>J</cell><cell>B G H</cell></row>
-	</tabular>
-</sidebyside>
-<p>
-How many different time slots are needed to teach these classes (and which should be taught at the same time)? More importantly, how could we use graph coloring to answer this question?
-</p>
-</investigation>
-<p>
-Cartography is certainly not the only application of graph coloring. There are plenty of situations in which you might wish partition the objects in question so that related objects are not in the same set. For example, you might wish to store chemicals safely. To avoid explosions, certain pairs of chemicals should not be stored in the same room. By coloring a graph (with vertices representing chemicals and edges representing potential negative interactions), you can determine the smallest number of rooms needed to store the chemicals.
-</p>
 
 <p>
-Here is a further example:
+  There are plenty of reasons to color graphs other than cartography.  
 </p>
-<example>
+
+<activity>
+<statement>
+	<p>
+	The math department plans to offer 10 classes next semester. Some classes cannot run at the same time (perhaps they are taught by the same professor, or are required for seniors).
+	</p>
+	<sidebyside>
+		<tabular>
+			<col right="minor" halign="center"/><col/>
+		<row bottom="minor"><cell>Class:</cell><cell>Conflicts with:</cell></row>
+		<row><cell>A</cell><cell>D I</cell></row>
+		<row><cell>B</cell><cell>D I J</cell></row>
+		<row><cell>C</cell><cell>E F I</cell></row>
+		<row><cell>D</cell><cell>A B F</cell></row>
+		<row><cell>E</cell><cell>H I</cell></row>
+		<row><cell>F</cell><cell>I</cell></row>
+		<row><cell>G</cell><cell>J</cell></row>
+		<row><cell>H</cell><cell>E I J</cell></row>
+		<row><cell>I</cell><cell>A B C E F H</cell></row>
+		<row><cell>J</cell><cell>B G H</cell></row>
+		</tabular>
+	</sidebyside>
+	<p>
+	How many different time slots are needed to teach these classes (and which should be taught at the same time)? More importantly, how could we use graph coloring to answer this question?
+	</p>
+</statement>
+</activity>
+
+<activity>
 <statement>
 <p>
 Radio stations broadcast their signal at certain frequencies. However, there are a limited number of frequencies to choose from, so nationwide many stations use the same frequency. This works because the stations are far enough apart that their signals will not interfere; no one radio could pick them up at the same time.
@@ -261,7 +346,8 @@ This graph has chromatic number 5. A proper 5-coloring is shown on the right. No
 	</image>
 </sidebyside>
 </solution>
-</example>
+</activity>
+
 <p>
 In the example above, the chromatic number was 5, but this is not a counterexample to the Four Color Theorem, since the graph representing the radio stations is not planar. It would be nice to have some quick way to find the chromatic number of a (possibly non-planar) graph. It turns out nobody knows whether an efficient algorithm for computing chromatic numbers exists.
 </p>
@@ -291,7 +377,7 @@ The chromatic number of a graph <m>G</m> is at least the clique number of <m>G</
 </theorem>
 
 <p>
-There are times when the chromatic number of <m>G</m> is <em>equal</em> to the clique number. These graphs have a special name; they are called <term>perfect</term><idx><h>perfect graph</h></idx>. If you know that a graph is perfect, then finding the chromatic number is simply a matter of searching for the largest clique.<fn>There are special classes of graphs which can be proved to be perfect.  One such class is the set of <term>chordal</term> graphs, which have the property that every cycle in the graph contains a <term>chord</term><mdash/>an edge between two vertices of the cycle which are not adjacent in the cycle.</fn> However, not all graphs are perfect.
+There are times when the chromatic number of <m>G</m> is <em>equal</em> to the clique number. These graphs have a special name; they are called <term>perfect</term><idx><h>perfect graph</h></idx> (actually for a graph to be perfect, every induced subgraph must have this property). If you know that a graph is perfect, then finding the chromatic number is simply a matter of searching for the largest clique.<fn>There are special classes of graphs which can be proved to be perfect.  One such class is the set of <term>chordal</term> graphs, which have the property that every cycle in the graph contains a <term>chord</term><mdash/>an edge between two vertices of the cycle which are not adjacent in the cycle.</fn> However, not all graphs are perfect, and searching for the largest clique isn't always easy anyway.
 </p>
 
 <p>
@@ -323,7 +409,7 @@ The proof of this theorem is <em>just</em> complicated enough that we will not p
 <p>
 The chromatic number of a graph tells us about coloring vertices, but we could also ask about coloring edges. Just like with vertex coloring, we might insist that edges that are adjacent must be colored differently. Here, we are thinking of two edges as being adjacent if they are incident to the same vertex. The least number of colors required to properly color the edges of a graph <m>G</m> is called the <term>chromatic index</term><idx><h>chromatic index</h></idx> of <m>G</m>, written <m>\chi'(G)</m><notation><usage>\chi'(G)</usage><description>the chromatic index of <m>G</m></description></notation>.
 </p>
-<example>
+<activity>
 <statement>
 <p>
 Six friends decide to spend the afternoon playing chess. Everyone will play everyone else once. They have plenty of chess sets but nobody wants to play more than one game at a time. Games will last an hour (thanks to their handy chess clocks). How many hours will the tournament last?
@@ -354,7 +440,7 @@ We must color the edges; each color represents a different hour. Since different
 Notice that for sure <m>\chi'(K_6) \ge 5</m>, since there is a vertex of degree 5. It turns out 5 colors is enough (go find such a coloring). Therefore the friends will play for 5 hours.
 </p>
 </solution>
-</example>
+</activity>
 <p>
 Interestingly, if one of the friends in the above example left, the remaining 5 chess-letes would still need 5 hours: the chromatic index of <m>K_5</m> is also 5.
 </p>
@@ -376,6 +462,15 @@ For any graph <m>G</m>, the chromatic index <m>\chi'(G)</m> is either <m>\Delta(
 <p>
 At first this theorem makes it seem like chromatic index might not be very interesting. However, deciding which case a graph is in is not always easy. Graphs for which <m>\chi'(G) = \Delta(G)</m> are called <em>class 1</em>, while the others are called <em>class 2</em>. Bipartite graphs always satisfy <m>\chi'(G) = \Delta(G)</m>, so are class 1 (this was proved by König in 1916, decades before Vizing proved his theorem in 1964). In 1965 Vizing proved that all planar graphs with <m>\Delta(G) \ge 8</m> are of class 1, but this does not hold for all planar graphs with <m>2 \le \Delta(G) \le 5</m>. Vizing conjectured that all planar graphs with <m>\Delta(G) = 6</m> or <m>\Delta(G) = 7</m> are class 1; the <m>\Delta(G) = 7</m> case was proved in 2001 by Sanders and Zhao; the <m>\Delta(G) = 6</m> case is still open.
 </p>
+</subsection>
+
+
+
+<subsection xml:id="subsec-">
+	<title>Ramsey Theory</title>
+	
+
+
 
 <p>
 There is another interesting way we might consider coloring edges, quite different from what we have discussed so far. What if we colored every edge of a graph either red or blue. Can we do so without, say, creating a <em>monochromatic</em><idx><h>monochromatic</h></idx> triangle (i.e., an all red or all blue triangle)? Certainly for some graphs the answer is yes. Try doing so for <m>K_4</m>. What about <m>K_5</m>? <m>K_6</m>? How far can we go?

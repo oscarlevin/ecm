@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_seq-induction">
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_background-induction">
   <title>Induction</title>
 
 
   <introduction>
     <p>
         <idx><h>induction</h></idx>
-      Mathematical induction is a proof technique, not unlike direct proof or proof by contradiction or combinatorial proof.<fn>You might or might not be familiar with these yet.  We will consider these in <xref ref="ch_logic"/>.</fn> In other words, induction is a style of argument we use to convince ourselves and others that a mathematical statement is always true. Many mathematical statements can be proved by simply explaining what they mean. Others are very difficult to prove<mdash/>in fact, there are relatively simple mathematical statements which nobody yet knows how to prove. To facilitate the discovery of proofs, it is important to be familiar with some standard styles of arguments. Induction is one such style. Let's start with an example:
+      Mathematical induction is a proof technique, not unlike direct proof or proof by contradiction or combinatorial proof. In other words, induction is a style of argument we use to convince ourselves and others that a mathematical statement is always true. Many mathematical statements can be proved by simply explaining what they mean. Others are very difficult to prove<mdash/>in fact, there are relatively simple mathematical statements which nobody yet knows how to prove. To facilitate the discovery of proofs, it is important to be familiar with some standard styles of arguments. Induction is one such style. Let's start with an example:
     </p>
   </introduction>
 
 
   <subsection xml:id="subsec_induction-stamps">
     <title>Stamps</title>
-    <investigation>
+    <activity>
       <p>
         You need to mail a package, but don't yet know how much postage you will need. You have a large supply of 8-cent stamps and 5-cent stamps. Which amounts of postage can you make exactly using these stamps? Which amounts are impossible to make?
       </p>
-    </investigation>
+    </activity>
 
 
     <p>
