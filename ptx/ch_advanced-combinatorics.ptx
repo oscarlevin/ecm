@@ -15,6 +15,10 @@
   But lack of clean solutions does not mean the problems have no answer.  Rather, we must simply look for more abstract techniques before we can get any hold on them.
 </p>
 
+<p>
+  The plan for this chapter is as follows.  We will begin by considering some natural extensions of distribution problems first introduced in <xref ref="sec_basic-quotient"/>: partitioning sets and integers.  Motivated by these and similar problems, we will consider two combinatorial tools: generating functions and the Principle of Inclusion Exclusion.  We will then take a closer look at partitioning sets and integers with these new tools in hand.
+</p>
+
 </introduction>
   <xi:include href="sec_adv-partitions.ptx"/>
   <xi:include href="sec_adv-genfunctions.ptx"/>

@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_adv-partitions">
-  <title>Partitions</title>
+  <title>Counting Partitions</title>
+  <introduction>
+    <p>
+      In <xref ref="sec_basic-quatient"/> we considered some ways to distribute objects to recipients.  Most basic counting formulas can be thought of as counting the number of ways to distribute either distinct or identical objects to distinct recipients.  For example, distributing <m>k</m> distinct objects to <m>n</m> distinct recipients can be done in <m>n^k</m> ways, if recipients can receive any number of objects, or <m>P(n,k)</m> ways if recipients can receive at most one object.  If the objects are identical, the corresponding number of ways to distribute them are <m>\mchoose{n}{k}</m> and <m>\binom{n}{k}</m>.
+    </p>
+    
+    <p>
+      What if the recipients are not distinct?  Say we wish to distribute <m>k</m> books (either distinct or identical) to <m>n</m> identical boxes.  This is a perfectly natural extension, but we will see the answer is not.  First, let's get a feel for what this might look like for some small values of <m>k</m> and <m>n</m>.
+    </p>
+    
+    <activity xml:id="act_stirlingintro">
+      <introduction>
+        <p>
+          Suppose you have <m>3</m> distinct books you want to put in <m>5</m> identical boxes.  
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            How many ways can you do this if each box can have at most one book?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many ways can you do this if any box can have any number of books?  You might want to consider three cases: one, two, or three boxes are used.  Assume we do not care about the order in which the books are placed inside boxes.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Describe the outcomes we are counting in abstract mathematical terms.  What sort of mathematical objects are we counting?
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
+    <activity xml:id="act_intpartintro">
+      <introduction>
+        <p>
+          Suppose you have <m>3</m> identical books you want to put in <m>5</m> identical boxes.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            How many ways can you do this if each box can have at most one book?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many ways can you do this if any box can have any number of books?  Again, you should consider three cases.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What mathematical objects are we counting here?
+          </p>
+        </statement>
+      </task>
+    </activity>
+  </introduction>
+  
   <subsection>
   <title>Partitions and Stirling Numbers</title>
   <introduction>
@@ -165,7 +233,7 @@
         <solution>
           <p>
             We need <m>S(9,3)</m>. Thus we need to extend our table for four
-            more rows, but only out to the column labelled 3. These rows are
+            more rows, but only out to the column labeled 3. These rows are
             6,0,1,31,90, 7,0,1,63,301, 7,0,1,127,966, 8,0,1,255,3025,
             9,0,1,511,9330. Thus there are 9330 ways to distribute the sandwiches
             into the lunch bags.
