@@ -212,8 +212,8 @@
     <li><title><m>\setminus</m></title>
             <p><m>A \setminus B</m> is <term><m>A</m> set-minus <m>B</m></term>: the set containing all elements of <m>A</m> which are not elements of <m>B</m>.<notation> <usage>\setminus</usage> <description> set difference </description></notation></p>
           </li>
-    <li><title><m>\bar{A}</m></title>
-            <p>The <term>complement of <m>A</m></term> is the set of everything which is not an element of <m>A</m>. <notation> <usage>\bar{A}</usage><description> the complement of <m>A</m></description> </notation></p>
+    <li><title><m>\overline{A}</m></title>
+            <p>The <term>complement of <m>A</m></term> is the set of everything which is not an element of <m>A</m>. <notation> <usage>\overline{A}</usage><description> the complement of <m>A</m></description> </notation></p>
           </li>
     <li><title><m>\card{A}</m></title>
             <p>The <term>cardinality (or size) of <m>A</m></term> is the number of elements in <m>A</m>.<notation> <usage>\card{A}</usage> <description> cardinality (size) of <m>A</m> </description></notation>
@@ -475,15 +475,15 @@
         <h>complement</h>
       </idx> of <m>A</m>, and write,
       <me>
-        B = \bar A
+        B = \overline A
       </me>
-      when <m>B</m> contains every element not contained in <m>A</m>. So, if our universe is <m>\{1, 2,\ldots, 9, 10\}</m>, and <m>A = \{2, 3, 5, 7\}</m>, then <m>\bar A = \{1, 4, 6, 8, 9,10\}</m>.
+      when <m>B</m> contains every element not contained in <m>A</m>. So, if our universe is <m>\{1, 2,\ldots, 9, 10\}</m>, and <m>A = \{2, 3, 5, 7\}</m>, then <m>\overline A = \{1, 4, 6, 8, 9,10\}</m>.
     </p>
 
     <p>
       Of course we can perform more than one operation at a time. For example, consider
       <me>
-        A \cap \bar B.
+        A \cap \overline B.
       </me>
     </p>
 
@@ -496,7 +496,7 @@
         <h>difference, of sets</h>
       </idx>:
       <me>
-        A \cap \bar B = A \setminus B.
+        A \cap \overline B = A \setminus B.
       </me>
     </p>
 
@@ -514,9 +514,9 @@
           <li><m>A \cap B</m>.</li>
           <li><m>B \cap C</m>.</li>
           <li><m>A \cap D</m>.</li>
-          <li><m>\bar{B \cup C}</m>.</li>
+          <li><m>\overline{B \cup C}</m>.</li>
           <li><m>A \setminus B</m>.</li>
-          <li><m>(D \cap \bar C) \cup \bar{A \cap B}</m>.</li>
+          <li><m>(D \cap \overline C) \cup \overline{A \cap B}</m>.</li>
           <li><m>\emptyset \cup C</m>.</li>
           <li><m>\emptyset \cap C</m>.</li>
         </ol>
@@ -529,9 +529,9 @@
             <li><m>A \cap B = \{2, 4, 6\} = B</m> since everything in <m>B</m> is in <m>A</m>.</li>
             <li><m>B \cap C = \{2\}</m> as the only element of both <m>B</m> and <m>C</m> is 2.</li>
             <li><m>A \cap D = \emptyset</m> since <m>A</m> and <m>D</m> have no common elements.</li>
-            <li><m>\bar{B \cup C} = \{5, 7, 8, 9, 10\}</m>. First we find that <m>B \cup C = \{1, 2, 3, 4, 6\}</m>, then we take everything not in that set.</li>
-            <li><m>A \setminus B = \{1, 3, 5\}</m> since the elements 1, 3, and 5 are in <m>A</m> but not in <m>B</m>. This is the same as <m>A \cap \bar B</m>.</li>
-            <li><m>(D \cap \bar C) \cup \bar{A \cap B} = \{1, 3, 5, 7, 8, 9, 10\}.</m> The set contains all elements that are either in <m>D</m> but not in <m>C</m> (i.e., <m>\{7,8,9\}</m>), or not in both <m>A</m> and <m>B</m> (i.e., <m>\{1,3,5,7,8,9,10\}</m>).</li>
+            <li><m>\overline{B \cup C} = \{5, 7, 8, 9, 10\}</m>. First we find that <m>B \cup C = \{1, 2, 3, 4, 6\}</m>, then we take everything not in that set.</li>
+            <li><m>A \setminus B = \{1, 3, 5\}</m> since the elements 1, 3, and 5 are in <m>A</m> but not in <m>B</m>. This is the same as <m>A \cap \overline B</m>.</li>
+            <li><m>(D \cap \overline C) \cup \overline{A \cap B} = \{1, 3, 5, 7, 8, 9, 10\}.</m> The set contains all elements that are either in <m>D</m> but not in <m>C</m> (i.e., <m>\{7,8,9\}</m>), or not in both <m>A</m> and <m>B</m> (i.e., <m>\{1,3,5,7,8,9,10\}</m>).</li>
             <li><m>\emptyset \cup C = C</m> since nothing is added by the empty set.</li>
             <li><m>\emptyset \cap C = \emptyset</m> since nothing can be both in a set and in the empty set.</li>
           </ol>
@@ -556,7 +556,7 @@
     <p>
       Also,
       <me>
-        x \in \bar A \qquad \Iff \qquad \neg (x \in A).
+        x \in \overline A \qquad \Iff \qquad \neg (x \in A).
       </me>
       which says <m>x</m> is an element of the complement of <m>A</m> if <m>x</m> is not an element of <m>A</m>.
     </p>
@@ -642,7 +642,7 @@
     </sidebyside>
 
     <p>
-      Here is a representation of <m>A \cap \bar B</m>, or equivalently <m>A \setminus B</m>:
+      Here is a representation of <m>A \cap \overline B</m>, or equivalently <m>A \setminus B</m>:
     </p>
     <sidebyside width="34%">
       <image xml:id="two-set-a-minus-b">
@@ -659,7 +659,7 @@
     </sidebyside>
 
     <p>
-      A more complicated example is <m>(B \cap C) \cup (C \cap \bar A)</m>, as seen below.
+      A more complicated example is <m>(B \cap C) \cup (C \cap \overline A)</m>, as seen below.
     </p>
     <sidebyside width="26%">
       <image xml:id="three-set-complicated">
@@ -681,9 +681,9 @@
     </sidebyside>
 
     <p>
-      Notice that the shaded regions above could also be arrived at in another way. We could have started with all of <m>C</m>, then excluded the region where <m>C</m> and <m>A</m> overlap outside of <m>B</m>. That region is <m>(A \cap C) \cap \bar B</m>. So the above Venn diagram also represents <m>C \cap \bar{\left((A\cap C)\cap \bar B\right)}.</m> So using just the picture, we have determined that
+      Notice that the shaded regions above could also be arrived at in another way. We could have started with all of <m>C</m>, then excluded the region where <m>C</m> and <m>A</m> overlap outside of <m>B</m>. That region is <m>(A \cap C) \cap \overline B</m>. So the above Venn diagram also represents <m>C \cap \overline{\left((A\cap C)\cap \overline B\right)}.</m> So using just the picture, we have determined that
       <me>
-        (B \cap C) \cup (C \cap \bar A) = C \cap \bar{\left((A\cap C)\cap \bar B\right)}.
+        (B \cap C) \cup (C \cap \overline A) = C \cap \overline{\left((A\cap C)\cap \overline B\right)}.
       </me>
     </p>
 

@@ -30,6 +30,12 @@
 	%\DeclareMathSymbol{=}{\mathrel}{myoperators}{"3D}
 	\DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
 
+	% Set up the emoji for the three fruit we use
+	\newfontfamily{\emojifont}{Symbola}
+	\usepackage{newunicodechar}
+	\newunicodechar{🍎}{\emojifont{🍎}} % Red apple
+	\newunicodechar{🍐}{{\emojifont{🍐}}} % Pear
+	\newunicodechar{🍌}{{\emojifont{🍌}}} % Banana
 
 
 %\usepackage[T1]{fontenc}

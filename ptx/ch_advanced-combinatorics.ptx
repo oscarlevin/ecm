@@ -4,14 +4,24 @@
 <introduction>
 
 <p>
-  ADD INTRODUCTION ABOUT SOME HARDER PROBLEMS THAT REQUIRE MORE ADVANCED TECHNIQUES
+  The combinatorics we have investigated so far as been <em>nice</em>.  While not always immediately obvious, each problem had an answer in a nice form that, once you saw how to think about it the right way, could be expressed with a closed formula.
 </p>
+
+<p>
+  Not all of combinatorics is like this.  There are natural questions for which we do not have neat closed formulas.  This might be because we (mathematicians) have not yet figured out how to think about this problems in the <q>right</q> way, or because there is really no clean approach to solve these problems.
+</p>
+
+<p>
+  But lack of clean solutions does not mean the problems have no answer.  Rather, we must simply look for more abstract techniques before we can get any hold on them.
+</p>
+
 </introduction>
-  <xi:include href="sec_adv-pie.ptx"/>
+  <xi:include href="sec_adv-partitions.ptx"/>
   <xi:include href="sec_adv-genfunctions.ptx"/>
+  <xi:include href="sec_adv-pie.ptx"/>
   <xi:include href="sec_adv-stirling.ptx"/>
   <xi:include href="sec_adv-linearparts.ptx"/>
   <xi:include href="sec_adv-bell.ptx"/>
-  <xi:include href="sec_adv-conc.ptx"/>
+  <!-- <xi:include href="sec_adv-conc.ptx"/> -->
 
 </chapter>

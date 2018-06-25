@@ -104,7 +104,6 @@
   \draw (\x,\y) +(90:\r) -- +(30:\r) -- +(-30:\r) -- +(-90:\r) -- +(-150:\r) -- +(150:\r) -- cycle;
   \draw (\x,\y) node{#3};
 }
-\def\bar{\overline}
 \newcommand{\card}[1]{\left| #1 \right|}
 \newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
 </macros>
