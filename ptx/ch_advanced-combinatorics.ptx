@@ -24,8 +24,8 @@
   <xi:include href="sec_adv-genfunctions.ptx"/>
   <xi:include href="sec_adv-pie.ptx"/>
   <xi:include href="sec_adv-stirling.ptx"/>
-  <xi:include href="sec_adv-linearparts.ptx"/>
   <xi:include href="sec_adv-bell.ptx"/>
+  <xi:include href="sec_adv-linearparts.ptx"/>
   <!-- <xi:include href="sec_adv-conc.ptx"/> -->
 
 </chapter>

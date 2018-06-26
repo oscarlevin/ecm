@@ -774,7 +774,7 @@
         </solution>
       </activity>
 
-      <activity category="interesting">
+      <activity category="interesting" xml:id="act_stirlingpie">
         <statement>
           <p>
             Find a formula for the Stirling number (of the second kind)
@@ -783,7 +783,7 @@
         </statement>
         <hint>
           <p>
-        What does <xref ref="numontofun">Problem</xref> have to do with this question?
+        What does <xref ref="numontofun"/> have to do with this question?
           </p>
         </hint>
         <solution>

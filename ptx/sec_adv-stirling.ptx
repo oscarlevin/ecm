@@ -1,144 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="sec_adv-stirling" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Stirling Numbers of the 2nd Kind</title>
-
+  <title>Stirling Numbers of the Second Kind</title>
 
   <introduction>
-    <activity>
-      <title>Worksheet on Stirling numbers of the 2nd kind</title>
-      <introduction>
-        <p>
-          <em>DEFINITION:</em> <m>S\left( n,k \right)</m> is the number of ways of partitioning an <m>n</m>-set into <m>k</m> nonempty subsets.
-        </p>
-      </introduction>
-
-      <task>
-        <statement>
-          <p>
-            Compute <m>S(3,1)</m>, <m>S(4,1)</m> and <m>S(n,1)</m>.
-          </p>
-        </statement>
-      </task>
-
-      <task>
-        <statement>
-          <p>
-            Compute <m>S(2,2)</m>, <m>S(3,2)</m> and <m>S(4,2)</m> .
-          </p>
-        </statement>
-      </task>
-
-      <task>
-        <statement>
-          <p>
-            Compute <m>S(3,3)</m>, and <m>S(4,3)</m>.
-          </p>
-        </statement>
-      </task>
-
-      <task>
-        <statement>
-          <p>
-            Find formulas and give proofs for <m>S(n,n)</m>, <m>S(n,2)</m>
-            <m>S(n,n - 1)</m>, and <m>S(n,n-2)</m>.
-          </p>
-        </statement>
-      </task>
-
-      <task>
-        <statement>
-          <p>
-            Determine a recursion for <m>S(n,k)</m> by examining the following:
-            In computing <m>S\left( 4,3 \right)</m> look back at the two cases:
-            <ol>
-              <li>
-                <p>
-                  <q>Social</q>: The element 4 is part of another set.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <q>Antisocial</q>: The element 4 stands alone.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Deduce a recursion <m>S\left( n,k \right) =</m>
-                </p>
-              </li>
-            </ol>
-          </p>
-          </statement>
-      </task>
-
-      <task>
-        <statement>
-          <p>
-            Make the first 5 rows of the Stirling Triangle.
-          </p>
-        </statement>
-      </task>
-    </activity>
-
 
 
     <p>
-      A distribution of 4 different (often we say distinguishable) objects <m>1,2,3,4</m> into 3 similar (often we say indistinguishable) boxes, each
-    of which becomes non-empty is modeled by partitioning <m>\{ 1,2,3,4\}</m> into 3 nonempty subsets. The six ways of doing this are listed next:
-    </p>
-
-    <sidebyside width="50%">
-      <tabular>
-        <row>
-          <cell><m>\{4\}, \{1\}, \{2,3\}</m></cell>
-          <cell><m>\{1,4\}, \{2\}, \{3\}</m></cell>
-        </row>
-        <row>
-          <cell><m>\{4\}, \{2\}, \{1,3\}</m></cell>
-          <cell><m>\{1\}, \{2,4\}, \{3\}</m></cell>
-        </row>
-        <row>
-          <cell><m>\{4\}, \{3\}, \{1,2\}</m></cell>
-          <cell><m>\{1\}, \{2\}, \{3,4\}</m></cell>
-        </row>
-      </tabular>
-    </sidebyside>
-
-    <p>
-      The Stirling numbers of the second kind, denoted by <m>S(n,k)</m>, give the number of ways of partitioning an <m>n</m>-set into <m>k</m> non-empty subsets.
-      Here <m>k \in \{1,2,\ldots\}</m> and <m>n \geq k</m>.
-      The above example shows <m>S(4, 3) = 6</m>.
-      Also notice that there are two cases: 4 is alone, or 4 is in some other batch; we can conclude that <m>S(4, 3) = 3S(3,3) + S(3,2)</m> since if 4 is in a singleton set just partition the remaining 3 into 2 sets and otherwise 4 can join any of the 3 batches of 3 elements.
-    </p>
-
-    <theorem xml:id="thm-stirling-recursion">
-      <statement>
-        <p>
-          <m>S(n,k) = kS(n - 1,k) + S(n - 1,k - 1)</m>
-        </p>
-      </statement>
-      <proof>
-        <p>
-          We partition <m>\{1,2,\ldots,n\}</m> into <m>k</m> non-empty subsets in <m>S(n,k)</m> ways. If <m>n</m> is in a singleton set, there are <m>S(n - 1,k - 1)</m> ways to partition the remaining <m>n - 1</m> elements into <m>k - 1</m> subsets. Otherwise, the element <m>n</m> can join any of the <m>k</m> batches of <m>n-1</m> elements in <m>kS(n - 1,k)</m> ways.
-        </p>
-      </proof>
-    </theorem>
-
-    <p>
-      Polya, in Notes on Introductory Combinatorics, refers to these as the
-      <q>antisocial</q> and <q>social</q> cases.
+      Let's take a closer look at the Stirling numbers, first introduced in <xref ref="sec_adv-partitions"/>.  Recall, we use the notation <m>S(k,n)</m> to stand for the number of partitions of a
+      <m>k</m> element set with <m>n</m> blocks.  Here is a brief summary of what we have already discovered.
     </p>
 
     <p>
-      The reader should check that <m>S(3,3) = 1</m> and that <m>S(3,2) = 3</m> so that <m>S(4,3) = 3 \cdot 1 + 3 = 6</m>.
+      Directly from the definition, we see that <m>S(k,1) = 1</m> and <m>S(k,k) = 1</m>.  From these we can compute the remaining Stirling numbers using the recursion
+      <me>
+        S(k,n) = nS(k-1,n) + S(k-1, n-1).
+      </me>
+      This recursion is justified by dividing the partitions of <m>[k]</m> into those which contain <m>k</m> as a singleton set (there are <m>S(k-1, n-1)</m> of these) and those that don't (there are <m>n</m> choices for where <m>k</m> could for each of the <m>S(k-1, n)</m> partitions of <m>[k-1]</m> into <m>n</m> blocks).
     </p>
 
-    <paragraphs>
-      <title>Border Formulas</title>
-
     <p>
-      The reader should verify that <m>S(n,1) = 1</m> and <m>S(n,n) = 1</m> for <m>n \in Z^{+}</m>.
-      From these border formulas and the recursion in <xref ref="thm-stirling-recursion"/> the following Stirling's Second Triangle can be made.
+      From this, we generated Stirling's second triangle.
     </p>
 
     <sidebyside width="50%">
@@ -176,7 +57,7 @@
           <cell></cell>
           <cell>7</cell>
           <cell></cell>
-          <cell>7</cell>
+          <cell>6</cell>
           <cell></cell>
           <cell>1</cell>
           <cell/>
@@ -195,262 +76,547 @@
       </tabular>
     </sidebyside>
 
-    <theorem xml:id="thm-stirling-border">
+    <activity>
       <statement>
-      <p>
-        <ol>
-          <li>
-            <p>
-              <m>S\left( n,n - 1 \right) =\binom{n}{2}</m>
-            </p>
-          </li>
-          <li>
-            <p>
-              <m>S\left( n,2 \right) = 2^{n - 1} - 1</m>
-            </p>
-          </li>
-          <li>
-            <p>
-              <m>S\left( n,n - 2 \right) =\binom{n}{3}
-              + 3\binom{n}{4}</m>
-            </p>
-          </li>
-          <li>
-            <p>
-              <m>S\left( n,n - 3 \right) =\binom{n}{4}
-              + 10\binom{n}{5}
-              + 15\binom{n}{6}</m>
-            </p>
-          </li>
-
-        </ol>
-      </p>
-    </statement>
-  </theorem>
+        <p>
+          Use the recursion to find the 6th row of the triangle.
+        </p>
+      </statement>
+    </activity>
 
     <p>
-      You are asked to prove these in the problems.
+      In the remainder of this section we will look at ways to compute Stirling numbers directly, and some consequences of the formulas we find.
     </p>
-</paragraphs>
+
+  </introduction>
+
+
+  <subsection xml:id="subsec-stirlingformulas">
+    <title>Formulas for Stirling Numbers (of the second kind)</title>
+
+    <p>
+      While we might not have a nice closed formula for all Stirling numbers in terms of <m>k</m> and <m>n</m>, we can give closed formulas for those Stirling numbers close to the edges of the triangle.  We have already considered some of these in <xref ref="act_stirlingcomputations"/>.  To get back into the right mindset, start by reproving one of these.
+    </p>
+
+    <activity>
+      <statement>
+        <p>
+          Prove <m>S(k, k-1) = \binom{k}{2}</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          What are the possible sizes of parts?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          If a partition has <m>k-1</m> parts, then one part has two elements, so once we choose those two elements from the <m>k</m> elements, we are done.  Therefore <m>S(k,k-1) = \binom{k}{2}</m>.
+        </p>
+      </solution>
+    </activity>
+
+    <p>
+      The proof of the formula above suggests that looking at the sizes of the blocks might be helpful.  Let's see what this might look like with an example.
+    </p>
+
+    <activity>
+      <introduction>
+        <p>
+          How many ways are there to partition <m>[5]</m> into three sets?
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            How many partitions of <m>[5]</m> have two blocks of size 1 and one block of size 3?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many partitions of <m>[5]</m> have one block of size 1 and two of size 2?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Careful here.  The answer is NOT <m>\binom{4}{2}\binom{4}{2}</m>.  Do you see why?
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Are there any other types of partitions we need to consider?  What is <m>S(5,3)</m>?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Generalize! Find a formula for <m>S(k, k-2)</m>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            A friend tells you that <m>S(k,k-2) = \binom{k}{3} + 3 \binom{k}{4}</m>.  Prove this is correct also.  If this is the formula you found for the previous part, see the hint.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            If you found this formula for <m>S(k,k-2)</m> in part (e), then pretend your friend claims that <m>S(k, k-2) = \binom{k}{3} + \frac{1}{2}\binom{k}{2}\binom{k-2}{2}</m> and prove why that is correct too.
+          </p>
+        </hint>
+      </task>
+    </activity>
+
+    <p>
+      <idx><h>partition of a set</h><h>type vector</h></idx><idx><h>type vector of a partition of a set</h></idx>
+      Whenever we want to partition <m>k</m> items in <m>n</m> blocks, we can consider cases.  We will represent each type of case with a <term>type vector</term> consisting of a sequence <m>(a_1, a_2, \ldots, a_k)</m> where each <m>a_i</m> is the number of blocks that have size <m>i</m>.  For example, in partitioning <m>[5]</m> into 3 blocks, the previous activity first asked for the number of partitions with type vector <m>(2,0,1,0,0)</m>, two blocks of size 1 and one of size 3, and then for the number of partitions with type vector <m>(1,2,0,0,0)</m>, one block of size 1 and two of size 2.  Note that <m>\sum_{i=1}^k a_i = n</m> and <m>\sum_{i=1}^k ia_i = k</m>.
+    </p>
+
+    <activity>
+      <task>
+        <statement>
+          <p>
+            How many partitions of <m>[6]</m> are there into 3 blocks?  List all the type vectors and the number of partitions for each.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Generalize to find a formula for <m>S(k,k-3)</m>.  Then clean up the formula so it is a linear combination of <m>\binom{k}{4}</m>, <m>\binom{k}{5}</m>, and <m>\binom{k}{6}</m>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            While you might not get this formula by conisdering type vectors, you should be shooting to prove <m>S(k, k-3) = \binom{k}{4} + 10 \binom{k}{5} + 16 \binom{k}{6}</m>
+          </p>
+        </hint>
+      </task>
+    </activity>
+
+
+
+
+
+
+    <activity xml:id="partitionsgivenpartsize" category="essential">
+        <statement>
+          <p>
+            In how many ways can we partition <m>k</m> items into <m>n</m> blocks so that we have <m>a_i</m> blocks of size <m>i</m> for each <m>i</m>? That is, given the type vector <m>(a_1, a_2, \ldots, a_k)</m>, how many partitions of <m>[k]</m> into <m>n</m> blocks have that type vector.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Suppose we make a list of the <m>k</m> items. We take the first <m>a_1</m> elements to be the blocks of size 1. How many elements do we need to take to get <m>a_2</m> blocks of size two? Which elements does it make sense to choose for this purpose?
+          </p>
+        </hint>
+        <solution>
+          <p>
+            <m>\frac{n!}{\prod_{i=1}^n (i!)^{a_i}{a_i!}}</m>. We can make a list in <m>n!</m> ways, and then break it into first <m>a_1</m> blocks of size 1, then <m>a_2</m> blocks of size 2, <m>a_3</m> blocks of size 3 up to <m>a_n</m> blocks of size <m>n</m>. But then we realize that we get the same partition if we permute the <m>i!</m> elements of a block of size <m>i</m> and we get the same partition if we permute the <m>a_i</m> blocks of size <m>i</m> so we apply the quotient principle.
+          </p>
+        </solution>
+    </activity>
+
+
+    <activity category="summary">
+        <statement>
+          <p>
+            Describe how to compute <m>S(k,n)</m> in terms of quantities given by the formula you found in <xref ref="partitionsgivenpartsize"/>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We can find <m>S(k,n)</m> by summing <m>\frac{n!}{\prod_{i=1}^n (i!)^{a_i}{a_i!}}</m> over all type vectors <m>(a_1,a_2,\ldots,a_k)</m> such that <m>a_1+a_2+\cdots+a_k=n</m>.
+          </p>
+        </solution>
+    </activity>
+
+
+    <activity>
+      <statement>
+        <p>
+          Explain why <m>S(k, 2) = 2^{k-1} - 1</m>.  Then find another expression for <m>S(k,2)</m> using type vectors to establish an interesting identity.
+        </p>
+      </statement>
+    </activity>
+
+
+
+  <paragraphs xml:id="pars-multinomial">
+    <title>Interlude: Multinomial Coefficients</title>
+
+
+  <p>
+    Recall that the Stirling numbers counted the number of ways to distribute 9 distinct sandwiches to three identical sandwich bags.  This suggests a more realistic question.
+  </p>
+
+  <activity xml:id="caterer2">
+    <statement>
+      <p>
+        In how many ways may the caterer distribute the nine sandwiches into three identical bags so that each bag gets exactly three? Answer this question.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        What if the question asked about six sandwiches and two distinct bags? How does having identical bags change the answer?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        <m>\binom{9}{3}\binom{6}{3}\binom{3}{3}/3!</m>. First we choose
+        three sandwiches for bag 1, then three for bag 2, and put the remainder in
+        bag 3. However, it doesn't matter which bags the sandwiches
+        are in so we have counted each partition <m>3!</m> times.
+      </p>
+  </solution>
+</activity>
+
+    <activity category="motivation">
+      <statement>
+        <p>
+          In how many ways can the sandwiches of <xref ref="caterer2"/> be placed into <em>distinct</em> bags so that each bag gets exactly three?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Choose three sandwiches for bag one in <m>\binom{9}{3}</m> ways, three for bag two in <m>\binom{6}{3}</m> ways and put the remainder in bag 3.  This gives us <m>\binom{9}{3}\binom{6}{3}=\frac{9!}{3!3!3!}=1680</m> ways.
+        </p>
+
+        <p>
+          The <m>\frac{9!}{3!3!3!}</m> suggests another solution. We can line up the
+          sandwiches in 9! ways. We take the first three for bag one, the
+          second three for bag two and the last three for bag 3. The order of
+          the sandwiches in the bag does not matter though, so each there are
+          <m>3!3!3!</m> listings corresponding to each way of putting sandwiches in
+          bags, giving us <m>\frac{9!}{3!3!3!}</m> ways to put the sandwiches in bags.
+        </p>
+      </solution>
+    </activity>
+
+    <p>
+      This is an example of a <term>multinomial coefficient</term>.  Although these are not directly related to Stirling numbers, we can use the ideas of type vectors to investigate them.  Let's do that now.
+    </p>
+
+    <activity category="essential">
+        <statement>
+          <p>
+            In how many ways may we label the elements of a <m>k</m>-element set with <m>n</m> distinct labels (numbered 1 through <m>n</m>) so that label <m>i</m> is used <m>j_i</m> times?
+            (If we think of the labels as <m>y_1, y_2, \ldots, y_n</m>, then we can rephrase this question as follows.  How many functions are there from a <m>k</m>-element set <m>K</m> to a set <m>N=\{y_1,y_2,\ldots y_n\}</m> so that <m>y_i</m> is the image of <m>j_i</m> elements of <m>K</m>?)
+            This number is called a <term>multinomial coefficient</term><idx><h>multinomial coefficient</h></idx><idx><h>coefficient</h><h>multinomial</h></idx> and denoted by
+            <me>
+              \binom{k}{j_1,j_2,\ldots, j_n}.
+            </me>
+          </p>
+        </statement>
+        <hint>
+          <p>
+        What if the <m>j_i</m>'s don't add to <m>k</m>?
+          </p>
+        </hint>
+        <hint>
+          <p>
+        Think about listing the elements of the <m>k</m>-element set and labeling the first <m>j_1</m> elements with label number 1.
+          </p>
+        </hint>
+        <solution>
+          <p>
+            If the <m>j_i</m>'s don't add to <m>k</m>, it is zero.  Otherwise <m>\binom{k}{j_1,j_2,\ldots, j_n} =
+            \frac{k!}{j_1!j_2!\cdots j_n!}</m>. We get this either as the
+            product of binomial coefficients
+            <me>
+              \binom{k}{j_1}\binom{k-j_1}{j_2}\binom{k-j_1-j_2}{j_3}\cdots\binom{j_n}{j_n},
+            </me>
+            or more elegantly, by lining up the elements of the domain in <m>k!</m> ways, taking the first <m>j_1</m> elements to <m>y_1</m>, the next <m>j_2</m> elements to <m>y_2</m> and so on.  However the order of the <m>j_i</m> elements that go to <m>y_i</m> is irrelevant, so <m>j_1!j_2!\cdots j_n!</m> lists all correspond to the same function, giving us <m>\frac{k!}{j_1!j_2!,\cdots j_n!}</m> functions.
+          </p>
+        </solution>
+      </activity>
+
+
+      <activity>
+        <statement>
+          <p>
+            Explain how to compute the number of functions from a <m>k</m>-element set <m>K</m> to an <m>n</m>-element set <m>N</m> by using multinomial coefficients.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            The sum principle will help here.
+          </p>
+        </hint>
+        <solution>
+          <p>
+            Add the multinomial coefficients <m>\binom{k}{j_1,j_2,\ldots,j_n}</m> over all possible nonnegative values of the <m>j_i</m>'s that add to <m>k</m>.  To see why, let <m>N=\{y_1,y_2,\ldots,y_n\}</m> and apply the definition of multinomial coefficients.
+          </p>
+        </solution>
+      </activity>
+
+
+
+
+    <activity>
+        <statement>
+          <p>
+            Explain how to compute the number of functions from a <m>k</m>-element set <m>K</m> onto an <m>n</m>-element set <m>N</m> by using multinomial coefficients.
+          </p>
+        </statement>
+        <hint>
+          <p>
+        How are the relevant <m>j_i</m>'s in the multinomial coefficients you use here different from the <m>j_i</m>'s in the previous problem.
+          </p>
+        </hint>
+        <solution>
+          <p>
+            Add the multinomial coefficients <m>\binom{k}{j_1,j_2,\ldots,j_n}</m> in which each <m>j_i</m> is different from zero. To see why, let <m>N=\{y_1,y_2,\ldots,y_n\}</m> and note that we are counting functions that send at least one element of <m>K</m> to each element <m>y_i</m>.
+          </p>
+        </solution>
+    </activity>
+
+
+
+
+
+    <activity category="essential">
+      <statement>
+        <p>
+          What do multinomial coefficients have to do with expanding the
+          <m>k</m>th power of a multinomial <m>x_1+x_2+\cdots+x_n</m>? This result is called
+          the <term>multinomial theorem</term>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Think about how binomial coefficients relate to expanding a power of a binomial and note that the binomial coefficient <m>\binom{n}{k}</m> and the multinomial coefficient <m>\binom{n}{k,n-k}</m> are the same.
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          When we use the distributive law to multiply out <m>(x_1+x_2+\cdots +x_n)^k</m>, we will get a sum of a bunch of terms of the form <m>x_1^{i_1}x_2^{i_2}\cdots x_n^{i_n}</m> where <m>i_1+i_2+\cdots+ i_n=k</m>.  The terms with a given sequence <m>i_1,i_2,\ldots, i_n</m> of exponents will arise from choosing, as we apply the distributive law over and over again, <m>x_1</m> from <m>i_1</m> of the factors, <m>x_2</m> from <m>i_2</m> of the factors, and so on. Thus the number of terms <m>x_1^{i_1}x_2^{i_2}\cdots x_n^{i_n}</m> will be the number of ways to label <m>i_1</m> of the factors with a 1, <m>i_2</m> of the factors with a 2, <ellipsis />, and <m>i_n</m> of the factors with an <m>n</m>. The number of ways to do this is a multinomial coefficient, as we now explain. This labeling gives us a function from <m>[k]</m> to <m>[n]</m> as follows. If factor <m>i</m> is labelled <m>j</m> we let <m>f(i) =j</m>. Further each function <m>f</m> from <m>[k]</m> to <m>[n]</m> gives us that maps <m>i_j</m> elements of <m>[k]</m> to <m>j</m> will give us such a labelling. Thus the coefficient of <m>x_1^{i_1}x_2^{i_2}\cdots x_n^{i_n}</m> will be the multinomial coefficient <m>\binom{k}{i_1,i_2,\ldots, i_n}</m>.
+        </p>
+      </solution>
+    </activity>
+  </paragraphs>
+  </subsection>
+
+
+
+
+  <subsection xml:id="subsec-stirlingidentities">
+    <title>Identities with Stirling Numbers</title>
+
 
     <p>
       The entries in the Pascal Triangle, <m>\binom{n}{k}</m>, satisfy the nice recursion <m>\binom{n}{k} = \binom{n - 1}{k} + \binom{n - 1}{k - 1}</m> and also have a closed formula: <m>\binom{n}{k} = \frac{n!}{k!(n - k)!}</m>.
       <xref ref="thm-stirling-recursion"/> gives us a
-      recursion for the Stirling numbers <m>S(n,k)</m> and, unfortunately, the best we can do for a <q>closed</q> formula is contained
-      in the following.
+      recursion for the Stirling numbers <m>S(n,k)</m> and, unfortunately, the best we can do for a <q>closed</q> formula is the following.<fn>This is not really a closed formula since the number of terms in the summation is not fixed.</fn>
     </p>
 
     <theorem xml:id="thm-stirling-closed">
       <statement>
         <p>
-          <me>S(n,k) = \frac{1}{k!}\left[k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n} \right] </me>
+          <me>S(k,n) = \frac{1}{n!}\left[n^{k} - \binom{n}{1} \left( n - 1 \right)^{k} + \binom{n}{2} \left( n - 2 \right)^{k} - \ldots + \left( - 1 \right)^{n - 1}\binom{n}{n - 1} 1^{k} \right] </me>
         </p>
       </statement>
-      <proof>
-        <p>
-          The following argument is due to Polya.
-          Suppose you wished to paint n houses and you have <m>k</m> different colors available.
-          The first house can be painted in <m>k</m> different ways, the second in <m>k</m> different ways, etc.
-          So there are <m>k^{n}</m> ways.
-          How many ways actually use all <m>k</m> colors?
-          Let <m>\alpha_{i}</m> be the property that no house is painted with the <m>i</m>th color, and let <m>N(\alpha_{i})</m> denote the number of ways of painting the <m>n</m> houses without using the <m>i</m>th color.
-          Analogously for <m>N(\alpha_{i},\alpha_{j})</m>, <m>N(\alpha_{i},\alpha_{j},\alpha_{k})</m>, etc.
-          Since <m>N(\alpha_{i}) = (k - 1)^{n}</m>, <m>N(a_{i},\alpha_{j}) = ( k - 2)^{n}</m> and so on, the number of ways of painting <m>n</m> houses using all <m>k</m> colors is, using PIE,
-          <m>k^{n} -\binom{k}{1} \left(k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3}      \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k}\binom{k}{k} 0^{n}</m>.
-        </p>
-        <p>
-          Alternately, we could first partition the <m>n</m> houses into <m>k</m> (non-empty) sets, and then paint each set. This can be    accomplished in <m>k!S(n,k)</m> ways. Now equate these two expressions.
-        </p>
-      </proof>
     </theorem>
 
-    <corollary>
+    <activity>
       <statement>
         <p>
-          <m>S\left( n,3 \right) = \frac{1}{2}\left\lbrack 3^{n - 1} - 2^{n} + 1 \right\rbrack</m>
+          Prove <xref ref="thm-stirling-closed"/>
         </p>
       </statement>
-    </corollary>
+      <hint>
+        <p>
+          First multiply both sides by <m>n!</m> and then prove that identity.  You might have already done so in <xref ref="act_stirlingpie"/>
+        </p>
+      </hint>
+      <solution>
+        <proof>
+          <p>
+            The following argument is due to Polya.
+            Suppose you wished to paint n houses and you have <m>k</m> different colors available.
+            The first house can be painted in <m>k</m> different ways, the second in <m>k</m> different ways, etc.
+            So there are <m>k^{n}</m> ways.
+            How many ways actually use all <m>k</m> colors?
+            Let <m>\alpha_{i}</m> be the property that no house is painted with the <m>i</m>th color, and let <m>N(\alpha_{i})</m> denote the number of ways of painting the <m>n</m> houses without using the <m>i</m>th color.
+            Analogously for <m>N(\alpha_{i},\alpha_{j})</m>, <m>N(\alpha_{i},\alpha_{j},\alpha_{k})</m>, etc.
+            Since <m>N(\alpha_{i}) = (k - 1)^{n}</m>, <m>N(a_{i},\alpha_{j}) = ( k - 2)^{n}</m> and so on, the number of ways of painting <m>n</m> houses using all <m>k</m> colors is, using PIE,
+            <m>k^{n} -\binom{k}{1} \left(k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3}      \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k}\binom{k}{k} 0^{n}</m>.
+          </p>
+          <p>
+            Alternately, we could first partition the <m>n</m> houses into <m>k</m> (non-empty) sets, and then paint each set. This can be    accomplished in <m>k!S(n,k)</m> ways. Now equate these two expressions.
+          </p>
+        </proof>
+      </solution>
+    </activity>
+
+    <activity>
+      <statement>
+        <p>
+          What does <xref ref="thm-stirling-closed"/> tell us about <m>S(k, 2)</m> (which we already know)?  What do we get for <m>S(k,3)</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>S(n,3) = \frac{1}{2}\left[3^{n - 1} - 2^{n} + 1 \right]</m>
+        </p>
+      </solution>
+    </activity>
+
+
+    <p>
+      Here is another result identity involving Stirling numbers.
+    </p>
 
     <theorem xml:id="thm-stirling-polynomial">
       <statement>
         <p>
-          <m>x^{n} = S\left( n,1 \right)x + S\left( n,2 \right)x\left( x - 1 \right) + S\left( n,3 \right)x\left( x - 1 \right)\left( x - 2 \right) + \cdots
-          + S\left( n,n \right)x\left( x - 1 \right)\cdots(x - n + 1)</m>
+          <m>x^{k} = S\left(k,1 \right)x + S\left(k,2 \right)x\left( x - 1 \right) + S\left(k,3 \right)x\left( x - 1 \right)\left( x - 2 \right) + \cdots
+          + S\left(k,k \right)x\left( x - 1 \right)\cdots(x -k + 1)</m>
 
         </p>
       </statement>
-      <proof>
-        <p>
-          Again, based on the proof by Polya.
-          We can paint <m>n</m> houses, with <m>x</m> colors available, in <m>x^{n}</m> ways. Using exactly one color, there are <m>S\left( n,1 \right)x</m> ways. Using exactly two colors there are <m>S\left( n,2 \right)x(x - 1)</m> ways. Continue in this manner.
-        </p>
-      </proof>
+
     </theorem>
 
+    <activity>
+      <statement>
+        <p>
+          Prove <xref ref="thm-stirling-polynomial"/>
+        </p>
+      </statement>
+      <hint>
+        <p>
+          You have already done this as well, although not with <m>x</m>.
+        </p>
+      </hint>
+      <solution>
+        <proof>
+          <p>
+            Again, based on the proof by Polya.
+            We can paint <m>n</m> houses, with <m>x</m> colors available, in <m>x^{n}</m> ways. Using exactly one color, there are <m>S\left( n,1 \right)x</m> ways. Using exactly two colors there are <m>S\left( n,2 \right)x(x - 1)</m> ways. Continue in this manner.
+          </p>
+        </proof>
+      </solution>
+    </activity>
 
     <p>
       It is in this form that James Stirling originally developed these numbers.
-      <m>S(n,k)</m> is used to convert from powers to binomial  coefficients as shown in the following:
+      <m>S(k,n)</m> is used to convert from powers to binomial  coefficients as shown in the following:
     </p>
 
     <theorem xml:id="thm-stirling-polynomial2">
       <statement>
         <p>
-          <m>x^{n} = S\left( n,1 \right)\binom{x}{1}1! + S\left( n,2 \right) \binom{x}{2}2! + \ldots + S\left( n,n \right)\binom{n}{n} n!</m>
+          <m>x^{k} = S\left(k,1 \right)\binom{x}{1}1! + S\left(k,2 \right) \binom{x}{2}2! + \ldots + S\left(k,k \right)\binom{k}{k} k!</m>
         </p>
       </statement>
     </theorem>
-  </introduction>
 
-  <exercises>
-    <title>Problems</title>
-
-    <exercise>
+    <activity>
       <statement>
         <p>
-          Compute <m>S(4,2)</m> and <m>S(5,2)</m> by listing subsets.
+          Prove <xref ref="thm-stirling-polynomial2"/>
         </p>
       </statement>
-    </exercise>
+    </activity>
 
-    <exercise>
-      <statement>
-        <p>
-          Make the 6th row of the Stirling Triangle.
-        </p>
-      </statement>
-    </exercise>
-
-    <exercise>
-      <statement>
-        <p>
-          Prove the four parts of <xref ref="thm-stirling-border"/>.
-        </p>
-      </statement>
-    </exercise>
+    <p>
+      The remainder of this section contains some additional activities related to the identities above and Stirling numbers in general.
+    </p>
 
 
-    <exercise>
+
+    <activity>
       <statement>
         <p>
           List the sequence of elements that are row sums of the Stirling Triangle.
         </p>
       </statement>
-    </exercise>
+    </activity>
 
 
-    <exercise>
+    <activity>
       <statement>
         <p>
           How many subsets <m>\{a,b,c\}</m> are there of <m>\{2,3,4,\ldots\}</m> such that <m>abc = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17</m>?
         </p>
       </statement>
-    </exercise>
+    </activity>
 
-    <exercise>
+    <activity>
       <statement>
         <p>
           Let <m>S = \{2,3,4,\ldots\}</m>.  How many ordered triples <m>(a,b,c)</m> are there in <m>S\times S \times S</m> such that <m>abc = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17</m>?
         </p>
       </statement>
-    </exercise>
+    </activity>
 
-    <exercise>
-      <statement>
-        <p>
-          Compute each of the following using <xref ref="thm-stirling-closed"/>.
-          <ol>
-            <li><m>S(5,3)</m></li>
-            <li><m>S(6,3)</m></li>
-            <li><m>S(n,2)</m></li>
-            <li><m>S(n,3)</m></li>
-          </ol>
-        </p>
-      </statement>
-    </exercise>
 
-    <exercise>
-      <statement>
-        <p>
-          Write out the proof of <xref ref="thm-stirling-closed"/> for <m>k=3</m>.
-        </p>
-      </statement>
-    </exercise>
 
-    <exercise xml:id="ex-stirling-cubic">
+    <activity xml:id="ex-stirling-cubic">
       <statement>
         <p>
           Express <m>x^3</m> as suggested in <xref ref="thm-stirling-polynomial"/>.  Also, multiply your answer out to verify.
         </p>
       </statement>
-    </exercise>
+    </activity>
 
-    <exercise>
+    <activity>
       <statement>
         <p>
           Use your results in <xref ref="ex-stirling-cubic"/> to express <m>x^3</m> as a linear combination of the binomial coefficients <m>\binom{x}{1}</m>, <m>\binom{x}{2}</m>, and <m>\binom{x}{3}</m>.
         </p>
       </statement>
-    </exercise>
+    </activity>
 
 <!-- 11 -->
-    <exercise>
-      <statement>
+    <activity>
+      <introduction>
         <p>
           Determine the following:
-          <ol>
-            <li>
-              <p>
-                <m>a, b, c</m> so that <m>n^4 = 24\binom{n}{4} + 6a\binom{n}{3}+2b\binom{n}{2} + c \binom{n}{1}</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>a, b, c, d</m> so that <m>n^5 = 5!\binom{n}{5} + a\binom{n}{4} + b\binom{n}{3} + c \binom{n}{2} + d \binom{n}{1}</m>.
-              </p>
-            </li>
-
-          </ol>
         </p>
-      </statement>
-    </exercise>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            <m>a, b, c</m> so that <m>n^4 = 24\binom{n}{4} + 6a\binom{n}{3}+2b\binom{n}{2} + c \binom{n}{1}</m>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>a, b, c, d</m> so that <m>n^5 = 5!\binom{n}{5} + a\binom{n}{4} + b\binom{n}{3} + c \binom{n}{2} + d \binom{n}{1}</m>.
+          </p>
+        </statement>
+      </task>
+    </activity>
 
 
-    <exercise>
+    <activity>
       <statement>
         <p>
           Express <m>1^4 + 2^4 + 3^4 + \cdots + n^4</m> as a polynomial in <m>n</m>.
         </p>
       </statement>
-    </exercise>
+    </activity>
 
 
-    <exercise>
-      <statement>
-        <p>
-          The numbers <m>S(n,k)</m> and <m>k!S(n,k)</m> are solutions to two different distribution problems.  Describe each.
-        </p>
-      </statement>
-    </exercise>
-
-
-    <exercise>
-      <statement>
-        <p>
-          Prove <xref ref="thm-stirling-polynomial2"/>.
-        </p>
-      </statement>
-    </exercise>
-
-
-    <exercise>
+    <activity>
       <statement>
         <p>
           Why is <m>4^n - 4\cdot 3^n + 6\cdot 2^n - 4</m> always divisible by 24?
         </p>
       </statement>
-    </exercise>
-  </exercises>
+    </activity>
+
+</subsection>
 
 </section>
