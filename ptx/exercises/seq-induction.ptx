@@ -288,11 +288,10 @@
                 <p>
                   At this point it is advantageous to start on one side of the equality. So, choosing the left-hand side to start I shall manipulate it so that it looks like the right-hand side.
                   <md>
-                    <mrow> 1^2 +2^2 +3^2+...+k^2+{(k+1)}^2 =</mrow>
-                    <mrow> = \amp \frac{k(k+1)(2k+1)}{6} +(k+1)^2 \mbox{ by our inductive hypothesis}</mrow>
+                    <mrow> 1^2 +2^2 +3^2+...+k^2+{(k+1)}^2 = \amp \frac{k(k+1)(2k+1)}{6} +(k+1)^2 \text{\footnotesize by our inductive hypothesis}</mrow>
                     <mrow> = \amp \frac{k(k+1)(2k+1)}{6} +\frac{6(k+1)^2}{6}</mrow>
                     <mrow> = \amp \frac{k(k+1)(2k+1)+6(k+1)^2}{6}</mrow>
-                    <mrow> = \amp \frac{(k+1)[k(2k+1)+6(k+1)]}{6} \mbox{ factoring out <m>k+1</m> from each term}</mrow>
+                    <mrow> = \amp \frac{(k+1)[k(2k+1)+6(k+1)]}{6} \text{\footnotesize factoring out <m>k+1</m> from each term}</mrow>
                     <mrow> = \amp \frac{(k+1)[2k^2+k+6k+6]}{6}</mrow>
                     <mrow> = \amp \frac{(k+1)[2k^2+7k+6]}{6}</mrow>
                     <mrow> = \amp \frac{(k+1)[(2k+3)(k+2)]}{6}</mrow>

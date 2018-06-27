@@ -117,7 +117,8 @@
 <xsl:param name="exercise.backmatter.answer" select="'yes'" />
 <xsl:param name="exercise.backmatter.solution" select="'yes'" />
 
-
+<xsl:param name="project.text.hint" select="'no'" />
+<xsl:param name="task.text.hint" select="'no'" />
 
 <!-- Include a style file at the end of the preamble: -->
 
@@ -155,19 +156,19 @@
 </xsl:template>
 
 <!-- Import custom copyright page -->
-<xsl:template match="book" mode="copyright-page" >
+<!-- <xsl:template match="book" mode="copyright-page" >
     <xsl:text>%% begin: copyright-page&#xa;</xsl:text>
     <xsl:text>\input{frontmatter/copyright-page}&#xa;</xsl:text>
     <xsl:text>%% end:   copyright-page&#xa;</xsl:text>
-</xsl:template>
+</xsl:template> -->
 
 <!-- Dedication style -->
-<xsl:template match="dedication/p|dedication/p[1]" priority="1">
+<!-- <xsl:template match="dedication/p|dedication/p[1]" priority="1">
     <xsl:text>\begin{flushright}\large%&#xa;</xsl:text>
         <xsl:apply-templates />
     <xsl:text>%&#xa;</xsl:text>
     <xsl:text>\end{flushright}&#xa;</xsl:text>
-</xsl:template>
+</xsl:template> -->
 
 
 <!-- Create a heading for each non-empty collection of solutions -->
@@ -253,91 +254,66 @@
 
 
 
-<!-- Remove leavemode for assemblage -->
-<!-- Lists themselves -->
-<!-- If columns are specified, we        -->
-<!-- wrap in the multicolumn environment -->
-<!-- TODO: fewer \leavevmode might be possible.      -->
-<!-- Test for first node of "p", then test for the   -->
-<!-- "p" being first node of some sectioning element -->
-<xsl:template match="ol">
-    <xsl:choose>
-        <xsl:when test="not(ancestor::ol or ancestor::ul or ancestor::dl or ancestor::assemblage or ancestor::investigation)">
-            <xsl:call-template name="leave-vertical-mode" />
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:text>%&#xa;</xsl:text>
-        </xsl:otherwise>
-    </xsl:choose>
-    <xsl:if test="@cols">
-        <xsl:text>\begin{multicols}{</xsl:text>
-        <xsl:value-of select="@cols" />
-        <xsl:text>}&#xa;</xsl:text>
-    </xsl:if>
-    <xsl:text>\begin{enumerate}</xsl:text>
-    <!-- override LaTeX defaults as indicated -->
-    <xsl:if test="@label or ancestor::exercises or ancestor::references">
-        <xsl:text>[label=</xsl:text>
-        <xsl:apply-templates select="." mode="latex-list-label" />
-        <xsl:text>]</xsl:text>
-    </xsl:if>
+
+
+<!-- Hack backmatter to get hints to projects and tasks: -->
+
+
+<xsl:template match="solution-list">
+    <!-- TODO: check here once for backmatter switches set to "knowl", which is unrealizable -->
+    <!-- <xsl:apply-templates select="activity" mode="backmatter" /> -->
+    <xsl:text>\begin{itemize}[itemsep=1em]&#xa;</xsl:text>
+   <xsl:apply-templates select="//activity" mode="backmatter"/>
+   <xsl:text>\end{itemize}&#xa;</xsl:text>
+</xsl:template>
+
+<xsl:template match="activity" mode="backmatter">
+  <xsl:if test="hint and $project.backmatter.hint='yes'">
+        <!-- Lead with the problem number and some space -->
+    <xsl:text>\item[\textbf{</xsl:text>
+    <xsl:apply-templates select="." mode="serial-number" />
+    <xsl:text>}.]</xsl:text>
+    <xsl:apply-templates select="hint" mode="backmatter" />
+  </xsl:if>
+  <xsl:apply-templates select="task" mode="backmatter" />
+</xsl:template>
+
+
+<xsl:template match="task" mode="backmatter">
+  <xsl:if test="hint and $task.backmatter.hint='yes'">
+        <!-- Lead with the problem number and some space -->
+    <xsl:text>\item[\textbf{</xsl:text>
+    <xsl:apply-templates select="." mode="number" />
+    <xsl:text>}.]</xsl:text>
+    <xsl:apply-templates select="hint" mode="backmatter" />
+  </xsl:if>
+  <xsl:apply-templates select="task" mode="backmatter" />
+</xsl:template>
+
+
+<!-- We print hints, answers, solutions with no heading. -->
+<!-- TODO: make heading on solution components configurable -->
+<xsl:template match="hint" mode="backmatter">
+    <xsl:apply-templates />
     <xsl:text>&#xa;</xsl:text>
-     <xsl:apply-templates />
-    <xsl:text>\end{enumerate}&#xa;</xsl:text>
-    <xsl:if test="@cols">
-        <xsl:text>\end{multicols}&#xa;</xsl:text>
-    </xsl:if>
 </xsl:template>
 
-<!-- MBX unordered list scheme is distinct -->
-<!-- from LaTeX's so we write out a label  -->
-<!-- choice for each such list             -->
-<xsl:template match="ul">
-    <xsl:choose>
-        <xsl:when test="not(ancestor::ol or ancestor::ul or ancestor::dl or ancestor::assemblage or ancestor::investigation)">
-            <xsl:call-template name="leave-vertical-mode" />
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:text>%&#xa;</xsl:text>
-        </xsl:otherwise>
-    </xsl:choose>
-    <xsl:if test="@cols">
-        <xsl:text>\begin{multicols}{</xsl:text>
-        <xsl:value-of select="@cols" />
-        <xsl:text>}&#xa;</xsl:text>
-    </xsl:if>
-    <xsl:text>\begin{itemize}[label=</xsl:text>
-    <xsl:apply-templates select="." mode="latex-list-label" />
-    <xsl:text>]&#xa;</xsl:text>
+<xsl:template match="hint[2]" mode="backmatter">
+    <xsl:text>\par\smallskip&#xa;\noindent\textbf{Additional Hint}: </xsl:text>
     <xsl:apply-templates />
-    <xsl:text>\end{itemize}&#xa;</xsl:text>
-    <xsl:if test="@cols">
-        <xsl:text>\end{multicols}&#xa;</xsl:text>
-    </xsl:if>
+    <xsl:text>&#xa;</xsl:text>
 </xsl:template>
 
-<xsl:template match="dl">
-    <xsl:choose>
-        <xsl:when test="not(ancestor::ol or ancestor::ul or ancestor::dl or ancestor::assemblage or ancestor::investigation)">
-            <xsl:call-template name="leave-vertical-mode" />
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:text>%&#xa;</xsl:text>
-        </xsl:otherwise>
-    </xsl:choose>
-    <xsl:if test="@cols">
-        <xsl:text>\begin{multicols}{</xsl:text>
-        <xsl:value-of select="@cols" />
-        <xsl:text>}&#xa;</xsl:text>
+<!-- Put hint markers on statements that have hints: -->
+<!-- This works, but does not look great. -->
+<!-- A project may have a hint, with switch control -->
+<xsl:template match="hint">
+    <xsl:if test="$project.text.hint = 'yes'">
+        <xsl:apply-templates select="." mode="solution-heading" />
+        <xsl:apply-templates />
     </xsl:if>
-    <xsl:text>\begin{description}&#xa;</xsl:text>
-    <xsl:apply-templates />
-    <xsl:text>\end{description}&#xa;</xsl:text>
-    <xsl:if test="@cols">
-        <xsl:text>\end{multicols}&#xa;</xsl:text>
-    </xsl:if>
+    <xsl:text>~{\tiny (h)}</xsl:text>
 </xsl:template>
-
 
 
 </xsl:stylesheet>

@@ -57,6 +57,25 @@
 <xsl:param name="exercise.backmatter.hint" select="'yes'" />
 <xsl:param name="exercise.backmatter.answer" select="'yes'" />
 <xsl:param name="exercise.backmatter.solution" select="'yes'" />
+<!-- Now project-like elements, in main text.  -->
+<!-- A task is a division of a project         -->
+<xsl:param name="project.text.statement" select="'yes'" /> <!-- not implemented -->
+<xsl:param name="project.text.hint" select="'yes'" />
+<xsl:param name="project.text.answer" select="'no'" />
+<xsl:param name="project.text.solution" select="'no'" />
+<xsl:param name="task.text.statement" select="'yes'" /> <!-- not implemented -->
+<xsl:param name="task.text.hint" select="'yes'" />
+<xsl:param name="task.text.answer" select="'no'" />
+<xsl:param name="task.text.solution" select="'no'" />
+<!-- And project-like elements, in back matter (none implemented). -->
+<xsl:param name="project.backmatter.statement" select="'no'" />
+<xsl:param name="project.backmatter.hint" select="'yes'" />
+<xsl:param name="project.backmatter.answer" select="'no'" />
+<xsl:param name="project.backmatter.solution" select="'no'" />
+<xsl:param name="task.backmatter.statement" select="'no'" />
+<xsl:param name="task.backmatter.hint" select="'yes'" />
+<xsl:param name="task.backmatter.answer" select="'no'" />
+<xsl:param name="task.backmatter.solution" select="'no'" />
 <!-- Author tools are for drafts, mostly "todo" items                 -->
 <!-- and "provisional" citations and cross-references                 -->
 <!-- Default is to hide todo's, inline provisionals                   -->
