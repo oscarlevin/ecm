@@ -413,7 +413,7 @@
 
     <p>
       The entries in the Pascal Triangle, <m>\binom{n}{k}</m>, satisfy the nice recursion <m>\binom{n}{k} = \binom{n - 1}{k} + \binom{n - 1}{k - 1}</m> and also have a closed formula: <m>\binom{n}{k} = \frac{n!}{k!(n - k)!}</m>.
-      <xref ref="thm-stirling-recursion"/> gives us a
+      <xref ref="secondstirlingrecurrence"/> gives us a
       recursion for the Stirling numbers <m>S(n,k)</m> and, unfortunately, the best we can do for a <q>closed</q> formula is the following.<fn>This is not really a closed formula since the number of terms in the summation is not fixed.</fn>
     </p>
 

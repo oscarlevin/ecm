@@ -435,7 +435,7 @@
             <li>
 
               <p>
-                We wrote out the elements of the power set <m>\pow(C)</m> above, and there are 8 elements (each of which is a set). So <m>\card{\pow(C)} = 8</m>.  (You might wonder if there is a relationship between <m>\card{A}</m> and <m>\card{\pow(A)}</m> for all sets <m>A</m>.  This is a good question which we will return to in <xref ref="ch_counting"/>.)
+                We wrote out the elements of the power set <m>\pow(C)</m> above, and there are 8 elements (each of which is a set). So <m>\card{\pow(C)} = 8</m>.  (You might wonder if there is a relationship between <m>\card{A}</m> and <m>\card{\pow(A)}</m> for all sets <m>A</m>.  This is a good question which we will consider in <xref ref="ch_basic-combinatorics"/>.)
               </p>
             </li>
           </ol>

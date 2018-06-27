@@ -6,6 +6,7 @@
 
 
 <macros>
+  \def\negchoose#1#2{\genfrac{[}{]}{0pt}{}{#1}{#2}_{-1}}
   \newcommand{\mchoose}[2]{\left(\!\binom{#1}{#2}\!\right)}
   \newcommand{\cycle}[1]{\arraycolsep 5 pt
   \left(\begin{array}#1\end{array}\right)}
@@ -1516,14 +1517,12 @@ HI/.style={USA map/HI/.style={#1}}, AK/.style={USA map/AK/.style={#1}}, FL/.styl
     </google>
 </search>
 
-
-
-
 <analytics>
     <google>
       <tracking>UA-66485406-1</tracking>
     </google>
 </analytics>
 
+<cross-references text="type-global" />
 
 </docinfo>

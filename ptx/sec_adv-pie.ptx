@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_adv-pie">
-  <title>The Principle of Inclusion Exclusion: the Size of a Union</title>
+  <title>The Principle of Inclusion and Exclusion: the Size of a Union</title>
 
   <introduction>
       <p>
@@ -66,7 +66,7 @@
       <activity category="motivation">
         <statement>
           <p>
-            In <xref ref="fertilizer2">Problem</xref>, there were just two fertilizers used
+            In <xref ref="fertilizer2"/>, there were just two fertilizers used
             to treat the sample plants. Now suppose there are three fertilizer
             treatments, and 15 plants are treated with nitrates, 16 with potash, 16
             with phosphate, 7 with nitrate and potash, 9 with nitrate and phosphate,
@@ -133,8 +133,8 @@
       </activity>
 
       <p>
-        The difficulty of generalizing <xref ref="threesetintersection">Problem</xref> to
-        <xref ref="nsetintersection">Problem</xref> is not likely to be one of being able to
+        The difficulty of generalizing <xref ref="threesetintersection"/> to
+        <xref ref="nsetintersection"/> is not likely to be one of being able to
         see what the right conjecture is, but of finding a good notation to
         express your conjecture. In fact, it would be easier for some people to
         express the conjecture in words than to express it in a notation. Here
@@ -168,7 +168,7 @@
         <statement>
           <p>
             Use notation something like that of <xref ref="intersectionnotation">Equation</xref> and <xref ref="notationsolution">Equation</xref> to express
-            the answer to <xref ref="nsetintersection">Problem</xref>. Note there are many
+            the answer to <xref ref="nsetintersection"/>. Note there are many
             different correct ways to do this problem. Try to write down more
             than one and choose the nicest one you can. Say why you chose it
             (because your view of what makes a formula nice may be different from
@@ -251,7 +251,7 @@
               so we can just assume that for each <m>i\in S</m>, student <m>i</m> gets the
               correct backpack and then hand out the remaining <m>n-|S|</m> backpacks to
               the remaining <m>n-|S|</m> students in <m>(n-|S|)!</m> ways. Thus <m>(n-|S|)!</m> is
-              <m>|\cap_{i:i\in S}A_i|</m>. Using our formula from <xref ref="inclusion-exclusionunion">Problem</xref> we get
+              <m>|\cap_{i:i\in S}A_i|</m>. Using our formula from <xref ref="inclusion-exclusionunion"/> we get
               <md>
                 <mrow>\left|\bigcup_{i=1}^n A_i \right|  =\amp  \sum_{S:
                 S\subseteq [n], S\not=\emptyset}
@@ -307,7 +307,7 @@
           <p>
             From calculus, we know that <m>e^x=\sum_{j=0}^\infty \frac{x^j}{j!}</m>. Substituting <m>x=-1</m> gives us <m>e^{-1}=\sum_{j=0}^\infty
             \frac{(-1)^j}{j!}</m> which is the limit as <m>n</m> becomes infinite of the
-            probability in the solution to <xref ref="hatcheck">Problem</xref>. Thus the
+            probability in the solution to <xref ref="hatcheck"/>. Thus the
             probability approaches <m>1/e</m>.
           </p>
         </solution>
@@ -315,7 +315,7 @@
       </activity>
 
       <p>
-        <xref ref="hatcheck">Problem</xref> is <q>classically</q> called the <term>hatcheck
+        <xref ref="hatcheck"/> is <q>classically</q> called the <term>hatcheck
         problem</term><idx><h>hatcheck problem</h></idx>; the name comes from substituting hats
         for backpacks. If is also sometimes called the <term>derangement
         problem</term><idx><h>derangement problem</h></idx>. A <term>derangement</term><idx><h>derangement</h></idx> of an
@@ -334,7 +334,7 @@
       <title>The Principle of Inclusion and Exclusion</title>
 
       <p>
-        The formula you have given in <xref ref="inclusion-exclusionunion">Problem</xref> is
+        The formula you have given in <xref ref="inclusion-exclusionunion"/> is
         often called <term>the principle of inclusion and
         exclusion</term><idx><h>inclusion and exclusion principle
         </h><h>for unions of sets</h></idx><idx><h>principle of inclusion and exclusion</h><h>for
@@ -362,7 +362,7 @@
         </hint>
         <hint>
           <p>
-            We can apply the formula of <xref ref="twosetintersection">Problem</xref> to get
+            We can apply the formula of <xref ref="twosetintersection"/> to get
             <md>
             <mrow> \left|\bigcup_{i=1}^n A_i \right| \amp = \left|\left(\bigcup_{i=1}^{n-1} A_i\right) \cup A_n \right| </mrow>
             <mrow> \amp = \left| \bigcup_{i=1}^{n-1} A_i\right| + |A_n| - \left|\left( \bigcup_{i=1}^{n-1} A_i\right) \cap A_n\right|</mrow>
@@ -373,11 +373,11 @@
 
         <solution>
           <p>
-            The principle of inclusion and exclusion for one set says <m>|A_1| = |A_1|</m>.  The principle of inclusion and exclusion for two sets says <m>|A_1\cup A_2| = |A_1| + |A_2| - |A_1 \cap A_2|</m>, and was prove in our solution to <xref ref="twosetintersection">Problem</xref>.  Now suppose the formula is true for a union of <m>n-1</m> or fewer sets and <m>n \ge 2</m>.  Since
+            The principle of inclusion and exclusion for one set says <m>|A_1| = |A_1|</m>.  The principle of inclusion and exclusion for two sets says <m>|A_1\cup A_2| = |A_1| + |A_2| - |A_1 \cap A_2|</m>, and was prove in our solution to <xref ref="twosetintersection"/>.  Now suppose the formula is true for a union of <m>n-1</m> or fewer sets and <m>n \ge 2</m>.  Since
             <me>
               A_1 \cup A_2 \cup \cdots \cup A_n = \left(A_1 \cup A_2 \cup \cdots \cup A_{n-1}\right) \cup A_n
             </me>
-            we can apply the formula of <xref ref="twosetintersection">Problem</xref> to get
+            we can apply the formula of <xref ref="twosetintersection"/> to get
 
             <md>
             <mrow> \left|\bigcup_{i=1}^n A_i \right| \amp = \left|\left(\bigcup_{i=1}^{n-1} A_i\right) \cup A_n \right| </mrow>
@@ -401,96 +401,12 @@
 
 
 
-      <activity category="interseting">
-          <introduction>
-              <p>
-          We get a more elegant proof if we ask for a picture enumerator for <m>A_1 \cup A_2 \cup \cdots \cup A_n</m>.  so let us assume <m>A</m> is a set with a picture function <m>P</m> defined on it and that each set <m>A_i</m> is a subset of <m>A</m>.
-              </p>
-          </introduction>
-        <task>
-          <statement>
-            <p>
-              By thinking about how we got the formula for the size of a union, write down instead a conjecture for the picture enumerator of a union.  You could use notation like <m>E_P(\bigcap_{i:i\in S} A_i)</m> for the picture enumerator of the intersection of the sets <m>A_i</m> for <m>i</m> in a subset of <m>S</m> of <m>[n]</m>.
-            </p>
-          </statement>
-          <solution>
-            <p>
-              <m>E_P(\bigcup_{i=1}^n A_i) =  \sum_{S:S\subseteq[n],S\ne\emptyset} (-1)^{|S|-1}E_P(\bigcap_{i:i\in S}A_i)</m>.
-            </p>
-          </solution>
-        </task>
-
-        <task>
-          <statement>
-            <p>
-              If <m>x \in \bigcup_{i=1}^n A_i</m>, what is the coefficient for <m>P(x)</m> in (the inclusion-exclusion side of) your formula for <m>E_P(\bigcup_{i=1}^n A_i)</m>?
-            </p>
-          </statement>
-          <hint>
-            <p>
-              Let <m>T</m> be the set of all <m>i</m> such that <m>x \in A_i</m>. In terms of <m>x</m>, what is different about the <m>i</m> in <m>T</m> and those not in <m>T</m>?
-            </p>
-          </hint>
-          <hint>
-            <p>
-              You may come to a point where the binomial theorem would be helpful.
-            </p>
-          </hint>
-          <solution>
-            <p>
-              Let <m>T</m> be the set of all <m>i</m> such that <m>x\in A_i</m>.  Then <m>x \in A_i</m> for exactly those <m>i \in T</m>.  Note that <m>|T| \gt 0</m> because <m>x</m> is in at least one <m>A_i</m>.  Then the coefficient of <m>P(x)</m> is <m>\sum_{S:S\subseteq[n],S\ne\emptyset} (-1)^{|S|-1}</m>.  But
-              <me>
-                \sum_{S:S\subseteq[n],S\ne\emptyset} (-1)^{|S|-1} = -\sum_{i=1}^T\binom{|T|}{i}(-1)^i = -[(1-1)^{|T|} - 1] = 0+1 = 1.
-              </me>
-              Thus if <m>x \in E_P(\bigcup_{i=1}^n A_i)</m>, then the coefficient of <m>P(x)</m> in <m>E_P(\bigcup_{i=1}^n A_i)</m> is 1.
-            </p>
-          </solution>
-        </task>
-
-        <task>
-          <statement>
-            <p>
-              If <m>x \notin \bigcup_{i=1}^n A_i</m>, what is the coefficient of <m>P(x)</m> in (the inclusion-exclusion side of) your formula for <m>E_P(\bigcup_{i=1}^n A_i)</m>?
-            </p>
-          </statement>
-          <solution>
-            <p>
-              Since <m>P(x)</m> is not in any of the enumerators <m>E_P(\bigcap_{i:i\in S} A_i)</m>, its coefficient is 0.
-            </p>
-          </solution>
-        </task>
-
-        <task>
-          <statement>
-            <p>
-              How have you proved your conjecture for the picture enumerator of the union of the sets <m>A_i</m>?
-            </p>
-          </statement>
-          <solution>
-            <p>
-              We have shown that <m>P(x)</m> appears in the right hand side of our formula with coefficeint 1 if it is in the union and with coefficient 0 otherwise.
-            </p>
-          </solution>
-        </task>
-
-        <task>
-          <statement>
-            <p>
-              How can you get the formula for the principle of inclusion and exclusion from your formula for the picture enumerator of the union?
-            </p>
-          </statement>
-          <solution>
-            <p>
-              Substitute 1 for the picture of each element <m>x</m>.  Then notice that <m>E_P(\bigcap_{i:i \in S}A_i)</m> becomes <m>\left| \bigcap_{i:i \in S}A_i\right|</m>, and our formula follows.
-            </p>
-          </solution>
-        </task>
-      </activity>
+    
 
       <activity xml:id="compunion">
         <statement>
           <p>
-            Frequently when we apply the principle of inclusion and exclusion, we will have a situation like that of part (d) of <xref ref="hatcheckprobpart">Problem</xref>.  That is, we will have a set <m>A</m> and subsets <m>A_1, A_2, \ldots, A_n</m> and we will want the size or the probability of the set of elements in <m>A</m> that are <em>not</em> in the union.  This set is known as the <term>complement</term> <idx><h>complement</h></idx> of the union of the <m>A_i</m>s in <m>A</m>, and is denoted by <m>A \setminus \bigcup_{i=1}^n A_i</m>, or if <m>A</m> is clear from context, by <m>\overline{\bigcup_{i=1}^n A_i}</m>.
+            Frequently when we apply the principle of inclusion and exclusion, we will have a situation like that of part (d) of <xref ref="hatcheckprobpart" />.  That is, we will have a set <m>A</m> and subsets <m>A_1, A_2, \ldots, A_n</m> and we will want the size or the probability of the set of elements in <m>A</m> that are <em>not</em> in the union.  This set is known as the <term>complement</term> <idx><h>complement</h></idx> of the union of the <m>A_i</m>s in <m>A</m>, and is denoted by <m>A \setminus \bigcup_{i=1}^n A_i</m>, or if <m>A</m> is clear from context, by <m>\overline{\bigcup_{i=1}^n A_i}</m>.
             Give the fomula for <m>\overline{\bigcup_{i=1}^n A_i}</m>.  The principle of inclusion and exclusion generall refers to both this formula and the one for the union.
           </p>
         </statement>
@@ -503,7 +419,7 @@
 
 
       <p>
-        We can find a very elegant way of writing the formula in <xref ref="compunion">Problem</xref> if we let <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.  for this reason, if we have a family of subsets <m>A_i</m> of a set <m>A</m>, we define<fn>
+        We can find a very elegant way of writing the formula in <xref ref="compunion"/> if we let <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.  for this reason, if we have a family of subsets <m>A_i</m> of a set <m>A</m>, we define<fn>
         For those interested in logic and set theory, given a family of subsets <m>A_i</m> of a set <m>A</m>, we define <m>\bigcap_{i:i\in S}A_i</m> to be the set of all members <m>x</m> of <m>A</m> that are in <m>A_i</m> for all <m>i \in S</m>.  (Note that this allows <m>x</m> to be in some other <m>A_j</m>s as well.)  Then if <m>S = \emptyset</m>, our intersection consists of all members <m>x</m> of <m>A</m> that satisfy the statement <q>if <m>i\in \emptyset</m>, then <m>x \in A_i</m>.</q>
         But since the hypothesis of the <q>if-then</q> statement is false, the statement itself is true for all <m>x \in A</m>.  Therefor <m>\bigcap_{i:i \in \emptyset}A_i = A</m>.
         </fn> <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.
@@ -538,7 +454,7 @@
               we are asking for the number of distributions of apples that lie in none of the sets, so we are asking for <m>|\overline{A_1\cup A_2\cup \cdots \cup A_n}|</m>. From the formula you gave in
               <xref ref="compunion" /> we see that to find this number we need to know
               <m>|\bigcap_{i\in S}A_i|</m> for every subset <m>S</m> of <m>[n]</m>. But if
-              <m>S</m> has size <m>s</m>, then <m>S</m> determines a distribution such that all the children in a particular set of size <m>s</m> will get five or more apples. By <xref ref="k-obj-n-recip" />, we can pass out the apples so that the children in a particular set
+              <m>S</m> has size <m>s</m>, then <m>S</m> determines a distribution such that all the children in a particular set of size <m>s</m> will get five or more apples. We can pass out the apples so that the children in a particular set
               <m>\hat S</m> of children get at least five apples as follows: we give everyone in <m>\hat
               S</m> five apples, and then pass out the remaining <m>k-5s</m> apples to the
               children in <m>\binom{k-5s+n-1}{k-5s}= \binom{k-5s+n-1}{n-1}</m> ways. This
@@ -789,7 +705,7 @@
         <solution>
           <p>
             Since the number of functions from <m>[k]</m> onto <m>[n]</m> is <m>S(k,n)n!</m>,
-            we get from the solution to <xref ref="numontofun">Problem</xref>
+            we get from the solution to <xref ref="numontofun"/>
             <me>
               S(k,n) = \frac{1}{n!}\sum_{s=0}^n (-1)^s\binom{n}{s}(n-s)^k.
             </me>

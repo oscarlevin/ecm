@@ -15,7 +15,7 @@
       </me>
       </p>
 
-      <p>In this notation <m>\ap^3</m> stands for taking a multiset of three apples, while <m>\ap^2\ba</m> stands for taking a multiset of two apples and a banana, and so on. What our notation is really doing is giving us a convenient way to list all three element multisets chosen from the set <m>\{\ap,\pe,\ba\}</m>.<fn>This approach was inspired by George P&#xf3;lya's paper <q>Picture Writing,</q> in the December, 1956 issue of the <booktitle>American Mathematical Monthly</booktitle>, page 689. While we are taking a somewhat more formal approach than P&#xf3;lya, it is still completely in the spirit of his work.</fn>
+      <p>In this notation <m>\ap^3</m> stands for taking a multiset of three apples, while <m>\ap^2\ba</m> stands for taking a multiset of two apples and a banana, and so on. What our notation is really doing is giving us a convenient way to list all three element multisets chosen from the set <m>\{\ap,\pe,\ba\}</m>.<fn>This approach was inspired by George P&#xf3;lya's paper <q>Picture Writing,</q> in the December, 1956 issue of the <pubtitle>American Mathematical Monthly</pubtitle>, page 689. While we are taking a somewhat more formal approach than P&#xf3;lya, it is still completely in the spirit of his work.</fn>
       </p>
 
       <p>Suppose now that we plan to choose between one and three apples, between one and two pears, and between one and two bananas. In a somewhat clumsy way we could describe our fruit selections as
@@ -55,7 +55,7 @@
 
       <activity category="essential">
           <statement>
-              <p>Substitute <m>x</m> for all of <m>A</m>, <m>P</m> and <m>B</m> (or for the corresponding pictures) in the formula you got in <xref ref="twopiecesoffruit">Problem</xref> and expand the result in powers of <m>x</m>. Give an interpretation of the coefficient of <m>x^n</m>.
+              <p>Substitute <m>x</m> for all of <m>A</m>, <m>P</m> and <m>B</m> (or for the corresponding pictures) in the formula you got in <xref ref="twopiecesoffruit"/> and expand the result in powers of <m>x</m>. Give an interpretation of the coefficient of <m>x^n</m>.
               </p>
           </statement>
           <solution>
@@ -109,7 +109,7 @@
 
       <activity category="essential for this or the next section">
           <statement>
-              <p>(Used in <xref ref="groupsonsets" />.) Notice that when we used <m>A^2</m> to stand for taking two apples, and <m>P^3</m> to stand for taking three pears, then we used the product <m>A^2P^3</m> to stand for taking two apples and three pears. Thus we have chosen the picture of the ordered pair (2 apples, 3 pears) to be the product of the pictures of a multiset of two apples and a multiset of three pears. Show that if <m>S_1</m> and <m>S_2</m> are sets with picture functions <m>P_1</m> and <m>P_2</m> defined on them, and if we define the picture of an ordered pair <m>(x_1,x_2)\in S_1\times S_2</m> to be <m>P((x_1,x_2))= P_1(x_1)P_2(x_2)</m>, then the picture enumerator of <m>P</m> on the set <m>S_1\times S_2</m> is <m>E_{P_1}(S_1)E_{P_2}(S_2)</m>. We call this the <term>product principle for picture enumerators</term>.<idx><h>product principle</h><h>picture enumerators</h></idx><idx><h>picture enumerators</h><h>product principle for</h></idx>
+              <p>Notice that when we used <m>A^2</m> to stand for taking two apples, and <m>P^3</m> to stand for taking three pears, then we used the product <m>A^2P^3</m> to stand for taking two apples and three pears. Thus we have chosen the picture of the ordered pair (2 apples, 3 pears) to be the product of the pictures of a multiset of two apples and a multiset of three pears. Show that if <m>S_1</m> and <m>S_2</m> are sets with picture functions <m>P_1</m> and <m>P_2</m> defined on them, and if we define the picture of an ordered pair <m>(x_1,x_2)\in S_1\times S_2</m> to be <m>P((x_1,x_2))= P_1(x_1)P_2(x_2)</m>, then the picture enumerator of <m>P</m> on the set <m>S_1\times S_2</m> is <m>E_{P_1}(S_1)E_{P_2}(S_2)</m>. We call this the <term>product principle for picture enumerators</term>.<idx><h>product principle</h><h>picture enumerators</h></idx><idx><h>picture enumerators</h><h>product principle for</h></idx>
               </p>
           </statement>
           <solution>
@@ -149,7 +149,7 @@
 
       <activity category="motivation">
           <statement>
-              <p>Suppose an apple costs 20 cents, a banana costs 25 cents, and a pear costs 30 cents. What should you substitute for <m>A</m>, <m>P</m>, and <m>B</m> in <xref ref="zerotothreefruits">Problem</xref> in order to get a polynomial in which the coefficient of <m>x^n</m> is the number of ways to choose a selection of fruit that costs <m>n</m> cents?
+              <p>Suppose an apple costs 20 cents, a banana costs 25 cents, and a pear costs 30 cents. What should you substitute for <m>A</m>, <m>P</m>, and <m>B</m> in <xref ref="zerotothreefruits"/> in order to get a polynomial in which the coefficient of <m>x^n</m> is the number of ways to choose a selection of fruit that costs <m>n</m> cents?
               </p>
           </statement>
           <hint>
@@ -166,7 +166,7 @@
 
       <activity category="essential">
           <statement>
-              <p>Suppose an apple has 40 calories, a pear has 60 calories, and a banana has 80 calories. What should you substitute for <m>A</m>, <m>P</m>, and <m>B</m> in <xref ref="zerotothreefruits">Problem</xref> in order to get a polynomial in which the coefficient of <m>x^n</m> is the number of ways to choose a selection of fruit with a total of <m>n</m> calories?
+              <p>Suppose an apple has 40 calories, a pear has 60 calories, and a banana has 80 calories. What should you substitute for <m>A</m>, <m>P</m>, and <m>B</m> in <xref ref="zerotothreefruits"/> in order to get a polynomial in which the coefficient of <m>x^n</m> is the number of ways to choose a selection of fruit with a total of <m>n</m> calories?
               </p>
           </statement>
           <solution>
@@ -198,7 +198,7 @@
       </activity>
 
       <p>
-          In <xref ref="reprovingbinomialtheorem">Problem</xref> we see that we can think of the process of expanding the polynomial <m>(1+x)^n</m> as a way of <q>generating</q> the binomial coefficients <m>\binom{n}{k}</m> as the coefficients of <m>x^k</m> in the expansion of <m>(1+x)^n</m>. For this reason, we say that <m>(1+x)^n</m> is the <q>generating function</q> for the binomial coefficients <m>\binom{n}{k}</m>. More generally, the <term>generating function</term> for a sequence <m>a_i</m>, defined for <m>i</m> with <m>0\le i\le n</m> is the expression <m>\sum_{i=0}^n a_ix^i</m>, and the <term>generating function</term><idx><h>generating function</h></idx> for the sequence <m>a_i</m> with <m>i\ge 0</m> is the expression <m>\sum_{i=0}^\infty a_ix^i</m>. This last expression is an example of a power series. In calculus it is important to think about whether a power series converges in order to determine whether or not it represents a function. In a nice twist of language, even though we use the phrase generating function as the name of a power series in combinatorics, we don't require the power series to actually represent a function in the usual sense, and so we don't have to worry about convergence.<fn>In the evolution of our current mathematical terminology, the word function evolved through several meanings, starting with very imprecise meanings and ending with our current rather precise meaning.  The terminology <q>generating function</q> may be thought of as an example of one of the earlier usages of the term function.</fn> Instead we think of a power series as a convenient way of representing the terms of a sequence of numbers of interest to us. The only justification for saying that such a representation is convenient is because of the way algebraic properties of power series capture some of the important properties of some sequences that are of combinatorial importance. The remainder of this chapter is devoted to giving examples of how the algebra of power series reflects combinatorial ideas.
+          In <xref ref="reprovingbinomialtheorem"/> we see that we can think of the process of expanding the polynomial <m>(1+x)^n</m> as a way of <q>generating</q> the binomial coefficients <m>\binom{n}{k}</m> as the coefficients of <m>x^k</m> in the expansion of <m>(1+x)^n</m>. For this reason, we say that <m>(1+x)^n</m> is the <q>generating function</q> for the binomial coefficients <m>\binom{n}{k}</m>. More generally, the <term>generating function</term> for a sequence <m>a_i</m>, defined for <m>i</m> with <m>0\le i\le n</m> is the expression <m>\sum_{i=0}^n a_ix^i</m>, and the <term>generating function</term><idx><h>generating function</h></idx> for the sequence <m>a_i</m> with <m>i\ge 0</m> is the expression <m>\sum_{i=0}^\infty a_ix^i</m>. This last expression is an example of a power series. In calculus it is important to think about whether a power series converges in order to determine whether or not it represents a function. In a nice twist of language, even though we use the phrase generating function as the name of a power series in combinatorics, we don't require the power series to actually represent a function in the usual sense, and so we don't have to worry about convergence.<fn>In the evolution of our current mathematical terminology, the word function evolved through several meanings, starting with very imprecise meanings and ending with our current rather precise meaning.  The terminology <q>generating function</q> may be thought of as an example of one of the earlier usages of the term function.</fn> Instead we think of a power series as a convenient way of representing the terms of a sequence of numbers of interest to us. The only justification for saying that such a representation is convenient is because of the way algebraic properties of power series capture some of the important properties of some sequences that are of combinatorial importance. The remainder of this chapter is devoted to giving examples of how the algebra of power series reflects combinatorial ideas.
       </p>
 
       <p>Because we choose to think of power series as strings of symbols that we manipulate by using the ordinary rules of algebra and we choose to ignore issues of convergence, we have to avoid manipulating power series in a way that would require us to add infinitely many real numbers. For example, we cannot make the substitution of <m>y+1</m> for <m>x</m> in the power series <m>\sum_{i=0}^\infty x^i</m>, because in order to interpret <m>\sum_{i=0}^\infty (y+1)^i</m> as a power series we would have to apply the binomial theorem to each of the <m>(y+1)^i</m> terms, and then collect like terms, giving us infinitely many ones added together as the coefficient of <m>y^0</m>, and in fact infinitely many numbers added together for the coefficient of any<nbsp /><m>y^i</m>. (On the other hand, it would be fine to substitute <m>y+y^2</m> for <m>x</m>. Can you see why?)
@@ -226,7 +226,7 @@
       <activity xml:id="coeffinproduct1" category="essential">
           <statement>
               <p>
-                  In <xref ref="coeffinproduct">Problem</xref> why is there a <m>b_0</m> and a <m>b_1</m> in
+                  In <xref ref="coeffinproduct"/> why is there a <m>b_0</m> and a <m>b_1</m> in
                   your expression for the coefficient of <m>x^2</m> but there is not a <m>b_0</m>
                   or a <m>b_1</m> in your expression for the coefficient of <m>x^4</m>? What is the
                   coefficient of <m>x^4</m> in
@@ -244,7 +244,7 @@
                   where the something is an expression you need to figure out. Now suppose
                   that <m>a_3=0</m>, <m>a_4=0</m> and <m>b_4=0</m>. To what is your expression equal
                   after you substitute these values? In particular, what does this have to
-                  do with <xref ref="coeffinproduct">Problem</xref>?
+                  do with <xref ref="coeffinproduct"/>?
               </p>
           </statement>
           <hint>
@@ -319,13 +319,13 @@
           </solution>
       </activity>
 
-      <p>We use the expression you obtained in <xref ref="coeffinpowerseries">Problem</xref> to <em>define</em> the product of power series. That is, we define the product
+      <p>We use the expression you obtained in <xref ref="coeffinpowerseries"/> to <em>define</em> the product of power series. That is, we define the product
       <me>
           \left(\sum_{i=0}^\infty a_ix^i\right)\left(\sum_{j=0}^\infty
           b_jx^j\right)
       </me>
       to be the power series <m>\sum_{k=0}^\infty c_k x^k</m>, where
-      <m>c_k</m> is the expression you found in <xref ref="coeffinpowerseries">Problem</xref>.
+      <m>c_k</m> is the expression you found in <xref ref="coeffinpowerseries"/>.
       Since you derived this expression by using the usual rules of algebra for
       polynomials, it should not be surprising that the product of power series
       satisfies these rules.<fn>Technically we should explicitly state
@@ -445,7 +445,7 @@
           </task>
           <task>
               <statement>
-                  <p>Express the generating function in which the coefficient of <m>x^k</m> is the number of multisets chosen from <m>[n]</m> as a power of a power series.  What does <xref ref="multiset">Problem</xref> (in which your answer could be expressed as a binomial coefficient) tell you about what this generating function equals?
+                  <p>Express the generating function in which the coefficient of <m>x^k</m> is the number of multisets chosen from <m>[n]</m> as a power of a power series.  What does <xref ref="thm-multisetsize"/> (in which your answer could be expressed as a binomial coefficient) tell you about what this generating function equals?
                   </p>
               </statement>
               <hint>
@@ -454,12 +454,12 @@
                   </p>
               </hint>
               <hint>
-                  <p>In <xref ref="multiset" /> you found a formula for the number of <m>k</m>-element multisets chosen from an <m>n</m>-element set. Suppose you use this formula for <m>a_k</m> in <m>\sum_{k=0}^\infty a_kx^k</m>. What do you get the generating function for?
+                  <p>In <xref ref="thm-multisetsize" /> we have a formula for the number of <m>k</m>-element multisets chosen from an <m>n</m>-element set. Suppose you use this formula for <m>a_k</m> in <m>\sum_{k=0}^\infty a_kx^k</m>. What do you get the generating function for?
                   </p>
               </hint>
 
               <solution>
-                  <p>The generating function is <m>\left(\sum_{i=0}^\infty x^i\right)^n</m>.  <xref ref="multiset">Problem</xref> tells us that this equals <m>\sum_{i=0}^\infty\binom{n+i-1}{i}x^i</m>.
+                  <p>The generating function is <m>\left(\sum_{i=0}^\infty x^i\right)^n</m>.  <xref ref="thm-multisetsize"/> tells us that this equals <m>\sum_{i=0}^\infty\binom{n+i-1}{i}x^i</m>.
                   </p>
               </solution>
           </task>
@@ -541,12 +541,12 @@
 
       <activity category="essential and interesting">
           <statement>
-              <p>If you define <m>\binom{-n}{k}</m> in the way you described in <xref ref="negnchoosek">Problem</xref>, you can write down a version of the binomial theorem for <m>(x+y)^n</m> that is valid for both nonnegative and negative values of <m>n</m>. Do so. This is called the <term>extended binomial theorem</term><idx><h>binomial theorem</h><h> extended</h></idx><idx><h>extended binomial theorem</h></idx>. Write down a special case with <m>n</m> negative, like <m>n=-3</m>, to see an interesting surprise that suggests why we do not use this formula later on.
+              <p>If you define <m>\binom{-n}{k}</m> in the way you described in <xref ref="negnchoosek"/>, you can write down a version of the binomial theorem for <m>(x+y)^n</m> that is valid for both nonnegative and negative values of <m>n</m>. Do so. This is called the <term>extended binomial theorem</term><idx><h>binomial theorem</h><h> extended</h></idx><idx><h>extended binomial theorem</h></idx>. Write down a special case with <m>n</m> negative, like <m>n=-3</m>, to see an interesting surprise that suggests why we do not use this formula later on.
               </p>
           </statement>
           <solution>
               <p>
-                  <m>(x+y)^n=\sum_{i=0}^\infty\binom{n}{i}x^i</m>. The proof consists of writing <m>(x+y)=y(\frac{x}{y}+1)</m> and applying the <xref ref="negnchoosek">Problem</xref> when <m>n</m> is negative. When <m>n</m> is positive, we recall that <m>\binom{n}{k}</m> is zero when <m>k>n</m>, so replacing the upper limit of <m>n</m> in the standard version of the binomial theorem by <m>\infty</m> doesn't change the value of the sum. When <m>n=-3</m> we get <m>(x+y)^n = \sum_{i=0}^\infty \binom{-3}{i}x^iy^{-3-i} = \sum_{i=0}^\infty (-1)^i \binom{3+i-1}{i}x^iy^{-3-i}</m>. Expanding our binomial coefficients gives <m>(x+y)^{-3} = \binom{2}{0}x^0y^{-3} -\binom{3}{1}x^1y^{-4} + \binom{4}{2}x^2y^{-5}-\cdots.</m> The surprise is that we get an infinite series in positive and negative powers of variables. In order to limit ourselves to infinite series with nonnegative exponents, we do not pursue this idea further.
+                  <m>(x+y)^n=\sum_{i=0}^\infty\binom{n}{i}x^i</m>. The proof consists of writing <m>(x+y)=y(\frac{x}{y}+1)</m> and applying the <xref ref="negnchoosek"/> when <m>n</m> is negative. When <m>n</m> is positive, we recall that <m>\binom{n}{k}</m> is zero when <m>k>n</m>, so replacing the upper limit of <m>n</m> in the standard version of the binomial theorem by <m>\infty</m> doesn't change the value of the sum. When <m>n=-3</m> we get <m>(x+y)^n = \sum_{i=0}^\infty \binom{-3}{i}x^iy^{-3-i} = \sum_{i=0}^\infty (-1)^i \binom{3+i-1}{i}x^iy^{-3-i}</m>. Expanding our binomial coefficients gives <m>(x+y)^{-3} = \binom{2}{0}x^0y^{-3} -\binom{3}{1}x^1y^{-4} + \binom{4}{2}x^2y^{-5}-\cdots.</m> The surprise is that we get an infinite series in positive and negative powers of variables. In order to limit ourselves to infinite series with nonnegative exponents, we do not pursue this idea further.
               </p>
           </solution>
       </activity>
@@ -571,7 +571,7 @@
               <p>
                   <m>(1+x+x^2+x^3+x^4)^3</m>. We can write
                   <md>
-                      <mrow> \amp (1+x+x^2+x^3+x^4)^3 \rangle =\rangle \left(\frac{1-x^5}{1-x}\right)^3</mrow>
+                      <mrow> \amp (1+x+x^2+x^3+x^4)^3 = \left(\frac{1-x^5}{1-x}\right)^3</mrow>
                       <mrow> =\amp (1-x^5)^3(1-x)^{-3}</mrow>
                       <mrow> =\amp (1-3x^5+3x^{10}-x^{15})\sum_{i=0}^\infty \binom{3+i-1}{i}x^i</mrow>
                       <mrow> =\amp (1-3x^5+3x^{10}-x^{15})\sum_{i=0}^\infty \binom{2+i}{i}x^i</mrow>
@@ -609,91 +609,7 @@
               </p>
           </solution>
       </activity>
-      <activity category="interesting">
-          <introduction>
-              <p>Recall that a tree is determined by its edge set. Suppose you have a tree on <m>n</m> vertices, say with vertex set <m>[n]</m>. We can use <m>x_i</m> as the picture of vertex <m>i</m> and <m>x_ix_j</m> as the picture of the edge <m>x_ix_j</m>. Then one possible picture of the tree <m>T</m> is the product <m>P(T) = \prod_{\{i,j\}:i\text{ and }j\text{ are adjacent }}x_ix_j</m>.
-              </p>
-          </introduction>
-          <task>
-              <statement>
-                  <p>Explain why the picture of a tree is also <m>\prod_{i=1}^nx_i^{\deg(i)}</m>.
-                  </p>
-              </statement>
-              <solution>
-                  <p>Because the number of times <m>x_i</m> appears in an edge is its degree. This number is also the number of times <m>x_i</m> appears in the picture.
-                  </p>
-              </solution>
-          </task>
-          <task>
-              <statement>
-                  <p>Write down the picture enumerators for trees on two, three, and four vertices. Factor them as completely as possible.</p>
-              </statement>
-              <solution>
-                  <p>
-                      On two vertices: <m>x_1x_2</m>. On three vertices: <m>x_1x_2x_3(x_1 + x_2 + x_3)</m>. On three vertices: <m>x_1x_2x_3x_4(x_1 + x_2 + x_3 + x_4)^2</m>. We now explain the third answer. A tree on four vertices either has a vertex of degree three, or it doesn't. If vertex <m>i</m> has degree three, then the picture of the tree is <m>x_1x_2x_3x_4x_i^2</m> . If the tree has no vertex of degree 3, it has two vertices of degree 2. If <m>i</m> and <m>j</m> are the vertices of degree 2, then the picture of the tree is <m>x_1x_2x_3x_4x_ix_j</m>. Adding up all these pictures gives <m>x_1x_2x_3x_4(x_1 + x_2 + x_3 + x_4)^2</m>.
-                  </p>
-              </solution>
-          </task>
-          <task>
-              <statement>
-                  <p>Explain why <m>x_1x_2\cdots x_n</m> is a factor of the picture of a tree on <m>n</m> vertices.</p>
-              </statement>
-              <solution>
-                  <p>
-                      Every vertex is in at least one edge, because otherwise the tree would not be connected.
-                  </p>
-              </solution>
-          </task>
-          <task>
-              <statement>
-                  <p>
-                      Write down the picture of a tree on five vertices with one vertex of degree four, say vertex <m>i</m>. If a tree on five vertices has a vertex of degree three, what are the possible degrees of the other vertices. What can you say about the picture of a tree with a vertex of degree three? If a tree on five vertices has no vertices of degree three or four, how many vertices of degree two does it have? What can you say about its picture? Write down the picture enumerator for trees on five vertices.
-                  </p>
-              </statement>
-              <solution>
-                  <p>If we have one vertex of degree four, the rest have degree one. So our picture is <m>x_1x_2x_3x_4x_5x_i^3</m> . If there is a vertex of degree three, then one vertex must have degree two and the rest must have degree 1, because the sum of the degrees must be 8. Thus the picture must be <m>x_1x_2x_3x_4x_5x_i^2 x_j</m>, where <m>i</m> is the vertex of degree three and <m>j</m> is the vertex of degree two. If it has no vertices of degree more than 3, then it must have three vertices of degree two in order for the sum of the degrees to be eight. Thus its picture is <m>x_1x_2x_3x_4x_5x_ix_jx_k</m>, where <m>i</m>, <m>j</m>, and <m>k</m> are the vertices of degree two.
-                  </p>
-              </solution>
-          </task>
-          <task>
-              <statement>
-                  <p>
-                      Find a (relatively) simple polynomial expression for the picture
-enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is correct.
-                  </p>
-              </statement>
-              <hint>
-                  <p>
-                      When you factor out <m>x_1 x_2\cdots x_n</m> from the enumerator of trees, the result is a sum of terms of degree <m>n - 2</m>. (The degree of <m>x_1^{i_1} x_2^{i_2} \cdots x_n^{i_n}</m> is <m>i_1 + i_2 + \cdots + i_n</m>.)
-                  </p>
-              </hint>
-              <hint>
-                  <p>
-                      Write down the picture (using <m>x</m>s) of a tree on five vertices with two vertices of degree one, of one with three vertices of degree one, and with four vertices of degree 1. Factor <m>x_1 x_2 x_3 x_4 x_5</m> out of the picture and look at what is left.  How is it related to your vertices of degree one? Now remove the vertices of degree 1 from the tree and write down the picture of the tree that remains.  What is special about the vertices of degree 1 of that tree. (You can just barely learn something from this with five vertex trees, so you might want to experiment a bit with six or seven vertex trees.)
-                  </p>
-              </hint>
-              <solution>
-                  <p>
-                      Based on our examples, the enumerator for trees on <m>[n]</m> must be <m>x_1x_2 \cdots x_n(x_1 + x_2 + ··· + x_n)^{n-2}</m>. When we factor out <m>x_1x_2 \cdots x_n</m> from the enumerator of trees, the result is a sum of terms of degree <m>n - 2</m>. (The degree of <m>x_1^{i_1}x_2^{i_2}\cdots x_n^{i_n}</m> is <m>i_1 +i_2 +\cdots+i)n</m>.) We want to show this sum of terms of degree <m>n-2</m> is <m>(x_1 +x_2 +\cdots+x_n)^{n-2}</m>. So let us analyze this power of a multinomial. It is a sum of terms of the form <m>x_{i_1}x_{i_2} \cdots x_{i_{n-2}}</m> (where <m>x_{i_j}</m> may equal <m>x_{i_k}</m> ). The factor <m>x_{i_1}</m> is chosen from the first <m>(x_1 +x_2 +\cdots +x_n)</m> in the product. The factor <m>x_{i_2}</m> is chosen from the second <m>(x_1 + x_2 + \cdots+ x_n)</m> in the product. The factor <m>x_{i_{n-2}}</m> is chosen from the last <m>(x_1 +x_2 +\cdots +x_n)</m> in the product. Thus the product is the sum, over all ordered lists <m>i_1,i_2,\dots ,i_{n-2}</m> of <m>x_{i_1} x_{i_2} \cdots x_{i_{n-2}}</m>.
-                      Thus we want to show that each list determines exactly one tree, and each tree determines exactly one list. But we did exactly this in <xref ref="prufer-props" />. We do need just a bit more than the bijection of <xref ref="prufer-props" />, though. The list of numbers we get from a tree determines a monomial in the <m>x</m>s. We need to know that when we multiply this monomial by <m>x_1x_2 \cdots x_n</m>, we get the picture of the tree we started with. If the tree is a two vertex tree this statement is trivial, and if the tree has three vertices, this is straightforward to prove.
-                      Thus we proceed by induction. We assume that <m>n > 3</m> and when applied to a tree with the <m>(n-1)</m>-element vertex set <m>i_1, i_2, \dots, i_{n-1}</m>, the bijection of <xref ref="prufer-props" /> carries the tree to a sequence whose monomial multiplied by <m>x_{i_1} x_{i_2}\cdots x_{i_{n-1}}</m> is the picture of the tree. Then, given a tree on <m>n</m> vertices, our bijection has us remove the lowest numbered vertex of degree one to give a tree on <m>n</m> vertices. Assuming that the edge removed is <m>x_ix_j</m>, the picture of the tree on <m>n</m> vertices is <m>x_ix_j</m> times the picture of the resulting tree. But by our inductive hypothesis, the picture of the <m>(n - 1)</m>-vertex tree is the picture provided by the monomial of the list which the bijection gives us and therefore the monomial that the list gives us for the <m>n</m>-vertex tree is also the picture of that tree.
-                      Therefore, by the principle of mathematical induction, the monomial given by the Prüfer bijection is the picture of the tree. Therefore, the picture enumerator for trees on <m>n</m> vertices is <m>x_1x_2 \cdots x_n(x_1 + x_2 + \cdots + x_n )^{n-2}</m>.
-                  </p>
-              </solution>
-          </task>
-          <task>
-              <statement>
-                  <p>
-                      The enumerator for trees by degree sequence is the sum over all trees of <m>x^{d_1}x^{d_2} \cdots x^{d_n}</m>, where <m>d_i</m> is the degree of vertex <m>i</m>. What is the enumerator by degree sequence for trees on the vertex set <m>[n]</m>?
-                  </p>
-              </statement>
-              <solution>
-                  <p>
-                      <m>x_1x_2 \cdots x_n(x_1+x_2+\cdots +x_n)^{n-2}</m>, because the number of times <m>x_i</m> appears in the picture of a tree is the degree of vertex <m>i</m>.
-                  </p>
-              </solution>
-          </task>
-      </activity>
+    
   </subsection>
 
   <subsection>
@@ -846,7 +762,7 @@ enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is 
 
     <activity xml:id="secondorderintroduction" category="essential">
       <statement>
-        <p>Suppose we start (at the end of month 0) with 10 pairs of baby rabbits, and that after baby rabbits mature for one month they begin to reproduce, with each pair producing two new pairs at the end of each month afterwards. Suppose further that over the time we observe the rabbits, none die. Let <m>a_n</m> be the number of rabbits we have at the end of month <m>n</m>. Show that <m>a_n=a_{n-1} + 2a_{n-2}</m>. This is an example of a <term>second order</term><idx><h>recurrence</h><h>second order</h></idx><idx><h>second order recurrence</h></idx> <em>linear</em><idx><h>recurrence</h><h>linear</h></idx><idx><h>linear recurrence</h><h>second order</h></idx> recurrence with constant coefficients.<idx><h>recurrence</h><h>constant coefficient</h></idx> Using a method similar to that of <xref ref="substituteandsolve">Problem</xref>, show that
+        <p>Suppose we start (at the end of month 0) with 10 pairs of baby rabbits, and that after baby rabbits mature for one month they begin to reproduce, with each pair producing two new pairs at the end of each month afterwards. Suppose further that over the time we observe the rabbits, none die. Let <m>a_n</m> be the number of rabbits we have at the end of month <m>n</m>. Show that <m>a_n=a_{n-1} + 2a_{n-2}</m>. This is an example of a <term>second order</term><idx><h>recurrence</h><h>second order</h></idx><idx><h>second order recurrence</h></idx> <em>linear</em><idx><h>recurrence</h><h>linear</h></idx><idx><h>linear recurrence</h><h>second order</h></idx> recurrence with constant coefficients.<idx><h>recurrence</h><h>constant coefficient</h></idx> Using a method similar to that of <xref ref="substituteandsolve"/>, show that
           <me>
             \sum_{i=0}^\infty a_ix^i = \frac{10}{1-x-2x^2}.
           </me>
@@ -874,7 +790,7 @@ enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is 
 
     <activity xml:id="originalFibonacci" category="essential">
       <statement>
-        <p>In Fibonacci's original problem, each pair of mature rabbits produces one new pair at the end of each month, but otherwise the situation is the same as in <xref ref="secondorderintroduction">Problem</xref>.  Assuming that we start with one pair of baby rabbits (at the end of month 0), find the generating function for the number of pairs of rabbits we have at the end on <m>n</m> months.
+        <p>In Fibonacci's original problem, each pair of mature rabbits produces one new pair at the end of each month, but otherwise the situation is the same as in <xref ref="secondorderintroduction"/>.  Assuming that we start with one pair of baby rabbits (at the end of month 0), find the generating function for the number of pairs of rabbits we have at the end on <m>n</m> months.
         </p>
       </statement>
       <hint>
@@ -885,7 +801,7 @@ enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is 
       <solution>
         <p>
           Our recurrence becomes <m>a_n=a_{n-1}+a_{n-2}</m>, and following the
-          pattern of <xref ref="secondorderintroduction">Problem</xref> we get
+          pattern of <xref ref="secondorderintroduction"/> we get
           <md>
             <mrow>\sum_{n=2}^\infty a_nx^n \amp= \sum_{n=2}^\infty a_{n-1}x^n +
             \sum_{n=2}^\infty a_{n-2}x^n</mrow>
@@ -953,7 +869,7 @@ enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is 
     <activity xml:id="partialfractionsintro" category="motivation">
       <statement>
         <p>
-          In <xref ref="simplifysumoffractions">Problem</xref> you see that when we added numerical multiples of the reciprocals of first degree polynomials we got a fraction in which the denominator is a quadratic polynomial. This will always happen unless the two denominators are multiples of each other, because their least common multiple will simply be their product, a quadratic polynomial. This leads us to ask whether a fraction whose denominator is a quadratic polynomial can always be expressed as a sum of fractions whose denominators are first degree polynomials. Find numbers <m>c</m> and <m>d</m> so that
+          In <xref ref="simplifysumoffractions"/> you see that when we added numerical multiples of the reciprocals of first degree polynomials we got a fraction in which the denominator is a quadratic polynomial. This will always happen unless the two denominators are multiples of each other, because their least common multiple will simply be their product, a quadratic polynomial. This leads us to ask whether a fraction whose denominator is a quadratic polynomial can always be expressed as a sum of fractions whose denominators are first degree polynomials. Find numbers <m>c</m> and <m>d</m> so that
           <me>
             \frac{5x+1}{(x-3)(x+5)} = \frac{c}{x-3} + \frac{d}{x+5}.
           </me>
@@ -989,7 +905,7 @@ enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is 
 
     <activity xml:id="partialfractions1" category="essential">
       <statement>
-        <p>In <xref ref="partialfractionsintro">Problem</xref> you may have simply guessed at values of <m>c</m> and <m>d</m>, or you may have solved a system of equations in the two unknowns <m>c</m> and <m>d</m>. Given constants <m>a</m>, <m>b</m>, <m>r_1</m>, and <m>r_2</m> (with <m>r_1\not= r_2</m>), write down a system of equations we can solve for <m>c</m> and <m>d</m> to write
+        <p>In <xref ref="partialfractionsintro"/> you may have simply guessed at values of <m>c</m> and <m>d</m>, or you may have solved a system of equations in the two unknowns <m>c</m> and <m>d</m>. Given constants <m>a</m>, <m>b</m>, <m>r_1</m>, and <m>r_2</m> (with <m>r_1\not= r_2</m>), write down a system of equations we can solve for <m>c</m> and <m>d</m> to write
           <me>
             \frac{ax+b}{(x-r_1)(x-r_2)} = \frac{c}{x-r_1} + \frac{d}{x-r_2}
           </me>.
@@ -1018,12 +934,12 @@ enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is 
       </solution>
     </activity>
 
-    <p>Writing down the equations in <xref ref="partialfractions1">Problem</xref> and solving them is called the <term>method of partial fractions</term>.<idx><h>partial fractions</h><h>method of</h></idx> This method will let you find power series expansions for generating functions of the type you found in <xref ref="secondorderintroduction">Problems</xref> to <xref ref="secondordernonhomo"></xref>. However you have to be able to factor the quadratic polynomials that are in the denominators of your generating functions.
+    <p>Writing down the equations in <xref ref="partialfractions1"/> and solving them is called the <term>method of partial fractions</term>.<idx><h>partial fractions</h><h>method of</h></idx> This method will let you find power series expansions for generating functions of the type you found in <xref ref="secondorderintroduction">Problems</xref> to <xref ref="secondordernonhomo"></xref>. However you have to be able to factor the quadratic polynomials that are in the denominators of your generating functions.
     </p>
 
     <activity category="essential">
       <statement>
-        <p>Use the method of partial fractions to convert the generating function of <xref ref="secondorderintroduction">Problem</xref> into the form
+        <p>Use the method of partial fractions to convert the generating function of <xref ref="secondorderintroduction"/> into the form
           <me>
             \frac{c}{x-r_1} + \frac{d}{x-r_2}
           </me>.
@@ -1061,7 +977,7 @@ enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is 
     <activity xml:id="fractionFibonacci" category="essential">
       <statement>
         <p>
-          Use the factors you found in <xref ref="factorFibonacci">Problem</xref> to
+          Use the factors you found in <xref ref="factorFibonacci"/> to
           write
           <me>
             \frac{1}{x^2+x-1}
@@ -1094,7 +1010,7 @@ enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is 
     <activity xml:id="solveFibonacci" category="essential">
       <task>
         <statement>
-          <p>Use the partial fractions decomposition you found in <xref ref="factorFibonacci">Problem</xref> to write the generating function you found in <xref ref="originalFibonacci">Problem</xref> in the form
+          <p>Use the partial fractions decomposition you found in <xref ref="factorFibonacci"/> to write the generating function you found in <xref ref="originalFibonacci"/> in the form
             <me>
               \sum_{n=0}^\infty a_nx^i
             </me>
@@ -1102,7 +1018,7 @@ enumerator  <m>\sum_{T \colon T\text{ is a tree on }[n]} P (T)</m>. Prove it is 
           </p>
         </statement>
         <hint>
-            <p>Once again it will save a lot of tedious algebra if you use the symbols <m>r_1</m> and <m>r_2</m> for the solutions as in <xref ref="fractionFibonacci">Problem</xref> and substitute the actual values of the solutions once you have a formula for <m>a_n</m> in terms of <m>r_1</m> and <m>r_2</m>.
+            <p>Once again it will save a lot of tedious algebra if you use the symbols <m>r_1</m> and <m>r_2</m> for the solutions as in <xref ref="fractionFibonacci"/> and substitute the actual values of the solutions once you have a formula for <m>a_n</m> in terms of <m>r_1</m> and <m>r_2</m>.
             </p>
         </hint>
         <solution>

@@ -251,7 +251,7 @@
             <m>n</m> blocks. The number of partitions of <m>[k]</m> into
             <m>n</m> blocks in which <m>k</m> is in a block by itself is the
             number of partitions of <m>[k]</m> into <m>n-1</m> blocks, because
-            you can get any such partition in by deleting the block containing
+            you can get any such partition by deleting the block containing
             <m>k</m> from a partition of <m>[k]</m> in which <m>k</m> is in a
             block by itself. Thus <m>S(k,n) = S(k-1,n-1) + nS(k-1,n)</m>.
           </p>
@@ -262,7 +262,7 @@
     <activity category="interesting">
       <statement>
         <p>
-          Find a recurrence for the Lah numbers <m>L(k,n)</m> similar to the one in <xref ref="secondstirlingrecurrence">Problem</xref>.
+          Find a recurrence for the Lah numbers <m>L(k,n)</m> similar to the one in <xref ref="secondstirlingrecurrence"/>.
         </p>
       </statement>
       <hint>
@@ -355,7 +355,7 @@
         <activity category="motivation">
           <statement>
             <p>
-              In how many ways can the sandwiches of <xref ref="sandwiches">Problem</xref> be placed into three distinct bags so that each bag gets at least one?
+              In how many ways can the sandwiches of <xref ref="sandwiches"/> be placed into three distinct bags so that each bag gets at least one?
             </p>
           </statement>
           <solution>
@@ -472,7 +472,6 @@
 
 <subsection>
   <title>Partitions of Integers</title>
-  <introduction>
     <p>
       In <xref ref="compositionagian"/>, we counted the <em>compositions</em> of an integer <m>n</m>, by counting the number of solutions to the equation <m>x_1 + x_2 + \cdots + x_k = n</m> where each <m>x_i</m> is a positive integer.  Put another way, we asked how many <em>lists</em> of <m>k</m> positive integers have sum <m>n</m>.  The order in which we listed the sum mattered.  What if it didn't?
     </p>
@@ -495,10 +494,8 @@
         </p>
       </solution>
     </activity>
-  </introduction>
 
-  <subsubsection>
-    <title>The number of partitions of <m>k</m> into <m>n</m> parts</title>
+
     <p>
       A <term>partition of the integer <m>k</m> into <m>n</m> parts</term><idx><h>partition of an integer</h><h>into <m>n</m> parts</h></idx> is a multiset of <m>n</m> positive integers that add to <m>k</m>. We use <m>p_n(k)</m> to denote the number of partitions of <m>k</m> into <m>n</m> parts. Thus <m>p_n(k)</m> is the number of ways to distribute <m>k</m> identical objects to <m>n</m> identical recipients so that each gets at least one.
     </p>
@@ -517,10 +514,8 @@
         </p>
       </solution>
     </activity>
-  </subsubsection>
 
-  <subsubsection>
-    <title>Representations of partitions</title>
+
     <activity category="motivation">
         <statement>
           <p>
@@ -550,6 +545,25 @@
           </p>
         </solution>
     </activity>
+    
+    <activity>
+      <statement>
+        <p>
+          Show that <m>p_n(k)</m> is at least <m>\frac{1}{n!}\binom{k-1}{n-1}</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          How many compositions are there of <m>k</m> into n parts? What is the maximum number of compositions that could correspond to a given partition of <m>k</m> into <m>n</m> parts?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The number of compositions of <m>k</m> into <m>n</m> parts is <m>\binom{k-1}{n-1}</m>. We can divide the compositions into blocks, where two compositions are in the same block if and only if one is a rearrangement of the other. Then the blocks correspond bijectively to partitions of <m>k</m> into <m>n</m> parts. However we cannot compute the number of blocks by dividing by the number of compositions per block since the number of compositions per block ranges from <m>1</m> to <m>n!</m>.  But then if we divide the number of compositions by <m>n!</m> we will get a number less than the number of blocks because <m>n!</m> times the number of blocks would be, by the sum principle, greater than the number of partitions.
+        </p>
+      </solution>
+  </activity>
+
 
     <activity category="motivation">
         <statement>
@@ -569,13 +583,12 @@
     <activity>
         <statement>
           <p>
-            How does the number of partitions of <m>k</m> relate to the number of
-            partitions of <m>k+1</m> whose smallest part is one?
+            How does the number of partitions of <m>k</m> relate to the number of partitions of <m>k+1</m> whose smallest part is one?
           </p>
         </statement>
         <hint>
           <p>
-        How can you start with a partition of k and make it into a new partition of <m>k+1</m> that is guaranteed to have a part of size one, even if the original partition didn't?
+        How can you start with a partition of <m>k</m> and make it into a new partition of <m>k+1</m> that is guaranteed to have a part of size one, even if the original partition didn't?
           </p>
         </hint>
         <solution>
@@ -592,10 +605,8 @@
     <p>
       When we write a partition as <m>\lambda = \lambda_1,\lambda_2,\ldots,\lambda_n</m>, it is customary to write the list of <m>\lambda_i</m>s as a decreasing list. When we have a type vector <m>(t_1,t_2,\ldots,t_m)</m> for a partition, we write either <m>\lambda = 1^{t_1}2^{t_2}\cdots m^{t_m}</m> or <m>\lambda = m^{t_m}(m-1)^{t_{m-1}}\cdots 2^{t_2}1^{t_1}</m>. Henceforth we will use the second of these. When we write <m>\lambda=\lambda_1^{i_1}\lambda_2^{i_2}\cdots\lambda_n^{i_n}</m>, we will assume that <m>\lambda_i>\lambda_i+1</m>.
     </p>
-  </subsubsection>
 
-  <subsubsection>
-    <title>Ferrers and Young Diagrams and the conjugate of a partition</title>
+
     <p>
       The decreasing list representation of partitions leads us to a handy way to visualize partitions. Given a decreasing list <m>(\lambda_1,\lambda_2,\ldots \lambda_n)</m>, we draw a figure made up of rows of dots that has <m>\lambda_1</m> equally spaced dots in the first row, <m>\lambda_2</m> equally spaced dots in the second row, starting out right below the beginning of the first row and so on. Equivalently, instead of dots, we may use identical squares, drawn so that a square touches each one to its immediate right or immediately below it along an edge. See <xref ref="FerrersYoung">Figure</xref> for examples.<idx><h>Ferrers diagram</h></idx><idx><h>Young diagram</h></idx><idx><h>partition of an integer</h><h>Ferrers diagram</h></idx><idx><h>partition of an integer</h><h>Young diagram</h></idx><idx><h>diagram</h><h>of a partition!Ferrers</h></idx><idx><h>diagram</h><h>of a partition!Young</h></idx> The figure we draw with dots is called the <term>Ferrers diagram</term> of the partition; sometimes the figure with squares is also called a Ferrers diagram; sometimes it is called a <term>Young diagram</term>. At this stage it is irrelevant which name we choose and which kind of figure we draw; in more advanced work the squares are handy because we can put things like numbers or variables into them.  From now on we will use squares and call the diagrams Young diagrams.
     </p>
@@ -607,378 +618,19 @@
       <image width="45%" source="images/FerrersYoung" />
     </figure>
 
-    <activity category="essential">
+    <activity>
       <statement>
         <p>
-          Draw the Young diagram of the partition (4,4,3,1,1). Describe the geometric relationship between the Young diagram of (5,3,3,2) and the Young diagram of (4,4,3,1,1).
+          Just for practice, draw all the Young diagrams for the partitions of 4 and 5.
         </p>
       </statement>
-      <hint>
-        <p>
-          Draw a line through the top-left corner and bottom-right corner of the topleft box.
-        </p>
-      </hint>
-      <solution>
-          <sidebyside width="16%">
-              <image source="images/Young44311" />
-          </sidebyside>
-        <p> We get the Young diagram of <m>(5,3,3,2)</m> by flipping the Young diagram of <m>(4,4,3,1,1)</m> around a line that includes the diagonal of the upper left box; if we think of the top left corner of the diagram as being at the origin, we flip around the line <m>y=-x</m>.
-        </p>
-      </solution>
     </activity>
 
-    <activity category="essential">
-      <statement>
-        <p>
-          The partition <m>(\lambda_1,\lambda_2,\ldots, \lambda_n)</m> is called the <term>conjugate</term><idx><h>conjugate of an integer partition</h></idx><idx><h>partition of an integer</h><h>conjugate of</h></idx> of the partition <m>(\gamma_1,\gamma_2,\ldots, \gamma_m)</m> if we obtain the Young diagram of one from the Young diagram of the other by flipping one around the line with slope -1 that extends the diagonal of the top left square. See <xref ref="conjugateYoung">Figure</xref> for an example.
-        </p>
 
-        <figure xml:id="conjugateYoung" >
-          <caption>The Ferrers
-          diagram the partition
-          (5,3,3,2) and its conjugate.</caption>
-          <image width="50%" source="images/conjugateYoung" />
-        </figure>
-
-        <p>
-          What is the conjugate of
-          (4,4,3,1,1)? How is the largest part of a partition related to the
-          number of parts of its conjugate? What does this tell you about the
-          number of partitions of a positive integer <m>k</m> with largest part <m>m</m>?
-        </p>
-      </statement>
-      <hint>
-        <p>
-          The largest part of a partition is the maximum number of boxes in a row of its Young diagram. What does the maximum number of boxes in a column tell us?
-        </p>
-      </hint>
-      <solution>
-        <p>
-          <m>(5,3,3,2)</m>. The largest part of a partition equals the
-          number of parts of its conjugate. The number of partitions of <m>k</m>
-          with largest part <m>m</m> equals the number of partitions of <m>k</m> with <m>m</m>
-          parts.
-        </p>
-      </solution>
-    </activity>
-
-    <activity category="interesting">
-        <statement>
-          <p>
-            A partition is called <term>self-conjugate</term><idx><h>self-conjugate
-            partition</h></idx><idx><h>partition of an integer</h><h>self conjugate</h></idx> if it is equal
-            to its conjugate. Find a relationship between the number of
-            self-conjugate partitions of <m>k</m> and the number of partitions of <m>k</m> into
-            distinct odd parts.
-          </p>
-        </statement>
-        <hint>
-          <p>
-            Draw all self conjugate partitions of integers less than or equal to 8.  Draw all partitions of integers less than or equal to 8 into distinct odd parts (many of these will have just one part). Now try to see how to get from one set of drawings to the other in a consistent way.
-          </p>
-        </hint>
-        <solution>
-          <p>
-            The number of self-conjugate partitons of <m>k</m> equals the
-            number of partitions of <m>k</m> with distinct odd parts. Here is a
-            geometric description of a bijection from self conjugate partitions of
-            <m>k</m> to partitions into distinct odd parts.
-          </p>
-          <figure xml:id="selfconjugate-to-distinctodd">
-              <caption>Transforming a self-conjugate partition</caption>
-              <image width="60%" source="images/selfconjugate" />
-          </figure>
-            <p>Take the top row and left
-            column of squares of the Young diagram, and make them into one row in a
-            new diagram. (Only include the square that is in both the row and column
-            once.) Now take the remaining squares in the next row and column and make
-            a new row of the Young diagram of the second partition with them.
-            Continue this process with succeeding rows and columns, not using any
-            squares you have already used. Because the first partition is self
-            conjugate, the diagram has the same number of rows as columns and row
-            <m>i</m> and column
-            <m>i</m> have the same length. Because row <m>i</m> and column <m>i</m> share one
-            square, and we only use that square once when we create a new row, each row
-            we create has odd length. Thus we get a partition with the same number of
-            squares, so it is a partition of <m>k</m> and each part is odd. The parts are
-            distinct because when we take off the squares of a row and column, we
-            reduce the number of squares in each row and column that remains. Given
-            a partition of <m>k</m> into distinct odd parts, we use the fact that each
-            row has a unique middle element, and each is shorter than the one
-            above (by at least two squares) to reverse the process. Thus we have a
-            bijection.
-          </p>
-        </solution>
-      </activity>
-
-      <activity xml:id="partition-even-mult-even-use">
-        <statement>
-          <p>
-            Explain the relationship between the number of partitions of <m>k</m>
-            into even parts and the number of partitions of <m>k</m> into parts of even
-            multiplicity, i.e. parts which are each used an even number of times as
-            in (3,3,3,3,2,2,1,1).
-          </p>
-        </statement>
-        <hint>
-          <p>
-            Draw the partitions of six into even parts. Draw the partitions of six into parts used an even number of times. Look for a relationship between one set of diagrams and the other set of diagrams. If you have trouble, repeat the process using 8 or even 10 in place of 6.
-          </p>
-        </hint>
-        <solution>
-          <p>
-            The number of partitions of <m>k</m> into even parts equals the
-            number of partitions of parts of even multiplicity, because if we take
-            the Young diagram of a partition of <m>k</m> into even parts and conjugate
-            it, the resulting diagram has columns of even length. Thus the
-            difference in heights of two successive columns is an even number,
-            but this difference is the multiplicity of one of the parts of the
-            conjugate. Further the height of the last column of a partition is
-            the multiplicity of the first part. Since the multiplicity of any part
-            of a partition is either the difference in height of two successive
-            columns of the Young diagram or the height of the last column, then
-            each part of the conjugate has even multiplicity. This bijection can
-            be reversed, because if all the differences in height of the columns are
-            even and the height of the last column is even, then when we
-            conjugate this partition, the last row will be an even length, and
-            all differences in length of the rows will be even, so all the parts
-            of the resulting partition will be even.
-          </p>
-        </solution>
-    </activity>
-
-    <activity xml:id="rectanglecomplement" category="interesting">
-        <statement>
-          <p>
-            Show that the number of partitions of <m>k</m> into <m>4</m> parts equals the number of partitions of <m>3k</m> (or <m>3k+4</m> or <m>3k-4</m>) into <m>4</m> parts.
-          </p>
-        </statement>
-        <hint>
-          <p>
-        Draw a partition of ten into 4 parts. Assume each square has area one. Then draw a rectangle of area 40 enclosing your diagram that touches the top of your diagram, the left side of your diagram and the bottom of your diagram. How does this rectangle give you a partition of 30 into four parts?
-          </p>
-        </hint>
-
-        <solution>
-          <p>
-            Think about putting the Young diagram of the partition into
-            the upper left corner of a rectangle that is <m>k</m> units wide and four
-            units high. Subdivide the rectangle into <m>4k</m> squares of unit area.
-            The Young diagram covers <m>k</m> of these squares. The uncovered squares
-            are in rows of length <m>r_1\le r_2\le r_3\le r_4</m>. Thus if we list
-            these lengths in the opposite order, we have a decreasing list
-            representation of a partition of <m>3k</m>. Even <m>r_1</m> will have to be
-            positive, because the first part of the original partition will be at
-            most <m>k-3</m>. To get partitions of <m>3k+4</m>, use a rectangle of width
-            <m>k+1</m>, and to get partitions of <m>3k-4</m>, use a rectangle of width
-            <m>k-1</m>. Since the first row of the Young diagram has at most <m>k-3</m>
-            squares, we will still have four nonzero parts in the partition that
-            results.
-          </p>
-        </solution>
-      </activity>
-
-      <activity>
-          <introduction>
-              <p>
-            The idea of conjugation of a partition could be defined without the geometric interpretation of a Young diagram, but it would seem far less natural without the geometric interpretation. Another idea that seems much more natural in a geometric context is this. Suppose we have a partition of <m>k</m> into <m>n</m> parts with largest part <m>m</m>. Then the Young diagram of the partition can fit into a rectangle that is <m>m</m> or more units wide (horizontally) and <m>n</m> or more units deep. Suppose we place the Young diagram of our partition in the top left-hand corner of an <m>m'</m> unit wide and <m>n'</m> unit deep rectangle with <m>m'\ge m</m> and <m>n' \ge n</m>, as in <xref ref="complementpartition" />.
-          </p>
-          <figure xml:id="complementpartition" >
-            <caption>To complement the partition <m>(5,3,3,2)</m> in a 6 by 5 rectangle: enclose it in the rectangle, rotate, and cut out the original Young diagram.</caption>
-            <image width="70%" source="images/complementpartition" />
-          </figure>
-          </introduction>
-
-          <task>
-            <statement>
-              <p>
-                Why can we interpret the part of the rectangle not occupied by our Young diagram, rotated in the plane, as the Young diagram of another partition? This is called the <term>complement</term><idx><h>complement of a partition</h></idx> of our partition in the rectangle.
-              </p>
-            </statement>
-            <solution>
-              <p>
-                If we fill the rectangle with unit squares, those not in the Young diagram of the original partition <m>\lambda</m> will fall into rows.  The lengths of the rows are nonnegative, and are nondecreasing as we move down. Therefore, after we rotate through 180 degrees, these same rows will be listed in the opposite order, lined up along the left sides, and will have nonincreasing length. Thus they will be the Young diagram of a partition.
-              </p>
-            </solution>
-          </task>
-
-          <task>
-            <statement>
-              <p>
-                What integer is being partitioned by the complement?
-              </p>
-            </statement>
-            <solution>
-              <p>
-                The integer being partitioned will be <m>m'n'-k</m>.
-              </p>
-            </solution>
-          </task>
-
-          <task>
-            <statement>
-              <p>
-                What conditions on <m>m'</m> and <m>n'</m> guarantee that the complement has the same number of parts as the original one?
-              </p>
-            </statement>
-            <hint>
-              <p>
-            Consider two cases, <m>m' \gt m</m> and <m>m' = m</m>.
-              </p>
-            </hint>
-            <solution>
-              <p>
-                If <m>m'>m</m> and <m>n'=n</m>. the two partitions will have the same number of parts, because we will have a nonzero number of empty squares at the end of each row of the Young diagram of <m>\lambda</m>. If <m>m'=m</m> and <m>n'-n</m> is the multiplicity of the largest part of <m>\lambda</m>, they will have the same number of parts. Otherwise, their numbers of parts will differ.
-              </p>
-            </solution>
-          </task>
-
-          <task>
-            <statement>
-              <p>
-                What conditions on <m>m'</m> and <m>n'</m> guarantee that the complement has the same largest part as the original one?
-              </p>
-            </statement>
-            <hint>
-              <p>
-                Consider two cases, <m>n' \gt n</m> and <m>n' = n</m>.
-              </p>
-            </hint>
-            <solution>
-              <p>
-                If <m>n'\gt n</m> and <m>m=m'</m>, then the two partitions will have the same largest part. If <m>n'=n</m> and <m>m'-m</m> is the smallest part of <m>\lambda</m>, then they will have the same largest part. Otherwise, their largest parts will differ.
-              </p>
-            </solution>
-          </task>
-
-          <task>
-            <statement>
-              <p>
-                Is it possible for the complement to have both the same number of parts and the same largest part as the original one?
-              </p>
-            </statement>
-            <solution>
-              <p>
-                For the two partitions to have the same number of parts, either <m>m'=m</m> or <m>n'=n</m>. If <m>m'=m</m> and they have the same largest part, then <m>n'>n</m>. But this is consistent with <m>n'-n</m> being the multiplicity of the largest part of <m>\lambda</m>. Thus they can have the same number of parts and the same largest part if <m>m'=m</m> and <m>n'-n</m> is the multiplicity of the largest part of <m>\lambda</m>, or similarly if <m>n=n'</m> and <m>m'-m</m> is the smallest part of <m>\lambda</m>.
-              </p>
-            </solution>
-          </task>
-
-          <task>
-            <statement>
-              <p>
-                If we complement a partition in an <m>m'</m> by <m>n'</m> box and then complement that partition in an <m>m'</m> by <m>n'</m> box again, do we get the same partition that we started with?
-              </p>
-            </statement>
-            <solution>
-              <p>
-                If we complement a partition in an <m>m'</m> by <m>n'</m> box and then complement that partition in <em>the same rectangle</em>, then we get the original partition back.
-              </p>
-            </solution>
-          </task>
-    </activity>
-
-    <activity category="interesting">
-        <statement>
-          <p>
-            Suppose we take a partition of <m>k</m> into <m>n</m> parts with largest part <m>m</m>, complement it in the smallest rectangle it will fit into, complement the result in the smallest rectangle it will fit into, and continue the process until we get the partition 1 of one into one part.  What can you say about the partition with which we started?
-          </p>
-        </statement>
-        <hint>
-          <p>
-            Suppose we take two repetitions of this complementation process. What rows and columns do we remove from the diagram?
-          </p>
-        </hint>
-        <hint>
-          <p>
-        To deal with an odd number of repetitions of the complementation
-        process, think of it as an even number plus 1. Thus ask what kind of
-        partition gives us the partition of one into one part after this
-        complementation process.
-          </p>
-        </hint>
-        <solution>
-          <p>
-            Let us call the process of enclosing <m>\lambda</m> in the smallest rectangle possible and then forming the complement in that rectangle <term>encomplementation</term> (This is short for <em>en</em>\/closure and <em>complementation</em> and is not a standard term<mdash />there is no standard term for this operation.) and call the result of it the <term>encomplement</term><idx><h>encomplement of a partition</h></idx> of <m>\lambda</m>.  The result of two encomplementations on the Young diagram of a partition is to remove all rows of maximum length and all columns of maximum length from the Young diagram. Thus the description of the result of an even number <m>2j</m> of encomplementations is straightforward; we remove all the rows of the <m>j</m> largest distinct lengths and all columns of the <m>j</m> largest distinct lengths. So if an even number of encomplementations brings us to a partition with one block of size one, we should be able to describe the original partition fairly easily. To deal with the result of an odd number of encomplementations, we ask what happens if we encomplement just once.  If the complement of <m>\lambda</m> in the smallest rectangle in which if fits has one square, then <m>\lambda =\lambda_1^{n_1}\lambda_1-1</m>. Thus we are asking for the partitions which, after an even number of encomplementations, give us either the partition with one block or a partition of the form <m>\lambda_1^{n_1}(\lambda_1-1)</m>. First we ask what kind of partition results in the second one after two encomplementations. If we get <m>\lambda_1^{n_1}(\lambda_1-1)</m> from two encomplementations, the partition we started with had the form
-            <me>
-              \lambda_0^{n_0}(\lambda_1+\lambda_{2})^{n_1}(\lambda_1+
-              \lambda_2-1)\lambda_2^{n_2}.
-            </me>
-          </p>
-
-          <p>
-            If we get <m>\lambda_1^{n_1}(\lambda_1-1)</m> from four encomplementations, then we started with a partition of the form
-            <me>
-              \lambda_{-1}^{n_{-1}}(\lambda_0+\lambda_{3})^{n_0}(\lambda_1+
-              \lambda_2 +
-              \lambda_{3})^{n_1}(\lambda_1+\lambda_2 +\lambda_3-1)(\lambda_2+
-              \lambda_{3})^{n_3}
-              \lambda_3^{n_3}.
-            </me>
-          </p>
-
-          <p>
-            From this pattern we see that a partition that results in <m>\lambda_1^{n_1}(\lambda_1-1)</m> after <m>2j</m> encomplementations has the form
-            <men xml:id="form1" >
-              \lambda_{1-j}^{n_{1-j}}\lambda_{2-j}^{n_{2-j}}\cdots
-              \lambda_0^{n_0}
-              {\lambda'_1}^{n_1}
-              (\lambda'_1-1)\lambda_2^{n_2}\cdots
-              \lambda_{j+1}^{n_{j+1}},
-            </men>
-            where <m>\lambda_i>\lambda_{i+1}</m> and <m>\lambda_0>\lambda'_1>\lambda_2+1</m>.
-          </p>
-
-          <p>
-            On the other hand, a partition <m>\lambda</m> that results in <m>1</m> after two encomplementations has the form <m>\lambda_0^{n_0}(\lambda_1+1)\lambda_1^{n_1}</m>, and so a partition that results in 1 after <m>j</m> encomplementations is of the form
-            <men xml:id="form2" >
-              \lambda_{1-j}^{n_{1-j}}\lambda_{2-j}^{n_{2-j}}\cdots
-              \lambda_0^{n_0}(\lambda_1+1)\lambda_1^{n_1}\lambda_2^{n_2}\cdots
-              \lambda_j^{n_j},
-            </men>
-            where <m>\lambda_i>\lambda_{i+1}</m> and <m>\lambda_0>\lambda_1+1</m>. Thus a partition results in a single part of size 1 after some number of encomplementations if and only if it has the form of <xref ref="form1">Equation</xref> or <xref ref="form2">Equation</xref>.
-          </p>
-        </solution>
-      </activity>
-      <activity>
-        <statement>
-          <p>
-            Show that <m>p_n(k)</m> is at least <m>\frac{1}{n!}\binom{k-1}{n-1}</m>.
-          </p>
-        </statement>
-        <hint>
-          <p>
-            How many compositions are there of <m>k</m> into n parts? What is the maximum number of compositions that could correspond to a given partition of <m>k</m> into <m>n</m> parts?
-          </p>
-        </hint>
-        <solution>
-          <p>
-            The number of compositions of <m>k</m> into <m>n</m> parts is <m>\binom{k-1}{n-1}</m>. We can divide the compositions into blocks, where two compositions are in the same block if and only if one is a rearrangement of the other. Then the blocks correspond bijectively to partitions of <m>k</m> into <m>n</m> parts. However we cannot compute the number of blocks by dividing by the number of compositions per block since the number of compositions per block ranges from <m>1</m> to <m>n!</m>.  But then if we divide the number of compositions by <m>n!</m> we will get a number less than the number of blocks because <m>n!</m> times the number of blocks would be, by the sum principle, greater than the number of partitions.
-          </p>
-        </solution>
-    </activity>
-
+  
     <p>
-      With the binomial coefficients, with Stirling numbers of the
-      second kind, and with the Lah numbers, we were able to find a
-      recurrence by asking what happens to our subset, partition, or broken
-      permutation of a set <m>S</m> of numbers if we remove the largest element of
-      <m>S</m>. Thus it is natural to look for a recurrence to count the number of
-      partitions of <m>k</m> into <m>n</m> parts by doing something similar.
-      Unfortunately, since we are counting distributions in which all the
-      objects are identical, there is no way for us to identify a largest
-      element. However if we think geometrically, we can ask what we could
-      remove from a Young diagram to get a Young diagram. Two natural ways to
-      get a partition of a smaller integer from a partition of
-      <m>n</m> would be to remove the top row of the Young diagram of the partition
-      and to remove the left column of the Young diagram of the partition.
-      These two operations correspond to removing the largest part from the
-      partition and to subtracting 1 from each part of the partition
-      respectively. Even though they are symmetric with respect to
-      conjugation, they aren't symmetric with respect to the number of parts.
-      Thus one might be much more useful than the other for finding a recurrence
-      for the number of partitions of
-      <m>k</m> into <m>n</m> parts.
+      With the binomial coefficients, with Stirling numbers of the second kind, and with the Lah numbers, we were able to find a recurrence by asking what happens to our subset, partition, or broken permutation of a set <m>S</m> of numbers if we remove the largest element of <m>S</m>. Thus it is natural to look for a recurrence to count the number of partitions of <m>k</m> into <m>n</m> parts by doing something similar. Unfortunately, since we are counting distributions in which all the objects are identical, there is no way for us to identify a largest element. However if we think geometrically, we can ask what we could remove from a Young diagram to get a Young diagram. 
+      Two natural ways to get a partition of a smaller integer from a partition of <m>n</m> would be to remove the top row of the Young diagram of the partition and to remove the left column of the Young diagram of the partition. These two operations correspond to removing the largest part from the partition and to subtracting 1 from each part of the partition respectively. Even though these have some sort of geometric symmetry, the two operations are not symmetric with respect to the number of parts. Thus one might be much more useful than the other for finding a recurrence for the number of partitions of <m>k</m> into <m>n</m> parts.
     </p>
 
     <activity xml:id="numberpartitionrecurrence" category="essential for this or the next section, and interesting">
@@ -1198,316 +850,9 @@
     </activity>
 
     <p>
-      It is remarkable that there is no known formula for <m>p_n(k)</m>, nor is there one for <m>p(k)</m>. This section was are devoted to developing methods for computing values of <m>p_n(k)</m> and finding properties of <m>p_n(k)</m> that we can prove even without knowing a formula. Some future sections will attempt to develop other methods.
+      It is remarkable that there is no known formula for <m>p_n(k)</m>, nor is there one for <m>p(k)</m>. We have seen some ways to compute values of <m>p_n(k)</m>.  In <xref ref="sec_adv-linearparts"/> we will see more methods to compute values and find properties of these numbers even without ever knowing a formula for them.
     </p>
 
-    <p>
-      We have seen that the number of partitions of <m>k</m> into <m>n</m> parts is equal to the number of ways to distribute <m>k</m> identical objects to <m>n</m> recipients so that each receives at least one. If we relax the condition that each recipient receives at least one, then we see that the number of distributions of <m>k</m> identical objects to <m>n</m> recipients is <m>\sum_{i=1}^n p_i(k)</m> because if some recipients receive nothing, it does not matter which recipients these are. This completes rows 7 and 8 of our table of distribution problems. The completed table is shown in <xref ref="lastdistributiontable" />. There are quite a few theorems that you have proved which are summarized by <xref ref="lastdistributiontable" />.  It would be worthwhile to try to write them all down!
-    </p>
-
-    <table xml:id="lastdistributiontable" >
-      <caption>The number of ways to distribute <m>k</m> objects to <m>n</m> recipients, with restrictions on how the objects are received</caption>
-      <tabular top="major" left="major" right="major" >
-        <col right="major"/>
-        <col halign="center" right="minor" />
-        <col halign="center"/>
-        <row bottom="major">
-            <cell colspan="3" halign="center">The Twentyfold Way: A Table of Distribution
-            Problems</cell>
-        </row>
-        <row>
-            <cell >
-                <line><m>k</m> objects and conditions</line>
-                <line>on how they are received</line>
-            </cell>
-            <cell colspan="2" halign="center" bottom="minor">
-                <line><m>n</m> recipients and mathematical</line>
-                <line>model for distribution</line>
-            </cell>
-        </row>
-        <row bottom="major">
-            <cell></cell>
-            <cell halign="center">Distinct</cell>
-            <cell halign="center">Identical</cell>
-        </row>
-        <row bottom="minor">
-            <cell>
-                <line>1.  Distinct</line>
-                <line>no conditions</line>
-            </cell>
-            <cell>
-                <line><m>n^k</m></line>
-                <line>functions</line>
-            </cell>
-            <cell>
-                <line><m>\sum_{i=1}^kS(n,i)</m></line>
-                <line>set partitions (<m>\le n</m> parts)</line>
-            </cell>
-        </row>
-        <row bottom="minor">
-            <cell>
-                <line>2.  Distinct</line>
-                <line>Each gets at most one</line>
-            </cell>
-            <cell>
-                <line><m>n^{\underline{k}}</m></line>
-                <line><m>k</m>-element</line>
-                <line>permutations</line>
-            </cell>
-            <cell>
-                <line>1 if <m>k\le n</m>;</line>
-                <line>0 otherwise</line>
-            </cell>
-        </row>
-        <row bottom="minor">
-            <cell>
-                <line>3.  Distinct</line>
-                <line>Each gets at least one</line>
-            </cell>
-            <cell>
-                <line><m>S(k,n)n!</m></line>
-                <line>onto functions</line>
-            </cell>
-            <cell>
-                <line><m>S(k,n)</m></line>
-                <line>set partitions (<m>n</m> parts)</line>
-            </cell>
-        </row>
-        <row bottom="minor">
-            <cell>
-                <line>4. Distinct</line>
-                <line>Each gets exactly one</line>
-            </cell>
-            <cell>
-                <line><m>k!=n!</m></line>
-                <line>permutations</line>
-            </cell>
-            <cell>
-                <line>1 if <m>k=n</m>;</line>
-                <line>0 otherwise</line>
-            </cell>
-        </row>
-        <row valign="top" bottom="minor">
-            <cell><line>5.  Distinct,</line><line> order matters</line></cell>
-            <cell>
-                <line><m>(k+n-1)^{\underline{k}}</m></line>
-                <line>ordered functions</line>
-            </cell>
-            <cell>
-                <line><m>\sum_{i=1}^n L(k,i)</m></line>
-                <line>broken permutations</line>
-                <line>(<m>\le n</m> parts)</line>
-            </cell>
-        </row>
-        <row valign="top" bottom="minor">
-            <cell>
-                <line>6.  Distinct,</line>
-                <line>order matters</line>
-                <line>Each gets at least one</line>
-            </cell>
-            <cell>
-                <line><m>(k)^{\underline{n}}(k-1)^{\underline{k-n}}</m></line>
-                <line>ordered</line>
-                <line>onto functions</line>
-            </cell>
-            <cell>
-                <line><m>L(k,n)= \binom{k}{n}(k-1)^{\underline{k-n}}</m></line>
-                <line>broken permutations</line>
-                <line>(<m>n</m> parts)</line>
-            </cell>
-        </row>
-        <row valign="top" bottom="minor">
-            <cell>
-                <line>7.  Identical</line>
-                <line>no conditions</line>
-            </cell>
-            <cell>
-                <line><m>\binom{n+k-1}{k}</m></line>
-                <line>multisets</line>
-            </cell>
-            <cell>
-                <line><m>\sum_{i=1}^np_i(k)</m></line>
-                <line>number partitions</line>
-                <line>(<m>\le n</m> parts)</line>
-            </cell>
-        </row>
-        <row bottom="minor" valign="top">
-            <cell>
-                <line>8.  Identical</line>
-                <line>Each gets at most one</line>
-            </cell>
-            <cell>
-                <line><m>\binom{n}{k}</m></line>
-                <line>subsets</line>
-            </cell>
-            <cell>
-                <line>1 if <m>k\le n</m>;</line>
-                <line>0 otherwise</line>
-            </cell>
-        </row>
-        <row bottom="minor" valign="top">
-            <cell>
-                <line>9.  Identical</line>
-                <line>Each gets at least one</line>
-            </cell>
-            <cell>
-                <line><m>\binom{k-1}{n-1}</m></line>
-                <line>compositions</line>
-                <line>(<m>n</m> parts)</line>
-            </cell>
-            <cell>
-                <line><m>p_n(k)</m></line>
-                <line>number partitions</line>
-                <line>(<m>n</m> parts)</line>
-            </cell>
-        </row>
-        <row bottom="major" valign="top">
-            <cell>
-                <line>10.  Identical</line>
-                <line>Each gets exactly one</line>
-            </cell>
-            <cell>
-                <line>1 if <m>k=n</m>;</line>
-                <line>0 otherwise</line>
-            </cell>
-            <cell>
-                <line>1 if <m>k=n</m>;</line>
-                <line>0 otherwise</line>
-            </cell>
-        </row>
-      </tabular>
-    </table>
-  </subsubsection>
-
-  <subsubsection>
-    <title>Partitions into distinct parts</title>
-    <p>Often <m>q_n(k)</m> is used to denote the number of partitions of <m>k</m> into distinct parts, that is, parts that are different from each other.
-    </p>
-
-    <activity>
-      <statement>
-        <p>
-          Show that
-          <me>
-            q_n(k) \le \frac{1}{n!}\binom{k-1}{n-1}.
-          </me>
-        </p>
-      </statement>
-      <hint>
-        <p>
-      How does the number of compositions of <m>k</m> into <m>n</m> distinct parts compare to the number of compositions of <m>k</m> into <m>n</m> parts (not necessarily distinct)?
-      What do compositions have to do with partitions?
-        </p>
-      </hint>
-      <solution>
-        <p>
-          The number of compositions of <m>k</m> into <m>n</m> parts is <m>\binom{k-1}{n-1}</m>. Thus the number of compositions of <m>k</m> into <m>n</m> distinct parts is less than <m>\binom{k-1}{n-1}</m>. Divide the compositions of <m>k</m> into <m>n</m> distinct parts into blocks with two compositions in the same block if one is a rearrangement of the other. Because the parts are distinct, each block has <m>n!</m> members. Further, there is a bijection between the blocks of this partition and the partitions of <m>k</m> into <m>n</m> distinct parts. Since the number of compositions of <m>k</m> into <m>n</m> distinct parts is less than <m>\binom{k-1}{n-1}</m>, the number of partitions of <m>k</m> into <m>n</m> distinct parts is less than <m>\frac{1}{n!}  \binom{k-1}{n-1}</m>.
-        </p>
-      </solution>
-    </activity>
-
-    <activity category="interesting">
-      <statement>
-        <p>
-          Show that the number of partitions of 7 into 3 parts equals the
-          number of partitions of 10 into three distinct parts.
-        </p>
-      </statement>
-      <hint>
-        <p>
-          While you could simply display partitions of 7 into three parts and partitions of 10 into three parts, we hope you won't. Perhaps you could write down the partitions of 4 into two parts and the partitions of 5 into two distinct parts and look for a natural bijection between them. So the hope is that you will discover a bijection from the set of partitions of 7 into three parts and the partitions of 10 into three distinct parts. It could help to draw the Young diagrams of partitions of 4 into two parts and the partitions of 5 into two distinct parts.
-        </p>
-      </hint>
-      <solution>
-        <p>
-          Given a partition <m>\lambda</m> of 7 in decreasing list form <m>\lambda_1,\lambda_2,\lambda_3</m>, if we add 0 to <m>\lambda_3</m>, <m>1</m> to <m>\lambda_2</m> and 2 to <m>\lambda_1</m> the resulting partition of 10 has distinct parts. If we take a partition <m>\lambda'</m> of 10 with distinct parts, then <m>\lambda'_1\ge\lambda'_2+1</m>, <m>\lambda'_1\ge\lambda'_2+2</m>, and <m>\lambda'_2\ge \lambda'_3+1</m>. Therefore if we subtract 2 from <m>\lambda'_1</m> to get <m>\lambda_1</m>, subtract 1 from <m>\lambda'_2</m> to get <m>\lambda_2</m> and let <m>\lambda_3= \lambda'_3</m>, then <m>\lambda_1,\lambda_2,\lambda_3</m> is the decreasing list representation of a partition of <m>10-3=7</m>. Thus there is a bijection between partitions of <m>7</m> into three parts and partitions of <m>10</m> into three distinct parts.
-        </p>
-      </solution>
-    </activity>
-
-    <activity category="essential for this or the next section, and interesting">
-      <statement>
-        <p>
-          There is a relationship between <m>p_n(k)</m> and <m>q_n(m)</m> for some other number <m>m</m>. Find the number <m>m</m> that gives you the nicest possible relationship.
-        </p>
-      </statement>
-      <hint>
-        <p>
-      In the case <m>k=4</m> and <m>n=2</m>, we have <m>m=5</m>. In the case <m>k = 7</m> and <m>n = 3</m>,
-      we have <m>m = 10</m>.
-        </p>
-      </hint>
-      <solution>
-        <p>
-          The number of partitions of <m>k</m> into <m>n</m> parts is equal to the number of partitions of <m>k+\binom{n}{2}</m> into n distinct parts.  The bijection from partitions of <m>k</m> with <m>n</m> parts to partitions of <m>k+\binom{n}{2}</m> with <m>n</m> distinct parts that proves this is the one that takes a partition <m>\lambda_n\lambda_{n-1}\cdots\lambda_1</m> of <m>k</m> with <m>\lambda_i>\lambda_{i+1}</m> and adds <m>i-1</m> to <m>\lambda_i</m> to get <m>\lambda'_i</m>. Then <m>\lambda'</m> is a partition into distinct parts, and the number it partitions is <m>k+1+2+\cdots+n-1=k+\binom{n}{2}</m>. The proof that it is a bijection is the fact that subtracting <m>n-i</m> from the <m>i</m>\/th part of a partition of <m>k</m> into distinct parts yields a partition of <m>k</m>, because part <m>i+j</m> is at least <m>j</m> smaller than part <m>i</m>.
-        </p>
-      </solution>
-    </activity>
-
-    <activity category="essential for this or the next section">
-      <statement>
-        <p>Find a recurrence that expresses <m>q_n(k)</m> as a sum of <m>q_m(k-n)</m> for appropriate values of <m>m</m>.
-        </p>
-      </statement>
-      <hint>
-        <p>
-          What can you do to a Young diagram for a partition of <m>k</m> into <m>n</m> distinct parts to get a Young diagram of a partition of <m>k-n</m> into some number of distinct parts?
-        </p>
-      </hint>
-      <solution>
-        <p>
-          Suppose <m>\lambda</m> is a partition of <m>k</m> into <m>n</m> distinct parts. Either 1 is one of those parts or not. Thus if we subtract 1 from each part, we either get a partition of <m>k-n</m> into <m>n-1</m> parts or a partition of <m>k-n</m> into <m>n</m> parts. If <m>\lambda</m> and <m>\lambda'</m> are different partitions of <m>k</m> into <m>n</m> distinct parts, they go to different partitions. Each partition of <m>k-n</m> into <m>n-1</m> parts or <m>n</m> parts can be gotten in this way from a corresponding partition of <m>k</m> into <m>n</m> parts. Thus we have a bijective correspondence and <m>q_n(k)=q_{n-1}(k-n) + q_{n}(k-n)</m>.
-        </p>
-      </solution>
-    </activity>
-
-    <activity category="interesting and difficult">
-      <statement>
-        <p>Show that the number of partitions of <m>k</m> into distinct parts equals the number of partitions of <m>k</m> into odd parts.
-        </p>
-      </statement>
-      <hint>
-        <p>
-          For any partition of <m>k</m> into parts <m>\lambda_1</m>, <m>\lambda_2</m>, etc. we can get a partition of <m>k</m> into odd parts by factoring the highest power of two that we can from each <m>\lambda_i</m>, writing <m>\lambda_i = \gamma_i\cdot 2^k_i</m>.  Why is <m>\gamma_i</m> odd? Now partition <m>k</m> into <m>2^{k_1}</m> parts of size <m>\gamma_1</m>, <m>2^{k_2}</m> parts of size <m>\gamma_2</m>, etc. and you have a partition of <m>k</m> into odd parts.
-        </p>
-      </hint>
-      <solution>
-        <p>We start by giving a function from the set of partitions of <m>k</m> to the set of partitions of <m>k</m> with (only) odd parts. Clearly such a function cannot be one to one. Then we show that when restricted to the partitions with distinct parts it is one-to-one and onto by constructing an inverse. Given a partition <m>\lambda_1^{i_1}\lambda_2^{i_2}\cdots\lambda_n^{i_n}</m>, write <m>\lambda_i=\gamma_i2^{k_i}</m>, where <m>\gamma_i</m> is odd. (Thus <m>2^{k_i}</m> is the highest power of 2 that is a factor of <m>\lambda_i</m>, so it is 1 if <m>\lambda_i</m> is odd.). It is possible that <m>\gamma_i=\gamma_j</m>, for example if <m>\lambda_i=36</m> and <m>\lambda_j=18</m>, then <m>\gamma_i=\gamma_j=9</m>. We construct a new partition <m>\pi</m> whose parts are the numbers <m>\gamma_j</m> as follows: Given an odd number <m>p</m>, let the multiplicity <m>m(p)</m> of <m>p</m> in <m>\pi</m> be <m>\sum_{j: \gamma_j=m} 2^{k_j}</m>. Thus <m>\sum_{p: m(p)\not=0}m(p)p = k</m>. Therefore, <m>\pi</m> is a partition of <m>k</m> whose parts are all odd.
-        </p>
-
-        <p>Now consider a partition <m>\pi</m> of <m>k</m> whose parts are all odd. Let <m>\pi=\pi_1^{r_1}\pi_2^{r_2}\cdots \pi_t^{r_t}</m>, with <m>\pi_i>\pi_{i+1}</m>. (In terms of the multiplicity function <m>m</m>, <m>m(\pi_i) =r_i</m>, and <m>\sum_{i=1}^t r_i\pi_i = k</m>.) We are going to write the binary expansion of each <m>r_i</m> as <m>r_i = \sum_{j= 0}^{\lfloor \log_2 r_i\rfloor} 2^{ja_{ij}}</m>, where <m>a_{ij}</m> is 1 if <m>2^j</m> appears in the binary expansion of <m>r_i</m>, and 0 otherwise. All of the numbers <m>\pi_i2^{ja_{ij}}</m> are distinct, because a power of two times one odd number cannot equal a power of two times another odd number. The numbers <m>\pi_i2^{ja_{ij}}</m> add to <m>k</m>, so they are the parts of a partition <m>\pi'</m> of <m>k</m> into distinct parts. When we apply the function constructed in the first part of the solution to <m>\pi'</m>, we get <m>\pi</m>, so the correspondence between <m>\pi</m> and <m>\pi'</m> is a bijection.
-        </p>
-      </solution>
-    </activity>
-
-    <activity category="interesting and difficult">
-      <statement>
-        <p>Euler showed that if <m>k\not= \frac{3j^2+j}{2}</m>, then the number of partitions of <m>k</m> into an even number of distinct parts is the same as the number of partitions of <m>k</m> into an odd number of distinct parts. Prove this, and in the exceptional case find out how the two numbers relate to each other.
-        </p>
-      </statement>
-      <hint>
-        <p>
-          Suppose we have a partition of <m>k</m> into distinct parts. If the smallest part, say <m>m</m>, is smaller than the number of parts, we may add one to each of the <m>m</m> largest parts and delete the smallest part, and we have changed the parity of the number of parts, but we still have distinct parts. On the other hand, suppose the smallest part, again say <m>m</m>, is larger than or equal to the number of parts. Then we can subtract 1 from each part larger than <m>m</m>, and add a part equal to the number of parts larger than <m>m</m>. This changes the parity of the number of parts, but if the second smallest part is <m>m+1</m>, the resulting partition does not have distinct parts. Thus this method does not work. Further, if it did always work, the case <m>k \ne \frac{3j^2+j}{2}</m> would be covered also. However you can modify this method by comparing <m>m</m> not to the total number of parts, but to the number of rows at the top of the Young diagram that differ by exactly one from the row above. Even in this situation, there are certain slight additional assumptions you need to make, so this hint leaves you a lot of work to do. (It is reasonable to expect problems because of that exceptional case.) However, it should lead you in a useful direction.
-        </p>
-      </hint>
-      <solution>
-        <p>This solution is taken largely from the book <booktitle>Introduction to Combinatorics</booktitle> by Ioan Tomescu (published in London by Collet's in 1975). Tomescu calls a collection of rows in a Young diagram a <q>trapezoid</q> if each row contains one less cell than the row above and the number of cells in the rows above and below the trapezoid differ by two or more from the number of cells in rows of the trapezoid. Thus in (8,6,5,4,2,1) we have 3 trapezoids, the first row, the next three rows, and the last two. Since we are dealing with partitions with distinct parts, we don't have to worry about how two equal rows affect the definition of a trapezoid. We will describe a way to transform a partition with an even number of distinct parts into a partition with an odd number of distinct parts and vice versa.
-        </p>
-
-        <p>
-          First we describe a transformation on Young diagrams. Here is the first part of the description. Suppose the smallest part <m>m</m> of <m>\lambda</m> is less than or equal to the number <m>j</m> of rows in the top trapezoid. Suppose further that if we have only one trapezoid, then <m>j>m</m>. Then we construct a partition with one less part by adding 1 to each of the <m>m</m> largest parts and discarding the part <m>m</m>. We still have a diagram for a partition of the same integer, but now the parity of the number of parts has changed, and we <em>may</em> have increased the number of trapezoids by 1. The smallest part will now be larger than the number (now <m>m</m>) of rows in the top trapezoid. (Notice that the construction would not work if we had only one trapezoid and <m>j=m</m> because we would first remove one row of the trapezoid and thus have no row to which to attach one of our squares.)
-        </p>
-
-        <p>Here is the second part of the description of the transformation. Suppose now that <m>m</m> is larger than the number <m>j</m> of rows of the top trapezoid in the Young diagram. Suppose also that the Young diagram has at least two trapezoids or it has one trapezoid and <m>j\ge m-2</m>. Take one square from each of the <m>j</m> rows of the top trapezoid (which is the whole diagram if there is only one trapezoid) and also add a row of <m>j</m> squares at the bottom of the diagram. (Since <m>m>j</m>, this gives us a Young diagram of a partition of the same integer into distinct parts.) The parity of the number of rows has changed, and now the number of rows of the top trapezoid is at least as large as the smallest part of the partition. (Note, two previously distinct trapezoids may have joined together to form one on top.)  (Notice that if we have one trapezoid and <m>j= m+1</m>, then the construction yields a partition with two equal parts, which is why we made the special assumption above.) Now let <m>T</m> be the transformation described by the two constructions above. Its domain is all Young diagrams except those with one trapezoid and <m>m\le j\le m+1</m>. <m>T^2</m> is the identity, and so <m>T</m> is a bijection.  When restricted to partitions with an odd number of parts, <m>T</m> gives partitions with an even number of parts, so on its domain it gives a bijection between partitions with an even number of parts and partitions with an odd number of parts.
-        </p>
-
-        <p>If <m>m=j</m> and the diagram has just one trapezoid, then the diagram has <m>\frac{3j^2-j}{2}</m> squares, and if <m>m=j+1</m> and the diagram has just one trapezoid, then the diagram has <m>\frac{3j^2+j}{2}</m> squares. Thus if <m>k\ne \frac{3j^2\pm j}{2}</m>, the number of partitions of <m>k</m> into distinct even parts equals the number of partitions of <m>k</m> into distinct odd parts.
-        </p>
-
-        <p>If <m>k= \frac{3j^2\pm j}{2}</m> and <m>j</m> is even, then there is one diagram of a partition of <m>k</m> that is not in the domain of the bijection and has an even number of rows, so in this case there will be one more partition with an even number of parts than with an odd number. If <m>k= \frac{3j^2\pm j}{2}</m> and <m>j</m> is odd, there is one diagram with an odd number of rows not in the domain and so in this case there is one more partition with an odd number of parts than with an even number. This completes the exceptional cases of the problem.
-        </p>
-      </solution>
-    </activity>
-  </subsubsection>
-</subsection>
+    
+  </subsection>
 </section>

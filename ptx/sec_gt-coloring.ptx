@@ -667,11 +667,13 @@ There is another interesting way we might consider coloring edges, quite differe
 	between any two of the vertices without creating a green triangle.
 		</p>
 	</hint>
-	<solution>
+	<!-- <solution>
 		<p>
 			In the graph shown in <xref ref="NonRamsey8" />, there is no <m>K_3</m> whose edges are dashed, and no <m>K_4</m> whose edges are solid. By symmetry, to verify this you need only look at vertex 1 and vertices connected to it by either dashed lines or by solid lines.
+
+			
 		</p>
-	</solution>
+	</solution> -->
 </activity>
 
 <activity>

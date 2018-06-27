@@ -82,7 +82,7 @@
           = 20</m> arrangements of 3H's and 3D's. There are <m>\binom{6}{2}
           = 15</m> arrangements of 2D's and 4H's each of which
           corresponds to a non-workable sequence. Hence there are <m>\binom{6}{3}
-          -\binom{6}{2} = 5</m> workable sequences. In general, <m>\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}</m> gives the number of workable sequences. See <xref ref="catalaninpascal">Figure</xref>
+          -\binom{6}{2} = 5</m> workable sequences. In general, <m>\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}</m> gives the number of workable sequences. 
         </p>
 
       </solution>

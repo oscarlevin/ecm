@@ -1,832 +1,1342 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_adv-linearparts">
-<title>Linear Partitions</title>
-  <p>
-    The very interesting history of the theory of linear partitions dates back to the Middle Ages, where certain special problems in partitions were encountered.  The first major discoveries were made by L. Euler in the 18th century, followed by contributions by Cayley, Gauss, Hardy, Jacobi, Lagrange, Legendre, Littlewoood, Rademacher, Ramanujan, Schur, and Sylvester.
-  </p>
-
-  <p>
-    A <term>partition</term> <m>\lambda = (a_1, a_2, a_3, \ldots, a_k)</m> of an integer <m>n</m> is an array of integers <m>a_i</m> such that <m>n = a_1+ a_2 + a_3 + \cdots + a_k</m> and <m>a_1 \ge a_2 \ge \cdots \ge a_k \ge 0</m>.  For example, the seven partitions of <m>n = 5</m> are <m>(5)</m>, <m>(4,1)</m>, <m>(3,2)</m>, <m>(3,1,1)</m>, <m>(2,2,1)</m>, <m>(2,1,1,1)</m>, and <m>(1,1,1,1,1)</m>.
-    Each <m>a_i</m> is called a <term>summand</term> or a <term>part</term> of <m>n</m>; <m>\lambda</m> has <m>k</m> parts, with largest part being <m>a_1</m>.
-  </p>
-
-  <p>
-    A <term>Ferrers graph</term> consists of rows of dots, left justified, with the length of row <m>i</m> less than or equal to the length of row <m>j</m> if <m>i \gt j</m>.  A partition of <m>n</m> can be represented by a Ferrers graph by letting row <m>i</m> in the graph correspond to the part <m>a_i</m>.  For example, the partition <m>\lambda = (6,3,2,1)</m> of <m>n = 12</m> looks like,
-  </p>
-
-  <sidebyside width="25%">
-    <image xml:id="img_ferrersex">
-      <latex-image>
-        \begin{tikzpicture}[scale=.5]
-          \draw (0,0) \v (0,1) \v (1,1) \v (0,2) \v (1,2) \v (2,2) \v (0,3) \v (1,3) \v (2,3) \v (3,3) \v (4,3) \v (5,3) \v (6,3) \v;
-        \end{tikzpicture}
-      </latex-image>
-    </image>
-  </sidebyside>
-
-  <p>
-    If <m>\lambda = (a_1, a_2, \ldots, a_k)</m> is a partition of <m>n</m>, we may define a new partition <m>\lambda' = (a_1', a_2', \ldots, a_k')</m> by choosing <m>a_i'</m> as the number of parts of <m>\lambda</m> that are at least <m>i</m>.  We call <m>\lambda'</m> the <term>conjugate</term> of <m>\lambda</m>.  It is clear that conjugation is an involution of the partitions of <m>n</m>, i.e., <m>(\lambda')' = \lambda</m>.
-  </p>
-
-  <p>
-    A partition <m>\lambda</m> of <m>n</m> is called <term>self-conjugate</term> if its Ferrers graph is invariante under interchagne of rows and columns, i.e., if <m>\lambda = \lambda'</m>.  The <term>Durfee square</term> of a Ferrers graph is the largest square of nodes appearing inthe graph.  The <term>Durfee triangle</term> is the largest isosceles right triangle of nodes.  The above representations are named after Norman-Macleod Ferrers (1829 - 1903).
-  </p>
-
-  <definition xml:id="def-numpartitions">
-    <statement>
-      <p>
-        For <m>k \in \Z^+ = \{1,2,\ldots\}</m> and <m>n \in \N</m>, we let <m>p_k(n)</m> denote the number of partitions of <m>n</m> into <m>k</m> or fewer parts.
-      </p>
-    </statement>
-  </definition>
-
-  <example xml:id="ex_partitions3parts">
-    <statement>
-      <p>
-        Find <m>p_3(4)</m> and <m>p_3(6)</m> by listing all the relevant partitions.
-      </p>
-    </statement>
-    <solution>
-      <p>
-        <m>p_3(4) = 4</m>, counting the partitions <m>(4)</m>, <m>(3,1)</m>, <m>(2,2)</m>, <m>(2,1,1)</m>.
-      </p>
-      <p>
-        <m>p_3(6) = 7</m>.  The partitions are <m>(6)</m>, <m>(5,1)</m>, <m>(4,2)</m>, <m>(4,1,1)</m>, <m>(3,3)</m>, <m>(3,2,1)</m>, <m>(2,2,2)</m>.
-      </p>
-    </solution>
-  </example>
-
-  <theorem xml:id="thm-positiveparts">
-    <statement>
-      <p>
-        For <m>n \ge k</m>, the number of partitions of <m>n</m> into <m>k</m> positive parts is <m>p_k(n-k)</m>.
-      </p>
-    </statement>
-    <proof>
-      <p>
-        The mapping <m>\beta: (a_1, a_2, \ldots, a_k) \mapsto (a_1 - 1, a_2, -1, \ldots, a_k-1)</m> is a bijection from the set of all partitions of <m>n</m> into <m>k</m> positive parts onto the set of all partitions of <m>n-k</m> into <m>k</m> or fewer parts.
-      </p>
-    </proof>
-  </theorem>
-
-  <theorem xml:id="thm-partitionrecurrence">
-    <statement>
-      <p>
-        <m>p_k(n) = p_k(n-k) + p_{k-1}(n)</m> for <m>2 \le k \le n</m>.
-      </p>
-    </statement>
-    <proof>
-      <p>
-        Either <m>a_k \ge 1</m> for any partition <m>(a_1, a_2, \ldots, a_k)</m> of <m>n</m> into <m>k</m> parts.
-      </p>
-    </proof>
-  </theorem>
-
-  <example>
-    <statement>
-      <p>
-        <m>p_2(7) = p_2(5) + p_1(7) = p_2(3) + p_1(5) + p_1(7) = p_2(1) + p_1(3) + p_1(5) + p_1(7) = 1 + 1 + 1 + 1 = 4</m>, using the recursion.
-      </p>
-    </statement>
-  </example>
-
-  <theorem xml:id="thm-largestpart">
-    <statement>
-      <p>
-        The number of partitions of <m>n</m> into parts, the largest of which is <m>k</m>, is <m>p_k(n)</m>.
-      </p>
-    </statement>
-    <proof>
-      <p>
-        Transpose the Ferrers graph of a given partition, obtaining the conjugate <m>\lambda'</m>.  The rest is clear.
-      </p>
-    </proof>
-  </theorem>
-
-
-  <p>
-    For example, the following are the seven partitions of <m>n = 6</m> having 3 as largest part: <m>(1,1,1,1,1,1)</m>, <m>(2,1,1,1,1)</m>, <m>(2,2,1,1)</m>, <m>(3,1,1,1)</m>, <m>(2,2,2)</m>, <m>(3,2,1)</m>, <m>(3,3)</m>.  These are given in the same order as their counterparts listed in <xref ref="ex_partitions3parts"/>.
-  </p>
-
-  <p>
-    We denote by <m>p(n)</m>, the number of unrestricted partitions of <m>n</m>.  Clearly <m>p_n(n) = p(n)</m>.
-  </p>
-
-
-
-  <subsection xml:id="sec_genfns-int-parts">
-          <title>Generating functions for integer partitions</title>
-          <activity xml:id="change-making" category="essential">
-              <statement>
-                  <p>If we have five identical pennies, five identical nickels, five identical dimes, and five identical quarters, give the picture enumerator for the combinations of coins we can form and convert it to a generating function for the number of ways to make <m>k</m> cents with the coins we have. Do the same thing assuming we have an unlimited supply of pennies, nickels, dimes, and quarters.
-                  </p>
-              </statement>
-              <hint>
-                  <p>
-                      This is a good place to apply the product principle for picture enumerators.
-                  </p>
-              </hint>
-              <solution>
-                  <p>
-                      <m>(1+P+P^2+P^3+P^4+P^5)(1+N+N^2+N^3+N^4+N^5)(1+D+D^2+D^3+D^4+D^5)
-                      (1+Q+Q^2+Q^3+Q^4+Q^5)</m>. Substituting <m>x</m> for <m>P</m>, <m>x^5</m> for <m>N</m>, <m>x^{10}</m> for
-                      <m>D</m> and <m>x^{25}</m> for <m>Q</m> gives us
-                      <me>
-                          \sum_{i=0}^5x^i\sum_{i=0}^5x^{5i}\sum_{i=0}^5 x^{10i} \sum_{i=0}^5
-                          x^{25i}=\frac{1-x^6}{1-x}\cdot\frac{1-x^{30}}{1-x^5}\cdot\frac{1-x^{60}}{
-                          1-x^{10}}\cdot \frac{1-x^{150}}{1-x^{25}}.
-                      </me>
-                  </p>
-
-                  <p>Although we could write this as a polynomial times a product of four power series, doing so would not significantly increase our understanding, though it would let us make some painful computations of the number of ways to make a certain number of cents. If we actually wanted such numbers we would be better off asking a computer algebra package to expand the product of the polynomials on the left. With unlimited supplies the generating function becomes
-                  <me>
-                      \frac{1}{1-x}\cdot\frac{1}{1-x^5}\cdot\frac{1}{1-x^{10}}\cdot\frac{1}{1-x^{25}}.
-                  </me>
-                  </p>
-
-                  <p>Again, we could write this as a product of power series, and that would allow us to painfully compute the number of ways to create a certain number of cents. If we actually wanted to know the number of ways to make up 200 cents, say, it would be more sensible to ask a computer algebra package to extract the coefficient of <m>x^{200}</m> in the product of the four quotients.
-                  </p>
-              </solution>
-          </activity>
-
-          <activity category="essential">
-              <introduction>
-                  <p>Recall that a partition of an integer <m>k</m> is a multiset of numbers that adds to <m>k</m>. In <xref ref="change-making">Problem</xref> we found the generating function for the number of partitions of an integer into parts of size 1, 5, 10, and 25. When working with generating functions for partitions, it is becoming standard to use <m>q</m> rather than <m>x</m> as the variable in the generating function.  Write your answers in this notation.<fn>The reason for this change in the notation relates to the subject of finite fields in abstract algebra, where <m>q</m> is the standard notation for the size of a finite field.  While we will make no use of this connection, it will be easier for you to read more advanced work if you get used to the different notation.</fn>
-                  </p>
-              </introduction>
-                  <task>
-                      <statement>
-                          <p>
-              Give the generating function for the number partitions of an integer into parts of size one through ten.
-                          </p>
-                      </statement>
-                      <hint>
-                          <p>
-                              The product principle for generating functions helps you break the generating function into a product of ten simpler ones.
-                          </p>
-                      </hint>
-                      <solution>
-                          <p>
-                              <m>\prod_{i=1}^{10}\frac{1}{1-q^i}</m>
-                          </p>
-                      </solution>
-                  </task>
-                  <task xml:id="largestpartatmostm">
-                      <statement>
-                          <p>
-                              Give the generating function for the number of partitions of an integer <m>k</m> into parts of size at most <m>m</m>, where <m>m</m> is fixed but <m>k</m> may vary. Notice this is the generating function for partitions whose Young diagram fits into the space between the line <m>x=0</m> and the line <m>x=m</m> in a coordinate plane. (We assume the boxes in the Young diagram are one unit by one unit.)
-                          </p>
-                      </statement>
-                      <hint>
-                          <p>
-                              <m>m</m> was 10 in the previous part of this problem.
-                          </p>
-                      </hint>
-                      <solution>
-                          <p>
-                              <m>\prod_{i=1}^m\frac{1}{1-q^i}</m>.
-                          </p>
-                      </solution>
-                  </task>
-          </activity>
-
-          <activity xml:id="atmostmparts" category="essential">
-              <statement>
-                  <p>
-                      In <xref ref="largestpartatmostm">Problem</xref> you gave the generating function for the number of partitions of an integer into parts of size at most <m>m</m>. Explain why this is also the generating function for partitions of an integer into at most <m>m</m> parts. Notice that this is the generating function for the number of partitions whose Young diagram fits into the space between the line <m>y=0</m> and the line <m>y=m</m>.
-                  </p>
-              </statement>
-              <hint>
-                  <p>
-                      Think about conjugate partitions.
-                  </p>
-              </hint>
-              <solution>
-                  <p>
-                      Conjugation is a bijection between partitions with largest part at most <m>m</m> and partitions with at most <m>m</m> parts. Thus the coefficient of <m>q^i</m> (the number of partitions of <m>i</m> into parts of size at most <m>m</m>) in the generating function for the number of partitions of integers into parts of size at most <m>m</m> will be the coefficient of <m>q^i</m> (the number of partitions of <m>i</m> with at most <m>m</m> parts) in the generating function for the number of partitions of integers into parts of size at most <m>m</m>. Thus the two generating functions are the same.
-                  </p>
-              </solution>
-          </activity>
-
-          <activity xml:id="genfunpartitions" category="essential">
-              <introduction>
-                  <p>When studying partitions of integers, it is inconvenient to restrict ourselves to partitions with at most <m>m</m> parts or partitions with maximum part size <m>m</m>.
-                  </p>
-              </introduction>
-              <task>
-                  <statement>
-                      <p>Give the generating function for the number of partitions of an integer into parts of any size. Don't forget to use <m>q</m> rather than <m>x</m> as your variable.
-                      </p>
-                  </statement>
-                  <hint>
-                      <p>
-                          Don't be afraid of writing down a product of infinitely many power series.
-                      </p>
-                  </hint>
-                  <solution>
-                      <p>
-                          We start with
-                          <me>
-                              (1+q+q^2+\cdots)(1+q^2+q^4+\cdots)\cdots(1+q^i+q^{2i})\cdots,
-                          </me>
-                          which we can write more precisely as
-                          <me>
-                              \prod_{i=1}^\infty \sum_{j=0}^\infty q^{ij}.
-                          </me>
-                      </p>
-                  </solution>
-              </task>
-              <task>
-                  <statement>
-                      <p>Find the coefficient of <m>q^4</m> in this generating function.</p>
-                  </statement>
-                  <hint>
-                      <p>
-                          From the fifth factor on, there is no way to choose a q i that has i nonzero and less than five from the factor.
-                      </p>
-                  </hint>
-                  <solution>
-                      <p>
-                          From the fifth factor on, there is no way to choose a <m>q^i</m> that has <m>i</m> nonzero and less than five from the factor. Thus we choose a 1 from each of these factors. We can choose a <m>q^4</m> from the fourth factor and 1 from the rest, a <m>q^3</m> from the third factor, a <m>q</m> from the first and a 1 from the rest, a <m>q^2</m> from the second factor, a <m>q^2</m> from the first and a 1 from the rest, or we can choose a <m>q^4</m> from the first factor and a 1 from the rest. Therefore the coefficient of <m>q^4</m> is five.
-                      </p>
-                  </solution>
-              </task>
-              <task>
-                  <statement>
-                      <p>
-                          find the coefficient of <m>q^5</m> in this generating function.
-                      </p>
-                  </statement>
-                  <solution>
-                      <p>
-                          From the sixth factor of the product on, there is no way to choose a <m>q^i</m> that has <m>i</m> nonzero and less than six from the factor, so when we compute the coefficient of <m>q^5</m>, we can only choose the 1 from each of these terms. In the first five factors, we choose any combination of powers that adds to 5. We can choose <m>q^5</m> from the fifth and 1 from the rest, q from the first, <m>q^4</m> from the second and 1 from the rest, <m>q^2</m> from the second, <m>q^3</m> from the third and 1 from the rest, <m>q^2</m> from the first and <m>q^3</m> from the third and 1 from the rest, <m>q^3</m> from the first, <m>q^2</m> from the second, and 1 from the rest <m>q^5</m> from the first and 1 from the rest, and these are the only ways to get a <m>q^5</m> in the product. Thus the coefficient of <m>q^5</m> is 7.
-                      </p>
-                  </solution>
-              </task>
-              <task>
-                  <statement>
-                      <p>
-                          This generating function involves an infinite product. Describe the process you would use to expand this product into as many terms of a power series as you choose.
-                      </p>
-                  </statement>
-                  <hint>
-                      <p>
-                          Describe to yourself how to get the coefficient of a given power of <m>q</m>.
-                      </p>
-                  </hint>
-                  <solution>
-                      <p>To get the coefficient of <m>q^k</m> in this product, we look at all ways of choosing one summand from each of the infinite series and multiplying them together to get <m>q^k</m>, and add all these products up. That is, the coefficient of <m>q^k</m> is the number of ways of making these choices of one summand from each series so that the product of our choices is <m>q^k</m>. This lets us write down as many terms of the series as we want, or as we have patience for!
-                  </p>
-                  </solution>
-              </task>
-              <task>
-                  <statement>
-                      <p>
-                          Rewrite any power series that appear in your product as quotients of polynomials or as integers divided by polynomials.
-                      </p>
-                  </statement>
-                  <solution>
-                       <p>
-                           We can rewrite the infinite product as <m>\displaystyle\prod_{i=0}^\infty\frac{1}{1-q^i}</m>.
-                       </p>
-                   </solution>
-              </task>
-          </activity>
-
-          <activity category="interesting">
-              <statement>
-                  <p>In <xref ref="genfunpartitions">Problem</xref>, we multiplied together infinitely many power series. Here are two notations for infinite products that look rather similar:
-                  <me>
-                      \prod_{i=1}^\infty 1 + x + x^2 +\cdots+ x^i\qquad\mbox{and}\qquad
-                      \prod_{i=1}^\infty 1 +x^i +x^{2i} +\cdots + x^{i^2}.
-                  </me>
-                  </p>
-
-                  <p>However, one makes sense and one doesn't. Figure out which one makes sense and explain why it makes sense and the other one doesn't. If we want a product of the form
-                  <me>
-                      \prod_{i=1}^\infty 1 +p_i(x),
-                  </me>
-                  where each <m>p_i(x)</m> is a nonzero polynomial in <m>x</m> to make sense, describe a relatively simple assumption about the polynomials <m>p_i(x)</m> that will make the product make sense. If we assumed the terms <m>p_i(x)</m> were nonzero power series, is there a relatively simple assumption we could make about them in order to make the product make sense? (Describe such a condition or explain why you think there couldn't be one.)
-                  </p>
-              </statement>
-              <hint>
-                  <p>
-  If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, would the product make any sense?
-                  </p>
-              </hint>
-
-              <solution>
-                  <p>
-                      <m>\prod_{i=1}^\infty 1 +x^i +x^{2i} +\cdots + x^{i^2}</m> makes sense because when we look for ways of choosing one summand from each factor so that the summands multiply together to give us <m>x^k</m>, we will find only finitely many ways of making those choices, so the coefficient of <m>x^k</m> can be taken to be the number of such choices. On the other hand, in the expression <m>\prod_{i=1}^\infty 1 + x + x^2 +\cdots+ x^i</m>, there are infinitely many ways to choose <m>x</m> from one term and <m>1</m> from all the rest of the terms so that the product of these summands is <m>x</m>. Thus we can't even specify what the coefficient of <m>x</m> is in the product. On the basis of this analysis, we see that for <m>\prod_{i=1}^\infty 1 +p_i(x)</m> to make sense, we need to assume that for each possible positive integer <m>n</m>, there are only a finite number of polynomials <m>p_i</m> whose lowest degree term has degree less than or equal to <m>n</m>. In that way, for each positive integer, there will be only finitely many ways to chose a summand from each factor so that the product of the summands is a multiple of <m>x^k</m>. The same assumption works when the <m>p_i</m> are power series, for the same reason.
-                  </p>
-              </solution>
-          </activity>
-
-          <activity category="essential">
-              <statement>
-                  <p>What is the generating function (using <m>q</m> for the variable) for the number of partitions of an integer in which each part is even?
-                  </p>
-              </statement>
-              <hint>
-                  <p>
-                      <m>(1 + q^2 + q^4 )(1 + q^3 + q^9 )</m> is the generating function for partitions of an integer into at most two twos and at most two threes.
-                  </p>
-              </hint>
-
-              <solution>
-                  <p>
-                      <m>(1+q^2+q^4+\cdots)(1+q^4+q^8+\cdots)(1+q^6+q^{12}+\cdots)\cdots</m>,
-                      which can be written more precisely as <m>\displaystyle\prod_{i=1}^\infty
-                      \sum_{j=0}^\infty q^{2ij}</m>.
-                  </p>
-              </solution>
-          </activity>
-
-          <activity category="essential">
-              <statement>
-                  <p>What is the generating function (using <m>q</m> as the variable) for the number of partitions of an integer into distinct parts, that is, in which each part is used at most once?
-                  </p>
-              </statement>
-              <hint>
-                  <p>
-                      <m>(1 + q^2 + q^4 )(1 + q^3 + q^9 )</m> is the generating function for partitions of an integer into at most two twos and at most two threes. (This is intentionally the same hint as in the previous problem, but it has a different point in this problem.)
-                  </p>
-              </hint>
-
-              <solution>
-                  <p>
-                      <m>\displaystyle (1+q)(1+q^2)(1+q^3)\cdots=
-                      \prod_{i=1}^\infty(1+q^i)</m>.
-                  </p>
-              </solution>
-          </activity>
-
-          <activity category="essential">
-              <statement>
-                  <p>Use generating functions to explain why the number of partitions of an integer in which each part is used an even number of times equals the generating function for the number of partitions of an integer in which each part is even.
-                  </p>
-              </statement>
-              <hint>
-                  <p>
-                      In the power series <m>\sum_{j=0}^\infty q^{2ij}</m>, the <m>2ij</m> has a different interpretation if you think
-  of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
-
-  P
+<title>Integer Partitions</title>
+  <introduction>
+    <p>
+      The very interesting history of the theory of linear partitions dates back to the Middle Ages, where certain special problems in partitions were encountered.  The first major discoveries were made by L. Euler in the 18th century, followed by contributions by Cayley, Gauss, Hardy, Jacobi, Lagrange, Legendre, Littlewoood, Rademacher, Ramanujan, Schur, and Sylvester.
     </p>
-  </hint>
+    
+    <p>
+      Our history with linear partitions started in <xref ref="sec_adv-partitions"/>.  Recall that a partition of the number <m>k</m> is a tuple of positive integers <m>\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_n)</m> such that <m>\lambda_1 + \lambda_2 + \cdots + \lambda_n = k</m> and <m>\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_n</m>.  Taking the terms in the sum to be non-increasing is our way of ensuring that we do not count one partition listed in a different order twice. 
+    </p>
+    
+    <p>
+      We use <m>p(k)</m> for the number of partitions of <m>k</m>, and <m>p_n(k)</m> for the number of partitions of <m>k</m> into exactly <m>n</m> parts.  The sequence <m>(p(k))_{k \ge 1}</m> starts, 
+      <me>
+        1, 2, 3, 5, 7, 11, 15, 22,\ldots
+      </me>
+      We can use a recurrence relation for <m>p_n(k) = \sum_{i=1}^n p_i(k-n)</m> (see <xref ref="numberpartitionrecurrence"/>) to give us a triangle of values for <m>p_n(k)</m>, which starts,
+    </p>
+    <sidebyside>
+        <tabular>
+            <row bottom="minor">
+                <cell><m>k\backslash n</m></cell>
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>3</cell>
+                <cell>4</cell>
+                <cell>5</cell>
+                <cell>6</cell>
+                <cell>7</cell>
+            </row>
+            <row>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+            </row>
+            <row>
+                <cell>2</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+            </row>
+            <row>
+                <cell>3</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+            </row>
+            <row>
+                <cell>4</cell>
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+            </row>
+            <row>
+                <cell>5</cell>
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>2</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+            </row>
+            <row>
+                <cell>6</cell>
+                <cell>1</cell>
+                <cell>3</cell>
+                <cell>3</cell>
+                <cell>2</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell>0</cell>
+            </row>
+            <row>
+                <cell>7</cell>
+                <cell>1</cell>
+                <cell>3</cell>
+                <cell>4</cell>
+                <cell>3</cell>
+                <cell>2</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+            </row>
+        </tabular>
+    </sidebyside>
+    
+    <p>
+      Let's now take a closer look at integer partitions and discover some properties about them and the numbers <m>p(k)</m> and <m>p_n(k)</m>.
+    </p>
+  </introduction>
+  
+  <subsection xml:id="subsec_linearpartitionsgeom">
+    <title>Using Geometry</title>
+    <introduction>
+      <p>
+        Recall that a <term>Ferrers diagram</term> or <term>Young diagram</term> can be used to visually represent a partition.  The partition <m>\lambda = (\lambda_1,\lambda_2,\ldots \lambda_n)</m>, is represented with an array of <m>n</m> left-justified rows, the <m>i</m>th row consisting of <m>\lambda_i</m> equally spaced dots or squares.  See <xref ref="FerrersYoung-repeat"/>
+    </p>
 
-              <solution>
-                  <p>In the generating function <m>\displaystyle\prod_{i=1}^\infty \sum_{j=0}^\infty q^{2ij}</m>, we may interpret the <m>2ij</m> in <m>q^{2ji}</m> the value of using <m>2i</m> as a part <m>j</m> times or as the value of using <m>i</m> as a part <m>2j</m> times. Therefore this is the generating function both for the number of partitions of integers into parts that are even and the number of partitions into parts that are used an even number of times. Therefore the number of partitions of <m>n</m> in which each part is even equals the number of partitions of <m>n</m> in which each part is used an even number of times. In <xref ref="partition-even-mult-even-use" /> we got the same result bijectively.
-                  </p>
-              </solution>
-          </activity>
+    <figure xml:id="FerrersYoung-repeat" >
+      <caption>The Ferrers
+      and Young diagrams of the partition
+      (5,3,3,2)</caption>
+      <image width="45%" source="images/FerrersYoung" />
+    </figure>
 
-          <activity category="essential and interesting">
+    <p>
+      Our goal is to use geometric reasoning about these diagrams (we will generally use the Young diagram with squares) to uncover properties of partitions.
+    </p>
+    
+    <activity category="essential">
+      <statement>
+        <p>
+          Draw the Young diagram of the partition (4,4,3,1,1). Describe the geometric relationship between the Young diagram of (5,3,3,2) and the Young diagram of (4,4,3,1,1).
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Draw a line through the top-left corner and bottom-right corner of the top-left box.
+        </p>
+      </hint>
+      <solution>
+          <sidebyside width="16%">
+              <image source="images/Young44311" />
+          </sidebyside>
+        <p> We get the Young diagram of <m>(5,3,3,2)</m> by flipping the Young diagram of <m>(4,4,3,1,1)</m> around a line that includes the diagonal of the upper left box; if we think of the top left corner of the diagram as being at the origin, we flip around the line <m>y=-x</m>.
+        </p>
+      </solution>
+    </activity>
+
+    <activity category="essential">
+      <statement>
+        <p>
+          The partition <m>(\lambda_1,\lambda_2,\ldots, \lambda_n)</m> is called the <term>conjugate</term><idx><h>conjugate of an integer partition</h></idx><idx><h>partition of an integer</h><h>conjugate of</h></idx> of the partition <m>(\gamma_1,\gamma_2,\ldots, \gamma_m)</m> if we obtain the Young diagram of one from the Young diagram of the other by flipping one around the line with slope -1 that extends the diagonal of the top left square. See <xref ref="conjugateYoung">Figure</xref> for an example.
+        </p>
+
+        <figure xml:id="conjugateYoung" >
+          <caption>The Ferrers
+          diagram the partition
+          (5,3,3,2) and its conjugate.</caption>
+          <image width="50%" source="images/conjugateYoung" />
+        </figure>
+
+        <p>
+          What is the conjugate of
+          (4,4,3,1,1)? How is the largest part of a partition related to the
+          number of parts of its conjugate? What does this tell you about the
+          number of partitions of a positive integer <m>k</m> with largest part <m>m</m>?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The largest part of a partition is the maximum number of boxes in a row of its Young diagram. What does the maximum number of boxes in a column tell us?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          <m>(5,3,3,2)</m>. The largest part of a partition equals the
+          number of parts of its conjugate. The number of partitions of <m>k</m>
+          with largest part <m>m</m> equals the number of partitions of <m>k</m> with <m>m</m>
+          parts.
+        </p>
+      </solution>
+    </activity>
+
+    <activity category="interesting">
+        <statement>
+          <p>
+            A partition is called <term>self-conjugate</term><idx><h>self-conjugate
+            partition</h></idx><idx><h>partition of an integer</h><h>self conjugate</h></idx> if it is equal
+            to its conjugate. Find a relationship between the number of
+            self-conjugate partitions of <m>k</m> and the number of partitions of <m>k</m> into
+            distinct odd parts.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Draw all self conjugate partitions of integers less than or equal to 8.  Draw all partitions of integers less than or equal to 8 into distinct odd parts (many of these will have just one part). Now try to see how to get from one set of drawings to the other in a consistent way.
+          </p>
+        </hint>
+        <solution>
+          <p>
+            The number of self-conjugate partitions of <m>k</m> equals the
+            number of partitions of <m>k</m> with distinct odd parts. Here is a
+            geometric description of a bijection from self conjugate partitions of
+            <m>k</m> to partitions into distinct odd parts.
+          </p>
+          <figure xml:id="selfconjugate-to-distinctodd">
+              <caption>Transforming a self-conjugate partition</caption>
+              <image width="60%" source="images/selfconjugate" />
+          </figure>
+            <p>Take the top row and left
+            column of squares of the Young diagram, and make them into one row in a
+            new diagram. (Only include the square that is in both the row and column
+            once.) Now take the remaining squares in the next row and column and make
+            a new row of the Young diagram of the second partition with them.
+            Continue this process with succeeding rows and columns, not using any
+            squares you have already used. Because the first partition is self
+            conjugate, the diagram has the same number of rows as columns and row
+            <m>i</m> and column
+            <m>i</m> have the same length. Because row <m>i</m> and column <m>i</m> share one
+            square, and we only use that square once when we create a new row, each row
+            we create has odd length. Thus we get a partition with the same number of
+            squares, so it is a partition of <m>k</m> and each part is odd. The parts are
+            distinct because when we take off the squares of a row and column, we
+            reduce the number of squares in each row and column that remains. Given
+            a partition of <m>k</m> into distinct odd parts, we use the fact that each
+            row has a unique middle element, and each is shorter than the one
+            above (by at least two squares) to reverse the process. Thus we have a
+            bijection.
+          </p>
+        </solution>
+      </activity>
+
+      <activity xml:id="partition-even-mult-even-use">
+        <statement>
+          <p>
+            Explain the relationship between the number of partitions of <m>k</m>
+            into even parts and the number of partitions of <m>k</m> into parts of even
+            multiplicity, i.e. parts which are each used an even number of times as
+            in (3,3,3,3,2,2,1,1).
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Draw the partitions of six into even parts. Draw the partitions of six into parts used an even number of times. Look for a relationship between one set of diagrams and the other set of diagrams. If you have trouble, repeat the process using 8 or even 10 in place of 6.
+          </p>
+        </hint>
+        <solution>
+          <p>
+            The number of partitions of <m>k</m> into even parts equals the
+            number of partitions of parts of even multiplicity, because if we take
+            the Young diagram of a partition of <m>k</m> into even parts and conjugate
+            it, the resulting diagram has columns of even length. Thus the
+            difference in heights of two successive columns is an even number,
+            but this difference is the multiplicity of one of the parts of the
+            conjugate. Further the height of the last column of a partition is
+            the multiplicity of the first part. Since the multiplicity of any part
+            of a partition is either the difference in height of two successive
+            columns of the Young diagram or the height of the last column, then
+            each part of the conjugate has even multiplicity. This bijection can
+            be reversed, because if all the differences in height of the columns are
+            even and the height of the last column is even, then when we
+            conjugate this partition, the last row will be an even length, and
+            all differences in length of the rows will be even, so all the parts
+            of the resulting partition will be even.
+          </p>
+        </solution>
+    </activity>
+
+    <activity xml:id="rectanglecomplement" category="interesting">
+        <statement>
+          <p>
+            Show that the number of partitions of <m>k</m> into four parts equals the number of partitions of <m>3k</m> into four parts of size at most <m>k-1</m> (or <m>3k-4</m> into four parts of size at most <m>k-2</m> or <m>3k-4</m> into four parts of size at most <m>k</m>).
+          </p>
+        </statement>
+        <hint>
+          <p>
+        Draw a partition of ten into four parts. Assume each square has area one. Then draw a rectangle of area 40 enclosing your diagram that touches the top of your diagram, the left side of your diagram and the bottom of your diagram. How does this rectangle give you a partition of 30 into four parts?
+          </p>
+        </hint>
+
+        <solution>
+          <p>
+            Think about putting the Young diagram of the partition into
+            the upper left corner of a rectangle that is <m>k</m> units wide and four
+            units high. Subdivide the rectangle into <m>4k</m> squares of unit area.
+            The Young diagram covers <m>k</m> of these squares. The uncovered squares
+            are in rows of length <m>r_1\le r_2\le r_3\le r_4</m>. Thus if we list
+            these lengths in the opposite order, we have a decreasing list
+            representation of a partition of <m>3k</m>. Even <m>r_1</m> will have to be
+            positive, because the first part of the original partition will be at
+            most <m>k-3</m>. To get partitions of <m>3k+4</m>, use a rectangle of width
+            <m>k+1</m>, and to get partitions of <m>3k-4</m>, use a rectangle of width
+            <m>k-1</m>. Since the first row of the Young diagram has at most <m>k-3</m>
+            squares, we will still have four nonzero parts in the partition that
+            results.
+          </p>
+        </solution>
+      </activity>
+
+      <activity>
+          <introduction>
+              <p>
+            The idea of conjugation of a partition could be defined without the geometric interpretation of a Young diagram, but it would seem far less natural without the geometric interpretation. Another idea that seems much more natural in a geometric context is this. Suppose we have a partition of <m>k</m> into <m>n</m> parts with largest part <m>m</m>. Then the Young diagram of the partition can fit into a rectangle that is <m>m</m> or more units wide (horizontally) and <m>n</m> or more units deep. Suppose we place the Young diagram of our partition in the top left-hand corner of an <m>m'</m> unit wide and <m>n'</m> unit deep rectangle with <m>m'\ge m</m> and <m>n' \ge n</m>, as in <xref ref="complementpartition" />.
+          </p>
+          <figure xml:id="complementpartition" >
+            <caption>To complement the partition <m>(5,3,3,2)</m> in a 6 by 5 rectangle: enclose it in the rectangle, rotate, and cut out the original Young diagram.</caption>
+            <image width="70%" source="images/complementpartition" />
+          </figure>
+          </introduction>
+
+          <task>
+            <statement>
+              <p>
+                Why can we interpret the part of the rectangle not occupied by our Young diagram, rotated in the plane, as the Young diagram of another partition? This is called the <term>complement</term><idx><h>complement of a partition</h></idx> of our partition in the rectangle.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                If we fill the rectangle with unit squares, those not in the Young diagram of the original partition <m>\lambda</m> will fall into rows.  The lengths of the rows are nonnegative, and are nondecreasing as we move down. Therefore, after we rotate through 180 degrees, these same rows will be listed in the opposite order, lined up along the left sides, and will have nonincreasing length. Thus they will be the Young diagram of a partition.
+              </p>
+            </solution>
+          </task>
+
+          <task>
+            <statement>
+              <p>
+                What integer is being partitioned by the complement?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                The integer being partitioned will be <m>m'n'-k</m>.
+              </p>
+            </solution>
+          </task>
+
+          <task>
+            <statement>
+              <p>
+                What conditions on <m>m'</m> and <m>n'</m> guarantee that the complement has the same number of parts as the original one?
+              </p>
+            </statement>
+            <hint>
+              <p>
+            Consider two cases, <m>m' \gt m</m> and <m>m' = m</m>.
+              </p>
+            </hint>
+            <solution>
+              <p>
+                If <m>m'>m</m> and <m>n'=n</m>. the two partitions will have the same number of parts, because we will have a nonzero number of empty squares at the end of each row of the Young diagram of <m>\lambda</m>. If <m>m'=m</m> and <m>n'-n</m> is the multiplicity of the largest part of <m>\lambda</m>, they will have the same number of parts. Otherwise, their numbers of parts will differ.
+              </p>
+            </solution>
+          </task>
+
+          <task>
+            <statement>
+              <p>
+                What conditions on <m>m'</m> and <m>n'</m> guarantee that the complement has the same largest part as the original one?
+              </p>
+            </statement>
+            <hint>
+              <p>
+                Consider two cases, <m>n' \gt n</m> and <m>n' = n</m>.
+              </p>
+            </hint>
+            <solution>
+              <p>
+                If <m>n'\gt n</m> and <m>m=m'</m>, then the two partitions will have the same largest part. If <m>n'=n</m> and <m>m'-m</m> is the smallest part of <m>\lambda</m>, then they will have the same largest part. Otherwise, their largest parts will differ.
+              </p>
+            </solution>
+          </task>
+
+          <task>
+            <statement>
+              <p>
+                Is it possible for the complement to have both the same number of parts and the same largest part as the original one?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                For the two partitions to have the same number of parts, either <m>m'=m</m> or <m>n'=n</m>. If <m>m'=m</m> and they have the same largest part, then <m>n'>n</m>. But this is consistent with <m>n'-n</m> being the multiplicity of the largest part of <m>\lambda</m>. Thus they can have the same number of parts and the same largest part if <m>m'=m</m> and <m>n'-n</m> is the multiplicity of the largest part of <m>\lambda</m>, or similarly if <m>n=n'</m> and <m>m'-m</m> is the smallest part of <m>\lambda</m>.
+              </p>
+            </solution>
+          </task>
+
+          <task>
+            <statement>
+              <p>
+                If we complement a partition in an <m>m'</m> by <m>n'</m> box and then complement that partition in an <m>m'</m> by <m>n'</m> box again, do we get the same partition that we started with?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                If we complement a partition in an <m>m'</m> by <m>n'</m> box and then complement that partition in <em>the same rectangle</em>, then we get the original partition back.
+              </p>
+            </solution>
+          </task>
+    </activity>
+
+    <activity category="interesting">
+        <statement>
+          <p>
+            Suppose we take a partition of <m>k</m> into <m>n</m> parts with largest part <m>m</m>, complement it in the smallest rectangle it will fit into, complement the result in the smallest rectangle it will fit into, and continue the process until we get the partition 1 of one into one part.  What can you say about the partition with which we started?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Suppose we take two repetitions of this complementation process. What rows and columns do we remove from the diagram?
+          </p>
+        </hint>
+        <hint>
+          <p>
+        To deal with an odd number of repetitions of the complementation
+        process, think of it as an even number plus 1. Thus ask what kind of
+        partition gives us the partition of one into one part after this
+        complementation process.
+          </p>
+        </hint>
+        <solution>
+          <p>
+            Let us call the process of enclosing <m>\lambda</m> in the smallest rectangle possible and then forming the complement in that rectangle <term>encomplementation</term> (This is short for <em>en</em>\/closure and <em>complementation</em> and is not a standard term<mdash />there is no standard term for this operation.) and call the result of it the <term>encomplement</term><idx><h>encomplement of a partition</h></idx> of <m>\lambda</m>.  The result of two encomplementations on the Young diagram of a partition is to remove all rows of maximum length and all columns of maximum length from the Young diagram. Thus the description of the result of an even number <m>2j</m> of encomplementations is straightforward; we remove all the rows of the <m>j</m> largest distinct lengths and all columns of the <m>j</m> largest distinct lengths. So if an even number of encomplementations brings us to a partition with one block of size one, we should be able to describe the original partition fairly easily. To deal with the result of an odd number of encomplementations, we ask what happens if we encomplement just once.  If the complement of <m>\lambda</m> in the smallest rectangle in which if fits has one square, then <m>\lambda =\lambda_1^{n_1}\lambda_1-1</m>. Thus we are asking for the partitions which, after an even number of encomplementations, give us either the partition with one block or a partition of the form <m>\lambda_1^{n_1}(\lambda_1-1)</m>. First we ask what kind of partition results in the second one after two encomplementations. If we get <m>\lambda_1^{n_1}(\lambda_1-1)</m> from two encomplementations, the partition we started with had the form
+            <me>
+              \lambda_0^{n_0}(\lambda_1+\lambda_{2})^{n_1}(\lambda_1+
+              \lambda_2-1)\lambda_2^{n_2}.
+            </me>
+          </p>
+
+          <p>
+            If we get <m>\lambda_1^{n_1}(\lambda_1-1)</m> from four encomplementations, then we started with a partition of the form
+            <me>
+              \lambda_{-1}^{n_{-1}}(\lambda_0+\lambda_{3})^{n_0}(\lambda_1+
+              \lambda_2 +
+              \lambda_{3})^{n_1}(\lambda_1+\lambda_2 +\lambda_3-1)(\lambda_2+
+              \lambda_{3})^{n_3}
+              \lambda_3^{n_3}.
+            </me>
+          </p>
+
+          <p>
+            From this pattern we see that a partition that results in <m>\lambda_1^{n_1}(\lambda_1-1)</m> after <m>2j</m> encomplementations has the form
+            <men xml:id="form1" >
+              \lambda_{1-j}^{n_{1-j}}\lambda_{2-j}^{n_{2-j}}\cdots
+              \lambda_0^{n_0}
+              {\lambda'_1}^{n_1}
+              (\lambda'_1-1)\lambda_2^{n_2}\cdots
+              \lambda_{j+1}^{n_{j+1}},
+            </men>
+            where <m>\lambda_i>\lambda_{i+1}</m> and <m>\lambda_0>\lambda'_1>\lambda_2+1</m>.
+          </p>
+
+          <p>
+            On the other hand, a partition <m>\lambda</m> that results in <m>1</m> after two encomplementations has the form <m>\lambda_0^{n_0}(\lambda_1+1)\lambda_1^{n_1}</m>, and so a partition that results in 1 after <m>j</m> encomplementations is of the form
+            <men xml:id="form2" >
+              \lambda_{1-j}^{n_{1-j}}\lambda_{2-j}^{n_{2-j}}\cdots
+              \lambda_0^{n_0}(\lambda_1+1)\lambda_1^{n_1}\lambda_2^{n_2}\cdots
+              \lambda_j^{n_j},
+            </men>
+            where <m>\lambda_i>\lambda_{i+1}</m> and <m>\lambda_0>\lambda_1+1</m>. Thus a partition results in a single part of size 1 after some number of encomplementations if and only if it has the form of <xref ref="form1">Equation</xref> or <xref ref="form2">Equation</xref>.
+          </p>
+        </solution>
+      </activity>
+    
+  </introduction>
+  <subsubsection>
+    <title>Partitions into distinct parts</title>
+    <p>Often <m>q_n(k)</m> is used to denote the number of partitions of <m>k</m> into distinct parts, that is, parts that are different from each other.
+    </p>
+
+    <activity>
+      <statement>
+        <p>
+          Show that
+          <me>
+            q_n(k) \le \frac{1}{n!}\binom{k-1}{n-1}.
+          </me>
+        </p>
+      </statement>
+      <hint>
+        <p>
+      How does the number of compositions of <m>k</m> into <m>n</m> distinct parts compare to the number of compositions of <m>k</m> into <m>n</m> parts (not necessarily distinct)?
+      What do compositions have to do with partitions?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The number of compositions of <m>k</m> into <m>n</m> parts is <m>\binom{k-1}{n-1}</m>. Thus the number of compositions of <m>k</m> into <m>n</m> distinct parts is less than <m>\binom{k-1}{n-1}</m>. Divide the compositions of <m>k</m> into <m>n</m> distinct parts into blocks with two compositions in the same block if one is a rearrangement of the other. Because the parts are distinct, each block has <m>n!</m> members. Further, there is a bijection between the blocks of this partition and the partitions of <m>k</m> into <m>n</m> distinct parts. Since the number of compositions of <m>k</m> into <m>n</m> distinct parts is less than <m>\binom{k-1}{n-1}</m>, the number of partitions of <m>k</m> into <m>n</m> distinct parts is less than <m>\frac{1}{n!}  \binom{k-1}{n-1}</m>.
+        </p>
+      </solution>
+    </activity>
+
+    <activity category="interesting">
+      <statement>
+        <p>
+          Show that the number of partitions of 7 into 3 parts equals the
+          number of partitions of 10 into three distinct parts.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          While you could simply display partitions of 7 into three parts and partitions of 10 into three parts, we hope you won't. Perhaps you could write down the partitions of 4 into two parts and the partitions of 5 into two distinct parts and look for a natural bijection between them. So the hope is that you will discover a bijection from the set of partitions of 7 into three parts and the partitions of 10 into three distinct parts. It could help to draw the Young diagrams of partitions of 4 into two parts and the partitions of 5 into two distinct parts.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Given a partition <m>\lambda</m> of 7 in decreasing list form <m>\lambda_1,\lambda_2,\lambda_3</m>, if we add 0 to <m>\lambda_3</m>, <m>1</m> to <m>\lambda_2</m> and 2 to <m>\lambda_1</m> the resulting partition of 10 has distinct parts. If we take a partition <m>\lambda'</m> of 10 with distinct parts, then <m>\lambda'_1\ge\lambda'_2+1</m>, <m>\lambda'_1\ge\lambda'_2+2</m>, and <m>\lambda'_2\ge \lambda'_3+1</m>. Therefore if we subtract 2 from <m>\lambda'_1</m> to get <m>\lambda_1</m>, subtract 1 from <m>\lambda'_2</m> to get <m>\lambda_2</m> and let <m>\lambda_3= \lambda'_3</m>, then <m>\lambda_1,\lambda_2,\lambda_3</m> is the decreasing list representation of a partition of <m>10-3=7</m>. Thus there is a bijection between partitions of <m>7</m> into three parts and partitions of <m>10</m> into three distinct parts.
+        </p>
+      </solution>
+    </activity>
+
+    <activity category="essential for this or the next section, and interesting">
+      <statement>
+        <p>
+          There is a relationship between <m>p_n(k)</m> and <m>q_n(m)</m> for some other number <m>m</m>. Find the number <m>m</m> that gives you the nicest possible relationship.
+        </p>
+      </statement>
+      <hint>
+        <p>
+      In the case <m>k=4</m> and <m>n=2</m>, we have <m>m=5</m>. In the case <m>k = 7</m> and <m>n = 3</m>,
+      we have <m>m = 10</m>.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The number of partitions of <m>k</m> into <m>n</m> parts is equal to the number of partitions of <m>k+\binom{n}{2}</m> into n distinct parts.  The bijection from partitions of <m>k</m> with <m>n</m> parts to partitions of <m>k+\binom{n}{2}</m> with <m>n</m> distinct parts that proves this is the one that takes a partition <m>\lambda_n\lambda_{n-1}\cdots\lambda_1</m> of <m>k</m> with <m>\lambda_i>\lambda_{i+1}</m> and adds <m>i-1</m> to <m>\lambda_i</m> to get <m>\lambda'_i</m>. Then <m>\lambda'</m> is a partition into distinct parts, and the number it partitions is <m>k+1+2+\cdots+n-1=k+\binom{n}{2}</m>. The proof that it is a bijection is the fact that subtracting <m>n-i</m> from the <m>i</m>\/th part of a partition of <m>k</m> into distinct parts yields a partition of <m>k</m>, because part <m>i+j</m> is at least <m>j</m> smaller than part <m>i</m>.
+        </p>
+      </solution>
+    </activity>
+
+    <activity category="essential for this or the next section">
+      <statement>
+        <p>Find a recurrence that expresses <m>q_n(k)</m> as a sum of <m>q_m(k-n)</m> for appropriate values of <m>m</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          What can you do to a Young diagram for a partition of <m>k</m> into <m>n</m> distinct parts to get a Young diagram of a partition of <m>k-n</m> into some number of distinct parts?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Suppose <m>\lambda</m> is a partition of <m>k</m> into <m>n</m> distinct parts. Either 1 is one of those parts or not. Thus if we subtract 1 from each part, we either get a partition of <m>k-n</m> into <m>n-1</m> parts or a partition of <m>k-n</m> into <m>n</m> parts. If <m>\lambda</m> and <m>\lambda'</m> are different partitions of <m>k</m> into <m>n</m> distinct parts, they go to different partitions. Each partition of <m>k-n</m> into <m>n-1</m> parts or <m>n</m> parts can be gotten in this way from a corresponding partition of <m>k</m> into <m>n</m> parts. Thus we have a bijective correspondence and <m>q_n(k)=q_{n-1}(k-n) + q_{n}(k-n)</m>.
+        </p>
+      </solution>
+    </activity>
+
+    <activity category="interesting and difficult">
+      <statement>
+        <p>Show that the number of partitions of <m>k</m> into distinct parts equals the number of partitions of <m>k</m> into odd parts.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          For any partition of <m>k</m> into parts <m>\lambda_1</m>, <m>\lambda_2</m>, etc. we can get a partition of <m>k</m> into odd parts by factoring the highest power of two that we can from each <m>\lambda_i</m>, writing <m>\lambda_i = \gamma_i\cdot 2^k_i</m>.  Why is <m>\gamma_i</m> odd? Now partition <m>k</m> into <m>2^{k_1}</m> parts of size <m>\gamma_1</m>, <m>2^{k_2}</m> parts of size <m>\gamma_2</m>, etc. and you have a partition of <m>k</m> into odd parts.
+        </p>
+      </hint>
+      <solution>
+        <p>We start by giving a function from the set of partitions of <m>k</m> to the set of partitions of <m>k</m> with (only) odd parts. Clearly such a function cannot be one to one. Then we show that when restricted to the partitions with distinct parts it is one-to-one and onto by constructing an inverse. Given a partition <m>\lambda_1^{i_1}\lambda_2^{i_2}\cdots\lambda_n^{i_n}</m>, write <m>\lambda_i=\gamma_i2^{k_i}</m>, where <m>\gamma_i</m> is odd. (Thus <m>2^{k_i}</m> is the highest power of 2 that is a factor of <m>\lambda_i</m>, so it is 1 if <m>\lambda_i</m> is odd.). It is possible that <m>\gamma_i=\gamma_j</m>, for example if <m>\lambda_i=36</m> and <m>\lambda_j=18</m>, then <m>\gamma_i=\gamma_j=9</m>. We construct a new partition <m>\pi</m> whose parts are the numbers <m>\gamma_j</m> as follows: Given an odd number <m>p</m>, let the multiplicity <m>m(p)</m> of <m>p</m> in <m>\pi</m> be <m>\sum_{j: \gamma_j=m} 2^{k_j}</m>. Thus <m>\sum_{p: m(p)\not=0}m(p)p = k</m>. Therefore, <m>\pi</m> is a partition of <m>k</m> whose parts are all odd.
+        </p>
+
+        <p>Now consider a partition <m>\pi</m> of <m>k</m> whose parts are all odd. Let <m>\pi=\pi_1^{r_1}\pi_2^{r_2}\cdots \pi_t^{r_t}</m>, with <m>\pi_i>\pi_{i+1}</m>. (In terms of the multiplicity function <m>m</m>, <m>m(\pi_i) =r_i</m>, and <m>\sum_{i=1}^t r_i\pi_i = k</m>.) We are going to write the binary expansion of each <m>r_i</m> as <m>r_i = \sum_{j= 0}^{\lfloor \log_2 r_i\rfloor} 2^{ja_{ij}}</m>, where <m>a_{ij}</m> is 1 if <m>2^j</m> appears in the binary expansion of <m>r_i</m>, and 0 otherwise. All of the numbers <m>\pi_i2^{ja_{ij}}</m> are distinct, because a power of two times one odd number cannot equal a power of two times another odd number. The numbers <m>\pi_i2^{ja_{ij}}</m> add to <m>k</m>, so they are the parts of a partition <m>\pi'</m> of <m>k</m> into distinct parts. When we apply the function constructed in the first part of the solution to <m>\pi'</m>, we get <m>\pi</m>, so the correspondence between <m>\pi</m> and <m>\pi'</m> is a bijection.
+        </p>
+      </solution>
+    </activity>
+
+    <activity category="interesting and difficult">
+      <statement>
+        <p>Euler showed that if <m>k\not= \frac{3j^2+j}{2}</m>, then the number of partitions of <m>k</m> into an even number of distinct parts is the same as the number of partitions of <m>k</m> into an odd number of distinct parts. Prove this, and in the exceptional case find out how the two numbers relate to each other.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Suppose we have a partition of <m>k</m> into distinct parts. If the smallest part, say <m>m</m>, is smaller than the number of parts, we may add one to each of the <m>m</m> largest parts and delete the smallest part, and we have changed the parity of the number of parts, but we still have distinct parts. On the other hand, suppose the smallest part, again say <m>m</m>, is larger than or equal to the number of parts. Then we can subtract 1 from each part larger than <m>m</m>, and add a part equal to the number of parts larger than <m>m</m>. This changes the parity of the number of parts, but if the second smallest part is <m>m+1</m>, the resulting partition does not have distinct parts. Thus this method does not work. Further, if it did always work, the case <m>k \ne \frac{3j^2+j}{2}</m> would be covered also. However you can modify this method by comparing <m>m</m> not to the total number of parts, but to the number of rows at the top of the Young diagram that differ by exactly one from the row above. Even in this situation, there are certain slight additional assumptions you need to make, so this hint leaves you a lot of work to do. (It is reasonable to expect problems because of that exceptional case.) However, it should lead you in a useful direction.
+        </p>
+      </hint>
+      <solution>
+        <p>This solution is taken largely from the book <pubtitle>Introduction to Combinatorics</pubtitle> by Ioan Tomescu (published in London by Collet's in 1975). Tomescu calls a collection of rows in a Young diagram a <q>trapezoid</q> if each row contains one less cell than the row above and the number of cells in the rows above and below the trapezoid differ by two or more from the number of cells in rows of the trapezoid. Thus in (8,6,5,4,2,1) we have 3 trapezoids, the first row, the next three rows, and the last two. Since we are dealing with partitions with distinct parts, we don't have to worry about how two equal rows affect the definition of a trapezoid. We will describe a way to transform a partition with an even number of distinct parts into a partition with an odd number of distinct parts and vice versa.
+        </p>
+
+        <p>
+          First we describe a transformation on Young diagrams. Here is the first part of the description. Suppose the smallest part <m>m</m> of <m>\lambda</m> is less than or equal to the number <m>j</m> of rows in the top trapezoid. Suppose further that if we have only one trapezoid, then <m>j>m</m>. Then we construct a partition with one less part by adding 1 to each of the <m>m</m> largest parts and discarding the part <m>m</m>. We still have a diagram for a partition of the same integer, but now the parity of the number of parts has changed, and we <em>may</em> have increased the number of trapezoids by 1. The smallest part will now be larger than the number (now <m>m</m>) of rows in the top trapezoid. (Notice that the construction would not work if we had only one trapezoid and <m>j=m</m> because we would first remove one row of the trapezoid and thus have no row to which to attach one of our squares.)
+        </p>
+
+        <p>Here is the second part of the description of the transformation. Suppose now that <m>m</m> is larger than the number <m>j</m> of rows of the top trapezoid in the Young diagram. Suppose also that the Young diagram has at least two trapezoids or it has one trapezoid and <m>j\ge m-2</m>. Take one square from each of the <m>j</m> rows of the top trapezoid (which is the whole diagram if there is only one trapezoid) and also add a row of <m>j</m> squares at the bottom of the diagram. (Since <m>m>j</m>, this gives us a Young diagram of a partition of the same integer into distinct parts.) The parity of the number of rows has changed, and now the number of rows of the top trapezoid is at least as large as the smallest part of the partition. (Note, two previously distinct trapezoids may have joined together to form one on top.)  (Notice that if we have one trapezoid and <m>j= m+1</m>, then the construction yields a partition with two equal parts, which is why we made the special assumption above.) Now let <m>T</m> be the transformation described by the two constructions above. Its domain is all Young diagrams except those with one trapezoid and <m>m\le j\le m+1</m>. <m>T^2</m> is the identity, and so <m>T</m> is a bijection.  When restricted to partitions with an odd number of parts, <m>T</m> gives partitions with an even number of parts, so on its domain it gives a bijection between partitions with an even number of parts and partitions with an odd number of parts.
+        </p>
+
+        <p>If <m>m=j</m> and the diagram has just one trapezoid, then the diagram has <m>\frac{3j^2-j}{2}</m> squares, and if <m>m=j+1</m> and the diagram has just one trapezoid, then the diagram has <m>\frac{3j^2+j}{2}</m> squares. Thus if <m>k\ne \frac{3j^2\pm j}{2}</m>, the number of partitions of <m>k</m> into distinct even parts equals the number of partitions of <m>k</m> into distinct odd parts.
+        </p>
+
+        <p>If <m>k= \frac{3j^2\pm j}{2}</m> and <m>j</m> is even, then there is one diagram of a partition of <m>k</m> that is not in the domain of the bijection and has an even number of rows, so in this case there will be one more partition with an even number of parts than with an odd number. If <m>k= \frac{3j^2\pm j}{2}</m> and <m>j</m> is odd, there is one diagram with an odd number of rows not in the domain and so in this case there is one more partition with an odd number of parts than with an even number. This completes the exceptional cases of the problem.
+        </p>
+      </solution>
+    </activity>
+  </subsubsection>
+  
+</subsection>
+  
+
+<subsection xml:id="sec_genfns-int-parts" >
+  <title>Using Generating Functions</title>
+  <activity xml:id="change-making" category="essential">
+      <statement>
+          <p>If we have five identical pennies, five identical nickels, five identical dimes, and five identical quarters, give the picture enumerator for the combinations of coins we can form and convert it to a generating function for the number of ways to make <m>k</m> cents with the coins we have. Do the same thing assuming we have an unlimited supply of pennies, nickels, dimes, and quarters.
+          </p>
+      </statement>
+      <hint>
+          <p>
+              This is a good place to apply the product principle for picture enumerators.
+          </p>
+      </hint>
+      <solution>
+          <p>
+              <m>(1+P+P^2+P^3+P^4+P^5)(1+N+N^2+N^3+N^4+N^5)(1+D+D^2+D^3+D^4+D^5)
+              (1+Q+Q^2+Q^3+Q^4+Q^5)</m>. Substituting <m>x</m> for <m>P</m>, <m>x^5</m> for <m>N</m>, <m>x^{10}</m> for
+              <m>D</m> and <m>x^{25}</m> for <m>Q</m> gives us
+              <me>
+                  \sum_{i=0}^5x^i\sum_{i=0}^5x^{5i}\sum_{i=0}^5 x^{10i} \sum_{i=0}^5
+                  x^{25i}=\frac{1-x^6}{1-x}\cdot\frac{1-x^{30}}{1-x^5}\cdot\frac{1-x^{60}}{
+                  1-x^{10}}\cdot \frac{1-x^{150}}{1-x^{25}}.
+              </me>
+          </p>
+
+          <p>Although we could write this as a polynomial times a product of four power series, doing so would not significantly increase our understanding, though it would let us make some painful computations of the number of ways to make a certain number of cents. If we actually wanted such numbers we would be better off asking a computer algebra package to expand the product of the polynomials on the left. With unlimited supplies the generating function becomes
+          <me>
+              \frac{1}{1-x}\cdot\frac{1}{1-x^5}\cdot\frac{1}{1-x^{10}}\cdot\frac{1}{1-x^{25}}.
+          </me>
+          </p>
+
+          <p>Again, we could write this as a product of power series, and that would allow us to painfully compute the number of ways to create a certain number of cents. If we actually wanted to know the number of ways to make up 200 cents, say, it would be more sensible to ask a computer algebra package to extract the coefficient of <m>x^{200}</m> in the product of the four quotients.
+          </p>
+      </solution>
+  </activity>
+
+  <activity category="essential">
+      <introduction>
+          <p>Recall that a partition of an integer <m>k</m> is a multiset of numbers that adds to <m>k</m>. In <xref ref="change-making"/> we found the generating function for the number of partitions of an integer into parts of size 1, 5, 10, and 25. When working with generating functions for partitions, it is becoming standard to use <m>q</m> rather than <m>x</m> as the variable in the generating function.  Write your answers in this notation.<fn>The reason for this change in the notation relates to the subject of finite fields in abstract algebra, where <m>q</m> is the standard notation for the size of a finite field.  While we will make no use of this connection, it will be easier for you to read more advanced work if you get used to the different notation.</fn>
+          </p>
+      </introduction>
+          <task>
               <statement>
-                  <p>Use the fact that
-                  <me>
-                      \frac{1-q^{2i}}{1-q^i}= 1+q^i
-                  </me>
-                  and the generating function for the number of partitions of an integer into distinct parts to show how the number of partitions of an integer <m>k</m> into distinct parts is related to the number of partitions of an integer <m>k</m> into odd parts.
+                  <p>
+      Give the generating function for the number partitions of an integer into parts of size one through ten.
                   </p>
               </statement>
               <hint>
                   <p>
-                      Note that
-                      <me>\frac{1-q^2}{1-q}\cdot \frac{1-q^4}{1-q^2}\cdot \frac{1-q^6}{1-q^3}\cdot \frac{1-q^8}{1-q^4} = \frac{(1-q^6)(1-q^8)}{(1-q)(1-q^3)} </me>.
+                      The product principle for generating functions helps you break the generating function into a product of ten simpler ones.
                   </p>
               </hint>
               <solution>
                   <p>
-                      <m>\displaystyle\prod_{i=1}^\infty 1+q^i=\prod_{i=1}^n \frac{1-q^{2i}}{1-q^i}=\frac{\prod_{i=1}^\infty1-q^{2i}}{\prod_{j=1}^\infty 1-q^j} =\prod_{i=j}^\infty \frac{1}{1-q^{2j-1}}</m>, because all the terms in the numerator cancel with alternate terms in the denominator leaving only terms with odd powers of <m>q</m>. But
-                      <md>
-                          <mrow> \amp \prod_{j=1}^\infty\frac{1}{1-q^{2j-1}}\rangle =\rangle \prod_{j=1}^\infty \sum_{i=0}^\infty (q^{2j-1})^i</mrow>
-                          <mrow> =\amp (1+q+q^{2\cdot1}+\cdots)(1+q^3+q^{2\cdot3}+\cdots)(1
-                              +q^5+q^{2\cdot5}+\cdots)\cdots,</mrow>
-                          </md>
-                          which is the generating function for partitions of integers into parts that
-                          are odd numbers.
-                      </p>
-                  </solution>
-          </activity>
-          <activity>
+                      <m>\prod_{i=1}^{10}\frac{1}{1-q^i}</m>
+                  </p>
+              </solution>
+          </task>
+          <task xml:id="largestpartatmostm">
               <statement>
-                  <p>Write down the generating function for the number of ways to partition an integer into parts of size no more than <m>m</m>, each used an odd number of times. Write down the generating function for the number of partitions of an integer into parts of size no more than <m>m</m>, each used an even number of times. Use these two generating functions to get a relationship between the two sequences for which you wrote down the generating functions.
+                  <p>
+                      Give the generating function for the number of partitions of an integer <m>k</m> into parts of size at most <m>m</m>, where <m>m</m> is fixed but <m>k</m> may vary. Notice this is the generating function for partitions whose Young diagram fits into the space between the line <m>x=0</m> and the line <m>x=m</m> in a coordinate plane. (We assume the boxes in the Young diagram are one unit by one unit.)
                   </p>
               </statement>
               <hint>
                   <p>
-                      Note that <m>q^i + q^{3i} + q^{5i} + \cdots = q^i (1 + q^2 + q^4 + \cdots)</m>.
+                      <m>m</m> was 10 in the previous part of this problem.
                   </p>
               </hint>
               <solution>
                   <p>
-                      <me>
-                              \displaystyle\prod_{i=1}^m (q^i+q^{3i}+q^{5i}+\cdots )= q^{1+2+\cdots m}\prod_{i=1}^m (1+q^{2i}+q^{4i}+\cdots )=q^{\binom{m+1}{2}}\prod_{i=1}^m\frac{1}{1-q^{2i}}
-                          </me>
-                          is the generating function for the number of ways to partition an integer into parts of size at most <m>m</m>, each used an odd number of times.
-                          <me>
-                              \displaystyle
-                              \prod_{i=1}^m (1 +q^{2i}+q^{4i}+q^{6i}+\cdots )=\prod_{i=1}^m \frac{1}{1-q^{2i}}
-                          </me>
-                          is the generating function for the number of partitions of an integer into parts of size no more than <m>m</m>, each used an even number of times. Therefore the number of partitions of <m>k</m> into parts of size no more than <m>m</m>, each used an even number of times is the number of partitions of <m>k+\binom{m+1}{2}</m>, into parts of size no more than <m>m</m>, each used an odd number of times.
+                      <m>\prod_{i=1}^m\frac{1}{1-q^i}</m>.
                   </p>
               </solution>
-          </activity>
+          </task>
+  </activity>
 
-          <!-- This is, in some sense, the problem from hell when it comes to structure. In the first pass, we're going to break into more tasks than Bogart had. This really should become more than one activity in the final version. -->
-          <activity xml:id="qtorialformula" category="interesting">
-              <introduction>
-                  <p>In <xref ref="largestpartatmostm">Problem</xref> and <xref ref="atmostmparts">Problem</xref> you gave the generating functions for, respectively, the number of partitions of <m>k</m> into parts the largest of which is at most <m>m</m> and for the number of partitions of <m>k</m> into at most <m>m</m> parts. In this problem we will give the generating function for the number of partitions of <m>k</m> into at most <m>n</m> parts, the largest of which is at most <m>m</m>. That is we will analyze <m>\sum_{i=0}^\infty a_kq^k</m> where <m>a_k</m> is the number of partitions of <m>k</m> into at most <m>n</m> parts, the largest of which is at most <m>m</m>. Geometrically, it is the generating function for partitions whose Young diagram fits into an <m>m</m> by <m>n</m> rectangle, as in <xref ref="rectanglecomplement">Problem</xref>. This generating function has significant analogs to the binomial coefficient <m>\binom{m+n}{n}</m>, and so it is denoted by <m>\qchoose{m+n}{n}</m>. It is called a <term><m>q</m>-binomial coefficient</term>.<idx><h><m>q</m>-binomial coefficient</h></idx><idx><h>binomial coefficient</h><h><m>q</m>-binomial</h></idx>
-                  </p>
-              </introduction>
-              <task>
-                  <statement>
-                      <p>Compute <m>\qchoose{4}{2}=\qchoose{2+2}{2}</m>.
-                      </p>
-                  </statement>
-                  <hint>
-                      <p>
-                          We want to calculate the number of partitions whose Young diagrams fit into a two by two square. These partitions have at most two parts and the parts have size at most two. Thus they are partitions of 1, 2, 3, or 4. However not all partitions of 3 or 4 have diagrams that fit into a two by two square. Try writing down the relevant diagrams.
-                      </p>
-                  </hint>
-                  <solution>
-                      <p>
-                          A partition with up to two parts of size up to two can have no parts, one part of size 1, which makes it a partition of 1, one part of size 2 which makes it a partition of 2, two parts of size 1, which makes it a partition of 2, a part of size 2 and a part of size 1, which makes it a partition of 3, or two parts of size 2, which makes it a partition of 4. Thus <m>\qchoose{4}{2}=1+q+2q^2+q^3+q^4</m>.
-                      </p>
-                  </solution>
-              </task>
-              <task>
-                  <statement>
-                      <p>
-                          Find explicit formulas for <m>\qchoose{n}{1}</m> and
-                          <m>\qchoose{n}{n-1}</m>.
-                      </p>
-                  </statement>
-                  <hint>
-                      <p>
-                          They are the generating function for the number of partitions whose Young diagram fits into a rectangle <m>n - 1</m> units wide and 1 unit deep or into a rectangle 1 unit wide and <m>n - 1</m> units deep respectively.
-                      </p>
-                  </hint>
-                  <solution>
-                      <p>Both are <m>1+q+q^2+\cdots+q^{n-1} = \frac{1-q^{n-1}}{1-q}</m>, because they are the generating function for the number of partitions whose Young diagram fits into a rectangle <m>n-1</m> units wide and 1 unit deep or into a rectangle 1 unit wide and <m>n-1</m> units deep respectively.
-                      </p>
-                  </solution>
-              </task>
-              <task>
-                  <statement>
-                      <p>How are <m>\qchoose{m+n}{n}</m> and <m>\qchoose{m+n}{n}</m> related? Prove it. (Note this is the same as asking how <m>\qchoose{r}{s}</m> and <m>\qchoose{r}{r-s}</m> are related.)
-                      </p>
-                  </statement>
-                  <hint>
-                      <p>
-                          How can you get a diagram of a partition counted by partition is counted by <m>\qchoose{m+n}{n}</m> from one whose partition is counted by <m>\qchoose{m+n}{m}</m>?
-                      </p>
-                  </hint>
-                  <solution>
-                      <p>
-                          By conjugation, <m>\qchoose{m+n}{n}=\qchoose{m+n}{m}</m>.
-                      </p>
-                  </solution>
-              </task>
-              <task>
-                  <statement>
-                      <p>So far the analogy to <m>\binom{m+n}{n}</m> is rather thin! If we had a recurrence like the Pascal recurrence, that would demonstrate a real analogy. Is <m>\qchoose{m+n}{n}= \qchoose{m+n-1}{n-1}+\qchoose{m+n-1}{n}</m>?
-                      </p>
-                  </statement>
-                  <solution>
-                      <p>
-                          No. <m>\qchoose{4}{2}=1+q+2q^2+q^3+q^4</m>, but
-                          <m>\qchoose{3}{1}=1+q+q^2</m> and
-                          <m>\qchoose{3}{2}=1+q+q^2</m>.
-                      </p>
-                  </solution>
-              </task>
-              <task>
-                  <introduction>
-                      <p>Recall the two operations we studied in <xref ref="numberpartitionrecurrence" />.
-                      </p>
-                  </introduction>
-                  <task>
-                      <statement>
-                          <p>
-                              The largest part of a partition counted by <m>\qchoose{m+n}{n}</m> is either <m>m</m> or is less than or equal to <m>m-1</m>.  In the second case, the partition fits into a rectangle that is at most <m>m-1</m> units wide and at most <m>n</m> units deep.  What is the generating function for partitions of this type?  In the first case, what kind of rectangle does the partition we get by removing the largest part sit in?  What is the generating function for partitions that sit in this kind of rectangle?  What is the generating function for partitions that sit in this kind of rectangle after we remove a largest part of size <m>m</m>?  What recurrence relation does this give you?
-                          </p>
-                      </statement>
-                      <solution>
-                          <p>The generating function for partitions that arise in the second case is <m>\qchoose{m+n-1}{m-1}=\qchoose{m+n-1}{n}</m>. In the first case, after we delete the largest part, the Young diagram sits in a rectangle of width <m>m</m> and depth <m>n-1</m>. The generating function for partitions that arise in the first case <em>after</em> we have deleted a part of size <m>m</m> is <m>\qchoose{m+n-1}{n-1}</m>. Thus the generating function for partitions that arise in the first case (<em>before</em> we delete the part of size <m>m</m>) is <m>q^m\qchoose{m+n-1}{n-1}</m>. Thus by the sum principle the generating function for all partitions that fit into a rectangle of width <m>m</m> and depth <m>n</m> is given by
-                          <me>
-                              \qchoose{m+n}{n}= q^m\qchoose{m+n-1}{n-1}+\qchoose{m+n-1}{n}.
-                          </me>
-                          </p>
+  <activity xml:id="atmostmparts" category="essential">
+      <statement>
+          <p>
+              In <xref ref="largestpartatmostm"/> you gave the generating function for the number of partitions of an integer into parts of size at most <m>m</m>. Explain why this is also the generating function for partitions of an integer into at most <m>m</m> parts. Notice that this is the generating function for the number of partitions whose Young diagram fits into the space between the line <m>y=0</m> and the line <m>y=m</m>.
+          </p>
+      </statement>
+      <hint>
+          <p>
+              Think about conjugate partitions.
+          </p>
+      </hint>
+      <solution>
+          <p>
+              Conjugation is a bijection between partitions with largest part at most <m>m</m> and partitions with at most <m>m</m> parts. Thus the coefficient of <m>q^i</m> (the number of partitions of <m>i</m> into parts of size at most <m>m</m>) in the generating function for the number of partitions of integers into parts of size at most <m>m</m> will be the coefficient of <m>q^i</m> (the number of partitions of <m>i</m> with at most <m>m</m> parts) in the generating function for the number of partitions of integers into parts of size at most <m>m</m>. Thus the two generating functions are the same.
+          </p>
+      </solution>
+  </activity>
 
-                          <p>If you don't use the symmetry <m>\qchoose{m+n-1}{m-1}=\qchoose{m+n-1}{n}</m>, you get
-                          <me>
-                              \qchoose{m+n}{n}= q^m\qchoose{m+n-1}{n-1}+\qchoose{m+n-1}{m-1}.
-                          </me>
-                          </p>
+    <activity xml:id="genfunpartitions" category="essential">
+        <introduction>
+            <p>When studying partitions of integers, it is inconvenient to restrict ourselves to partitions with at most <m>m</m> parts or partitions with maximum part size <m>m</m>.
+            </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>Give the generating function for the number of partitions of an integer into parts of any size. Don't forget to use <m>q</m> rather than <m>x</m> as your variable.
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    Don't be afraid of writing down a product of infinitely many power series.
+                </p>
+            </hint>
+            <solution>
+                <p>
+                    We start with
+                    <me>
+                        (1+q+q^2+\cdots)(1+q^2+q^4+\cdots)\cdots(1+q^i+q^{2i})\cdots,
+                    </me>
+                    which we can write more precisely as
+                    <me>
+                        \prod_{i=1}^\infty \sum_{j=0}^\infty q^{ij}.
+                    </me>
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>Find the coefficient of <m>q^4</m> in this generating function.</p>
+            </statement>
+            <hint>
+                <p>
+                    From the fifth factor on, there is no way to choose a <m>q^i</m> that has <m>i</m> nonzero and less than five from the factor.
+                </p>
+            </hint>
+            <solution>
+                <p>
+                    From the fifth factor on, there is no way to choose a <m>q^i</m> that has <m>i</m> nonzero and less than five from the factor. Thus we choose a 1 from each of these factors. We can choose a <m>q^4</m> from the fourth factor and 1 from the rest, a <m>q^3</m> from the third factor, a <m>q</m> from the first and a 1 from the rest, a <m>q^2</m> from the second factor, a <m>q^2</m> from the first and a 1 from the rest, or we can choose a <m>q^4</m> from the first factor and a 1 from the rest. Therefore the coefficient of <m>q^4</m> is five.
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    Find the coefficient of <m>q^5</m> in this generating function.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    From the sixth factor of the product on, there is no way to choose a <m>q^i</m> that has <m>i</m> nonzero and less than six from the factor, so when we compute the coefficient of <m>q^5</m>, we can only choose the 1 from each of these terms. In the first five factors, we choose any combination of powers that adds to 5. We can choose <m>q^5</m> from the fifth and 1 from the rest, q from the first, <m>q^4</m> from the second and 1 from the rest, <m>q^2</m> from the second, <m>q^3</m> from the third and 1 from the rest, <m>q^2</m> from the first and <m>q^3</m> from the third and 1 from the rest, <m>q^3</m> from the first, <m>q^2</m> from the second, and 1 from the rest <m>q^5</m> from the first and 1 from the rest, and these are the only ways to get a <m>q^5</m> in the product. Thus the coefficient of <m>q^5</m> is 7.
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    This generating function involves an infinite product. Describe the process you would use to expand this product into as many terms of a power series as you choose.
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    Describe to yourself how to get the coefficient of a given power of <m>q</m>.
+                </p>
+            </hint>
+            <solution>
+                <p>To get the coefficient of <m>q^k</m> in this product, we look at all ways of choosing one summand from each of the infinite series and multiplying them together to get <m>q^k</m>, and add all these products up. That is, the coefficient of <m>q^k</m> is the number of ways of making these choices of one summand from each series so that the product of our choices is <m>q^k</m>. This lets us write down as many terms of the series as we want, or as we have patience for!
+            </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    Rewrite any power series that appear in your product as quotients of polynomials or as integers divided by polynomials.
+                </p>
+            </statement>
+            <solution>
+                 <p>
+                     We can rewrite the infinite product as <m>\displaystyle\prod_{i=0}^\infty\frac{1}{1-q^i}</m>.
+                 </p>
+             </solution>
+        </task>
+    </activity>
 
-                          <p>
-                              While this doesn't <em>quite</em> look like the Pascal recurrence, it is still a correct answer.
-                          </p>
-                      </solution>
-                  </task>
-                  <task>
-                      <statement>
-                          <p>
-                              What recurrence do you get from the other operation we studied in <xref ref="numberpartitionrecurrence">Problem</xref>?
-                          </p>
-                      </statement>
-                      <solution>
-                          <p>We either have exactly <m>k</m> parts or fewer than <m>k</m> parts. In the first case, removing one from each part gives us a partition whose Young diagram fits into a <m>m-1</m> by <m>n</m> box, while in the second case doing nothing gives us a partition that fits into a <m>m</m> by <m>n-1</m> box. In the first case the partition we get partitions <m>k-n</m>, and in the second case it still partitions <m>k</m>. Thus we get
-                          <me>
-                              \qchoose{m+n}{n}= q^n\qchoose{m+n-1}{n}+\qchoose{m+n-1}{n-1}.
-                          </me>
-                          </p>
-                      </solution>
-                  </task>
-                  <task>
-                      <statement>
-                          <p>It is quite likely that the two recurrences you got are different.  One would expect that they might give different values for <m>\qchoose{m+n}{n}</m>.  Can you resolve this potential conflict?
-                          </p>
-                      </statement>
-                      <hint>
-                          <p>
-                              Think about geometric operations on Young Diagrams
-                          </p>
-                      </hint>
-                      <solution>
-                          <p>
-                              Yes, by conjugation.
-                          </p>
-                      </solution>
-                  </task>
-              </task>
-              <task>
-                  <statement>
-                      <p>Define <m>[n]_q</m> to be <m>1+q+\cdots+q^{n-1}</m> for <m>n>0</m> and <m>[0]_q =1</m>.  We read this simply as <m>n</m>-sub-<m>q</m>. Define <m>[n]!_q</m> to be <m>[n]_q[n-1]_q\cdots [3]_q[2]_q[1]_q</m>. We read this as <m>n</m> cue-torial, and refer to it as a <term><m>q</m>-ary factorial</term>.<idx><h>factorial</h><h><m>q</m>-ary</h></idx><idx><h><m>q</m>-ary factorial</h></idx> Show that
-                      <me>
-                          \qchoose{m+n}{n} = \frac{[m+n]!_q}{[m]!_q[n]!_q}.
-                      </me>
-                      </p>
-                  </statement>
-                  <hint>
-                      <p>
-                          How would you use the Pascal recurrence to prove the corresponding result for binomial coefficients?
-                      </p>
-                  </hint>
-                  <solution>
-                      <p>Note that <m>\qchoose{n}{0}= \qchoose{n}{n} = 1</m>, because only the partition with no parts sits in a rectangle of width or depth 0. But <m>\frac{[m+0]!_q}{[m]!_q[0]!_q} =1</m> and <m>\frac{[0+n]!_q}{[0]!_q[n]!_q} =1</m>. Thus the formula holds when <m>m=0</m> or <m>n=0</m>. But
-                      <md>
-                          <mrow> \amp q^m\frac{[m+n-1]!_q}{[n-1]!_q[m]!_q}+\frac{[m+n-1]!_q}{[n]!_q[m-1]!_q}</mrow>
-                          <mrow> =\amp \relax[m+n-1]!_q\left(\frac{q^m}{[n-1]!_q[m]!_q}
-                          +\frac{1}{[n]!_q[m-1]!_q}\right)</mrow>
-                          <mrow> \amp \relax[m+n-1]!_q\left(\frac{[n]_qq^m}{[n]!_q[m]_q}+\frac{[m]_q}{[n]!_q[m]!_q}\right)</mrow>
-                          <mrow> =\amp \relax\frac{[m+n-1]!_q}{[n]!_q[m]!_q}\left((1+q+\cdots+q^{n-1})q^m +
-                          1+q+\cdots+q^{m-1}\right)</mrow>
-                          <mrow> =\amp \relax\frac{[m+n-1]!_q[m+n]_q}{[n]!_q[m]!_q}</mrow>
-                          <mrow> =\amp \qchoose{m+n}{n}.</mrow>
-                      </md>
-                      </p>
+    <activity category="interesting">
+        <statement>
+            <p>In <xref ref="genfunpartitions"/>, we multiplied together infinitely many power series. Here are two notations for infinite products that look rather similar:
+            <me>
+                \prod_{i=1}^\infty 1 + x + x^2 +\cdots+ x^i\qquad\mbox{and}\qquad
+                \prod_{i=1}^\infty 1 +x^i +x^{2i} +\cdots + x^{i^2}.
+            </me>
+            </p>
 
-                      <p>
-                          Thus <m>\frac{[m+n]!_q}{[m]!_q[n]!_q}</m> satisfies our recurrence and so by the
-                          principle of mathematical induction, <m>\qchoose{m+n}{n} = \frac{[m+n]!_q}{[m]!_q[n]!_q}.</m>
-                      </p>
-                  </solution>
-              </task>
-              <task>
-                  <statement>
-                      <p>Now think of <m>q</m> as a variable that we will let approach <m>1</m>. Find an explicit formula for
-                      <ol label="(i)">
-                          <li>
-                              <m>\displaystyle\lim_{q\rightarrow 1} [n]_q</m>.
-                          </li>
-                          <li> <m>\displaystyle\lim_{q\rightarrow 1} [n]!_q</m>.
-                          </li>
-                          <li xml:id="q-binomial-lim"> <m>\displaystyle\lim_{q\rightarrow 1} \qchoose{m+n}{n}</m>.
-                          </li>
-                      </ol>
-                      Why is the limit in <xref ref="q-binomial-lim">Part</xref> equal to the number of partitions (of any number) with at most <m>n</m> parts all of size most <m>m</m>? Can you explain bijectively why this quantity equals the formula you got?
-                      </p>
-                  </statement>
-                  <hint>
-                      <p>
-                          For finding a bijection, think about lattice paths.
-                      </p>
-                  </hint>
-                  <solution>
-                      <p>
-                          <ol label="(i)">
-                              <li><m>n</m>
-                              </li>
-                              <li><m>n!</m>
-                              </li>
-                              <li><m>\binom{m+n}{n}</m>
-                              </li>
-                          </ol>
-                          Since the generating function is a finite sum (we are talking about partitions whose Young diagram into a finite rectangle), the limit is obtained by setting <m>q=1</m>, and this sums the number of partitions of each possible number <m>k</m> that have at most <m>n</m> parts all of size at most <m>m</m>. We want a bijection between such partitions and the <m>n</m> element subsets of an <m>m+n</m> element set. Recall that there is a bijection between subsets of an <m>n</m> element set and lattice paths from <m>(0,0)</m> to <m>m,n</m> in a coordinate plane. If we draw our rectangle of width <m>m</m> and depth <m>n</m> with its lower left corner at <m>(0,0)</m>, then each Young diagram gives us such a lattice path and each such lattice path gives us a Young diagram.
-                      </p>
-                  </solution>
-              </task>
-              <task category="difficult">
-                  <statement>
-                      <p>What happens to <m>\qchoose{m+n}{n}</m> if we let <m>q</m> approach <m>-1</m>?
-                      </p>
-                  </statement>
-                  <hint>
-                      <p>
-                          If you could prove <m>\qchoose{m+n}{n}</m> is a polynomial function of <m>q</m>, what would that tell you about how to compute the limit as <m>q</m> approaches <m>-1</m>?
-                      </p>
-                  </hint>
-                  <hint>
-                      <p>
-                          Try computing a table of values of <m>\qchoose{m+n}{n}</m> with <m>q=-1</m> by using the recurrence relation. Make a pretty big table so you can see what is happening.
-                      </p>
-                  </hint>
-                  <solution>
-                      <p><m>\qchoose{m+n}{n}</m> is the generating function for the number of partitions whose Young diagram fits into an <m>m</m> by <m>n</m> rectangle. That is,
-                      <me>
-                          \qchoose{m+n}{n}=\sum_{k=0}^\infty a_kq^k,
-                      </me>
-                      where <m>a_k</m> is the number of partitions of <m>k</m> whose Young diagram fits into an <m>m</m> by <m>n</m> rectangle. In particular <m>a_k=0</m> if <m>k>mn</m>, because the Young diagram of a partition of a number larger than <m>mn</m> certainly cannot fit into an <m>m</m> by <m>n</m> rectangle. Thus
-                      <me>
-                          \qchoose{m+n}{n}=\sum_{k=0}^{mn} a_kq^k.
-                      </me>
-                      </p>
+            <p>However, one makes sense and one doesn't. Figure out which one makes sense and explain why it makes sense and the other one doesn't. If we want a product of the form
+            <me>
+                \prod_{i=1}^\infty 1 +p_i(x),
+            </me>
+            where each <m>p_i(x)</m> is a nonzero polynomial in <m>x</m> to make sense, describe a relatively simple assumption about the polynomials <m>p_i(x)</m> that will make the product make sense. If we assumed the terms <m>p_i(x)</m> were nonzero power series, is there a relatively simple assumption we could make about them in order to make the product make sense? (Describe such a condition or explain why you think there couldn't be one.)
+            </p>
+        </statement>
+        <hint>
+            <p>
+If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, would the product make any sense?
+            </p>
+        </hint>
 
-                      <p>Furthermore, <m>a_k=a_{mn-k}</m>, because the complement in an <m>m</m> by <m>n</m> rectangle of a partition of <m>k</m> is a partition of <m>mn-k</m>, and complementation in an <m>m</m> by <m>n</m> rectangle is a bijection between partitions of <m>k</m> that fit into the rectangle and partitions of <m>mn-k</m> that fit into the rectangle. Thus <m>\qchoose{m+n}{n}</m> is a polynomial of degree <m>mn</m> in which the coefficient of <m>q_k</m> equals the coefficient of <m>q^{mn-k}</m>. For this reason we can compute the limit as <m>q</m> approaches <m>-1</m> simply by substituting <m>-1</m> for <m>q</m> in the polynomial; the only trouble being that the formula we know for <m>\qchoose{m+n}{n}</m> is quotient of polynomials that has zero in both the numerator and denominator when we substitute in <m>q=-1</m>. Nonetheless, when we substitute <m>-1</m> for <m>q</m> we get the alternating sum <m>\sum_{i=0}^{mn} (-1)^ia_i</m>.  Thus if <m>a_i</m> and <m>a_{mn-i}</m> have opposite sign, they will cancel out. If <m>mn</m> is even, <m>i</m> is even exactly when <m>mn-i</m> is even, and so <m>a_i</m> and <m>a_{mn-i}</m> have the same sign. However when <m>mn</m> is odd, <m>a_i</m> and <m>a_{mn-i}</m> have opposite signs in the sum <m>\sum_{i=0}^{mn} (-1)^ia_i</m>, and so the sum is zero.  Thus the polynomial <m>\qchoose{m+n}{n}</m> is zero at <m>q=-1</m> whenever <m>mn</m> is odd.
-                      </p>
+        <solution>
+            <p>
+                <m>\prod_{i=1}^\infty 1 +x^i +x^{2i} +\cdots + x^{i^2}</m> makes sense because when we look for ways of choosing one summand from each factor so that the summands multiply together to give us <m>x^k</m>, we will find only finitely many ways of making those choices, so the coefficient of <m>x^k</m> can be taken to be the number of such choices. On the other hand, in the expression <m>\prod_{i=1}^\infty 1 + x + x^2 +\cdots+ x^i</m>, there are infinitely many ways to choose <m>x</m> from one term and <m>1</m> from all the rest of the terms so that the product of these summands is <m>x</m>. Thus we can't even specify what the coefficient of <m>x</m> is in the product. On the basis of this analysis, we see that for <m>\prod_{i=1}^\infty 1 +p_i(x)</m> to make sense, we need to assume that for each possible positive integer <m>n</m>, there are only a finite number of polynomials <m>p_i</m> whose lowest degree term has degree less than or equal to <m>n</m>. In that way, for each positive integer, there will be only finitely many ways to chose a summand from each factor so that the product of the summands is a multiple of <m>x^k</m>. The same assumption works when the <m>p_i</m> are power series, for the same reason.
+            </p>
+        </solution>
+    </activity>
 
-                      <p>Our experience with binomial coefficients might lead us to hope that the alternating sum of the coefficients <m>a_k</m> will always be zero. However, we computed that <m>\qchoose{4}{2}=1+q+2q^2+q^3+q^4</m>, so
-                      <me>
-                          \lim_{q\rightarrow -1}\qchoose{4}{2}=1-1+2-1+1=1.
-                      </me>
-                      </p>
+    <activity category="essential">
+        <statement>
+            <p>What is the generating function (using <m>q</m> for the variable) for the number of partitions of an integer in which each part is even?
+            </p>
+        </statement>
+        <hint>
+            <p>
+                <m>(1 + q^2 + q^4 )(1 + q^3 + q^9 )</m> is the generating function for partitions of an integer into at most two twos and at most two threes.
+            </p>
+        </hint>
 
-                      <p>We could compute some more values of the limit by going back to the definition in this way, but it seems unlikely that we could get enough data to make a good conjecture. However we have the recurrence, and setting <m>q=-1</m> in the recurrence gives us <xref ref="q-binomial-tab" />.  From the table, it is clear that we get binomial coefficients interspersed with 0s in the even numbered rows of our table and repeated binomial coefficients in the odd numbered rows of our table. In particular when <m>m+n</m> and <m>n</m> are both even, <m>\neg1choose{m+n}{n}=\binom{(m+n)/2}{n/2}</m>, and if <m>m+n</m> is even and <m>n</m> is odd, <m>\neg1choose{m+n}{n}=0</m>. In our table, at least, if <m>m+n</m> is odd, it appears that we get <m>\neg1choose{m+n}{n}=\binom{\lfloor(m+n)/2\rfloor}{\lfloor n/2\rfloor}</m>. In fact, using the recurrence just as we used it to construct the table, we can prove by induction that
-                      <me>
-                          \neg1choose{m+n}{n}=\left\{
-                          \begin{array}{ll}0\amp \mbox{if \(mn\) is odd} \\
-                          \binom{\lfloor(m+n)/2\rfloor}{\lfloor n/2\rfloor}\amp \mbox{otherwise.}
-                          \end{array} \right.
-                      </me>
-                      </p>
-                      <table xml:id="q-binomial-tab">
-                          <caption><m>-1</m>-binomial coefficients</caption>
-                          <tabular>
-                              <col right="minor" halign="center" /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col />
-                              <row bottom="minor">
-                                  <cell><m>m+n\backslash n</m></cell>
-                                  <cell>0</cell>
-                                  <cell>1</cell>
-                                  <cell>2</cell>
-                                  <cell>3</cell>
-                                  <cell>4</cell>
-                                  <cell>5</cell>
-                                  <cell>6</cell>
-                                  <cell>7</cell>
-                                  <cell>8</cell>
-                                  <cell>9</cell>
-                              </row>
-                              <row>
-                                  <cell>0</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                              </row>
-                              <row>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                              </row>
-                              <row>
-                                  <cell>2</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                              </row>
-                              <row>
-                                  <cell>3</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                              </row>
-                              <row>
-                                  <cell>4</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>2</cell>
-                                  <cell>0</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                              </row>
-                              <row>
-                                  <cell>5</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>2</cell>
-                                  <cell>2</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                              </row>
-                              <row>
-                                  <cell>6</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>3</cell>
-                                  <cell>0</cell>
-                                  <cell>3</cell>
-                                  <cell>0</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                              </row>
-                              <row>
-                                  <cell>7</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>3</cell>
-                                  <cell>3</cell>
-                                  <cell>3</cell>
-                                  <cell>3</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>0</cell>
-                              </row>
-                              <row>
-                                  <cell>8</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                                  <cell>4</cell>
-                                  <cell>0</cell>
-                                  <cell>6</cell>
-                                  <cell>0</cell>
-                                  <cell>4</cell>
-                                  <cell>0</cell>
-                                  <cell>1</cell>
-                                  <cell>0</cell>
-                              </row>
-                              <row>
-                                  <cell>9</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                                  <cell>4</cell>
-                                  <cell>4</cell>
-                                  <cell>6</cell>
-                                  <cell>6</cell>
-                                  <cell>4</cell>
-                                  <cell>4</cell>
-                                  <cell>1</cell>
-                                  <cell>1</cell>
-                              </row>
-                          </tabular>
-                      </table>
-                      <p>
-                          (Note that <m>mn</m> is odd if and only if <m>m+n</m> is even and <m>n</m> is odd.) Wouldn't it be fascinating to know what we are counting here? It is the number of lattice paths from <m>(0, 0)</m> to <m>(n - k, k)</m> that are symmetric under 180 degree rotation. This and other results are discussed in the paper by John R. Stembridge <q>Some hidden relations involving the ten symmetry classes of plane partitions.</q> <booktitle>J. Combin. Theory Ser. A</booktitle> 68 (1994), no. 2, 372–409.
-                      </p>
-                  </solution>
-              </task>
-          </activity>
+        <solution>
+            <p>
+                <m>(1+q^2+q^4+\cdots)(1+q^4+q^8+\cdots)(1+q^6+q^{12}+\cdots)\cdots</m>,
+                which can be written more precisely as <m>\displaystyle\prod_{i=1}^\infty
+                \sum_{j=0}^\infty q^{2ij}</m>.
+            </p>
+        </solution>
+    </activity>
+
+    <activity category="essential">
+        <statement>
+            <p>What is the generating function (using <m>q</m> as the variable) for the number of partitions of an integer into distinct parts, that is, in which each part is used at most once?
+            </p>
+        </statement>
+        <hint>
+            <p>
+                <m>(1 + q^2 + q^4 )(1 + q^3 + q^9 )</m> is the generating function for partitions of an integer into at most two twos and at most two threes. (This is intentionally the same hint as in the previous problem, but it has a different point in this problem.)
+            </p>
+        </hint>
+
+        <solution>
+            <p>
+                <m>\displaystyle (1+q)(1+q^2)(1+q^3)\cdots=
+                \prod_{i=1}^\infty(1+q^i)</m>.
+            </p>
+        </solution>
+    </activity>
+
+    <activity category="essential">
+        <statement>
+            <p>Use generating functions to explain why the number of partitions of an integer in which each part is used an even number of times equals the number of partitions of an integer in which each part is even.
+            </p>
+        </statement>
+        <hint>
+            <p>
+                In the power series <m>\sum_{j=0}^\infty q^{2ij}</m>, the <m>2ij</m> has a different interpretation if you think
+of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
+
+</p>
+</hint>
+
+        <solution>
+            <p>In the generating function <m>\displaystyle\prod_{i=1}^\infty \sum_{j=0}^\infty q^{2ij}</m>, we may interpret the <m>2ij</m> in <m>q^{2ji}</m> the value of using <m>2i</m> as a part <m>j</m> times or as the value of using <m>i</m> as a part <m>2j</m> times. Therefore this is the generating function both for the number of partitions of integers into parts that are even and the number of partitions into parts that are used an even number of times. Therefore the number of partitions of <m>n</m> in which each part is even equals the number of partitions of <m>n</m> in which each part is used an even number of times. In <xref ref="partition-even-mult-even-use" /> we got the same result bijectively.
+            </p>
+        </solution>
+    </activity>
+
+    <activity category="essential and interesting">
+        <statement>
+            <p>Use the fact that
+            <me>
+                \frac{1-q^{2i}}{1-q^i}= 1+q^i
+            </me>
+            and the generating function for the number of partitions of an integer into distinct parts to show how the number of partitions of an integer <m>k</m> into distinct parts is related to the number of partitions of an integer <m>k</m> into odd parts.
+            </p>
+        </statement>
+        <hint>
+            <p>
+                Note that
+                <me>\frac{1-q^2}{1-q}\cdot \frac{1-q^4}{1-q^2}\cdot \frac{1-q^6}{1-q^3}\cdot \frac{1-q^8}{1-q^4} = \frac{(1-q^6)(1-q^8)}{(1-q)(1-q^3)} </me>.
+            </p>
+        </hint>
+        <solution>
+            <p>
+                <m>\displaystyle\prod_{i=1}^\infty 1+q^i=\prod_{i=1}^n \frac{1-q^{2i}}{1-q^i}=\frac{\prod_{i=1}^\infty1-q^{2i}}{\prod_{j=1}^\infty 1-q^j} =\prod_{i=j}^\infty \frac{1}{1-q^{2j-1}}</m>, because all the terms in the numerator cancel with alternate terms in the denominator leaving only terms with odd powers of <m>q</m>. But
+                <md>
+                    <mrow> \amp \prod_{j=1}^\infty\frac{1}{1-q^{2j-1}} =  \prod_{j=1}^\infty \sum_{i=0}^\infty (q^{2j-1})^i</mrow>
+                    <mrow> =\amp (1+q+q^{2\cdot1}+\cdots)(1+q^3+q^{2\cdot3}+\cdots)(1
+                        +q^5+q^{2\cdot5}+\cdots)\cdots,</mrow>
+                    </md>
+                    which is the generating function for partitions of integers into parts that
+                    are odd numbers.
+                </p>
+            </solution>
+    </activity>
+    
+    <activity>
+      <task>
+        <statement>
+          <p>
+            Prove that 
+            <me>
+              \frac{1}{1-x} = (1 + x + x^2 +\cdots + x^9)(1 + x^{10} + \cdots + x^{90})(1 + x^{100} + \cdots + x^{900})\cdots.
+            </me>
+            What does this tell us about numbers?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Prove that every non negative integer <m>n</m> has a unique binary representation.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Find a simple expression for <me>(1+x+x^2)(1+x^3+x^6)(1+x^9+x^{18})(1+x^{27}+x^{54})\cdots.</me>
+            How can you interpret this result?
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
+    
+    
+    <activity>
+        <statement>
+            <p>Write down the generating function for the number of ways to partition an integer into parts of size no more than <m>m</m>, each used an odd number of times. Write down the generating function for the number of partitions of an integer into parts of size no more than <m>m</m>, each used an even number of times. Use these two generating functions to get a relationship between the two sequences for which you wrote down the generating functions.
+            </p>
+        </statement>
+        <hint>
+            <p>
+                Note that <m>q^i + q^{3i} + q^{5i} + \cdots = q^i (1 + q^2 + q^4 + \cdots)</m>.
+            </p>
+        </hint>
+        <solution>
+            <p>
+                <me>
+                        \displaystyle\prod_{i=1}^m (q^i+q^{3i}+q^{5i}+\cdots )= q^{1+2+\cdots m}\prod_{i=1}^m (1+q^{2i}+q^{4i}+\cdots )=q^{\binom{m+1}{2}}\prod_{i=1}^m\frac{1}{1-q^{2i}}
+                    </me>
+                    is the generating function for the number of ways to partition an integer into parts of size at most <m>m</m>, each used an odd number of times.
+                    <me>
+                        \displaystyle
+                        \prod_{i=1}^m (1 +q^{2i}+q^{4i}+q^{6i}+\cdots )=\prod_{i=1}^m \frac{1}{1-q^{2i}}
+                    </me>
+                    is the generating function for the number of partitions of an integer into parts of size no more than <m>m</m>, each used an even number of times. Therefore the number of partitions of <m>k</m> into parts of size no more than <m>m</m>, each used an even number of times is the number of partitions of <m>k+\binom{m+1}{2}</m>, into parts of size no more than <m>m</m>, each used an odd number of times.
+            </p>
+        </solution>
+    </activity>
+
+    <!-- This is, in some sense, the problem from hell when it comes to structure. In the first pass, we're going to break into more tasks than Bogart had. This really should become more than one activity in the final version. -->
+    <activity xml:id="qtorialformula" category="interesting">
+        <introduction>
+            <p>In <xref ref="largestpartatmostm"/> and <xref ref="atmostmparts"/> you gave the generating functions for, respectively, the number of partitions of <m>k</m> into parts the largest of which is at most <m>m</m> and for the number of partitions of <m>k</m> into at most <m>m</m> parts. In this problem we will give the generating function for the number of partitions of <m>k</m> into at most <m>n</m> parts, the largest of which is at most <m>m</m>. That is we will analyze <m>\sum_{i=0}^\infty a_kq^k</m> where <m>a_k</m> is the number of partitions of <m>k</m> into at most <m>n</m> parts, the largest of which is at most <m>m</m>. Geometrically, it is the generating function for partitions whose Young diagram fits into an <m>m</m> by <m>n</m> rectangle, as in <xref ref="rectanglecomplement"/>. This generating function has significant analogs to the binomial coefficient <m>\binom{m+n}{n}</m>, and so it is denoted by <m>\qchoose{m+n}{n}</m>. It is called a <term><m>q</m>-binomial coefficient</term>.<idx><h><m>q</m>-binomial coefficient</h></idx><idx><h>binomial coefficient</h><h><m>q</m>-binomial</h></idx>
+            </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>Compute <m>\qchoose{4}{2}=\qchoose{2+2}{2}</m>.
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    We want to calculate the number of partitions whose Young diagrams fit into a two by two square. These partitions have at most two parts and the parts have size at most two. Thus they are partitions of 1, 2, 3, or 4. However not all partitions of 3 or 4 have diagrams that fit into a two by two square. Try writing down the relevant diagrams.
+                </p>
+            </hint>
+            <solution>
+                <p>
+                    A partition with up to two parts of size up to two can have no parts, one part of size 1, which makes it a partition of 1, one part of size 2 which makes it a partition of 2, two parts of size 1, which makes it a partition of 2, a part of size 2 and a part of size 1, which makes it a partition of 3, or two parts of size 2, which makes it a partition of 4. Thus <m>\qchoose{4}{2}=1+q+2q^2+q^3+q^4</m>.
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    Find explicit formulas for <m>\qchoose{n}{1}</m> and
+                    <m>\qchoose{n}{n-1}</m>.
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    They are the generating function for the number of partitions whose Young diagram fits into a rectangle <m>n - 1</m> units wide and 1 unit deep or into a rectangle 1 unit wide and <m>n - 1</m> units deep respectively.
+                </p>
+            </hint>
+            <solution>
+                <p>Both are <m>1+q+q^2+\cdots+q^{n-1} = \frac{1-q^{n-1}}{1-q}</m>, because they are the generating function for the number of partitions whose Young diagram fits into a rectangle <m>n-1</m> units wide and 1 unit deep or into a rectangle 1 unit wide and <m>n-1</m> units deep respectively.
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>How are <m>\qchoose{m+n}{n}</m> and <m>\qchoose{m+n}{n}</m> related? Prove it. (Note this is the same as asking how <m>\qchoose{r}{s}</m> and <m>\qchoose{r}{r-s}</m> are related.)
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    How can you get a diagram of a partition counted by partition is counted by <m>\qchoose{m+n}{n}</m> from one whose partition is counted by <m>\qchoose{m+n}{m}</m>?
+                </p>
+            </hint>
+            <solution>
+                <p>
+                    By conjugation, <m>\qchoose{m+n}{n}=\qchoose{m+n}{m}</m>.
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>So far the analogy to <m>\binom{m+n}{n}</m> is rather thin! If we had a recurrence like the Pascal recurrence, that would demonstrate a real analogy. Is <m>\qchoose{m+n}{n}= \qchoose{m+n-1}{n-1}+\qchoose{m+n-1}{n}</m>?
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    No. <m>\qchoose{4}{2}=1+q+2q^2+q^3+q^4</m>, but
+                    <m>\qchoose{3}{1}=1+q+q^2</m> and
+                    <m>\qchoose{3}{2}=1+q+q^2</m>.
+                </p>
+            </solution>
+        </task>
+        <task>
+            <introduction>
+                <p>Recall the two operations we studied in <xref ref="numberpartitionrecurrence" />.
+                </p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>
+                        The largest part of a partition counted by <m>\qchoose{m+n}{n}</m> is either <m>m</m> or is less than or equal to <m>m-1</m>.  In the second case, the partition fits into a rectangle that is at most <m>m-1</m> units wide and at most <m>n</m> units deep.  What is the generating function for partitions of this type?  In the first case, what kind of rectangle does the partition we get by removing the largest part sit in?  What is the generating function for partitions that sit in this kind of rectangle?  What is the generating function for partitions that sit in this kind of rectangle after we remove a largest part of size <m>m</m>?  What recurrence relation does this give you?
+                    </p>
+                </statement>
+                <solution>
+                    <p>The generating function for partitions that arise in the second case is <m>\qchoose{m+n-1}{m-1}=\qchoose{m+n-1}{n}</m>. In the first case, after we delete the largest part, the Young diagram sits in a rectangle of width <m>m</m> and depth <m>n-1</m>. The generating function for partitions that arise in the first case <em>after</em> we have deleted a part of size <m>m</m> is <m>\qchoose{m+n-1}{n-1}</m>. Thus the generating function for partitions that arise in the first case (<em>before</em> we delete the part of size <m>m</m>) is <m>q^m\qchoose{m+n-1}{n-1}</m>. Thus by the sum principle the generating function for all partitions that fit into a rectangle of width <m>m</m> and depth <m>n</m> is given by
+                    <me>
+                        \qchoose{m+n}{n}= q^m\qchoose{m+n-1}{n-1}+\qchoose{m+n-1}{n}.
+                    </me>
+                    </p>
+
+                    <p>If you don't use the symmetry <m>\qchoose{m+n-1}{m-1}=\qchoose{m+n-1}{n}</m>, you get
+                    <me>
+                        \qchoose{m+n}{n}= q^m\qchoose{m+n-1}{n-1}+\qchoose{m+n-1}{m-1}.
+                    </me>
+                    </p>
+
+                    <p>
+                        While this doesn't <em>quite</em> look like the Pascal recurrence, it is still a correct answer.
+                    </p>
+                </solution>
+            </task>
+            <task>
+                <statement>
+                    <p>
+                        What recurrence do you get from the other operation we studied in <xref ref="numberpartitionrecurrence"/>?
+                    </p>
+                </statement>
+                <solution>
+                    <p>We either have exactly <m>k</m> parts or fewer than <m>k</m> parts. In the first case, removing one from each part gives us a partition whose Young diagram fits into a <m>m-1</m> by <m>n</m> box, while in the second case doing nothing gives us a partition that fits into a <m>m</m> by <m>n-1</m> box. In the first case the partition we get partitions <m>k-n</m>, and in the second case it still partitions <m>k</m>. Thus we get
+                    <me>
+                        \qchoose{m+n}{n}= q^n\qchoose{m+n-1}{n}+\qchoose{m+n-1}{n-1}.
+                    </me>
+                    </p>
+                </solution>
+            </task>
+            <task>
+                <statement>
+                    <p>It is quite likely that the two recurrences you got are different.  One would expect that they might give different values for <m>\qchoose{m+n}{n}</m>.  Can you resolve this potential conflict?
+                    </p>
+                </statement>
+                <hint>
+                    <p>
+                        Think about geometric operations on Young Diagrams
+                    </p>
+                </hint>
+                <solution>
+                    <p>
+                        Yes, by conjugation.
+                    </p>
+                </solution>
+            </task>
+        </task>
+        <task>
+            <statement>
+                <p>Define <m>[n]_q</m> to be <m>1+q+\cdots+q^{n-1}</m> for <m>n>0</m> and <m>[0]_q =1</m>.  We read this simply as <m>n</m>-sub-<m>q</m>. Define <m>[n]!_q</m> to be <m>[n]_q[n-1]_q\cdots [3]_q[2]_q[1]_q</m>. We read this as <m>n</m> cue-torial, and refer to it as a <term><m>q</m>-ary factorial</term>.<idx><h>factorial</h><h><m>q</m>-ary</h></idx><idx><h><m>q</m>-ary factorial</h></idx> Show that
+                <me>
+                    \qchoose{m+n}{n} = \frac{[m+n]!_q}{[m]!_q[n]!_q}.
+                </me>
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    How would you use the Pascal recurrence to prove the corresponding result for binomial coefficients?
+                </p>
+            </hint>
+            <solution>
+                <p>Note that <m>\qchoose{n}{0}= \qchoose{n}{n} = 1</m>, because only the partition with no parts sits in a rectangle of width or depth 0. But <m>\frac{[m+0]!_q}{[m]!_q[0]!_q} =1</m> and <m>\frac{[0+n]!_q}{[0]!_q[n]!_q} =1</m>. Thus the formula holds when <m>m=0</m> or <m>n=0</m>. But
+                <md>
+                    <mrow> \amp q^m\frac{[m+n-1]!_q}{[n-1]!_q[m]!_q}+\frac{[m+n-1]!_q}{[n]!_q[m-1]!_q}</mrow>
+                    <mrow> =\amp \relax[m+n-1]!_q\left(\frac{q^m}{[n-1]!_q[m]!_q}
+                    +\frac{1}{[n]!_q[m-1]!_q}\right)</mrow>
+                    <mrow> \amp \relax[m+n-1]!_q\left(\frac{[n]_qq^m}{[n]!_q[m]_q}+\frac{[m]_q}{[n]!_q[m]!_q}\right)</mrow>
+                    <mrow> =\amp \relax\frac{[m+n-1]!_q}{[n]!_q[m]!_q}\left((1+q+\cdots+q^{n-1})q^m +
+                    1+q+\cdots+q^{m-1}\right)</mrow>
+                    <mrow> =\amp \relax\frac{[m+n-1]!_q[m+n]_q}{[n]!_q[m]!_q}</mrow>
+                    <mrow> =\amp \qchoose{m+n}{n}.</mrow>
+                </md>
+                </p>
+
+                <p>
+                    Thus <m>\frac{[m+n]!_q}{[m]!_q[n]!_q}</m> satisfies our recurrence and so by the
+                    principle of mathematical induction, <m>\qchoose{m+n}{n} = \frac{[m+n]!_q}{[m]!_q[n]!_q}.</m>
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>Now think of <m>q</m> as a variable that we will let approach <m>1</m>. Find an explicit formula for
+                <ol label="(i)">
+                    <li>
+                        <m>\displaystyle\lim_{q\rightarrow 1} [n]_q</m>.
+                    </li>
+                    <li> <m>\displaystyle\lim_{q\rightarrow 1} [n]!_q</m>.
+                    </li>
+                    <li xml:id="q-binomial-lim"> <m>\displaystyle\lim_{q\rightarrow 1} \qchoose{m+n}{n}</m>.
+                    </li>
+                </ol>
+                Why is the limit in <xref ref="q-binomial-lim">Part</xref> equal to the number of partitions (of any number) with at most <m>n</m> parts all of size most <m>m</m>? Can you explain bijectively why this quantity equals the formula you got?
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    For finding a bijection, think about lattice paths.
+                </p>
+            </hint>
+            <solution>
+                <p>
+                    <ol label="(i)">
+                        <li><m>n</m>
+                        </li>
+                        <li><m>n!</m>
+                        </li>
+                        <li><m>\binom{m+n}{n}</m>
+                        </li>
+                    </ol>
+                    Since the generating function is a finite sum (we are talking about partitions whose Young diagram into a finite rectangle), the limit is obtained by setting <m>q=1</m>, and this sums the number of partitions of each possible number <m>k</m> that have at most <m>n</m> parts all of size at most <m>m</m>. We want a bijection between such partitions and the <m>n</m> element subsets of an <m>m+n</m> element set. Recall that there is a bijection between subsets of an <m>n</m> element set and lattice paths from <m>(0,0)</m> to <m>m,n</m> in a coordinate plane. If we draw our rectangle of width <m>m</m> and depth <m>n</m> with its lower left corner at <m>(0,0)</m>, then each Young diagram gives us such a lattice path and each such lattice path gives us a Young diagram.
+                </p>
+            </solution>
+        </task>
+        <task category="difficult">
+            <statement>
+                <p>What happens to <m>\qchoose{m+n}{n}</m> if we let <m>q</m> approach <m>-1</m>?
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    If you could prove <m>\qchoose{m+n}{n}</m> is a polynomial function of <m>q</m>, what would that tell you about how to compute the limit as <m>q</m> approaches <m>-1</m>?
+                </p>
+            </hint>
+            <hint>
+                <p>
+                    Try computing a table of values of <m>\qchoose{m+n}{n}</m> with <m>q=-1</m> by using the recurrence relation. Make a pretty big table so you can see what is happening.
+                </p>
+            </hint>
+            <solution>
+                <p><m>\qchoose{m+n}{n}</m> is the generating function for the number of partitions whose Young diagram fits into an <m>m</m> by <m>n</m> rectangle. That is,
+                <me>
+                    \qchoose{m+n}{n}=\sum_{k=0}^\infty a_kq^k,
+                </me>
+                where <m>a_k</m> is the number of partitions of <m>k</m> whose Young diagram fits into an <m>m</m> by <m>n</m> rectangle. In particular <m>a_k=0</m> if <m>k>mn</m>, because the Young diagram of a partition of a number larger than <m>mn</m> certainly cannot fit into an <m>m</m> by <m>n</m> rectangle. Thus
+                <me>
+                    \qchoose{m+n}{n}=\sum_{k=0}^{mn} a_kq^k.
+                </me>
+                </p>
+
+                <p>Furthermore, <m>a_k=a_{mn-k}</m>, because the complement in an <m>m</m> by <m>n</m> rectangle of a partition of <m>k</m> is a partition of <m>mn-k</m>, and complementation in an <m>m</m> by <m>n</m> rectangle is a bijection between partitions of <m>k</m> that fit into the rectangle and partitions of <m>mn-k</m> that fit into the rectangle. Thus <m>\qchoose{m+n}{n}</m> is a polynomial of degree <m>mn</m> in which the coefficient of <m>q_k</m> equals the coefficient of <m>q^{mn-k}</m>. For this reason we can compute the limit as <m>q</m> approaches <m>-1</m> simply by substituting <m>-1</m> for <m>q</m> in the polynomial; the only trouble being that the formula we know for <m>\qchoose{m+n}{n}</m> is quotient of polynomials that has zero in both the numerator and denominator when we substitute in <m>q=-1</m>. Nonetheless, when we substitute <m>-1</m> for <m>q</m> we get the alternating sum <m>\sum_{i=0}^{mn} (-1)^ia_i</m>.  Thus if <m>a_i</m> and <m>a_{mn-i}</m> have opposite sign, they will cancel out. If <m>mn</m> is even, <m>i</m> is even exactly when <m>mn-i</m> is even, and so <m>a_i</m> and <m>a_{mn-i}</m> have the same sign. However when <m>mn</m> is odd, <m>a_i</m> and <m>a_{mn-i}</m> have opposite signs in the sum <m>\sum_{i=0}^{mn} (-1)^ia_i</m>, and so the sum is zero.  Thus the polynomial <m>\qchoose{m+n}{n}</m> is zero at <m>q=-1</m> whenever <m>mn</m> is odd.
+                </p>
+
+                <p>Our experience with binomial coefficients might lead us to hope that the alternating sum of the coefficients <m>a_k</m> will always be zero. However, we computed that <m>\qchoose{4}{2}=1+q+2q^2+q^3+q^4</m>, so
+                <me>
+                    \lim_{q\rightarrow -1}\qchoose{4}{2}=1-1+2-1+1=1.
+                </me>
+                </p>
+
+                <p>We could compute some more values of the limit by going back to the definition in this way, but it seems unlikely that we could get enough data to make a good conjecture. However we have the recurrence, and setting <m>q=-1</m> in the recurrence gives us <xref ref="q-binomial-tab" />.  From the table, it is clear that we get binomial coefficients interspersed with 0s in the even numbered rows of our table and repeated binomial coefficients in the odd numbered rows of our table. In particular when <m>m+n</m> and <m>n</m> are both even, <m>\negchoose{m+n}{n}=\binom{(m+n)/2}{n/2}</m>, and if <m>m+n</m> is even and <m>n</m> is odd, <m>\negchoose{m+n}{n}=0</m>. In our table, at least, if <m>m+n</m> is odd, it appears that we get <m>\negchoose{m+n}{n}=\binom{\lfloor(m+n)/2\rfloor}{\lfloor n/2\rfloor}</m>. In fact, using the recurrence just as we used it to construct the table, we can prove by induction that
+                <me>
+                    \negchoose{m+n}{n}=\left\{
+                    \begin{array}{ll}0\amp \mbox{if \(mn\) is odd} \\
+                    \binom{\lfloor(m+n)/2\rfloor}{\lfloor n/2\rfloor}\amp \mbox{otherwise.}
+                    \end{array} \right.
+                </me>
+                </p>
+                <table xml:id="q-binomial-tab">
+                    <caption><m>-1</m>-binomial coefficients</caption>
+                    <tabular>
+                        <col right="minor" halign="center" /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col />
+                        <row bottom="minor">
+                            <cell><m>m+n\backslash n</m></cell>
+                            <cell>0</cell>
+                            <cell>1</cell>
+                            <cell>2</cell>
+                            <cell>3</cell>
+                            <cell>4</cell>
+                            <cell>5</cell>
+                            <cell>6</cell>
+                            <cell>7</cell>
+                            <cell>8</cell>
+                            <cell>9</cell>
+                        </row>
+                        <row>
+                            <cell>0</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                        </row>
+                        <row>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                        </row>
+                        <row>
+                            <cell>2</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                        </row>
+                        <row>
+                            <cell>3</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                        </row>
+                        <row>
+                            <cell>4</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>2</cell>
+                            <cell>0</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                        </row>
+                        <row>
+                            <cell>5</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>2</cell>
+                            <cell>2</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                        </row>
+                        <row>
+                            <cell>6</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>3</cell>
+                            <cell>0</cell>
+                            <cell>3</cell>
+                            <cell>0</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                        </row>
+                        <row>
+                            <cell>7</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>3</cell>
+                            <cell>3</cell>
+                            <cell>3</cell>
+                            <cell>3</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>0</cell>
+                        </row>
+                        <row>
+                            <cell>8</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                            <cell>4</cell>
+                            <cell>0</cell>
+                            <cell>6</cell>
+                            <cell>0</cell>
+                            <cell>4</cell>
+                            <cell>0</cell>
+                            <cell>1</cell>
+                            <cell>0</cell>
+                        </row>
+                        <row>
+                            <cell>9</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                            <cell>4</cell>
+                            <cell>4</cell>
+                            <cell>6</cell>
+                            <cell>6</cell>
+                            <cell>4</cell>
+                            <cell>4</cell>
+                            <cell>1</cell>
+                            <cell>1</cell>
+                        </row>
+                    </tabular>
+                </table>
+                <p>
+                    (Note that <m>mn</m> is odd if and only if <m>m+n</m> is even and <m>n</m> is odd.) Wouldn't it be fascinating to know what we are counting here? It is the number of lattice paths from <m>(0, 0)</m> to <m>(n - k, k)</m> that are symmetric under 180 degree rotation. This and other results are discussed in the paper by John R. Stembridge <q>Some hidden relations involving the ten symmetry classes of plane partitions.</q> <pubtitle>J. Combin. Theory Ser. A</pubtitle> 68 (1994), no. 2, 372–409.
+                </p>
+            </solution>
+        </task>
+    </activity>
   </subsection>
-
 </section>

@@ -187,15 +187,15 @@
   <activity xml:id="tennispairings2" category="interesting">
       <introduction>
           <p>
-      We first gave this problem as <xref ref="tennispairings1a">Problem</xref>. Now we have several ways to approach the problem. A tennis club has <m>2n</m> members. We want to pair up the members by twos for singles matches.
+      We first gave this problem as <xref ref="tennispairings1"/>. Now we have several ways to approach the problem. A tennis club has <m>2n</m> members. We want to pair up the members by twos for singles matches.
           </p>
       </introduction>
     <task>
       <statement>
         <p>
           In how many ways may we pair up all the members of the club?
-          Give at least two solutions different from the one you gave in   <xref ref="tennispairings1a">Problem</xref>.
-          (You may not have done <xref ref="tennispairings1a">Problem</xref>. In that case, see if you can find three solutions.)
+          Give at least two solutions different from the one you gave in   <xref ref="tennispairings1"/>.
+          (You may not have done <xref ref="tennispairings1"/>. In that case, see if you can find three solutions.)
         </p>
       </statement>
       <hint>
@@ -209,7 +209,7 @@
             The number of <em>lists</em> of pairs we get in this way is <m>\prod_{i=0}^{n-1} \binom{2n-2i}{2}= \frac{(2n)!}{2^i}</m>.
             However each way of pairing people gets listed <m>n!</m> times since we see all possible length <m>n</m> lists of pairs.
             Therefore the number of actual pairings is <me>\frac{(2n)!}{2^n n!} = \frac{2n!}{2n\cdot2n-2\cdot2n-4\cdot \cdots\cdot 2} =  \prod_{i=0}^{n-1} 2n-2i-1.</me>
-            Notice how this combinatorial solution gives the formula that we found algebraically in <xref ref="tennispairings1a">Problem</xref>, which then turns out to be algebraically equivalent to the formula we first saw in the solution to <xref ref="tennispairings1a">Problem</xref>.
+            Notice how this combinatorial solution gives the formula that we found algebraically in <xref ref="tennispairings1"/>, which then turns out to be algebraically equivalent to the formula we first saw in the solution to <xref ref="tennispairings1"/>.
           </p>
 
           <p>
@@ -852,7 +852,7 @@
 
 <activity category="interesting">
   <statement>
-    <p>Your answer in <xref ref="compositionagian">Problem</xref> can be expressed as a binomial coefficient. This means it should be possible to interpret a composition as a subset of some set. Find a bijection between compositions of <m>k</m> into <m>n</m> parts and certain subsets of some set.  Explain explicitly how to get the composition from the subset and the subset from the composition.
+    <p>Your answer in <xref ref="compositionagian"/> can be expressed as a binomial coefficient. This means it should be possible to interpret a composition as a subset of some set. Find a bijection between compositions of <m>k</m> into <m>n</m> parts and certain subsets of some set.  Explain explicitly how to get the composition from the subset and the subset from the composition.
     </p>
   </statement>
   <hint>
