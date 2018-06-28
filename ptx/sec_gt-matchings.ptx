@@ -7,8 +7,8 @@
 
 <p>
   <idx><h>matching</h></idx>
-Suppose you have a bipartite graph <m>G</m>. This will consist of two sets of vertices <m>A</m> and <m>B</m> with some edges connecting some vertices of <m>A</m> to some vertices in <m>B</m> (but of course, no edges between two vertices both in <m>A</m> or both in <m>B</m>). A <term>matching</term> of <m>G</m> is a set of <term>independent edges</term>, meaning no two edges in the set are adjacent.  If every vertex in <m>G</m> is incident to exactly one edge in the matching, we call the matching <term>perfect</term>.  
-If a bipartite graph has a perfect matching, then <m>\card{A} = \card{B}</m>, but in general, we could have a <term>matching of <m>A</m></term>, which will mean that every vertex in <m>A</m> is incident to an edge in the matching. 
+Suppose you have a bipartite graph <m>G</m>. This will consist of two sets of vertices <m>A</m> and <m>B</m> with some edges connecting some vertices of <m>A</m> to some vertices in <m>B</m> (but of course, no edges between two vertices both in <m>A</m> or both in <m>B</m>). A <term>matching</term> of <m>G</m> is a set of <term>independent edges</term>, meaning no two edges in the set are adjacent.  If every vertex in <m>G</m> is incident to exactly one edge in the matching, we call the matching <term>perfect</term>.
+If a bipartite graph has a perfect matching, then <m>\card{A} = \card{B}</m>, but in general, we could have a <term>matching of <m>A</m></term>, which will mean that every vertex in <m>A</m> is incident to an edge in the matching.
 </p>
 
 <p>
@@ -163,7 +163,7 @@ for all <m>S \subseteq A</m>.
 <activity>
   <statement>
     <p>
-      Write a carful proof of the matching condition above.
+      Write a careful proof of the matching condition above.
     </p>
   </statement>
 </activity>
@@ -227,7 +227,7 @@ There are a few different proofs for this theorem; we will consider one that giv
     </p>
   </introduction>
   <task>
-    
+
         <statement>
     <p>
       Find the largest possible alternating path for the matching of your friend's graph.  Is it an augmenting path?  How would this help you find a larger matching?
@@ -257,11 +257,11 @@ There are a few different proofs for this theorem; we will consider one that giv
       <p>
         Find the largest possible alternating path for the matching below.  Are there any augmenting paths?  Is the matching the largest one that exists in the graph?
       </p>
-  
+
         <sidebyside width="50%">
           <image>
             <latex-image>
-  
+
               \begin{tikzpicture}
               \foreach \x in {0,...,5} {
                \coordinate (a\x) at (\x,0);
@@ -271,7 +271,7 @@ There are a few different proofs for this theorem; we will consider one that giv
                \draw[line width=2pt] (a0) -- (b1) (a1) -- (b2) (a2) -- (b0) (a3) -- (b4) (a4) -- (b5);
                \draw[very thin] (a0) -- (b2) (a1) -- (b0) (a2)--(b1) (a2) -- (b3) (a2) -- (b4) (a3) -- (b2) (a4) -- (b2) (a4)-- (b3) (a4) -- (b4) (a5) -- (b4) (a5)--(b5);
               \end{tikzpicture}
-  
+
             </latex-image>
           </image>
         </sidebyside>
@@ -292,7 +292,7 @@ There are a few different proofs for this theorem; we will consider one that giv
   <task>
     <statement>
       <p>
-        Consider all the alternating paths starting at <m>a</m> and ending in <m>A</m>.  Are any augmenting paths?  
+        Consider all the alternating paths starting at <m>a</m> and ending in <m>A</m>.  Are any augmenting paths?
       </p>
     </statement>
   </task>
@@ -378,7 +378,7 @@ We will have a matching if the matching condition holds. Given any set of card v
         For many applications of matchings, it makes sense to use bipartite graphs. You might wonder, however, whether there is a way to find matchings in graphs in general.
       </p>
     </introduction>
-      
+
     <task>
         <statement>
         <p>

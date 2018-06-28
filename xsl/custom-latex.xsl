@@ -41,7 +41,7 @@
 <!-- Pass a string with any of geometry's options  -->
 <!-- Default is empty and thus ineffective         -->
 <!-- Otherwise, happens early in preamble template -->
-<xsl:param name="latex.geometry" select="'papersize={6in,9in}, hmargin={0.85in, 0.5in}, height=7.75in, top=0.75in, twoside, ignoreheadfoot'"/>
+<xsl:param name="latex.geometry" select="'papersize={6in,9in}, hmargin={0.5in, 0.5in}, height=7.75in, top=0.75in, twoside, ignoreheadfoot'"/>
 <!--  -->
 <!-- PDF Watermarking                    -->
 <!-- Non-empty string makes it happen    -->
@@ -270,9 +270,17 @@
 <xsl:template match="activity" mode="backmatter">
   <xsl:if test="hint and $project.backmatter.hint='yes'">
         <!-- Lead with the problem number and some space -->
-    <xsl:text>\item[\textbf{</xsl:text>
+        <xsl:text>\hypertarget{a-</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text>}{}\item[\textbf{\hyperref[</xsl:text>
+        <xsl:apply-templates select="." mode="internal-id"/>
+        <!-- <xsl:apply-templates select="." mode="number" /> -->
+        <xsl:text>]{</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text>.}}]&#xa;</xsl:text>
+    <!-- <xsl:text>\item[\textbf{</xsl:text>
     <xsl:apply-templates select="." mode="serial-number" />
-    <xsl:text>}.]</xsl:text>
+    <xsl:text>}.]</xsl:text> -->
     <xsl:apply-templates select="hint" mode="backmatter" />
   </xsl:if>
   <xsl:apply-templates select="task" mode="backmatter" />
@@ -282,9 +290,17 @@
 <xsl:template match="task" mode="backmatter">
   <xsl:if test="hint and $task.backmatter.hint='yes'">
         <!-- Lead with the problem number and some space -->
-    <xsl:text>\item[\textbf{</xsl:text>
+        <xsl:text>\hypertarget{a-</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text>}{}\item[\textbf{\hyperref[</xsl:text>
+        <xsl:apply-templates select="." mode="internal-id"/>
+        <!-- <xsl:apply-templates select="." mode="number" /> -->
+        <xsl:text>]{</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text>.}}]&#xa;</xsl:text>
+    <!-- <xsl:text>\item[\textbf{</xsl:text>
     <xsl:apply-templates select="." mode="number" />
-    <xsl:text>}.]</xsl:text>
+    <xsl:text>}.]</xsl:text> -->
     <xsl:apply-templates select="hint" mode="backmatter" />
   </xsl:if>
   <xsl:apply-templates select="task" mode="backmatter" />
@@ -312,8 +328,40 @@
         <xsl:apply-templates select="." mode="solution-heading" />
         <xsl:apply-templates />
     </xsl:if>
-    <xsl:text>~{\tiny (h)}</xsl:text>
+    <xsl:text>\hfill{\tiny\hyperlink{a-</xsl:text>
+    <xsl:apply-templates select="../." mode="number" />
+    <xsl:text>}{[hint]}</xsl:text>
+    <xsl:text>\hypertarget{q-</xsl:text>
+    <xsl:apply-templates select="../." mode="number" />
+    <xsl:text>}{}}</xsl:text>
 </xsl:template>
+
+<!-- <xsl:template match="hint">
+    <xsl:param name="b-original" />
+    <xsl:param name="b-has-answer" />
+    <xsl:param name="b-has-solution" />
+
+    <xsl:apply-templates select="." mode="solution-heading">
+        <xsl:with-param name="b-original" select="$b-original" />
+    </xsl:apply-templates>
+    <xsl:apply-templates>
+        <xsl:with-param name="b-original" select="$b-original" />
+    </xsl:apply-templates>
+    <xsl:choose>
+        <xsl:when test="following-sibling::hint">
+            <xsl:call-template name="exercise-component-separator" />
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:if test="(following-sibling::answer and $b-has-answer) or (following-sibling::solution and $b-has-solution)">
+                <xsl:call-template name="exercise-component-separator" />
+            </xsl:if>
+        </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text>\hfill{\tiny\hyperlink{a-</xsl:text>
+    <xsl:apply-templates select="../." mode="number" />
+    <xsl:text>}{hint}}</xsl:text>
+</xsl:template> -->
+
 
 
 </xsl:stylesheet>

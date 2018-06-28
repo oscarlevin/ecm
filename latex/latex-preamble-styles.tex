@@ -168,7 +168,7 @@
 %% One optional argument (title) with default value blank
 %% 3mm space below dropped title is increase over 2mm default
 \renewtcolorbox{assemblage}[1][]
-  {breakable, skin=enhanced, boxrule=1pt, sharp corners, colback=blue!5, colframe=blue!15,
+  {breakable, skin=enhanced, boxrule=0.5pt, sharp corners, colback=blue!5, colframe=blue!15,
    colbacktitle=blue!20, coltitle=black, boxed title style={sharp corners, frame hidden},
    fonttitle=\bfseries, attach boxed title to top left={xshift=4mm,yshift=-3mm}, top=3mm, title={#1}}
 
@@ -295,6 +295,10 @@
   {\theparagraph}
   {}
   {\textsc}
+
+% Start sections 2 and larger on new page:
+\newcommand\sectionbreak{\ifnum\value{section}>0\clearpage\fi}
+
 %%%%%%%%%  End chapter/sectio headings %%%%%%%%%%%%%%%%%
 
 %%% End of File.

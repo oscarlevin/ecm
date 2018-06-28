@@ -52,7 +52,7 @@ How is this related to graph theory? Well, if we place a vertex in the center of
 </p>
 
 <p>
-In general, given any graph <m>G</m>, a coloring of the vertices with <m>k</m> colors is called a <term><m>k</m>-coloring</term><idx><h>vertex coloring</h></idx><idx><h><m>k</m>-coloring</h></idx>. If the coloring has the property that adjacent vertices are colored differently, then the coloring is called <term>proper</term>. Every graph has a proper <m>k</m>-coloring for some <m>k</m>. For example, you could color every vertex with a different color. But often you can do better. 
+In general, given any graph <m>G</m>, a coloring of the vertices with <m>k</m> colors is called a <term><m>k</m>-coloring</term><idx><h>vertex coloring</h></idx><idx><h><m>k</m>-coloring</h></idx>. If the coloring has the property that adjacent vertices are colored differently, then the coloring is called <term>proper</term>. Every graph has a proper <m>k</m>-coloring for some <m>k</m>. For example, you could color every vertex with a different color. But often you can do better.
 The smallest <m>k</m> for which there is a proper <m>k</m>-coloring is called the <term>chromatic number</term><idx><h>chromatic number</h></idx> of the graph, written <m>\chi(G)</m><notation><usage>\chi(G)</usage><description>the chromatic number of <m>G</m></description></notation>.
 </p>
 <example>
@@ -138,7 +138,7 @@ We will not prove this theorem. Really. Even though the theorem is easy to state
 <activity>
 	<statement>
 	  <p>
-	    Prove that every planar graph can be properly vertex colored with 6 or fewer colors.  
+	    Prove that every planar graph can be properly vertex colored with 6 or fewer colors.
 	  </p>
 	</statement>
 	<hint>
@@ -180,7 +180,7 @@ We will not prove this theorem. Really. Even though the theorem is easy to state
 	<task>
 		<statement>
 		  <p>
-		    Assume <m>v_1, \ldots, v_5</m> are drawn in the plane in clockwise order around <m>v</m>, and further that they are colored <m>1,2,3,4,5</m> respectively.  Now consider the induced subgraph <m>H_{1,3}</m> of <m>H</m> consiting of all vertices colored 1 and 3 (and their edges).  Why can we assume that there is a path from <m>v_1</m> to <m>v_3</m> contained in <m>H_{1,3}</m>?
+		    Assume <m>v_1, \ldots, v_5</m> are drawn in the plane in clockwise order around <m>v</m>, and further that they are colored <m>1,2,3,4,5</m> respectively.  Now consider the induced subgraph <m>H_{1,3}</m> of <m>H</m> consisting of all vertices colored 1 and 3 (and their edges).  Why can we assume that there is a path from <m>v_1</m> to <m>v_3</m> contained in <m>H_{1,3}</m>?
 		  </p>
 		</statement>
 		<hint>
@@ -204,7 +204,7 @@ We will not prove this theorem. Really. Even though the theorem is easy to state
 </activity>
 
 <p>
-  You will notice that the proof above doesn't ever use <m>v_5</m>, so it is tempting to apply this same technique towards a proof of the four color theorem.  See if you can find the error in doing so in fewer than 11 years.
+  You will notice that the proof above doesn't ever use <m>v_5</m>, so it is tempting to apply this same technique to prove the four color theorem.  See if you can find the error in doing so in fewer than 11 years.
 </p>
 </introduction>
 
@@ -213,7 +213,7 @@ We will not prove this theorem. Really. Even though the theorem is easy to state
 <title>Coloring in General</title>
 
 <p>
-  There are plenty of reasons to color graphs other than cartography.  
+  There are plenty of reasons to color graphs other than cartography.
 </p>
 
 <activity>
@@ -385,7 +385,7 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 						\coordinate (I) at (90-7*36:2);
 						\coordinate (H) at (90-8*36:2);
 						\coordinate (J) at (90-9*36:2);
-			
+
 						\draw (A) -- (F) -- (D) -- (H) -- (I) (G) -- (J) -- (C) -- (F) (C) -- (G) -- (A) -- (J);
 						\draw (A) -- (C) -- (F) -- (G) -- (J) -- (A) -- (F) -- (J) -- (C) -- (G) -- (A);
 						\draw (A) \v -- (C) \v -- (B) \v -- (D) \v -- (E) \v -- (I) \v -- (J) \v -- (F) \v -- (G) \v (H) \v;
@@ -403,7 +403,7 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 	<task>
 		<statement>
 		  <p>
-		    For any graph <m>G</m>, if <m>H</m> is a subgraph with chromatic number <m>k</m>, what can you say about the chromatic number of <m>G</m>? 
+		    For any graph <m>G</m>, if <m>H</m> is a subgraph with chromatic number <m>k</m>, what can you say about the chromatic number of <m>G</m>?
 		  </p>
 		</statement>
 	</task>
@@ -417,7 +417,7 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 </activity>
 
 <p>
-  Could it be that the <em>only</em> way for a graph to have chromatic number <m>n</m> is for it to contain an <m>n</m>-clique?  
+  Could it be that the <em>only</em> way for a graph to have chromatic number <m>n</m> is for it to contain an <m>n</m>-clique?
 </p>
 
 
@@ -441,7 +441,7 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 		  </p>
 		</hint>
 	</task>
-	
+
 	<task>
 		<statement>
 		  <p>
@@ -475,7 +475,7 @@ There are times when the chromatic number of <m>G</m> is <em>equal</em> to the c
 		<p>
 			Let <m>G</m> be any graph and let <m>v</m> be a vertex with degree <m>k</m>.  Let <m>H = G - v</m> be the subgraph resulting from removing <m>v</m> and all its incident edges.
 		</p>
-		
+
 		<p>
 		  Suppose <m>\chi(H) \lt k</m>.  What can you conclude about <m>\chi(G)</m>?
 		</p>
@@ -488,7 +488,7 @@ There are times when the chromatic number of <m>G</m> is <em>equal</em> to the c
 </activity>
 
 <p>
-  Some notation will come in handy.  For a vertex <m>v</m>, write <m>d(v)</m> for the degree of <m>v</m> (i.e., the number of vertices incident to it).  We write <m>\Delta(G)</m> for the <term>maximum degree of <m>G</m></term>, which is <m>D(G) = \max\{d(v) \st v \in G\}</m>.  
+  Some notation will come in handy.  For a vertex <m>v</m>, write <m>d(v)</m> for the degree of <m>v</m> (i.e., the number of vertices incident to it).  We write <m>\Delta(G)</m> for the <term>maximum degree of <m>G</m></term>, which is <m>D(G) = \max\{d(v) \st v \in G\}</m>.
 </p>
 
 <activity>
@@ -505,7 +505,7 @@ There are times when the chromatic number of <m>G</m> is <em>equal</em> to the c
 </activity>
 
 <p>
-	There are graphs for which <m>\chi(G) = \Delta(G) + 1</m>.  For example, <m>G</m> might be an odd cycle, which has <m>\Delta(G) = 2</m> but <m>\chi(G) = 3</m>.  Also note that <m>\Delta(K_n) = n-1</m> but <m>\chi(K_n) = n</m>.  
+	There are graphs for which <m>\chi(G) = \Delta(G) + 1</m>.  For example, <m>G</m> might be an odd cycle, which has <m>\Delta(G) = 2</m> but <m>\chi(G) = 3</m>.  Also note that <m>\Delta(K_n) = n-1</m> but <m>\chi(K_n) = n</m>.
 </p>
 
 <p>
@@ -618,12 +618,12 @@ At first this theorem makes it seem like chromatic index might not be very inter
 
 <subsection xml:id="subsec-">
 	<title>Ramsey Theory</title>
-	
+
 
 
 
 <p>
-There is another interesting way we might consider coloring edges, quite different from what we have discussed so far. What if we colored every edge of a graph either red or blue. Can we do so without, say, creating a <em>monochromatic</em><idx><h>monochromatic</h></idx> triangle (i.e., an all red or all blue triangle)? Certainly for some graphs the answer is yes. 
+There is another interesting way we might consider coloring edges, quite different from what we have discussed so far. What if we colored every edge of a graph either red or blue. Can we do so without, say, creating a <em>monochromatic</em><idx><h>monochromatic</h></idx> triangle (i.e., an all red or all blue triangle)? Certainly for some graphs the answer is yes.
 </p>
 
 <activity xml:id="act_R-3-3">
@@ -646,7 +646,7 @@ There is another interesting way we might consider coloring edges, quite differe
 	</statement>
 	<solution>
 		<p>
-			Take a person, say person 1. If person has six acquaintances, then by <xref ref="act_R-3-3" /> among them there are either three mutual strangers, in which case we are done, or three mutual acquaintances. These three acquaintances together with person 1 form a set of 4 mutual acquaintances in which case we are again done. Thus we may assume Person 1 has at most 5 acquaintances, and so has four non-acquaintances. Now either all four of these people are acquainted, in which case we are done, or else two of them are not acquainted. Then these two people, together with person 1 make three mutual nonacquaintances. Therefore in every possible case, we have either four mutual acquaintances or three mutual strangers. This means that <m>R(4,3) \le 10</m>.
+			Take a person, say person 1. If person has six acquaintances, then by <xref ref="act_R-3-3" /> among them there are either three mutual strangers, in which case we are done, or three mutual acquaintances. These three acquaintances together with person 1 form a set of 4 mutual acquaintances in which case we are again done. Thus we may assume Person 1 has at most 5 acquaintances, and so has four non-acquaintances. Now either all four of these people are acquainted, in which case we are done, or else two of them are not acquainted. Then these two people, together with person 1 make three mutual non-acquaintances. Therefore in every possible case, we have either four mutual acquaintances or three mutual strangers. This means that <m>R(4,3) \le 10</m>.
 		</p>
 	</solution>
 </activity>
@@ -671,7 +671,7 @@ There is another interesting way we might consider coloring edges, quite differe
 		<p>
 			In the graph shown in <xref ref="NonRamsey8" />, there is no <m>K_3</m> whose edges are dashed, and no <m>K_4</m> whose edges are solid. By symmetry, to verify this you need only look at vertex 1 and vertices connected to it by either dashed lines or by solid lines.
 
-			
+
 		</p>
 	</solution> -->
 </activity>
@@ -706,7 +706,7 @@ There is another interesting way we might consider coloring edges, quite differe
 	</statement>
 	<hint>
 		<p>
-			What you need to show is that if there are <m>R(m - 1, n) + R(m, n - 1)</m> people in a room, then there are either <m>m</m> mutual acquaintances or <m>n</m> mutual strangers. As with earlier problems, it helps to start with a person and think about the number of people with whom this person is acquainted or nonacquainted. The generalized pigeonhole principle tells you something about these numbers. 		
+			What you need to show is that if there are <m>R(m - 1, n) + R(m, n - 1)</m> people in a room, then there are either <m>m</m> mutual acquaintances or <m>n</m> mutual strangers. As with earlier problems, it helps to start with a person and think about the number of people with whom this person is acquainted or nonacquainted. The generalized pigeonhole principle tells you something about these numbers.
 		</p>
 	</hint>
 	<solution>
@@ -738,12 +738,12 @@ There is another interesting way we might consider coloring edges, quite differe
 		</statement>
 		<hint>
 			<p>
-				If you could find four mutual acquaintances, you could assume person 1 is among them. And by the generalized pigeonhole principle and symmetry, so are two of the people to the first, second, fourth and eighth to the right. Now there are lots of possibilities for that fourth person. You now have the hard work of using symmetry and the definition of who is acquainted with whom to eliminate all possible combinations of four people. Then you have to think about nonacquaintances.
+				If you could find four mutual acquaintances, you could assume person 1 is among them. And by the generalized pigeonhole principle and symmetry, so are two of the people to the first, second, fourth and eighth to the right. Now there are lots of possibilities for that fourth person. You now have the hard work of using symmetry and the definition of who is acquainted with whom to eliminate all possible combinations of four people. Then you have to think about non-acquaintances.
 			</p>
 		</hint>
 		<solution>
 			<p>
-				You cannot find either. If there were a set of four mutual acquaintances, you could assume by symmetry that it includes person 1, and two people from among those one, two, four, and eight places to the right. Thus you can assume your set of four acquaintances contains person 1 and two from among persons 2, 3, 5, and 9. However persons 2 and 5, 2 and 9 and 3 and 9 are not acquainted. Thus three of the mutually acquainted people are either persons 1, 2, and 3, persons 1, 5 and 9 or persons 1, 3, and 5. However person 5 is not acquainted with the person one, two, or eight places to the left of person 1, so if person 5 is in the set of mutual acquaintances, then person 14 must be as well. However person 3 and person 9 are not acquainted with person 14. Thus our set must contain persons 1, 2, and 3. However person 3 is not acquainted with the person one, two, four, or eight persons to the left of person 1, so there is no set of four mutual acquaintances. A similar argument holds for nonacquaintances.
+				You cannot find either. If there were a set of four mutual acquaintances, you could assume by symmetry that it includes person 1, and two people from among those one, two, four, and eight places to the right. Thus you can assume your set of four acquaintances contains person 1 and two from among persons 2, 3, 5, and 9. However persons 2 and 5, 2 and 9 and 3 and 9 are not acquainted. Thus three of the mutually acquainted people are either persons 1, 2, and 3, persons 1, 5 and 9 or persons 1, 3, and 5. However person 5 is not acquainted with the person one, two, or eight places to the left of person 1, so if person 5 is in the set of mutual acquaintances, then person 14 must be as well. However person 3 and person 9 are not acquainted with person 14. Thus our set must contain persons 1, 2, and 3. However person 3 is not acquainted with the person one, two, four, or eight persons to the left of person 1, so there is no set of four mutual acquaintances. A similar argument holds for non-acquaintances.
 			</p>
 		</solution>
 	</task>
@@ -756,15 +756,15 @@ There is another interesting way we might consider coloring edges, quite differe
 		</statement>
 	</task>
 	</activity>
-	
-	
+
+
 
 <p>
-It turns out that <m>R(4,4) = 18</m> and <m>R(5, 4) = R(4,5) = 25</m>.  Beyond that, not much is known.  For example, <m>R(5,5)</m> is at least 43 and at most 48.  The gaps get larger as <m>m</m> and <m>n</m> increase: <m>R(10,10)</m> is at least 798 and no more than 23556. 
+It turns out that <m>R(4,4) = 18</m> and <m>R(5, 4) = R(4,5) = 25</m>.  Beyond that, not much is known.  For example, <m>R(5,5)</m> is at least 43 and at most 48.  The gaps get larger as <m>m</m> and <m>n</m> increase: <m>R(10,10)</m> is at least 798 and no more than 23556.
 </p>
 
 <p>
-  We can also color the edges with more colors.  For example, <m>R(3,3,3) = 17</m>, which says that if you color the edges of <m>K_{17}</m> red, blue and green, there is guaranteed to be a monochromatic triangle in one of these colors.  
+  We can also color the edges with more colors.  For example, <m>R(3,3,3) = 17</m>, which says that if you color the edges of <m>K_{17}</m> red, blue and green, there is guaranteed to be a monochromatic triangle in one of these colors.
 </p>
 
 </subsection>

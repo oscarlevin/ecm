@@ -84,10 +84,10 @@
   </p>
 
   <p>
-    Say you start with domino <m>(4,6)</m>.  That is an edge in our graph.  Next we need to place a domino with a 6 on it (or a 4, but let's say the 4 will be an endpoint).  This ammounts to selecting another edge, one that is incident to the vertex 6.  Say we pick <m>(6,5)</m>.  The edge we must select after that will need to be incident to vertex 5.  And so on.
+    Say you start with domino <m>(4,6)</m>.  That is an edge in our graph.  Next we need to place a domino with a 6 on it (or a 4, but let's say the 4 will be an endpoint).  This amounts to selecting another edge, one that is incident to the vertex 6.  Say we pick <m>(6,5)</m>.  The edge we must select after that will need to be incident to vertex 5.  And so on.
   </p>
   <p>
-    The edges we select in the graph need to be linked up.  It makes sense to think about the selction of edges as traveling through the graph, moving along edges from vertex to vertex.  Let's capture this notion carefully.
+    The edges we select in the graph need to be linked up.  It makes sense to think about the selection of edges as traveling through the graph, moving along edges from vertex to vertex.  Let's capture this notion carefully.
   </p>
 
   <definition xml:id="def-walk">
@@ -114,11 +114,11 @@
   </p>
 
   <p>
-    Note: some sources give slightly different definitions for these concepts.  For example, sometimes a walk is defined as a alternating sequence of vertices and edges <m>v_1e_1v_2e_2v_3\cdots e_{n-1}v_n</m> with the requirement that <m>v_i</m> is incident to <m>e_i</m>, which is incident to <m>v_{i+1}</m>.  We have not named our edges, so this definition would note make sense.  Another common way to define <em>path</em> is as a subgraph isomorphic to <m>P_n</m> for some <m>n</m>.  This is almost equivalent to our definition, except that we allow our paths to possibly be isomorphic to <m>C_n</m> for some <m>n</m> as well.  Some sources use <em>path</em> where we use <em>walk</em> and use <em>simple path</em> where we use <em>path</em>.
+    Note: some sources give slightly different definitions for these concepts.  For example, sometimes a walk is defined as a alternating sequence of vertices and edges <m>v_1e_1v_2e_2v_3\cdots e_{n-1}v_n</m> with the requirement that <m>v_i</m> is incident to <m>e_i</m>, which is incident to <m>v_{i+1}</m>.  We have not named our edges, so this definition would not make sense.  Another common way to define <em>path</em> is as a subgraph isomorphic to <m>P_n</m> for some <m>n</m>.  This is almost equivalent to our definition, except that we allow our paths to possibly be isomorphic to <m>C_n</m> for some <m>n</m> as well.  Some sources use <em>path</em> where we use <em>walk</em> and use <em>simple path</em> where we use <em>path</em>.
   </p>
 
   <p>
-    Walks and paths are useful for considering all sorts of graph theoretic concepts.  For example, you might want to find the <term>distance</term> between to vertices.  This would be defined as the shortest path starting at one and ending at the other (where the <term>length</term> of a path is the number of edges in it).  If you have a notion of distance, you can define the <em>center</em> and <em>radius</em> of a graph.  Graphs a <em>connected</em> provided between any two vertices, there is a path (or equivalently, a walk).
+    Walks and paths are useful for considering all sorts of graph theoretic concepts.  For example, you might want to find the <term>distance</term> between two vertices.  This would be defined as the shortest path starting at one and ending at the other (where the <term>length</term> of a path is the number of edges in it).  If you have a notion of distance, you can define the <em>center</em> and <em>radius</em> of a graph.  Graphs a <em>connected</em> provided between any two vertices, there is a path (or equivalently, a walk).
   </p>
 </introduction>
 

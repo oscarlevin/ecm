@@ -14,7 +14,7 @@
     <activity>
       <introduction>
         <p>
-          For the complete graphs <m>K_n</m>, we would like to be able to say something about the number of vertices, edges, and (if the graph is planar) faces. 
+          For the complete graphs <m>K_n</m>, we would like to be able to say something about the number of vertices, edges, and (if the graph is planar) faces.
         </p>
       </introduction>
       <task>
@@ -34,7 +34,7 @@
       <task>
         <statement>
           <p>
-            What about complete bipartite graphs? How many vertices, edges, and faces (if it were planar) does <m>K_{7,4}</m> have?  
+            What about complete bipartite graphs? How many vertices, edges, and faces (if it were planar) does <m>K_{7,4}</m> have?
           </p>
         </statement>
       </task>
@@ -104,11 +104,11 @@
     <p>
       Before proceeding, consider carefully the style of proof used here.  This is a <term>proof by contradiction</term>.  We assumed the opposite of what we wanted to show.  From that, we arrived at a contradiction, a statement that is necessarily false.  Is it valid to conclude that our original assumption is false?
     </p>
-    
+
     <p>
       Recall the truth table for an implication <m>P \imp Q</m>:
     </p>
-    
+
     <sidebyside width="20%">
       <tabular halign="center">
         <col right="minor"/>
@@ -141,19 +141,19 @@
         </row>
       </tabular>
     </sidebyside>
-    
+
     <p>
       In a proof by contradiction, we assume <m>P</m> (which will be the negation of our desired conclusion) and derive <m>Q</m>, a contradiction.  That valid derivation allows us to conclude <m>P \imp Q</m> is <em>true</em>!  But we know that <m>Q</m> is false.  What does that say about <m>P</m>?  If the implication is true and the consequent (<q>then</q> part) is false, it must be that we are in row 4 of the truth table.  In that row, <m>P</m> is false.  So we are justified in concluding <m>\neg P</m>.
     </p>
-    
+
     <p>
       In our case, <m>P</m> was the statement <q><m>K_5</m> is planar.</q>  So when we get a contradiction (a false <m>Q</m>), we can conclude that <m>K_5</m> is not planar.  Note that even though we are proving something about a graph that does not satisfy Euler's formula for planar graphs, by using a proof by contradiction, we get to <em>use</em> the formula.
     </p>
-    
+
     <p>
       Here are a few more examples of this proof strategy, specifically to show graphs are not planar.
     </p>
-    
+
     <activity>
       <introduction>
         <p>
@@ -190,13 +190,13 @@
 
 
     <p>
-      In general, if we let <m>g</m> be the size of the smallest cycle in a graph (<m>g</m> stands for <em>girth</em><idx><h>girth</h></idx>, which is the technical term for this) then for any planar graph we have <m>gf \le 2e</m>. When this disagrees with Euler's formula, we know for sure that the graph cannot be planar.  
+      In general, if we let <m>g</m> be the size of the smallest cycle in a graph (<m>g</m> stands for <em>girth</em><idx><h>girth</h></idx>, which is the technical term for this) then for any planar graph we have <m>gf \le 2e</m>. When this disagrees with Euler's formula, we know for sure that the graph cannot be planar.
     </p>
-    
+
     <p>
       You might wonder whether every graph that is not planar can be shown to be non-planar this way.
     </p>
-    
+
     <activity>
       <introduction>
         <p>
@@ -257,20 +257,20 @@
         </statement>
       </task>
     </activity>
-    
+
     <p>
-      If a graph contains a non-planar subgraph, then the graph cannot itself be planar.  This gives us another method of proving a given graph is not planar: find a non-planar graph, perhaps <m>K_5</m> or <m>K_{3,3}</m> inside it.  
+      If a graph contains a non-planar subgraph, then the graph cannot itself be planar.  This gives us another method of proving a given graph is not planar: find a non-planar graph, perhaps <m>K_5</m> or <m>K_{3,3}</m> inside it.
     </p>
-    
+
     <p>
-      From the other direction, you can think of starting with <m>K_5</m> or <m>K_{3,3}</m> and adding edges as well as adding vertices in the middle of edges (called <term>subdividing</term> the edge) to build a larger graph that is definitely not planar.  Surprisingly, <em>every</em> non-planar graph arises this way, a result called <em>Kuratowski's Theorem</em>.  
+      From the other direction, you can think of starting with <m>K_5</m> or <m>K_{3,3}</m> and adding edges as well as adding vertices in the middle of edges (called <term>subdividing</term> the edge) to build a larger graph that is definitely not planar.  Surprisingly, <em>every</em> non-planar graph arises this way, a result called <em>Kuratowski's Theorem</em>.
     </p>
-    
+
     <p>
       Euler's formula can also be used to prove results about planar graphs.
     </p>
-    
-    
+
+
     <activity>
     <statement>
     <p>
@@ -326,7 +326,7 @@
 
     </solution>
   </activity>
-    
+
 </subsection>
 
 
@@ -337,7 +337,7 @@
   <p>
   A cube<idx><h>cube</h></idx> is an example of a convex polyhedron. It contains 6 identical squares for its faces, 8 vertices, and 12 edges. The cube is a <term>regular polyhedron</term> (also known as a <term>Platonic solid</term><idx><h>Platonic solids</h></idx>) because each face is an identical regular polygon and each vertex joins an equal number of faces.
   </p>
-  
+
   <p>
   There are exactly four other regular polyhedra: the tetrahedron, octahedron, dodecahedron, and icosahedron with 4, 8, 12 and 20 faces respectively. How many vertices and edges do each of these have?
   </p>
@@ -490,7 +490,7 @@ There are exactly five regular polyhedra.
         k = \frac{6f}{4+f}
         </me>
       </p>
-  
+
       <p>
         We need <m>k</m> and <m>f</m> to both be positive integers. Note that <m>\frac{6f}{4+f}</m> is an increasing function for positive <m>f</m>, and has a horizontal asymptote at 6. Thus the only possible values for <m>k</m> are 3, 4, and 5. Each of these are possible. To get <m>k = 3</m>, we need <m>f = 4</m> (this is the tetrahedron)<idx><h>tetrahedron</h></idx>. For <m>k = 4</m> we take <m>f = 8</m> (the octahedron)<idx><h>octahedron</h></idx>. For <m>k = 5</m> take <m>f = 20</m> (the icosahedron)<idx><h>icosahedron</h></idx>. Thus there are exactly three regular polyhedra with triangles for faces.
       </p>
@@ -525,7 +525,7 @@ There are exactly five regular polyhedra.
   <task>
     <statement>
       <p>
-        Case 3: Each face is a pentagon.  
+        Case 3: Each face is a pentagon.
       </p>
     </statement>
     <solution>

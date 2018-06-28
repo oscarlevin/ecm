@@ -116,7 +116,7 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
       <task>
         <statement>
           <p>
-            Generalize.  Say you know a specific triple <m>(a,b,c)</m> describes a graph <m>G</m>.  Give two new triples that also describe some graphs, each with one more edge than <m>G</m>. 
+            Generalize.  Say you know a specific triple <m>(a,b,c)</m> describes a graph <m>G</m>.  Give two new triples that also describe some graphs, each with one more edge than <m>G</m>.
           </p>
         </statement>
       </task>
@@ -128,15 +128,15 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
         </statement>
       </task>
     </activity>
-    
+
     <p>
       It appears that whenever <m>(v,e,f)</m> describes some graph, then there is a graph with triple <m>(v+1, e+1, f)</m> and a graph with triple <m>(v,e+1, f+1)</m>.  Perhaps there are other ways we could add an edge we haven't thought of yet, but so far it seems like this completely describes how any triple must be created.
     </p>
-    
+
     <p>
       If this is the case, what could we conclude?  Every time we add an edge, either the number of vertices or the number of faces increases by 1.  Perhaps then <m>e = v + f</m>?  But this is not true, since for <m>P_1</m> we would have <m>1 = 2 + 1</m>, clearly false.  Okay, at least we might guess <m>v + f - e</m> is constant.  And from <m>P_1</m>, we see that constant would need to be <m>2 + 1 - 1 = 2</m>.  This leads us to conjecture the following theorem.
     </p>
-    
+
     <theorem xml:id="thm-eulerformula">
       <statement>
         <p>
@@ -147,7 +147,7 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
         </p>
       </statement>
     </theorem>
-    
+
     <p>
       We will soon see that this really is a theorem.  The equation <m>v-e+f = 2</m> is called <term>Euler's formula for planar graphs</term>.  To prove this, we will want to somehow capture the idea of building up more complicated graphs from simpler ones.  That is a job for mathematical induction!
     </p>
@@ -180,15 +180,15 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
         </statement>
       </task>
     </activity>
-    
+
     <p>
-      We often wish to prove a statement is true for all natural numbers <m>n</m> (or all integers larger than some smallest example).  Mathematical induction uses the fact that the (infinitely many) cases we wish to prove are in a nice order with a least element.  To show that <m>6^n</m> has units digit 6 for all <m>n \ge 1</m>, we notice that <m>6^n = 6^{n-1}\cdot 6</m>.  Assuming that we have already shown that <m>6^{n-1}</m> has units digit 6, we can multiply this number by 6, and note that the units digit will still be a 6, since the units digit of <m>x \cdot 6</m> is just 6 times the units digit of <m>x</m>, and <m>6\cdot 6</m> has units digit 6. 
+      We often wish to prove a statement is true for all natural numbers <m>n</m> (or all integers larger than some smallest example).  Mathematical induction uses the fact that the (infinitely many) cases we wish to prove are in a nice order with a least element.  To show that <m>6^n</m> has units digit 6 for all <m>n \ge 1</m>, we notice that <m>6^n = 6^{n-1}\cdot 6</m>.  Assuming that we have already shown that <m>6^{n-1}</m> has units digit 6, we can multiply this number by 6, and note that the units digit will still be a 6, since the units digit of <m>x \cdot 6</m> is just 6 times the units digit of <m>x</m>, and <m>6\cdot 6</m> has units digit 6.
     </p>
-    
+
     <p>
-      But this seems sneaky.  Is it valid to assume that we already know the units digit of <m>6^{n-1}</m>?  That is the power of induction.  
+      But this seems sneaky.  Is it valid to assume that we already know the units digit of <m>6^{n-1}</m>?  That is the power of induction.
     </p>
-    
+
     <p>
       Suppose we hope to prove that <m>P(n)</m> is true for all <m>n \ge 0</m>.  What we will really prove is that <m>P(0)</m> is true, and that for all <m>k</m>, if <m>P(k-1)</m> is true, then <m>P(k)</m> is true.  In other words, we are proving the implication
       <me>
@@ -201,17 +201,17 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
         <mrow> P(2) \imp P(3)</mrow>
         <mrow> \vdots</mrow>
       </md>
-      
+
     </p>
-    
+
     <p>
       Can we conclude <m>P(n)</m> is true for all <m>n</m>?  Well take any <m>n</m>.  For example, <m>n = 3</m>.  We know <m>P(0)</m> is true, and the implication <m>P(0) \imp P(1)</m> is true, so we can conclude <m>P(1)</m>.  From <m>P(1)</m> and <m>P(1) \imp P(2)</m>, we can conclude <m>P(2)</m>.  From <m>P(2)</m> and <m>P(2) \imp P(3)</m>, we can conclude <m>P(3)</m>.  If we wanted a different value of <m>n</m>, we would just need to keep going until we got up to it.  Since every value of <m>n</m> can be reached by some finite number of steps starting at 0, we will know, for each <m>n</m> that <m>P(n)</m> is true.
     </p>
-    
+
     <p>
       The above discussion is meant to explain why it is reasonable to believe that induction is a valid proof technique.<fn>Technically, induction must be assumed as an axiom or deduced from the equivalent well-ordering principle which says that every subset of <m>\N</m> contains a least element; our justification for it is circular, since to prove the justification is valid would be done by induction itself.</fn>  Once we believe induction works, we can just use it.  That means just proving two things: <m>P(0)</m> and for all <m>n \ge 0</m>, <m>P(n) \imp P(n+1)</m>.  We call <m>P(0)</m> the <term>base case</term> and the implication the <term>inductive case</term>.  Here is an example of what a proof by induction looks like.
     </p>
-    
+
     <example>
       <statement>
         <p>
@@ -232,29 +232,29 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
         </p>
         <proof>
           <p>
-            First note that <m>0^2 + 0 = 0</m> is even, so the case when <m>n = 0</m> is true.  Now assume for an arbitrary <m>n\ge 0</m> that <m>n^2 + n</m> is even.  Consider the case for <m>n+1</m>: 
+            First note that <m>0^2 + 0 = 0</m> is even, so the case when <m>n = 0</m> is true.  Now assume for an arbitrary <m>n\ge 0</m> that <m>n^2 + n</m> is even.  Consider the case for <m>n+1</m>:
             <md>
             <mrow>(n+1)^2 + n+1 \amp = n^2 + 2n + 1 + n + 1</mrow>
             <mrow>\amp = n^2 + n + 2n + 2.</mrow>
             </md>
-            But <m>n^2 + n</m> is even, and <m>2n + 2</m> is even, and the sum of two even numbers is even, so <m>(n+1)^2 + n+1</m> is even. 
+            But <m>n^2 + n</m> is even, and <m>2n + 2</m> is even, and the sum of two even numbers is even, so <m>(n+1)^2 + n+1</m> is even.
           </p>
         </proof>
       </solution>
     </example>
-    
+
     <p>
-      Now that we have some sense for mathematical induction in general, let's consider how induction can be applied in graph theory. 
+      Now that we have some sense for mathematical induction in general, let's consider how induction can be applied in graph theory.
     </p>
-    
+
     <p>
-      First, we need something to play the role of <m>n</m>, since induction is used to prove statements are true for all natural numbers <m>n</m>.  For the most part, we cannot think of all graphs as lined up in some natural order.  But we could use induction <em>on</em> the number of edges of a graph (or number of vertices, or any other notion of size).  That is we can prove that for all <m>n\ge 0</m>, all graphs with <m>n</m> edges have <ellipsis />.   
+      First, we need something to play the role of <m>n</m>, since induction is used to prove statements are true for all natural numbers <m>n</m>.  For the most part, we cannot think of all graphs as lined up in some natural order.  But we could use induction <em>on</em> the number of edges of a graph (or number of vertices, or any other notion of size).  That is we can prove that for all <m>n\ge 0</m>, all graphs with <m>n</m> edges have <ellipsis />.
     </p>
-    
+
     <p>
-      Notice that the thing we are proving for all <m>n</m> is itself a universally quantified statement. This means that our base case become, <q>for all graphs with 0 edges <ellipsis /></q> (which for not-necessarily connected graphs is infinitely many graphs).  To prove the inductive case we <em>get to</em> assume that for all graphs with <m>n</m> edges <ellipsis />, but then we <em>must</em> prove that for all graphs with <m>n+1</m> edges <ellipsis />.   
+      Notice that the thing we are proving for all <m>n</m> is itself a universally quantified statement. This means that our base case become, <q>for all graphs with 0 edges <ellipsis /></q> (which for not-necessarily connected graphs is infinitely many graphs).  To prove the inductive case we <em>get to</em> assume that for all graphs with <m>n</m> edges <ellipsis />, but then we <em>must</em> prove that for all graphs with <m>n+1</m> edges <ellipsis />.
     </p>
-    
+
     <p>
       Because of this added complication, the usual way to approach the inductive case for graphs is to start with an arbitrary graph that has <m>n+1</m> edges.  Then remove an edge to drop down to a graph with <m>n</m> edges, which we know something about (our inductive hypothesis).  Then make sure that moving back to the original graph, we maintain our desired property.
     </p>
@@ -262,7 +262,7 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
     <p>
       Let's try a simple example.
     </p>
-    
+
     <activity>
       <introduction>
         <p>
@@ -306,31 +306,31 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
         </hint>
       </task>
     </activity>
-    
+
     <p>
       We will use induction for many graph theory proofs, as well as proofs outside of graph theory.  As our first example, we will prove <xref ref="thm-eulerformula"/>
     </p>
-    
-    
+
+
 </subsection>
 
 <subsection>
   <title>Proof of Euler's formula for planar graphs.</title>
-  
+
   <p>
     The proof we will give will be by induction on the number of edges of a graph.  This means we will need a way to reduce the number of edges, so we can get down to our inductive hypothesis.  There are two ways to remove an edge that will be useful here and for future problems.
   </p>
-  
+
   <p>
     <idx><h>deletion</h></idx>
     A <term>deletion</term> is the result of removing an edge from the edge set (everything else in the graph stays the same).  For a specific edge <m>e</m> in the graph <m>G</m>, we write the new graph as <m>G - e</m>.
   </p>
-  
+
   <p>
     <idx><h>contraction</h></idx>
     Slightly more complicated is a <term>contraction</term>.  The idea is we take an edge and shrink it down to a vertex.  The two endpoints of the vertex collide and all their incident edges follow along and become incident to this new vertex consisting of the edge and two vertices contracted together.  The resulting graph is written <m>G/e</m> (read <q><m>G</m> contract <m>e</m></q>).
   </p>
-  
+
   <p>
     To be a little more precise, given a graph <m>G</m> and edge <m>e = \{u,v\}</m>, the graph <m>G/e</m> is formed by
     <ol>
@@ -341,13 +341,13 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
       </li>
       <li>
         <p>
-          Adding a new vertex <m>E</m> and edges from <m>E</m> to each vertex that was previously adjacent to <m>u</m> or <m>v</m>. 
+          Adding a new vertex <m>E</m> and edges from <m>E</m> to each vertex that was previously adjacent to <m>u</m> or <m>v</m>.
         </p>
       </li>
     </ol>
     Notice that <m>G/e</m> might be a multigraph (if <m>u</m> and <m>v</m> were both adjacent to a common vertex).  If <m>G</m> was already a multigraph, and had two edges connecting <m>u</m> and <m>v</m>, then <m>E</m> will get a loop (since only one of the edges was contracted).  We can avoid multigraphs by being careful which edge we contract along.
   </p>
-  
+
   <activity>
     <introduction>
       <p>
@@ -369,7 +369,7 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
       </statement>
     </task>
   </activity>
-  
+
   <activity>
     <statement>
       <p>
@@ -382,15 +382,15 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
       </p>
     </hint>
   </activity>
-  
+
   <p>
     It is a good exercise to give proofs by induction on the number of vertices or the number of faces.  You will need to think about how to remove a vertex or a face, and how doing so changes the other quantities.
   </p>
-  
+
   <!-- <p>
     We conclude with a few exercises to further solidify these ideas.
   </p>
-  
+
   <activity>
   <statement>
   <p>

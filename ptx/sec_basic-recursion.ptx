@@ -6,26 +6,26 @@
   <p>
     What happens when you get stuck on a counting problem?  It is quite easy to miss the clever way of thinking about breaking down a task that leads to a solution.  Here is an example.
   </p>
-  
+
   <p>
     Given any graph <m>G = (V, E)</m>, an <term>independent set</term> (of vertices) is a subset <m>I \subseteq V</m> so that no two vertices in <m>I</m> are adjacent.  Suppose you wished to count the number of independent sets of a particular graph.  In this example, lets do so for the path <m>P_{10}</m> (i.e., the graph containing 11 vertices and 10 edges arranged in a line).
   </p>
-  
+
   <p>
     Let's label the vertices 1 through 11, and assume that vertices are adjacent to those with labels one more or one less than themselves (that is, the edge set is <m>E = \{(i,i+1) \st 1 \le i \lt 11\}</m>).  How might you build an independent set?
   </p>
-  
+
   <p>
     A first attempt might be to start with vertex 1 and realize that you can put it in or keep it out of the independent set.  So there are two choices for vertex 1.  But now you might have two choices for vertex 2 (if vertex 1 was not in the set) or only once choice (to keep vertex 2 out, if vertex 1 was in the set).  Okay, so the multiplicative principle doesn't help.
   </p>
-  
+
   <p>
     Say you can't think of anything else to try.  The problem seems just too hard.  So make it easier.  10 is way too big of a number; 1 would be much better.  How many independent sets of <m>P_1</m> are there?  Maybe then we also try the version with 2 and 3.
   </p>
-  
+
   <activity>
     <statement>
-      <p> 
+      <p>
         List all independent sets of <m>P_1</m>, <m>P_2</m>, and <m>P_3</m>.  Don't forget the empty set! Do you notice a pattern among these numbers?
       </p>
     </statement>
@@ -38,7 +38,7 @@
 
 
 <p>
-  We get is a sequence <m>(a_n)_{n \ge 1}</m> which gives the number of independent sets: the number of independent sets of <m>P_n</m> is simply <m>a_n</m>. 
+  We get is a sequence <m>(a_n)_{n \ge 1}</m> which gives the number of independent sets: the number of independent sets of <m>P_n</m> is simply <m>a_n</m>.
 </p>
 
 <p>
@@ -48,7 +48,7 @@
 <activity>
   <statement>
     <p>
-      Explain why <m>a_n</m> satisfies the recurrence <m>a_n = a_{n-1} + a_{n-2}</m>.  You will need to use the graphs <m>P_n</m>, <m>P_{n-1}</m> and <m>P_{n-2}</m> and their independent sets to do this.  Show how you can <q>find</q> the independent sets of <m>P_{n-1}</m> and <m>P_{n-2}</m> among the independent set of <m>P_{n}</m> (perhaps using some sort of bijection).  
+      Explain why <m>a_n</m> satisfies the recurrence <m>a_n = a_{n-1} + a_{n-2}</m>.  You will need to use the graphs <m>P_n</m>, <m>P_{n-1}</m> and <m>P_{n-2}</m> and their independent sets to do this.  Show how you can <q>find</q> the independent sets of <m>P_{n-1}</m> and <m>P_{n-2}</m> among the independent set of <m>P_{n}</m> (perhaps using some sort of bijection).
     </p>
   </statement>
   <hint>
@@ -66,11 +66,11 @@
 
 <subsection xml:id="subsec-recursionfinding">
   <title>Finding Recurrence Relations</title>
-  
+
   <p>
     Before investigating properties of sequences given by recurrence relations, we must be able to find those sequences and the recurrence relations.  The following activities give some practice with moving from a counting question to a recurrence relation for the sequence of answers.  Many of these context will be familiar, and you might be able to answer the counting questions with what we have already discovered.  Don't do this.  The point of these is to start thinking about these counting problems recursively.
   </p>
-  
+
   <activity>
     <statement>
       <p>
@@ -83,7 +83,7 @@
       </p>
     </hint>
   </activity>
-  
+
   <activity>
     <statement>
       <p>
@@ -96,7 +96,7 @@
       </p>
     </hint>
   </activity>
-  
+
   <activity>
     <statement>
       <p>
@@ -109,11 +109,11 @@
       </p>
     </hint>
   </activity>
-  
+
   <activity xml:id="HanoiProblem" category="interesting">
     <statement>
       <p>
-        The <q>Towers of Hanoi</q> puzzle has three rods rising from a rectangular base with <m>n</m> rings of different sizes stacked in decreasing order of size on one rod. A legal move consists of moving a ring from one rod to another so that it does not land on top of a smaller ring. If <m>m_n</m> is the number of moves required to move all the rings from the initial rod to another rod that you choose, give a recurrence for <m>m_n</m>. 
+        The <q>Towers of Hanoi</q> puzzle has three rods rising from a rectangular base with <m>n</m> rings of different sizes stacked in decreasing order of size on one rod. A legal move consists of moving a ring from one rod to another so that it does not land on top of a smaller ring. If <m>m_n</m> is the number of moves required to move all the rings from the initial rod to another rod that you choose, give a recurrence for <m>m_n</m>.
       </p>
     </statement>
     <hint>
@@ -135,31 +135,31 @@
       </p>
     </statement>
     <hint>
-      <p> 
+      <p>
         If we have <m>n - 1</m> circles drawn in such a way that they define <m>r_{n-1}</m> regions, and we draw a new circle, each time it crosses another circle, except for the last time, it finishes dividing one region into two parts and starts dividing a new region into two parts.
       </p>
     </hint>
     <hint>
-      <p> 
+      <p>
         Compare <m>r_n</m> with the number of subsets of an <m>n</m>-element set.
       </p>
     </hint>
     <solution>
-      <p> 
+      <p>
         One circle defines two regions, the inside and outside. When we draw a second circle that intersects the first, we can start at one of the intersection points and go inside the first circle, cutting its region into two pieces, and then when we leave it we cut the outside region into two pieces. This suggests the general pattern. If we have drawn <m>n-1</m> circles and start a new one, each time we enter a circle, we start dividing a region into two pieces. Each time we leave a circle, we also start dividing a region into two pieces. Thus if we have <m>r_n</m> regions with <m>n</m> circles, to get the number of regions, we note that in going from <m>n-1</m> circles to <m>n</m> circles, we start with <m>r_{n-1}</m> regions, and divide <m>2(n-1)</m> of them in half, so we get <m>2n-2</m> new regions. This gives us <m>r_n=r_{n-1}+2(n-1)</m>. Notice that by substitution of the formula <m>r_{n-1}=r_{n-2} +2(n-2)</m>, we get <m>r_n=r_{n-2}+ 2(n-2) +2(n-1)</m>, and would guess that <m>r_n=r_{n-3}+2(n-3)+2(n-2) +2(n-1)</m>. This leads to the conjecture <me>   r_n=r_1  +2\cdot1+2\cdot2+\cdots+2\cdot(n-1)=r_1+2\sum_{i=1}^{n-1}   i=2+n(n-1). </me>
       </p>
 
-      <p> 
-        We can prove this formula by induction. When <m>n=1</m> we have <m>2+1\cdot0</m> regions. Assuming that <m>n-1</m> circles give us <m>2+(n-1)(n-2)</m> regions, for <m>n</m> circles we have <m>2+(n-1)(n-2) +2(n-1)=2+n(n-1)</m> regions. Thus the correctness of our formula for <m>n-1</m> circles implies its correctness when we have <m>n</m> circles, so for all positive integers <m>n</m>, we get <m>2+n(n-1)</m> regions determined by <m>n</m> mutually intersecting circles. Two circles cannot touch more than twice, and if we let some of our <m>n</m> circles touch just once, or not at all, that would reduce the number of regions we would get. 
+      <p>
+        We can prove this formula by induction. When <m>n=1</m> we have <m>2+1\cdot0</m> regions. Assuming that <m>n-1</m> circles give us <m>2+(n-1)(n-2)</m> regions, for <m>n</m> circles we have <m>2+(n-1)(n-2) +2(n-1)=2+n(n-1)</m> regions. Thus the correctness of our formula for <m>n-1</m> circles implies its correctness when we have <m>n</m> circles, so for all positive integers <m>n</m>, we get <m>2+n(n-1)</m> regions determined by <m>n</m> mutually intersecting circles. Two circles cannot touch more than twice, and if we let some of our <m>n</m> circles touch just once, or not at all, that would reduce the number of regions we would get.
         Similarly, allowing a circle to go through the intersection point of two other circles could only reduce the number of regions. So with <m>n</m> circles we could never have more than <m>2+n(n-1)</m> regions. In particular with 4 circles we get just 14 regions, rather than the 16 that would be required in a Venn diagram for four sets. We could prove, again by induction, that <m>2+n(n-1)\lt 2^n</m> for all <m>n>3</m>, so it is not possible to draw a Venn diagram using circles to illustrate the intersections of four or more sets.
       </p>
     </solution>
   </activity>
-  
+
   <p>
     The activities above all have relatively simple recurrence relations.  In particular, they all make reference only to one previous term.  This need not be the case, as we saw when counting independent sets of paths and as the next few activities demonstrate.
   </p>
-  
+
   <activity xml:id="act-dominoes">
     <introduction>
       <p>
@@ -181,12 +181,12 @@
     <task>
       <statement>
         <p>
-          Now suppose your squares come in 3 colors and the dominoes come in 4 colors.  Let <m>b_n</m> count the number of paths you can tile.  Find an justify a recurrence relation for <m>(b_n)_{n \ge 1}</m>. 
+          Now suppose your squares come in 3 colors and the dominoes come in 4 colors.  Let <m>b_n</m> count the number of paths you can tile.  Find an justify a recurrence relation for <m>(b_n)_{n \ge 1}</m>.
         </p>
       </statement>
     </task>
   </activity>
-  
+
   <activity>
     <statement>
       <p>
@@ -199,7 +199,7 @@
       </p>
     </hint>
   </activity>
-  
+
   <activity xml:id="act-catalanfirst">
     <statement>
       <p>
@@ -265,17 +265,17 @@
       </p>
     </hint>
   </activity>
-  
+
   <p>
     We will study the recurrence relation in <xref ref="act-catalanfirst"/> again in <xref ref="sec_basic-catalan"/>.  We mention it here because it is a nice example of how sometimes recurrence relations use up to all the previous terms of the sequence.  Sometimes we can find a simpler recurrence relation that captures the same sequence.
   </p>
-  
+
   <activity>
     <statement>
       <p>
         Consider the sequence <m>(a_n)_{n \ge 1}</m> which satisfies the recurrence relation <m>a_n = \sum_{i = 1}^{n-1} a_i</m>.  That is, each term of the sequence is the sum of <em>all</em> previous terms in the sequence.
       </p>
-      
+
       <p>
         Find a recurrence relation in terms of only the previous term for this sequence.  Prove that you are correct.
       </p>
@@ -286,7 +286,7 @@
       </p>
     </hint>
   </activity>
-  
+
   <!-- <p>
     The previous three activities all had recurrence relations that defined a term in the sequence purely in terms of other terms of the sequence.  This is not necessary.  The following are all fine recurrence relations:
     <me>
@@ -298,21 +298,21 @@
     <me>
       c_n = c_{n-1} + b_n + a_n
     </me>
-    The last example defines <m>c_n</m> in terms of both previous terms in its own sequence, as well as terms in another sequence.      
+    The last example defines <m>c_n</m> in terms of both previous terms in its own sequence, as well as terms in another sequence.
   </p> -->
 </subsection>
 
 <subsection xml:id="subsec-recursionclosed">
   <title>Using Recurrence Relations</title>
-  
+
   <p>
     While it is often easier to find a recurrence relation governing a sequence, if we wish to use sequences to solve counting problems, we would really like to be able to find a closed formula for the terms in a sequence. If this is not possible, we can still use the recurrence relation to learn something about how the sequence behaves.
   </p>
-  
+
   <p>
     We will start by consider some simple classes of recurrence relations for which we can find closed formulas.
   </p>
-  
+
   <activity xml:id="act-arithmetic">
     <statement>
       <p>
@@ -325,7 +325,7 @@
       </p>
     </hint>
   </activity>
-  
+
   <activity xml:id="act-geometric">
     <statement>
       <p>
@@ -338,25 +338,25 @@
       </p>
     </hint>
   </activity>
-  
+
   <p>
     The sequence in <xref ref="act-arithmetic"/> is an example of an <term>arithmetic sequence</term> (or arithmetic progression) in that the difference between terms is constant.  The sequence in <xref ref="act-geometric"/> is an example of a <term>geometric sequence</term> (or geometric progression) because the <em>ratio</em> between terms is constant.  Of course there is nothing special about 2 and 3 in the activities, so you should now see how to find the closed formula for any arithmetic or geometric sequence.
   </p>
-  
+
   <p>
     The techniques used to get those closed formulas are also worth pointing out.  The method suggested in the hint to <xref ref="act-arithmetic"/> is called <term>telescoping</term> and the method suggested for <xref ref="act-geometric"/> is called <term>iteration</term>.
   </p>
-  
+
   <!-- TODO: add examples of telescoping or iteration here? -->
-  
+
 
   <!-- TODO: Add examples of sums of arithmetic and geometric sequences? -->
-  
-  
+
+
   <p>
     Most sequences are not arithmetic, but it is still helpful to look at the difference between terms.  Often if we know something about the sequence of differences, we can deduce something about the original sequence.   We can also think about this as starting with the sequence of differences.
   </p>
-  
+
   <activity>
     <introduction>
       <p>
@@ -366,7 +366,7 @@
     <task>
       <statement>
         <p>
-          In general, what is a recurrence relation for <m>(b_n)</m>?  
+          In general, what is a recurrence relation for <m>(b_n)</m>?
         </p>
       </statement>
       <hint>
@@ -401,7 +401,7 @@
   <p>
     The sequences in the previous activity worked out nicely, but what can we say in general?  Here are a few things.
   </p>
-  
+
   <activity>
     <introduction>
       <p>
@@ -479,7 +479,7 @@
       </statement>
     </task>
   </activity>
-  
+
   <p>
     The previous activity shows that the sequence of partial sums of an arithmetic sequence is always a quadratic sequence.  Conversely, any quadratic sequence should arise in this way.
   </p>
@@ -491,19 +491,19 @@
       </p>
     </statement>
   </activity>
-  
+
   <p>
     It is helpful to have a guess for the <em>form</em> of a closed formula.  For example, if you believe that a sequence should have a closed formula that is say a cubic polynomial, then you can find a cubic polynomial that agrees with the first 4 terms of the sequence.  This would be done by setting up a system of 4 equations with 4 unknowns and solving the system.
   </p>
-  
+
   <p>
     Another time this guess-and-check approach is reasonable is when we believe a sequence to be exponential.
   </p>
-  
+
   <activity>
     <introduction>
       <p>
-        Consider the recurrence relation <m>a_n = 5a_{n-1} - 6a_{n-2}</m>.  
+        Consider the recurrence relation <m>a_n = 5a_{n-1} - 6a_{n-2}</m>.
       </p>
     </introduction>
     <task>
@@ -538,11 +538,11 @@
       </hint>
     </task>
   </activity>
-  
+
   <p>
     This is a partial justification of the <term>characteristic root technique</term> (the polynomial whose roots are the base of the exponentials is called the <term>characteristic polynomial</term>).  Making the reasonable guess that recurrence relations which give <m>a_n</m> as a linear combination of <m>a_{n-1}</m> and <m>a_{n-2}</m> should have exponential closed formulas allows you to find the bases of those exponentials.  You can then use the initial conditions to find the constants <m>\alpha</m> and <m>\beta</m>.
   </p>
-  
+
   <activity>
     <statement>
       <p>
@@ -555,7 +555,7 @@
       </p>
     </hint>
   </activity>
-  
+
   <activity xml:id="act-binet">
     <statement>
       <p>
@@ -569,21 +569,21 @@
     </hint>
   </activity>
 
-  
+
 </subsection>
 
 <!-- Maybe move this to its own section? -->
 <subsection xml:id="subsec-recursionfibonacci">
   <title>Exploring the Fibonacci Sequence</title>
-  
+
   <p>
     We now have the tools to do a deep dive into the Fibonacci numbers, the most famous recursively defined sequence.  The following activities are not strictly necessary for later material, but provide good practice in the techniques we have developed and are interesting in their own right.
   </p>
-  
+
   <p>
-    For consistency, let's agree that <m>F_n</m> is the <m>n</m>th Fibonacci number, where <m>F_0 = 0</m> and <m>F_1 = 1</m>, and for all other <m>n</m>, <m>F_n = F_{n-1} + F_{n-2}</m>.  
+    For consistency, let's agree that <m>F_n</m> is the <m>n</m>th Fibonacci number, where <m>F_0 = 0</m> and <m>F_1 = 1</m>, and for all other <m>n</m>, <m>F_n = F_{n-1} + F_{n-2}</m>.
   </p>
-  
+
   <activity>
     <introduction>
       <p>
@@ -600,7 +600,7 @@
     <task>
       <statement>
         <p>
-          <m>F_{0} + F_{2} + F_{4} + \ldots + F_{2n}</m>. 
+          <m>F_{0} + F_{2} + F_{4} + \ldots + F_{2n}</m>.
         </p>
       </statement>
     </task>
@@ -653,7 +653,7 @@
     <activity xml:id="fib-matrix">
       <statement>
         <p>
-          Consider the <m>2\times 2</m> matrix <m>Q = 
+          Consider the <m>2\times 2</m> matrix <m>Q =
           \begin{pmatrix}
             0 \amp 1\\
             1 \amp 1
@@ -818,7 +818,7 @@
       </statement>
     </activity>
 
-  
+
 </subsection>
 
  <!-- <xi:include href="exercises/basic-sequences.ptx"/> -->
