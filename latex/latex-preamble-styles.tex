@@ -162,6 +162,16 @@
 % \endoldexample\par
 % }
 
+
+%% begin: assemblage
+%% minimally structured content, high visibility presentation
+%% One optional argument (title) with default value blank
+%% 3mm space below dropped title is increase over 2mm default
+\renewtcolorbox{assemblage}[1][]
+  {breakable, skin=enhanced, boxrule=1pt, sharp corners, colback=blue!5, colframe=blue!15,
+   colbacktitle=blue!20, coltitle=black, boxed title style={sharp corners, frame hidden},
+   fonttitle=\bfseries, attach boxed title to top left={xshift=4mm,yshift=-3mm}, top=3mm, title={#1}}
+
 %%Create ``investigation'' environment for in-text worksheet type problems:
 % \renewenvironment{investigation}{%
 % \mdfsetup{%

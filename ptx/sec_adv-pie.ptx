@@ -401,7 +401,7 @@
 
 
 
-    
+
 
       <activity xml:id="compunion">
         <statement>
@@ -434,11 +434,11 @@
     <paragraphs>
       <title>Multisets with restricted numbers of elements</title>
 
-        <activity>
+        <activity xml:id="act_restrictedmultisetspie">
           <statement>
             <p>
               In how many ways may we distribute <m>k</m> identical apples to <m>n</m>
-              children so that no child gets more than four apples? Compare your result with your result in <xref ref="candygenfn" />
+              children so that no child gets more than four apples?
             </p>
           </statement>
           <hint>
@@ -657,6 +657,8 @@
           </p>
         </solution>
       </activity>
+
+
 
       <!-- TODO: Here or in the homework, it would be nice to illustrate the more general closed formula for an n-derangement -->
 

@@ -1,6 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_adv-genfunctions">
   <title>Generating Functions</title>
+  <introduction>
+    <p>
+      In this section we will consider how to use polynomials to help us solve counting problems.  Why would we even think there would be a connection here?
+    </p>
+
+    <activity>
+      <introduction>
+        <p>
+          Suppose you have two number cubes with non-standard labels.  The first has 1's on four sides and 2's on the remaining two sides, while the second cube has two 1's and four 2's. You will roll the pair of dice and compute the sum of the numbers rolled.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            How many ways could you roll a 2?  What about a 3?  4?  You should be able to answer these questions by making a <m>6\times 6</m> addition table (with a lot of repeated row and column headers), but make sure you also think about how the sum and product principles are being used.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Expand the polynomial <m>(4x + 2x^2)(2x + 4x^2)</m>.  Do this by hand, keeping track of what you get before and after you <q>group like terms.</q>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How are the two tasks above related?  What is going on here?
+          </p>
+        </statement>
+      </task>
+    </activity>
+
+    <activity xml:id="act_genfun-twodice">
+      <introduction>
+        A standard problem to use when introducing probability is to ask for the probability of rolling a particular sum on two regular number cubes (dice numbered 1 through 6).  Students might not immediately see that some sums are more likely to occur than others.  You can illustrate this by creating a table.
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Complete the standard addition table used to count the number of ways each sum of two dice can be achieved.  What would you do with the entries in the table to find the number of ways to roll an 8, for example?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How is the table above related to what you would get if you complete the table below?
+          </p>
+          <sidebyside>
+            <tabular>
+          		<row bottom="medium">
+                <cell right="medium"> </cell> <cell> 	<m>​x</m> </cell> <cell> 	<m>​x^2</m> </cell> <cell> 	<m>x^3</m> </cell> <cell> 	<m>x^4</m> </cell> <cell> 	<m>x^5</m> </cell> <cell> 	<m>x^6</m> </cell>
+          		</row>
+          		<row>
+                <cell right="medium"> 	<m>x</m> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell>
+          		</row>
+          		<row>
+                <cell right="medium"><m>x^2</m> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell>
+          		</row>
+          		<row>
+                <cell right="medium"> <m>x^3</m> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell>
+          		</row>
+          		<row>
+                <cell right="medium"><m>x^4</m> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell>
+          		</row>
+          		<row>
+                <cell right="medium"> <m>x^5</m> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell>
+          		</row>
+          		<row>
+                <cell right="medium"> <m>x^6</m> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell> </cell>
+          		</row>
+          	</tabular>
+          </sidebyside>
+          <p>
+            In particular, what should the operation on the table be to make the correspondence relevant?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            If you were to treat this as an addition table, then you would have entries like <m>x^2+x^3</m>.  But the corresponding table for the dice has a 5 in that position.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What do each of the tasks above have to do with expanding <m>(x+x^2 + \cdots +x^6)^2</m>
+          </p>
+        </statement>
+      </task>
+    </activity>
+
+    <activity>
+      <introduction>
+        <p>
+          It is also possible to multiply infinite polynomials (i.e., power series).  As long as we are only interested in the first few terms, we can find these by multiplying a small number of terms from the two infinite polynomials.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Multiply <m>(1+x+x^2+x^3 + \cdots)(1+ x + x^2 + x^3+ \cdots)</m>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Multiply <m>(1+x+x^2 + x^3 + \cdots)(x + 2x + 3x^3 + 4x^4 + \cdots)</m>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What is going on here?  Where have we seen the coefficients of these polynomials before?
+          </p>
+        </statement>
+      </task>
+    </activity>
+  </introduction>
   <subsection>
     <title>Visualizing Counting with Pictures</title>
       <p>Suppose you are going to choose three pieces of fruit from among apples, pears and bananas for a snack.  We can symbolically represent all your choices as
@@ -586,6 +709,20 @@
           </solution>
       </activity>
 
+      <activity>
+        <statement>
+          <p>
+            Another way to count the number of ways to distribute 10 identical pieces of candy to 3 children so no child gets more than 4 is to use the Principle of Inclusion and Exclusion.  Do this, and compare this calculation to what you found in <xref ref="candygenfn"/>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            You should have solved this problem more in general in <xref ref="act_restrictedmultisetspie"/>.
+          </p>
+        </hint>
+      </activity>
+
+
       <activity category="essential">
           <statement>
               <p>What is the generating function for the number of multisets chosen from an <m>n</m>-element set so that each element appears at least <m>j</m> times and less than <m>m</m> times? Write this generating function as a quotient of polynomials, then as a product of a polynomial and a power series.
@@ -609,7 +746,7 @@
               </p>
           </solution>
       </activity>
-    
+
   </subsection>
 
   <subsection>
@@ -1143,27 +1280,14 @@
   <subsection>
     <title>Catalan Numbers</title>
     <activity xml:id="CatalanRecurrence" category="interesting">
-        <task>
-            <statement>
-                <p>Using either lattice paths or diagonal lattice paths, explain why the Catalan Number<idx><h>Catalan Number</h><h>recurrence for</h></idx> <m>c_n</m> satisfies the recurrence
-                <me>
-                    C_n = \sum_{i=1}^{n-1} C_{i-1}C_{n-i}
-                    </me>.
-                </p>
-            </statement>
-            <hint>
-                <p>
-                    A Catalan path could touch the <m>x</m>-axis several times before it reaches <m>(2n, 0)</m>.  Its first touch can be any point <m>(2i, 0)</m> between <m>(2, 0)</m> and <m>(2n, 0)</m>. For the path to touch first at <m>(2i, 0)</m>, the path must start with an upstep and then proceed as a Dyck path from <m>(1, 1)</m> to <m>(2i - 1, 1)</m>. From there it must take a downstep. Can you see a bijection between such Dyck paths and Catalan paths of a certain kind?
-                </p>
-            </hint>
-            <solution>
-                <p>Recall that a Dyck Path is a diagonal lattice path that never goes lower than its starting point and a Catalan Path of length <m>2n</m> is a Dyck path that goes from <m>(0,0)</m> to <m>(2n,0)</m> The Catalan number <m>C_n</m> is the number of Catalan paths of length <m>2n</m>. We take <m>C_0=1</m>. A Catalan path could touch the <m>x</m>-axis several times before it reaches <m>(2n,0)</m>. Its first touch can be any point <m>(2i,0)</m> between <m>(2,0)</m> and <m>(2n,0)</m>. For the path to touch first at <m>(0,2i)</m>, the path must start with an upstep and then proceed as a Dyck path from <m>(1,1)</m> to <m>(2i-1,1)</m>. From there it must take a downstep. But the number of Dyck paths from <m>(1,1)</m> to <m>(2i-1,1)</m> is the same as the number of Catalan paths from <m>(0,0)</m> to <m>(2i-2,0)</m>. The number of Catalan paths is the number whose first touch of the <m>x</m>-axis is at <m>x=2</m> plus the number whose first touch is at <m>x=4</m>,<ellipsis />, through the number whose first touch is at <m>2n</m>. After the first touch at <m>x=2i</m>, the path then behaves as a Catalan path from <m>(2i,0)</m> to <m>(2n,0)</m>. The number of such paths is <m>C_{n-i}</m>. By the product principle, the number of Catalan paths whose first touch is at <m>x=2i</m> is <m>C_{i-1}C_{n-i}</m>. Then by the sum principle, the number of Catalan paths of length 1 or more is
-                <me>
-                    C_n=\sum_{i=1}^nC_{i-1}C_{n-i}
-                </me>.
-                </p>
-            </solution>
-        </task>
+      <introduction>
+        <p>
+          Recall the recurrence for the Catalan numbers is
+          <me>
+              C_n = \sum_{i=1}^{n-1} C_{i-1}C_{n-i}
+              </me>.
+        </p>
+      </introduction>
         <task>
             <statement>
                 <p>
@@ -1197,7 +1321,7 @@
                 </me>
                 holds for any number real number <m>r</m>, where <m>\binom{r}{i}</m> is defined to be
                 <me>
-                    \frac{r^{\underline{i}}}{i!} = \frac{r(r-1)\cdots(r-i+1)}{i!}  </me>.  Use this and your solution for <m>y</m> (note that of the two possible values for <m>y</m> that you get from the quadratic formula, only one gives an actual power series) to get a formula for the Catalan numbers.<idx><h>Catalan number</h><h>generating function for</h></idx>
+                    \frac{r^{\underline{i}}}{i!} = \frac{r(r-1)\cdots(r-i+1)}{i!}</me>.  Use this and your solution for <m>y</m> (note that of the two possible values for <m>y</m> that you get from the quadratic formula, only one gives an actual power series) to get a formula for the Catalan numbers.<idx><h>Catalan number</h><h>generating function for</h></idx>
         </p>
             </statement>
             <hint>
