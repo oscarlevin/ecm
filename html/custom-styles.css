@@ -17,31 +17,6 @@
     background-image: linear-gradient(to right, #e9eff5, #e9eff5), linear-gradient(to right, #e9eff5, #e9eff5), linear-gradient(to right, rgba(0,0,0,.25), rgba(242,242,254,0)), linear-gradient(to left, rgba(0,0,0,.25), rgba(242,242,254,0));
 }
 
-article[id*='investigation'] {
-  background-color: white;
-  border: solid 3px #599459 !important;
-  border-radius: 10px;
-  padding: 5px;
-  margin-bottom: 1em;
-}
-
-article[id*='investigation'] .heading {
-  margin-top: -1.25em !important;
-  background-color: white;
-  display: table !important;
-  padding: 5px 1em;
-  margin-left: 5px;
-  font-style: italic;
-  font-size: 120% !important;
-}
-
-article[id*='investigation'] .codenumber {
-  display:none !important;
-}
-
-article[id*='investigation'] .heading::after {
-  display:none !important;
-}
 
 article[id*='example'] {
   border-left: solid 1pt #d1d1d1 !important;

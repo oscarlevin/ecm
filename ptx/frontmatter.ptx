@@ -2,6 +2,12 @@
 <frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
 <titlepage>
 <author>
+  <personname>Richard Grassl</personname>
+  <department>School of Mathematical Science</department>
+  <institution>University of Northern Colorado</institution>
+  </author>
+
+<author>
 <personname>Oscar Levin</personname>
 <department>School of Mathematical Science</department>
 <institution>University of Northern Colorado</institution>
