@@ -328,12 +328,18 @@
         <xsl:apply-templates select="." mode="solution-heading" />
         <xsl:apply-templates />
     </xsl:if>
-    <xsl:text>\hfill{\tiny\hyperlink{a-</xsl:text>
+    <xsl:text>~\hfill{\tiny\hyperlink{a-</xsl:text>
     <xsl:apply-templates select="../." mode="number" />
     <xsl:text>}{[hint]}</xsl:text>
     <xsl:text>\hypertarget{q-</xsl:text>
     <xsl:apply-templates select="../." mode="number" />
     <xsl:text>}{}}</xsl:text>
+</xsl:template>
+<xsl:template match="hint[2]">
+    <xsl:if test="$project.text.hint = 'yes'">
+        <xsl:apply-templates select="." mode="solution-heading" />
+        <xsl:apply-templates />
+    </xsl:if>
 </xsl:template>
 
 <!-- <xsl:template match="hint">

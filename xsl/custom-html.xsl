@@ -28,14 +28,32 @@
 <!-- HTML: knowlize as available/appropriate -->
 <xsl:param name="exercise.text.statement" select="'yes'" />
 <xsl:param name="exercise.text.hint" select="'yes'" />
-<xsl:param name="exercise.text.answer" select="'yes'" />
-<xsl:param name="exercise.text.solution" select="'yes'" />
+<xsl:param name="exercise.text.answer" select="'no'" />
+<xsl:param name="exercise.text.solution" select="'no'" />
 <xsl:param name="exercise.backmatter.statement" select="'no'" />
 <xsl:param name="exercise.backmatter.hint" select="'no'" />
-<xsl:param name="exercise.backmatter.answer" select="'yes'" />
-<xsl:param name="exercise.backmatter.solution" select="'yes'" />
+<xsl:param name="exercise.backmatter.answer" select="'no'" />
+<xsl:param name="exercise.backmatter.solution" select="'no'" />
 
-
+<!-- Now project-like elements, in main text.  -->
+<!-- A task is a division of a project         -->
+<xsl:param name="project.text.statement" select="'yes'" /> <!-- not implemented -->
+<xsl:param name="project.text.hint" select="'yes'" />
+<xsl:param name="project.text.answer" select="'no'" />
+<xsl:param name="project.text.solution" select="'no'" />
+<xsl:param name="task.text.statement" select="'yes'" /> <!-- not implemented -->
+<xsl:param name="task.text.hint" select="'yes'" />
+<xsl:param name="task.text.answer" select="'no'" />
+<xsl:param name="task.text.solution" select="'no'" />
+<!-- And project-like elements, in back matter (none implemented). -->
+<xsl:param name="project.backmatter.statement" select="'no'" />
+<xsl:param name="project.backmatter.hint" select="'yes'" />
+<xsl:param name="project.backmatter.answer" select="'no'" />
+<xsl:param name="project.backmatter.solution" select="'no'" />
+<xsl:param name="task.backmatter.statement" select="'no'" />
+<xsl:param name="task.backmatter.hint" select="'yes'" />
+<xsl:param name="task.backmatter.answer" select="'no'" />
+<xsl:param name="task.backmatter.solution" select="'no'" />
 <!-- Changes to mimic in HTML via CSS/other changes? -->
 <!-- LaTeX: Bold and italic for terminology macro -->
 <!-- LaTeX: Proof to small caps -->
@@ -96,7 +114,7 @@
 <!-- N.B.:  without warning and without any deprecation indicators -->
 <xsl:param name="html.js.server"  select="'https://aimath.org'" />
 <xsl:param name="html.css.server" select="'https://aimath.org'" />
-<xsl:param name="html.css.file"   select="'mathbook-4.css'" />
+<xsl:param name="html.css.file"   select="'mathbook-1.css'" />
 <!-- A space-separated list of CSS URLs (points to servers or local files) -->
 <xsl:param name="html.css.extra"  select="'custom-styles.css title-period-fix.css'" />
 
