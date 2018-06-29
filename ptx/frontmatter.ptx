@@ -50,7 +50,7 @@
 
 <acknowledgement>
   <p>
-    This book is a synthesis of three textbooks on discrete mathematics and combinatorics.  First, many of the problems, and indeed entire sections, come from directly from <pubtitle>Combinatorics Through Guided Discovery</pubtitle> by Kenneth P. Bogart.  This is possible thanks to the Bogart estate's decision to release his book under an open license (the GFDL, the same license this text uses).  The format of this book has been made to match that of Bogart's text, with most of the exposition being driven by problems (which we call <em>activities</em>) for students to work on.  A copy of Bogart's book can be found for free at <url>bogart.openmathbooks.org</url>.
+    This book is a synthesis of three textbooks on discrete mathematics and combinatorics.  First, many of the problems, and indeed entire sections, come directly from <pubtitle>Combinatorics Through Guided Discovery</pubtitle> by Kenneth P. Bogart.  This is possible thanks to the Bogart estate's decision to release his book under an open license (the GFDL, the same license this text uses).  The format of this book has been made to match that of Bogart's text, with most of the exposition being driven by problems (which we call <em>activities</em>) for students to work on.  A copy of Bogart's book can be found for free at <url href="http://bogart.openmathbooks.org/">bogart.openmathbooks.org</url>.
   </p>
   
   <p>
@@ -58,7 +58,7 @@
   </p>
   
   <p>
-    For the background material contained in the index, as well as much of the chapter on graph theory, material was borrowed from <pubtitle>Discrete Mathematics: an Open Introduction</pubtitle>, but book I wrote for the undergraduate discrete course at the University of Northern Colorado.  This book can be found (for free) at <url>discrete.openmathbooks.org</url>.
+    For the background material contained in the index, as well as much of the chapter on graph theory, material was borrowed from <pubtitle>Discrete Mathematics: an Open Introduction</pubtitle>, the book I wrote for the undergraduate discrete course at the University of Northern Colorado.  This book can be found (for free) at <url href="http://discrete.openmathbooks.org/">discrete.openmathbooks.org</url>.
   </p>
   
   <p>
@@ -75,15 +75,15 @@
 <preface xml:id="preface">
 <!-- TODO: rewrite! -->
 <p>
-  This book was written specifically to be used as the textbook for the Master's level Discrete Mathematics course at the University of Northern Colorado.  This course is part of a MA in Mathematics with a Teaching Emphasis.  Most of the students in the course are current secondary math teachers.  This intended audience as influenced the style and content of the book in a few important ways.
+  This book was written specifically to be used as the textbook for the Master's level Discrete Mathematics course at the University of Northern Colorado.  This course is part of a MA in Mathematics with a Teaching Emphasis.  Most of the students in the course are current secondary math teachers.  This intended audience has influenced the style and content of the book in a few important ways.
 </p>
 
 <p>
-  First, we acknowledge that not everyone reading this book will be immediately familiar with the content of a standard undergraduate discrete mathematics course.  Little is assumed about the readers previous work in the subject, beyond a general understanding of how abstract mathematics proceeds, as well as some basic ability with mathematical proof. Even here, the first chapter on Graph Theory serves as an excuse to reviews basic proof techniques.  For the reader completely unfamiliar with these and the basic objects of mathematical study (sets and functions), background material is included in an Appendix.
+  First, we acknowledge that not everyone reading this book will be immediately familiar with the content of a standard undergraduate discrete mathematics course.  Little is assumed about the reader's previous work in the subject, beyond a general understanding of how abstract mathematics proceeds, as well as some basic ability with mathematical proof. Even here, the first chapter on Graph Theory serves as an excuse to review basic proof techniques.  For the reader completely unfamiliar with these and the basic objects of mathematical study (sets and functions), background material is included in an Appendix.
 </p>
 
 <p>
-  Topics have been selected to illustrate larger concepts of interest to secondary teachers.  We have put an emphasis on understanding simple concepts deeply and in more than one way.  Although some topics intersect with high school curriculum, most of the questions here are at a higher level.  Still, the problem solving strategies and big ideas illustrated by our questions have applications to secondary mathematics.  This emphasis is quite different than other mid level discrete and combinatorics textbooks, since we are not preparing our readers to begin a career in research mathematics.
+  Topics have been selected to illustrate larger concepts of interest to secondary teachers.  We have put an emphasis on understanding simple concepts deeply and in more than one way.  Although some topics intersect secondary curriculum, most of the questions here are at a higher level.  Still, the problem solving strategies and big ideas illustrated by our questions have applications to secondary mathematics.  This emphasis is quite different than other mid level discrete and combinatorics textbooks, since we are not preparing our readers to begin a career in research mathematics.
 </p>
 
 <p>
@@ -94,7 +94,7 @@
   <title>How to use this book</title>
 
   <p>
-    This book is mostly about solving problems, and using those problems and their solutions to develop mathematics and mathematical understanding.  The main three chapters consist of more than 300 <em>activities</em> which the reader is asked to complete.  That is how you should use the book.  As you read, when you come to an activity, really take some time to try to solve it.  Many of the activities are broken down into tasks to help guide you to a solution.  If you get stuck, check for a hint (either in the back of the book or by clicking the link in the online version).  
+    This book is mostly about solving problems, and using those problems and their solutions to develop mathematics and mathematical understanding.  The main three chapters consist of more than 300 <em>activities</em> which the reader is asked to complete.  That is how you should use the book.  As you read, when you come to an activity, really take some time to try to solve it.  Many of the activities are broken down into tasks to help guide you to a solution.  If you get stuck, check for a hint.  In the pdf, problems with hints are marked with a small <q>[hint]</q> link that will take you to the hint in the back of the book; clicking on the number of the hint will return you to the activity.  The online version has expandable hint links under any activities for which they are provided. 
   </p>
   
   <p>
