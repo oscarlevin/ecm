@@ -5,22 +5,25 @@
 
 <introduction>
 <activity>
-<p>
+<introduction><p>
 When a connected graph can be drawn without any edges crossing, it is called <term>planar</term>. When a planar graph is drawn in this way, it divides the plane into regions called <term>faces</term>.
-<ol>
-<li>
-<p>
-Draw, if possible, two different planar graphs with the same number of vertices, edges, and faces.
-</p>
-</li>
+</p></introduction>
+<task>
+  <statement>
+    <p>
+      Draw, if possible, two different planar graphs with the same number of vertices, edges, and faces.
+    </p>
+  </statement>
+</task>
 
-<li>
-<p>
-Draw, if possible, two different planar graphs with the same number of vertices and edges, but a different number of faces.
-</p>
-</li>
-</ol>
-</p>
+
+<task>
+  <statement>
+    <p>
+      Draw, if possible, two different planar graphs with the same number of vertices and edges, but a different number of faces.
+    </p>
+  </statement>
+</task>
 </activity>
 
 <p>
@@ -97,7 +100,9 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
 
     <activity>
       <introduction>
-        What happens to the triple <m>(v,e,f)</m> when you add an edge to a graph?
+        <p>
+          What happens to the triple <m>(v,e,f)</m> when you add an edge to a graph?
+        </p>
       </introduction>
       <task>
         <statement>
@@ -357,7 +362,7 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
     <task>
       <statement>
         <p>
-          Let <m>e_0</m> be any edge part of a cycle in <m>G</m>.  Would it make more sense to remove <m>G</m> using a deletion or a contraction?  What will happen to <m>v - e + f</m>?
+          Let <m>e_0</m> be any edge part of a cycle in <m>G</m>.  Would it make more sense to remove <m>e_0</m> using a deletion or a contraction?  What will happen to <m>v - e + f</m>?
         </p>
       </statement>
     </task>

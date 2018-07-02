@@ -152,7 +152,7 @@
 <exercise>
   <statement>
     <p>
-      Give a geometric interpretation of the formula in \#2.
+      Give a geometric interpretation of the formula in Problem 2.
     </p>
   </statement>
 </exercise>
@@ -331,7 +331,7 @@
     </li>
     <li>
       <p>
-        <m>Q^{2} = Q + I</m>; use <m>Q^{2n}</m> to prove the identity in \#4.
+        <m>Q^{2} = Q + I</m>; use <m>Q^{2n}</m> to prove the identity in Problem 4.
       </p>
     </li>
     <li>
@@ -502,7 +502,7 @@
 <exercise>
   <statement>
     <p>
-      Where do the <q>Tribonacci</q> numbers appear in the triangle in \#2?
+      Where do the <q>Tribonacci</q> numbers appear in the triangle in Problem 2?
     </p>
   </statement>
 </exercise>
@@ -536,7 +536,7 @@
 <exercise>
   <statement>
     <p>
-      Use \#1 and the hockey stick theorem to find a nice formula for <m>1^{2} + 2^{2} + 3^{2} + \ldots + n^{2}</m> . Contrast with the
+      Use Problem 1 and the hockey stick theorem to find a nice formula for <m>1^{2} + 2^{2} + 3^{2} + \ldots + n^{2}</m> . Contrast with the
       version usually seen in calculus.
     </p>
   </statement>
@@ -544,28 +544,28 @@
 <exercise>
   <statement>
     <p>
-      Use \#2 to find a nice formula for <m>1^{3} + 2^{3} + 3^{3} + \ldots + n^{3}</m> .
+      Use Problem 2 to find a nice formula for <m>1^{3} + 2^{3} + 3^{3} + \ldots + n^{3}</m> .
     </p>
   </statement>
 </exercise>
 <exercise>
   <statement>
     <p>
-      Express <m>n^{4}</m> as in problems \#1 and \#2.
+      Express <m>n^{4}</m> as in Problems 1 and 2.
     </p>
   </statement>
 </exercise>
 <exercise>
   <statement>
     <p>
-      Use \#5 to find a nice formula for <m>1^{4} + 2^{4} + 3^{4} + \ldots + n^{4}</m> .
+      Use Problem 5 to find a nice formula for <m>1^{4} + 2^{4} + 3^{4} + \ldots + n^{4}</m> .
     </p>
   </statement>
 </exercise>
 <exercise>
   <statement>
     <p>
-      Here is an alternate way of accomplishing \#6:  Find integers <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m> so that
+      Here is an alternate way of accomplishing Problem 6:  Find integers <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m> so that
       <me>
       1^{4} + 2^{4} + 3^{4} + \ldots + n^{4} = a\binom{n + 1}{5}  + b\binom{n + 2}{5}  + c\binom{n + 3}{5}  + d\binom{n + 4}{5}
       </me>
@@ -578,7 +578,7 @@
 <exercise>
   <statement>
     <p>
-      Express <m>n^{3}</m> as in problems \#1 and \#2.
+      Express <m>n^{3}</m> as in Problems 1 and 2.
     </p>
   </statement>
 </exercise>
@@ -593,7 +593,7 @@
 <exercise>
   <statement>
     <p>
-      In problem \#1, \#2, \#5, and \#7, <m>n^{2},n^{3},n^{4},</m> and <m>n^{5}</m> were expressed as sums of binomial coefficients with integer
+      In Problems 1, 2, 5, and 7, <m>n^{2},n^{3},n^{4},</m> and <m>n^{5}</m> were expressed as sums of binomial coefficients with integer
       coefficients. Arrange these expressions in a Pascal-like triangle,
       concentrating on these integer coefficients. The coefficients are
       called Eulerian numbers.

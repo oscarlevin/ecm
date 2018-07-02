@@ -119,6 +119,8 @@
 
 <xsl:param name="project.text.hint" select="'no'" />
 <xsl:param name="task.text.hint" select="'no'" />
+<xsl:param name="project.text.solution" select="'no'" />
+<xsl:param name="task.text.solution" select="'no'" />
 
 <!-- Include a style file at the end of the preamble: -->
 
