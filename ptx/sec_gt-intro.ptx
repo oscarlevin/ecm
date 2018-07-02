@@ -349,7 +349,7 @@
 	<definition>
 		<p>
 			<idx><h>isomorphic</h></idx> An
-			<term>isomorphism</term><idx><h>isomorphism</h></idx> between two graphs <m>G_1</m> and <m>G_2</m> is a bijection <m>f:V_1 \to V_2</m> between the vertices of the graphs such that if <m>\{a,b\}</m> is an edge in <m>G_1</m> then <m>\{f(a), f(b)\}</m> is an edge in <m>G_2</m>.
+			<term>isomorphism</term><idx><h>isomorphism</h></idx> between two graphs <m>G_1</m> and <m>G_2</m> is a bijection <m>f:V_1 \to V_2</m> between the vertices of the graphs such that <m>\{a,b\}</m> is an edge in <m>G_1</m> if and only if <m>\{f(a), f(b)\}</m> is an edge in <m>G_2</m>.
 		</p>
 
 		<p>
