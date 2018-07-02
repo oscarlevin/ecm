@@ -98,7 +98,7 @@
     <idx><h>cycle</h></idx>
     <statement>
       <p>
-        A <term>walk</term> in a graph <m>G = (V,E)</m> is a sequence of vertices <m>v_0, v_1, v_2, \ldots, v_n</m> such that for <m>\{v_i, v_{i+1}\} \in E</m> for all <m>0 \le i \lt n</m>.  That is, consecutive vertices in the sequence are adjacent in the graph.
+        A <term>walk</term> in a graph <m>G = (V,E)</m> is a sequence of vertices <m>v_0, v_1, v_2, \ldots, v_n</m> such that <m>\{v_i, v_{i+1}\} \in E</m> for all <m>0 \le i \lt n</m>.  That is, consecutive vertices in the sequence are adjacent in the graph.
       </p>
       <p>
         A <term>trail</term> is a walk that does not repeat any edges.  If the trail starts and ends at the same vertex (i.e., <m>v_1 = v_n</m>) then it is called a <term>circuit</term>
