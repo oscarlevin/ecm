@@ -1,0 +1,26 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{75}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{act-pascalsym-bij}
+\hypertarget{p-564}{}%
+Consider the set \([n] = \{1,2,\ldots,n\}\) and its power set \(\pow([n])\) of all subsets of \([n]\).  Define the function \(f:\pow([n]) \to \pow([n])\) by \(f(A) = [n]\setminus A\) for any \(A \in \pow([n])\) (that is, \(f(A)\) is the complement of \(A\) in \([n]\)).%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-105} \hypertarget{p-565}{}%
+Prove that \(f\) is a bijection.  In fact, \(f\) is an \terminology{involution} in that it is its own inverse.%
+\item\label{task-106} \hypertarget{p-566}{}%
+For any set \(A \in \pow([n])\), if \(\card{A} = k\), what is the \(\card{f(A)}\)?%
+\item\label{task-107} \hypertarget{p-567}{}%
+Is \(f\) still a bijection if we restrict it to just the subsets of \([n]\) that have size \(k\)?  Explain.%
+\item\label{task-108} \hypertarget{p-568}{}%
+Why is the above enough to establish the identity?%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-31}{}\quad%
+\hypertarget{p-569}{}%
+Recall the bijection principle tells us that if \(f:X \to Y\) is a bijection, then \(\card{X} = \card{Y}\).  What is the cardinality of each of the subsets of \(\pow([n])\) that we are considering?%
+\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

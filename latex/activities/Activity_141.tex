@@ -1,0 +1,69 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{141}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{act-catalanfirst}
+\hypertarget{p-913}{}%
+Consider a convex \(n\)-gon with labeled vertices.  In how many ways can diagonals be inserted so as to decompose the \(n\)-gon into triangles? For \(n = 5\) the five figures are shown in \hyperref[five5gons]{Figure~\ref{five5gons}}.%
+\begin{figure}
+\centering
+\begin{sidebyside}{5}{0}{0}{0}
+\begin{sbspanel}{0.2}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (a) -- (d) -- (b);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.2}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (b) -- (e) -- (c);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.2}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (d) -- (a) -- (c);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.2}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (e) -- (b) -- (d);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.2}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (e) -- (c) -- (a);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\caption{The five triangulations of a convex pentagon.\label{five5gons}}
+\end{figure}
+\hypertarget{p-914}{}%
+Let \(t_n\) be the number of triangulations.  Find a recurrence relation for \((t_n)_{n \ge 3}\).  Justify your answer.%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-100}{}\quad%
+\hypertarget{p-915}{}%
+Your recurrence relation will not have a fixed number of terms, but rather be in terms of all previous terms.%
+\end{activity}
+
+\clearpage\end{document}

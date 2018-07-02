@@ -1,0 +1,28 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{15}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{activity-10}
+\hypertarget{p-179}{}%
+Suppose we have already proved \hyperref[thm-eulercircuit]{Theorem~\ref{thm-eulercircuit}}, that a graph has an Euler circuit if and only if every vertex has even degree.  Suppose now we want to prove \hyperref[thm-eulerpath]{Theorem~\ref{thm-eulerpath}}, that a graph has an Euler path if and only if it has at most two odd degree vertices.%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-13} \hypertarget{p-180}{}%
+Given a graph with an Euler path, how can you get a graph that definitely has an Euler circuit?  How did this affect the number of odd degree vertices?%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-2}{}\quad%
+\hypertarget{p-181}{}%
+Add something to your graph so you can ``finish'' the Euler path.  Don't forget to consider the case that the start and end vertex are already adjacent.%
+\item\label{task-14} \hypertarget{p-182}{}%
+Given a graph with at most two odd degree vertices, build a graph that has only even degree vertices.  If you have an Euler circuit of your new graph, what would that Euler circuit become if you looked at your original graph?%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-3}{}\quad%
+\hypertarget{p-183}{}%
+If there are no odd degree vertices, you are done.  If there are two, you could connect them with an edge, except maybe they are already adjacent.  What could you do then?%
+\item\label{task-15} \hypertarget{p-184}{}%
+What do each of the above tasks demonstrate?  That is, write a proof of \hyperref[thm-eulerpath]{Theorem~\ref{thm-eulerpath}} assuming \hyperref[thm-eulercircuit]{Theorem~\ref{thm-eulercircuit}}.  Make sure you specify how each ``direction'' (implication and converse) of the proof is established by the tasks above.%
+\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

@@ -1,0 +1,28 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{181}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{activity-174}
+\hypertarget{p-1020}{}%
+Consider the recurrence relation%
+\begin{equation*}
+C_{n + 1} = \sum_{i = 0}^n C_iC_{n-i} = C_{0}C_{n} + C_{1}C_{n - 1} + \ldots + C_{n}C_{0}
+\end{equation*}
+with \(C_0 = 1\).%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-189} \hypertarget{p-1021}{}%
+Calculate the first 6 values of the sequence from this recurrence relation, to verify that it appears to agree with the Catalan numbers.%
+\item\label{task-190} \hypertarget{p-1022}{}%
+Prove that the Catalan numbers satisfy the recurrence relation.%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-121}{}\quad%
+\hypertarget{p-1023}{}%
+Look at rooted binary trees.  What happens when you remove the root?  You could also use the parenthesizing model by asking where ``main product'' occurs.%
+\item\label{task-191} \hypertarget{p-1024}{}%
+Prove that the number of triangulations of a convex polygon with \(n+2\) sides also satisfies this recurrence relation (if you haven't already done so in \hyperref[act-catalanfirst]{Activity~\ref{act-catalanfirst}}).  Conclude that the triangulations problem is also solved by the Catalan numbers.%
+\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

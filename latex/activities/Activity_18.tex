@@ -1,0 +1,36 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{18}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{activity-13}
+\hypertarget{p-195}{}%
+Consider the following graph:%
+\begin{sidebyside}{1}{0.36}{0.36}{0}
+\begin{sbspanel}{0.28}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}[scale=.7]
+\foreach \x in {0, 45, ..., 315}
+  \draw  (\x:2) \v -- (\x+45:2);
+\draw (0,0) \v -- (45:2) (0,0) -- (135:2) (0,0) -- (225:2) (0,0) -- (315:2);
+\draw (-1,0) \v -- (90:2) (-1,0) -- (180:2) (-1,0) -- (270:2);
+\draw (1,0) \v -- (90:2) (1,0) -- (0:2) (1,0) -- (270:2);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-16} \hypertarget{p-196}{}%
+Find a Hamilton path.  Can your path be extended to a Hamilton cycle?%
+\item\label{task-17} \hypertarget{p-197}{}%
+Is the graph bipartite? If so, how many vertices are in each ``part''?%
+\item\label{task-18} \hypertarget{p-198}{}%
+Use your answer to part (b) to prove that the graph has no Hamilton cycle.%
+\item\label{task-19} \hypertarget{p-199}{}%
+Suppose you have a bipartite graph \(G\) in which one part has at least two more vertices than the other.  Prove that \(G\) does not have a Hamilton path.%
+\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

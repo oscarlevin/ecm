@@ -1,0 +1,44 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{271}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{CatalanRecurrence}
+\hypertarget{p-1384}{}%
+Recall the recurrence for the Catalan numbers is%
+\begin{equation*}
+C_n = \sum_{i=1}^{n-1} C_{i-1}C_{n-i}\text{.}
+\end{equation*}
+%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-252} \hypertarget{p-1385}{}%
+Show that if we use \(y\) to stand for the power series \(\sum_{n=0}^\infty c_nx^n\), then we can find \(y\) by solving a quadratic equation. Find \(y\).%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-174}{}\quad%
+\hypertarget{p-1386}{}%
+Does the right-hand side of the recurrence remind you of some products you have worked with?%
+\par\smallskip%
+\noindent\item\label{task-253} \hypertarget{p-1388}{}%
+Taylor's theorem from calculus tells us that the extended binomial theorem%
+\begin{equation*}
+(1+x)^r = \sum_{i=0}^\infty \binom{r}{i}x^i
+\end{equation*}
+holds for any number real number \(r\), where \(\binom{r}{i}\) is defined to be%
+\begin{equation*}
+\frac{r^{\underline{i}}}{i!} = \frac{r(r-1)\cdots(r-i+1)}{i!}\text{.}
+\end{equation*}
+Use this and your solution for \(y\) (note that of the two possible values for \(y\) that you get from the quadratic formula, only one gives an actual power series) to get a formula for the Catalan numbers.\index{Catalan number!generating function for}%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-175}{}\quad%
+\hypertarget{p-1389}{}%
+%
+\begin{equation*}
+\frac{1\cdot 3\cdot 5\cdots (2i-3)}{i!} = \frac{(2i-2)!}{(i-1)!2^i i!}\text{.}
+\end{equation*}
+%
+\par\smallskip%
+\noindent\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

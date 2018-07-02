@@ -1,0 +1,27 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{223}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{activity-216}
+\hypertarget{p-1198}{}%
+Give a proof of your formula for the principle of inclusion and exclusion.%
+\par\smallskip%
+\noindent\textbf{Hint 1}.\hypertarget{hint-143}{}\quad%
+\hypertarget{p-1199}{}%
+Try induction.%
+\par\smallskip%
+\noindent\textbf{Hint 2}.\hypertarget{hint-144}{}\quad%
+\hypertarget{p-1200}{}%
+We can apply the formula of \hyperref[twosetintersection]{Activity~\ref{twosetintersection}} to get%
+\begin{align*}
+\left|\bigcup_{i=1}^n A_i \right| \amp = \left|\left(\bigcup_{i=1}^{n-1} A_i\right) \cup A_n \right| \\
+\amp = \left| \bigcup_{i=1}^{n-1} A_i\right| + |A_n| - \left|\left( \bigcup_{i=1}^{n-1} A_i\right) \cap A_n\right|\\
+\amp = \left| \bigcup_{i=1}^{n-1} A_i\right| + |A_n| - \left|\bigcup_{i=1}^{n-1} A_i \cap A_n\right|
+\end{align*}
+%
+\par\smallskip%
+\noindent\end{activity}
+
+\clearpage\end{document}

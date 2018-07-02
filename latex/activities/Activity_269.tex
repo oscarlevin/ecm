@@ -1,0 +1,40 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{269}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{solveFibonacci}
+\leavevmode%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-247} \hypertarget{p-1370}{}%
+Use the partial fractions decomposition you found in \hyperref[factorFibonacci]{Activity~\ref{factorFibonacci}} to write the generating function you found in \hyperref[originalFibonacci]{Activity~\ref{originalFibonacci}} in the form%
+\begin{equation*}
+\sum_{n=0}^\infty a_nx^i
+\end{equation*}
+and use this to give an explicit formula for \(a_n\).%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-172}{}\quad%
+\hypertarget{p-1371}{}%
+Once again it will save a lot of tedious algebra if you use the symbols \(r_1\) and \(r_2\) for the solutions as in \hyperref[fractionFibonacci]{Activity~\ref{fractionFibonacci}} and substitute the actual values of the solutions once you have a formula for \(a_n\) in terms of \(r_1\) and \(r_2\).%
+\par\smallskip%
+\noindent\item\label{task-248} \hypertarget{p-1373}{}%
+When we have \(a_0=1\) and \(a_1=1\), i.e. when we start with one pair of baby rabbits, the numbers \(a_n\) are called \terminology{Fibonacci Numbers}\index{Fibonacci numbers}.  Use either the recurrence or your final formula to find \(a_2\) through \(a_8\).  Are you amazed that your general formula produces integers, or for that matter produces rational numbers?  Why does the recurrence equation tell you that the Fibonacci numbers are all integers?%
+\par\smallskip%
+\noindent\item\label{task-249} \hypertarget{p-1375}{}%
+Explain why there is a real number \(b\) such that, for large values of \(n\), the value of the \(n\)th Fibonacci number is almost exactly (but not quite) some constant times \(b^n\). (Find \(b\) and the constant.)%
+\par\smallskip%
+\noindent\item\label{task-250} \hypertarget{p-1377}{}%
+Find an algebraic explanation (not using the recurrence equation) of what happens to make the square roots of five go away.%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-173}{}\quad%
+\hypertarget{p-1378}{}%
+Think about how the binomial theorem might help you.%
+\par\smallskip%
+\noindent\item\label{task-251} \hypertarget{p-1380}{}%
+As a challenge (which the author has not yet done), see if you can find a way to show algebraically (not using the recurrence relation, but rather the formula you get by removing the square roots of five) that the formula for the Fibonacci numbers yields integers.%
+\par\smallskip%
+\noindent\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

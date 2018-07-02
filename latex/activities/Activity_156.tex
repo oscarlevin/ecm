@@ -1,0 +1,23 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{156}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{fib-matrix}
+\hypertarget{p-968}{}%
+Consider the \(2\times 2\) matrix \(Q =
+\begin{pmatrix}
+0 \amp 1\\
+1 \amp 1
+\end{pmatrix}.\) Using standard matrix multiplication, compute \(Q^2 = Q\cdot Q\), \(Q^3\), and so on.  Conjecture a formula for \(Q^n\) and prove you are correct.%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-110}{}\quad%
+\hypertarget{p-969}{}%
+You should find that \(Q^n = \begin{pmatrix}
+F_{n - 1} \amp F_{n}\\
+F_{n} \amp F_{n + 1}
+\end{pmatrix}\).  Now prove this by induction.%
+\end{activity}
+
+\clearpage\end{document}

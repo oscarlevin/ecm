@@ -1,0 +1,31 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{182}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{activity-175}
+\hypertarget{p-1026}{}%
+Recall that \(C_n\) gives the number of lattice paths from \((0,0)\) to \((n,n)\) that do not cross the line \(y = x\) (but they may touch this line).  We will compare this to all the lattice paths from \((0,0)\) to \((n,n)\).%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-192} \hypertarget{p-1027}{}%
+Explain why the number of lattice paths from \((0,0)\) to \((n,n)\) that \emph{do} cross the line \(y = x\) is the same as the number of lattice paths from \((0,0)\) to \((n,n)\) that touch or cross the line \(y = x + 1\).%
+\par\smallskip%
+\noindent\item\label{task-193} \hypertarget{p-1029}{}%
+Find a bijection between lattice paths from \((0,0)\) to \((n,n)\) that touch (or cross) the line \(y=x+1\) and lattice paths from \((-1,1)\) to \((n,n)\).%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-122}{}\quad%
+\hypertarget{p-1030}{}%
+Given a path from \((0, 0)\) to \((n, n)\) which touches or crosses the line \(y = x + 1\), how can you modify the part of the path from \((0, 0)\) to the first touch of \(y = x + 1\) so that the modified path starts instead at \((-1, 1)\)? The trick is to do this in a systematic way that will give you your bijection.%
+\par\smallskip%
+\noindent\item\label{task-194} \hypertarget{p-1032}{}%
+Find a formula for the number of lattice paths from \((0,0)\) to \((n,n)\) that do not cross the line \(y=x\). That is, a formula for \(C_n\).%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-123}{}\quad%
+\hypertarget{p-1033}{}%
+A path either touches the line \(y = x + 1\) or it doesn't. This partitions the set of paths into two blocks.%
+\par\smallskip%
+\noindent\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

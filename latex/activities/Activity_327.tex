@@ -1,0 +1,90 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{327}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{qtorialformula}
+\hypertarget{p-1613}{}%
+In \hyperref[largestpartatmostm]{Task~\ref{activity-310}.\ref{largestpartatmostm}} and \hyperref[atmostmparts]{Activity~\ref{atmostmparts}} you gave the generating functions for, respectively, the number of partitions of \(k\) into parts the largest of which is at most \(m\) and for the number of partitions of \(k\) into at most \(m\) parts. In this problem we will give the generating function for the number of partitions of \(k\) into at most \(n\) parts, the largest of which is at most \(m\). That is we will analyze \(\sum_{i=0}^\infty a_kq^k\) where \(a_k\) is the number of partitions of \(k\) into at most \(n\) parts, the largest of which is at most \(m\). Geometrically, it is the generating function for partitions whose Young diagram fits into an \(m\) by \(n\) rectangle, as in \hyperref[rectanglecomplement]{Activity~\ref{rectanglecomplement}}. This generating function has significant analogs to the binomial coefficient \(\binom{m+n}{n}\), and so it is denoted by \(\qchoose{m+n}{n}\). It is called a \terminology{\(q\)-binomial coefficient}.\index{\(q\)-binomial coefficient}\index{binomial coefficient!\(q\)-binomial}%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-279} \hypertarget{p-1614}{}%
+Compute \(\qchoose{4}{2}=\qchoose{2+2}{2}\).%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-217}{}\quad%
+\hypertarget{p-1615}{}%
+We want to calculate the number of partitions whose Young diagrams fit into a two by two square. These partitions have at most two parts and the parts have size at most two. Thus they are partitions of 1, 2, 3, or 4. However not all partitions of 3 or 4 have diagrams that fit into a two by two square. Try writing down the relevant diagrams.%
+\par\smallskip%
+\noindent\item\label{task-280} \hypertarget{p-1617}{}%
+Find explicit formulas for \(\qchoose{n}{1}\) and \(\qchoose{n}{n-1}\).%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-218}{}\quad%
+\hypertarget{p-1618}{}%
+They are the generating function for the number of partitions whose Young diagram fits into a rectangle \(n - 1\) units wide and 1 unit deep or into a rectangle 1 unit wide and \(n - 1\) units deep respectively.%
+\par\smallskip%
+\noindent\item\label{task-281} \hypertarget{p-1620}{}%
+How are \(\qchoose{m+n}{n}\) and \(\qchoose{m+n}{n}\) related? Prove it. (Note this is the same as asking how \(\qchoose{r}{s}\) and \(\qchoose{r}{r-s}\) are related.)%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-219}{}\quad%
+\hypertarget{p-1621}{}%
+How can you get a diagram of a partition counted by partition is counted by \(\qchoose{m+n}{n}\) from one whose partition is counted by \(\qchoose{m+n}{m}\)?%
+\par\smallskip%
+\noindent\item\label{task-282} \hypertarget{p-1623}{}%
+So far the analogy to \(\binom{m+n}{n}\) is rather thin! If we had a recurrence like the Pascal recurrence, that would demonstrate a real analogy. Is \(\qchoose{m+n}{n}= \qchoose{m+n-1}{n-1}+\qchoose{m+n-1}{n}\)?%
+\par\smallskip%
+\noindent\item\label{task-283} \hypertarget{p-1625}{}%
+Recall the two operations we studied in \hyperref[numberpartitionrecurrence]{Activity~\ref{numberpartitionrecurrence}}.%
+\begin{enumerate}[font=\bfseries,label=(\roman*),ref=\theenumi.\roman*]
+\item\label{task-284} \hypertarget{p-1626}{}%
+The largest part of a partition counted by \(\qchoose{m+n}{n}\) is either \(m\) or is less than or equal to \(m-1\).  In the second case, the partition fits into a rectangle that is at most \(m-1\) units wide and at most \(n\) units deep.  What is the generating function for partitions of this type?  In the first case, what kind of rectangle does the partition we get by removing the largest part sit in?  What is the generating function for partitions that sit in this kind of rectangle?  What is the generating function for partitions that sit in this kind of rectangle after we remove a largest part of size \(m\)?  What recurrence relation does this give you?%
+\par\smallskip%
+\noindent\item\label{task-285} \hypertarget{p-1630}{}%
+What recurrence do you get from the other operation we studied in \hyperref[numberpartitionrecurrence]{Activity~\ref{numberpartitionrecurrence}}?%
+\par\smallskip%
+\noindent\item\label{task-286} \hypertarget{p-1632}{}%
+It is quite likely that the two recurrences you got are different.  One would expect that they might give different values for \(\qchoose{m+n}{n}\).  Can you resolve this potential conflict?%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-220}{}\quad%
+\hypertarget{p-1633}{}%
+Think about geometric operations on Young Diagrams%
+\par\smallskip%
+\noindent\end{enumerate}
+\item\label{task-287} \hypertarget{p-1635}{}%
+Define \([n]_q\) to be \(1+q+\cdots+q^{n-1}\) for \(n>0\) and \([0]_q =1\).  We read this simply as \(n\)-sub-\(q\). Define \([n]!_q\) to be \([n]_q[n-1]_q\cdots [3]_q[2]_q[1]_q\). We read this as \(n\) cue-torial, and refer to it as a \terminology{\(q\)-ary factorial}.\index{factorial!\(q\)-ary}\index{\(q\)-ary factorial} Show that%
+\begin{equation*}
+\qchoose{m+n}{n} = \frac{[m+n]!_q}{[m]!_q[n]!_q}.
+\end{equation*}
+%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-221}{}\quad%
+\hypertarget{p-1636}{}%
+How would you use the Pascal recurrence to prove the corresponding result for binomial coefficients?%
+\par\smallskip%
+\noindent\item\label{task-288} \hypertarget{p-1639}{}%
+Now think of \(q\) as a variable that we will let approach \(1\). Find an explicit formula for \leavevmode%
+\begin{enumerate}[label=(\roman*)]
+\item\hypertarget{li-64}{}\(\displaystyle\lim_{q\rightarrow 1} [n]_q\).%
+\item\hypertarget{li-65}{}\(\displaystyle\lim_{q\rightarrow 1} [n]!_q\).%
+\item\hypertarget{q-binomial-lim}{}\(\displaystyle\lim_{q\rightarrow 1} \qchoose{m+n}{n}\).%
+\end{enumerate}
+ Why is the limit in \hyperlink{q-binomial-lim}{Part~iii} equal to the number of partitions (of any number) with at most \(n\) parts all of size most \(m\)? Can you explain bijectively why this quantity equals the formula you got?%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-222}{}\quad%
+\hypertarget{p-1640}{}%
+For finding a bijection, think about lattice paths.%
+\par\smallskip%
+\noindent\item\label{task-289} \hypertarget{p-1642}{}%
+What happens to \(\qchoose{m+n}{n}\) if we let \(q\) approach \(-1\)?%
+\par\smallskip%
+\noindent\textbf{Hint 1}.\hypertarget{hint-223}{}\quad%
+\hypertarget{p-1643}{}%
+If you could prove \(\qchoose{m+n}{n}\) is a polynomial function of \(q\), what would that tell you about how to compute the limit as \(q\) approaches \(-1\)?%
+\par\smallskip%
+\noindent\textbf{Hint 2}.\hypertarget{hint-224}{}\quad%
+\hypertarget{p-1644}{}%
+Try computing a table of values of \(\qchoose{m+n}{n}\) with \(q=-1\) by using the recurrence relation. Make a pretty big table so you can see what is happening.%
+\par\smallskip%
+\noindent\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

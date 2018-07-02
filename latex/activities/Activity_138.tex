@@ -1,0 +1,21 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{138}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{circlesinplane}
+\hypertarget{p-901}{}%
+We draw \(n\) mutually intersecting circles in the plane so that each one crosses each other one exactly twice and no three intersect in the same point. (As examples, think of Venn diagrams with two or three mutually intersecting sets.) Find a recurrence for the number \(r_n\) of regions into which the plane is divided by \(n\) circles. (One circle divides the plane into two regions, the inside and the outside.) Find the number of regions with \(n\) circles. For what values of \(n\) can you draw a Venn diagram showing all the possible intersections of \(n\) sets using circles to represent each of the sets?%
+\par\smallskip%
+\noindent\textbf{Hint 1}.\hypertarget{hint-96}{}\quad%
+\hypertarget{p-902}{}%
+If we have \(n - 1\) circles drawn in such a way that they define \(r_{n-1}\) regions, and we draw a new circle, each time it crosses another circle, except for the last time, it finishes dividing one region into two parts and starts dividing a new region into two parts.%
+\par\smallskip%
+\noindent\textbf{Hint 2}.\hypertarget{hint-97}{}\quad%
+\hypertarget{p-903}{}%
+Compare \(r_n\) with the number of subsets of an \(n\)-element set.%
+\par\smallskip%
+\noindent\end{activity}
+
+\clearpage\end{document}

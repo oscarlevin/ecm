@@ -1,0 +1,22 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{186}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{activity-179}
+\hypertarget{p-1042}{}%
+Here is a way to establish the closed formula for \(C_n\) using Dyck words.  For simplicity, consider Dyck words using the symbols 0 and 1, insisting that no initial segment contains more 1's than 0's.%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-197} \hypertarget{p-1043}{}%
+Of all \(2n\)-bit strings of weight \(n\), some are Dyck words and some are not.  Explain which are not.  What do all of these have in common?%
+\item\label{task-198} \hypertarget{p-1044}{}%
+Suppose some initial segment of a bit string contains one more 1 than 0.  If you changed every 1 to a 0 and every 0 to a 1 in this initial segment, how many 0's and how many 1's would the entire bit string have?%
+\item\label{task-199} \hypertarget{p-1045}{}%
+Describe a bijection between the set of \(2n\)-bit strings of weight \(n-1\) and the set of \(2n\)-bit strings of weight \(n\) that are NOT Dyck words.%
+\item\label{task-200} \hypertarget{p-1046}{}%
+Why does this prove that \(C_n = \binom{2n}{n} - \binom{2n}{n-1}\)?%
+\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

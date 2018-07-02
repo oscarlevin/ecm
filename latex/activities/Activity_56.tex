@@ -1,0 +1,65 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{56}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{activity-49}
+\hypertarget{p-436}{}%
+Find a matching of the bipartite graphs below or explain why no matching exists.%
+\begin{sidebyside}{3}{0.0166666666666667}{0.0166666666666667}{0.0333333333333333}
+\begin{sbspanel}{0.2}[bottom]
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\coordinate (a) at (0,0);
+\coordinate (A) at (0,1);
+\coordinate (b) at (1,0);
+\coordinate (B) at (1,1);
+\coordinate (c) at (2,0);
+\coordinate (C) at (2,1);
+\draw (a) \v -- (B) \v -- (c) \v -- (C) \v -- (a) \v -- (A)\v -- (b) \v;
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.3}[bottom]
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+  \coordinate (a) at (0,0);
+  \coordinate (A) at (0,1);
+  \coordinate (b) at (1,0);
+  \coordinate (B) at (1,1);
+  \coordinate (c) at (2,0);
+  \coordinate (C) at (2,1);
+  \coordinate (d) at (3,0);
+  \coordinate (D) at (3,1);
+  \draw (a) \v -- (A) \v (b) \v -- (B) \v (c) \v -- (C) \v (d) \v (D)\v;
+  \draw (a) -- (C) -- (b) -- (D) (A) -- (c) (A) -- (d) -- (C);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.4}[bottom]
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+  \coordinate (a) at (0,0);
+  \coordinate (A) at (0,1);
+  \coordinate (b) at (1,0);
+  \coordinate (B) at (1,1);
+  \coordinate (c) at (2,0);
+  \coordinate (C) at (2,1);
+  \coordinate (d) at (3,0);
+  \coordinate (D) at (3,1);
+  \coordinate (e) at (4,0);
+  \coordinate (E) at (4,1);
+  \draw (a) \v (A) \v (b) \v (B) \v (c) \v (C) \v (d) \v (D)\v (e)\v (E) \v;
+  \draw (a) -- (A) (a) -- (B) (A) -- (b) (A) -- (c) (b) -- (C) (B) -- (c) -- (D) (c) -- (E) (C) -- (d) -- (E) (D) -- (e) -- (E);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\par\smallskip%
+\noindent\end{activity}
+
+\clearpage\end{document}

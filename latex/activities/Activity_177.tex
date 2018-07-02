@@ -1,0 +1,49 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{177}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{act-rootedtrees}
+\hypertarget{p-1002}{}%
+Consider \terminology{rooted binary trees}.  Rooted trees are trees in the graph theory sense, except that one vertex is designated as the root, which puts a natural ordering on the vertices.  Vertices adjacent to the root are its \terminology{children}, and vertices adjacent to those (other than the root) are their children, and so on.  We are looking at \emph{binary} trees, so each vertex will have either two children (designated the \terminology{left child} and \terminology{right child}) or no children at all (i.e., the vertex is a leaf).%
+\par
+\hypertarget{p-1003}{}%
+How many rooted binary trees have exactly \(n+1\) leaves?  Note that because we designate children as left or right, the two trees below are counted as distinct.%
+\begin{sidebyside}{2}{0.125}{0.125}{0.25}
+\begin{sbspanel}{0.25}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+  \coordinate (r) at (0,0);
+  \coordinate (rl) at (-1,1);
+  \coordinate (rr) at (1,1);
+  \coordinate (rll) at (-1.5,2);
+  \coordinate (rlr) at (-.5, 2);
+  \draw (r) \v -- (rl) \v -- (rll) \v (rl) -- (rlr) \v (r) -- (rr) \v;
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.25}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+  \coordinate (r) at (0,0);
+  \coordinate (rl) at (-1,1);
+  \coordinate (rr) at (1,1);
+  \coordinate (rll) at (-1.5,2);
+  \coordinate (rlr) at (-.5, 2);
+  \coordinate (rrl) at (.5,2);
+  \coordinate (rrr) at (1.5, 2);
+  \draw (r) \v -- (rr) \v -- (rrl) \v (rr) -- (rrr) \v (r) -- (rl) \v;
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-116}{}\quad%
+\hypertarget{p-1004}{}%
+There should be 5 rooted binary trees with 4 leaves (the \(n = 3\) case).%
+\end{activity}
+
+\clearpage\end{document}

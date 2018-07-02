@@ -1,0 +1,56 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{29}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{activity-24}
+\hypertarget{p-284}{}%
+The graph show below is not planar.  Let's prove it.%
+\begin{sidebyside}{1}{0.375}{0.375}{0}
+\begin{sbspanel}{0.25}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+  \foreach \x in {0,...,5}{
+  \coordinate (a\x) at (90-\x*60:2);
+  \draw (a\x) \v -- (30-\x*60:2);
+  }
+  \coordinate (b1) at (60:1);
+  \coordinate (b2) at (-60:1);
+  \coordinate (b3) at (180:1);
+  \draw (a0) -- (b3) \v -- (b2) \v -- (b1) \v -- (b3) -- (a3);
+  \draw (a1) -- (b2) -- (a4) (a2) -- (b1) -- (a5);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-39} \hypertarget{p-285}{}%
+What is the girth of this graph?  What can you conclude from Euler's formula and the inequality \(gf \le 2e\)?%
+\item\label{task-40} \hypertarget{p-286}{}%
+Try proving the following graph is not planar using our standard approach.%
+\begin{sidebyside}{1}{0.375}{0.375}{0}
+\begin{sbspanel}{0.25}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+  \foreach \x in {0,...,5}{
+  \coordinate (a\x) at (90-\x*60:2);
+  \draw (a\x) \v -- (30-\x*60:2);
+  }
+  \coordinate (b1) at (60:1);
+  \coordinate (b2) at (-60:1);
+  \coordinate (b3) at (180:1);
+  \draw (a0) -- (b3) \v (b2) \v (b1) \v (b3) -- (a3);
+  \draw (a1) -- (b2) -- (a4) (a2) -- (b1) -- (a5);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\hypertarget{p-287}{}%
+Could it be that the original graph is planar but the subgraph is not?  What can you conclude?%
+\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}

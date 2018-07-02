@@ -1,0 +1,17 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{260}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{secondorderintroduction}
+\hypertarget{p-1345}{}%
+Suppose we start (at the end of month 0) with 10 pairs of baby rabbits, and that after baby rabbits mature for one month they begin to reproduce, with each pair producing two new pairs at the end of each month afterwards. Suppose further that over the time we observe the rabbits, none die. Let \(a_n\) be the number of rabbits we have at the end of month \(n\). Show that \(a_n=a_{n-1} + 2a_{n-2}\). This is an example of a \terminology{second order}\index{recurrence!second order}\index{second order recurrence} \emph{linear}\index{recurrence!linear}\index{linear recurrence!second order} recurrence with constant coefficients.\index{recurrence!constant coefficient} Using a method similar to that of \hyperref[substituteandsolve]{Activity~\ref{substituteandsolve}}, show that%
+\begin{equation*}
+\sum_{i=0}^\infty a_ix^i = \frac{10}{1-x-2x^2}.
+\end{equation*}
+This gives us the generating function for the sequence \(a_i\) giving the population in month \(i\); shortly we shall see a method for converting this to a solution to the recurrence.%
+\par\smallskip%
+\noindent\end{activity}
+
+\clearpage\end{document}

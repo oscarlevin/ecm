@@ -1,0 +1,63 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{176}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{act-traingulations}
+\hypertarget{p-1000}{}%
+Consider a convex polygon with \((n+2)\) labeled vertices.  In how many ways can non-intersecting diagonals be inserted so as to decompose the polygon into triangles? For \(n = 3\) the five figures are shown below.%
+\begin{sidebyside}{5}{0.025}{0.025}{0.05}
+\begin{sbspanel}{0.15}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (a) -- (d) -- (b);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.15}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (b) -- (e) -- (c);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.15}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (d) -- (a) -- (c);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.15}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (e) -- (b) -- (d);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.15}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (e) -- (c) -- (a);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-115}{}\quad%
+\hypertarget{p-1001}{}%
+You might have found a recursion for the sequence of answers in \hyperref[act-catalanfirst]{Activity~\ref{act-catalanfirst}}.%
+\end{activity}
+
+\clearpage\end{document}

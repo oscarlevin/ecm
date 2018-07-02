@@ -1,0 +1,45 @@
+\documentclass{book}
+
+\input{../activities-preamble.tex}
+\begin{document}
+\setcounter{cpjt}{308}
+\addtocounter{cpjt}{-1}
+\begin{activity}\label{activity-301}
+\hypertarget{p-1516}{}%
+The idea of conjugation of a partition could be defined without the geometric interpretation of a Young diagram, but it would seem far less natural without the geometric interpretation. Another idea that seems much more natural in a geometric context is this. Suppose we have a partition of \(k\) into \(n\) parts with largest part \(m\). Then the Young diagram of the partition can fit into a rectangle that is \(m\) or more units wide (horizontally) and \(n\) or more units deep. Suppose we place the Young diagram of our partition in the top left-hand corner of an \(m'\) unit wide and \(n'\) unit deep rectangle with \(m'\ge m\) and \(n' \ge n\), as in \hyperref[complementpartition]{Figure~\ref{complementpartition}}.%
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{images/complementpartition}
+\caption{To complement the partition \((5,3,3,2)\) in a 6 by 5 rectangle: enclose it in the rectangle, rotate, and cut out the original Young diagram.\label{complementpartition}}
+\end{figure}
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-263} \hypertarget{p-1517}{}%
+Why can we interpret the part of the rectangle not occupied by our Young diagram, rotated in the plane, as the Young diagram of another partition? This is called the \terminology{complement}\index{complement of a partition} of our partition in the rectangle.%
+\par\smallskip%
+\noindent\item\label{task-264} \hypertarget{p-1519}{}%
+What integer is being partitioned by the complement?%
+\par\smallskip%
+\noindent\item\label{task-265} \hypertarget{p-1521}{}%
+What conditions on \(m'\) and \(n'\) guarantee that the complement has the same number of parts as the original one?%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-194}{}\quad%
+\hypertarget{p-1522}{}%
+Consider two cases, \(m' \gt m\) and \(m' = m\).%
+\par\smallskip%
+\noindent\item\label{task-266} \hypertarget{p-1524}{}%
+What conditions on \(m'\) and \(n'\) guarantee that the complement has the same largest part as the original one?%
+\par\smallskip%
+\noindent\textbf{Hint}.\hypertarget{hint-195}{}\quad%
+\hypertarget{p-1525}{}%
+Consider two cases, \(n' \gt n\) and \(n' = n\).%
+\par\smallskip%
+\noindent\item\label{task-267} \hypertarget{p-1527}{}%
+Is it possible for the complement to have both the same number of parts and the same largest part as the original one?%
+\par\smallskip%
+\noindent\item\label{task-268} \hypertarget{p-1529}{}%
+If we complement a partition in an \(m'\) by \(n'\) box and then complement that partition in an \(m'\) by \(n'\) box again, do we get the same partition that we started with?%
+\par\smallskip%
+\noindent\end{enumerate}
+\end{activity}
+
+\clearpage\end{document}
