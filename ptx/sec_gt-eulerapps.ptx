@@ -75,7 +75,7 @@
       <task>
         <statement>
           <p>
-            Now get at the number of faces another way: each face must be bordered by at least three edges.  Why?  Explain why we can conclude that <m>3f \le 2e</m>.  Where does the 2 come from.
+            Now get at the number of faces another way: each face must be bordered by at least three edges.  Why?  Explain why we can conclude that <m>3f \le 2e</m>.  Where does the 2 come from?
           </p>
         </statement>
         <solution>

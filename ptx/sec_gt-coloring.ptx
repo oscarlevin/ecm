@@ -488,7 +488,7 @@ There are times when the chromatic number of <m>G</m> is <em>equal</em> to the c
 </activity>
 
 <p>
-  Some notation will come in handy.  For a vertex <m>v</m>, write <m>d(v)</m> for the degree of <m>v</m> (i.e., the number of vertices incident to it).  We write <m>\Delta(G)</m> for the <term>maximum degree of <m>G</m></term>, which is <m>D(G) = \max\{d(v) \st v \in G\}</m>.
+  Some notation will come in handy.  For a vertex <m>v</m>, write <m>d(v)</m> for the degree of <m>v</m> (i.e., the number of vertices incident to it).  We write <m>\Delta(G)</m> for the <term>maximum degree of <m>G</m></term>, which is <m>\Delta(G) = \max\{d(v) \st v \in G\}</m>.
 </p>
 
 <activity>
