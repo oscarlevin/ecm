@@ -641,7 +641,7 @@ There is another interesting way we might consider coloring edges, quite differe
 <activity>
 	<statement>
 	  <p>
-	    Show that among ten people, there are either three mutual acquaintances or three mutual strangers.  What does this say about <m>R(4,3)</m>?
+	    Show that among ten people, there are either four mutual acquaintances or three mutual strangers.  What does this say about <m>R(4,3)</m>?
 	  </p>
 	</statement>
 	<solution>
