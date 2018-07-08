@@ -100,7 +100,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
   </xsl:variable>
   <xsl:text>\input{</xsl:text>
   <xsl:value-of select="$filename" />
-  <xsl:text>}&#xa;&#xa;</xsl:text>
+  <xsl:text>}&#xa;\clearpage&#xa;&#xa;</xsl:text>
   <!-- <xsl:text>\subsection*{</xsl:text>
   <xsl:apply-templates select="." mode="long-name" />
   <xsl:text>}&#xa;</xsl:text>
@@ -146,7 +146,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
 <xsl:template name="end-activity">
     <!-- <xsl:text>\end{frame}&#xa; &#xa;</xsl:text> -->
-    <xsl:text>&#xa;\clearpage</xsl:text>
+    <!-- <xsl:text>&#xa;\clearpage &#xa;</xsl:text> -->
     
 </xsl:template>
 
