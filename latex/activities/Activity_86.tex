@@ -2,20 +2,23 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{86}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{tennispairings1}
-\hypertarget{p-634}{}%
+\setcounter{project}{86}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{tennispairings1}
+\hypertarget{p-650}{}%
 A tennis club has \(2n\) members. We want to pair up the members by twos for singles matches.%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-131} \hypertarget{p-635}{}%
+\item\label{task-133} \hypertarget{p-651}{}%
 In how many ways may we pair up all the members of the club? (Hint: consider the cases of 2, 4, and 6 members.)%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-40}{}\quad%
-\hypertarget{p-636}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-40}{}\quad%
+\hypertarget{p-652}{}%
 Suppose you have a list in alphabetical order of names of the members of the club. In how many ways can you pair up the first person on the list? In how many ways can you pair up the next person who isn't already paired up?%
-\par\smallskip%
-\noindent\item\label{task-132} \hypertarget{p-638}{}%
+~\hfill{\tiny\hyperlink{a-86.a}{[hint]}\hypertarget{q-86.a}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-44}{}\quad%
+\hypertarget{p-653}{}%
+Suppose we list the people in the club in some way, and keep that list for the remainder of the problem. Take the first person from the list and pair that person with any of the \(2n-1\) remaining people. Now take the next \emph{unpaired} person from the list and pair that person with any of the remaining \(2n-3\) unpaired people. Continuing in this way, once \(k\) pairs have been selected, take the next unpaired person from the list and pair that person with any of the remaining \(2n-2k-1\) unpaired people. Every pairing can arise in this way, and no pairing can arise twice in this process. Thus the number of outcomes is \(\prod_{i=0}^{n-1} 2n-2i-1\).%
+\item\label{task-134} \hypertarget{p-654}{}%
 Suppose that in addition to specifying who plays whom, for each pairing we say who serves first.  Now in how many ways may we specify our pairs?%
 \end{enumerate}
 \end{activity}

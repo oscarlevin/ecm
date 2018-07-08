@@ -2,12 +2,19 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{107}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-100}
-\hypertarget{p-732}{}%
+\setcounter{project}{107}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-100}
+\hypertarget{p-748}{}%
 \(\binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \binom{n}{2} d_{2} + \ldots + \binom{n}{n} d_{n} = n!\) where \(d_{n}\) denotes the \(n\)th derangement number, \(d_{0} = 1,d_{1} = 0\).%
 \par\smallskip%
-\noindent\end{activity}
+\noindent\textbf{Solution.}\hypertarget{solution-62}{}\quad%
+\hypertarget{p-749}{}%
+The right-hand side, \(n!\), gives the number of permutations of \(n\) objects. So the left-hand side must provide the same enumeration. The left side partitions the permutations according to how many elements are deranged (and the rest fixed). The term \(\binom{n}{i} d_{i} = \binom{n}{n - i} d_{i}\) gives the number of permutations of \(n\) where \(n - i\) elements are fixed and the remaining \(i\) elements are deranged. Summing over all \(i\) yields%
+\begin{equation*}
+\binom{n}{n} d_{0} + \binom{n}{n - 1} d_{1} + \cdots + \binom{n}{0} d_{n} = \binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \cdots + \binom{n}{n} d_{n} = n!
+\end{equation*}
+%
+\end{activity}
 
 \clearpage\end{document}

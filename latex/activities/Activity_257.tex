@@ -2,16 +2,28 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{257}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-250}
-\hypertarget{p-1329}{}%
+\setcounter{project}{257}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-250}
+\hypertarget{p-1345}{}%
 What is the generating function for the number of multisets chosen from an \(n\)-element set so that each element appears at least \(j\) times and less than \(m\) times? Write this generating function as a quotient of polynomials, then as a product of a polynomial and a power series.%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-166}{}\quad%
-\hypertarget{p-1330}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-166}{}\quad%
+\hypertarget{p-1346}{}%
 Intepret \hyperref[candygenfn]{Activity~\ref{candygenfn}} in terms of multisets.%
-\par\smallskip%
-\noindent\end{activity}
+~\hfill{\tiny\hyperlink{a-257}{[hint]}\hypertarget{q-257}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-157}{}\quad%
+\hypertarget{p-1347}{}%
+%
+\begin{align*}
+(x^j+x^{j+1}+\cdots+x^{m-1}) =\amp x^j
+\left(\sum_{i=0}^{m-j-1}x^i\right)^n\\
+=\amp
+\left(x^j\frac{1-x^{m-j}}{1-x}\right)^n\\
+=\amp \left(\frac{x^j-x^m}{1-x}\right)^n\\
+=\amp  (x^j-x^m)^n\sum_{i=0}^\infty \binom{n+i-1}{i}x^i.
+\end{align*}
+%
+\end{activity}
 
 \clearpage\end{document}

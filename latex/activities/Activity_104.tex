@@ -2,16 +2,19 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{104}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-97}
-\hypertarget{p-721}{}%
+\setcounter{project}{104}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-97}
+\hypertarget{p-737}{}%
 \(\binom{3n}{3} = 3 \binom{n}{3} + 6n \binom{n}{2} + n^{3}\).%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-58}{}\quad%
-\hypertarget{p-722}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-58}{}\quad%
+\hypertarget{p-738}{}%
 Compare to \hyperref[act-redgreenballs]{Activity~\ref{act-redgreenballs}}.  What if you also have yellow balls?%
-\par\smallskip%
-\noindent\end{activity}
+~\hfill{\tiny\hyperlink{a-104}{[hint]}\hypertarget{q-104}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-59}{}\quad%
+\hypertarget{p-739}{}%
+This one is a little tougher. First rewrite as \(n^{3} = \binom{3n}{3} - 3 \binom{n}{3} - 6n \binom{n}{2}\). Suppose you have \(n\) men, \(n\) women and \(n\) children and you want to select triples consisting of one man, one woman and one child. There are \(n^{3}\) ways to do this, just pick one from each group. Alternatively, select 3 of the \(3n\) people in \(\binom{3n}{3}\) ways and delete the ``bad'' ones. Delete the ones where you selected all three from one group \textemdash{} there are \(3 \binom{n}{3}\) of these. Now delete those where you had two from one group and one from another \textemdash{} there are \(2n \binom{n}{2} + 2n \binom{n}{2} + 2n \binom{n}{2}\) of these.%
+\end{activity}
 
 \clearpage\end{document}

@@ -2,10 +2,10 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{18}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-13}
-\hypertarget{p-195}{}%
+\setcounter{project}{18}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-13}
+\hypertarget{p-205}{}%
 Consider the following graph:%
 \begin{sidebyside}{1}{0.36}{0.36}{0}
 \begin{sbspanel}{0.28}
@@ -22,14 +22,48 @@ Consider the following graph:%
 \end{sbspanel}
 \end{sidebyside}
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-16} \hypertarget{p-196}{}%
+\item\label{task-16} \hypertarget{p-206}{}%
 Find a Hamilton path.  Can your path be extended to a Hamilton cycle?%
-\item\label{task-17} \hypertarget{p-197}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-14}{}\quad%
+\hypertarget{p-207}{}%
+The path shown below is Hamilton, but cannot be extended to a Hamilton cycle.%
+\begin{sidebyside}{1}{0.36}{0.36}{0}
+\begin{sbspanel}{0.28}
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture}[scale=.7]
+\draw[line width=4pt, blue!45] (135:2) -- (90:2) -- (45:2) -- (0,0) -- (-45:2) -- (2,0) -- (1,0) -- (0,-2) -- (-1,0) -- (-2,0) -- (-135:2);
+\foreach \x in {0, 45, ..., 315}
+  \draw  (\x:2) \v -- (\x+45:2);
+\draw (0,0) \v -- (45:2) (0,0) -- (135:2) (0,0) -- (225:2) (0,0) -- (315:2);
+\draw (-1,0) \v -- (90:2) (-1,0) -- (180:2) (-1,0) -- (270:2);
+\draw (1,0) \v -- (90:2) (1,0) -- (0:2) (1,0) -- (270:2);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\item\label{task-17} \hypertarget{p-208}{}%
 Is the graph bipartite? If so, how many vertices are in each ``part''?%
-\item\label{task-18} \hypertarget{p-198}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-15}{}\quad%
+\hypertarget{p-209}{}%
+Yes, the graph is bipartite.  It is possible to put 6 vertices in one part and 5 in the other.%
+\item\label{task-18} \hypertarget{p-210}{}%
 Use your answer to part (b) to prove that the graph has no Hamilton cycle.%
-\item\label{task-19} \hypertarget{p-199}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-16}{}\quad%
+\hypertarget{p-211}{}%
+Suppose the graph did have a Hamilton cycle, say \((a_1, b_1, a_2, b_2, \ldots, a_k, b_k, a_1)\).  Here we are writing vertices as \(a_i\) if they are in the \(A\) part of the bipartite graph, and \(b_i\) if they are in the \(B\) part.  Since there are no edges between vertices in the same part, we know that the cycle must alternate between \(A\) vertices and \(B\) vertices, before finally returning to the starting \(A\) vertex \(a_1\).  In particular, this says that there must be an equal number of vertices in the \(A\) and \(B\) parts.  But the graph in question does not have this.%
+\par
+\hypertarget{p-212}{}%
+A simpler way of saying this is that the graph above has 11 vertices, so any Hamliton cycle must include 11 edges.  But since the graph is bipartite, there are no odd length cycles at all.%
+\item\label{task-19} \hypertarget{p-213}{}%
 Suppose you have a bipartite graph \(G\) in which one part has at least two more vertices than the other.  Prove that \(G\) does not have a Hamilton path.%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-17}{}\quad%
+\hypertarget{p-214}{}%
+We can prove the contrapositive.  Suppose \(G\) has a Hamilton path \((a_1, b_1, a_2, b_2, \ldots, v)\).  Since \(G\) is bipartite, we know that \(a_i \in A\) and \(b_i \in B\) form a bipartition of the vertices.  The last vertex in the path is either in \(A\) or \(B\).  If \(v \in B\), then \(\card{A} = \card{B}\).  If \(v \in A\), then \(\card{A} = \card{B} + 1\).  But in either case, we see that neither part has at least two more vertices than the other.%
 \end{enumerate}
 \end{activity}
 

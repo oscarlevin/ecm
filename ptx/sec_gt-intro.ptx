@@ -513,8 +513,8 @@
 						<solution>
 							<sidebyside>
 								<tabular>
-								<row>
-									<cell><m>x</m></cell>
+								<row bottom="minor">
+									<cell right="minor"><m>x</m></cell>
 									<cell><m>a</m></cell>
 									<cell><m>b</m></cell>
 									<cell><m>c</m></cell>
@@ -523,12 +523,8 @@
 									<cell><m>f</m></cell>
 									<cell><m>g</m></cell>
 								</row>
-								<row bottom="minor">
-									<cell></cell>
-									<cell></cell>
-								</row>
 								<row>
-									<cell><m>f(x)</m></cell>
+									<cell right="minor"><m>g(x)</m></cell>
 									<cell><m>v_4</m></cell>
 									<cell><m>v_5</m></cell>
 									<cell><m>v_6</m></cell>
@@ -539,6 +535,9 @@
 								</row>
 							</tabular>
 						</sidebyside>
+						<p>
+						  This was found by first noting that <m>b</m> in <m>V_1</m> is the only vertex of degree 5, and in <m>V_2</m> it is <m>v_5</m> that has that honor.  So if there were to be any isomorphism, we would need <m>g(b) = v_5</m>.  Then in <m>V_1</m>, only <m>g</m> is not adjacent to <m>b</m>, so we must have <m>g(g) = v_7</m>.  We can then look at the other vertex adjacent to <m>g</m>, which is <m>f</m> and conclude <m>g(f) = v_3</m>.  And so on.
+						</p>
 						</solution>
 					</task>
 					<task>
@@ -561,7 +560,7 @@
 						</statement>
 						<solution>
 						<p>
-						No, it could not possibly be isomorphic. If you count up the degrees of each vertex in this picture, you can see that the highest degree is 4 (the center vertex). In order to be isomorphic to either <m>G1</m> or <m>G2</m> we would definitely need a vertex of degree 5, which we don't have.
+						No, it could not possibly be isomorphic. If you count up the degrees of each vertex in this picture, you can see that the highest degree is 4 (the center vertex). In order to be isomorphic to either <m>G_1</m> or <m>G_2</m> we would definitely need a vertex of degree 5, which we don't have.
 					</p>
 				</solution>
 		</task>

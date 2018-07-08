@@ -525,6 +525,19 @@ We will need to prove these theorems, and doing so will give us an excuse to thi
           Add something to your graph so you can <q>finish</q> the Euler path.  Don't forget to consider the case that the start and end vertex are already adjacent.
         </p>
       </hint>
+      <solution>
+        <p>
+          Let <m>v_b</m> and <m>v_e</m> be the begining and ending vertices of the Euler path.  Now add a vertex <m>v'</m>to the graph and edges <m>\{v_b, v'\}</m> and <m>\{v', v_e\}</m>.  Now the Euler path can be extended through <m>v'</m> and back to <m>v_b</m>, completing an Euler circuit.
+        </p>
+        
+        <p>
+          By <xref ref="thm-eulercircuit"/>, we know our new expanded graph will have all vertices of even degree.  But the degrees of <m>v_b</m> and <m>v_e</m> have increased by 1, so in the original graph, it must be that <m>v_b</m> and <m>v_e</m> (and only these) had odd degree.
+        </p>
+        
+        <p>
+          Note that if <m>v_b</m> and <m>v_e</m> were not adjacent in the original graph, we could have just added an edge connecting them, but adding the new vertex works in that and the case where the vertices were already adjacent.
+        </p>
+      </solution>
     </task>
     <task>
       <statement>
@@ -537,6 +550,15 @@ We will need to prove these theorems, and doing so will give us an excuse to thi
           If there are no odd degree vertices, you are done.  If there are two, you could connect them with an edge, except maybe they are already adjacent.  What could you do then?
         </p>
       </hint>
+      <solution>
+        <p>
+          Let <m>v_1</m> and <m>v_2</m> be the two vertices with odd degree.  We can add a new vertex <m>v'</m> and edges <m>\{v_1, v'\}</m> and <m>\{v_2, v'\}</m>, which increases the degrees of <m>v_1</m> and <m>v_2</m> by 1, making their degrees even.  Also, <m>d(v') = 2</m>, so all vertices now have even degree.
+        </p>
+        
+        <p>
+          If this new graph has an Euler circuit, then we can <q>cut</q> out the path <m>(v_2, v', v_1)</m>.  Specifically, rotate and possibly reverse the circuit so that it starts at <m>v_1</m> and ends with the sequence <m>v_2, v', v_1</m>.  Then simply remove <m>v', v_1</m> from that sequence, to get a Euler path.
+        </p>
+      </solution>
     </task>
     <task>
       <statement>
@@ -544,6 +566,15 @@ We will need to prove these theorems, and doing so will give us an excuse to thi
           What do each of the above tasks demonstrate?  That is, write a proof of <xref ref="thm-eulerpath"/> assuming <xref ref="thm-eulercircuit"/>.  Make sure you specify how each <q>direction</q> (implication and converse) of the proof is established by the tasks above.
         </p>
       </statement>
+      <solution>
+        <p>
+          First, suppose a connected graph <m>G</m> has an Euler path.  If this path is an Euler circuit, we are done, since there will be no odd degree vertices.  Otherwise, by part (a), we can form a new graph <m>G'</m> that has an Euler circuit, and by <xref ref="thm-eulercircuit"/>, this <m>G'</m> must have all vertices of even degree.  But part (a) tells us then that <m>G</m> will have exactly two odd degree vertices.
+        </p>
+        
+        <p>
+          Conversely, suppose <m>G</m> has at most two odd degree vertices.  If all vertices are even, then we are done by <xref ref="thm-eulercircuit"/>.  There are no graphs with exactly one odd degree vertex.  So assume that <m>G</m> has exactly two odd degree vertices.  By part (b), we can build a graph <m>G'</m> that has all even degree vertices, which must therefore have an Euler circuit.  But this Euler circuit becomes an Euler path when you look back at <m>G</m>, as required.
+        </p>
+      </solution>
     </task>
   </activity>
 
@@ -690,6 +721,27 @@ It appears that finding Hamilton paths would be easier because graphs often have
               Find a Hamilton path.  Can your path be extended to a Hamilton cycle?
             </p>
           </statement>
+          <solution>
+            <p>
+              The path shown below is Hamilton, but cannot be extended to a Hamilton cycle.
+            </p>
+            <sidebyside width="28%">
+              <image>
+                <latex-image>
+
+                \begin{tikzpicture}[scale=.7]
+                \draw[line width=4pt, blue!45] (135:2) -- (90:2) -- (45:2) -- (0,0) -- (-45:2) -- (2,0) -- (1,0) -- (0,-2) -- (-1,0) -- (-2,0) -- (-135:2);
+                \foreach \x in {0, 45, ..., 315}
+                  \draw  (\x:2) \v -- (\x+45:2);
+                \draw (0,0) \v -- (45:2) (0,0) -- (135:2) (0,0) -- (225:2) (0,0) -- (315:2);
+                \draw (-1,0) \v -- (90:2) (-1,0) -- (180:2) (-1,0) -- (270:2);
+                \draw (1,0) \v -- (90:2) (1,0) -- (0:2) (1,0) -- (270:2);
+                \end{tikzpicture}
+
+                </latex-image>
+              </image>
+            </sidebyside>
+          </solution>
         </task>
         <task>
           <statement>
@@ -697,6 +749,11 @@ It appears that finding Hamilton paths would be easier because graphs often have
               Is the graph bipartite? If so, how many vertices are in each <q>part</q>?
             </p>
           </statement>
+          <solution>
+            <p>
+              Yes, the graph is bipartite.  It is possible to put 6 vertices in one part and 5 in the other.
+            </p>
+          </solution>
         </task>
         <task>
           <statement>
@@ -704,6 +761,15 @@ It appears that finding Hamilton paths would be easier because graphs often have
               Use your answer to part (b) to prove that the graph has no Hamilton cycle.
             </p>
           </statement>
+          <solution>
+            <p>
+              Suppose the graph did have a Hamilton cycle, say <m>(a_1, b_1, a_2, b_2, \ldots, a_k, b_k, a_1)</m>.  Here we are writing vertices as <m>a_i</m> if they are in the <m>A</m> part of the bipartite graph, and <m>b_i</m> if they are in the <m>B</m> part.  Since there are no edges between vertices in the same part, we know that the cycle must alternate between <m>A</m> vertices and <m>B</m> vertices, before finally returning to the starting <m>A</m> vertex <m>a_1</m>.  In particular, this says that there must be an equal number of vertices in the <m>A</m> and <m>B</m> parts.  But the graph in question does not have this.
+            </p>
+            
+            <p>
+              A simpler way of saying this is that the graph above has 11 vertices, so any Hamliton cycle must include 11 edges.  But since the graph is bipartite, there are no odd length cycles at all.
+            </p>
+          </solution>
         </task>
         <task>
           <statement>
@@ -711,6 +777,11 @@ It appears that finding Hamilton paths would be easier because graphs often have
               Suppose you have a bipartite graph <m>G</m> in which one part has at least two more vertices than the other.  Prove that <m>G</m> does not have a Hamilton path.
             </p>
           </statement>
+          <solution>
+            <p>
+              We can prove the contrapositive.  Suppose <m>G</m> has a Hamilton path <m>(a_1, b_1, a_2, b_2, \ldots, v)</m>.  Since <m>G</m> is bipartite, we know that <m>a_i \in A</m> and <m>b_i \in B</m> form a bipartition of the vertices.  The last vertex in the path is either in <m>A</m> or <m>B</m>.  If <m>v \in B</m>, then <m>\card{A} = \card{B}</m>.  If <m>v \in A</m>, then <m>\card{A} = \card{B} + 1</m>.  But in either case, we see that neither part has at least two more vertices than the other. 
+            </p>
+          </solution>
         </task>
       </activity>
 

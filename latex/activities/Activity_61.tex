@@ -2,16 +2,22 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{61}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-54}
-\hypertarget{p-458}{}%
+\setcounter{project}{61}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-54}
+\hypertarget{p-474}{}%
 Suppose you deal 52 regular playing cards into 13 piles of 4 cards each. Prove that you can always select one card from each pile to get one of each of the 13 card values Ace, 2, 3, \textellipsis{}, 10, Jack, Queen, and King.%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-25}{}\quad%
-\hypertarget{p-459}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-25}{}\quad%
+\hypertarget{p-475}{}%
 Take \(A\) to be the 13 piles and \(B\) to be the 13 values.  What would the matching condition need to say, and why is it satisfied.%
-\par\smallskip%
-\noindent\end{activity}
+~\hfill{\tiny\hyperlink{a-61}{[hint]}\hypertarget{q-61}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-43}{}\quad%
+\hypertarget{p-476}{}%
+Doing this directly would be difficult, but we can use the matching condition to help. Construct a graph \(G\) with 13 vertices in the set \(A\), each representing one of the 13 card values, and 13 vertices in the set \(B\), each representing one of the 13 piles. Draw an edge between a vertex \(a \in A\) to a vertex \(b \in B\) if a card with value \(a\) is in the pile \(b\). Notice that we are just looking for a matching of \(A\); each value needs to be found in the piles exactly once.%
+\par
+\hypertarget{p-477}{}%
+We will have a matching if the matching condition holds. Given any set of card values (a set \(S \subseteq A\)) we must show that \(|N(S)| \ge |S|\). That is, the number of piles that contain those values is at least the number of different values. But what if it wasn't? Say \(|S| = k\). If \(|N(S)| \lt  k\), then we would have fewer than \(4k\) different cards in those piles (since each pile contains 4 cards). But there are \(4k\) cards with the \(k\) different values, so at least one of these cards must be in another pile, a contradiction. Thus the matching condition holds, so there is a matching, as required.%
+\end{activity}
 
 \clearpage\end{document}

@@ -2,12 +2,35 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{9}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-5}
-\hypertarget{p-78}{}%
+\setcounter{project}{9}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-5}
+\hypertarget{p-79}{}%
 Is it possible for two \emph{different} (non-isomorphic) graphs to have the same number of vertices and the same number of edges? What if the degrees of the vertices in the two graphs are the same (so both graphs have vertices with degrees 1, 2, 2, 3, and 4, for example)? Draw two such graphs or explain why not.%
 \par\smallskip%
-\noindent\end{activity}
+\noindent\textbf{Solution.}\hypertarget{solution-7}{}\quad%
+\hypertarget{p-80}{}%
+Yes. For example, both graphs below contain 6 vertices, 7 edges, and have degrees (2,2,2,2,3,3).%
+\begin{sidebyside}{2}{0.1}{0.1}{0.2}
+\begin{sbspanel}{0.4}[bottom]
+\resizebox{\linewidth}{!}{{
+		\begin{tikzpicture}
+ \draw[thick] (-2,0) \v -- (-1,0) \v -- (-1.5,1) \v -- (-2,0) (-1.5,1) -- (1.5, 1) \v -- (1,0) \v -- (2,0) \v -- (1.5,1);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.2}[bottom]
+\resizebox{\linewidth}{!}{{
+		\begin{tikzpicture}
+\foreach \x in {0,...,5}
+  \draw[thick] (\x*60:1) \v -- (\x*60 + 60:1);
+  \draw[thick] (0:1) -- (180:1);
+\end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\end{activity}
 
 \clearpage\end{document}

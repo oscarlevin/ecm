@@ -2,20 +2,23 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{111}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{necklace}
-\hypertarget{p-766}{}%
+\setcounter{project}{111}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{necklace}
+\hypertarget{p-782}{}%
 In how many ways may we string \(n\) distinct beads on a necklace without a clasp? (Perhaps we make the necklace by stringing the beads on a string, and then carefully gluing the two ends of the string together so that the joint can't be seen. Assume someone can pick up the necklace, move it around in space and put it back down, giving an apparently different way of stringing the beads that is equivalent to the first.)%
 \par\smallskip%
-\noindent\textbf{Hint 1}.\hypertarget{hint-65}{}\quad%
-\hypertarget{p-767}{}%
+\noindent\textbf{Hint 1.}\hypertarget{hint-65}{}\quad%
+\hypertarget{p-783}{}%
 How could we get a list of beads from a necklace?%
-\par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{hint-66}{}\quad%
-\hypertarget{p-768}{}%
+~\hfill{\tiny\hyperlink{a-111}{[hint]}\hypertarget{q-111}{}}\par\smallskip%
+\noindent\textbf{Hint 2.}\hypertarget{hint-66}{}\quad%
+\hypertarget{p-784}{}%
 When we cut the necklace and string it out on a table, there are \(2n\) lists of beads we could get. Why is it \(2n\) rather than \(n\)?%
 \par\smallskip%
-\noindent\end{activity}
+\noindent\textbf{Solution.}\hypertarget{solution-64}{}\quad%
+\hypertarget{p-785}{}%
+We can obtain a permutation of the beads by cutting the necklace and stretching it out in a straight line. We can partition the permutations according to which necklace they come from in this process. Two permutations are in the same block if we get one either by circularly permuting the other or by reversing the other (this corresponds to flipping the necklace over in space). Thus each necklace corresponds to \(2n\) permutations so by the quotient principle we have \(n!/2n=(n-1)!/2\) ways to string \(n\) distinct beads on a necklace.%
+\end{activity}
 
 \clearpage\end{document}

@@ -2,10 +2,10 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{56}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-49}
-\hypertarget{p-436}{}%
+\setcounter{project}{56}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-49}
+\hypertarget{p-452}{}%
 Find a matching of the bipartite graphs below or explain why no matching exists.%
 \begin{sidebyside}{3}{0.0166666666666667}{0.0166666666666667}{0.0333333333333333}
 \begin{sbspanel}{0.2}[bottom]
@@ -60,6 +60,29 @@ Find a matching of the bipartite graphs below or explain why no matching exists.
 \end{sbspanel}
 \end{sidebyside}
 \par\smallskip%
-\noindent\end{activity}
+\noindent\textbf{Solution.}\hypertarget{solution-42}{}\quad%
+\hypertarget{p-453}{}%
+The first and third graphs have a matching, shown in bold (there are other matchings as well). The middle graph does not have a matching. If you look at the three circled vertices, you see that they only have two neighbors, which violates the matching condition \(\card{N(S)} \ge \card{S}\) (the three circled vertices form the set \(S\)).%
+\begin{sidebyside}{3}{0.0166666666666667}{0.0166666666666667}{0.0333333333333333}
+\begin{sbspanel}{0.2}[bottom]
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture} \coordinate (a) at (0,0); \coordinate (A) at (0,1); \coordinate (b) at (1,0); \coordinate (B) at (1,1); \coordinate (c) at (2,0); \coordinate (C) at (2,1); \draw (a) \v -- (B) \v -- (c) \v -- (C) \v -- (a) \v -- (A)\v -- (b) \v; \draw[very thick] (a) -- (C) (A) -- (b) (c) -- (B); \end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.3}[bottom]
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture} \coordinate (a) at (0,0); \coordinate (A) at (0,1); \coordinate (b) at (1,0); \coordinate (B) at (1,1); \coordinate (c) at (2,0); \coordinate (C) at (2,1); \coordinate (d) at (3,0); \coordinate (D) at (3,1); \draw (a) \v -- (A) \v (b) \v -- (B) \v (c) \v -- (C) \v (d) \v (D)\v; \draw (a) -- (C) -- (b) -- (D) (A) -- (c) (A) -- (d) -- (C); \draw[dashed] (a) circle (7pt) (c) circle (7pt) (d) circle (7pt); \end{tikzpicture}
+}
+}
+\end{sbspanel}
+\begin{sbspanel}{0.4}[bottom]
+\resizebox{\linewidth}{!}{{
+\begin{tikzpicture} \coordinate (a) at (0,0); \coordinate (A) at (0,1); \coordinate (b) at (1,0); \coordinate (B) at (1,1); \coordinate (c) at (2,0); \coordinate (C) at (2,1); \coordinate (d) at (3,0); \coordinate (D) at (3,1); \coordinate (e) at (4,0); \coordinate (E) at (4,1); \draw (a) \v (A) \v (b) \v (B) \v (c) \v (C) \v (d) \v (D)\v (e)\v (E) \v; \draw (a) -- (A) (a) -- (B) (A) -- (b) (A) -- (c) (b) -- (C) (B) -- (c) -- (D) (c) -- (E) (C) -- (d) -- (E) (D) -- (e) -- (E); \draw[very thick] (a) -- (A) (b) -- (C) (c) -- (B) (d) -- (E) (e) -- (D); \end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\end{activity}
 
 \clearpage\end{document}

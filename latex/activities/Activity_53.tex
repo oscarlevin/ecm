@@ -2,22 +2,28 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{53}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{Ramseybound2}
+\setcounter{project}{53}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{Ramseybound2}
 \leavevmode%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-58} \hypertarget{p-422}{}%
+\item\label{task-60} \hypertarget{p-438}{}%
 What does the equation in \hyperref[Ramseyrecurrence]{Activity~\ref{Ramseyrecurrence}} tell us about \(R(4,4)\)?%
 \par\smallskip%
-\noindent\item\label{task-59} \hypertarget{p-424}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-40}{}\quad%
+\hypertarget{p-439}{}%
+\(R(4,4)\le R(3,4) + R(4,3) =9+9 = 18\).%
+\item\label{task-61} \hypertarget{p-440}{}%
 Consider 17 people arranged in a circle such that each person is acquainted with the first, second, fourth, and eighth person to the right and the first, second, fourth, and eighth person to the left.  can you find a set of four mutual acquaintances?  Can you find a set of four mutual strangers?%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-23}{}\quad%
-\hypertarget{p-425}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-23}{}\quad%
+\hypertarget{p-441}{}%
 If you could find four mutual acquaintances, you could assume person 1 is among them. And by the generalized pigeonhole principle and symmetry, so are two of the people to the first, second, fourth and eighth to the right. Now there are lots of possibilities for that fourth person. You now have the hard work of using symmetry and the definition of who is acquainted with whom to eliminate all possible combinations of four people. Then you have to think about non-acquaintances.%
-\par\smallskip%
-\noindent\item\label{task-60} \hypertarget{p-427}{}%
+~\hfill{\tiny\hyperlink{a-53.b}{[hint]}\hypertarget{q-53.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-41}{}\quad%
+\hypertarget{p-442}{}%
+You cannot find either. If there were a set of four mutual acquaintances, you could assume by symmetry that it includes person 1, and two people from among those one, two, four, and eight places to the right. Thus you can assume your set of four acquaintances contains person 1 and two from among persons 2, 3, 5, and 9. However persons 2 and 5, 2 and 9 and 3 and 9 are not acquainted. Thus three of the mutually acquainted people are either persons 1, 2, and 3, persons 1, 5 and 9 or persons 1, 3, and 5. However person 5 is not acquainted with the person one, two, or eight places to the left of person 1, so if person 5 is in the set of mutual acquaintances, then person 14 must be as well. However person 3 and person 9 are not acquainted with person 14. Thus our set must contain persons 1, 2, and 3. However person 3 is not acquainted with the person one, two, four, or eight persons to the left of person 1, so there is no set of four mutual acquaintances. A similar argument holds for non-acquaintances.%
+\item\label{task-62} \hypertarget{p-443}{}%
 What is \(R(4,4)\)?%
 \end{enumerate}
 \end{activity}

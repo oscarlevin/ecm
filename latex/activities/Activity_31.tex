@@ -2,16 +2,21 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{31}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{act-planardeg5}
-\hypertarget{p-294}{}%
+\setcounter{project}{31}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{act-planardeg5}
+\hypertarget{p-310}{}%
 Prove that any planar graph must have a vertex of degree 5 or less.%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-10}{}\quad%
-\hypertarget{p-295}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-10}{}\quad%
+\hypertarget{p-311}{}%
 Do a proof by contradiction.  What is the smallest number of edges such a graph would possess?%
-\par\smallskip%
-\noindent\end{activity}
+~\hfill{\tiny\hyperlink{a-31}{[hint]}\hypertarget{q-31}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-23}{}\quad%
+\begin{proof}\hypertarget{proof-4}{}
+\hypertarget{p-312}{}%
+Suppose this were not the case. Then there would be a graph with \(v\) vertices, each with degree 6 or more. At a minimum then, there would be \(6v/2 = 3v\) edges, so \(e \ge 3v\). By the previous exercise, we also have that \(e \le 3v - 6\). But these two facts are contradictory. Thus any planar graph must have a vertex of degree 5 or less.%
+\end{proof}
+\end{activity}
 
 \clearpage\end{document}

@@ -35,10 +35,19 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 >
 
 <!-- Build off of standard latex xsl: -->
-<xsl:import href="./mathbook-latex.xsl" />
+<xsl:import href="./custom-latex.xsl" />
 
 <!-- Intend output for rendering by pdflatex -->
 <xsl:output method="text" />
+
+
+<!-- params to pass custom-latex: -->
+<!-- These will need to be rethought when using updated mathbook -->
+<xsl:param name="project.text.hint" select="'yes'" />
+<xsl:param name="task.text.hint" select="'yes'" />
+<xsl:param name="project.text.solution" select="'yes'" />
+<xsl:param name="task.text.solution" select="'yes'" />
+
 
 
 <!-- Parameters to pass via xsltproc "stringparam" on command-line            -->
@@ -117,8 +126,8 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-<xsl:template match="solution">
-</xsl:template>
+<!-- <xsl:template match="solution">
+</xsl:template> -->
 
 
 
@@ -130,9 +139,9 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
     <!-- <xsl:variable name="cptj-value">
       <xsl:apply-templates select="." mode="number"/>
     </xsl:variable> -->
-    <xsl:text>\setcounter{cpjt}{</xsl:text>
+    <xsl:text>\setcounter{project}{</xsl:text>
       <xsl:apply-templates select="." mode="serial-number"/>
-    <xsl:text>}&#xa;\addtocounter{cpjt}{-1}&#xa;</xsl:text>
+    <xsl:text>}&#xa;\addtocounter{project}{-1}&#xa;</xsl:text>
 </xsl:template>
 
 <xsl:template name="end-activity">

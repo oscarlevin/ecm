@@ -2,12 +2,15 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{49}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-42}
-\hypertarget{p-411}{}%
+\setcounter{project}{49}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-42}
+\hypertarget{p-427}{}%
 Show that among ten people, there are either three mutual acquaintances or three mutual strangers.  What does this say about \(R(4,3)\)?%
 \par\smallskip%
-\noindent\end{activity}
+\noindent\textbf{Solution.}\hypertarget{solution-37}{}\quad%
+\hypertarget{p-428}{}%
+Take a person, say person 1. If person has six acquaintances, then by \hyperref[act_R-3-3]{Activity~\ref{act_R-3-3}} among them there are either three mutual strangers, in which case we are done, or three mutual acquaintances. These three acquaintances together with person 1 form a set of 4 mutual acquaintances in which case we are again done. Thus we may assume Person 1 has at most 5 acquaintances, and so has four non-acquaintances. Now either all four of these people are acquainted, in which case we are done, or else two of them are not acquainted. Then these two people, together with person 1 make three mutual non-acquaintances. Therefore in every possible case, we have either four mutual acquaintances or three mutual strangers. This means that \(R(4,3) \le 10\).%
+\end{activity}
 
 \clearpage\end{document}

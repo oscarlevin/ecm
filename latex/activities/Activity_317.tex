@@ -2,27 +2,33 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{317}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-310}
-\hypertarget{p-1567}{}%
+\setcounter{project}{317}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-310}
+\hypertarget{p-1583}{}%
 Recall that a partition of an integer \(k\) is a multiset of numbers that adds to \(k\). In \hyperref[change-making]{Activity~\ref{change-making}} we found the generating function for the number of partitions of an integer into parts of size 1, 5, 10, and 25. When working with generating functions for partitions, it is becoming standard to use \(q\) rather than \(x\) as the variable in the generating function.  Write your answers in this notation.\footnote{The reason for this change in the notation relates to the subject of finite fields in abstract algebra, where \(q\) is the standard notation for the size of a finite field.  While we will make no use of this connection, it will be easier for you to read more advanced work if you get used to the different notation.\label{fn-20}}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-269} \hypertarget{p-1568}{}%
+\item\label{task-271} \hypertarget{p-1584}{}%
 Give the generating function for the number partitions of an integer into parts of size one through ten.%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-205}{}\quad%
-\hypertarget{p-1569}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-205}{}\quad%
+\hypertarget{p-1585}{}%
 The product principle for generating functions helps you break the generating function into a product of ten simpler ones.%
-\par\smallskip%
-\noindent\item\label{largestpartatmostm} \hypertarget{p-1571}{}%
+~\hfill{\tiny\hyperlink{a-317.a}{[hint]}\hypertarget{q-317.a}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-210}{}\quad%
+\hypertarget{p-1586}{}%
+\(\prod_{i=1}^{10}\frac{1}{1-q^i}\)%
+\item\label{largestpartatmostm} \hypertarget{p-1587}{}%
 Give the generating function for the number of partitions of an integer \(k\) into parts of size at most \(m\), where \(m\) is fixed but \(k\) may vary. Notice this is the generating function for partitions whose Young diagram fits into the space between the line \(x=0\) and the line \(x=m\) in a coordinate plane. (We assume the boxes in the Young diagram are one unit by one unit.)%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-206}{}\quad%
-\hypertarget{p-1572}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-206}{}\quad%
+\hypertarget{p-1588}{}%
 \(m\) was 10 in the previous part of this problem.%
-\par\smallskip%
-\noindent\end{enumerate}
+~\hfill{\tiny\hyperlink{a-317.b}{[hint]}\hypertarget{q-317.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-211}{}\quad%
+\hypertarget{p-1589}{}%
+\(\prod_{i=1}^m\frac{1}{1-q^i}\).%
+\end{enumerate}
 \end{activity}
 
 \clearpage\end{document}

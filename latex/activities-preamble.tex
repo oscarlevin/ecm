@@ -36,6 +36,7 @@
 %% which is the upper limit of Bringhurst's recommendations
 \geometry{letterpaper,total={340pt,9.0in}}
 %% Custom Page Layout Adjustments (use latex.geometry)
+\geometry{papersize={6in,9in}, hmargin={0.65in, 0.65in}, height=7.75in, top=0.75in, twoside, ignoreheadfoot}
 %% This LaTeX file may be compiled with pdflatex, xelatex, or lualatex
 %% The following provides engine-specific capabilities
 %% Generally, xelatex and lualatex will do better languages other than US English
@@ -125,167 +126,39 @@
 %% The latex default is 3.  If a larger number is present here, then
 %% removing this command may make some cross-references ambiguous
 %% The precursor variable $numbering-maxlevel is checked for consistency in the common XSL file
-\setcounter{secnumdepth}{3}
-%% begin: General AMS environment setup
-%% Environments built with amsthm package
+\setcounter{secnumdepth}{2}
+%% Environments with amsthm package
+%% Theorem-like environments in "plain" style, with or without proof
 \usepackage{amsthm}
+\theoremstyle{plain}
 %% Numbering for Theorems, Conjectures, Examples, Figures, etc
 %% Controlled by  numbering.theorems.level  processing parameter
+%% Always need a theorem environment to set base numbering scheme
+%% even if document has no theorems (but has other environments)
+\newtheorem{theorem}{Theorem}[section]
+%% Only variants actually used in document appear here
+%% Style is like a theorem, and for statements without proofs
 %% Numbering: all theorem-like numbered consecutively
 %% i.e. Corollary 4.3 follows Theorem 4.2
-%% Always need some theorem environment to set base numbering scheme
-%% even if document has no theorems (but has other environments)
-%% Create a never-used style first, always
-%% simply to provide a global counter to use, namely "cthm"
-\newtheorem{cthm}{BadTheoremStringName}[section]
-%% end: General AMS environment setup
-%% begin: environments with italicized bodies, theorems and similar
-%% Style is like a theorem, and for statements without proofs
-%% Theorem-like environments in modified "plain" style
-%% We manage the head, do not adjust vertical spacing
-%% Thus "space after theorem head" is necessary
-%% This provides an automatic period after the number
-\newtheoremstyle{ptxplainnotitle}
-  {}% space above
-  {}% space below
-  {\itshape}% body font
-  {}% indent amount
-  {\bfseries}% theorem head font
-  {.}% punctuation after theorem head
-  {0.5em}% space after theorem head
-  {}% theorem head specification
-%% We now manage punctuation on-sight, elsewhere,
-%% assuming non-trivial content inside a "title"
-\newtheoremstyle{ptxplaintitle}
-  {}% space above
-  {}% space below
-  {\itshape}% body font
-  {}% indent amount
-  {\bfseries}% theorem head font
-  {}% punctuation after theorem head
-  {0.5em}% space after theorem head
-  {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}% theorem head specification
-%% Only variants actually used in document appear here
-%% Template eventually creates an environment of the given name
-%% No arguments => Theorem 2.6. via "notitle" style variant
-%% One optional argument => Theorem 2.6 Fantastic! via "title" style variant
-\theoremstyle{ptxplainnotitle}
-\newtheorem{theoremnotitle}[cthm]{Theorem}
-\theoremstyle{ptxplaintitle}
-\newtheorem{theoremtitle}[cthm]{Theorem}
-\NewDocumentEnvironment{theorem}{ot+o}
-    { \IfBooleanTF{#2}
-        { \IfValueTF{#1}{ \begin{theoremtitle}[#3 {\mdseries(#1)}] }{ \begin{theoremtitle}[#3]} } 
-        { \IfValueTF{#1}{ \begin{theoremnotitle}[#1]  }{ \begin{theoremnotitle}} }
-    }
-    { \IfBooleanTF{#2}{\end{theoremtitle}}{\end{theoremnotitle}} }
-\theoremstyle{ptxplainnotitle}
-\newtheorem{lemmanotitle}[cthm]{Lemma}
-\theoremstyle{ptxplaintitle}
-\newtheorem{lemmatitle}[cthm]{Lemma}
-\NewDocumentEnvironment{lemma}{ot+o}
-    { \IfBooleanTF{#2}
-        { \IfValueTF{#1}{ \begin{lemmatitle}[#3 {\mdseries(#1)}] }{ \begin{lemmatitle}[#3]} } 
-        { \IfValueTF{#1}{ \begin{lemmanotitle}[#1]  }{ \begin{lemmanotitle}} }
-    }
-    { \IfBooleanTF{#2}{\end{lemmatitle}}{\end{lemmanotitle}} }
-\theoremstyle{ptxplainnotitle}
-\newtheorem{propositionnotitle}[cthm]{Proposition}
-\theoremstyle{ptxplaintitle}
-\newtheorem{propositiontitle}[cthm]{Proposition}
-\NewDocumentEnvironment{proposition}{ot+o}
-    { \IfBooleanTF{#2}
-        { \IfValueTF{#1}{ \begin{propositiontitle}[#3 {\mdseries(#1)}] }{ \begin{propositiontitle}[#3]} } 
-        { \IfValueTF{#1}{ \begin{propositionnotitle}[#1]  }{ \begin{propositionnotitle}} }
-    }
-    { \IfBooleanTF{#2}{\end{propositiontitle}}{\end{propositionnotitle}} }
-\theoremstyle{ptxplainnotitle}
-\newtheorem{conjecturenotitle}[cthm]{Conjecture}
-\theoremstyle{ptxplaintitle}
-\newtheorem{conjecturetitle}[cthm]{Conjecture}
-\NewDocumentEnvironment{conjecture}{ot+o}
-    { \IfBooleanTF{#2}
-        { \IfValueTF{#1}{ \begin{conjecturetitle}[#3 {\mdseries(#1)}] }{ \begin{conjecturetitle}[#3]} } 
-        { \IfValueTF{#1}{ \begin{conjecturenotitle}[#1]  }{ \begin{conjecturenotitle}} }
-    }
-    { \IfBooleanTF{#2}{\end{conjecturetitle}}{\end{conjecturenotitle}} }
-%% AMS proof environment is basically fine as-is and special treatment
-%% would certainly interfere with the functioning of \qed, etc.
-%% So we simply localize the default heading
-%% Redefinition of the "proof" environment is to cause a long alternate
-%% title to line-break appropriately.  Code is cut verbatim, by suggestion,
-%% from "Using the amsthm Package" Version 2.20.3, September 2017
-\renewcommand*{\proofname}{Proof}
-\makeatletter
-\renewenvironment{proof}[1][\proofname]{\par
-  \pushQED{\qed}%
-  \normalfont \topsep6\p@\@plus6\p@\relax
-  \trivlist
-  \item\relax
-    {\itshape
-    #1\@addpunct{.}}\hspace\labelsep\ignorespaces
-}{%
-  \popQED\endtrivlist\@endpefalse
-}
-\makeatother
-%% end: environments with italicized bodies, theorems and similar
-%% begin: environments with normal bodies, examples, etc.
-%% Other environments go in modified "definition" style
-%% Similar to above
-\newtheoremstyle{ptxdefinitionnotitle}
-  {}% space above
-  {}% space below
-  {}% body font
-  {}% indent amount
-  {\bfseries}% theorem head font
-  {.}% punctuation after theorem head
-  {0.5em}% space after theorem head
-  {\thmname{#1}\thmnumber{ #2}}% theorem head specification
-\newtheoremstyle{ptxdefinitiontitle}
-  {}% space above
-  {}% space below
-  {}% body font
-  {}% indent amount
-  {\bfseries}% theorem head font
-  {}% punctuation after theorem head
-  {0.5em}% space after theorem head
-  {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}% theorem head specification
-\theoremstyle{ptxdefinitionnotitle}
-\newtheorem{definitionnotitle}[cthm]{Definition}
-\theoremstyle{ptxdefinitiontitle}
-\newtheorem{definitiontitle}[cthm]{Definition}
-\NewDocumentEnvironment{definition}{o}
-  {\IfValueTF{#1}{\begin{definitiontitle}[#1]}{\begin{definitionnotitle}}}
-  {\IfValueTF{#1}{\end{definitiontitle}}{\end{definitionnotitle}}}
-\theoremstyle{ptxdefinitionnotitle}
-\newtheorem{examplenotitle}[cthm]{Example}
-\theoremstyle{ptxdefinitiontitle}
-\newtheorem{exampletitle}[cthm]{Example}
-\NewDocumentEnvironment{example}{o}
-  {\IfValueTF{#1}{\begin{exampletitle}[#1]}{\begin{examplenotitle}}}
-  {\IfValueTF{#1}{\end{exampletitle}}{\end{examplenotitle}}}
-%% end: environments with normal bodies, examples, etc.
-%% begin: environments for project-like, with independent counter
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+%% Definition-like environments, normal text
+%% Numbering is in sync with theorems, etc
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+%% Example-like environments, normal text
+%% Numbering is in sync with theorems, etc
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
 %% Numbering for Projects (independent of others)
 %% Controlled by  numbering.projects.level  processing parameter
 %% Always need a project environment to set base numbering scheme
 %% even if document has no projectss (but has other blocks)
-%% So "cpjt" environment produces "cpjt" counter
-\newtheorem{cpjt}{BadProjectNameString}\theoremstyle{ptxdefinitionnotitle}
-\newtheorem{activitynotitle}[cpjt]{Activity}
-\theoremstyle{ptxdefinitiontitle}
-\newtheorem{activitytitle}[cpjt]{Activity}
-\NewDocumentEnvironment{activity}{o}
-  {\IfValueTF{#1}{\begin{activitytitle}[#1]}{\begin{activitynotitle}}}
-  {\IfValueTF{#1}{\end{activitytitle}}{\end{activitynotitle}}}
-\theoremstyle{ptxdefinitionnotitle}
-\newtheorem{investigationnotitle}[cpjt]{Puzzle}
-\theoremstyle{ptxdefinitiontitle}
-\newtheorem{investigationtitle}[cpjt]{Puzzle}
-\NewDocumentEnvironment{investigation}{o}
-  {\IfValueTF{#1}{\begin{investigationtitle}[#1]}{\begin{investigationnotitle}}}
-  {\IfValueTF{#1}{\end{investigationtitle}}{\end{investigationnotitle}}}
-%% end: environments for project-like, with independent counter
+\newtheorem{project}{Project}%% Project-like environments, normal text
+\theoremstyle{definition}
+\newtheorem{activity}[project]{Activity}
+\newtheorem{investigation}[project]{Puzzle}
 %% begin: assemblage
 %% minimally structured content, high visibility presentation
 %% One optional argument (title) with default value blank
@@ -295,17 +168,13 @@
    colbacktitle=blue!20, coltitle=black, boxed title style={sharp corners, frame hidden},
    fonttitle=\bfseries, attach boxed title to top left={xshift=4mm,yshift=-3mm}, top=3mm, title={#1}}
 %% end: assemblage
-%% Divisional exercises are rendered as faux list items
-%% with hard-coded numbers as arguments, not as LaTeX environments
-\NewDocumentEnvironment{divisionexercise}{mo}
-  {\textbf{#1}.\IfValueT{#2}{\ \textbf{#2}}\quad}
-  {\par\smallskip\noindent}
 %% Localize LaTeX supplied names (possibly none)
+\renewcommand*{\proofname}{Proof}
 \renewcommand*{\appendixname}{Appendix}
 \renewcommand*{\chaptername}{Chapter}
 %% Equation Numbering
 %% Controlled by  numbering.equations.level  processing parameter
-\numberwithin{equation}{section}
+\numberwithin{equation}{chapter}
 %% For improved tables
 \usepackage{array}
 %% Some extra height on each row is desirable, especially with horizontal rules
@@ -354,18 +223,18 @@
 \captionsetup[figure]{labelfont=bf}
 %% http://tex.stackexchange.com/questions/16195
 \makeatletter
-\let\c@figure\c@cthm
+\let\c@figure\c@theorem
 \makeatother
 %% Adjust stock table environment so that it no longer floats
 \SetupFloatingEnvironment{table}{fileext=lot,placement={H},within=section,name=Table}
 \captionsetup[table]{labelfont=bf}
 %% http://tex.stackexchange.com/questions/16195
 \makeatletter
-\let\c@table\c@cthm
+\let\c@table\c@theorem
 \makeatother
 %% Footnote Numbering
 %% We reset the footnote counter, as given by numbering.footnotes.level
-\makeatletter\@addtoreset{footnote}{section}\makeatother
+\makeatletter\@addtoreset{footnote}{chapter}\makeatother
 %% More flexible list management, esp. for references and exercises
 %% But also for specifying labels (i.e. custom order) on nested lists
 \usepackage{enumitem}
@@ -1815,6 +1684,9 @@ HI/.style={USA map/HI/.style={#1}}, AK/.style={USA map/AK/.style={#1}}, FL/.styl
 %%     lines in tables, and so also load this package late
 \usepackage{extpfeil}
 %% Custom Preamble Entries, late (use latex.preamble.late)
+%This should load all the style information that mbx does not.
+\input{latex-preamble-styles}
+
 %% Begin: Author-provided packages
 %% (From  docinfo/latex-preamble/package  elements)
 %% End: Author-provided packages

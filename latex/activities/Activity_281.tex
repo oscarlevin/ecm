@@ -2,24 +2,32 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{281}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-274}
-\hypertarget{p-1427}{}%
+\setcounter{project}{281}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-274}
+\hypertarget{p-1443}{}%
 In how many ways may we label the elements of a \(k\)-element set with \(n\) distinct labels (numbered 1 through \(n\)) so that label \(i\) is used \(j_i\) times? (If we think of the labels as \(y_1, y_2, \ldots, y_n\), then we can rephrase this question as follows.  How many functions are there from a \(k\)-element set \(K\) to a set \(N=\{y_1,y_2,\ldots y_n\}\) so that \(y_i\) is the image of \(j_i\) elements of \(K\)?) This number is called a \terminology{multinomial coefficient}\index{multinomial coefficient}\index{coefficient!multinomial} and denoted by%
 \begin{equation*}
 \binom{k}{j_1,j_2,\ldots, j_n}.
 \end{equation*}
 %
 \par\smallskip%
-\noindent\textbf{Hint 1}.\hypertarget{hint-182}{}\quad%
-\hypertarget{p-1428}{}%
+\noindent\textbf{Hint 1.}\hypertarget{hint-182}{}\quad%
+\hypertarget{p-1444}{}%
 What if the \(j_i\)'s don't add to \(k\)?%
-\par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{hint-183}{}\quad%
-\hypertarget{p-1429}{}%
+~\hfill{\tiny\hyperlink{a-281}{[hint]}\hypertarget{q-281}{}}\par\smallskip%
+\noindent\textbf{Hint 2.}\hypertarget{hint-183}{}\quad%
+\hypertarget{p-1445}{}%
 Think about listing the elements of the \(k\)-element set and labeling the first \(j_1\) elements with label number 1.%
 \par\smallskip%
-\noindent\end{activity}
+\noindent\textbf{Solution.}\hypertarget{solution-184}{}\quad%
+\hypertarget{p-1446}{}%
+If the \(j_i\)'s don't add to \(k\), it is zero.  Otherwise \(\binom{k}{j_1,j_2,\ldots, j_n} =
+\frac{k!}{j_1!j_2!\cdots j_n!}\). We get this either as the product of binomial coefficients%
+\begin{equation*}
+\binom{k}{j_1}\binom{k-j_1}{j_2}\binom{k-j_1-j_2}{j_3}\cdots\binom{j_n}{j_n},
+\end{equation*}
+or more elegantly, by lining up the elements of the domain in \(k!\) ways, taking the first \(j_1\) elements to \(y_1\), the next \(j_2\) elements to \(y_2\) and so on.  However the order of the \(j_i\) elements that go to \(y_i\) is irrelevant, so \(j_1!j_2!\cdots j_n!\) lists all correspond to the same function, giving us \(\frac{k!}{j_1!j_2!,\cdots j_n!}\) functions.%
+\end{activity}
 
 \clearpage\end{document}

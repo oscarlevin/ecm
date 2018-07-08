@@ -2,20 +2,30 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{138}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{circlesinplane}
-\hypertarget{p-901}{}%
+\setcounter{project}{138}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{circlesinplane}
+\hypertarget{p-917}{}%
 We draw \(n\) mutually intersecting circles in the plane so that each one crosses each other one exactly twice and no three intersect in the same point. (As examples, think of Venn diagrams with two or three mutually intersecting sets.) Find a recurrence for the number \(r_n\) of regions into which the plane is divided by \(n\) circles. (One circle divides the plane into two regions, the inside and the outside.) Find the number of regions with \(n\) circles. For what values of \(n\) can you draw a Venn diagram showing all the possible intersections of \(n\) sets using circles to represent each of the sets?%
 \par\smallskip%
-\noindent\textbf{Hint 1}.\hypertarget{hint-96}{}\quad%
-\hypertarget{p-902}{}%
+\noindent\textbf{Hint 1.}\hypertarget{hint-96}{}\quad%
+\hypertarget{p-918}{}%
 If we have \(n - 1\) circles drawn in such a way that they define \(r_{n-1}\) regions, and we draw a new circle, each time it crosses another circle, except for the last time, it finishes dividing one region into two parts and starts dividing a new region into two parts.%
-\par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{hint-97}{}\quad%
-\hypertarget{p-903}{}%
+~\hfill{\tiny\hyperlink{a-138}{[hint]}\hypertarget{q-138}{}}\par\smallskip%
+\noindent\textbf{Hint 2.}\hypertarget{hint-97}{}\quad%
+\hypertarget{p-919}{}%
 Compare \(r_n\) with the number of subsets of an \(n\)-element set.%
 \par\smallskip%
-\noindent\end{activity}
+\noindent\textbf{Solution.}\hypertarget{solution-81}{}\quad%
+\hypertarget{p-920}{}%
+One circle defines two regions, the inside and outside. When we draw a second circle that intersects the first, we can start at one of the intersection points and go inside the first circle, cutting its region into two pieces, and then when we leave it we cut the outside region into two pieces. This suggests the general pattern. If we have drawn \(n-1\) circles and start a new one, each time we enter a circle, we start dividing a region into two pieces. Each time we leave a circle, we also start dividing a region into two pieces. Thus if we have \(r_n\) regions with \(n\) circles, to get the number of regions, we note that in going from \(n-1\) circles to \(n\) circles, we start with \(r_{n-1}\) regions, and divide \(2(n-1)\) of them in half, so we get \(2n-2\) new regions. This gives us \(r_n=r_{n-1}+2(n-1)\). Notice that by substitution of the formula \(r_{n-1}=r_{n-2} +2(n-2)\), we get \(r_n=r_{n-2}+ 2(n-2) +2(n-1)\), and would guess that \(r_n=r_{n-3}+2(n-3)+2(n-2) +2(n-1)\). This leads to the conjecture%
+\begin{equation*}
+r_n=r_1  +2\cdot1+2\cdot2+\cdots+2\cdot(n-1)=r_1+2\sum_{i=1}^{n-1}   i=2+n(n-1). 
+\end{equation*}
+%
+\par
+\hypertarget{p-921}{}%
+We can prove this formula by induction. When \(n=1\) we have \(2+1\cdot0\) regions. Assuming that \(n-1\) circles give us \(2+(n-1)(n-2)\) regions, for \(n\) circles we have \(2+(n-1)(n-2) +2(n-1)=2+n(n-1)\) regions. Thus the correctness of our formula for \(n-1\) circles implies its correctness when we have \(n\) circles, so for all positive integers \(n\), we get \(2+n(n-1)\) regions determined by \(n\) mutually intersecting circles. Two circles cannot touch more than twice, and if we let some of our \(n\) circles touch just once, or not at all, that would reduce the number of regions we would get. Similarly, allowing a circle to go through the intersection point of two other circles could only reduce the number of regions. So with \(n\) circles we could never have more than \(2+n(n-1)\) regions. In particular with 4 circles we get just 14 regions, rather than the 16 that would be required in a Venn diagram for four sets. We could prove, again by induction, that \(2+n(n-1)\lt 2^n\) for all \(n>3\), so it is not possible to draw a Venn diagram using circles to illustrate the intersections of four or more sets.%
+\end{activity}
 
 \clearpage\end{document}

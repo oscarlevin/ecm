@@ -2,10 +2,10 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{320}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-313}
-\hypertarget{p-1591}{}%
+\setcounter{project}{320}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-313}
+\hypertarget{p-1607}{}%
 In \hyperref[genfunpartitions]{Activity~\ref{genfunpartitions}}, we multiplied together infinitely many power series. Here are two notations for infinite products that look rather similar:%
 \begin{equation*}
 \prod_{i=1}^\infty 1 + x + x^2 +\cdots+ x^i\qquad\mbox{and}\qquad
@@ -13,17 +13,20 @@ In \hyperref[genfunpartitions]{Activity~\ref{genfunpartitions}}, we multiplied t
 \end{equation*}
 %
 \par
-\hypertarget{p-1592}{}%
+\hypertarget{p-1608}{}%
 However, one makes sense and one doesn't. Figure out which one makes sense and explain why it makes sense and the other one doesn't. If we want a product of the form%
 \begin{equation*}
 \prod_{i=1}^\infty 1 +p_i(x),
 \end{equation*}
 where each \(p_i(x)\) is a nonzero polynomial in \(x\) to make sense, describe a relatively simple assumption about the polynomials \(p_i(x)\) that will make the product make sense. If we assumed the terms \(p_i(x)\) were nonzero power series, is there a relatively simple assumption we could make about them in order to make the product make sense? (Describe such a condition or explain why you think there couldn't be one.)%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-211}{}\quad%
-\hypertarget{p-1593}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-211}{}\quad%
+\hypertarget{p-1609}{}%
 If infinitely many of the polynomials had a nonzero coefficient for \(q\), would the product make any sense?%
-\par\smallskip%
-\noindent\end{activity}
+~\hfill{\tiny\hyperlink{a-320}{[hint]}\hypertarget{q-320}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-218}{}\quad%
+\hypertarget{p-1610}{}%
+\(\prod_{i=1}^\infty 1 +x^i +x^{2i} +\cdots + x^{i^2}\) makes sense because when we look for ways of choosing one summand from each factor so that the summands multiply together to give us \(x^k\), we will find only finitely many ways of making those choices, so the coefficient of \(x^k\) can be taken to be the number of such choices. On the other hand, in the expression \(\prod_{i=1}^\infty 1 + x + x^2 +\cdots+ x^i\), there are infinitely many ways to choose \(x\) from one term and \(1\) from all the rest of the terms so that the product of these summands is \(x\). Thus we can't even specify what the coefficient of \(x\) is in the product. On the basis of this analysis, we see that for \(\prod_{i=1}^\infty 1 +p_i(x)\) to make sense, we need to assume that for each possible positive integer \(n\), there are only a finite number of polynomials \(p_i\) whose lowest degree term has degree less than or equal to \(n\). In that way, for each positive integer, there will be only finitely many ways to chose a summand from each factor so that the product of the summands is a multiple of \(x^k\). The same assumption works when the \(p_i\) are power series, for the same reason.%
+\end{activity}
 
 \clearpage\end{document}

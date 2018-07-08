@@ -2,12 +2,28 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{259}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-252}
-\hypertarget{p-1342}{}%
+\setcounter{project}{259}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-252}
+\hypertarget{p-1358}{}%
 Suppose we deposit \textdollar{}5000 in a savings certificate that pays ten percent interest and also participate in a program to add \textdollar{}1000 to the certificate at the end of each year (from the end of the first year on) that follows (also subject to interest.) Assuming we make the \textdollar{}5000 deposit at the end of year 0, and letting \(a_i\) be the amount of money in the account at the end of year \(i\), write a recurrence for the amount of money the certificate is worth at the end of year \(n\). Solve this recurrence. How much money do we have in the account (after our year-end deposit) at the end of ten years?  At the end of 20 years?%
 \par\smallskip%
-\noindent\end{activity}
+\noindent\textbf{Solution.}\hypertarget{solution-161}{}\quad%
+\hypertarget{p-1359}{}%
+\(a_n=1.1a_{n-1}+1000\), and \(a_0=5000\).%
+\begin{align*}
+\sum_{i=1}^\infty
+a_ix^i \amp= 1.1x\sum_{i=1}^\infty a_{i-1}x^{i-1} + 1000\sum_{i=1}^\infty x^i\\
+\sum_{i=0}^\infty a_ix^i -a_0 \amp=
+1.1x\sum_{i=0}^\infty a_ix^i +1000(\sum_{i=0}^\infty x^i-1)\\
+(1-1.1x)\sum_{i=0}^\infty a_ix^i  \amp=  a_0 +1000\sum_{i=10}^\infty x^i-1000\\
+\sum_{i=0}^\infty a_i x^i \amp=  a_0\sum_{i=0}^\infty (1.1)^ix^i
++1000\sum_{i=0}^\infty (1.1)^ix^i\sum_{i=0}^\infty x^i -1000\\
+\sum_{i=0}^\infty a_i x^i \amp=  a_0\sum_{i=0}^\infty (1.1)^ix^i
++1000\sum_{k=0}^\infty \left(\sum_{i=0}^k(1.1)^i\right)x^k
+- 1000\sum_{i=0}^\infty (1.1)^ix^i
+\end{align*}
+This gives us that \(a_n= 4000(1.1)^n +1000 \frac{1-(1.1)^{n+1}}{-.1}\). This simplifies to \(a_n= 4000(1.1)^n+10000(1.1)^{n+1}-10000 = 15,000(1.1)^n-10000\). Courtesy of Maple, after ten years we have \textdollar{}28,906.14 and after 20 years we have \textdollar{}90,912.50.%
+\end{activity}
 
 \clearpage\end{document}
