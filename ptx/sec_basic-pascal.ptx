@@ -6,20 +6,20 @@
 
 
 <!-- TODO:
-    
+
     <p>
       ALONG THE WAY, DISCUSS THE SUM PRINCIPLE AND RECURSION.  MAYBE ALSO THE PRODUCT PRINCIPLE (AS THAT WOULD BE NEEDED FOR COMBINATORIAL PROOFS).
     </p>
-    
+
     <p>
       STARS AND BARS CAN GO HERE TOO.
     </p> -->
 
-  
-<p>  
+
+<p>
   Let's start our investigation of combinatorics by examining Pascal's Triangle.  If you are already familiar with this mathematical object, try to see it with fresh eyes.  Look at the triangle as if you have no idea where it comes from.  What do you notice?
 </p>
-  
+
 <sidebyside width="100%">
 
     <image xml:id="pascal-large">
@@ -82,7 +82,7 @@
   </task>
   <task>
     <p>
-      What is <m>1 + 3 + 6 + 10 + 15</m>?  What pattern is this an example of, and does it always work? 
+      What is <m>1 + 3 + 6 + 10 + 15</m>?  What pattern is this an example of, and does it always work?
     </p>
   </task>
   <task>
@@ -92,7 +92,7 @@
   </task>
   <task>
     <p>
-      Are there any groups of numbers in the triangle that are particularly recognizable? 
+      Are there any groups of numbers in the triangle that are particularly recognizable?
     </p>
   </task>
  </activity>
@@ -100,10 +100,10 @@
   <p>
     We would like to understand why the patterns you discovered above exist, and to prove that they really do exist everywhere in the triangle.  There are at least two ways we can proceed (and we will try to proceed in both ways to maximize our understanding).  First, we can use notation to describe the entries in the triangle, provide a definition for what each entry is, and prove our results entirely based on these definitions.  Second, we can ascribe some <em>meaning</em> to the entries in the triangle, saying what the numbers represent, and then make arguments about those representations.
   </p>
-  
+
   <p>
     <!-- weak: -->
-    The advantage to pursuing both these approaches is that doing so creates a feedback loop.  A fact we establish using pure symbolic manipulation allows us to conclude something about the real world and what these numbers represent.  That helps us understand the applications better, which in turn might help us make arguments about those applications, which can then establish a purely symbolic fact about the triangle.  
+    The advantage to pursuing both these approaches is that doing so creates a feedback loop.  A fact we establish using pure symbolic manipulation allows us to conclude something about the real world and what these numbers represent.  That helps us understand the applications better, which in turn might help us make arguments about those applications, which can then establish a purely symbolic fact about the triangle.
   </p>
 
   <p>
@@ -113,7 +113,7 @@
   <activity xml:id="act-latticepaths">
     <introduction>
       <p>
-        The <term>integer lattice</term> is the set of all points in the Cartesian plane for which both the <m>x</m> and <m>y</m> coordinates are integers. 
+        The <term>integer lattice</term> is the set of all points in the Cartesian plane for which both the <m>x</m> and <m>y</m> coordinates are integers.
       </p>
 
       <p>
@@ -180,7 +180,7 @@
       <p>
         Recall that a <term>subset</term> <m>A</m> of a set <m>B</m> is a set all of whose elements are also elements of <m>B</m>; we write <m>A \subseteq B</m>.  For example, some of the subsets of <m>B = \{1,2,3,4,5\}</m> are <m>\{2,4,5\}</m>, <m>\{1,2,3,4,5\}</m> and <m>\emptyset</m>.  Recall also that the <term>cardinality</term> of a set is simply the number of elements in it.
       </p>
-      
+
       <p>
         Since we will often consider sets of the form <m>\{1,2,3,\ldots,n\}</m>, let's adopt the notation <m>[n]</m> for this set.
       </p>
@@ -208,7 +208,7 @@
       <p>
         Some definitions: A <term>bit</term> is either 0 or 1 (bit is short for <q>binary digit</q>).  Thus a <term>bit string</term> is a string of bits.  The <term>length</term> of a bit string is the number of bits in the string; the <term>weight</term> of a bit string is the number of 1's in the string (or equivalently, the sum of the bits). A <term><m>n</m>-bit string</term> means a bit string of length <m>n</m>.
       </p>
-      
+
       <p>
         We will write <m>\B^n_k</m> to mean the set of all <m>n</m>-bit strings of weight <m>k</m>.  So for example, some of the elements in <m>\B^5_3</m> are,
         <me>
@@ -236,21 +236,21 @@
   <p>
     We are not quite ready to consider the algebraic approach yet, but here is a fun algebra exercise.
   </p>
-  
+
   <activity>
     <introduction>
       <p>
-        Multiply out (and collect like terms): <m>(x+y)^3</m>.  Repeat for <m>(x+y)^4</m> and <m>(x+y)^5</m>. 
+        Multiply out (and collect like terms): <m>(x+y)^3</m>.  Repeat for <m>(x+y)^4</m> and <m>(x+y)^5</m>.
       </p>
     </introduction>
     <task>
       <p>
-        What is the coefficient of <m>x^3y^2</m> in the expansion of <m>(x+y)^5</m>?  
+        What is the coefficient of <m>x^3y^2</m> in the expansion of <m>(x+y)^5</m>?
       </p>
     </task>
     <task>
       <p>
-        What is the coefficients of <m>x^2y^2</m> and <m>x^3y</m> in the expansion of <m>(x+y)</m>?  How does this relate to the previous question?  Why does this make sense?
+        What are the coefficients of <m>x^2y^2</m> and <m>x^3y</m> in the expansion of <m>(x+y)^4</m>?  How does this relate to the previous question?  Why does this make sense?
       </p>
     </task>
     <task>
@@ -265,7 +265,7 @@
     <ol>
       <li>
         <p>
-          Why are the answers to all the counting questions above the same as each other?  
+          Why are the answers to all the counting questions above the same as each other?
         </p>
       </li>
       <li>
@@ -275,7 +275,7 @@
       </li>
     </ol>
   </p>
-  
+
   <p>
     We could answer the first question by answering the second: if we can say why each answer is a particular entry in Pascal's triangle, then we know two answers will be equal because they are in the same place on the triangle.  But we can do better.  In fact, we should be able to explain why these counting questions correspond to each other without knowing <em>any</em> of the answers.
   </p>
@@ -283,7 +283,7 @@
   <activity>
     <task>
       <p>
-        Explain why the number of lattice paths from <m>(0,0)</m> to <m>(k,n-k)</m> is the same as number of <m>n</m>-bit strings of weight <m>k</m>. You do not need to give a formal proof here, just explain the idea.  
+        Explain why the number of lattice paths from <m>(0,0)</m> to <m>(k,n-k)</m> is the same as number of <m>n</m>-bit strings of weight <m>k</m>. You do not need to give a formal proof here, just explain the idea.
       </p>
     </task>
     <task>
@@ -299,7 +299,7 @@
       </statement>
       <hint>
         <p>
-          This is a little harder.  It might help to notice that there is really nothing special about <m>[n]</m> except that it contains <m>n</m> elements.  In fact, what can you say about the number of <m>k</m>-element subsets of <em>any</em> <m>n</m>-element set?  Then, what <m>n</m>-element set would we look at when expanding <m>(x+y)^n</m>? 
+          This is a little harder.  It might help to notice that there is really nothing special about <m>[n]</m> except that it contains <m>n</m> elements.  In fact, what can you say about the number of <m>k</m>-element subsets of <em>any</em> <m>n</m>-element set?  Then, what <m>n</m>-element set would we look at when expanding <m>(x+y)^n</m>?
         </p>
       </hint>
     </task>
@@ -341,19 +341,19 @@
   <p>
     The previous activity was meant to help you discover what is usually called the <term>bijection principle</term>: <em>Two sets <m>X</m> and <m>Y</m> have the same cardinality if and only if there is a bijection <m>f:X \to Y</m></em>.
   </p>
-  
+
   <p>
     If you want to prove that two sets have the same number of elements, all that is requires is to define a function from one set to the other, and prove that the function is a bijection.  For us, those two sets will be the set of outcomes we are counting.  So for example, we can show that the <em>set</em> of <m>n</m>-bit strings of weight <m>k</m> has the same cardinality as the <em>set</em> of <m>k</m>-element subsets of <m>[n]</m>.  This will prove that the counting questions, <q>how many <m>n</m>-bit strings of weight <m>k</m> are there?</q> and, <q>how many <m>k</m>-element subsets of <m>[n]</m> are there?</q> have the same answer.
   </p>
 
   <p>
-    
+
   </p>
-  
+
   <activity>
     <task>
       <p>
-        Define a bijection <m>f:X \to Y</m> where <m>X</m> is the set of lattice paths from <m>(0,0)</m> to <m>(k,n-k)</m> and <m>Y</m> is the set of <m>n</m>-bit strings of weight <m>k</m>. Prove that <m>f</m> really is a bijection.  
+        Define a bijection <m>f:X \to Y</m> where <m>X</m> is the set of lattice paths from <m>(0,0)</m> to <m>(k,n-k)</m> and <m>Y</m> is the set of <m>n</m>-bit strings of weight <m>k</m>. Prove that <m>f</m> really is a bijection.
       </p>
     </task>
     <task>
@@ -370,19 +370,19 @@
     </task>
   </activity>
 
-  
+
   <p>
     So all these counting questions correspond to each other.  Why do the answers always fall in Pascal's triangle?  To answer this, we need to start with a definition for the numbers in Pascal's triangle.
   </p>
-  
+
   <p>
-    First, some notation: let's write <m>\binom{n}{k}</m> for the <m>k</m>th entry in row <m>n</m>.  For both <m>n</m> and <m>k</m>, start counting at 0.  So for example <m>\binom{5}{1} = 5</m>, and <m>\binom{n}{0} = \binom{n}{n} = 1</m> for all <m>n</m> (or at least the ones we can see).  We will read <m>\binom{n}{k}</m> as <q><m>n</m> choose <m>k</m></q> for reasons that will become clear soon.  
+    First, some notation: let's write <m>\binom{n}{k}</m> for the <m>k</m>th entry in row <m>n</m>.  For both <m>n</m> and <m>k</m>, start counting at 0.  So for example <m>\binom{5}{1} = 5</m>, and <m>\binom{n}{0} = \binom{n}{n} = 1</m> for all <m>n</m> (or at least the ones we can see).  We will read <m>\binom{n}{k}</m> as <q><m>n</m> choose <m>k</m></q> for reasons that will become clear soon.
   </p>
-  
+
   <p>
     Now we need to decide what <m>\binom{n}{k}</m> should be defined as.  It is not enough to simply define it as the specific entry in Pascal's triangle, since we haven't yet defined Pascal's triangle (we will want to define Pascal's triangle as the triangle of the numbers <m>\binom{n}{k}</m>).  Here are some choices:
   </p>
-  
+
   <assemblage>
     <title>Possible Definitions for <m>\binom{n}{k}</m></title>
     <p>
@@ -405,11 +405,11 @@
       </ol>
     </p>
   </assemblage>
-  
+
   <p>
-    You have already prove that choices 1, 2 and 3 are equivalent, and we have good reason to believe these are also equivalent to choice 4.  
+    You have already prove that choices 1, 2 and 3 are equivalent, and we have good reason to believe these are also equivalent to choice 4.
   </p>
-  
+
   <p>
     What about choice 5?  This is new, although not really, as it captures all of the previous four: Each of our counting problems above can be viewed in this way:
     <ul>
@@ -437,9 +437,9 @@
   </p>
 
   <p>
-    In fact, choice 5 is usually taken as the definition of <m>\binom{n}{k}</m>, which is why we say <m>n</m> <em>choose</em> <m>k</m>.  Although interestingly enough, the other common name for <m>\binom{n}{k}</m> is a <term>binomial coefficient</term>, which refers to the coefficients of the binomial <m>(x+y)^n</m>.  
+    In fact, choice 5 is usually taken as the definition of <m>\binom{n}{k}</m>, which is why we say <m>n</m> <em>choose</em> <m>k</m>.  Although interestingly enough, the other common name for <m>\binom{n}{k}</m> is a <term>binomial coefficient</term>, which refers to the coefficients of the binomial <m>(x+y)^n</m>.
   </p>
-  
+
 
 <!-- TODO: finish this off and relate it to pascal's triangle -->
 
@@ -480,7 +480,7 @@
         </task>
         <task>
           <p>
-            Prove that binomial coefficients (the actual coefficients of the expansion of the binomial <m>(x+y)^n</m>) satisfy the same recurrence as Pascal's triangle.  
+            Prove that binomial coefficients (the actual coefficients of the expansion of the binomial <m>(x+y)^n</m>) satisfy the same recurrence as Pascal's triangle.
           </p>
         </task>
       </activity>
