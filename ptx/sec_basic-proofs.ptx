@@ -71,6 +71,15 @@
           </md>
         </p>
       </hint>
+      <solution>
+        <p>
+          We have
+          <me>
+            \binom{n}{k} = \frac{n!}{k!(n-k)!} = \frac{n!}{(n-k)!(n-(n-k))!} = \binom{n}{n-k}
+          </me>
+
+        </p>
+      </solution>
     </activity>
 
     <p>
@@ -88,6 +97,27 @@
           You will probably want to use the Pascal recurrence <m>\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}</m>.  Note that once you pick your <m>n</m>, you should argue that the identity holds for all <m>0 \le k \le n</m>.  You should not do double induction.
         </p>
       </hint>
+      <solution>
+        <p>
+          We will do induction on <m>n</m>.  For <m>n = 0</m>, the only value of <m>k</m> that is interesting is <m>k=0</m>, and here <m>\binom{n}{k} = \binom{0}{0} = \binom{n}{n-k}</m>.  Thus the base case is established.
+        </p>
+
+        <p>
+          For the inductive case, fix an arbitrary <m>n</m> and assume that for all <m>k</m> with <m>0 \le k \le n-1</m> we have <m>\binom{n-1}{k} = \binom{n-1}{(n-1)-k}</m>.  Consider <m>\binom{n}{k}</m> for an arbitrary <m>0 \le k \lt n</m>.  By the recurssion for Pascal's triangle, we have
+          <me>
+            \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}.
+          </me>
+          Now apply the induction hypothese to the right hand side.  We get
+          <me>
+            \binom{n-1}{k-1} + \binom{n-1}{k} = \binom{n-1}{n-1-(k-1)} + \binom{n-1}{n-1 -k} = \binom{n-1}{n-k} + \binom{n-1}{n-k-1}.
+          </me>
+          Then using the Pascal recurrence again, we get
+          <me>
+            \binom{n-1}{n-k} + \binom{n-1}{n-k-1} = \binom{n}{n-k}.
+          </me>
+          Thus <m>\binom{n}{k} = \binom{n}{n-k}</m>, as long as <m>0 \le k \lt n</m>.  The case where <m>k = n</m> is trivial as <m>\binom{n}{n} = \binom{n}{0} = 1</m>.
+        </p>
+      </solution>
     </activity>
 
     <activity xml:id="act-pascalsym-dc">
@@ -107,6 +137,11 @@
             This is supposed to be very easy.
           </p>
         </hint>
+        <solution>
+          <p>
+            The number of ways to select <m>k</m> bow ties from a set of <m>n</m> bow ties is <m>\binom{n}{k}</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -119,6 +154,11 @@
             What if you started with all bow ties in the suitcase and got rid of some?  How many do you need to remove?
           </p>
         </hint>
+        <solution>
+          <p>
+            First through all your <m>n</m> many bow ties into your suitcase.  Now select <m>n-k</m> bow ties to put (back) into your closet (leaving <m>k</m> in your suitcase).  There are <m>\binom{n}{n-k}</m> ways to select the set of bow ties that stay home.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -126,6 +166,11 @@
             Why are the two parts above enough to establish the identity?
           </p>
         </statement>
+        <solution>
+          <p>
+            We have shown that the number of different suitcases of bow ties is both <m>\binom{n}{k}</m> and <m>\binom{n}{n-k}</m>, so in particular, these must be the same number.
+          </p>
+        </solution>
       </task>
     </activity>
 
@@ -156,7 +201,7 @@
       <task>
         <statement>
           <p>
-            Is <m>f</m> still a bijection if we restrict it to just the subsets of <m>[n]</m> that have size <m>k</m>?  Explain.
+            Is <m>f</m> still a bijection if we restrict it to just the subsets of <m>[n]</m> that have size <m>k</m>?  Perhaps we should also restrict our codomain (to what?).  Explain.
           </p>
         </statement>
       </task>
@@ -215,6 +260,28 @@
           Again, use the Pascal recurrence <m>\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}</m>.  Doing this for all summands will give you some repeats.
         </p>
       </hint>
+      <solution>
+        <p>
+          The base case is trivial: <m>\binom{0}{0} = 1 = 2^0</m>.  Now fix <m>n \gt 0</m> and assume <m>\sum_{k=0}^{n-1} \binom{n-1}{k} 2^{n-1}</m>.
+        </p>
+
+        <p>
+          Consider the case for <m>n</m>.  This is easier to see when written out.
+          <md>
+            <mrow>\binom{n}{0} + \amp \binom{n}{1} + \amp \binom{n}{2} \cdots + \binom{n}{n-1}  + \amp \binom{n}{n} = </mrow>
+            <mrow>\binom{n-1}{0} + \amp \binom{n-1}{0} + \binom{n-1}{1} + \amp \binom{n-1}{1} + \binom{n-1}{2} + \cdots + \binom{n-1}{n-2} + \binom{n-1}{n-1} + \amp \binom{n-1}{n-1}.
+          </md>
+          We have replaced <m>\binom{n}{0}</m> with <m>\binom{n-1}{0}</m> and <m>\binom{n}{n}</m> with <m>\binom{n-1}{n-1}</m> since they are all 1.  Every other term is replaced using the Pascal recurrence.
+        </p>
+
+        <p>
+          But notice now that for every <m>k</m>, we have <m>\binom{n-1}{k}</m> appearing exactly twice.  So if we group like terms and factor out a 2, we get
+          <me>
+            \sum_{k=0}^n \binom{n}{k} = 2 \sum_{k=0}^{n-1} \binom{n-1}{k} = 2 \cdot 2^{n-1} = 2^n.
+          </me>
+          This completes the inductive case, and therefore the proof.
+        </p>
+      </solution>
     </activity>
 
     <p>
@@ -238,6 +305,11 @@
             Your final answer here should be a sum, since we have counted the number of subsets partitioned into disjoint collections.
           </p>
         </hint>
+        <solution>
+          <p>
+            There are <m>\binom{n}{0}</m> subsets of size 0, <m>\binom{n}{1}</m> subsets of size 1, and so on, with <m>\binom{n}{k}</m> subsets of size <m>k</m>.  The total number of subsets is then the sum of these numbers: <m>\sum_{k=0}^n \binom{n}{k}</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -250,6 +322,11 @@
             Think about how many choices you have for each element.  You could put 1 in the subset or not.  You could include <m>2</m> in the subset or not.
           </p>
         </hint>
+        <solution>
+          <p>
+            For each element in <m>[n]</m> we can either include it in the subset or not.  So there are two choices for whether <m>1</m> is in the subset, two choices for <m>2</m> and so on.  This gives <m>2^n</m> subsets.  You can also picture this is a tree diagram, making it very clear why you multiply each 2.
+          </p>
+        </solution>
       </task>
       <conclusion>
         <p>
@@ -277,6 +354,18 @@
           Just do it.
         </p>
       </hint>
+      <solution>
+        <p>
+          We have <m>(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k}y^k</m> by the binomial theorem.  When you substitute <m>x = y = 1</m> you get
+          <me>
+            (1+1)^n = \sum_{k=0}^n \binom{n}{k} 1^{n-k}1^k
+          </me>
+          <me>
+            2^n = \sum_{k=0}^n \binom{n}{k}.
+          </me>
+
+        </p>
+      </solution>
     </activity>
 
     <p>
