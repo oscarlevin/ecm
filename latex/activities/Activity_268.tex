@@ -2,10 +2,10 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{268}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{fractionFibonacci}
-\hypertarget{p-1367}{}%
+\setcounter{project}{268}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{fractionFibonacci}
+\hypertarget{p-1395}{}%
 Use the factors you found in \hyperref[factorFibonacci]{Activity~\ref{factorFibonacci}} to write%
 \begin{equation*}
 \frac{1}{x^2+x-1}
@@ -16,10 +16,17 @@ in the form%
 \end{equation*}
 %
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-171}{}\quad%
-\hypertarget{p-1368}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-171}{}\quad%
+\hypertarget{p-1396}{}%
 You can save yourself a tremendous amount of frustrating algebra if you arbitrarily choose one of the solutions and call it \(r_1\) and call the other solution \(r_2\) and solve the problem using these algebraic symbols in place of the actual roots.\footnote{We use the words roots and solutions interchangeably.\label{fn-18}} Not only will you save yourself some work, but you will get a formula you could use in other problems. When you are done, substitute in the actual values of the solutions and simplify.%
-\par\smallskip%
-\noindent\end{activity}
-
-\clearpage\end{document}
+~\hfill{\tiny\hyperlink{a-268}{[hint]}\hypertarget{q-268}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-180}{}\quad%
+\hypertarget{p-1397}{}%
+\(\frac{1}{x^2+x-1}=\frac{c}{x-r_1}+\frac{d}{x-r_2}\) gives us \(cx-cr_2+dx-dr_1=1\). Thus \(c+d=0\), and \(cr_2+dr_1 =-1\). This gives us \(d=-c\) and so \(cr_2-cr_1=-1\), which yields \(c=\frac{1}{r_1-r_2}\), and \(d=\frac{1}{r_2-r_1}\). By substitution, \(c=1/\sqrt{5}\) and \(d=-1/\sqrt{5}\). This gives us%
+\begin{equation*}
+\frac{1}{x^2+x-1} = \frac{1/\sqrt{5}}{x-\frac{-1+\sqrt{5}}{2}}
++ \frac{-1/\sqrt{5}}{x- \frac{-1-\sqrt{5}}{2}}\text{.}
+\end{equation*}
+%
+\end{activity}
+\end{document}

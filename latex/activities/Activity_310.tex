@@ -2,20 +2,22 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{310}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-303}
-\hypertarget{p-1539}{}%
+\setcounter{project}{310}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-303}
+\hypertarget{p-1567}{}%
 Show that%
 \begin{equation*}
 q_n(k) \le \frac{1}{n!}\binom{k-1}{n-1}.
 \end{equation*}
 %
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-198}{}\quad%
-\hypertarget{p-1540}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-198}{}\quad%
+\hypertarget{p-1568}{}%
 How does the number of compositions of \(k\) into \(n\) distinct parts compare to the number of compositions of \(k\) into \(n\) parts (not necessarily distinct)? What do compositions have to do with partitions?%
-\par\smallskip%
-\noindent\end{activity}
-
-\clearpage\end{document}
+~\hfill{\tiny\hyperlink{a-310}{[hint]}\hypertarget{q-310}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-213}{}\quad%
+\hypertarget{p-1569}{}%
+The number of compositions of \(k\) into \(n\) parts is \(\binom{k-1}{n-1}\). Thus the number of compositions of \(k\) into \(n\) distinct parts is less than \(\binom{k-1}{n-1}\). Divide the compositions of \(k\) into \(n\) distinct parts into blocks with two compositions in the same block if one is a rearrangement of the other. Because the parts are distinct, each block has \(n!\) members. Further, there is a bijection between the blocks of this partition and the partitions of \(k\) into \(n\) distinct parts. Since the number of compositions of \(k\) into \(n\) distinct parts is less than \(\binom{k-1}{n-1}\), the number of partitions of \(k\) into \(n\) distinct parts is less than \(\frac{1}{n!}  \binom{k-1}{n-1}\).%
+\end{activity}
+\end{document}

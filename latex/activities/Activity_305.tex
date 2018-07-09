@@ -2,16 +2,25 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{305}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-298}
-\hypertarget{p-1506}{}%
+\setcounter{project}{305}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-298}
+\hypertarget{p-1534}{}%
 A partition is called \terminology{self-conjugate}\index{self-conjugate partition}\index{partition of an integer!self conjugate} if it is equal to its conjugate. Find a relationship between the number of self-conjugate partitions of \(k\) and the number of partitions of \(k\) into distinct odd parts.%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-191}{}\quad%
-\hypertarget{p-1507}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-191}{}\quad%
+\hypertarget{p-1535}{}%
 Draw all self conjugate partitions of integers less than or equal to 8.  Draw all partitions of integers less than or equal to 8 into distinct odd parts (many of these will have just one part). Now try to see how to get from one set of drawings to the other in a consistent way.%
-\par\smallskip%
-\noindent\end{activity}
-
-\clearpage\end{document}
+~\hfill{\tiny\hyperlink{a-305}{[hint]}\hypertarget{q-305}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-203}{}\quad%
+\hypertarget{p-1536}{}%
+The number of self-conjugate partitions of \(k\) equals the number of partitions of \(k\) with distinct odd parts. Here is a geometric description of a bijection from self conjugate partitions of \(k\) to partitions into distinct odd parts.%
+\begin{figure}
+\centering
+\includegraphics[width=0.6\linewidth]{images/selfconjugate}
+\caption{Transforming a self-conjugate partition\label{selfconjugate-to-distinctodd}}
+\end{figure}
+\hypertarget{p-1537}{}%
+Take the top row and left column of squares of the Young diagram, and make them into one row in a new diagram. (Only include the square that is in both the row and column once.) Now take the remaining squares in the next row and column and make a new row of the Young diagram of the second partition with them. Continue this process with succeeding rows and columns, not using any squares you have already used. Because the first partition is self conjugate, the diagram has the same number of rows as columns and row \(i\) and column \(i\) have the same length. Because row \(i\) and column \(i\) share one square, and we only use that square once when we create a new row, each row we create has odd length. Thus we get a partition with the same number of squares, so it is a partition of \(k\) and each part is odd. The parts are distinct because when we take off the squares of a row and column, we reduce the number of squares in each row and column that remains. Given a partition of \(k\) into distinct odd parts, we use the fact that each row has a unique middle element, and each is shorter than the one above (by at least two squares) to reverse the process. Thus we have a bijection.%
+\end{activity}
+\end{document}

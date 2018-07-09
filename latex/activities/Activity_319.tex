@@ -2,40 +2,62 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{319}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{genfunpartitions}
-\hypertarget{p-1577}{}%
+\setcounter{project}{319}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{genfunpartitions}
+\hypertarget{p-1605}{}%
 When studying partitions of integers, it is inconvenient to restrict ourselves to partitions with at most \(m\) parts or partitions with maximum part size \(m\).%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-271} \hypertarget{p-1578}{}%
+\item\label{task-274} \hypertarget{p-1606}{}%
 Give the generating function for the number of partitions of an integer into parts of any size. Don't forget to use \(q\) rather than \(x\) as your variable.%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-208}{}\quad%
-\hypertarget{p-1579}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-208}{}\quad%
+\hypertarget{p-1607}{}%
 Don't be afraid of writing down a product of infinitely many power series.%
-\par\smallskip%
-\noindent\item\label{task-272} \hypertarget{p-1581}{}%
+~\hfill{\tiny\hyperlink{a-319.a}{[hint]}\hypertarget{q-319.a}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-223}{}\quad%
+\hypertarget{p-1608}{}%
+We start with%
+\begin{equation*}
+(1+q+q^2+\cdots)(1+q^2+q^4+\cdots)\cdots(1+q^i+q^{2i})\cdots,
+\end{equation*}
+which we can write more precisely as%
+\begin{equation*}
+\prod_{i=1}^\infty \sum_{j=0}^\infty q^{ij}.
+\end{equation*}
+%
+\item\label{task-275} \hypertarget{p-1609}{}%
 Find the coefficient of \(q^4\) in this generating function.%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-209}{}\quad%
-\hypertarget{p-1582}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-209}{}\quad%
+\hypertarget{p-1610}{}%
 From the fifth factor on, there is no way to choose a \(q^i\) that has \(i\) nonzero and less than five from the factor.%
-\par\smallskip%
-\noindent\item\label{task-273} \hypertarget{p-1584}{}%
+~\hfill{\tiny\hyperlink{a-319.b}{[hint]}\hypertarget{q-319.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-224}{}\quad%
+\hypertarget{p-1611}{}%
+From the fifth factor on, there is no way to choose a \(q^i\) that has \(i\) nonzero and less than five from the factor. Thus we choose a 1 from each of these factors. We can choose a \(q^4\) from the fourth factor and 1 from the rest, a \(q^3\) from the third factor, a \(q\) from the first and a 1 from the rest, a \(q^2\) from the second factor, a \(q^2\) from the first and a 1 from the rest, or we can choose a \(q^4\) from the first factor and a 1 from the rest. Therefore the coefficient of \(q^4\) is five.%
+\item\label{task-276} \hypertarget{p-1612}{}%
 Find the coefficient of \(q^5\) in this generating function.%
 \par\smallskip%
-\noindent\item\label{task-274} \hypertarget{p-1586}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-225}{}\quad%
+\hypertarget{p-1613}{}%
+From the sixth factor of the product on, there is no way to choose a \(q^i\) that has \(i\) nonzero and less than six from the factor, so when we compute the coefficient of \(q^5\), we can only choose the 1 from each of these terms. In the first five factors, we choose any combination of powers that adds to 5. We can choose \(q^5\) from the fifth and 1 from the rest, q from the first, \(q^4\) from the second and 1 from the rest, \(q^2\) from the second, \(q^3\) from the third and 1 from the rest, \(q^2\) from the first and \(q^3\) from the third and 1 from the rest, \(q^3\) from the first, \(q^2\) from the second, and 1 from the rest \(q^5\) from the first and 1 from the rest, and these are the only ways to get a \(q^5\) in the product. Thus the coefficient of \(q^5\) is 7.%
+\item\label{task-277} \hypertarget{p-1614}{}%
 This generating function involves an infinite product. Describe the process you would use to expand this product into as many terms of a power series as you choose.%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-210}{}\quad%
-\hypertarget{p-1587}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-210}{}\quad%
+\hypertarget{p-1615}{}%
 Describe to yourself how to get the coefficient of a given power of \(q\).%
-\par\smallskip%
-\noindent\item\label{task-275} \hypertarget{p-1589}{}%
+~\hfill{\tiny\hyperlink{a-319.d}{[hint]}\hypertarget{q-319.d}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-226}{}\quad%
+\hypertarget{p-1616}{}%
+To get the coefficient of \(q^k\) in this product, we look at all ways of choosing one summand from each of the infinite series and multiplying them together to get \(q^k\), and add all these products up. That is, the coefficient of \(q^k\) is the number of ways of making these choices of one summand from each series so that the product of our choices is \(q^k\). This lets us write down as many terms of the series as we want, or as we have patience for!%
+\item\label{task-278} \hypertarget{p-1617}{}%
 Rewrite any power series that appear in your product as quotients of polynomials or as integers divided by polynomials.%
 \par\smallskip%
-\noindent\end{enumerate}
+\noindent\textbf{Solution.}\hypertarget{solution-227}{}\quad%
+\hypertarget{p-1618}{}%
+We can rewrite the infinite product as \(\displaystyle\prod_{i=0}^\infty\frac{1}{1-q^i}\).%
+\end{enumerate}
 \end{activity}
-
-\clearpage\end{document}
+\end{document}

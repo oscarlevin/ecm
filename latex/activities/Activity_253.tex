@@ -2,20 +2,27 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{253}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{negnchoosek}
-\hypertarget{p-1316}{}%
+\setcounter{project}{253}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{negnchoosek}
+\hypertarget{p-1344}{}%
 Find a formula for \((1+x)^{-n}\) as a power series whose coefficients involve binomial coefficients. What does this formula tell you about how we should define \(\binom{-n}{k}\) when \(n\) is positive?%
 \par\smallskip%
-\noindent\textbf{Hint 1}.\hypertarget{hint-161}{}\quad%
-\hypertarget{p-1317}{}%
+\noindent\textbf{Hint 1.}\hypertarget{hint-161}{}\quad%
+\hypertarget{p-1345}{}%
 While you could use calculus techniques, there is a much simpler approach. Note that \(1 + x = 1 - (-x)\).%
-\par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{hint-162}{}\quad%
-\hypertarget{p-1318}{}%
+~\hfill{\tiny\hyperlink{a-253}{[hint]}\hypertarget{q-253}{}}\par\smallskip%
+\noindent\textbf{Hint 2.}\hypertarget{hint-162}{}\quad%
+\hypertarget{p-1346}{}%
 Can you see a way to use \hyperref[multisetgenfn]{Activity~\ref{multisetgenfn}}?%
 \par\smallskip%
-\noindent\end{activity}
-
-\clearpage\end{document}
+\noindent\textbf{Solution.}\hypertarget{solution-164}{}\quad%
+\hypertarget{p-1347}{}%
+%
+\begin{equation*}
+(1+x)^{-n}=(1-(-x))^{-n}=\sum_{i=0}^\infty
+\binom{n+i-1}{i}(-x)^i=\sum_{i=0}^\infty (-1)^i\binom{n+i-1}{i}x^i.
+\end{equation*}
+We want the coefficient of \(x^k\) in \((1+x)^{-n}\) to be \(\binom{-n}{k}\), so we want \(\binom{-n}{k}= (-1)^k\binom{n+k-1}{k}\).%
+\end{activity}
+\end{document}

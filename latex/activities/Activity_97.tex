@@ -2,16 +2,21 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{97}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-90}
-\hypertarget{p-689}{}%
+\setcounter{project}{97}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-90}
+\hypertarget{p-717}{}%
 Prove that the number of positive integers that have their digits in strictly increasing order is \(2^{9} - 1\). Include single digit numbers.%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-51}{}\quad%
-\hypertarget{p-690}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-51}{}\quad%
+\hypertarget{p-718}{}%
 The answer looks like it might be almost the sum of a row in Pascal's triangle.  Why does this make sense?  You could think of including, or excluding numbers.%
-\par\smallskip%
-\noindent\end{activity}
-
-\clearpage\end{document}
+~\hfill{\tiny\hyperlink{a-97}{[hint]}\hypertarget{q-97}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-62}{}\quad%
+\hypertarget{p-719}{}%
+There are \(\binom{9}{1}\) single digit type, \(\binom{9}{2}\) double digit type (just select 2 of the 9 digits \(1, 2, 3, \ldots, 9\) and arrange in order), \textellipsis{}, and so on to see that there are \(\binom{9}{9}\) nine digit type. The total is \(\binom{9}{1} + \binom{9}{2} + \binom{9}{3} + \ldots + \binom{9}{9} = 2^{9} - 1\).%
+\par
+\hypertarget{p-720}{}%
+Here is an alternative, more clever, proof. Look at 123456789. Any increasing number can be made by deleting \emph{any} subset of digits, except all of them. There are \(2^{9} - 1\) such subsets. For example, delete the subset \{2, 4, 7, 9\} and you get 13568. Combining these two approaches actually gives you a nice proof that \(\binom{9}{0} + \binom{9}{1} + \binom{9}{2} + \ldots + \binom{9}{9} = 2^{9}\).%
+\end{activity}
+\end{document}

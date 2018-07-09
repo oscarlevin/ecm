@@ -2,16 +2,22 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{244}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{reprovingbinomialtheorem}
-\hypertarget{p-1277}{}%
+\setcounter{project}{244}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{reprovingbinomialtheorem}
+\hypertarget{p-1305}{}%
 We are going to choose a subset of the set \([n]=\{1,2,\ldots, n\}\). Suppose we use \(x_1\) to be the picture of choosing 1 to be in our subset. What is the picture enumerator for either choosing 1 or not choosing 1? Suppose that for each \(i\) between 1 and \(n\), we use \(x_i\) to be the picture of choosing \(i\) to be in our subset. What is the picture enumerator for either choosing \(i\) or not choosing \(i\) to be in our subset? What is the picture enumerator for all possible choices of subsets of \([n]\)? What should we substitute for \(x_i\) in order to get a polynomial in \(x\) such that the coefficient of \(x^k\) is the number of ways to choose a \(k\)-element subset of \(n\)? What theorem have we just reproved (a special case of)?%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-154}{}\quad%
-\hypertarget{p-1278}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-154}{}\quad%
+\hypertarget{p-1306}{}%
 Consider the example with \(n = 2\). Then we have two variables, \(x_1\) and \(x_2\) .  Forgetting about \(x_2\) , what sum says we either take \(x_1\) or we don't? Forgetting about \(x_1\) , what sum says we either take \(x_2\) or we don't? Now what product says we either take \(x_1\) or we don't \emph{and} we either take \(x_2\) or we don't?%
-\par\smallskip%
-\noindent\end{activity}
-
-\clearpage\end{document}
+~\hfill{\tiny\hyperlink{a-244}{[hint]}\hypertarget{q-244}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-154}{}\quad%
+\hypertarget{p-1307}{}%
+The picture enumerator for choosing \(1\) or not choosing 1 is \(x_1+1\). The picture enumerator for choosing or not choosing \(i\) is \(x_i+1\).  The picture enumerator for choosing all possible subsets of \([n]\) is \((x_1+1)(x_2+1)\cdots(x_n+1).\) We should substitute \(x\) for \(x_i\), thus getting \((1+x)^n\). Since the number of ways to choose an \(n\)-element subset is \(\binom{n}{k}\), we have just proved the version of the binomial theorem that says%
+\begin{equation*}
+(x+1)^n=\sum_{i=0}^n \binom{n}{i}x^i.
+\end{equation*}
+%
+\end{activity}
+\end{document}

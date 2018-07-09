@@ -2,16 +2,18 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{101}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-94}
-\hypertarget{p-708}{}%
+\setcounter{project}{101}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-94}
+\hypertarget{p-736}{}%
 Prove, \(\binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \ldots + \binom{n}{n}^{2} = \binom{2n}{n}\).%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-55}{}\quad%
-\hypertarget{p-709}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-55}{}\quad%
+\hypertarget{p-737}{}%
 First note that \(\binom{n}{k}^2 = \binom{n}{k}\binom{n}{n-k}\), by the symmetry of Pascal's triangle.  Then, there is a nice proof using lattice paths here, or you select \(n\) things from a collection that has \(n\) things of one type and \(n\) of another.%
-\par\smallskip%
-\noindent\end{activity}
-
-\clearpage\end{document}
+~\hfill{\tiny\hyperlink{a-101}{[hint]}\hypertarget{q-101}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-66}{}\quad%
+\hypertarget{p-738}{}%
+Given a group of \(2n\) people consisting of \(n\) men and \(n\) women, in how many ways can one choose a group of \(n\) people? The answer to that question is just \(\binom{2n}{n}\), the right side of the identity in question. One could also form the group of \(n\) people in the following way: choose 0 men and \(n\) women in \(\binom{n}{0} \binom{n}{n} = \binom{n}{0}^{2}\) ways, or, choose 1 man and \(n - 1\) women in \(\binom{n}{1} \binom{n}{n - 1} = \binom{n}{1}^{2}\) ways, or choose 2 men and \(n - 2\) women in \(\binom{n}{2} \binom{n}{n - 2} = \binom{n}{2}^{2}\) ways and so on. Now add these disjoint cases.%
+\end{activity}
+\end{document}

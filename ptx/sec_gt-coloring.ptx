@@ -146,6 +146,14 @@ We will not prove this theorem. Really. Even though the theorem is easy to state
 	    You will want to use a proof by induction on the number of vertices.  Use the fact that every planar graph has at least one vertex of degree at most 5.
 	  </p>
 	</hint>
+	<solution>
+	  <p>
+	    Note first that any graph with one vertex can be properly 6-colored (the base case).  Now let <m>G</m> be an arbitrary graph with <m>n</m> vertices, and assume that any graph with fewer than <m>n</m> vertices can be properly 6-colored.  Let <m>v</m> be a vertex of <m>G</m> of degree 5 or less.  
+	  </p>
+		<p>
+			Consider the graph <m>G' = G - v</m> (the graph resulting from removing <m>v</m> and all its incident edges from <m>G</m>).  Since <m>G'</m> has <m>n-1</m> vertices, it is possible to properly 6-color its vertices.  Looking back at <m>G</m>, we see that <m>v</m> is only adjacent to at most 5 vertices, so there are at most 5 colors we cannot use to color <m>v</m>.  But we have 6 colors to work with, so we will be able to color <m>v</m>, and thus all of <m>G</m>, properly. 
+		</p>
+	</solution>
 </activity>
 
 <p>
@@ -399,6 +407,11 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 		    If you find a proper <m>5</m>-coloring, could the chromatic number be more than <m>5</m>?  Could it be less than <m>5</m>?  What if you found a subgraph that you were sure had chromatic number <m>5</m>?
 		  </p>
 		</hint>
+		<solution>
+		  <p>
+		    There is a proper 5-coloring, so the chromatic number cannot be more than 5.  It also cannot be less than 5, since the graph contains a copy of <m>K_5</m>, which requires 5 colors.  Thus the chromatic number is 5.
+		  </p>
+		</solution>
 	</task>
 	<task>
 		<statement>
@@ -406,6 +419,11 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 		    For any graph <m>G</m>, if <m>H</m> is a subgraph with chromatic number <m>k</m>, what can you say about the chromatic number of <m>G</m>?
 		  </p>
 		</statement>
+		<solution>
+		  <p>
+		    The chromatic number of <m>G</m> is at least the chromatic number of <m>H</m>.  That is, <m>\chi(G) \ge \chi(H)</m>.
+		  </p>
+		</solution>
 	</task>
 	<task>
 		<statement>
@@ -413,6 +431,12 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 		    Define the <term>clique number</term> of a graph to be the largest <m>n</m> for which the graph contains a copy of <m>K_n</m> as a subgraph (a <term>clique</term> in a graph is a set of vertices that are pairwise adjacent, so a copy of <m>K_n</m> for some <m>n</m>).  State and prove a theorem relating the clique number and the chromatic number of a graph.
 		  </p>
 		</statement>
+		<solution>
+		  <p>
+		    The chromatic number of a graph is at least its clique number.  This is because <m>K_n</m> requires <m>n</m> colors, so if a graph contains an 
+				<m>n</m>-clique, the chromatic number must be at least <m>n</m>.
+		  </p>
+		</solution>
 	</task>
 </activity>
 
@@ -428,6 +452,11 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 		    Find a graph that has chromatic number 3 even though it does not contain <m>K_3</m> as a subgraph.
 		  </p>
 		</statement>
+		<solution>
+		  <p>
+		    The graph <m>C_5</m> (a cycle of length 5) has chromatic number 3, but does not have a triangle.
+		  </p>
+		</solution>
 	</task>
 	<task>
 		<statement>
@@ -440,6 +469,23 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 		    Modify your <m>K_3</m>-free graph with chromatic number 3.
 		  </p>
 		</hint>
+		<solution>
+		  <p>
+		    The graph below has chromatic number 4, but does not contain a copy of <m>K_4</m>.  The 5-cycle requires 3 colors, and the vertex in the center is adjacent to all of these, so requires a 4th color.  These graphs are sometimes called <term>wheel graphs</term>.
+		  </p>
+			<sidebyside width="20%">
+				<image xml:id="w5">
+				  <latex-image>
+				    \begin{tikzpicture}
+				      \foreach \x in {0,...,4}{
+							 \draw (0,0) -- (90+\x*360/5:1) \v -- (162+\x*360/5:1);
+							}
+							\draw (0,0) \v;
+				    \end{tikzpicture}
+				  </latex-image>
+				</image>
+			</sidebyside>
+		</solution>
 	</task>
 
 	<task>
@@ -453,6 +499,22 @@ What? You want <em>better</em> bounds on the chromatic number? Well, let's see w
 		    The smallest such graph contains 11 vertices.  Try starting with <m>C_5</m> and adding vertices creating a lot of odd cycles.
 		  </p>
 		</hint>
+		<solution>
+		  <p>
+		    The graph below has chromatic number 4 but does not contain <m>K_3</m>.  This is called the Grötzsch graph.
+		  </p>
+			<sidebyside width="30%">
+				<image xml:id="grotzsch">
+				  <latex-image>
+				    \begin{tikzpicture}
+				      \foreach \x in {0,...,4}{
+							\draw (0,0) \v -- (90+\x*72:1) \v -- (162+\x*72:2) \v -- (90+\x*72:2) -- (162+\x*72:1);
+							}
+				    \end{tikzpicture}
+				  </latex-image>
+				</image>
+			</sidebyside>
+		</solution>
 	</task>
 </activity>
 

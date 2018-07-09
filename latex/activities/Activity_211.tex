@@ -2,16 +2,18 @@
 
 \input{../activities-preamble.tex}
 \begin{document}
-\setcounter{cpjt}{211}
-\addtocounter{cpjt}{-1}
-\begin{activity}\label{activity-204}
-\hypertarget{p-1130}{}%
+\setcounter{project}{211}
+\addtocounter{project}{-1}
+\begin{activity}[]\label{activity-204}
+\hypertarget{p-1158}{}%
 Show that \(p_n(k)\) is at least \(\frac{1}{n!}\binom{k-1}{n-1}\).%
 \par\smallskip%
-\noindent\textbf{Hint}.\hypertarget{hint-132}{}\quad%
-\hypertarget{p-1131}{}%
+\noindent\textbf{Hint.}\hypertarget{hint-132}{}\quad%
+\hypertarget{p-1159}{}%
 How many compositions are there of \(k\) into n parts? What is the maximum number of compositions that could correspond to a given partition of \(k\) into \(n\) parts?%
-\par\smallskip%
-\noindent\end{activity}
-
-\clearpage\end{document}
+~\hfill{\tiny\hyperlink{a-211}{[hint]}\hypertarget{q-211}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-112}{}\quad%
+\hypertarget{p-1160}{}%
+The number of compositions of \(k\) into \(n\) parts is \(\binom{k-1}{n-1}\). We can divide the compositions into blocks, where two compositions are in the same block if and only if one is a rearrangement of the other. Then the blocks correspond bijectively to partitions of \(k\) into \(n\) parts. However we cannot compute the number of blocks by dividing by the number of compositions per block since the number of compositions per block ranges from \(1\) to \(n!\).  But then if we divide the number of compositions by \(n!\) we will get a number less than the number of blocks because \(n!\) times the number of blocks would be, by the sum principle, greater than the number of partitions.%
+\end{activity}
+\end{document}
