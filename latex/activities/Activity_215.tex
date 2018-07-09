@@ -5,68 +5,68 @@
 \setcounter{project}{215}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{numberpartitionrecurrence}
-\hypertarget{p-1158}{}%
+\hypertarget{p-1170}{}%
 In this problem we will study the two operations and see which one seems more useful for getting a recurrence for \(p_n(k)\).%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-219} \hypertarget{p-1159}{}%
+\item\label{task-220} \hypertarget{p-1171}{}%
 How many parts does the remaining partition have when we remove the largest part (more precisely, we reduce its multiplicity by one) from a partition of \(k\) into \(n\) parts?  What can you say about the number of parts of the remaining partition if we remove one from each part?%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-134}{}\quad%
-\hypertarget{p-1160}{}%
+\hypertarget{p-1172}{}%
 These two operations do rather different things to the number of parts, and you can describe exactly what only one of the operations does. Think about the Young diagram.%
 ~\hfill{\tiny\hyperlink{a-215.a}{[hint]}\hypertarget{q-215.a}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-105}{}\quad%
-\hypertarget{p-1161}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-115}{}\quad%
+\hypertarget{p-1173}{}%
 Reducing the multiplicity of the largest part by one reduces the number of parts by one. Removing 1 from each part reduces the number of parts by the multiplicity of the smallest part, so it strictly reduces the number of parts, perhaps even to one.%
-\item\label{task-220} \hypertarget{p-1162}{}%
+\item\label{task-221} \hypertarget{p-1174}{}%
 If we remove the largest part from a partition, what can we say about the integer that is being partitioned by the remaining parts of the partition? If we remove one from each part of a partition of \(k\) into \(n\) parts, what integer is being partitioned by the remaining parts? (Another way to describe this is that we remove the first column from the Young diagram of the partition.)%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-135}{}\quad%
-\hypertarget{p-1163}{}%
+\hypertarget{p-1175}{}%
 Think about the Young diagram. In only one of the two cases can you give an exact answer to the question.%
 ~\hfill{\tiny\hyperlink{a-215.b}{[hint]}\hypertarget{q-215.b}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-106}{}\quad%
-\hypertarget{p-1164}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-116}{}\quad%
+\hypertarget{p-1176}{}%
 If we remove the largest part, the integer being partitioned is \(k\) minus the largest part. Thus it is a number less than \(k\) and at least \(n-1\). If we remove one from each part of the partition, the integer being partitioned is \(k-n\).%
-\item\label{task-221} \hypertarget{p-1165}{}%
+\item\label{task-222} \hypertarget{p-1177}{}%
 The last two questions are designed to get you thinking about how we can get a bijection between the set of partitions of \(k\) into \(n\) parts and some other set of partitions that are partitions of a smaller number.  These questions describe two different strategies for getting that set of partitions of a smaller number or of smaller numbers.  Each strategy leads to a bijection between partitions of \(k\) into \(n\) parts and a set of partitions of a smaller number or numbers.  For each strategy, use the answers to the last two questions to find and describe this set of partitions into a smaller number and a bijection between partitions of \(k\) into \(n\) parts and partitions of the smaller integer or integers into appropriate numbers of parts. (In one case the set of partitions and bijection are relatively straightforward to describe and in the other case not so easy.)%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-136}{}\quad%
-\hypertarget{p-1166}{}%
+\hypertarget{p-1178}{}%
 Here the harder part requires that, after removal, you consider a range of possible numbers being partitioned and that you give an upper bound on the part size. However it lets you describe the number of parts exactly.%
 ~\hfill{\tiny\hyperlink{a-215.c}{[hint]}\hypertarget{q-215.c}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-107}{}\quad%
-\hypertarget{p-1167}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-117}{}\quad%
+\hypertarget{p-1179}{}%
 Removing the largest part of a partition of \(k\) into \(n\) parts gives us a bijection between partitions of \(k\) into \(n\) parts and and partitions of numbers \(k'\) between \(n-1\) and \(k-1\) into \(n-1\) parts of size at most \(k-k'\). (Removing the largest part gives us such a partition, and adjoining a part of size \(k-k'\) to such a partition gives us a partition of \(k\) with \(n\) parts.)%
 \par
-\hypertarget{p-1168}{}%
+\hypertarget{p-1180}{}%
 Removing one from each part of a partition of \(k\) into \(n\) parts gives us a bijection between partitions of \(k\) into \(n\) parts and and partitions \(k-n\) into \(n\) or fewer parts. (Removing one from each part of a partition of \(k\) into \(n\) parts gives us such a partition, and, given such a partition, we get a partition of \(k\) into \(n\) parts by adding one to each part and then creating enough parts of size 1 to have \(n\) parts.)%
-\item\label{task-222} \hypertarget{p-1169}{}%
+\item\label{task-223} \hypertarget{p-1181}{}%
 Find a recurrence (which need not have just two terms on the right hand side) that describes how to compute \(p_n(k)\) in terms of the number of partitions of smaller integers into a smaller number of parts.%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-137}{}\quad%
-\hypertarget{p-1170}{}%
+\hypertarget{p-1182}{}%
 One of the two sets of partitions of smaller numbers from the previous part is more amenable to finding a recurrence than the other. The resulting recurrence does not have just two terms though.%
 ~\hfill{\tiny\hyperlink{a-215.d}{[hint]}\hypertarget{q-215.d}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-108}{}\quad%
-\hypertarget{p-1171}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-118}{}\quad%
+\hypertarget{p-1183}{}%
 The second bijection is to the set of partitions of \(k-1\) into \(n\) or fewer parts, and this makes the second bijection sound easier to work with. We get \(p_n(k)=\sum_{i=1}^n p_i(k-n)\). The proof is the bijection we already described; in particular a partition of \(k-n\) into \(i\) parts corresponds to the partition of \(k\) we get by adding one to each of the \(i\) parts and then creating \(n-i\) parts of size one.%
-\item\label{task-223} \hypertarget{p-1172}{}%
+\item\label{task-224} \hypertarget{p-1184}{}%
 What is \(p_1(k)\) for a positive integer \(k\)?%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-109}{}\quad%
-\hypertarget{p-1173}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-119}{}\quad%
+\hypertarget{p-1185}{}%
 \(p_1(k)=1\).%
-\item\label{task-224} \hypertarget{p-1174}{}%
+\item\label{task-225} \hypertarget{p-1186}{}%
 What is \(p_k(k)\) for a positive integer \(k\)?%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-110}{}\quad%
-\hypertarget{p-1175}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-120}{}\quad%
+\hypertarget{p-1187}{}%
 \(p_k(k)=1\).%
-\item\label{task-225} \hypertarget{p-1176}{}%
+\item\label{task-226} \hypertarget{p-1188}{}%
 Use your recurrence to compute a table with the values of \(p_n(k)\) for values of \(k\) between 1 and 7.%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-111}{}\quad%
+\noindent\textbf{Solution.}\hypertarget{solution-121}{}\quad%
 \begin{sidebyside}{1}{0}{0}{0}
 \begin{sbspanel}{1}
 {\centering%
@@ -83,17 +83,16 @@ Use your recurrence to compute a table with the values of \(p_n(k)\) for values 
 \par}
 \end{sbspanel}
 \end{sidebyside}
-\item\label{task-226} \hypertarget{p-1177}{}%
+\item\label{task-227} \hypertarget{p-1189}{}%
 What would you want to fill into row 0 and column 0 of your table in order to make it consistent with your recurrence.  What does this say \(p_0(0)\) should be?  We usually define a sum with no terms in it to be zero. Is that consistent with the way the recurrence says we should define \(p_0(0)\)?%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-138}{}\quad%
-\hypertarget{p-1178}{}%
+\hypertarget{p-1190}{}%
 If there is a sum equal to zero, there may very well be a partition of zero.%
 ~\hfill{\tiny\hyperlink{a-215.h}{[hint]}\hypertarget{q-215.h}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-112}{}\quad%
-\hypertarget{p-1179}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-122}{}\quad%
+\hypertarget{p-1191}{}%
 We would want to have \(p_0(0)=1\) and \(p_0(k)=p_n(0)=0\) for positive integer \(k\) or \(n\). Since the sum of the empty multiset of positive integers is zero, this gives us one partition of the number zero, namely the empty multiset of positive integers.%
 \end{enumerate}
 \end{activity}
-
-\clearpage\end{document}
+\end{document}

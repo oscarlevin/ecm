@@ -5,28 +5,28 @@
 \setcounter{project}{222}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{hatcheck}
-\hypertarget{p-1199}{}%
+\hypertarget{p-1211}{}%
 A group of \(n\) students goes to a restaurant carrying backpacks. The manager invites everyone to check their backpack at the check desk and everyone does. While they are eating, a child playing in the check room randomly moves around the claim check stubs on the backpacks. We will try to compute the probability that, at the end of the meal, at least one student receives his or her own backpack.  This probability is the fraction of the total number of ways to return the backpacks in which at least one student gets his or her own backpack back.%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-227} \hypertarget{p-1200}{}%
+\item\label{task-228} \hypertarget{p-1212}{}%
 What is the total number of ways to pass back the backpacks?%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-119}{}\quad%
-\hypertarget{p-1201}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-129}{}\quad%
+\hypertarget{p-1213}{}%
 \(n!\), because there are \(n\) students and \(n\) backpacks and a distribution of backpacks to students will be a bijection.%
-\item\label{task-228} \hypertarget{p-1202}{}%
+\item\label{task-229} \hypertarget{p-1214}{}%
 In how many of the distributions of backpacks to students does at least one student get his or her own backpack?%
 \par\smallskip%
 \noindent\textbf{Hint 1.}\hypertarget{hint-141}{}\quad%
-\hypertarget{p-1203}{}%
+\hypertarget{p-1215}{}%
 For each student, how big is the set of backpack distributions in which that student gets the correct backpack?  It might be a good idea to first consider cases with \(n=3\), \(4\), and \(5\).%
 ~\hfill{\tiny\hyperlink{a-222.b}{[hint]}\hypertarget{q-222.b}{}}\par\smallskip%
 \noindent\textbf{Hint 2.}\hypertarget{hint-142}{}\quad%
-\hypertarget{p-1204}{}%
+\hypertarget{p-1216}{}%
 For each pair of students (say Mary and Jim, for example) how big is the set of backpack distributions in which the students in this pair get the correct backpack. What does the question have to do with unions or intersections of sets. Keep on increasing the number of students for which you ask this kind of question.%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-120}{}\quad%
-\hypertarget{p-1205}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-130}{}\quad%
+\hypertarget{p-1217}{}%
 If we let \(A_i\) be the set of backpack distributions in which student \(i\) gets the correct backpack, then the number we want to compute is the size of the union of the sets \(A_i\). For this purpose we need to know, for every subset \(S\subseteq [n]\) the size of \(\cap_{i\in S}A_i\). That is, we need to know the number of ways to pass out the backpacks so that student \(i\) gets the correct one for each \(i\) in \(S\). It won't matter whether or not other students get the correct backpacks, so we can just assume that for each \(i\in S\), student \(i\) gets the correct backpack and then hand out the remaining \(n-|S|\) backpacks to the remaining \(n-|S|\) students in \((n-|S|)!\) ways. Thus \((n-|S|)!\) is \(|\cap_{i:i\in S}A_i|\). Using our formula from \hyperref[inclusion-exclusionunion]{Activity~\ref{inclusion-exclusionunion}} we get%
 \begin{align*}
 \left|\bigcup_{i=1}^n A_i \right|  =\amp  \sum_{S:
@@ -40,30 +40,29 @@ S\subseteq [n], S\not=\emptyset}(-1)^{|S|-1} (n-|S|)!\\
 (-1)^{s-1}\frac{n!}{s!}
 \end{align*}
 %
-\item\label{task-229} \hypertarget{p-1206}{}%
+\item\label{task-230} \hypertarget{p-1218}{}%
 What is the probability that at least one student gets the correct backpack?%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-121}{}\quad%
-\hypertarget{p-1207}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-131}{}\quad%
+\hypertarget{p-1219}{}%
 Dividing the answer in the last part by \(n!\), the total number of ways to pass back the backpacks, we get \(\sum_{s=1}^n \frac{(-1)^{s-1}}{s!}\) for the probability that at least one student gets the correct backpack.%
-\item\label{hatcheckprobpart} \hypertarget{p-1208}{}%
+\item\label{hatcheckprobpart} \hypertarget{p-1220}{}%
 What is the probability that no student gets his or her own backpack?%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-122}{}\quad%
-\hypertarget{p-1209}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-132}{}\quad%
+\hypertarget{p-1221}{}%
 Subtracting from 1 to get the probability that no student gets the correct backpack gives us%
 \begin{equation*}
 1-\sum_{s=1}^n  \frac{(-1)^{s-1}}{s!} = \sum_{s=0}^n \frac{(-1)^s}{s!}.
 \end{equation*}
 %
-\item\label{task-231} \hypertarget{p-1210}{}%
+\item\label{task-232} \hypertarget{p-1222}{}%
 As the number of students becomes large, what does the probability that no student gets the correct backpack approach?%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-123}{}\quad%
-\hypertarget{p-1211}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-133}{}\quad%
+\hypertarget{p-1223}{}%
 From calculus, we know that \(e^x=\sum_{j=0}^\infty \frac{x^j}{j!}\). Substituting \(x=-1\) gives us \(e^{-1}=\sum_{j=0}^\infty
 \frac{(-1)^j}{j!}\) which is the limit as \(n\) becomes infinite of the probability in the solution to \hyperref[hatcheck]{Activity~\ref{hatcheck}}. Thus the probability approaches \(1/e\).%
 \end{enumerate}
 \end{activity}
-
-\clearpage\end{document}
+\end{document}

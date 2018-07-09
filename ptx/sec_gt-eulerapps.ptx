@@ -226,6 +226,14 @@
             What is the girth of this graph?  What can you conclude from Euler's formula and the inequality <m>gf \le 2e</m>?
           </p>
         </statement>
+        <solution>
+          <p>
+            The girth is 3, as there is a triangle (3-cycle) inside it. 
+          </p>
+          <p>
+            The graph has 9 vertices and  15 edges, so if it were planer, Euler's formula would say there are <m>2-9+15 = 8</m> faces.  The inequality <m>gf \le 2e</m> becomes <m>24 \le 30</m> which is NOT a contradiction.  We thus cannot conclude anything at this point.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -250,11 +258,23 @@
             </image>
           </sidebyside>
         </statement>
+        <solution>
+          <p>
+            This graph has 9 vertices and 12 edges, so if it were planar, by Euler's formula it would have <m>2 - 9 + 12 = 5</m> faces.  We also see that the girth of the graph is 5, so we have <m>5f \le 2e</m>, but that says that <m>25 \le 24</m>, a contradiction.  Therefore this graph is not planar.
+          </p>
+        </solution>
+      </task>
+      <task>
         <statement>
           <p>
             Could it be that the original graph is planar but the subgraph is not?  What can you conclude?
           </p>
         </statement>
+        <solution>
+          <p>
+            This graph is a subgraph of the original.  If the original graph were planar, then so would any of its subgraphs (erasing edges does not cause any new edge intersections).  But this subgraph is not planar, so the original cannot be planar either.            
+          </p>
+        </solution>
       </task>
     </activity>
 

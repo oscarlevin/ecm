@@ -5,15 +5,15 @@
 \setcounter{project}{173}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{act-hdseq}
-\hypertarget{p-1008}{}%
+\hypertarget{p-1020}{}%
 \(2n\) people stand in line at a old-timey movie theater. Admission is 50 cents, (denoted by H), and the box office starts with no change. \(n\) of the people have H and \(n\) have \textdollar{}1 (denoted D). In how many ways can the \(2n\) people line up so that all can be admitted?%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-113}{}\quad%
-\hypertarget{p-1009}{}%
+\hypertarget{p-1021}{}%
 Here we enumerate the number of workable sequences of \(n\) H's and \(n\) D's such that at each point in the sequence the number of H's is not less than the number of D's.  Try writing out all HD sequences and see which ones are acceptable and which are not.%
 ~\hfill{\tiny\hyperlink{a-173}{[hint]}\hypertarget{q-173}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-83}{}\quad%
-\hypertarget{p-1010}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-93}{}\quad%
+\hypertarget{p-1022}{}%
 The total number of sequences of \(n\) H's and \(n\) D's is \(\binom{2n}{n}\). We delete the number of \emph{nonworkable} sequences. Each such sequence has a first snag as shown by the highlighted D in%
 \begin{equation*}
 \text{H\ H\ D\ D\ \alert{D}\ H\ H\ D\ D\ D\ H\ H}
@@ -27,5 +27,4 @@ a sequence of \(n+1\) H's and \(n-1\) D's. For \(n = 3\) , H D \alert{D} D H H i
 = 15\) arrangements of 2D's and 4H's each of which corresponds to a non-workable sequence. Hence there are \(\binom{6}{3}
 -\binom{6}{2} = 5\) workable sequences. In general, \(\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}\) gives the number of workable sequences.%
 \end{activity}
-
-\clearpage\end{document}
+\end{document}

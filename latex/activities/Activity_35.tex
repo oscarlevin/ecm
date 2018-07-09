@@ -5,14 +5,14 @@
 \setcounter{project}{35}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-30}
-\hypertarget{p-334}{}%
+\hypertarget{p-338}{}%
 Recall that a regular polyhedron has all of its faces identical regular polygons, and that each vertex has the same degree. Consider the cases, broken up by what the regular polygon might be.%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-46} \hypertarget{p-335}{}%
+\item\label{task-47} \hypertarget{p-339}{}%
 Case 1: Each face is a triangle.  Let \(f\) be the number of faces and \(k\) the common degree of each vertex (since the polyhedron is regular).  Find formulas for the number of edges and vertices in terms of \(f\) and \(k\).  Conclude from these the only possible values for \(f\) and \(k\).%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-29}{}\quad%
-\hypertarget{p-336}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-32}{}\quad%
+\hypertarget{p-340}{}%
 Case 1: Each face is a triangle. Let \(f\) be the number of faces. There are then \(3f/2\) edges. Using Euler's formula we have \(v - 3f/2 + f = 2\) so \(v = 2 + f/2\). Now each vertex has the same degree, say \(k\). So the number of edges is also \(kv/2\). Putting this together gives%
 \begin{equation*}
 e = \frac{3f}{2} = \frac{k(2+f/2)}{2}
@@ -23,33 +23,33 @@ k = \frac{6f}{4+f}
 \end{equation*}
 %
 \par
-\hypertarget{p-337}{}%
+\hypertarget{p-341}{}%
 We need \(k\) and \(f\) to both be positive integers. Note that \(\frac{6f}{4+f}\) is an increasing function for positive \(f\), and has a horizontal asymptote at 6. Thus the only possible values for \(k\) are 3, 4, and 5. Each of these are possible. To get \(k = 3\), we need \(f = 4\) (this is the tetrahedron)\index{tetrahedron}. For \(k = 4\) we take \(f = 8\) (the octahedron)\index{octahedron}. For \(k = 5\) take \(f = 20\) (the icosahedron)\index{icosahedron}. Thus there are exactly three regular polyhedra with triangles for faces.%
-\item\label{task-47} \hypertarget{p-338}{}%
+\item\label{task-48} \hypertarget{p-342}{}%
 Case 2: each face is a square.  Again, consider the possible cases for \(f\) and \(k\) (and conclude there is only one: the cube).%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-30}{}\quad%
-\hypertarget{p-339}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-33}{}\quad%
+\hypertarget{p-343}{}%
 Case 2: Each face is a square. Now we have \(e = 4f/2 = 2f\). Using Euler's formula we get \(v = 2 + f\), and counting edges using the degree \(k\) of each vertex gives us%
 \begin{equation*}
 e = 2f = \frac{k(2+f)}{2}
 \end{equation*}
 %
 \par
-\hypertarget{p-340}{}%
+\hypertarget{p-344}{}%
 Solving for \(k\) gives%
 \begin{equation*}
 k = \frac{4f}{2+f} = \frac{8f}{4+2f}
 \end{equation*}
 %
 \par
-\hypertarget{p-341}{}%
+\hypertarget{p-345}{}%
 This is again an increasing function, but this time the horizontal asymptote is at \(k = 4\), so the only possible value that \(k\) could take is 3. This produces 6 faces, and we have a cube. There is only one regular polyhedron with square faces.%
-\item\label{task-48} \hypertarget{p-342}{}%
+\item\label{task-49} \hypertarget{p-346}{}%
 Case 3: Each face is a pentagon.%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-31}{}\quad%
-\hypertarget{p-343}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-34}{}\quad%
+\hypertarget{p-347}{}%
 Case 3: Each face is a pentagon. We perform the same calculation as above, this time getting \(e = 5f/2\) so \(v = 2 + 3f/2\). Then%
 \begin{equation*}
 e = \frac{5f}{2} = \frac{k(2+3f/2)}{2}
@@ -60,13 +60,13 @@ k = \frac{10f}{4+3f}
 \end{equation*}
 %
 \par
-\hypertarget{p-344}{}%
+\hypertarget{p-348}{}%
 Now the horizontal asymptote is at \(\frac{10}{3}\). This is less than 4, so we can only hope of making \(k = 3\). We can do so by using 12 pentagons, getting the dodecahedron\index{dodecahedron}. This is the only regular polyhedron with pentagons as faces.%
-\item\label{task-49} \hypertarget{p-345}{}%
+\item\label{task-50} \hypertarget{p-349}{}%
 Explain why it is not possible for each face to be a \(n\)-gon with \(n \ge 6\).%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-32}{}\quad%
-\hypertarget{p-346}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-35}{}\quad%
+\hypertarget{p-350}{}%
 Case 4: Each face is an \(n\)-gon with \(n \ge 6\). Following the same procedure as above, we deduce that%
 \begin{equation*}
 k = \frac{2nf}{4+(n-2)f}
@@ -74,5 +74,4 @@ k = \frac{2nf}{4+(n-2)f}
 which will be increasing to a horizontal asymptote of \(\frac{2n}{n-2}\). When \(n = 6\), this asymptote is at \(k = 3\). Any larger value of \(n\) will give an even smaller asymptote. Therefore no regular polyhedra exist with faces larger than pentagons.\footnote{Notice that you can tile the plane with hexagons.  This is an infinite planar graph; each vertex has degree 3.  These infinitely many hexagons correspond to the limit as \(f \to \infty\) to make \(k = 3\).\label{fn-4}}%
 \end{enumerate}
 \end{activity}
-
-\clearpage\end{document}
+\end{document}

@@ -5,18 +5,17 @@
 \setcounter{project}{103}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-96}
-\hypertarget{p-733}{}%
+\hypertarget{p-745}{}%
 Prove \(1\cdot n + 2 \cdot (n-1) + 3 \cdot (n-2) + \cdots + n \cdot 1 = \binom{n+2}{3}\)%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-57}{}\quad%
-\hypertarget{p-734}{}%
+\hypertarget{p-746}{}%
 You could use bit strings again, but this time think about where the second 1 could go.  Or for variety, why not try asking about subsets of \([n+2]\)?%
 ~\hfill{\tiny\hyperlink{a-103}{[hint]}\hypertarget{q-103}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-58}{}\quad%
-\hypertarget{p-735}{}%
-\hypertarget{p-736}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-68}{}\quad%
+\hypertarget{p-747}{}%
+\hypertarget{p-748}{}%
 Let \(S = \{1,1,2,\ldots,n + 2\}\). The number of subsets of \(S\) of size 3 is \(\binom{n + 2}{3}\). Each one looks like \(\{a, b, c\}\) with \(a \lt b \lt c\). Let's count these by looking at the size of the middle element \(b\). If \(b=2\), there is one choice for \(a\), namely \(a=1\) and \(n\) choices for \(c\) for a total of \(1 \cdot n\). If \(b=3\) there are 2 choices for \(a\), and \(n - 1\) choices for \(c\) for a total of \(2(n - 1)\). If \(b=4\) the total is \(3(n - 2)\), and so on. The total derived by looking at cases is \(1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \cdot 1\) and this must equal \(\binom{n + 2}{3}\) since the cases are disjoint.%
 %
 \end{activity}
-
-\clearpage\end{document}
+\end{document}

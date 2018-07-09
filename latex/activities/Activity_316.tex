@@ -5,15 +5,15 @@
 \setcounter{project}{316}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{change-making}
-\hypertarget{p-1578}{}%
+\hypertarget{p-1590}{}%
 If we have five identical pennies, five identical nickels, five identical dimes, and five identical quarters, give the picture enumerator for the combinations of coins we can form and convert it to a generating function for the number of ways to make \(k\) cents with the coins we have. Do the same thing assuming we have an unlimited supply of pennies, nickels, dimes, and quarters.%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-204}{}\quad%
-\hypertarget{p-1579}{}%
+\hypertarget{p-1591}{}%
 This is a good place to apply the product principle for picture enumerators.%
 ~\hfill{\tiny\hyperlink{a-316}{[hint]}\hypertarget{q-316}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-209}{}\quad%
-\hypertarget{p-1580}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-219}{}\quad%
+\hypertarget{p-1592}{}%
 \((1+P+P^2+P^3+P^4+P^5)(1+N+N^2+N^3+N^4+N^5)(1+D+D^2+D^3+D^4+D^5)
 (1+Q+Q^2+Q^3+Q^4+Q^5)\). Substituting \(x\) for \(P\), \(x^5\) for \(N\), \(x^{10}\) for \(D\) and \(x^{25}\) for \(Q\) gives us%
 \begin{equation*}
@@ -23,15 +23,14 @@ x^{25i}=\frac{1-x^6}{1-x}\cdot\frac{1-x^{30}}{1-x^5}\cdot\frac{1-x^{60}}{
 \end{equation*}
 %
 \par
-\hypertarget{p-1581}{}%
+\hypertarget{p-1593}{}%
 Although we could write this as a polynomial times a product of four power series, doing so would not significantly increase our understanding, though it would let us make some painful computations of the number of ways to make a certain number of cents. If we actually wanted such numbers we would be better off asking a computer algebra package to expand the product of the polynomials on the left. With unlimited supplies the generating function becomes%
 \begin{equation*}
 \frac{1}{1-x}\cdot\frac{1}{1-x^5}\cdot\frac{1}{1-x^{10}}\cdot\frac{1}{1-x^{25}}.
 \end{equation*}
 %
 \par
-\hypertarget{p-1582}{}%
+\hypertarget{p-1594}{}%
 Again, we could write this as a product of power series, and that would allow us to painfully compute the number of ways to create a certain number of cents. If we actually wanted to know the number of ways to make up 200 cents, say, it would be more sensible to ask a computer algebra package to extract the coefficient of \(x^{200}\) in the product of the four quotients.%
 \end{activity}
-
-\clearpage\end{document}
+\end{document}
