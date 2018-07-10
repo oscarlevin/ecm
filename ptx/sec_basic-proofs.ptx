@@ -269,7 +269,7 @@
           Consider the case for <m>n</m>.  This is easier to see when written out.
           <md>
             <mrow>\binom{n}{0} + \amp \binom{n}{1} + \amp \binom{n}{2} \cdots + \binom{n}{n-1}  + \amp \binom{n}{n} = </mrow>
-            <mrow>\binom{n-1}{0} + \amp \binom{n-1}{0} + \binom{n-1}{1} + \amp \binom{n-1}{1} + \binom{n-1}{2} + \cdots + \binom{n-1}{n-2} + \binom{n-1}{n-1} + \amp \binom{n-1}{n-1}.
+            <mrow>\binom{n-1}{0} + \amp \binom{n-1}{0} + \binom{n-1}{1} + \amp \binom{n-1}{1} + \binom{n-1}{2} + \cdots + \binom{n-1}{n-2} + \binom{n-1}{n-1} + \amp \binom{n-1}{n-1}.</mrow>
           </md>
           We have replaced <m>\binom{n}{0}</m> with <m>\binom{n-1}{0}</m> and <m>\binom{n}{n}</m> with <m>\binom{n-1}{n-1}</m> since they are all 1.  Every other term is replaced using the Pascal recurrence.
         </p>
