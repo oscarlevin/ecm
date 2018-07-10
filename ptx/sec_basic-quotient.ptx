@@ -390,7 +390,9 @@
 
   <activity>
     <introduction>
-      The ice cream shop is down to only 3 flavors.  If you wanted a 3-scoop cone or a 3-scoop shake, made without repeated flavors, there would only be 6 cones possible and only 1 shake.  But what if you allowed repeated flavors?
+      <p>
+        The ice cream shop is down to only 3 flavors.  If you wanted a 3-scoop cone or a 3-scoop shake, made without repeated flavors, there would only be 6 cones possible and only 1 shake.  But what if you allowed repeated flavors?
+      </p>
     </introduction>
     <task>
       <statement>
