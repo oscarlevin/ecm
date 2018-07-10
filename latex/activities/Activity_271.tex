@@ -5,22 +5,22 @@
 \setcounter{project}{271}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{CatalanRecurrence}
-\hypertarget{p-1412}{}%
+\hypertarget{p-1425}{}%
 Recall the recurrence for the Catalan numbers is%
 \begin{equation*}
 C_n = \sum_{i=1}^{n-1} C_{i-1}C_{n-i}\text{.}
 \end{equation*}
 %
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-255} \hypertarget{p-1413}{}%
+\item\label{task-255} \hypertarget{p-1426}{}%
 Show that if we use \(y\) to stand for the power series \(\sum_{n=0}^\infty c_nx^n\), then we can find \(y\) by solving a quadratic equation. Find \(y\).%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-174}{}\quad%
-\hypertarget{p-1414}{}%
+\hypertarget{p-1427}{}%
 Does the right-hand side of the recurrence remind you of some products you have worked with?%
 ~\hfill{\tiny\hyperlink{a-271.a}{[hint]}\hypertarget{q-271.a}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-187}{}\quad%
-\hypertarget{p-1415}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-197}{}\quad%
+\hypertarget{p-1428}{}%
 To solve for \(C_n\), write%
 \begin{align*}
 \sum_{n=0}^\infty C_nx^n \amp= 1+\sum_{n=1}^\infty\sum_{i=1}^nC_{i-1}C_{n-i}x^n\\
@@ -31,7 +31,7 @@ To solve for \(C_n\), write%
 y \amp= 1 + xy^2\text{.}
 \end{align*}
 This gives us \(xy^2-y+1=0\), and solving for \(y\) by the quadratic formula gives us \(y=\frac{1\pm \sqrt{1-4x}}{2x}\).%
-\item\label{task-256} \hypertarget{p-1416}{}%
+\item\label{task-256} \hypertarget{p-1429}{}%
 Taylor's theorem from calculus tells us that the extended binomial theorem%
 \begin{equation*}
 (1+x)^r = \sum_{i=0}^\infty \binom{r}{i}x^i
@@ -43,15 +43,15 @@ holds for any number real number \(r\), where \(\binom{r}{i}\) is defined to be%
 Use this and your solution for \(y\) (note that of the two possible values for \(y\) that you get from the quadratic formula, only one gives an actual power series) to get a formula for the Catalan numbers.\index{Catalan number!generating function for}%
 \par\smallskip%
 \noindent\textbf{Hint.}\hypertarget{hint-175}{}\quad%
-\hypertarget{p-1417}{}%
+\hypertarget{p-1430}{}%
 %
 \begin{equation*}
 \frac{1\cdot 3\cdot 5\cdots (2i-3)}{i!} = \frac{(2i-2)!}{(i-1)!2^i i!}\text{.}
 \end{equation*}
 %
 ~\hfill{\tiny\hyperlink{a-271.b}{[hint]}\hypertarget{q-271.b}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-188}{}\quad%
-\hypertarget{p-1418}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-198}{}\quad%
+\hypertarget{p-1431}{}%
 By the extended binomial theorem,%
 \begin{equation*}
 \sqrt{1-4x}=(1-4x)^{1/2} = \sum_{i=0}^\infty \binom{1/2}{i}(-4x)^i=

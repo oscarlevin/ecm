@@ -5,22 +5,22 @@
 \setcounter{project}{131}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{brokenpermutation}
-\hypertarget{p-900}{}%
+\hypertarget{p-913}{}%
 In how many ways may we stack \(k\) distinct books into \(n\) identical boxes so that there is a stack in every box? There are two distinct ways to answer this question.  Find them both.%
 \par\smallskip%
 \noindent\textbf{Hint 1.}\hypertarget{hint-88}{}\quad%
-\hypertarget{p-901}{}%
+\hypertarget{p-914}{}%
 Imagine taking a stack of \(k\) books, and breaking it up into stacks to put into the boxes in the same order they were originally stacked. If you are going to use \(n\) boxes, in how many places will you have to break the stack up into smaller stacks, and how many ways can you do this?%
 ~\hfill{\tiny\hyperlink{a-131}{[hint]}\hypertarget{q-131}{}}\par\smallskip%
 \noindent\textbf{Hint 2.}\hypertarget{hint-89}{}\quad%
-\hypertarget{p-902}{}%
+\hypertarget{p-915}{}%
 How many different bookcase arrangements correspond to the same way of stacking \(k\) books into \(n\) boxes so that each box has at least one book?%
 \par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-89}{}\quad%
-\hypertarget{p-903}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-99}{}\quad%
+\hypertarget{p-916}{}%
 We can make a list of the \(k\) distinct books in \(k!\) ways. Then we have to choose \(n-1\) of the \(k-1\) places between the lists as the places where we will break the list. However the order in which we list the boxes is irrelevant, so we have equivalence classes of \(n!\) arrangements for each way of putting the books into boxes. Thus we can put the books in boxes in \(k!\binom{k-1}{n-1}/n!\) ways.%
 \par
-\hypertarget{p-904}{}%
+\hypertarget{p-917}{}%
 Alternately, we can take the number of ways to put \(k\) books onto \(n\) bookshelves so that each shelf gets at least one, and then divide by the number of shelves factorial. That gives us \(k!\binom{k-1}{n-1}/n!\) ways to arrange the books.%
 \end{activity}
 \end{document}

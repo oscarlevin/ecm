@@ -5,14 +5,33 @@
 \setcounter{project}{108}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-101}
-\hypertarget{p-772}{}%
+\hypertarget{p-784}{}%
 Let's count the number of subsets of \(\{a,b,c,d,e\}\) of size 3.  Of course we already know the answer should be \(\binom{5}{3}\), which we can see in Pascal's triangle is equal to 10.  What might you try if you didn't already know this?%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-142} \hypertarget{p-773}{}%
+\item\label{task-142} \hypertarget{p-785}{}%
 You might first guess that the answer is \(5\cdot 4 \cdot 3\) since there are 5 choices for which element you put in your subset first, then  4 choices for the next element, and 3 choices for the last element.  Write down all 60 of the outcomes you get by counting the ``subsets'' this way.\footnote{This might seem like a lot of busy work, but your efforts will be rewarded.\label{fn-9}}%
-\item\label{task-143} \hypertarget{p-774}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-82}{}\quad%
+\leavevmode%
+\begin{table}
+\centering
+\begin{tabular}{llllll}
+\(abc\)&\(acb\)&\(bac\)&\(bca\)&\(cab\)&\(cba\)\tabularnewline[0pt]
+\(abd\)&\(adb\)&\(bad\)&\(bda\)&\(dab\)&\(dba\)\tabularnewline[0pt]
+\(abe\)&\(aeb\)&\(bae\)&\(bea\)&\(eab\)&\(eba\)\tabularnewline[0pt]
+\(acd\)&\(adc\)&\(cad\)&\(cda\)&\(dac\)&\(dca\)\tabularnewline[0pt]
+\(ace\)&\(aec\)&\(cae\)&\(cea\)&\(eac\)&\(eca\)\tabularnewline[0pt]
+\(ade\)&\(aed\)&\(dae\)&\(dea\)&\(ead\)&\(eda\)\tabularnewline[0pt]
+\(bcd\)&\(bdc\)&\(cbd\)&\(cdb\)&\(dbc\)&\(dcb\)\tabularnewline[0pt]
+\(bce\)&\(bec\)&\(cbe\)&\(ceb\)&\(ebc\)&\(ecb\)\tabularnewline[0pt]
+\(bde\)&\(bed\)&\(dbe\)&\(deb\)&\(ebd\)&\(edb\)\tabularnewline[0pt]
+\(cde\)&\(ced\)&\(dce\)&\(dec\)&\(ecd\)&\(edc\)
+\end{tabular}
+\caption{The \(3\)-element permutations of \(\{a,b,c,d,e\}\) organized by which \(3\)-element set they permute.\label{tab_permsof3}}
+\end{table}
+\item\label{task-143} \hypertarget{p-786}{}%
 One of the subsets we are actually interested in is \(\{a,c,d\}\).  How many of the outcomes you listed above correspond to this set?  How many outcomes correspond to the set \(\{c,d,e\}\)?%
-\item\label{task-144} \hypertarget{p-775}{}%
+\item\label{task-144} \hypertarget{p-787}{}%
 Explain why every subset corresponds to the same number of permutations.  Then use this to count the total number of subsets correctly.%
 \end{enumerate}
 \end{activity}

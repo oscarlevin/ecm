@@ -37,6 +37,94 @@
           You might first guess that the answer is <m>5\cdot 4 \cdot 3</m> since there are 5 choices for which element you put in your subset first, then  4 choices for the next element, and 3 choices for the last element.  Write down all 60 of the outcomes you get by counting the <q>subsets</q> this way.<fn>This might seem like a lot of busy work, but your efforts will be rewarded.</fn>
         </p>
       </statement>
+      <solution>
+        <table xml:id="tab_permsof3" >
+          <caption>The <m>3</m>-element permutations of <m>\{a,b,c,d,e\}</m> organized
+              by which <m>3</m>-element set they permute.</caption>
+          <tabular>
+            <row>
+              <cell><m>abc</m></cell>
+              <cell><m>acb</m></cell>
+              <cell><m>bac</m></cell>
+              <cell><m>bca</m></cell>
+              <cell><m>cab</m></cell>
+              <cell><m>cba</m></cell>
+            </row>
+            <row>
+              <cell><m>abd</m></cell>
+              <cell><m>adb</m></cell>
+              <cell><m>bad</m></cell>
+              <cell><m>bda</m></cell>
+              <cell><m>dab</m></cell>
+              <cell><m>dba</m></cell>
+            </row>
+            <row>
+              <cell><m>abe</m></cell>
+              <cell><m>aeb</m></cell>
+              <cell><m>bae</m></cell>
+              <cell><m>bea</m></cell>
+              <cell><m>eab</m></cell>
+              <cell><m>eba</m></cell>
+            </row>
+            <row>
+              <cell><m>acd</m></cell>
+              <cell><m>adc</m></cell>
+              <cell><m>cad</m></cell>
+              <cell><m>cda</m></cell>
+              <cell><m>dac</m></cell>
+              <cell><m>dca</m></cell>
+            </row>
+            <row>
+              <cell><m>ace</m></cell>
+              <cell><m>aec</m></cell>
+              <cell><m>cae</m></cell>
+              <cell><m>cea</m></cell>
+              <cell><m>eac</m></cell>
+              <cell><m>eca</m></cell>
+            </row>
+            <row>
+              <cell><m>ade</m></cell>
+              <cell><m>aed</m></cell>
+              <cell><m>dae</m></cell>
+              <cell><m>dea</m></cell>
+              <cell><m>ead</m></cell>
+              <cell><m>eda</m></cell>
+            </row>
+            <row>
+              <cell><m>bcd</m></cell>
+              <cell><m>bdc</m></cell>
+              <cell><m>cbd</m></cell>
+              <cell><m>cdb</m></cell>
+              <cell><m>dbc</m></cell>
+              <cell><m>dcb</m></cell>
+            </row>
+            <row>
+              <cell><m>bce</m></cell>
+              <cell><m>bec</m></cell>
+              <cell><m>cbe</m></cell>
+              <cell><m>ceb</m></cell>
+              <cell><m>ebc</m></cell>
+              <cell><m>ecb</m></cell>
+            </row>
+            <row>
+              <cell><m>bde</m></cell>
+              <cell><m>bed</m></cell>
+              <cell><m>dbe</m></cell>
+              <cell><m>deb</m></cell>
+              <cell><m>ebd</m></cell>
+              <cell><m>edb</m></cell>
+            </row>
+            <row>
+              <cell><m>cde</m></cell>
+              <cell><m>ced</m></cell>
+              <cell><m>dce</m></cell>
+              <cell><m>dec</m></cell>
+              <cell><m>ecd</m></cell>
+              <cell><m>edc</m></cell>
+            </row>
+          </tabular>
+        </table>
+      </solution>
     </task>
     <task>
       <statement>
