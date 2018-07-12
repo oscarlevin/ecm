@@ -45,8 +45,8 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 <!-- These will need to be rethought when using updated mathbook -->
 <xsl:param name="project.text.hint" select="'no'" />
 <xsl:param name="task.text.hint" select="'no'" />
-<xsl:param name="project.text.solution" select="'no'" />
-<xsl:param name="task.text.solution" select="'no'" />
+<xsl:param name="project.text.solution" select="'yes'" />
+<xsl:param name="task.text.solution" select="'yes'" />
 
 
 
@@ -147,7 +147,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 <xsl:template name="end-activity">
     <!-- <xsl:text>\end{frame}&#xa; &#xa;</xsl:text> -->
     <!-- <xsl:text>&#xa;\clearpage &#xa;</xsl:text> -->
-    
+
 </xsl:template>
 
 

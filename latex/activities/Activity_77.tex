@@ -7,5 +7,24 @@
 \begin{activity}[]\label{activity-70}
 \hypertarget{p-610}{}%
 We wish to establish this identity for all natural numbers \(n\), so it would be natural to give a proof by induction.  Do this.%
-~\hfill{\tiny\hyperlink{a-77}{[hint]}\hypertarget{q-77}{}}\end{activity}
+~\hfill{\tiny\hyperlink{a-77}{[hint]}\hypertarget{q-77}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-59}{}\quad%
+\hypertarget{p-612}{}%
+The base case is trivial: \(\binom{0}{0} = 1 = 2^0\).  Now fix \(n \gt 0\) and assume \(\sum_{k=0}^{n-1} \binom{n-1}{k} 2^{n-1}\).%
+\par
+\hypertarget{p-613}{}%
+Consider the case for \(n\).  This is easier to see when written out.%
+\begin{align*}
+\binom{n}{0} + \binom{n}{1} \amp + \cdots + \binom{n}{n-1}  + \binom{n}{n} = \\
+\binom{n-1}{0} + \left[\binom{n-1}{0} + \binom{n-1}{1}\right] \amp + \cdots + \left[\binom{n-1}{n-2} + \binom{n-1}{n-1}\right] + \binom{n-1}{n-1}.
+\end{align*}
+We have replaced \(\binom{n}{0}\) with \(\binom{n-1}{0}\) and \(\binom{n}{n}\) with \(\binom{n-1}{n-1}\) since they are all 1.  Every other term is replaced using the Pascal recurrence.%
+\par
+\hypertarget{p-614}{}%
+But notice now that for every \(k\), we have \(\binom{n-1}{k}\) appearing exactly twice.  So if we group like terms and factor out a 2, we get%
+\begin{equation*}
+\sum_{k=0}^n \binom{n}{k} = 2 \sum_{k=0}^{n-1} \binom{n-1}{k} = 2 \cdot 2^{n-1} = 2^n.
+\end{equation*}
+This completes the inductive case, and therefore the proof.%
+\end{activity}
 \end{document}

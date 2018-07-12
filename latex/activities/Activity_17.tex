@@ -7,5 +7,12 @@
 \begin{activity}[]\label{activity-12}
 \hypertarget{p-195}{}%
 Suppose you had a graph and were given an Euler circuit for that graph.  How might you represent that Euler circuit?  If you listed each edge in order, where each edge was given as a pair of vertices, how many times would each vertex appear in the list?  What have you just shown?%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-12}{}\quad%
+\hypertarget{p-196}{}%
+Suppose a graph has an Euler circuit, written \((v_0, v_1, v_2, \ldots, v_n)\).  Since it is a circuit, we have \(v_0 = v_n\).  Consider the edges used in this path.  They are \(\{v_0, v_1\}\), \(\{v_1, v_2\}\), and so on up to \(\{v_{n-1}, v_n\}\).  Every time a vertex appears in the walk, it is part of two edges, except for \(v_0\) and \(v_n\).  But these are the same vertex, so taken together, these constitute two edges as well.  Since every edges is used in an Euler circuit, we see that every vertex must have even degree.%
+\par
+\hypertarget{p-197}{}%
+A simpler way to say all of this: in the Euler circuit, a vertex appearing \(k\) times must have degree \(2k\), except for the starting and ending vertex, which will have degree \(2k\) if it appears \(k+1\) times.%
 \end{activity}
 \end{document}

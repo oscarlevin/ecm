@@ -267,7 +267,10 @@
     </hint>
     <solution>
       <p>
-        We can obtain a permutation of the beads by cutting the necklace and stretching it out in a straight line. We can partition the permutations according to which necklace they come from in this process. Two permutations are in the same block if we get one either by circularly permuting the other or by reversing the other (this corresponds to flipping the necklace over in space). Thus each necklace corresponds to <m>2n</m> permutations so by the quotient principle we have <m>n!/2n=(n-1)!/2</m> ways to string <m>n</m> distinct beads on a necklace.
+        There are <m>n!</m> permutations (lists, sequences) of the beads.  By gluing the ends together we get <m>n!</m> necklaces, but many of these have the same design as each other.  The question is, for a given design, how many of the necklaces formed from the <m>n!</m> permutations have that design?
+      </p>
+      <p>
+        We can partition the permutations according to which necklace designs they create. Two permutations are in the same block if we get one either by circularly permuting the other or by reversing the other (this corresponds to flipping the necklace over in space). Thus each necklace corresponds to <m>2n</m> permutations so by the quotient principle we have <m>n!/2n=(n-1)!/2</m> ways to string <m>n</m> distinct beads on a necklace.
       </p>
     </solution>
   </activity>
@@ -378,6 +381,15 @@
         One thing that <m>\binom{n}{k}</m> counts is all bit strings of length <m>n</m> and weight <m>k</m>.  What if instead of bit strings, we wanted all strings made up out of some number of distinct symbols that come in two types?  How can you make this be counted by <m>n!</m>?
       </p>
     </hint>
+    <solution>
+      <p>
+        Suppose you have <m>k</m> red balls and <m>n-k</m> blue balls.  Each ball has a different number printed on it.  Thus there are <m>n!</m> different ways to arrange the <m>n</m> balls in a line.  But what if we only care about the color pattern the balls make (perhaps the numbers have been printed in invisible ink and have now vanished).  We can arrange these permutations of all <m>n</m> balls into blocks, where two permutations are in the same block if and only if they have the same sequence of colors (RRBRB<ellipsis />).  There are <m>(n-k)!k!</m> permutations in each block, since the red balls can be arranged in <m>k!</m> ways and the blue balls can be arranged in <m>(n-k)!</m> ways.
+      </p>
+
+      <p>
+        All this says that the number of two-color patterns of length <m>n</m> including <m>k</m> red balls is <m>\frac{n!}{(n-k)!k!}</m>.  But of course the answer is also <m>\binom{n}{k}</m> because of the <m>n</m> positions, we must choose <m>k</m> positions to put the identical red balls.
+      </p>
+    </solution>
   </activity>
 
   <activity>
@@ -391,6 +403,15 @@
         A much easier question would be, how many anagrams of the word <q>anbgrcm</q>?  Then use the quotient principle.
       </p>
     </hint>
+    <solution>
+      <p>
+        Using the quotient principle, you can treat each <q>a</q> as distinct to list all <m>7!</m> arrangements.  But then group arrangements if they have their a's in the same positions: there are <m>3!</m> permutations in each block.  So there are <m>\frac{7!}{3!}</m> anagrams.
+      </p>
+
+      <p>
+        Another approach is to first pick three of the seven positions for the a's.  This can be done in <m>\binom{7}{3}</m> ways.  Then you must permute the remaining 4 letters in the remaining 4 spots, in <m>4!</m> ways.  This give <m>\binom{7}{3}4!</m> anagrams.
+      </p>
+    </solution>
   </activity>
 
 </subsection>
@@ -737,7 +758,7 @@
           <p>
             From this, we can see that the number of ways to place all the books is
             <me>
-              \prod_{i=1}^k (n+i-1).
+              \prod_{i=1}^k (n+i-1) = (n)(n+1)(n+2)\cdots(n_k-1).
             </me>
           </p>
         </solution>
@@ -774,6 +795,15 @@
             In some sort of manufacturing mishap, your set of magnetic letters contains only the first 7 letters of the alphabet, and for some reason 5 identical exclamation marks.  How many ways can you arrange all 12 magnets in a single line?  (one such line is BG!AD!!!FEC!).
           </p>
         </statement>
+        <solution>
+          <p>
+            To use the quotient principle, treat the exclamation marks as distinct, and arrange all 12 magnets in <m>12!</m> ways.  Then group lines if the exclamation marks are in the same positions.  There are <m>5!</m> lines in each group, so there are <m>12!/5!</m> groups.
+          </p>
+
+          <p>
+            Alternatively, you can see this is correct by thinking about picking one of the 12 positions to put the A into, then one of the remaining positions for the B, and so on.  This is <m>P(12,7)</m>, just to put the letters down.  But now you have only one choice as to where to put the exclamation marks.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -786,6 +816,15 @@
             Note, there are 5 exclamation marks, but 6 shelves.
           </p>
         </hint>
+        <solution>
+          <p>
+            Treat each space separated by exclamation marks as a shelf.  So there is a shelf to the left of the first exclamation mark, a shelf between the first and the second, and so on, including a shelf after the last exclamation mark.
+          </p>
+
+          <p>
+            Physically, you could think of shelving books as first lining up all the books with bookmarks between groups of books.  You then put everything before the first separator on the first shelf, everything between the first and second separator on the second shelf, and so on.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -798,6 +837,11 @@
             One such string is *!!***!*!*!, which looks a lot like 01100010101.
           </p>
         </hint>
+        <solution>
+          <p>
+            This should be <m>P(12,7)/7! = \binom{12}{7}</m>.  You can see this by realizing that we have really created a bit string of length 12 and weight 7 (thinking of the blobs as the 1's).
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -805,6 +849,11 @@
             What sort of distribution problem does the previous task correspond to?  Write a question about books and shelves that has the same answer.
           </p>
         </statement>
+        <solution>
+          <p>
+            The letters were the books before, and now they still are, but now the books are indistinguishable.  So how many ways can you distribute 7 identical books to 6 shelves?  <m>\binom{12}{7}</m>, which by the way, is also <m>\mchoose{6}{7}</m>.
+          </p>
+        </solution>
       </task>
     </activity>
 

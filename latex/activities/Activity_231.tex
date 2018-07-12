@@ -5,7 +5,15 @@
 \setcounter{project}{231}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{act_stirlingpie}
-\hypertarget{p-1269}{}%
+\hypertarget{p-1280}{}%
 Find a formula for the Stirling number (of the second kind) \(S(k,n)\).\index{Stirling Number!second kind}%
-~\hfill{\tiny\hyperlink{a-231}{[hint]}\hypertarget{q-231}{}}\end{activity}
+~\hfill{\tiny\hyperlink{a-231}{[hint]}\hypertarget{q-231}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-158}{}\quad%
+\hypertarget{p-1282}{}%
+Since the number of functions from \([k]\) onto \([n]\) is \(S(k,n)n!\), we get from the solution to \hyperref[numontofun]{Activity~\ref{numontofun}}%
+\begin{equation*}
+S(k,n) = \frac{1}{n!}\sum_{s=0}^n (-1)^s\binom{n}{s}(n-s)^k.
+\end{equation*}
+%
+\end{activity}
 \end{document}

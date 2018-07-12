@@ -5,11 +5,27 @@
 \setcounter{project}{262}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{secondordernonhomo}
-\hypertarget{p-1391}{}%
+\hypertarget{p-1402}{}%
 Find the generating function for the solutions to the recurrence%
 \begin{equation*}
 a_i=5a_{i-1}-6a_{i-2} + 2^i.
 \end{equation*}
+%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-190}{}\quad%
+\hypertarget{p-1403}{}%
+%
+\begin{align*}
+\sum_{i=2}^\infty a_ix^i  \amp=  \sum_{i=2}^\infty
+5a_{i-1}x^i-\sum_{i=2}^\infty 6a_{i-2}x^i + \sum_{i=2}^\infty 2^ix^i\\
+\sum_{i=0}^\infty a_ix^i -a_0-a_1x  \amp=
+5x\left(\sum_{i=0}^\infty
+a_{i}x^i-a_0\right)-6x^2\sum_{i=0}^\infty a_{i}x^i + \sum_{n=0}^\infty
+2^ix^i-1-2x\\
+(1-5x+6x^2)\sum_{i=0}^\infty a_ix^i \amp= a_0-1+(a_1-5a_0-2)x +
+\sum_{n=0}^\infty 2^ix^i\\
+\sum_{i=0}^\infty a_ix^i \amp=  \frac{a_0-1+(a_1-5a_0-2)x}{1-5x+6x^2}+ \frac{1}{1-5x+6x^2}\cdot\frac{1}{1-2x}
+\end{align*}
 %
 \end{activity}
 \end{document}

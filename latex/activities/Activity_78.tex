@@ -10,9 +10,17 @@ Consider the question: how many subsets of \([n]\) are there?%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item\label{task-112} \hypertarget{p-617}{}%
 How many subsets have cardinality 0?  How many have cardinality 1?  And so on.  How many would all of these give us all together?%
-~\hfill{\tiny\hyperlink{a-78.a}{[hint]}\hypertarget{q-78.a}{}}\item\label{task-113} \hypertarget{p-620}{}%
+~\hfill{\tiny\hyperlink{a-78.a}{[hint]}\hypertarget{q-78.a}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-60}{}\quad%
+\hypertarget{p-619}{}%
+There are \(\binom{n}{0}\) subsets of size 0, \(\binom{n}{1}\) subsets of size 1, and so on, with \(\binom{n}{k}\) subsets of size \(k\).  The total number of subsets is then the sum of these numbers: \(\sum_{k=0}^n \binom{n}{k}\).%
+\item\label{task-113} \hypertarget{p-620}{}%
 Explain why the answer is also \(2^n\).%
-~\hfill{\tiny\hyperlink{a-78.b}{[hint]}\hypertarget{q-78.b}{}}\end{enumerate}
+~\hfill{\tiny\hyperlink{a-78.b}{[hint]}\hypertarget{q-78.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-61}{}\quad%
+\hypertarget{p-622}{}%
+For each element in \([n]\) we can either include it in the subset or not.  So there are two choices for whether \(1\) is in the subset, two choices for \(2\) and so on.  This gives \(2^n\) subsets.  You can also picture this is a tree diagram, making it very clear why you multiply each 2.%
+\end{enumerate}
 \bigbreak
 \hypertarget{p-623}{}%
 Conclude: Since each side of the identity is the answer to the same counting question, we have established the identity.%

@@ -713,7 +713,7 @@ many ways can you pair up the next person who isn't already paired up?
 
     <solution>
       <p>
-        <m>(n!)^2 2^n</m>
+        <m>(n!)^2 2^n</m>.  First, form two lines of <m>n</m> women and <m>n</m> men.  Each of these lines can be formed in <m>n!</m> ways, so the total number of pairs of lines is <m>(n!)^2</m>.  Now have the newly formed couples enter the coaster in order, but for each pair, decide whether the woman sits to the left or the right of the man.  So for each pair, we have 2 choices, for a total of <m>2^n</m> ways the lined-up couples can sit in the coaster car.
       </p>
     </solution>
   </activity>
@@ -1194,8 +1194,7 @@ many ways can you pair up the next person who isn't already paired up?
         </hint>
         <solution>
           <p>
-            This one is a little tougher. First rewrite as <m>n^{3} = \binom{3n}{3} - 3 \binom{n}{3} - 6n \binom{n}{2}</m>. Suppose you have <m>n</m> men, <m>n</m> women and <m>n</m> children and you want to select triples consisting of one man, one woman and one child. There are <m>n^{3}</m> ways to do this, just pick one from each group. Alternatively, select 3 of the <m>3n</m> people in <m>\binom{3n}{3}</m> ways and delete the <q>bad</q> ones.
-            Delete the ones where you selected all three from one group <mdash/> there are <m>3 \binom{n}{3}</m> of these. Now delete those where you had two from one group and one from another <mdash/> there are <m>2n \binom{n}{2} + 2n \binom{n}{2} + 2n \binom{n}{2}</m> of these.
+            Suppose you have <m>n</m> bow ties, <m>n</m> fezzes and <m>n</m> pairs of sun glasses and you want to select three of the accessories.  There are <m>\binom{3n}{3}</m> ways to do this.  Or you could  select three bow ties, three fezzes or three pairs of sun glasses in <m>3 \binom{n}{3}</m> ways, or two of one and one of the other in  <m>6n \binom{n}{2}</m> ways, or one of each in <m>n^3</m> ways.
           </p>
         </solution>
       </activity>

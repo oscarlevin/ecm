@@ -5,7 +5,27 @@
 \setcounter{project}{270}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-263}
-\hypertarget{p-1423}{}%
+\hypertarget{p-1434}{}%
 Solve the recurrence \(a_n= 4a_{n-1} - 4a_{n-2}\).%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-202}{}\quad%
+\hypertarget{p-1435}{}%
+%
+\begin{align*}
+\sum_{n=2}^\infty a_nx^n  \amp=  4\sum_{n=2}^\infty a_{n-1}x^n -
+4\sum_{n=2}^\infty a_{n-2}x^n\\
+\sum_{n=0}^\infty a_nx^n -a_0-a_1x  \amp=  4x(\sum_{n=0}^\infty a_{n}x^n
+-a_0) - 4x^2\sum_{n=0}^\infty a_{n}x^n\\
+(1-4x+4x^2)\sum_{n=0}^\infty a_nx^n   \amp=
+a_0+a_1x-4a_0x\\
+\sum_{n=0}^\infty a_nx^n \amp= \frac{a_0+a_1x-4a_0x}{(1-4x+4x^2)}\\
+\sum_{n=0}^\infty a_nx^n \amp= \frac{a_0+a_1x-4a_0x}{(1-2x)^2}\\
+\sum_{n=0}^\infty a_nx^n \amp= (a_0+a_1x-4a_0x)\sum_{n=0}^\infty \binom{n+2-1}{n}
+2^nx^n\\
+\sum_{n=0}^\infty a_nx^n \amp= (a_0+a_1x-4a_0x)\sum_{n=0}^\infty (n+1)
+2^nx^n
+\end{align*}
+Thus \(a_n=a_0(n+1)2^n
++(a_1-4a_0)n2^{n-1}=a_02^n+(a_1-2a_0)n2^{n-1}\).%
 \end{activity}
 \end{document}

@@ -10,10 +10,34 @@ Suppose we have already proved \hyperref[thm-eulercircuit]{Theorem~\ref{thm-eule
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item\label{task-13} \hypertarget{p-181}{}%
 Given a graph with an Euler path, how can you get a graph that definitely has an Euler circuit?  How did this affect the number of odd degree vertices?%
-~\hfill{\tiny\hyperlink{a-15.a}{[hint]}\hypertarget{q-15.a}{}}\item\label{task-14} \hypertarget{p-186}{}%
+~\hfill{\tiny\hyperlink{a-15.a}{[hint]}\hypertarget{q-15.a}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-9}{}\quad%
+\hypertarget{p-183}{}%
+Let \(v_b\) and \(v_e\) be the begining and ending vertices of the Euler path.  Now add a vertex \(v'\)to the graph and edges \(\{v_b, v'\}\) and \(\{v', v_e\}\).  Now the Euler path can be extended through \(v'\) and back to \(v_b\), completing an Euler circuit.%
+\par
+\hypertarget{p-184}{}%
+By \hyperref[thm-eulercircuit]{Theorem~\ref{thm-eulercircuit}}, we know our new expanded graph will have all vertices of even degree.  But the degrees of \(v_b\) and \(v_e\) have increased by 1, so in the original graph, it must be that \(v_b\) and \(v_e\) (and only these) had odd degree.%
+\par
+\hypertarget{p-185}{}%
+Note that if \(v_b\) and \(v_e\) were not adjacent in the original graph, we could have just added an edge connecting them, but adding the new vertex works in that and the case where the vertices were already adjacent.%
+\item\label{task-14} \hypertarget{p-186}{}%
 Given a graph with at most two odd degree vertices, build a graph that has only even degree vertices.  If you have an Euler circuit of your new graph, what would that Euler circuit become if you looked at your original graph?%
-~\hfill{\tiny\hyperlink{a-15.b}{[hint]}\hypertarget{q-15.b}{}}\item\label{task-15} \hypertarget{p-190}{}%
+~\hfill{\tiny\hyperlink{a-15.b}{[hint]}\hypertarget{q-15.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-10}{}\quad%
+\hypertarget{p-188}{}%
+Let \(v_1\) and \(v_2\) be the two vertices with odd degree.  We can add a new vertex \(v'\) and edges \(\{v_1, v'\}\) and \(\{v_2, v'\}\), which increases the degrees of \(v_1\) and \(v_2\) by 1, making their degrees even.  Also, \(d(v') = 2\), so all vertices now have even degree.%
+\par
+\hypertarget{p-189}{}%
+If this new graph has an Euler circuit, then we can ``cut'' out the path \((v_2, v', v_1)\).  Specifically, rotate and possibly reverse the circuit so that it starts at \(v_1\) and ends with the sequence \(v_2, v', v_1\).  Then simply remove \(v', v_1\) from that sequence, to get a Euler path.%
+\item\label{task-15} \hypertarget{p-190}{}%
 What do each of the above tasks demonstrate?  That is, write a proof of \hyperref[thm-eulerpath]{Theorem~\ref{thm-eulerpath}} assuming \hyperref[thm-eulercircuit]{Theorem~\ref{thm-eulercircuit}}.  Make sure you specify how each ``direction'' (implication and converse) of the proof is established by the tasks above.%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-11}{}\quad%
+\hypertarget{p-191}{}%
+First, suppose a connected graph \(G\) has an Euler path.  If this path is an Euler circuit, we are done, since there will be no odd degree vertices.  Otherwise, by part (a), we can form a new graph \(G'\) that has an Euler circuit, and by \hyperref[thm-eulercircuit]{Theorem~\ref{thm-eulercircuit}}, this \(G'\) must have all vertices of even degree.  But part (a) tells us then that \(G\) will have exactly two odd degree vertices.%
+\par
+\hypertarget{p-192}{}%
+Conversely, suppose \(G\) has at most two odd degree vertices.  If all vertices are even, then we are done by \hyperref[thm-eulercircuit]{Theorem~\ref{thm-eulercircuit}}.  There are no graphs with exactly one odd degree vertex.  So assume that \(G\) has exactly two odd degree vertices.  By part (b), we can build a graph \(G'\) that has all even degree vertices, which must therefore have an Euler circuit.  But this Euler circuit becomes an Euler path when you look back at \(G\), as required.%
 \end{enumerate}
 \end{activity}
 \end{document}
