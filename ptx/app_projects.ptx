@@ -314,7 +314,7 @@
     <p>
       Prove that,
       <me>
-      _{n} = \left\lbrack \binom{n}{1}  + \binom{n}{3} 5 + \binom{n}{5} 5^{2}\ldots \right\rbrack + \left\lbrack \binom{n}{0}  + \binom{n}{2}  + \binom{n}{4}  + \ldots \right\rbrack.
+      F_{n} = \left\lbrack \binom{n}{1}  + \binom{n}{3} 5 + \binom{n}{5} 5^{2}\ldots \right\rbrack + \left\lbrack \binom{n}{0}  + \binom{n}{2}  + \binom{n}{4}  + \ldots \right\rbrack.
       </me>
     </p>
   </statement>
