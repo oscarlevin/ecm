@@ -7,15 +7,5 @@
 \begin{activity}[]\label{numontofun}
 \hypertarget{p-1267}{}%
 Given a function \(f\) from the \(k\)-element set \(K\) to the \(n\)-element set \([n]\), we say \(f\) is in the set \(A_i\) if \(f(x)\not= i\) for every \(x\) in \(K\). How many of these  sets does an onto function belong to? What is the number of functions from a \(k\)-element set onto an \(n\)-element set?\index{onto functions!number of}\index{surjections!number of}\index{functions!onto!number of}%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-151}{}\quad%
-\hypertarget{p-1268}{}%
-An onto function is in none of these sets. Since we want the number of functions that are in none of these sets, we let our set \(A\) be the set of all functions from \(K\) to \([n]\). Then the number of onto functions is \(|\overline{A_1\cup A_2\cup \cdots \cup A_n}|\). For a nonempty subset \(S\) of \([n]\), the set \(\bigcap_{i\colon i\in S} A_i\) is the set of functions functions from \(K\) to \([n]-S\). The size of this set is \((n-|S|)^k\). When \(S=\emptyset\) this gives the size of \(A\). Thus by \hyperref[compunion]{Activity~\ref{compunion}}%
-\begin{align*}
-\left|\overline{\bigcup_{i=1}^n A_i}\right|&=  \sum_{S:s\subseteq [n]} (-1)^{|S|}
-(n-|S|)^k\\
-&= \sum_{s=0}^n (-1)^s\binom{n}{s}(n-s)^k
-\end{align*}
-is the number of functions from \(K\) onto \([n]\).%
 \end{activity}
 \end{document}

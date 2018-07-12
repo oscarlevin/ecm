@@ -7,13 +7,5 @@
 \begin{activity}[]\label{activity-92}
 \hypertarget{p-738}{}%
 Prove the Pascal recurrence: \(\binom{n}{k} = \binom{n - 1}{k-1} + \binom{n - 1}{k}\).  Do this in two ways, first with a double counting style proof, and then a bijective proof.%
-\par\smallskip%
-\noindent\textbf{Hint.}\hypertarget{hint-53}{}\quad%
-\hypertarget{p-739}{}%
-Bit strings are nice here.  What could the last bit of the bit string be?%
-~\hfill{\tiny\hyperlink{a-99}{[hint]}\hypertarget{q-99}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-73}{}\quad%
-\hypertarget{p-740}{}%
- \(\binom{n}{k}\) is the number of subsets of \(\{ a_{1},a_{2},a_{3},\ldots,a_{n}\}\) of size \(k\). Now a subset \(A\) of size \(k\) either contains the fixed element \(a_{i}\) or it does not. If \(A\) contains \(a_{i}\), the remaining \(k - 1\) elements can be selected in \(\binom{n - 1}{k - 1}\) ways. If, on the other hand, \(A\) does not contain \(a_{i}\), you can choose the \(k\) elements from the depressed set \(\left\{ a_{1},a_{2},\ldots,a_{i - 1,}a_{i + 1,\ldots,}a_{n} \right\}\) in \(\binom{n - 1}{k}\) ways. Since these two cases are mutually exclusive the theorem follows.%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-99}{[hint]}\hypertarget{q-99}{}}\end{activity}
 \end{document}

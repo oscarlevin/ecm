@@ -7,22 +7,5 @@
 \begin{activity}[]\label{negnchoosek}
 \hypertarget{p-1357}{}%
 Find a formula for \((1+x)^{-n}\) as a power series whose coefficients involve binomial coefficients. What does this formula tell you about how we should define \(\binom{-n}{k}\) when \(n\) is positive?%
-\par\smallskip%
-\noindent\textbf{Hint 1.}\hypertarget{hint-161}{}\quad%
-\hypertarget{p-1358}{}%
-While you could use calculus techniques, there is a much simpler approach. Note that \(1 + x = 1 - (-x)\).%
-~\hfill{\tiny\hyperlink{a-253}{[hint]}\hypertarget{q-253}{}}\par\smallskip%
-\noindent\textbf{Hint 2.}\hypertarget{hint-162}{}\quad%
-\hypertarget{p-1359}{}%
-Can you see a way to use \hyperref[multisetgenfn]{Activity~\ref{multisetgenfn}}?%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-174}{}\quad%
-\hypertarget{p-1360}{}%
-%
-\begin{equation*}
-(1+x)^{-n}=(1-(-x))^{-n}=\sum_{i=0}^\infty
-\binom{n+i-1}{i}(-x)^i=\sum_{i=0}^\infty (-1)^i\binom{n+i-1}{i}x^i.
-\end{equation*}
-We want the coefficient of \(x^k\) in \((1+x)^{-n}\) to be \(\binom{-n}{k}\), so we want \(\binom{-n}{k}= (-1)^k\binom{n+k-1}{k}\).%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-253}{[hint]}\hypertarget{q-253}{}}\end{activity}
 \end{document}

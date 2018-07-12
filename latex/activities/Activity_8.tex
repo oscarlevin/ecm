@@ -42,27 +42,8 @@ Let \(f:G_1 \rightarrow G_2\) be a function that takes the vertices of Graph 1 t
 \par
 \hypertarget{p-73}{}%
 Does \(f\) define an isomorphism between Graph 1 and Graph 2?%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-4}{}\quad%
-\hypertarget{p-74}{}%
-Recall that in order for \(f\) to define an isomorphism between \(G1\) and \(G2\), it must preserve relationships between vertices. To put this into context, this means that since \(a\) and \(b\) are joined via an edge in \(G1\) that their corresponding vertices in \(G2\) must also be joined by an edge. This must be true for all of the vertices and edges. When examining the function, we can see that the vertex \(g\) goes to \(v_7\), that is \(f(g)=v_7\). BUT, \(g\) has exactly 2 edges (so \(g\) is degree 2) and \(v_7\) is degree 3. This means that \(f\) cannot possibly be an isomorphism. Similarly, we can see that \(f\) does not take \(c\) to the correct vertex either \(c\) is degree 2 and \(v_1\) has degree 3.%
 \item\label{task-2} \hypertarget{p-75}{}%
 Define a new function \(g\) (with \(g\not=f\)) that defines an isomorphism between Graph 1 and Graph 2.%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-5}{}\quad%
-\begin{sidebyside}{1}{0}{0}{0}
-\begin{sbspanel}{1}
-{\centering%
-\begin{tabular}{llllllll}
-\multicolumn{1}{lA}{\(x\)}&\(a\)&\(b\)&\(c\)&\(d\)&\(e\)&\(f\)&\(g\)\tabularnewline\hrulethin
-\multicolumn{1}{lA}{\(g(x)\)}&\(v_4\)&\(v_5\)&\(v_6\)&\(v_1\)&\(v_7\)&\(v_3\)&\(v_2\)
-\end{tabular}
-\par}
-\end{sbspanel}
-\end{sidebyside}
-\par
-\hypertarget{p-76}{}%
-This was found by first noting that \(b\) in \(V_1\) is the only vertex of degree 5, and in \(V_2\) it is \(v_5\) that has that honor.  So if there were to be any isomorphism, we would need \(g(b) = v_5\).  Then in \(V_1\), only \(g\) is not adjacent to \(b\), so we must have \(g(g) = v_7\).  We can then look at the other vertex adjacent to \(g\), which is \(f\) and conclude \(g(f) = v_3\).  And so on.%
 \item\label{task-3} \hypertarget{p-77}{}%
 Is the graph pictured below isomorphic to Graph 1 and Graph 2? Explain.%
 \begin{sidebyside}{1}{0.4}{0.4}{0}
@@ -78,10 +59,6 @@ Is the graph pictured below isomorphic to Graph 1 and Graph 2? Explain.%
 }
 \end{sbspanel}
 \end{sidebyside}
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-6}{}\quad%
-\hypertarget{p-78}{}%
-No, it could not possibly be isomorphic. If you count up the degrees of each vertex in this picture, you can see that the highest degree is 4 (the center vertex). In order to be isomorphic to either \(G_1\) or \(G_2\) we would definitely need a vertex of degree 5, which we don't have.%
 \end{enumerate}
 \end{activity}
 \end{document}

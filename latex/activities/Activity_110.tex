@@ -7,17 +7,5 @@
 \begin{activity}[]\label{roundtable}
 \hypertarget{p-802}{}%
 In how many ways may \(n\) people sit around a round table? (Assume that when people are sitting around a round table, all that really matters is who is to each person's right. For example, if we can get one arrangement of people around the table from another by having everyone get up and move to the right one place and sit back down, we get an equivalent arrangement of people. Notice that you can get a list from a seating arrangement by marking a place at the table, and then listing the people at the table, starting at that place and moving around to the right.) There are at least two different ways of doing this problem. Try to find them both, especially the one that uses the quotient principle.%
-\par\smallskip%
-\noindent\textbf{Hint 1.}\hypertarget{hint-63}{}\quad%
-\hypertarget{p-803}{}%
-The problem suggests that you think about how to get a list from a seating arrangement. Could every list of n distinct people come from a seating chart? How many lists of n distinct people are there? How many lists could we get from a given seating chart by taking different starting places?%
-~\hfill{\tiny\hyperlink{a-110}{[hint]}\hypertarget{q-110}{}}\par\smallskip%
-\noindent\textbf{Hint 2.}\hypertarget{hint-64}{}\quad%
-\hypertarget{p-804}{}%
-For a different way of doing the problem, suppose that you have chosen one person, say the first one in a list of the people in alphabetical order by name. Now seat that person. Does it matter where they sit? In how many ways can you seat the remaining people? Does it matter where the second person in alphabetical order sits?%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-83}{}\quad%
-\hypertarget{p-805}{}%
-The total number of ways to list how the \(n\) people sit around the table is \(n!\). However, two lists are the same if we get one from the other by shifting everyone right the same number of places. This divides the set of lists up into sets of \(n\) mutually equivalent lists. The number \(m\) of such sets is the number of seating arrangements. However by the product principle, \(mn=n!\), because we have partitioned up the set of \(n!\) lists into \(m\) sets of size \(n\). Therefore \(m=(n-1)!\) A second solution may be obtained by choosing one of the \(n\) people and letting this person sit anywhere. Since all that matters is who is to the right of each person, it doesn't matter where this person sits. Once this person is seated, let everybody else sit down. If they sit down first in one order clockwise around the table and then in some other order, the person to the right of somebody has changed. Thus there are \((n-1)!\) ways (the number of ways to seat everybody else) to seat the people around the table.%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-110}{[hint]}\hypertarget{q-110}{}}\end{activity}
 \end{document}

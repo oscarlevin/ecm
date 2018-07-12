@@ -7,27 +7,5 @@
 \begin{activity}[]\label{relaxedmenage}
 \hypertarget{p-1249}{}%
 A group of \(n\) married couples comes to a group discussion session where they all sit around a round table. In how many ways can they sit so that no person is next to his or her spouse? (Note that two people of the same sex can sit next to each other.)%
-\par\smallskip%
-\noindent\textbf{Hint 1.}\hypertarget{hint-146}{}\quad%
-\hypertarget{p-1250}{}%
-Start with two questions that can apply to any inclusion-exclusion problem. Do you think you would be better off trying to compute the size of a union of sets or the size of a complement of a union of sets? What kinds of sets (that are conceivably of use to you) is it easy to compute the size of? (The second question can be interpreted in different ways, and for each way of interpreting it, the answer may help you see something you can use in solving the problem.)%
-~\hfill{\tiny\hyperlink{a-226}{[hint]}\hypertarget{q-226}{}}\par\smallskip%
-\noindent\textbf{Hint 2.}\hypertarget{hint-147}{}\quad%
-\hypertarget{p-1251}{}%
-Suppose we have a set \(S\) of couples whom we want to seat side by side. We can think of lining up \(|S|\) couples and \(2n - 2|S|\) individual people in a circle.  In how many ways can we arrange this many items in a circle?%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-147}{}\quad%
-\hypertarget{p-1252}{}%
-Let \(A\) be the set of all seating arrangements for \(2n\) people around a round table. Let \(A_i\) be the set of arrangements in which couple \(i\) sits together. We are interested in \(|\overline{A_1\cup A_2\cup \cdots \cup A_n}|\). Thus, for a set \(S\subseteq [n]\), we need to compute \(\left|\bigcup_{i\colon i\in S} A_i\right|\). If we let each couple described by \(S\) sit together, we will seat \(|S|\) couples and \(2n-2|S|\) individuals around the table. We can do this in \(2^{|S|}(|S| + 2n-2 |S|-1)!\) ways, because once we chose a place for a couple (i.e.\@, two adjacent seats) there are two ways the couple can sit down. Thus as long as \(S\) is nonempty, we have the right formula for \(\left|\bigcap_{i\colon i\in S} A_i\right|\). Notice that in the case where \(S=\emptyset\) the formula gives us \((2n-1)!\) seating arrangements, which is exactly the number of ways to seat \(2n\) people around a round table. This is the size of our set \(A\). Therefore,%
-\begin{equation*}
-\left|\bigcap_{i\colon i\in S} A_i\right| = 2^{|S|}(2n-|S|-1)!\text{.}
-\end{equation*}
-Substituting this into the formula from \hyperref[compunion]{Activity~\ref{compunion}} gives us%
-\begin{align*}
-\left|\overline{\bigcup_{i=1}^n A_i}\right| &=  \sum_{S:S\subseteq [n]}
-(-1)^{|S|} \left|\bigcap_{i\colon i\in S} A_i\right|\\
-&= \sum_{s=0}^n(-1)^s\binom{n}{s}2^{s}(2n- s-1)!\text{.}
-\end{align*}
-%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-226}{[hint]}\hypertarget{q-226}{}}\end{activity}
 \end{document}

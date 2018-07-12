@@ -11,23 +11,5 @@ Use the fact that%
 \frac{1-q^{2i}}{1-q^i}= 1+q^i
 \end{equation*}
 and the generating function for the number of partitions of an integer into distinct parts to show how the number of partitions of an integer \(k\) into distinct parts is related to the number of partitions of an integer \(k\) into odd parts.%
-\par\smallskip%
-\noindent\textbf{Hint.}\hypertarget{hint-215}{}\quad%
-\hypertarget{p-1646}{}%
-Note that%
-\begin{equation*}
-\frac{1-q^2}{1-q}\cdot \frac{1-q^4}{1-q^2}\cdot \frac{1-q^6}{1-q^3}\cdot \frac{1-q^8}{1-q^4} = \frac{(1-q^6)(1-q^8)}{(1-q)(1-q^3)} \text{.}
-\end{equation*}
-%
-~\hfill{\tiny\hyperlink{a-324}{[hint]}\hypertarget{q-324}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-242}{}\quad%
-\hypertarget{p-1647}{}%
-\(\displaystyle\prod_{i=1}^\infty 1+q^i=\prod_{i=1}^n \frac{1-q^{2i}}{1-q^i}=\frac{\prod_{i=1}^\infty1-q^{2i}}{\prod_{j=1}^\infty 1-q^j} =\prod_{i=j}^\infty \frac{1}{1-q^{2j-1}}\), because all the terms in the numerator cancel with alternate terms in the denominator leaving only terms with odd powers of \(q\). But%
-\begin{align*}
-\amp \prod_{j=1}^\infty\frac{1}{1-q^{2j-1}} =  \prod_{j=1}^\infty \sum_{i=0}^\infty (q^{2j-1})^i\\
-=\amp (1+q+q^{2\cdot1}+\cdots)(1+q^3+q^{2\cdot3}+\cdots)(1
-+q^5+q^{2\cdot5}+\cdots)\cdots,
-\end{align*}
-which is the generating function for partitions of integers into parts that are odd numbers.%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-324}{[hint]}\hypertarget{q-324}{}}\end{activity}
 \end{document}

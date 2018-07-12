@@ -7,18 +7,5 @@
 \begin{activity}[]\label{activity-278}
 \hypertarget{p-1483}{}%
 Prove \hyperref[thm-stirling-closed]{Theorem~\ref{thm-stirling-closed}}%
-\par\smallskip%
-\noindent\textbf{Hint.}\hypertarget{hint-187}{}\quad%
-\hypertarget{p-1484}{}%
-First multiply both sides by \(n!\) and then prove that identity.  You might have already done so in \hyperref[act_stirlingpie]{Activity~\ref{act_stirlingpie}}%
-~\hfill{\tiny\hyperlink{a-285}{[hint]}\hypertarget{q-285}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-208}{}\quad%
-\begin{proof}\hypertarget{proof-7}{}
-\hypertarget{p-1485}{}%
-The following argument is due to Polya. Suppose you wished to paint n houses and you have \(k\) different colors available. The first house can be painted in \(k\) different ways, the second in \(k\) different ways, etc. So there are \(k^{n}\) ways. How many ways actually use all \(k\) colors? Let \(\alpha_{i}\) be the property that no house is painted with the \(i\)th color, and let \(N(\alpha_{i})\) denote the number of ways of painting the \(n\) houses without using the \(i\)th color. Analogously for \(N(\alpha_{i},\alpha_{j})\), \(N(\alpha_{i},\alpha_{j},\alpha_{k})\), etc. Since \(N(\alpha_{i}) = (k - 1)^{n}\), \(N(a_{i},\alpha_{j}) = ( k - 2)^{n}\) and so on, the number of ways of painting \(n\) houses using all \(k\) colors is, using PIE, \(k^{n} -\binom{k}{1} \left(k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3}      \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k}\binom{k}{k} 0^{n}\).%
-\par
-\hypertarget{p-1486}{}%
-Alternately, we could first partition the \(n\) houses into \(k\) (non-empty) sets, and then paint each set. This can be    accomplished in \(k!S(n,k)\) ways. Now equate these two expressions.%
-\end{proof}
-\end{activity}
+~\hfill{\tiny\hyperlink{a-285}{[hint]}\hypertarget{q-285}{}}\end{activity}
 \end{document}
