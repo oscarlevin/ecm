@@ -100,7 +100,7 @@
   <activity>
     <statement>
       <p>
-        Let <m>b_n</m> be the number of bijections from an <m>n</m>-element set to and <m>n</m>-element set.  Find a recurrence relation for the sequence <m>(b_n)_{n \ge 1}</m> and prove you are correct.
+        Let <m>b_n</m> be the number of bijections from an <m>n</m>-element set to an <m>n</m>-element set.  Find a recurrence relation for the sequence <m>(b_n)_{n \ge 1}</m> and prove you are correct.
       </p>
     </statement>
     <hint>
@@ -551,7 +551,7 @@
     </statement>
     <hint>
       <p>
-        Guess that <m>r^n</m> is a solution, and use this to find two roots <m>r_1, r_2</m> of a polynomial.  Then use <m>3 = \alpha r_1^1 + \beta r_1^1</m> and <m>13 = \alpha r_2^2 + \beta r_2^2</m> to find <m>\alpha</m> and <m>\beta</m>.
+        Guess that <m>r^n</m> is a solution, and use this to find two roots <m>r_1, r_2</m> of a polynomial.  Then use <m>3 = \alpha r_1^1 + \beta r_2^1</m> and <m>13 = \alpha r_1^2 + \beta r_2^2</m> to find <m>\alpha</m> and <m>\beta</m>.
       </p>
     </hint>
   </activity>
