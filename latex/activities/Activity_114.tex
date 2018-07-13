@@ -10,12 +10,5 @@ We have used the quotient principle to explain the formula \(\binom{n}{k} = \fra
 \par
 \hypertarget{p-824}{}%
 Describe a set of outcomes that has size \(n!\) that can be partitioned into blocks of size \((n-k)!k!\) so that each block corresponds to something \(\binom{n}{k}\) counts.%
-~\hfill{\tiny\hyperlink{a-114}{[hint]}\hypertarget{q-114}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-88}{}\quad%
-\hypertarget{p-827}{}%
-Suppose you have \(k\) red balls and \(n-k\) blue balls.  Each ball has a different number printed on it.  Thus there are \(n!\) different ways to arrange the \(n\) balls in a line.  But what if we only care about the color pattern the balls make (perhaps the numbers have been printed in invisible ink and have now vanished).  We can arrange these permutations of all \(n\) balls into blocks, where two permutations are in the same block if and only if they have the same sequence of colors (RRBRB\textellipsis{}).  There are \((n-k)!k!\) permutations in each block, since the red balls can be arranged in \(k!\) ways and the blue balls can be arranged in \((n-k)!\) ways.%
-\par
-\hypertarget{p-828}{}%
-All this says that the number of two-color patterns of length \(n\) including \(k\) red balls is \(\frac{n!}{(n-k)!k!}\).  But of course the answer is also \(\binom{n}{k}\) because of the \(n\) positions, we must choose \(k\) positions to put the identical red balls.%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-114}{[hint]}\hypertarget{q-114}{}}\end{activity}
 \end{document}

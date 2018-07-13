@@ -7,20 +7,5 @@
 \begin{activity}[]\label{act-hdseq}
 \hypertarget{p-1044}{}%
 \(2n\) people stand in line at a old-timey movie theater. Admission is 50 cents, (denoted by H), and the box office starts with no change. \(n\) of the people have H and \(n\) have \textdollar{}1 (denoted D). In how many ways can the \(2n\) people line up so that all can be admitted?%
-~\hfill{\tiny\hyperlink{a-173}{[hint]}\hypertarget{q-173}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-109}{}\quad%
-\hypertarget{p-1046}{}%
-The total number of sequences of \(n\) H's and \(n\) D's is \(\binom{2n}{n}\). We delete the number of \emph{nonworkable} sequences. Each such sequence has a first snag as shown by the highlighted D in%
-\begin{equation*}
-\text{H\ H\ D\ D\ \alert{D}\ H\ H\ D\ D\ D\ H\ H}
-\end{equation*}
-Reverse each letter up to and including the snag, obtaining%
-\begin{equation*}
-\text{D D H H H H H D D D H H},
-\end{equation*}
-a sequence of \(n+1\) H's and \(n-1\) D's. For \(n = 3\) , H D \alert{D} D H H is a non-workable sequence with the snag indicated. Its mate, found by reversing the first three letters, is D H H D H H, a sequence of 2D's and 4H's. \emph{Any} arrangement of 2D's and 4H's will correspond to exactly one non-workable sequence; simply scan through and see the \emph{first} time the H's dominate the D's and then reverse through that spot. There are \(\binom{6}{3}
-= 20\) arrangements of 3H's and 3D's. There are \(\binom{6}{2}
-= 15\) arrangements of 2D's and 4H's each of which corresponds to a non-workable sequence. Hence there are \(\binom{6}{3}
--\binom{6}{2} = 5\) workable sequences. In general, \(\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}\) gives the number of workable sequences.%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-173}{[hint]}\hypertarget{q-173}{}}\end{activity}
 \end{document}

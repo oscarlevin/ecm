@@ -13,71 +13,14 @@ Use the partial fractions decomposition you found in \hyperref[factorFibonacci]{
 \sum_{n=0}^\infty a_nx^i
 \end{equation*}
 and use this to give an explicit formula for \(a_n\).%
-~\hfill{\tiny\hyperlink{a-269.a}{[hint]}\hypertarget{q-269.a}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-197}{}\quad%
-\hypertarget{p-1424}{}%
-%
-\begin{align*}
-\sum_{n=0}^\infty a_nx^n  \amp= \frac{1}{1-x-x^2}= -\frac{1}{x^2+x-1}\\
-\amp= \frac{1}{\sqrt{5}}\cdot\frac{1}{r_1-x} -\frac{1}{\sqrt{5}}\cdot\frac{1}{r_2-x}\\
-\amp= \frac{1}{r_1\sqrt{5}}\cdot\frac{1}{1-x/r_1} -\frac{1}{r_2\sqrt{5}}\cdot\frac{1}{1-x/r_2}\\
-\amp= \frac{1}{r_1\sqrt{5}}\sum_{n=0}^\infty\left(\frac{x}{r_1}\right)^n
--\frac{1}{r_2\sqrt{5}}\sum_{n=0}^\infty  \left(\frac{x}{r_2}\right)^n
-\end{align*}
-This gives us that%
-\begin{align*}
-a_n \amp= \frac{1}{\sqrt{5}\cdot r_1^{n+1}}
-+\frac{1}{\sqrt{5}\cdot r_2^{n+1}}\\
-\amp= \frac{2^{n+1}}{\sqrt{5}(-1+\sqrt{5})^{n+1}}
-+
-\frac{2^{n+1}}{\sqrt{5}(-1-\sqrt{5})^{n+1}}\\
-\amp= \frac{2^{n+1}(1+\sqrt{5})^{n+1}}{\sqrt{5}\cdot
-4^{n+1}}-
-\frac{2^{n+1}(1-\sqrt{5})^{n+1}}{\sqrt{5}\cdot4^{n+1}}\\
-\amp= \frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^{n+1}-
-\frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^{n+1}.
-\end{align*}
-%
-\item\label{task-251} \hypertarget{p-1425}{}%
+~\hfill{\tiny\hyperlink{a-269.a}{[hint]}\hypertarget{q-269.a}{}}\item\label{task-251} \hypertarget{p-1425}{}%
 When we have \(a_0=1\) and \(a_1=1\), i.e. when we start with one pair of baby rabbits, the numbers \(a_n\) are called \terminology{Fibonacci Numbers}\index{Fibonacci numbers}.  Use either the recurrence or your final formula to find \(a_2\) through \(a_8\).  Are you amazed that your general formula produces integers, or for that matter produces rational numbers?  Why does the recurrence equation tell you that the Fibonacci numbers are all integers?%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-198}{}\quad%
-\hypertarget{p-1426}{}%
-Using the recurrence, the Fibonacci numbers from \(a_0\) to \(a_8\) are 1, 1, 2, 3, 5, 8, 13, 21, 34. The recurrence says each term is the sum of the two preceding terms, and since the first two terms are integers, all the sums must be integers.%
 \item\label{task-252} \hypertarget{p-1427}{}%
 Explain why there is a real number \(b\) such that, for large values of \(n\), the value of the \(n\)th Fibonacci number is almost exactly (but not quite) some constant times \(b^n\). (Find \(b\) and the constant.)%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-199}{}\quad%
-\hypertarget{p-1428}{}%
-Since \(\displaystyle \left|\frac{1-\sqrt{5}}{2}\right| \lt 1\), \(\displaystyle\frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^{n-1}\) approaches 0 as \(n\) becomes large. Therefore if we take \(b\) to be \(\displaystyle \left(\frac{1+\sqrt{5}}{2}^n\right)^n\) and we take \(c\) to be \(\frac{1+\sqrt{5}}{2\sqrt{5}}\), then the \(n\)th Fibonacci number is almost exactly \(cb^n\) when \(n\) is large. In particular, it is the nearest integer to \(cb^n\).%
 \item\label{task-253} \hypertarget{p-1429}{}%
 Find an algebraic explanation (not using the recurrence equation) of what happens to make the square roots of five go away.%
-~\hfill{\tiny\hyperlink{a-269.d}{[hint]}\hypertarget{q-269.d}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-200}{}\quad%
-\hypertarget{p-1431}{}%
-From the binomial theorem,%
-\begin{align*}
-\amp \frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{   2}\right)^{n+1}- \frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^{n+1}\\
-\amp=
-\frac{1}{2^{n+1}\sqrt{5}}\left[\sum_{i=0}^{n+1}\binom{n+1}{i}\left(\sqrt{5}\right)^i -\sum_{i=0}^{n+1} \binom{n+1}{i}(-1)^i\left(\sqrt{5}\right)^i\right]\\
-\amp= \frac{1}{2^{n+1}\sqrt{5}}\sum_{i:i\in
-[n+1],\ i\mbox{\scriptsize~is odd} }\binom{n+1}{i}\left(\left(\sqrt{5}\right)^i
--(-1)^i\left(\sqrt{5}\right)^i\right)\\
-\amp= \frac{1}{2^{n+1}\sqrt{5}}\sum_{i:i\in[n+1],\ i\mbox{\scriptsize~is
-odd} }  2\binom{n+1}{i}\left(\sqrt{5}\right)^i\\
-\amp= \frac{1}{2^{n}}\sum_{i:i\in[n+1],\ i\mbox{\scriptsize~is
-odd} }  \binom{n+1}{i}\left(\sqrt{5}\right)^{i-1}\\
-\amp= \frac{1}{2^{n}}\sum_{i:i\in[n],\ i\mbox{\scriptsize~is
-even} }  \binom{n+1}{i+1}5^{i/2}\\
-\amp= \frac{1}{2^n}\sum_{k=0}^{\lfloor n/2 \rfloor}\binom{n+1}{2k+1}5^k,
-\end{align*}
-which makes it clear that \(a_n\) is at least a rational number. It is not clear from this new formula why the result is always an integer.%
-\item\label{task-254} \hypertarget{p-1432}{}%
+~\hfill{\tiny\hyperlink{a-269.d}{[hint]}\hypertarget{q-269.d}{}}\item\label{task-254} \hypertarget{p-1432}{}%
 As a challenge (which the author has not yet done), see if you can find a way to show algebraically (not using the recurrence relation, but rather the formula you get by removing the square roots of five) that the formula for the Fibonacci numbers yields integers.%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-201}{}\quad%
-\hypertarget{p-1433}{}%
-None is yet available.%
 \end{enumerate}
 \end{activity}
 \end{document}

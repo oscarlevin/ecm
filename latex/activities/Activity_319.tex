@@ -10,42 +10,14 @@ When studying partitions of integers, it is inconvenient to restrict ourselves t
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item\label{task-274} \hypertarget{p-1630}{}%
 Give the generating function for the number of partitions of an integer into parts of any size. Don't forget to use \(q\) rather than \(x\) as your variable.%
-~\hfill{\tiny\hyperlink{a-319.a}{[hint]}\hypertarget{q-319.a}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-239}{}\quad%
-\hypertarget{p-1632}{}%
-We start with%
-\begin{equation*}
-(1+q+q^2+\cdots)(1+q^2+q^4+\cdots)\cdots(1+q^i+q^{2i})\cdots,
-\end{equation*}
-which we can write more precisely as%
-\begin{equation*}
-\prod_{i=1}^\infty \sum_{j=0}^\infty q^{ij}.
-\end{equation*}
-%
-\item\label{task-275} \hypertarget{p-1633}{}%
+~\hfill{\tiny\hyperlink{a-319.a}{[hint]}\hypertarget{q-319.a}{}}\item\label{task-275} \hypertarget{p-1633}{}%
 Find the coefficient of \(q^4\) in this generating function.%
-~\hfill{\tiny\hyperlink{a-319.b}{[hint]}\hypertarget{q-319.b}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-240}{}\quad%
-\hypertarget{p-1635}{}%
-From the fifth factor on, there is no way to choose a \(q^i\) that has \(i\) nonzero and less than five from the factor. Thus we choose a 1 from each of these factors. We can choose a \(q^4\) from the fourth factor and 1 from the rest, a \(q^3\) from the third factor, a \(q\) from the first and a 1 from the rest, a \(q^2\) from the second factor, a \(q^2\) from the first and a 1 from the rest, or we can choose a \(q^4\) from the first factor and a 1 from the rest. Therefore the coefficient of \(q^4\) is five.%
-\item\label{task-276} \hypertarget{p-1636}{}%
+~\hfill{\tiny\hyperlink{a-319.b}{[hint]}\hypertarget{q-319.b}{}}\item\label{task-276} \hypertarget{p-1636}{}%
 Find the coefficient of \(q^5\) in this generating function.%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-241}{}\quad%
-\hypertarget{p-1637}{}%
-From the sixth factor of the product on, there is no way to choose a \(q^i\) that has \(i\) nonzero and less than six from the factor, so when we compute the coefficient of \(q^5\), we can only choose the 1 from each of these terms. In the first five factors, we choose any combination of powers that adds to 5. We can choose \(q^5\) from the fifth and 1 from the rest, q from the first, \(q^4\) from the second and 1 from the rest, \(q^2\) from the second, \(q^3\) from the third and 1 from the rest, \(q^2\) from the first and \(q^3\) from the third and 1 from the rest, \(q^3\) from the first, \(q^2\) from the second, and 1 from the rest \(q^5\) from the first and 1 from the rest, and these are the only ways to get a \(q^5\) in the product. Thus the coefficient of \(q^5\) is 7.%
 \item\label{task-277} \hypertarget{p-1638}{}%
 This generating function involves an infinite product. Describe the process you would use to expand this product into as many terms of a power series as you choose.%
-~\hfill{\tiny\hyperlink{a-319.d}{[hint]}\hypertarget{q-319.d}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-242}{}\quad%
-\hypertarget{p-1640}{}%
-To get the coefficient of \(q^k\) in this product, we look at all ways of choosing one summand from each of the infinite series and multiplying them together to get \(q^k\), and add all these products up. That is, the coefficient of \(q^k\) is the number of ways of making these choices of one summand from each series so that the product of our choices is \(q^k\). This lets us write down as many terms of the series as we want, or as we have patience for!%
-\item\label{task-278} \hypertarget{p-1641}{}%
+~\hfill{\tiny\hyperlink{a-319.d}{[hint]}\hypertarget{q-319.d}{}}\item\label{task-278} \hypertarget{p-1641}{}%
 Rewrite any power series that appear in your product as quotients of polynomials or as integers divided by polynomials.%
-\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-243}{}\quad%
-\hypertarget{p-1642}{}%
-We can rewrite the infinite product as \(\displaystyle\prod_{i=0}^\infty\frac{1}{1-q^i}\).%
 \end{enumerate}
 \end{activity}
 \end{document}

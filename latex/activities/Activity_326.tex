@@ -7,18 +7,5 @@
 \begin{activity}[]\label{activity-319}
 \hypertarget{p-1662}{}%
 Write down the generating function for the number of ways to partition an integer into parts of size no more than \(m\), each used an odd number of times. Write down the generating function for the number of partitions of an integer into parts of size no more than \(m\), each used an even number of times. Use these two generating functions to get a relationship between the two sequences for which you wrote down the generating functions.%
-~\hfill{\tiny\hyperlink{a-326}{[hint]}\hypertarget{q-326}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-249}{}\quad%
-\hypertarget{p-1664}{}%
-%
-\begin{equation*}
-\displaystyle\prod_{i=1}^m (q^i+q^{3i}+q^{5i}+\cdots )= q^{1+2+\cdots m}\prod_{i=1}^m (1+q^{2i}+q^{4i}+\cdots )=q^{\binom{m+1}{2}}\prod_{i=1}^m\frac{1}{1-q^{2i}}
-\end{equation*}
-is the generating function for the number of ways to partition an integer into parts of size at most \(m\), each used an odd number of times.%
-\begin{equation*}
-\displaystyle
-\prod_{i=1}^m (1 +q^{2i}+q^{4i}+q^{6i}+\cdots )=\prod_{i=1}^m \frac{1}{1-q^{2i}}
-\end{equation*}
-is the generating function for the number of partitions of an integer into parts of size no more than \(m\), each used an even number of times. Therefore the number of partitions of \(k\) into parts of size no more than \(m\), each used an even number of times is the number of partitions of \(k+\binom{m+1}{2}\), into parts of size no more than \(m\), each used an odd number of times.%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-326}{[hint]}\hypertarget{q-326}{}}\end{activity}
 \end{document}

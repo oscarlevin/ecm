@@ -7,9 +7,5 @@
 \begin{activity}[]\label{HanoiProblem}
 \hypertarget{p-950}{}%
 The ``Towers of Hanoi'' puzzle has three rods rising from a rectangular base with \(n\) rings of different sizes stacked in decreasing order of size on one rod. A legal move consists of moving a ring from one rod to another so that it does not land on top of a smaller ring. If \(m_n\) is the number of moves required to move all the rings from the initial rod to another rod that you choose, give a recurrence for \(m_n\).%
-~\hfill{\tiny\hyperlink{a-137}{[hint]}\hypertarget{q-137}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-106}{}\quad%
-\hypertarget{p-952}{}%
-We can solve the puzzle in one step if there is one ring, so \(m_1=1\). If \(n>0\) and we want to move all the rings from the initial rod to rod 3, then first we solve the problem of moving all but the bottom ring to rod 2; this takes \(m_{n-1}\) steps, then we move the bottom ring to rod 3, then we solve the problem of moving all the remaining rings from rod 2 to rod 3. Thus we have \(m_n=2m_{n-1}+1\).%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-137}{[hint]}\hypertarget{q-137}{}}\end{activity}
 \end{document}

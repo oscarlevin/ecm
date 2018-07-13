@@ -7,16 +7,5 @@
 \begin{activity}[]\label{act_restrictedmultisetspie}
 \hypertarget{p-1257}{}%
 In how many ways may we distribute \(k\) identical apples to \(n\) children so that no child gets more than four apples?%
-~\hfill{\tiny\hyperlink{a-225}{[hint]}\hypertarget{q-225}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-152}{}\quad%
-\hypertarget{p-1259}{}%
-Let \(S\) be the set of all distributions of \(k\) identical apples to the \(n\) children. Let \(A_i\) be the set of distributions in which child \(i\) gets five or more apples. Then we are asking for the number of distributions of apples that lie in none of the sets, so we are asking for \(|\overline{A_1\cup A_2\cup \cdots \cup A_n}|\). From the formula you gave in \hyperref[compunion]{Activity~\ref{compunion}} we see that to find this number we need to know \(|\bigcap_{i\in S}A_i|\) for every subset \(S\) of \([n]\). But if \(S\) has size \(s\), then \(S\) determines a distribution such that all the children in a particular set of size \(s\) will get five or more apples. We can pass out the apples so that the children in a particular set \(\hat S\) of children get at least five apples as follows: we give everyone in \(\hat
-S\) five apples, and then pass out the remaining \(k-5s\) apples to the children in \(\binom{k-5s+n-1}{k-5s}= \binom{k-5s+n-1}{n-1}\) ways. This counts the number of ways to give at least five apples to every child in \(\hat S\), and maybe give five apples to some other children as well. Thus \(|\bigcap_{i\in S}A_i| = = \binom{k-5|S|+n-1}{n-1}\). In particular, if \(S=\emptyset\), we get \(\binom{k+n-1}{n-1}\), which is the total number of ways to pass out \(k\) identical apples to \(n\) children. Applying the formula from \hyperref[compunion]{Activity~\ref{compunion}} gives us%
-\begin{align*}
-\left| \overline{\bigcup_{i=1}^n A_i}\right|&= \sum_{S:S\subseteq [n]}(-1)^{|S|}\left|\bigcap _{i\colon i\in S} A_i\right|\\
-&= \sum_{s=0}^n \binom{n}{s}(-1)^s \binom{k-5s+n-1}{n-1}\\
-&= \sum_{s=0}^n (-1)^s\binom{n}{s}\binom{k-5s+n-1}{n-1}\text{.}
-\end{align*}
-%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-225}{[hint]}\hypertarget{q-225}{}}\end{activity}
 \end{document}

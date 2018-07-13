@@ -7,24 +7,5 @@
 \begin{activity}[]\label{activity-216}
 \hypertarget{p-1250}{}%
 Give a proof of your formula for the principle of inclusion and exclusion.%
-~\hfill{\tiny\hyperlink{a-223}{[hint]}\hypertarget{q-223}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-150}{}\quad%
-\hypertarget{p-1253}{}%
-The principle of inclusion and exclusion for one set says \(|A_1| = |A_1|\).  The principle of inclusion and exclusion for two sets says \(|A_1\cup A_2| = |A_1| + |A_2| - |A_1 \cap A_2|\), and was prove in our solution to \hyperref[twosetintersection]{Activity~\ref{twosetintersection}}.  Now suppose the formula is true for a union of \(n-1\) or fewer sets and \(n \ge 2\).  Since%
-\begin{equation*}
-A_1 \cup A_2 \cup \cdots \cup A_n = \left(A_1 \cup A_2 \cup \cdots \cup A_{n-1}\right) \cup A_n
-\end{equation*}
-we can apply the formula of \hyperref[twosetintersection]{Activity~\ref{twosetintersection}} to get%
-\begin{align*}
-\left|\bigcup_{i=1}^n A_i \right| \amp = \left|\left(\bigcup_{i=1}^{n-1} A_i\right) \cup A_n \right| \\
-\amp = \left| \bigcup_{i=1}^{n-1} A_i\right| + |A_n| - \left|\left( \bigcup_{i=1}^{n-1} A_i\right) \cap A_n\right|\\
-\amp = \left| \bigcup_{i=1}^{n-1} A_i\right| + |A_n| - \left|\bigcup_{i=1}^{n-1} A_i \cap A_n\right|
-\end{align*}
-By the inductive hypothesis, we may apply the principle of inclusion and exclusion to the first and last term in the last line above, and can rewrite it as%
-\begin{gather*}
-\sum_{S:S\subseteq [n-1],S\ne \emptyset} (-1)^{|S|-1}\left|\bigcap_{i:i\in S}A_i \right| + |A_n| - \sum_{S:S\subseteq [n-1],S\ne \emptyset} (-1)^{|S|-1}\left|\bigcap_{i:i\in S}A_i \cap A_n \right|\\
-= \sum_{S:S\subseteq [n],S\ne \emptyset} (-1)^{|S|-1}\left|\bigcap_{i:i\in S}A_i \right|,
-\end{gather*}
-where the last line follows because every nonempty subset of \([n]\) is either (1) a nonempty subset of \([n-1]\), (2) a nonempty subset of \([n-1]\) with  \(n\) added in, or (3) the set \(\{n\}\).  Thus by the principle of mathematical induction, the formula for the principle of inclusion and exclusion holds for all nonnegative integers \(n\).%
-\end{activity}
+~\hfill{\tiny\hyperlink{a-223}{[hint]}\hypertarget{q-223}{}}\end{activity}
 \end{document}
