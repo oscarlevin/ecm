@@ -150,7 +150,7 @@
 
 
     <p>
-      We can arrange the Stirling numbers into a triangle (called <term>Stirlings second triangle</term>).  The first five rows are shown below.  The entries are indexed differently than in Pascal's triangle: the top 1 represents <m>S(1,1)</m>, so for example, <m>S(5,2) = 15</m>.
+      We can arrange the Stirling numbers into a triangle (called <term>Stirling's second triangle</term>).  The first five rows are shown below.  The entries are indexed differently than in Pascal's triangle: the top 1 represents <m>S(1,1)</m>, so for example, <m>S(5,2) = 15</m>.
     </p>
 
     <sidebyside width="50%">
@@ -545,7 +545,7 @@
           </p>
         </solution>
     </activity>
-    
+
     <activity>
       <statement>
         <p>
@@ -627,9 +627,9 @@
     </activity>
 
 
-  
+
     <p>
-      With the binomial coefficients, with Stirling numbers of the second kind, and with the Lah numbers, we were able to find a recurrence by asking what happens to our subset, partition, or broken permutation of a set <m>S</m> of numbers if we remove the largest element of <m>S</m>. Thus it is natural to look for a recurrence to count the number of partitions of <m>k</m> into <m>n</m> parts by doing something similar. Unfortunately, since we are counting distributions in which all the objects are identical, there is no way for us to identify a largest element. However if we think geometrically, we can ask what we could remove from a Young diagram to get a Young diagram. 
+      With the binomial coefficients, with Stirling numbers of the second kind, and with the Lah numbers, we were able to find a recurrence by asking what happens to our subset, partition, or broken permutation of a set <m>S</m> of numbers if we remove the largest element of <m>S</m>. Thus it is natural to look for a recurrence to count the number of partitions of <m>k</m> into <m>n</m> parts by doing something similar. Unfortunately, since we are counting distributions in which all the objects are identical, there is no way for us to identify a largest element. However if we think geometrically, we can ask what we could remove from a Young diagram to get a Young diagram.
       Two natural ways to get a partition of a smaller integer from a partition of <m>n</m> would be to remove the top row of the Young diagram of the partition and to remove the left column of the Young diagram of the partition. These two operations correspond to removing the largest part from the partition and to subtracting 1 from each part of the partition respectively. Even though these have some sort of geometric symmetry, the two operations are not symmetric with respect to the number of parts. Thus one might be much more useful than the other for finding a recurrence for the number of partitions of <m>k</m> into <m>n</m> parts.
     </p>
 
@@ -853,6 +853,6 @@
       It is remarkable that there is no known formula for <m>p_n(k)</m>, nor is there one for <m>p(k)</m>. We have seen some ways to compute values of <m>p_n(k)</m>.  In <xref ref="sec_adv-linearparts"/> we will see more methods to compute values and find properties of these numbers even without ever knowing a formula for them.
     </p>
 
-    
+
   </subsection>
 </section>
