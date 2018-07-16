@@ -336,7 +336,7 @@
     </li>
     <li>
       <p>
-        Use <m>Q^{2n + 1} = Q^{n}Q^{n + 1}</m> to show <m>F_{2n + 1} = F_{n + 1}^{2} - F_{n}^{2}</m> and other identities.
+        Use <m>Q^{2n + 1} = Q^{n}Q^{n + 1}</m> to show <m>F_{2n + 1} = F_{n + 1}^{2} + F_{n}^{2}</m> and other identities.
       </p>
     </li>
   </ol>
