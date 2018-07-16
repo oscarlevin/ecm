@@ -462,6 +462,11 @@
             Prove that the number of triangulations of a convex polygon with <m>n+2</m> sides also satisfies this recurrence relation (if you haven't already done so in <xref ref="act-catalanfirst"/>).  Conclude that the triangulations problem is also solved by the Catalan numbers.
           </p>
         </statement>
+        <hint>
+          <p>
+            Fix an edge of the polygon.  There will be exactly <m>n-2</m> triangles this edge could be part of.  For each of those, can you count the number of triangles that can be made of what ?
+          </p>
+        </hint>
       </task>
     </activity>
 
