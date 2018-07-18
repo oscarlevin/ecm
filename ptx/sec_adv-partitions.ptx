@@ -231,7 +231,7 @@
     <activity xml:id="secondstirlingrecurrence" category="essential and interesting">
         <statement>
           <p>
-            Now generalize.  In a partition of the set <m>[k]</m>, the number <m>k</m> is either in a block by itself, or it is not.  Find a two variable recurrence for <m>S(n,k)</m>, valid for <m>n</m> and <m>k</m> larger than one.
+            Now generalize.  In a partition of the set <m>[k]</m>, the number <m>k</m> is either in a block by itself, or it is not.  Find a two variable recurrence for <m>S(k,n)</m>, valid for <m>k</m> and <m>n</m> larger than one.
           </p>
         </statement>
         <hint>
@@ -273,11 +273,10 @@
       <solution>
         <p>
           <m>L(k,n)</m> is the number of broken permutations of a
-          <m>k</m>-element set into <m>n</m> parts. Either <m>k</m> is in an ordered block by
-          itself or it is not. If it is, it can go after any of the <m>k-1</m> other
+          <m>k</m>-element set into <m>n</m> parts. Either <m>k</m> is in an ordered block with other numbers, or it is in a block by itself. If it is with other elements, it can go after any of the <m>k-1</m> other
           elements, or it can go at the beginning of any of the <m>n</m> blocks. If
-          it is not, deleting it gives a broken permutation of a <m>k-1</m>-element
-          set into <m>n-1</m> blocks. Thus <m>L(k,n)=L(k-1,n-1) + (n+k-1)L(k,n)</m>.
+          it is by itself, deleting it gives a broken permutation of a <m>k-1</m>-element
+          set into <m>n-1</m> blocks. Thus <m>L(k,n)=L(k-1,n-1) + (n+k-1)L(k-1,n)</m>.
         </p>
       </solution>
     </activity>
