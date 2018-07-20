@@ -443,6 +443,11 @@
             Calculate the first 6 values of the sequence from this recurrence relation, to verify that it appears to agree with the Catalan numbers.
           </p>
         </statement>
+        <solution>
+          <p>
+            The first six values of the sequence are 1, 2, 5, 11, 42, 132.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -455,6 +460,22 @@
             Look at rooted binary trees.  What happens when you remove the root?  You could also use the parenthesizing model by asking where <q>main product</q> occurs.
           </p>
         </hint>
+        <solution>
+          <p>
+            We know that the Catalan numbers count the number of rooted binary trees.  Specifically, the number of rooted binary trees with <m>n+2</m> leaves is <m>C_{n+1}</m>.  Thus we must simply argue that the number of rooted binary trees with <m>n+2</m> leaves is also
+            <me>
+              \sum_{i=0}^{n} C_iC_{n-i} = C_0C_{n} + C_1C_{n-1} + \cdots + C_{n}C_0.
+            </me>
+          </p>
+
+          <p>
+            To see this, consider the result of removing the root of a rooted binary tree.  This results in two more trees (the left and right child of the root are the new roots).  These will either be rooted binary trees, or a single vertex (in the case that one of the children of the root was a leaf already).  There are <m>n+1</m> cases: the left tree is just the root (so the right tree has <m>n+1</m> leaves), the left tree has 2 leaves (so the right tree has <m>n</m> leaves), the left tree has 3 leaves (so the right tree has <m>n-1</m> leaves), and so on until the case where the left tree has <m>n+1</m> leaves (and the right tree is just the root).
+          </p>
+
+          <p>
+            Each of these cases corresponds to a term in the sum.  When the left tree has <m>i+1</m> leaves, it could be any of <m>C_{i}</m> trees, and for each, the right tree could be any of <m>C_{n-i}</m> trees (they all have <m>n+2-(i+1) = n-i+1</m> leaves).  Using the product and then sum prinicple, we get the right hand side of the recurrence.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -467,6 +488,11 @@
             Fix an edge of the polygon.  There will be exactly <m>n-2</m> triangles this edge could be part of.  For each of those, can you count the number of triangles that can be made of what ?
           </p>
         </hint>
+        <solution>
+          <p>
+            On one hand, we have that <m>C_{n+1}</m> is the number of ways to triangulate a polygon with <m>n+3</m> sides.  Now fix a side the of polygon and consider each of the <m>n+1</m> non-incident vertices.  For each vertex, we can form exactly one triangle that has our fixed side as a side.  The other two sides of this triangle will create two new polygons with the other sides of the original polygon (perhaps the polygon will only have 1 side, if the vertex is chosen adjacent to the fixed side).  These will give you your terms in the sum on the right hand side.
+          </p>
+        </solution>
       </task>
     </activity>
 
@@ -581,6 +607,11 @@
             Show by example, how the bijection between Dyck words and valid parenthesizing works.  To do this, list the <m>C_4 = 14</m> valid Dyck words, then list the <m>C_4 = 14</m> ways to parenthesize <m>abcde</m>, in the corresponding order.
           </p>
         </statement>
+        <solution>
+          <p>
+            Some examples: HDHHDHDD corresponds with <m>a((bc)(de))</m>.  The string HHHHDDDD corresponds with <m>(((ab)c)d)e</m>.  You should list all 14 of each.
+          </p>
+        </solution>
       </activity>
 
 
@@ -596,11 +627,21 @@
               Of all <m>2n</m>-bit strings of weight <m>n</m>, some are Dyck words and some are not.  Explain which are not.  What do all of these have in common?
             </p>
           </statement>
+          <solution>
+            <p>
+              Any <m>2n</m>-bit string of weight <m>n</m> that is NOT a Dyck word will have some initial segment in which exactly one more 1 appears than 0.
+            </p>
+          </solution>
         </task>
         <task>
           <statement>
             <p>
               Suppose some initial segment of a bit string contains one more 1 than 0.  If you changed every 1 to a 0 and every 0 to a 1 in this initial segment, how many 0's and how many 1's would the entire bit string have?
+            </p>
+          </statement>
+          <statement>
+            <p>
+              The resulting string will have one more 0 and one fewer 1.  That is, if the weight was originally <m>n</m>, the weight would now be <m>n-1</m>.
             </p>
           </statement>
         </task>
@@ -610,6 +651,11 @@
               Describe a bijection between the set of <m>2n</m>-bit strings of weight <m>n-1</m> and the set of <m>2n</m>-bit strings of weight <m>n</m> that are NOT Dyck words.
             </p>
           </statement>
+          <solution>
+            <p>
+              The bijection is precisely what is described in the previous part.  For any string that is not a Dyck word, replace all 0's with 1's and all 1's with 0's up to and including the first 1 that outnumbers the 0's, reading from left to right.
+            </p>
+          </solution>
         </task>
         <task>
           <statement>
@@ -617,6 +663,11 @@
               Why does this prove that <m>C_n = \binom{2n}{n} - \binom{2n}{n-1}</m>?
             </p>
           </statement>
+          <solution>
+            <p>
+              The total number of <m>2n</m>-bit strings of weight <m>n</m> is <m>\binom{2n}{n}</m>.  We remove the <m>\binom{2n}{n-1}</m> strings that are not Dyck words.  But the number of Dyck words of length <m>2n</m> is <m>C_n</m>.
+            </p>
+          </solution>
         </task>
       </activity>
 
@@ -667,6 +718,11 @@
             Place <m>2n</m> points on the circumference of a circle and draw <m>n</m>  non-intersecting chords.  How many ways can you do this?  Equivalently, if <m>2n</m> people stand in a circle, how many ways can everyone shake hands with one other person so that no one's arms cross?  Assume these people have arbitrarily long arms.
           </p>
         </statement>
+        <solution>
+          <p>
+            To see these are counted by the Catalan numbers, it is enough to verify that they satisfy the same recurrence relation as the Catalan numbers.  Fix one of the <m>2n</m> points and draw a chord to an acceptable second point (this will need to be an odd number of points away, so that all the points on either side of the chord can be matched up).  This creates two new <q>circles</q>, for which you can compute the number of non-intersecting chords using the smaller Catalan numbers, getting the recurrence.
+          </p>
+        </solution>
       </activity>
 
       <activity>
@@ -683,6 +739,11 @@
             Consider the graph <m>P_n</m> (a path with <m>n</m> edges and <m>n+1</m> vertices).  Call one of the endpoints of the path <m>v</m>.  How many walks of length <m>2n</m> start and stop at <m>v</m>?  Recall a walk in a graph is a sequence of adjacent vertices (think of tracing along edges of the graph), that does allow for repeated vertices.
           </p>
         </statement>
+        <solution>
+          <p>
+            We can describe a walk starting at <m>v</m> as a Dyck word: use <m>a</m> for each step away from <m>v</m> and <m>t</m> for each stem toward <m>v</m>.  Since <m>v</m> is an endpoint of the path, no initial segment of this path can contain more <m>t</m>'s than <m>a</m>'s, so every path is a unique Dyck word.  Similarly, given any Dyck word on these symbols, we have a unique path starting and ending at <m>v</m> (there are <m>n</m> <m>a</m>'s in our words, so the farthest away you can go from <m>v</m> is <m>a</m> steps away, and the path has length <m>a</m>).
+          </p>
+        </solution>
       </activity>
 
       <activity>

@@ -10,8 +10,26 @@ We first gave this problem as \hyperref[tennispairings1]{Activity~\ref{tennispai
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item\label{task-148} \hypertarget{p-812}{}%
 In how many ways may we pair up all the members of the club? Give at least two solutions different from the one you gave in   \hyperref[tennispairings1]{Activity~\ref{tennispairings1}}. (You may not have done \hyperref[tennispairings1]{Activity~\ref{tennispairings1}}. In that case, see if you can find three solutions.)%
-~\hfill{\tiny\hyperlink{a-112.a}{[hint]}\hypertarget{q-112.a}{}}\item\label{task-149} \hypertarget{p-816}{}%
+~\hfill{\tiny\hyperlink{a-112.a}{[hint]}\hypertarget{q-112.a}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-85}{}\quad%
+\hypertarget{p-814}{}%
+Choose people in pairs. There are \(\binom{2n}{2}\) ways to choose one pair, \(\binom{2n-2}{2}\) ways to choose a second pair, and once \(k\) pairs have been chosen, there are \(\binom{2n-2k}{2}\) ways to choose the next pair. The number of \emph{lists} of pairs we get in this way is \(\prod_{i=0}^{n-1} \binom{2n-2i}{2}= \frac{(2n)!}{2^i}\). However each way of pairing people gets listed \(n!\) times since we see all possible length \(n\) lists of pairs. Therefore the number of actual pairings is%
+\begin{equation*}
+\frac{(2n)!}{2^n n!} = \frac{2n!}{2n\cdot2n-2\cdot2n-4\cdot \cdots\cdot 2} =  \prod_{i=0}^{n-1} 2n-2i-1.
+\end{equation*}
+Notice how this combinatorial solution gives the formula that we found algebraically in \hyperref[tennispairings1]{Activity~\ref{tennispairings1}}, which then turns out to be algebraically equivalent to the formula we first saw in the solution to \hyperref[tennispairings1]{Activity~\ref{tennispairings1}}.%
+\par
+\hypertarget{p-815}{}%
+For yet another solution, we can list the \(2n\) members in \((2n)!\) ways. Then we can take the first two as a tennis pair, the next two, and so on. There are \(n!\) ways that a given set of tennis pairings could be arranged, and each of the \(n\) pairs could appear in 2 ways, so the tennis pairings partition the set of all permutations of the \(2n\) members into blocks of size \(n!2^n\). Thus we have \(\frac{(2n)!}{n!2^n}\) tennis pairings once again.%
+\item\label{task-149} \hypertarget{p-816}{}%
 Suppose that in addition to specifying who plays whom, for each pairing we say who serves first.  Now in how many ways may we specify our pairs? Try to find as many solutions as you can.%
-~\hfill{\tiny\hyperlink{a-112.b}{[hint]}\hypertarget{q-112.b}{}}\end{enumerate}
+~\hfill{\tiny\hyperlink{a-112.b}{[hint]}\hypertarget{q-112.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-86}{}\quad%
+\hypertarget{p-818}{}%
+Choose people in ordered pairs.  The first person in an ordered pair serves first.  There are \(2n(2n-1)\) ways to choose one pair, \((2n-2)(2n-3)\) ways to choose a second pair, and once \(k\) pairs have been chosen, there are \((2n-2k)(2n-2k-1)\) ways to choose the next pair.  The number of \emph{lists} of pairs we get in this way is \(\prod_{i=0}^{n-1} (2n-2i)(2n-2i-1) = (2n)!\). However, each way of pairing people gets listed \(n!\) times since we see all possible length \(n\) lists of pairs.  Therefore the number of actual pairings is \(\frac{(2n)!}{n!} = (2n)^{\underline{n}}\).%
+\par
+\hypertarget{p-819}{}%
+For yet another solution, we can list the \(2n\) members in \((2n)!\) ways. Then we can take the first two as a tennis pair, with the first person serving first, the next two, and so on. There are \(n!\) ways that a given set of tennis pairings could be arranged, so the tennis pairings partition the set of all permutations of the \(2n\) members into blocks of size \(n!\). Thus we have \(\frac{(2n)!}{n!}\) tennis pairings once again.%
+\end{enumerate}
 \end{activity}
 \end{document}

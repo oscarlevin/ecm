@@ -5,12 +5,24 @@
 \setcounter{project}{249}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{ProductPrincipleOGF}
-\hypertarget{p-1350}{}%
+\hypertarget{p-1364}{}%
 Suppose that we have two sets \(S_1\) and \(S_2\). Let \(v_1\) (\(v\) stands for value) be a function from \(S_1\) to the nonnegative integers and let \(v_2\) be a function from \(S_2\) to the nonnegative integers.  Define a new function \(v\) on the set \(S_1 \times S_2\) by \(v(x_1,x_2) = v_1(x_1) +v_2(x_2)\). Suppose further that \(\sum_{i=0}^\infty a_ix^i\) is the generating function for the number of elements \(x_1\) of \(S_1\) of value \(i\), that is with \(v_1(x_1)=i\). Suppose also that \(\sum_{j=0}^\infty b_j x^j\) is the generating function for the number of elements of \(x_2\) of \(S_2\) of value \(j\), that is with \(v_2(x_2) = j\).  Prove that the coefficient of \(x^k\) in%
 \begin{equation*}
 \left(\sum_{i=0}^\infty a_ix^i\right)\left(\sum_{j=0}^\infty
 b_jx^j\right)
 \end{equation*}
 is the number of ordered pairs \((x_1,x_2)\) in \(S_1\times S_2\) with total value \(k\), that is with \(v_1(x_1) +v_2(x_2) =k\). This is called the \terminology{product principle for generating functions}.\index{product principle for generating functions}\index{generating function!product principle for}%
-~\hfill{\tiny\hyperlink{a-249}{[hint]}\hypertarget{q-249}{}}\end{activity}
+~\hfill{\tiny\hyperlink{a-249}{[hint]}\hypertarget{q-249}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-184}{}\quad%
+\hypertarget{p-1366}{}%
+The generating function for ordered pairs of total value \(k\) will have the number of ordered pairs of total value \(k\) as the coefficient of \(x^k\). But we get a total value \(k\) by taking something of value \(i\) in \(S_1\) and something of value \(k-i\) in \(j\). And since values cannot be negative, the only \(i\)s available to us are the ones between \(0\) and \(k\). By the product principle for pairs, the number of ordered pairs \((x,y)\) with \(v_1(x)=i\) and \(v_2(y)=k-i\) is \(a_ib_{k-i}\). To get the number of pairs of total value \(k\), we have to sum over all possible pairs \((i,k-i)\) of values, that is, we have to take the sum \(\sum_{i=0}^k a_ib_{k-i}\). And this is the coefficient of \(x^k\) in the product%
+\begin{equation*}
+\left(\sum_{i=0}^\infty a_ix^i\right)\left(\sum_{j=0}^\infty
+b_jx^j\right).
+\end{equation*}
+%
+\par
+\hypertarget{p-1367}{}%
+This proves the product principle for generating functions.%
+\end{activity}
 \end{document}

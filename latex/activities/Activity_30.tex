@@ -7,5 +7,27 @@
 \begin{activity}[]\label{activity-25}
 \hypertarget{p-311}{}%
 Prove that any planar graph with \(v\) vertices and \(e\) edges satisfies \(e \le 3v - 6\).%
-~\hfill{\tiny\hyperlink{a-30}{[hint]}\hypertarget{q-30}{}}\end{activity}
+~\hfill{\tiny\hyperlink{a-30}{[hint]}\hypertarget{q-30}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-25}{}\quad%
+\begin{proof}\hypertarget{proof-3}{}
+\hypertarget{p-313}{}%
+We know in any planar graph the number of faces \(f\) satisfies \(3f \le 2e\) since each face is bounded by at least three edges, but each edge borders two faces. Combine this with Euler's formula:%
+\begin{equation*}
+v - e + f = 2
+\end{equation*}
+%
+\begin{equation*}
+v - e + \frac{2e}{3} \ge 2
+\end{equation*}
+%
+\begin{equation*}
+3v - e \ge 6
+\end{equation*}
+%
+\begin{equation*}
+3v - 6 \ge e.\qedhere
+\end{equation*}
+%
+\end{proof}
+\end{activity}
 \end{document}

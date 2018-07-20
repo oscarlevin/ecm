@@ -5,13 +5,13 @@
 \setcounter{project}{258}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{substituteandsolve}
-\hypertarget{p-1386}{}%
+\hypertarget{p-1400}{}%
 Suppose that \(a_i=3a_{i-1} + 3^i\).%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-247} \hypertarget{p-1387}{}%
+\item\label{task-247} \hypertarget{p-1401}{}%
 Multiply both sides by \(x^i\) and sum both the left hand side and right hand side from \(i=1\) to infinity.  In the left-hand side use the fact that%
 \begin{equation*}
-\sum_{i=1}^\infty a_ix^i = (\sum_{i=0}^\infty x^i) -a_0
+\sum_{i=1}^\infty a_ix^i = (\sum_{i=0}^\infty a_ix^i) - a_0
 \end{equation*}
 and in the right hand side, use the fact that%
 \begin{equation*}
@@ -19,10 +19,61 @@ and in the right hand side, use the fact that%
 =x\sum_{j=0}^\infty a_jx^j =x\sum_{i=0}^\infty a_ix^i
 \end{equation*}
 (where we substituted \(j\) for \(i-1\) to see explicitly how to change the limits of summation, a surprisingly useful trick) to rewrite the equation in terms of the power series \(\sum_{i=0}^\infty a_ix^i\).  Solve the resulting equation for the power series \(\sum_{i=0}^\infty a_ix^i\). You can save a lot of writing by using a variable like \(y\) to stand for the power series.%
-\item\label{task-248} \hypertarget{p-1389}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-193}{}\quad%
+\hypertarget{p-1402}{}%
+%
+\begin{align*}
+\sum_{i=1}^\infty a_ix^i  =\amp 3\sum_{i=1}^\infty
+a_{i-1}x^i+\sum_{i=1}^i3^ix^i\\
+\sum_{i=1}^\infty a_ix^i =\amp 3x\sum_{i=1}^\infty a_{i-1}x^{i-1}+
+\sum_{i=0}^\infty 3^ix^i-3^0x^0\\
+\sum_{i=0}^\infty a_ix^i -a_0 =\amp 3x\sum_{i=0}^\infty a_{i}x^{i}+
+\frac{1}{1-3x}-1\\
+(1-3x)\sum_{i=0}^\infty a_ix^i  =\amp a_0+\frac{1}{1-3x} -1\\
+\sum_{i=0}^\infty a_ix^i  =\amp \frac{a_0-1}{1-3x}+\frac{1}{(1-3x)^2}
+\end{align*}
+%
+\item\label{task-248} \hypertarget{p-1403}{}%
 Use the previous part to get a formula for \(a_i\) in terms of \(a_0\).%
-\item\label{task-249} \hypertarget{p-1391}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-194}{}\quad%
+\hypertarget{p-1404}{}%
+%
+\begin{align*}
+\sum_{i=0}^\infty a_i x^i  =\amp \frac{a_0-1}{1-3x} + \frac{1}{(1-3x)^2}\\
+=\amp (a_0-1)\sum_{i=0}^\infty 3^ix^i +\sum_{i=0}^\infty \binom{i+1}{i}3^ix^i,
+\end{align*}
+which gives us \(a_n=(a_0-1) 3^i + (i+1)3^i=(a_0+i)3^i\).%
+\item\label{task-249} \hypertarget{p-1405}{}%
 Now suppose that \(a_i=3a_{i-1} + 2^i\).  Repeat the previous two steps for this recurrence relation.  (There is a way to do this part using what you already know.  Later on we shall introduce yet another way to deal with the kind of generating function that arises here.)%
-~\hfill{\tiny\hyperlink{a-258.c}{[hint]}\hypertarget{q-258.c}{}}\end{enumerate}
+~\hfill{\tiny\hyperlink{a-258.c}{[hint]}\hypertarget{q-258.c}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-195}{}\quad%
+\hypertarget{p-1407}{}%
+%
+\begin{align*}
+\sum_{i=1}^\infty a_ix^i =\amp 3\sum_{i=1}^\infty
+a_{i-1}x^i +\sum_{i=1}^\infty 2^ix^i\\
+\sum_{i=0}^\infty a_ix^i -a_0  =\amp 3x\sum_{i=1}^\infty a_{i-1}x^{i-1}
++\sum_{i=0}^\infty (2x)^i -1\\
+\sum_{i=0}^\infty a_ix^i -a_0  =\amp 3x\sum_{i=0}^\infty a_ix^i +\frac{1}{1-2x} -1\\
+(1-3x)\sum_{i=0}^\infty a_ix^i =\amp a_0 +\frac{1}{1-2x}-1\\
+\sum_{i=0}^\infty a_ix^i =\amp  \frac{a_0-1}{1-3x}+\frac{1}{(1-2x)(1-3x)}\\
+\sum_{i=0}^\infty a_ix^i =\amp (a_0-1)\sum_{i=0}^\infty 3^ix^i +\sum_{i=0}^\infty
+2^ix^i\sum_{j=0}^\infty 3^jx^j
+\end{align*}
+But%
+\begin{align*}
+\sum_{i=0}^\infty
+2^ix^i\sum_{j=0}^\infty 3^jx^j\amp=
+\sum_{k=0}^\infty
+\sum_{i=0}^k 2^i3^{k-i}x^k=
+\sum_{k=0}^\infty3^kx^k
+\sum_{i=0}^k \frac{2^i}{3^i}\\
+\amp=\sum_{k=0}^\infty \frac{1-\left(\frac{2}{3}\right)^{k+1}}{1-\frac{2}{3}}3^kx^k =\sum_{k=0}^\infty
+(3^{k+1}-2^{k+1})x^k\text{.}
+\end{align*}
+Substituting this into the equation for \(\sum_{i=0}^\infty a_ix^i\) gives us \(a_i =(a_0+2)3^i -2^{i+1}\).%
+\end{enumerate}
 \end{activity}
 \end{document}

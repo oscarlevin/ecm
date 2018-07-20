@@ -5,7 +5,11 @@
 \setcounter{project}{276}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{partitionsgivenpartsize}
-\hypertarget{p-1465}{}%
+\hypertarget{p-1479}{}%
 In how many ways can we partition \(k\) items into \(n\) blocks so that we have \(a_i\) blocks of size \(i\) for each \(i\)? That is, given the type vector \((a_1, a_2, \ldots, a_k)\), how many partitions of \([k]\) into \(n\) blocks have that type vector.%
-~\hfill{\tiny\hyperlink{a-276}{[hint]}\hypertarget{q-276}{}}\end{activity}
+~\hfill{\tiny\hyperlink{a-276}{[hint]}\hypertarget{q-276}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-215}{}\quad%
+\hypertarget{p-1481}{}%
+\(\frac{n!}{\prod_{i=1}^n (i!)^{a_i}{a_i!}}\). We can make a list in \(n!\) ways, and then break it into first \(a_1\) blocks of size 1, then \(a_2\) blocks of size 2, \(a_3\) blocks of size 3 up to \(a_n\) blocks of size \(n\). But then we realize that we get the same partition if we permute the \(i!\) elements of a block of size \(i\) and we get the same partition if we permute the \(a_i\) blocks of size \(i\) so we apply the quotient principle.%
+\end{activity}
 \end{document}

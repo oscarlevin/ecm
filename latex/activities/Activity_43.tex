@@ -9,10 +9,47 @@
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item\label{task-58} \hypertarget{p-402}{}%
 Find a graph that has chromatic number 3 even though it does not contain \(K_3\) as a subgraph.%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-42}{}\quad%
+\hypertarget{p-403}{}%
+The graph \(C_5\) (a cycle of length 5) has chromatic number 3, but does not have a triangle.%
 \item\label{task-59} \hypertarget{p-404}{}%
 Find a graph that has chromatic number 4 even though it does not contain \(K_4\) as a subgraph.%
-~\hfill{\tiny\hyperlink{a-43.b}{[hint]}\hypertarget{q-43.b}{}}\item\label{task-60} \hypertarget{p-407}{}%
+~\hfill{\tiny\hyperlink{a-43.b}{[hint]}\hypertarget{q-43.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-43}{}\quad%
+\hypertarget{p-406}{}%
+The graph below has chromatic number 4, but does not contain a copy of \(K_4\).  The 5-cycle requires 3 colors, and the vertex in the center is adjacent to all of these, so requires a 4th color.  These graphs are sometimes called \terminology{wheel graphs}.%
+\begin{sidebyside}{1}{0.4}{0.4}{0}
+\begin{sbspanel}{0.2}
+\resizebox{\linewidth}{!}{{
+ \begin{tikzpicture}
+   \foreach \x in {0,...,4}{
+ \draw (0,0) -- (90+\x*360/5:1) \v -- (162+\x*360/5:1);
+}
+\draw (0,0) \v;
+ \end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\item\label{task-60} \hypertarget{p-407}{}%
 Challenge: Find a graph that has chromatic number 4 even though it does not contain \(K_3\) as a subgraph.%
-~\hfill{\tiny\hyperlink{a-43.c}{[hint]}\hypertarget{q-43.c}{}}\end{enumerate}
+~\hfill{\tiny\hyperlink{a-43.c}{[hint]}\hypertarget{q-43.c}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-44}{}\quad%
+\hypertarget{p-409}{}%
+The graph below has chromatic number 4 but does not contain \(K_3\).  This is called the Grötzsch graph.%
+\begin{sidebyside}{1}{0.35}{0.35}{0}
+\begin{sbspanel}{0.3}
+\resizebox{\linewidth}{!}{{
+ \begin{tikzpicture}
+   \foreach \x in {0,...,4}{
+\draw (0,0) \v -- (90+\x*72:1) \v -- (162+\x*72:2) \v -- (90+\x*72:2) -- (162+\x*72:1);
+}
+ \end{tikzpicture}
+}
+}
+\end{sbspanel}
+\end{sidebyside}
+\end{enumerate}
 \end{activity}
 \end{document}

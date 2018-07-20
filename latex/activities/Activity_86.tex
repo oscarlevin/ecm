@@ -10,7 +10,11 @@ A tennis club has \(2n\) members. We want to pair up the members by twos for sin
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item\label{task-134} \hypertarget{p-675}{}%
 In how many ways may we pair up all the members of the club? (Hint: consider the cases of 2, 4, and 6 members.)%
-~\hfill{\tiny\hyperlink{a-86.a}{[hint]}\hypertarget{q-86.a}{}}\item\label{task-135} \hypertarget{p-678}{}%
+~\hfill{\tiny\hyperlink{a-86.a}{[hint]}\hypertarget{q-86.a}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-63}{}\quad%
+\hypertarget{p-677}{}%
+Suppose we list the people in the club in some way, and keep that list for the remainder of the problem. Take the first person from the list and pair that person with any of the \(2n-1\) remaining people. Now take the next \emph{unpaired} person from the list and pair that person with any of the remaining \(2n-3\) unpaired people. Continuing in this way, once \(k\) pairs have been selected, take the next unpaired person from the list and pair that person with any of the remaining \(2n-2k-1\) unpaired people. Every pairing can arise in this way, and no pairing can arise twice in this process. Thus the number of outcomes is \(\prod_{i=0}^{n-1} 2n-2i-1\).%
+\item\label{task-135} \hypertarget{p-678}{}%
 Suppose that in addition to specifying who plays whom, for each pairing we say who serves first.  Now in how many ways may we specify our pairs?%
 \end{enumerate}
 \end{activity}

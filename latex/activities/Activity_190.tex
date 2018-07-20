@@ -5,7 +5,11 @@
 \setcounter{project}{190}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-183}
-\hypertarget{p-1104}{}%
+\hypertarget{p-1116}{}%
 Place \(2n\) points on the circumference of a circle and draw \(n\)  non-intersecting chords.  How many ways can you do this?  Equivalently, if \(2n\) people stand in a circle, how many ways can everyone shake hands with one other person so that no one's arms cross?  Assume these people have arbitrarily long arms.%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-121}{}\quad%
+\hypertarget{p-1117}{}%
+To see these are counted by the Catalan numbers, it is enough to verify that they satisfy the same recurrence relation as the Catalan numbers.  Fix one of the \(2n\) points and draw a chord to an acceptable second point (this will need to be an odd number of points away, so that all the points on either side of the chord can be matched up).  This creates two new ``circles'', for which you can compute the number of non-intersecting chords using the smaller Catalan numbers, getting the recurrence.%
 \end{activity}
 \end{document}

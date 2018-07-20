@@ -5,15 +5,27 @@
 \setcounter{project}{182}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-175}
-\hypertarget{p-1078}{}%
+\hypertarget{p-1085}{}%
 Recall that \(C_n\) gives the number of lattice paths from \((0,0)\) to \((n,n)\) that do not cross the line \(y = x\) (but they may touch this line).  We will compare this to all the lattice paths from \((0,0)\) to \((n,n)\).%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-195} \hypertarget{p-1079}{}%
+\item\label{task-195} \hypertarget{p-1086}{}%
 Explain why the number of lattice paths from \((0,0)\) to \((n,n)\) that \emph{do} cross the line \(y = x\) is the same as the number of lattice paths from \((0,0)\) to \((n,n)\) that touch or cross the line \(y = x + 1\).%
-\item\label{task-196} \hypertarget{p-1081}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-114}{}\quad%
+\hypertarget{p-1087}{}%
+If a lattice path between \((0,0)\) and \((n,n)\) goes outside the triangle, it can only do so on an up-step. (A step from \((i,j)\) to \((i,j+1)\).) And an up-step must originate at a point with integer coordinates. If \(j\lt i\) an up-step from \((i,j))\) cannot leave the triangle. Thus to leave the triangle, the up-step must leave from a point of the form \((i,i)\), and go to \((i,i+1)\), which is on the line \(y=x+1\).%
+\item\label{task-196} \hypertarget{p-1088}{}%
 Find a bijection between lattice paths from \((0,0)\) to \((n,n)\) that touch (or cross) the line \(y=x+1\) and lattice paths from \((-1,1)\) to \((n,n)\).%
-~\hfill{\tiny\hyperlink{a-182.b}{[hint]}\hypertarget{q-182.b}{}}\item\label{task-197} \hypertarget{p-1084}{}%
+~\hfill{\tiny\hyperlink{a-182.b}{[hint]}\hypertarget{q-182.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-115}{}\quad%
+\hypertarget{p-1090}{}%
+Suppose we have a lattice path form \((0,0)\) to \((n,n)\) which touches or crosses the line \(y=x+1\). Let \((k,k+1)\) be the first point on the line \(y=x+1\) that the lattice path touches. From that point, work backwards, replacing every up-step with a step one unit to the left and every right-step with a step one unit down. The segment of the path you just changed will have moved left \(k+1\) times, so its leftmost \(x\) coordinate will be \(-1\), and it will have moved down \(k\) times, so its lowest \(y\) coordinate will be 1.  Thus we now have a lattice path from \((-1,1)\) to \((n,n)\). Further, given a lattice path from \((-1,1)\) to \((n,n)\), it must cross the line \(y=x+1\) at least once, because it starts above the line and ends below it. At the first point where such a path touches the line \(y=x+1\), say \((k',k'+1)\), work backwards replacing every up-step with a step to the left and every right-step with a step downward. The leftmost point on this path will have \(x\) coordinate 0, and the lowest point will have \(y\) coordinate 0, so the new path will be a lattice path from \((0,0)\) to \((n,n)\) that touches the line \(y=x+1\). Clearly these two processes reverse each other, and so they give us a bijection between paths form \((0,0)\) to \((n,n)\) that touch the line \(y=x+1\) and lattice lattice paths from \((-1,1)\) to \((n,n)\). Notice that geometrically what we are doing to get the bijection is to take the portion of a lattice path that goes from the initial point till the first touch of the line \(y=x+1\) and reflecting it around that line. This idea of reflection was introduced by Feller, and is called Feller's reflection principle.%
+\item\label{task-197} \hypertarget{p-1091}{}%
 Find a formula for the number of lattice paths from \((0,0)\) to \((n,n)\) that do not cross the line \(y=x\). That is, a formula for \(C_n\).%
-~\hfill{\tiny\hyperlink{a-182.c}{[hint]}\hypertarget{q-182.c}{}}\end{enumerate}
+~\hfill{\tiny\hyperlink{a-182.c}{[hint]}\hypertarget{q-182.c}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-116}{}\quad%
+\hypertarget{p-1093}{}%
+\(C_n=\binom{2n}{n} - \binom{2n}{n+1}=\frac{1}{n+1}\binom{2n}{n}.\)%
+\end{enumerate}
 \end{activity}
 \end{document}

@@ -7,14 +7,50 @@
 \begin{activity}[]\label{BellNumberIntro}
 \leavevmode%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-216} \hypertarget{p-1160}{}%
+\item\label{task-216} \hypertarget{p-1174}{}%
 Show, by explicitly exhibiting the partitions, that \(B_1 = 1\), \(B_2 = 2\), and \(B_3 = 5\).%
-\item\label{task-217} \hypertarget{p-1162}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-130}{}\quad%
+\hypertarget{p-1175}{}%
+The five partitions of \([3]\) are the sets%
+\begin{equation*}
+\{\{1\},
+\{2\},\{3\}\},\
+\{\{1,2\},\{3\}\},\ \{\{1,3\},\{2\}\},\ \{\{1\},\{2,3\}\},\text{ and }
+\{\{1,2,3\}\}\text{.}
+\end{equation*}
+%
+\item\label{task-217} \hypertarget{p-1176}{}%
 Why is \(B_k = \sum_{n=1}^{k} S(k,n)\), but \(n^k \ne \sum_{n=1}^k S(k,n)n!\)?  Why is this a meaningful question?%
-~\hfill{\tiny\hyperlink{a-206.b}{[hint]}\hypertarget{q-206.b}{}}\item\label{task-218} \hypertarget{p-1164}{}%
+~\hfill{\tiny\hyperlink{a-206.b}{[hint]}\hypertarget{q-206.b}{}}\item\label{task-218} \hypertarget{p-1178}{}%
 Find a recurrence that expresses \(B_k\) in terms of \(B_n\) for \(n\lt  k\) and prove your formula correct in as many ways as you can.%
-~\hfill{\tiny\hyperlink{a-206.c}{[hint]}\hypertarget{q-206.c}{}}\item\label{task-219} \hypertarget{p-1168}{}%
+~\hfill{\tiny\hyperlink{a-206.c}{[hint]}\hypertarget{q-206.c}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-131}{}\quad%
+\hypertarget{p-1180}{}%
+If we delete the block containing \(k\), we get a partition of a subset of \([k-1]\). Thus \(B_k\) is the sum over all subsets of \([k-1]\) of the number of partitions of that subset. This gives us \(B_k= \sum_{n=0}^{k-1}\binom{k-1}{n}B_n\).%
+\par
+\hypertarget{p-1181}{}%
+Alternatively, we can show by the same sort of argument that \(S(k,n)=\sum_{i=0}^{k-1} \binom{k-1}{i}S(i,n-1)\) and then use the fact that \(B_k =\sum_{n=0}^k S(k,n)\) to get the recurrence for \(B_k\).%
+\item\label{task-219} \hypertarget{p-1182}{}%
 Find \(B_k\) for \(k=4,5,6\).%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-132}{}\quad%
+\hypertarget{p-1183}{}%
+%
+\begin{equation*}
+B_4 =\binom{3}{0}B_0 +\binom{3}{1}B_1 +\binom{3}{2}B_2 +
+\binom{3}{3}B_3=1 +3+3\cdot2 +5=15
+\end{equation*}
+%
+\begin{equation*}
+B_5 = \sum_{n=0}^4 \binom{4}{n}B_n = 1 +4+6\cdot2 +4\cdot5 + 15=52
+\end{equation*}
+%
+\begin{equation*}
+B_6 = \sum_{n=0}^5 \binom{5}{n}B_n =1+5 +10\cdot2 +10\cdot 5
++5\cdot 15 +52=203
+\end{equation*}
+%
 \end{enumerate}
 \end{activity}
 \end{document}

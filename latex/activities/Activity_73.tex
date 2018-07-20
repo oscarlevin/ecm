@@ -7,5 +7,24 @@
 \begin{activity}[]\label{activity-66}
 \hypertarget{p-584}{}%
 We claim the identity is true for all \(n \ge 0\), so induction would be a natural proof technique to try.  Give a proof by mathematical induction on \(n\).%
-~\hfill{\tiny\hyperlink{a-73}{[hint]}\hypertarget{q-73}{}}\end{activity}
+~\hfill{\tiny\hyperlink{a-73}{[hint]}\hypertarget{q-73}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-55}{}\quad%
+\hypertarget{p-586}{}%
+We will do induction on \(n\).  For \(n = 0\), the only value of \(k\) that is interesting is \(k=0\), and here \(\binom{n}{k} = \binom{0}{0} = \binom{n}{n-k}\).  Thus the base case is established.%
+\par
+\hypertarget{p-587}{}%
+For the inductive case, fix an arbitrary \(n\) and assume that for all \(k\) with \(0 \le k \le n-1\) we have \(\binom{n-1}{k} = \binom{n-1}{(n-1)-k}\).  Consider \(\binom{n}{k}\) for an arbitrary \(0 \le k \lt n\).  By the recurssion for Pascal's triangle, we have%
+\begin{equation*}
+\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}.
+\end{equation*}
+Now apply the induction hypothese to the right hand side.  We get%
+\begin{equation*}
+\binom{n-1}{k-1} + \binom{n-1}{k} = \binom{n-1}{n-1-(k-1)} + \binom{n-1}{n-1 -k} = \binom{n-1}{n-k} + \binom{n-1}{n-k-1}.
+\end{equation*}
+Then using the Pascal recurrence again, we get%
+\begin{equation*}
+\binom{n-1}{n-k} + \binom{n-1}{n-k-1} = \binom{n}{n-k}.
+\end{equation*}
+Thus \(\binom{n}{k} = \binom{n}{n-k}\), as long as \(0 \le k \lt n\).  The case where \(k = n\) is trivial as \(\binom{n}{n} = \binom{n}{0} = 1\).%
+\end{activity}
 \end{document}

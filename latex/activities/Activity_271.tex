@@ -5,16 +5,29 @@
 \setcounter{project}{271}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{CatalanRecurrence}
-\hypertarget{p-1436}{}%
+\hypertarget{p-1450}{}%
 Recall the recurrence for the Catalan numbers is%
 \begin{equation*}
 C_n = \sum_{i=1}^{n-1} C_{i-1}C_{n-i}\text{.}
 \end{equation*}
 %
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-255} \hypertarget{p-1437}{}%
+\item\label{task-255} \hypertarget{p-1451}{}%
 Show that if we use \(y\) to stand for the power series \(\sum_{n=0}^\infty c_nx^n\), then we can find \(y\) by solving a quadratic equation. Find \(y\).%
-~\hfill{\tiny\hyperlink{a-271.a}{[hint]}\hypertarget{q-271.a}{}}\item\label{task-256} \hypertarget{p-1440}{}%
+~\hfill{\tiny\hyperlink{a-271.a}{[hint]}\hypertarget{q-271.a}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-212}{}\quad%
+\hypertarget{p-1453}{}%
+To solve for \(C_n\), write%
+\begin{align*}
+\sum_{n=0}^\infty C_nx^n \amp= 1+\sum_{n=1}^\infty\sum_{i=1}^nC_{i-1}C_{n-i}x^n\\
+\sum_{n=0}^\infty C_nx^n
+\amp= 1+x\sum_{n=1}^\infty\sum_{i=1}^nC_{i-1}x^{i-1}C_{n-i}x^{n-i}\\
+\sum_{n=0}^\infty C_nx^n
+\amp= 1+x\sum_{i=1}^\infty C_{i-1}x^{i-1}\sum_{j=0}^\infty C_{j}x^{j}\\
+y \amp= 1 + xy^2\text{.}
+\end{align*}
+This gives us \(xy^2-y+1=0\), and solving for \(y\) by the quadratic formula gives us \(y=\frac{1\pm \sqrt{1-4x}}{2x}\).%
+\item\label{task-256} \hypertarget{p-1454}{}%
 Taylor's theorem from calculus tells us that the extended binomial theorem%
 \begin{equation*}
 (1+x)^r = \sum_{i=0}^\infty \binom{r}{i}x^i
@@ -24,6 +37,22 @@ holds for any number real number \(r\), where \(\binom{r}{i}\) is defined to be%
 \frac{r^{\underline{i}}}{i!} = \frac{r(r-1)\cdots(r-i+1)}{i!}\text{.}
 \end{equation*}
 Use this and your solution for \(y\) (note that of the two possible values for \(y\) that you get from the quadratic formula, only one gives an actual power series) to get a formula for the Catalan numbers.\index{Catalan number!generating function for}%
-~\hfill{\tiny\hyperlink{a-271.b}{[hint]}\hypertarget{q-271.b}{}}\end{enumerate}
+~\hfill{\tiny\hyperlink{a-271.b}{[hint]}\hypertarget{q-271.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-213}{}\quad%
+\hypertarget{p-1456}{}%
+By the extended binomial theorem,%
+\begin{equation*}
+\sqrt{1-4x}=(1-4x)^{1/2} = \sum_{i=0}^\infty \binom{1/2}{i}(-4x)^i=
+\sum_{i=0}^\infty \frac{(1/2)^{\underline{i}}}{i!}(-1)^i4^ix^i\text{.}
+\end{equation*}
+The first term of this power series is 1, so to get a power series for \(y\), we must take the negative square root so that the \(x\) in the denominator will cancel out. Thus \(y=-\frac{1}{2}\sum_{i=1}^\infty \frac{(1/2)^{\underline{i}}}{i!}(-1)^i4^ix^i\). But \((1/2)^{\underline{i}}=(\frac{1}{2})(\frac{-1}{2})(\frac{-3}{2})(\frac{-5}{2})\cdots (\frac{-2i+3}{2})\), so%
+\begin{align*}
+y \amp= -\frac{1}{2}\sum_{i=1}^\infty\frac{1\cdot3\cdot5\cdots(2i-3)}{i!}(-1)^{2i-1}2^ix^{i-1}\\
+\amp=  \sum_{i=1}^\infty \frac{(2i-2)!}{(i-1)!2^{i}i!}2^ix^{i-1}\\
+\amp=  \sum_{i=1}^\infty\frac{2i-2!}{i!(i-1)!}x^{i-1}\\
+\amp= \sum_{j=0}^\infty\frac{2j!}{(j+1)!j!}x^j
+\end{align*}
+giving us \(C_j=\frac{1}{j+1}\binom{2j}{j}\), which is our earlier formula for the Catalan Number \(C_j\).%
+\end{enumerate}
 \end{activity}
 \end{document}
