@@ -11,7 +11,7 @@
     <p>
       The sequence of Bell numbers starts
       <me>
-        1, 1, 2, 5, 15, 52, 203, 877, 4040, 21147, 115975, \ldots
+        1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, 115975, \ldots
       </me>
       Notice that the first four numbers look like Catalan numbers.  In fact, one of the many things the Catalan numbers count are <em>non-intersecting</em> set partitions.  Once you believe this, you see that <m>C_n \le B_n</m> for all <m>n</m>.
     </p>
