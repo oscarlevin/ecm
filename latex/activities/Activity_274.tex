@@ -5,19 +5,39 @@
 \setcounter{project}{274}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-267}
-\hypertarget{p-1467}{}%
+\hypertarget{p-1468}{}%
 How many ways are there to partition \([5]\) into three sets?%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-257} \hypertarget{p-1468}{}%
+\item\label{task-257} \hypertarget{p-1469}{}%
 How many partitions of \([5]\) have two blocks of size 1 and one block of size 3?%
-\item\label{task-258} \hypertarget{p-1469}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-215}{}\quad%
+\hypertarget{p-1470}{}%
+There will be \(10 = \binom{5}{3}\).  Once you select the three elements to be in the block of size 3, the other two must be in blocks of size 1 each.%
+\item\label{task-258} \hypertarget{p-1471}{}%
 How many partitions of \([5]\) have one block of size 1 and two of size 2?%
-~\hfill{\tiny\hyperlink{a-274.b}{[hint]}\hypertarget{q-274.b}{}}\item\label{task-259} \hypertarget{p-1471}{}%
+~\hfill{\tiny\hyperlink{a-274.b}{[hint]}\hypertarget{q-274.b}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-216}{}\quad%
+\hypertarget{p-1473}{}%
+We can select two elements to be in a block of size 2 in \(\binom{5}{2}\) ways.  Then you can select two of the remaining elements for the block of size 2 in \(\binom{3}{2}\) ways.  However, just multiplying these two double counts since we do not care about the order in which the blocks appear.  Thus there are \(\frac{1}{2}\binom{5}{2}\binom{3}{2} = 15\) partition of \([5]\) of this type.%
+\item\label{task-259} \hypertarget{p-1474}{}%
 Are there any other types of partitions we need to consider?  What is \(S(5,3)\)?%
-\item\label{task-260} \hypertarget{p-1472}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-217}{}\quad%
+\hypertarget{p-1475}{}%
+Any partition of 5 into 3 blocks must have at least one element in each block; the remaining two elements could be in a block together or two different blocks.  So the two cases above are all the cases.  This tell us \(S(5,3) = 25\).%
+\item\label{task-260} \hypertarget{p-1476}{}%
 Generalize! Find a formula for \(S(k, k-2)\).%
-\item\label{task-261} \hypertarget{p-1473}{}%
+\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-218}{}\quad%
+\hypertarget{p-1477}{}%
+\(S(k, k-2) = \binom{k}{3} + \frac{1}{2}\binom{k}{2}\binom{k-2}{2}\).  Because we have two fewer blocks than we have elements, there will always either be a block of size three and \(k-3\) blocks of size one or two blocks of size two and \(k-4\) blocks of size 1.  The first case accounts for \(\binom{k}{3}\) partitions (once you have chosen the three elements to be in the large block, you are done).  The second case accounts for \(\frac{1}{2}\binom{k}{2}\binom{k-2}{2}\) partitions (pick 2 elements to be together, then 2 of the remaining to be together, but don't care which order you pick these in).%
+\item\label{task-261} \hypertarget{p-1478}{}%
 A friend tells you that \(S(k,k-2) = \binom{k}{3} + 3 \binom{k}{4}\).  Prove this is correct also.  If this is the formula you found for the previous part, see the hint.%
-~\hfill{\tiny\hyperlink{a-274.e}{[hint]}\hypertarget{q-274.e}{}}\end{enumerate}
+~\hfill{\tiny\hyperlink{a-274.e}{[hint]}\hypertarget{q-274.e}{}}\par\smallskip%
+\noindent\textbf{Solution.}\hypertarget{solution-219}{}\quad%
+\hypertarget{p-1480}{}%
+The \(\binom{k}{3}\) still counts the partitions in which one block has size three.  Now we can pick four elements to be in the two blocks of size 2 in \(\binom{k}{4}\) ways.  But these four elements can be broken into two equally sized blocks in 3 ways (pick the cell-mate of the first element).%
+\end{enumerate}
 \end{activity}
 \end{document}

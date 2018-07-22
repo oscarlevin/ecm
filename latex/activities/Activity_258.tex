@@ -5,10 +5,10 @@
 \setcounter{project}{258}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{substituteandsolve}
-\hypertarget{p-1400}{}%
+\hypertarget{p-1401}{}%
 Suppose that \(a_i=3a_{i-1} + 3^i\).%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-247} \hypertarget{p-1401}{}%
+\item\label{task-247} \hypertarget{p-1402}{}%
 Multiply both sides by \(x^i\) and sum both the left hand side and right hand side from \(i=1\) to infinity.  In the left-hand side use the fact that%
 \begin{equation*}
 \sum_{i=1}^\infty a_ix^i = (\sum_{i=0}^\infty a_ix^i) - a_0
@@ -21,7 +21,7 @@ and in the right hand side, use the fact that%
 (where we substituted \(j\) for \(i-1\) to see explicitly how to change the limits of summation, a surprisingly useful trick) to rewrite the equation in terms of the power series \(\sum_{i=0}^\infty a_ix^i\).  Solve the resulting equation for the power series \(\sum_{i=0}^\infty a_ix^i\). You can save a lot of writing by using a variable like \(y\) to stand for the power series.%
 \par\smallskip%
 \noindent\textbf{Solution.}\hypertarget{solution-193}{}\quad%
-\hypertarget{p-1402}{}%
+\hypertarget{p-1403}{}%
 %
 \begin{align*}
 \sum_{i=1}^\infty a_ix^i  =\amp 3\sum_{i=1}^\infty
@@ -34,22 +34,22 @@ a_{i-1}x^i+\sum_{i=1}^i3^ix^i\\
 \sum_{i=0}^\infty a_ix^i  =\amp \frac{a_0-1}{1-3x}+\frac{1}{(1-3x)^2}
 \end{align*}
 %
-\item\label{task-248} \hypertarget{p-1403}{}%
+\item\label{task-248} \hypertarget{p-1404}{}%
 Use the previous part to get a formula for \(a_i\) in terms of \(a_0\).%
 \par\smallskip%
 \noindent\textbf{Solution.}\hypertarget{solution-194}{}\quad%
-\hypertarget{p-1404}{}%
+\hypertarget{p-1405}{}%
 %
 \begin{align*}
 \sum_{i=0}^\infty a_i x^i  =\amp \frac{a_0-1}{1-3x} + \frac{1}{(1-3x)^2}\\
 =\amp (a_0-1)\sum_{i=0}^\infty 3^ix^i +\sum_{i=0}^\infty \binom{i+1}{i}3^ix^i,
 \end{align*}
 which gives us \(a_n=(a_0-1) 3^i + (i+1)3^i=(a_0+i)3^i\).%
-\item\label{task-249} \hypertarget{p-1405}{}%
+\item\label{task-249} \hypertarget{p-1406}{}%
 Now suppose that \(a_i=3a_{i-1} + 2^i\).  Repeat the previous two steps for this recurrence relation.  (There is a way to do this part using what you already know.  Later on we shall introduce yet another way to deal with the kind of generating function that arises here.)%
 ~\hfill{\tiny\hyperlink{a-258.c}{[hint]}\hypertarget{q-258.c}{}}\par\smallskip%
 \noindent\textbf{Solution.}\hypertarget{solution-195}{}\quad%
-\hypertarget{p-1407}{}%
+\hypertarget{p-1408}{}%
 %
 \begin{align*}
 \sum_{i=1}^\infty a_ix^i =\amp 3\sum_{i=1}^\infty

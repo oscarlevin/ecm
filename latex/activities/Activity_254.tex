@@ -5,11 +5,11 @@
 \setcounter{project}{254}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-247}
-\hypertarget{p-1386}{}%
+\hypertarget{p-1387}{}%
 If you define \(\binom{-n}{k}\) in the way you described in \hyperref[negnchoosek]{Activity~\ref{negnchoosek}}, you can write down a version of the binomial theorem for \((x+y)^n\) that is valid for both nonnegative and negative values of \(n\). Do so. This is called the \terminology{extended binomial theorem}\index{binomial theorem!extended}\index{extended binomial theorem}. Write down a special case with \(n\) negative, like \(n=-3\), to see an interesting surprise that suggests why we do not use this formula later on.%
 \par\smallskip%
 \noindent\textbf{Solution.}\hypertarget{solution-190}{}\quad%
-\hypertarget{p-1387}{}%
+\hypertarget{p-1388}{}%
 \((x+y)^n=\sum_{i=0}^\infty\binom{n}{i}x^i\). The proof consists of writing \((x+y)=y(\frac{x}{y}+1)\) and applying the \hyperref[negnchoosek]{Activity~\ref{negnchoosek}} when \(n\) is negative. When \(n\) is positive, we recall that \(\binom{n}{k}\) is zero when \(k>n\), so replacing the upper limit of \(n\) in the standard version of the binomial theorem by \(\infty\) doesn't change the value of the sum. When \(n=-3\) we get \((x+y)^n = \sum_{i=0}^\infty \binom{-3}{i}x^iy^{-3-i} = \sum_{i=0}^\infty (-1)^i \binom{3+i-1}{i}x^iy^{-3-i}\). Expanding our binomial coefficients gives \((x+y)^{-3} = \binom{2}{0}x^0y^{-3} -\binom{3}{1}x^1y^{-4} + \binom{4}{2}x^2y^{-5}-\cdots.\) The surprise is that we get an infinite series in positive and negative powers of variables. In order to limit ourselves to infinite series with nonnegative exponents, we do not pursue this idea further.%
 \end{activity}
 \end{document}

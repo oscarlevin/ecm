@@ -7,11 +7,11 @@
 \begin{activity}[]\label{BellNumberIntro}
 \leavevmode%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item\label{task-216} \hypertarget{p-1174}{}%
+\item\label{task-216} \hypertarget{p-1175}{}%
 Show, by explicitly exhibiting the partitions, that \(B_1 = 1\), \(B_2 = 2\), and \(B_3 = 5\).%
 \par\smallskip%
 \noindent\textbf{Solution.}\hypertarget{solution-130}{}\quad%
-\hypertarget{p-1175}{}%
+\hypertarget{p-1176}{}%
 The five partitions of \([3]\) are the sets%
 \begin{equation*}
 \{\{1\},
@@ -20,22 +20,22 @@ The five partitions of \([3]\) are the sets%
 \{\{1,2,3\}\}\text{.}
 \end{equation*}
 %
-\item\label{task-217} \hypertarget{p-1176}{}%
+\item\label{task-217} \hypertarget{p-1177}{}%
 Why is \(B_k = \sum_{n=1}^{k} S(k,n)\), but \(n^k \ne \sum_{n=1}^k S(k,n)n!\)?  Why is this a meaningful question?%
-~\hfill{\tiny\hyperlink{a-206.b}{[hint]}\hypertarget{q-206.b}{}}\item\label{task-218} \hypertarget{p-1178}{}%
+~\hfill{\tiny\hyperlink{a-206.b}{[hint]}\hypertarget{q-206.b}{}}\item\label{task-218} \hypertarget{p-1179}{}%
 Find a recurrence that expresses \(B_k\) in terms of \(B_n\) for \(n\lt  k\) and prove your formula correct in as many ways as you can.%
 ~\hfill{\tiny\hyperlink{a-206.c}{[hint]}\hypertarget{q-206.c}{}}\par\smallskip%
 \noindent\textbf{Solution.}\hypertarget{solution-131}{}\quad%
-\hypertarget{p-1180}{}%
+\hypertarget{p-1181}{}%
 If we delete the block containing \(k\), we get a partition of a subset of \([k-1]\). Thus \(B_k\) is the sum over all subsets of \([k-1]\) of the number of partitions of that subset. This gives us \(B_k= \sum_{n=0}^{k-1}\binom{k-1}{n}B_n\).%
 \par
-\hypertarget{p-1181}{}%
+\hypertarget{p-1182}{}%
 Alternatively, we can show by the same sort of argument that \(S(k,n)=\sum_{i=0}^{k-1} \binom{k-1}{i}S(i,n-1)\) and then use the fact that \(B_k =\sum_{n=0}^k S(k,n)\) to get the recurrence for \(B_k\).%
-\item\label{task-219} \hypertarget{p-1182}{}%
+\item\label{task-219} \hypertarget{p-1183}{}%
 Find \(B_k\) for \(k=4,5,6\).%
 \par\smallskip%
 \noindent\textbf{Solution.}\hypertarget{solution-132}{}\quad%
-\hypertarget{p-1183}{}%
+\hypertarget{p-1184}{}%
 %
 \begin{equation*}
 B_4 =\binom{3}{0}B_0 +\binom{3}{1}B_1 +\binom{3}{2}B_2 +

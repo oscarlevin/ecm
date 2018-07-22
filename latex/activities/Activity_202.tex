@@ -10,6 +10,21 @@ Extend Stirling's triangle enough to allow you to answer the following question 
 \par\smallskip%
 \noindent\textbf{Solution.}\hypertarget{solution-126}{}\quad%
 \hypertarget{p-1161}{}%
-We need \(S(9,3)\). Thus we need to extend our table for four more rows, but only out to the column labeled 3. These rows are 6,0,1,31,90, 7,0,1,63,301, 7,0,1,127,966, 8,0,1,255,3025, 9,0,1,511,9330. Thus there are 9330 ways to distribute the sandwiches into the lunch bags.%
+We need \(S(9,3)\). Thus we need to extend our table for four more rows, but only out to the column labeled 3. These rows are,%
+\begin{sidebyside}{1}{0.25}{0.25}{0}
+\begin{sbspanel}{0.5}
+{\centering%
+\begin{tabular}{lllll}
+\multicolumn{1}{lA}{6}&1&31&90&\textellipsis{}\tabularnewline[0pt]
+\multicolumn{1}{lA}{7}&1&63&101&\textellipsis{}\tabularnewline[0pt]
+\multicolumn{1}{lA}{8}&1&127&966&\textellipsis{}\tabularnewline[0pt]
+\multicolumn{1}{lA}{9}&1&255&3025&\textellipsis{}
+\end{tabular}
+\par}
+\end{sbspanel}
+\end{sidebyside}
+\par
+\hypertarget{p-1162}{}%
+Thus there are 3025 ways to distribute the sandwiches into the lunch bags.%
 \end{activity}
 \end{document}
