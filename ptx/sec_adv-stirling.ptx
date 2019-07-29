@@ -132,6 +132,11 @@
             How many partitions of <m>[5]</m> have two blocks of size 1 and one block of size 3?
           </p>
         </statement>
+        <solution>
+          <p>
+            There will be <m>10 = \binom{5}{3}</m>.  Once you select the three elements to be in the block of size 3, the other two must be in blocks of size 1 each.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -141,9 +146,14 @@
         </statement>
         <hint>
           <p>
-            Careful here.  The answer is NOT <m>\binom{4}{2}\binom{4}{2}</m>.  Do you see why?
+            Careful here.  The answer is NOT <m>\binom{5}{2}\binom{3}{2}</m>.  Do you see why?
           </p>
         </hint>
+        <solution>
+          <p>
+            We can select two elements to be in a block of size 2 in <m>\binom{5}{2}</m> ways.  Then you can select two of the remaining elements for the block of size 2 in <m>\binom{3}{2}</m> ways.  However, just multiplying these two double counts since we do not care about the order in which the blocks appear.  Thus there are <m>\frac{1}{2}\binom{5}{2}\binom{3}{2} = 15</m> partition of <m>[5]</m> of this type.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -151,6 +161,11 @@
             Are there any other types of partitions we need to consider?  What is <m>S(5,3)</m>?
           </p>
         </statement>
+        <solution>
+          <p>
+            Any partition of 5 into 3 blocks must have at least one element in each block; the remaining two elements could be in a block together or two different blocks.  So the two cases above are all the cases.  This tell us <m>S(5,3) = 25</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -158,6 +173,11 @@
             Generalize! Find a formula for <m>S(k, k-2)</m>.
           </p>
         </statement>
+        <solution>
+          <p>
+            <m>S(k, k-2) = \binom{k}{3} + \frac{1}{2}\binom{k}{2}\binom{k-2}{2}</m>.  Because we have two fewer blocks than we have elements, there will always either be a block of size three and <m>k-3</m> blocks of size one or two blocks of size two and <m>k-4</m> blocks of size 1.  The first case accounts for <m>\binom{k}{3}</m> partitions (once you have chosen the three elements to be in the large block, you are done).  The second case accounts for <m>\frac{1}{2}\binom{k}{2}\binom{k-2}{2}</m> partitions (pick 2 elements to be together, then 2 of the remaining to be together, but don't care which order you pick these in).
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -170,6 +190,11 @@
             If you found this formula for <m>S(k,k-2)</m> in part (e), then pretend your friend claims that <m>S(k, k-2) = \binom{k}{3} + \frac{1}{2}\binom{k}{2}\binom{k-2}{2}</m> and prove why that is correct too.
           </p>
         </hint>
+        <solution>
+          <p>
+            The <m>\binom{k}{3}</m> still counts the partitions in which one block has size three.  Now we can pick four elements to be in the two blocks of size 2 in <m>\binom{k}{4}</m> ways.  But these four elements can be broken into two equally sized blocks in 3 ways (pick the cell-mate of the first element).  
+          </p>
+        </solution>
       </task>
     </activity>
 
@@ -464,7 +489,10 @@
       </statement>
       <solution>
         <p>
-          <m>S(n,3) = \frac{1}{2}\left[3^{n - 1} - 2^{n} + 1 \right]</m>
+          <m>S(k,2) = 2^{k-1} - 1</m>.
+        </p>
+        <p>
+          <m>S(k,3) = \frac{1}{2}\left[3^{k - 1} - 2^{k} + 1 \right]</m>
         </p>
       </solution>
     </activity>
@@ -514,7 +542,7 @@
     <theorem xml:id="thm-stirling-polynomial2">
       <statement>
         <p>
-          <m>x^{k} = S\left(k,1 \right)\binom{x}{1}1! + S\left(k,2 \right) \binom{x}{2}2! + \ldots + S\left(k,k \right)\binom{k}{k} k!</m>
+          <m>x^{k} = S\left(k,1 \right)\binom{x}{1}1! + S\left(k,2 \right) \binom{x}{2}2! + \ldots + S\left(k,k \right)\binom{x}{k} k!</m>
         </p>
       </statement>
     </theorem>

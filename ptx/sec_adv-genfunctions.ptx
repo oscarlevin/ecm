@@ -111,7 +111,7 @@
       <task>
         <statement>
           <p>
-            Multiply <m>(1+x+x^2 + x^3 + \cdots)(x + 2x + 3x^3 + 4x^4 + \cdots)</m>.
+            Multiply <m>(1+x+x^2 + x^3 + \cdots)(x + 2x^2 + 3x^3 + 4x^4 + \cdots)</m>.
           </p>
         </statement>
       </task>
