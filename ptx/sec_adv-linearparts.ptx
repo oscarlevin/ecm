@@ -5,13 +5,13 @@
     <p>
       The very interesting history of the theory of linear partitions dates back to the Middle Ages, where certain special problems in partitions were encountered.  The first major discoveries were made by L. Euler in the 18th century, followed by contributions by Cayley, Gauss, Hardy, Jacobi, Lagrange, Legendre, Littlewoood, Rademacher, Ramanujan, Schur, and Sylvester.
     </p>
-    
+
     <p>
-      Our history with linear partitions started in <xref ref="sec_adv-partitions"/>.  Recall that a partition of the number <m>k</m> is a tuple of positive integers <m>\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_n)</m> such that <m>\lambda_1 + \lambda_2 + \cdots + \lambda_n = k</m> and <m>\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_n</m>.  Taking the terms in the sum to be non-increasing is our way of ensuring that we do not count one partition listed in a different order twice. 
+      Our history with linear partitions started in <xref ref="sec_adv-partitions"/>.  Recall that a partition of the number <m>k</m> is a tuple of positive integers <m>\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_n)</m> such that <m>\lambda_1 + \lambda_2 + \cdots + \lambda_n = k</m> and <m>\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_n</m>.  Taking the terms in the sum to be non-increasing is our way of ensuring that we do not count one partition listed in a different order twice.
     </p>
-    
+
     <p>
-      We use <m>p(k)</m> for the number of partitions of <m>k</m>, and <m>p_n(k)</m> for the number of partitions of <m>k</m> into exactly <m>n</m> parts.  The sequence <m>(p(k))_{k \ge 1}</m> starts, 
+      We use <m>p(k)</m> for the number of partitions of <m>k</m>, and <m>p_n(k)</m> for the number of partitions of <m>k</m> into exactly <m>n</m> parts.  The sequence <m>(p(k))_{k \ge 1}</m> starts,
       <me>
         1, 2, 3, 5, 7, 11, 15, 22,\ldots
       </me>
@@ -101,12 +101,12 @@
             </row>
         </tabular>
     </sidebyside>
-    
+
     <p>
       Let's now take a closer look at integer partitions and discover some properties about them and the numbers <m>p(k)</m> and <m>p_n(k)</m>.
     </p>
   </introduction>
-  
+
   <subsection xml:id="subsec_linearpartitionsgeom">
     <title>Using Geometry</title>
     <introduction>
@@ -124,7 +124,7 @@
     <p>
       Our goal is to use geometric reasoning about these diagrams (we will generally use the Young diagram with squares) to uncover properties of partitions.
     </p>
-    
+
     <activity category="essential">
       <statement>
         <p>
@@ -458,7 +458,7 @@
           </p>
         </solution>
       </activity>
-    
+
   </introduction>
   <subsubsection>
     <title>Partitions into distinct parts</title>
@@ -590,9 +590,9 @@
       </solution>
     </activity>
   </subsubsection>
-  
+
 </subsection>
-  
+
 
 <subsection xml:id="sec_genfns-int-parts" >
   <title>Using Generating Functions</title>
@@ -888,18 +888,33 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
                 </p>
             </solution>
     </activity>
-    
+
     <activity>
       <task>
         <statement>
           <p>
-            Prove that 
+            Prove that
             <me>
               \frac{1}{1-x} = (1 + x + x^2 +\cdots + x^9)(1 + x^{10} + \cdots + x^{90})(1 + x^{100} + \cdots + x^{900})\cdots.
             </me>
             What does this tell us about numbers?
           </p>
         </statement>
+        <solution>
+          <p>
+            If we write the right hand side using quotients, we get
+            <me>
+              \frac{1-x^10}{1-x}\cdot \frac{1-x^{100}}{1-x^{10}}\cdot \frac{1-x^{1000}}{1-x^{100}}\cdot\cdots.
+            </me>
+            We see that all terms will cancel excpt for
+            <me>
+              \frac{1}{1-x}.
+            </me>
+          </p>
+          <p>
+            Now written as a polynomial, <m>\frac{1}{1-x} = 1 + x + x^2 + x^3 + \cdots</m>.  So the coefficient of <m>x^k</m> will be 1 for all <m>k</m>.  The right hand side though gives the genereting function for the number of ways to write a number as the sum of up to 9 ones, up to 9 tens, up to 9 one hundreds, and so on.  In other words, this generating function gives the number of ways to write a number in base 10.  And since the coefficients are all 1, we see that this number of ways is 1; that is, there is a unique base 10 representation of every natural number.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -907,6 +922,15 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
             Prove that every non negative integer <m>n</m> has a unique binary representation.
           </p>
         </statement>
+        <solution>
+          <p>
+            We repeat the previous part, but this time show that
+            <me>
+                \frac{1}{1-x} = (1+x)(1+x^2)(1+x^4)(1+x^8)(1+x^{16})\cdots.
+            </me>
+            Writing the right hand side as quotients, you see that again every term cancels except for the left hand side.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -915,11 +939,16 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
             How can you interpret this result?
           </p>
         </statement>
+        <solution>
+          <p>
+            Replicating the method from above, we see that this expression simplifies to <m>\frac{1}{1-x}</m>.  We can interpret the expression as the generating function for the number of ways to write a number in base 3.  So this result shows that the base 3 representation is unique.
+          </p>
+        </solution>
       </task>
     </activity>
-    
-    
-    
+
+
+
     <activity>
         <statement>
             <p>Write down the generating function for the number of ways to partition an integer into parts of size no more than <m>m</m>, each used an odd number of times. Write down the generating function for the number of partitions of an integer into parts of size no more than <m>m</m>, each used an even number of times. Use these two generating functions to get a relationship between the two sequences for which you wrote down the generating functions.

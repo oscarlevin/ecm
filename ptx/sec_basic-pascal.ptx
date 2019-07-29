@@ -343,7 +343,7 @@
   </p>
 
   <p>
-    If you want to prove that two sets have the same number of elements, all that is requires is to define a function from one set to the other, and prove that the function is a bijection.  For us, those two sets will be the set of outcomes we are counting.  So for example, we can show that the <em>set</em> of <m>n</m>-bit strings of weight <m>k</m> has the same cardinality as the <em>set</em> of <m>k</m>-element subsets of <m>[n]</m>.  This will prove that the counting questions, <q>how many <m>n</m>-bit strings of weight <m>k</m> are there?</q> and, <q>how many <m>k</m>-element subsets of <m>[n]</m> are there?</q> have the same answer.
+    If you want to prove that two sets have the same number of elements, all that is required is to define a function from one set to the other, and prove that the function is a bijection.  For us, those two sets will be the set of outcomes we are counting.  So for example, we can show that the <em>set</em> of <m>n</m>-bit strings of weight <m>k</m> has the same cardinality as the <em>set</em> of <m>k</m>-element subsets of <m>[n]</m>.  This will prove that the counting questions, <q>how many <m>n</m>-bit strings of weight <m>k</m> are there?</q> and, <q>how many <m>k</m>-element subsets of <m>[n]</m> are there?</q> have the same answer.
   </p>
 
   <p>
@@ -407,7 +407,7 @@
   </assemblage>
 
   <p>
-    You have already prove that choices 1, 2 and 3 are equivalent, and we have good reason to believe these are also equivalent to choice 4.
+    You have already proved that choices 1, 2 and 3 are equivalent, and we have good reason to believe these are also equivalent to choice 4.
   </p>
 
   <p>
@@ -444,7 +444,7 @@
 <!-- TODO: finish this off and relate it to pascal's triangle -->
 
   <p>
-    What does all this have to do with Pascal's triangle though?  If you are like me, you think of the entries in the triangle as the result of adding the two entries above it.  That is, Pascal's triangle contains those numbers described by choice 6 above.
+    What does all this have to do with Pascal's triangle though?  You might think of the entries in the triangle as the result of adding the two entries above it.  That is, Pascal's triangle contains those numbers described by choice 6 above.
   </p>
 
 

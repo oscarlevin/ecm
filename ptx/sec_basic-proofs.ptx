@@ -41,7 +41,7 @@
     </p>
 
     <p>
-      There are a at least four very distinct proofs we could give of each binomial identity.  The next activities walk you through these.
+      There are at least four very distinct proofs we could give for each binomial identity.  The next activities walk you through these.
     </p>
 
     <p>
@@ -927,6 +927,7 @@ many ways can you pair up the next person who isn't already paired up?
 
   <subsection xml:id="subsec-moreproofs">
     <title>More Proofs</title>
+    <!-- Expand some of these as examples. -->
     <p>
       We will use the proof techniques of double counting and bijections throughout the rest of the book, but for now, let's practice a bit.  The activities below ask you to give a combinatorial proof, and often also an alternative proof that has some nice features.
     </p>
@@ -1003,7 +1004,7 @@ many ways can you pair up the next person who isn't already paired up?
         </activity>
 
         <p>
-          Becoming an expert in combinatorial proof will help you solve actual counting problems.  For example, you might wonder how many positive integers have their digits in strictly increasing order.
+          Becoming an expert in combinatorial proofs will help you solve actual counting problems.  For example, you might wonder how many positive integers have their digits in strictly increasing order.
         </p>
 
         <activity>

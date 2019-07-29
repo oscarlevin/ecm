@@ -5,11 +5,11 @@
 \setcounter{project}{309}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-302}
-\hypertarget{p-1597}{}%
+\hypertarget{p-1598}{}%
 Suppose we take a partition of \(k\) into \(n\) parts with largest part \(m\), complement it in the smallest rectangle it will fit into, complement the result in the smallest rectangle it will fit into, and continue the process until we get the partition 1 of one into one part.  What can you say about the partition with which we started?%
 ~\hfill{\tiny\hyperlink{a-309}{[hint]}\hypertarget{q-309}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-237}{}\quad%
-\hypertarget{p-1600}{}%
+\noindent\textbf{Solution.}\hypertarget{solution-238}{}\quad%
+\hypertarget{p-1601}{}%
 Let us call the process of enclosing \(\lambda\) in the smallest rectangle possible and then forming the complement in that rectangle \terminology{encomplementation} (This is short for \emph{en}\/closure and \emph{complementation} and is not a standard term\textemdash{}there is no standard term for this operation.) and call the result of it the \terminology{encomplement}\index{encomplement of a partition} of \(\lambda\).  The result of two encomplementations on the Young diagram of a partition is to remove all rows of maximum length and all columns of maximum length from the Young diagram. Thus the description of the result of an even number \(2j\) of encomplementations is straightforward; we remove all the rows of the \(j\) largest distinct lengths and all columns of the \(j\) largest distinct lengths. So if an even number of encomplementations brings us to a partition with one block of size one, we should be able to describe the original partition fairly easily. To deal with the result of an odd number of encomplementations, we ask what happens if we encomplement just once.  If the complement of \(\lambda\) in the smallest rectangle in which if fits has one square, then \(\lambda =\lambda_1^{n_1}\lambda_1-1\). Thus we are asking for the partitions which, after an even number of encomplementations, give us either the partition with one block or a partition of the form \(\lambda_1^{n_1}(\lambda_1-1)\). First we ask what kind of partition results in the second one after two encomplementations. If we get \(\lambda_1^{n_1}(\lambda_1-1)\) from two encomplementations, the partition we started with had the form%
 \begin{equation*}
 \lambda_0^{n_0}(\lambda_1+\lambda_{2})^{n_1}(\lambda_1+
@@ -17,7 +17,7 @@ Let us call the process of enclosing \(\lambda\) in the smallest rectangle possi
 \end{equation*}
 %
 \par
-\hypertarget{p-1601}{}%
+\hypertarget{p-1602}{}%
 If we get \(\lambda_1^{n_1}(\lambda_1-1)\) from four encomplementations, then we started with a partition of the form%
 \begin{equation*}
 \lambda_{-1}^{n_{-1}}(\lambda_0+\lambda_{3})^{n_0}(\lambda_1+
@@ -28,7 +28,7 @@ If we get \(\lambda_1^{n_1}(\lambda_1-1)\) from four encomplementations, then we
 \end{equation*}
 %
 \par
-\hypertarget{p-1602}{}%
+\hypertarget{p-1603}{}%
 From this pattern we see that a partition that results in \(\lambda_1^{n_1}(\lambda_1-1)\) after \(2j\) encomplementations has the form%
 \begin{equation}
 \lambda_{1-j}^{n_{1-j}}\lambda_{2-j}^{n_{2-j}}\cdots
@@ -39,7 +39,7 @@ From this pattern we see that a partition that results in \(\lambda_1^{n_1}(\lam
 \end{equation}
 where \(\lambda_i>\lambda_{i+1}\) and \(\lambda_0>\lambda'_1>\lambda_2+1\).%
 \par
-\hypertarget{p-1603}{}%
+\hypertarget{p-1604}{}%
 On the other hand, a partition \(\lambda\) that results in \(1\) after two encomplementations has the form \(\lambda_0^{n_0}(\lambda_1+1)\lambda_1^{n_1}\), and so a partition that results in 1 after \(j\) encomplementations is of the form%
 \begin{equation}
 \lambda_{1-j}^{n_{1-j}}\lambda_{2-j}^{n_{2-j}}\cdots

@@ -720,6 +720,15 @@
             You should have solved this problem more in general in <xref ref="act_restrictedmultisetspie"/>.
           </p>
         </hint>
+        <solution>
+          <p>
+              First, count the number of ways to distribute 10 candies to 3 children without restrictions, then remove the distributions in which one or more kid gets more than 4, using the Principle of Inclusion and Exclusion.  You will get
+              <me>
+                \mchoose{3}{10} - \left[ \binom{3}{1}\mchoose{3}{5} - \binom{3}{2}\mchoose{3}{0}\right].
+              </me>
+              This is precisely the same form as you get in <xref ref="candygenfn"/>.
+          </p>
+        </solution>
       </activity>
 
 

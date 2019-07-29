@@ -5,15 +5,15 @@
 \setcounter{project}{285}
 \addtocounter{project}{-1}
 \begin{activity}[]\label{activity-278}
-\hypertarget{p-1508}{}%
+\hypertarget{p-1509}{}%
 Prove \hyperref[thm-stirling-closed]{Theorem~\ref{thm-stirling-closed}}%
 ~\hfill{\tiny\hyperlink{a-285}{[hint]}\hypertarget{q-285}{}}\par\smallskip%
-\noindent\textbf{Solution.}\hypertarget{solution-223}{}\quad%
+\noindent\textbf{Solution.}\hypertarget{solution-224}{}\quad%
 \begin{proof}\hypertarget{proof-7}{}
-\hypertarget{p-1510}{}%
+\hypertarget{p-1511}{}%
 The following argument is due to Polya. Suppose you wished to paint n houses and you have \(k\) different colors available. The first house can be painted in \(k\) different ways, the second in \(k\) different ways, etc. So there are \(k^{n}\) ways. How many ways actually use all \(k\) colors? Let \(\alpha_{i}\) be the property that no house is painted with the \(i\)th color, and let \(N(\alpha_{i})\) denote the number of ways of painting the \(n\) houses without using the \(i\)th color. Analogously for \(N(\alpha_{i},\alpha_{j})\), \(N(\alpha_{i},\alpha_{j},\alpha_{k})\), etc. Since \(N(\alpha_{i}) = (k - 1)^{n}\), \(N(a_{i},\alpha_{j}) = ( k - 2)^{n}\) and so on, the number of ways of painting \(n\) houses using all \(k\) colors is, using PIE, \(k^{n} -\binom{k}{1} \left(k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3}      \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k}\binom{k}{k} 0^{n}\).%
 \par
-\hypertarget{p-1511}{}%
+\hypertarget{p-1512}{}%
 Alternately, we could first partition the \(n\) houses into \(k\) (non-empty) sets, and then paint each set. This can be    accomplished in \(k!S(n,k)\) ways. Now equate these two expressions.%
 \end{proof}
 \end{activity}
