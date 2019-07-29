@@ -5,19 +5,16 @@
 
 <book xml:id="mdm">
     <title>More Discrete Mathematics</title>
-    <subtitle>via Graph Theory</subtitle>
+    <!-- <subtitle>via Graph Theory</subtitle> -->
 
 
 <xi:include href="./frontmatter.ptx"/>
-
-<xi:include href="./ch_graphtheory.ptx"/>
 
 <xi:include href="./ch_basic-combinatorics.ptx"/>
 
 <xi:include href="./ch_advanced-combinatorics.ptx"/>
 
-
-
+<xi:include href="./ch_graphtheory.ptx"/>
 
 <xi:include href="./backmatter.ptx"/>
 

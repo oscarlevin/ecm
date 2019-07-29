@@ -1503,6 +1503,8 @@ HI/.style={USA map/HI/.style={#1}}, AK/.style={USA map/AK/.style={#1}}, FL/.styl
 </latex-image-preamble>
 
 <rename element="investigation" lang="en-US">Puzzle</rename>
+<rename element="exploration" lang="en-US">Problem</rename>
+
 <!-- <rename element="question" lang="en-US">Puzzle</rename> -->
 
 
@@ -1511,7 +1513,7 @@ HI/.style={USA map/HI/.style={#1}}, AK/.style={USA map/AK/.style={#1}}, FL/.styl
 <!--   (1)  it is a flag to enable the addon                 -->
 <!--   (2)  it holds the token and MBX supplies generic code -->
 <!-- This is for the Google Custom Search Engine in HTML     -->
-<search>
+<!-- <search>
     <google>
         <cx>000445521324161818100:uw-slr5ay1u</cx>
     </google>
@@ -1521,7 +1523,7 @@ HI/.style={USA map/HI/.style={#1}}, AK/.style={USA map/AK/.style={#1}}, FL/.styl
     <google>
       <tracking>UA-66485406-1</tracking>
     </google>
-</analytics>
+</analytics> -->
 
 <cross-references text="type-global" />
 

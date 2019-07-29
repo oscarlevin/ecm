@@ -350,29 +350,77 @@
 
   </p>
 
-  <activity>
-    <task>
+  <example>
+    <statement>
       <p>
         Define a bijection <m>f:X \to Y</m> where <m>X</m> is the set of lattice paths from <m>(0,0)</m> to <m>(k,n-k)</m> and <m>Y</m> is the set of <m>n</m>-bit strings of weight <m>k</m>. Prove that <m>f</m> really is a bijection.
       </p>
-    </task>
-    <task>
+    </statement>
+    <solution>
+      <p>
+        This really comes down to how to represent the elements of the set <m>X</m>. We represent a lattice path from <m>(0,0)</m> to <m>(k, n-k)</m> as a sequence of <em>R</em>'s and <em>U</em>'s, representing a step to the right or a step up.  Note that this means that each lattice path will be a sequence containing a total of <m>n</m> symbols, of which <m>k</m> will be <em>R</em>'s. 
+      </p>
+
+      <p>
+        Now we can define the bijection.  The function <m>f</m> takes a string of <em>R</em>'s and <em>U</em>'s, and replaces each <em>R</em> with a 1 and each <em>U</em> with a 0.  
+      </p>
+
+      <p>
+        To prove this is a bijection, there are four things we need to check: 
+        <ol>
+          <li>
+            That <m>f(x)</m> is defined for each <m>x \in X</m> (i.e., every lattice path is sent to some <m>n</m>-bit string of weight <m>k</m>).</li>
+          <li>
+            That <m>f(x)</m> is <em>uniquely</em> defined for each <m>x \in X</m> (i.e., no lattice path is sent to more than one bit string).</li>
+          <li>
+            That every <m>y \in Y</m> is the image of at least one <m>x \in X</m> (i.e., that every <m>n</m>-bit string of weight <m>k</m> is the output of the function at least once).
+          </li>
+          <li>
+            That every <m>y \in Y</m> is the image of at most one <m>x \in X</m> (i.e., that no <m>n</m>-bit string of weight <m>k</m> is the output of the function more than once.)
+          </li>
+        </ol>
+        The first two conditions guarantee that <m>f</m> will be a function.  The third says that <m>f</m> is onto (a surjection).  The fourth says that <m>f</m> is one-to-one (an injection).
+      </p>
+
+      <p>
+        Let's do this.  First, since elements in <m>X</m> contain <m>k</m> <em>R</em>'s and <m>n-k</m> <em>U</em>'s, applying the rule for <m>f</m> will result in a bit string containing <m>k</m> 1's and <m>n-k</m> 0's, for a total length of <m>n</m>.  Thus each element of <m>X</m> will be sent to an element of <m>Y</m>.  Further, it is not possible for an element of <m>X</m> to be sent to more than one element of <m>Y</m> since our procedure is well defined.
+      </p>
+
+      <p>
+        To show that <m>f</m> is surjective, consider an arbitrary <m>y \in Y</m>.  If we replace each 1 with an <em>R</em> and each 0 with a <em>U</em>, then we get an element <m>x \in X</m> (because of the length of weight of the strings) and then <m>f(x) = y</m>.
+      </p>
+
+      <p>
+        Finally, to show that <m>f</m> is injective, consider <m>x_1, x_2 \in X</m> and suppose <m>x_1 \ne x_2</m>.  Then there is a first position in which they differ (a point on the lattice path where one path goes right and the other goes up).  But then this bit will be different in <m>f(x_1)</m> and <m>f(x_2)</m>.
+      </p>
+    </solution>
+  </example>
+
+  
+
+  <exploration>
+    <statement>
       <p>
         Define a bijection <m>f:X \to Y</m> where <m>X</m> is the set of <m>n</m>-bit strings of weight <m>k</m> and <m>Y</m> is set of <m>k</m>-element subsets of <m>[n] = \{1,2,3,\ldots, n\}</m>.  Again, prove that <m>f</m> is a bijection.
       </p>
-    </task>
-    <task>
-      <statement>
-        <p>
-          Can you now conclude that the number of lattice paths from <m>(0,0)</m> to <m>(k,n-k)</m> is the same as the number of <m>k</m>-element subsets of <m>[n]</m>?  Can you easily give the bijection (and be sure it is one)?
-        </p>
-      </statement>
-    </task>
-  </activity>
+    </statement>
+  </exploration>
 
+  <exploration>
+    <statement>
+      <p>
+        Can you now conclude that the number of lattice paths from <m>(0,0)</m> to <m>(k,n-k)</m> is the same as the number of <m>k</m>-element subsets of <m>[n]</m>?  Can you easily give the bijection (and be sure it is really a bijection)?
+      </p>
+    </statement>
+    <hint>
+      <p>
+        What can you say about the composition of two bijections?
+      </p>
+    </hint>
+  </exploration>
 
   <p>
-    So all these counting questions correspond to each other.  Why do the answers always fall in Pascal's triangle?  To answer this, we need to start with a definition for the numbers in Pascal's triangle.
+    What the example and problems above say is that all these counting questions correspond to each other.  But why do the answers always appear in Pascal's triangle?  To answer this, we need to start with a definition for the numbers in Pascal's triangle.
   </p>
 
   <p>
@@ -462,12 +510,21 @@
         The last piece of the puzzle is to connect this definition to all the others.  Of course given the work done above, it would be enough to prove that any one of the models for binomial coefficients match the recurrence for Pascal's triangle, but it is instructive to check all four.
       </p>
 
-      <activity>
-        <task>
+      <example>
+        <statement>
           <p>
             Prove that bit strings satisfy the same recurrence as Pascal's triangle.  That is prove that <m>|\B^n_k| = |\B^{n-1}_{k-1}| + |\B^{n-1}_k|</m>.
           </p>
-        </task>
+        </statement>
+        <solution>
+          <p>
+            Partition the <m>n</m>-bit string of weight <m>k</m> into two disjoint sets: those that start with a 0 and those that start with a 1.  Consider the remainder of each bit string (after that first bit). Each <m>n</m>-bit string that starts with a 1 ends with an <m>(n-1)</m>-bit string of weight <m>k-1</m>.  There are <m>|\B^{n-1}_{k-1}</m> of these.
+            Each <m>n</m>-bit strings that starts with a 0 ends with an <m>(n-1)</m>-bit string that of weight <m>k</m>.  There are <m>|\B^{n-1}_k|</m> of these.  So all together <m>|\B^n_k| = |\B^{n-1}_{k-1}| + |\B^{n-1}_k|</m>.
+          </p>
+        </solution>
+      </example>
+      
+      <exploration>
         <task>
           <p>
             Prove that subsets satisfy the same recurrence as Pascal's triangle. Make sure you clearly state what you are proving.
@@ -483,11 +540,11 @@
             Prove that binomial coefficients (the actual coefficients of the expansion of the binomial <m>(x+y)^n</m>) satisfy the same recurrence as Pascal's triangle.
           </p>
         </task>
-      </activity>
+      </exploration>
 
 
       <p>
-        At last we can rest easy that can use Pascal's triangle to calculate binomial coefficients and as such find numeric values for the answers to counting questions. How many pizza's containing three distinct toppings can you make if the pizza place offers 10 toppings?  Well the answer should be <m>\binom{10}{3}</m>, and Pascal's triangle says that is 120.
+        At last we can rest easy that we can use Pascal's triangle to calculate binomial coefficients and as such find numeric values for the answers to counting questions. How many pizza's containing three distinct toppings can you make if the pizza place offers 10 toppings?  Well the answer should be <m>\binom{10}{3}</m>, and Pascal's triangle says that is 120.
       </p>
 
 
