@@ -41,7 +41,7 @@
     </p>
 
     <p>
-      There are at least four very distinct proofs we could give for each binomial identity.  The next activities walk you through these.
+      There are at least four very distinct proofs we could give for each of these theorems.  The next activities and examples will walk you through a few.
     </p>
 
     <p>
@@ -55,12 +55,12 @@
     <activity>
       <statement>
         <p>
-          First, an algebraic proof.  We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k)!}</m>, where <m>r! = r \cdot (r-1) \cdot (r-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>r</m> factorial</q>).  Using this algebraic formula, prove the identity.
+          First, an algebraic proof.  We will see later that <m>\binom{n}{k} = \frac{n!}{k!(n-k)!}</m>, where <m>r! = r \cdot (r-1) \cdot (r-2) \cdot\cdots\cdot 2\cdot 1</m> (read <q><m>r</m> factorial</q>).  Using this algebraic formula, prove the identity <m>\binom{n}{k} = \binom{n}{n-k}</m>.
         </p>
       </statement>
       <hint>
         <p>
-          This should be really easy; don't let that fool you.  Note that a correct proof must start with one side of the identity and manipulate it into the other side.  The following is NOT a correct proof, because it starts by assuming the statement you wish to prove.
+          This should be really easy, but don't let that fool you.  Note that a correct proof must start with one side of the identity and manipulate it into the other side.  The following is NOT a correct proof, because it starts by assuming the statement you wish to prove.
 
           <md>
             <mrow>\binom{n}{k}  = \amp \binom{n}{n-k}</mrow>
@@ -83,20 +83,24 @@
     </activity>
 
     <p>
-      Note that this proof was not by any means difficult, but it did rely on an algebraic identity we have yet to prove.  We will see in <xref ref="act-pascalrowsum-alg"/> that algebraic proofs can be very messy.  What's more, nothing about these proofs explain <em>why</em> the identity is true.  They lack meaning.
+      Note that this proof was not by any means difficult, but it did rely on an algebraic identity we have yet to prove.  We will see in <xref ref="act-pascalrowsum-alg"/> that algebraic proofs can be very messy.  What's more, algebraic proofs rarely explain <em>why</em> an identity is true.  They lack meaning.
     </p>
 
-    <activity>
+    <p>
+      Slightly more meaning can be found in proofs by induction.  There at least you see the connection to the recursion defining the terms.  We give an example of such an argument here.
+    </p>
+
+    <example>
       <statement>
         <p>
-          We claim the identity is true for all <m>n \ge 0</m>, so induction would be a natural proof technique to try.  Give a proof by mathematical induction on <m>n</m>.
+          We claim the identity <m>\binom{n}{k} = \binom{n}{n-k}</m> is true for all <m>n \ge 0</m>, so induction would be a natural proof technique to try.  Give a proof by mathematical induction on <m>n</m>.
         </p>
       </statement>
-      <hint>
+      <!-- <hint>
         <p>
           You will probably want to use the Pascal recurrence <m>\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}</m>.  Note that once you pick your <m>n</m>, you should argue that the identity holds for all <m>0 \le k \le n</m>.  You should not do double induction.
         </p>
-      </hint>
+      </hint> -->
       <solution>
         <p>
           We will do induction on <m>n</m>.  For <m>n = 0</m>, the only value of <m>k</m> that is interesting is <m>k=0</m>, and here <m>\binom{n}{k} = \binom{0}{0} = \binom{n}{n-k}</m>.  Thus the base case is established.
@@ -118,7 +122,11 @@
           Thus <m>\binom{n}{k} = \binom{n}{n-k}</m>, as long as <m>0 \le k \lt n</m>.  The case where <m>k = n</m> is trivial as <m>\binom{n}{n} = \binom{n}{0} = 1</m>.
         </p>
       </solution>
-    </activity>
+    </example>
+
+    <p>
+      The next two proofs are examples of <term>combinatorial proofs</term>.  
+    </p>
 
     <activity xml:id="act-pascalsym-dc">
       <introduction>
@@ -163,7 +171,7 @@
       <task>
         <statement>
           <p>
-            Why are the two parts above enough to establish the identity?
+            Why are the two parts above enough to establish the identity <m>\binom{n}{k} = \binom{n}{n-k}</m>?
           </p>
         </statement>
         <solution>
@@ -208,7 +216,7 @@
       <task>
         <statement>
           <p>
-            Why is the above enough to establish the identity?
+            Why is the above enough to establish the identity <m>\binom{n}{k} = \binom{n}{n-k}</m>?
           </p>
         </statement>
         <hint>
@@ -220,8 +228,30 @@
     </activity>
 
     <p>
-      How are <xref ref="act-pascalsym-dc"/> and <xref ref="act-pascalsym-bij"/> different?  The first consists of answering a single counting question in two different ways, and those ways are the two sides of the identity.  Such proofs are sometimes called <em>double counting proofs</em>, or sometimes just <em>combinatorial proofs</em>.  On the other hand, <xref ref="act-pascalsym-bij"/> proceeds by showing two different sets have the same size, using a bijection, and shows that these two sets are counted by each side of the identity.  These proofs are called <em>bijective proofs</em> (and are also sometimes grouped together with double counting proofs as combinatorial proofs).
+      How are <xref ref="act-pascalsym-dc"/> and <xref ref="act-pascalsym-bij"/> different?  The first consists of answering a single counting question in two different ways, and those ways are the two sides of the identity.  Such proofs are sometimes called <em>double counting proofs</em>, or sometimes just <em>combinatorial proofs</em>.  On the other hand, <xref ref="act-pascalsym-bij"/> proceeds by showing two different sets have the same size, using a bijection, and shows that these two sets are counted by each side of the identity.  These proofs are called <em>bijective proofs</em> (and are also sometimes grouped together with double counting proofs as combinatorial proofs). 
     </p>
+
+    <p>
+      Here is yet another combinatorial proof of the identity <m>\binom{n}{k} = \binom{n}{n-k}</m>.  We give both double counting and bijective variants.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Prove that <m>\binom{n}{k} = \binom{n}{n-k}</m> using bit strings.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\binom{n}{k}</m> counts the number of <m>n</m>-bit strings of weight <m>k</m>.  This is because of the <m>n</m> bits, we must choose <m>k</m> to be 1's, which can be done in <m>\binom{n}{k}</m> ways.  The number of <m>n</m>-bit strings of weight <m>k</m> is also <m>\binom{n}{n-k}</m>, since of the <m>n</m> bits, we must choose <m>n-k</m> to be 0's (making the remaining <m>k</m> 1's), which can be done in <m>\binom{n}{n-k}</m> ways.  Thus <m>\binom{n}{k} = \binom{n}{n-k}</m>. 
+        </p>
+
+        <p>
+          The above is a complete proof, but really <m>\binom{n}{k}</m> can be thought of as <em>defined</em> as the size of the set <m>\B^n_k</m>.  But then <m>\binom{n}{n-1}</m> is the size of the set <m>\B^n_{n-k}</m>.  So what we are really saying here is that <m>|\B^n_k| = |\B^n_{n-k}|</m>, which is true because the function that switches 0's to 1's and 1's to 0's in a bit string is a bijection between these two sets.
+        </p>
+      </solution>
+    </example>
+
 
     <p>
       Both styles of combinatorial proof have the advantage that they do an excellent job of illustrating what is really going on in an identity.  They reinforce our understanding of how to solve counting problems and our understanding of basic combinatorial principles.
@@ -252,7 +282,7 @@
     <activity>
       <statement>
         <p>
-          We wish to establish this identity for all natural numbers <m>n</m>, so it would be natural to give a proof by induction.  Do this.
+          We wish to establish the identity <m>\sum_{k=0}^n \binom{n}{k} = 2^n</m> for all natural numbers <m>n</m>, so it would be natural to give a proof by induction.  Do this.
         </p>
       </statement>
       <hint>
@@ -302,7 +332,7 @@
         </statement>
         <hint>
           <p>
-            Your final answer here should be a sum, since we have counted the number of subsets partitioned into disjoint collections.
+            Your final answer here should be a sum, since we have counted the number of subsets partitioned into disjoint collections.  You will be using the sum principle, which we will formally introduce in the next subsection.
           </p>
         </hint>
         <solution>
@@ -445,11 +475,11 @@
     </assemblage>
 
     <p>
-      Note, while both the sum and product principle are true for more than two subtasks, which you could prove easily by induction from the versions given above.  But how do we know these principles are true?
+      Note, both the sum and product principles are true for more than two subtasks.  You could prove this easily by induction using the principles for two sets as your base case.  But how do we know the principles for two sets are true?
     </p>
 
     <p>
-      To make these principles more mathematically rigorous, consider operations on sets.
+      To make the sum and product principles more mathematically rigorous, consider operations on sets.
     </p>
 
     <proposition xml:id="prop-unioncard">
@@ -476,7 +506,7 @@
     </proposition>
 
     <p>
-      We could prove these two propositions without too much trouble.  Then we must explain what they have to do with the sum and product principle.
+      We could prove these two propositions without too much trouble.  Then we must explain what they have to do with the sum and product principles.
     </p>
 
     <activity>
@@ -589,7 +619,7 @@
       To illustrate just how fundamental these two principles are, here are a few counting problems that can be solved with them.  For each of these, say exactly where and how the sum and product principles are used.
     </p>
 
-    <activity xml:id="act-latticepaths2">
+    <exploration xml:id="act-latticepaths2">
       <introduction>
         <p>
           We have seen that the number of lattice paths from <m>(0,0)</m> to <m>(x,y)</m> is given by <m>\binom{x+y}{x}</m>.  Now with the sum and product principles, we can answer lots of questions about lattice paths.
@@ -638,10 +668,10 @@
           </p>
         </hint>
       </task>
-    </activity>
+    </exploration>
 
     <p>
-      The last part of the previous activity illustrates what can go wrong if the sets <m>A</m> and <m>B</m> are not disjoint.  In general, we have,
+      The last part of the previous problem illustrates what can go wrong if the sets <m>A</m> and <m>B</m> are not disjoint.  In general, we have,
       <me>
         \card{A \cup B} = \card{A} + \card{B} - \card{A \cap B}.
       </me>
@@ -652,8 +682,28 @@
       This next set of questions you can answer entirely using the product principle.  While all the activities ask questions with a general <m>n</m> and <m>k</m>, it would be a good idea to first try to answer the corresponding question with specific numbers and then generalize.
     </p>
 
+  <exploration xml:id="SubsetsFirstTime" category="essential">
+    <statement>
+      <p>
+        How many subsets does a set <m>S</m> with <m>n</m> elements have?
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Try applying the product principle in the case <m>n = 2</m> and <m>n = 3</m>. How might you apply it in general?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        For each of the <m>n</m> elements of <m>S</m>, we have two options:
+        either we put the element into the subset or we do not. Thus, the
+        general product principle tells us that there are <m>2^n</m> subsets of <m>S</m>.
+      </p>
+    </solution>
+  </exploration>
+
 <!-- bogart: -->
-<activity xml:id="tennispairings1" category="interesting">
+<exploration xml:id="tennispairings1" category="interesting">
     <introduction>
         <p>
     A tennis club has <m>2n</m> members. We want to pair up the
@@ -695,10 +745,10 @@ many ways can you pair up the next person who isn't already paired up?
           specify our pairs?
       </p>
     </task>
-  </activity>
+  </exploration>
 
   <!-- bogart: -->
-  <activity>
+  <exploration>
     <statement>
       <p>
         A roller coaster car has <m>n</m> rows of seats, each of which
@@ -716,79 +766,64 @@ many ways can you pair up the next person who isn't already paired up?
         <m>(n!)^2 2^n</m>.  First, form two lines of <m>n</m> women and <m>n</m> men.  Each of these lines can be formed in <m>n!</m> ways, so the total number of pairs of lines is <m>(n!)^2</m>.  Now have the newly formed couples enter the coaster in order, but for each pair, decide whether the woman sits to the left or the right of the man.  So for each pair, we have 2 choices, for a total of <m>2^n</m> ways the lined-up couples can sit in the coaster car.
       </p>
     </solution>
-  </activity>
+  </exploration>
 
 <!-- bogart -->
-  <activity>
+  <example>
     <statement>
       <p>
-        In how many ways can we pass out <m>k</m> distinct pieces of
-        fruit to
-        <m>n</m> children (with no restriction on how many pieces of fruit a child may
-        get)?
+        Here are two counting problems, easier than the last two activities, that will lead us to an important general principle.
+        <ol>
+          <li>
+            <p>
+              In how many ways can we pass out <m>k</m> distinct pieces of
+              fruit to <m>n</m> children (with no restriction on how many pieces of fruit a child may
+              get)?
+            </p>
+          </li>
+        
+          <li>
+            <p>
+              Assuming <m>k\le n</m>, in how many ways can we pass out <m>k</m>
+              distinct pieces of fruit to
+              <m>n</m> children if each child may get at most one? What is the number if <m>k \gt n</m>? Assume for both questions that we pass out all the fruit.
+            </p>
+          </li>
+        </ol>
       </p>
     </statement>
     <solution>
       <p>
-        Either by the formula for the number of functions from an
-        <m>m</m>-element set to an <m>n</m>-element set or the general product principle, there
-        are <m>k^n</m> ways. (Each distribution is a function from the set of fruit to
-        the set of children, because each piece of fruit goes to one and only one
-        child.)
+        <ol>
+          <li>
+            <p>
+              We must decide on a child for each piece of fruit.  There are <m>n</m> choices for the first piece of fruit, <m>n</m> choices for the second, and so on.  The product principle says that there will be <m>n^k</m> ways to distribute the fruit.  
+            </p>
+
+            <p>
+              Slightly more mathematically speaking, we are counting the number of functions from a set of cardinality <m>k</m> (the fuits) to a set of cardinality <m>n</m> (the children).  Note that it does not make sense to think of the ways we can send the children to the fruit, since we do not require that every child gets a fruit, and we insist that all fruit is distributed.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              The only thing that changes for the secon part is that no child can get more than one piece of fruit.  So while we have <m>n</m> choices for the first piece of fruit, we only have <m>n-1</m> for the second, and <m>n-2</m> for the third.  Continuing until all the fruit is gone gives us a total of,
+              <me> n \cdot (n-1) \cdot (n-2) \cdot \cdots \cdot (n-k+1) = \frac{n!}{(n-k)!} </me>
+              ways to distribute the fruit.
+            </p>
+            <p>
+              If <m>k \gt n</m>, then the left-hand-side still works: one of the terms will be 0, and indeed, if there is more fruit than children, there is no way to pass out all the fruit while ensuring that each kid gets at most one fruit.
+            </p>
+          </li>
+        </ol>
       </p>
     </solution>
-  </activity>
+  </example>
 
 
-  <activity xml:id="SubsetsFirstTime" category="essential">
-    <statement>
-      <p>
-        How many subsets does a set <m>S</m> with <m>n</m> elements have?
-      </p>
-    </statement>
-    <hint>
-      <p>
-        Try applying the product principle in the case <m>n = 2</m> and <m>n = 3</m>. How might you apply it in general?
-      </p>
-    </hint>
-    <solution>
-      <p>
-        For each of the <m>n</m> elements of <m>S</m>, we have two options:
-        either we put the element into the subset or we do not. Thus, the
-        general product principle tells us that there are <m>2^n</m> subsets of <m>S</m>.
-      </p>
-    </solution>
-  </activity>
-
-  <activity category="motivation">
-    <statement>
-      <p>
-        Assuming <m>k\le n</m>, in how many ways can we pass out <m>k</m>
-        distinct pieces of fruit to
-        <m>n</m> children if each child may get at most one? What is the number if
-        <m>k>n</m>? Assume for both questions that we pass out all the fruit.
-      </p>
-    </statement>
-    <hint>
-      <p>
-        Ask yourself if either the sum principle or product principle applies.
-      </p>
-    </hint>
-    <hint>
-      <p>
-        Remember that zero is a number.
-      </p>
-    </hint>
-    <solution>
-      <p>
-        We are asking for the number of <m>k</m>-element permutations of <m>n</m>
-        children, which is <m>\prod_{i=1}^k n-i+1</m>, and is zero if <m>k>n</m>.
-      </p>
-    </solution>
-  </activity>
 
     <p>
-      The last activity is an example of a <term>permutation</term>.  We are asking how to arrange <m>k</m> of the <m>n</m> kids (arranged by which fruit they get).  There are <m>n!</m> ways to arrange <m>n</m> elements, so there are <m>n!</m> permutations of <m>n</m> elements.  Often we only want to arrange some of these, so we would consider a <m>k</m>-permutation.   We will use this often enough that it deserves its own notation.
+      The last question is an example of a <term>permutation</term>.  We are asking how to arrange <m>k</m> of the <m>n</m> kids (arranged by which fruit they get).  There are <m>n!</m> ways to arrange <m>n</m> elements, so there are <m>n!</m> permutations of <m>n</m> elements.  Often we only want to arrange some of these, so we would consider a <m>k</m>-permutation.   We will use this often enough that it deserves its own notation.
     </p>
 
     <assemblage xml:id="assemblage-permutation">
@@ -824,7 +859,7 @@ many ways can you pair up the next person who isn't already paired up?
     </p>
 
     <p>
-      While we are looking at permutations, let's also consider their counterpart, <em>combinations</em>. The key distinction is that while a permutation counts different arrangements as different outcomes, a combination does not.
+      While we are looking at permutations, let's also consider their counterpart, <em>combinations</em>. The key distinction is that while a permutation counts different arrangements as different outcomes, a combination does not.  Combinations are <em>selecting</em>, while permutations are <em>arranging</em> (and also selecting).
     </p>
 
     <activity>
@@ -906,16 +941,21 @@ many ways can you pair up the next person who isn't already paired up?
       There is nothing special about 26 and 5 in the above activity.
     </p>
 
-    <activity xml:id="act-binomformula">
+    <theorem xml:id="thm_comb-form">
       <statement>
         <p>
-          Give a combinatorial proof for the identity <m>P(n,k) = \binom{n}{k}\cdot k!</m>.
-        </p>
-        <p>
-          Conclude that <me>\binom{n}{k} = \frac{n!}{(n-k)!\cdot k!}</me>.
+          <m>P(n,k) = \binom{n}{k}\cdot k!</m>, and therefore <me>\binom{n}{k} = \frac{n!}{(n-k)!\cdot k!}</me>.
         </p>
       </statement>
-    </activity>
+    </theorem>
+
+    <exploration xml:id="act-binomformula">
+      <statement>
+        <p>
+          Give a combinatorial proof for the identity <m>P(n,k) = \binom{n}{k}\cdot k!</m>, thus proving <xref ref="thm_comb-form"/>.
+        </p>
+      </statement>
+    </exploration>
 
     <p>
       Notice that the only thing we needed to find the algebraic formula for binomial coefficients was the product principle and a willingness to solve a counting problem in two ways.  In <xref ref="sec_basic-quotient"/> we will consider this formula again from the other direction.
@@ -936,7 +976,7 @@ many ways can you pair up the next person who isn't already paired up?
 
 
 
-      <activity xml:id="act-redgreenballs">
+      <example xml:id="act-redgreenballs">
           <statement>
             <p>
             Prove the identity <m>\binom{2n}{2} = 2 \binom{n}{2} + n^{2}</m>.
@@ -957,13 +997,13 @@ many ways can you pair up the next person who isn't already paired up?
           in <m>\binom{2n}{2}</m> ways. Alternatively, you could select two from group <m>A</m> in <m>\binom{n}{2}</m> ways or two from group <m>B</m> in <m>\binom{n}{2}</m> ways or take one from each in <m>n \cdot n = n^{2}</m> ways. Now add <m>\binom{n}{2} + \binom{n}{2}+ n \cdot n</m> and the result follows.
         </p>
       </solution>
-      </activity>
+      </example>
 
       <p>
         The reader should attempt an algebraic proof of the above result using the factorial formula for <m>\binom{n}{k}</m>.
       </p>
 
-      <activity xml:id="act-bowtiefez">
+      <exploration xml:id="act-bowtiefez">
           <statement>
             <p>
               Prove the identity <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m>.
@@ -971,7 +1011,7 @@ many ways can you pair up the next person who isn't already paired up?
           </statement>
             <hint>
               <p>
-                The <m>mn</m> looks like an application of the product principle.  Say you had <m>m</m> bow ties and <m>n</m> fezzes.  What question should you ask, and why does the other side also answer this?
+                The <m>mn</m> looks like an application of the product principle.  Say you had <m>m</m> bow ties and <m>n</m> fezzes.  What question should you ask, and why does the other side also answer this?  Alternatively, consider how this identity relates to that of <xref ref="act-redgreenballs"/>.
               </p>
             </hint>
           <solution>
@@ -979,13 +1019,13 @@ many ways can you pair up the next person who isn't already paired up?
               Suppose you have a set of <m>m</m> bow ties and <m>n</m> fezzes and you want to form fez-bow tie outfits. This can clearly be done in <m>mn</m> ways. Or, you could choose 2 from the total of <m>m + n</m> items and delete the bow tie only pairs (there are <m>\binom{m}{2}</m> of these) and delete the fez only pairs (also <m>\binom{n}{2}</m> of these). Since we have counted this one set with two different expressions (the left hand side and the right hand side of the identity), those expressions are equal.
             </p>
           </solution>
-        </activity>
+        </exploration>
 
         <p>
-          You could also attempt an algebraic proof or perhaps a geometric proof making use of figures consisting of triangular numbers. Also, as a challenge, the reader could formulate a similar result involving <m>\binom{a + b + c}{3}</m> and a corresponding proof.
+          You could also attempt an algebraic proof or perhaps a geometric proof making use of figures consisting of triangular numbers (we will return to this identity at the end of the section to illustrate this). Also, as a challenge, the reader could formulate a similar result involving <m>\binom{a + b + c}{3}</m> and a corresponding proof.
         </p>
 
-        <activity>
+        <exploration>
           <statement>
             <p>
             We have already proved this identity: <m>\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \ldots + \binom{n}{n} = 2^{n}</m>.  Now try giving a combinatorial proof that uses lattice paths.
@@ -1001,13 +1041,13 @@ many ways can you pair up the next person who isn't already paired up?
               The question is, how many lattice paths start at (0,0) and end on the line <m>x+y=n</m> (in the first quadrant)?
             </p>
           </solution>
-        </activity>
+        </exploration>
 
         <p>
           Becoming an expert in combinatorial proofs will help you solve actual counting problems.  For example, you might wonder how many positive integers have their digits in strictly increasing order.
         </p>
 
-        <activity>
+        <exploration>
           <statement>
             <p>
               Prove that the number of positive integers that have their digits in strictly increasing order is <m>2^{9} - 1</m>. Include single digit numbers.
@@ -1026,35 +1066,35 @@ many ways can you pair up the next person who isn't already paired up?
               Here is an alternative, more clever, proof. Look at 123456789. Any increasing number can be made by deleting <em>any</em> subset of digits, except all of them. There are <m>2^{9} - 1</m> such subsets. For example, delete the subset \{2, 4, 7, 9\} and you get 13568. Combining these two approaches actually gives you a nice proof that <m>\binom{9}{0} + \binom{9}{1} + \binom{9}{2} + \ldots + \binom{9}{9} = 2^{9}</m>.
             </p>
           </solution>
-        </activity>
+        </exploration>
 
         <p>
           Now back to some combinatorial proofs.
         </p>
 
-        <activity xml:id="act_anysizecommittee">
+        <example xml:id="act_anysizecommittee">
           <statement>
             <p>
               Prove <m>\binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n} = n2^{n - 1}</m>.
             </p>
           </statement>
-          <hint>
+          <!-- <hint>
             <p>
               What if some number of a group of <m>n</m> people wanted to go to an escape room, and among those going, one needed to be the team captain?
             </p>
-          </hint>
+          </hint> -->
           <solution>
             <p>
               Given a set of <m>n</m> people we can select a committee of size <m>k</m> along with a chair from that committee in <m>k \binom{n}{k}</m> ways. We can select a committee (of size 1, or size 2, or <ellipsis />) and its chair in <m>\binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n}</m> ways. Alternatively, we can explain the term <m>n2^{n - 1}</m> as follows: choose one of the <m>n</m> people to chair any of the <m>2^{n - 1}</m> subsets of the remaining <m>n - 1</m> people.
             </p>
           </solution>
-        </activity>
+        </example>
 
         <p>
-          Some other ways to approach the previous activity might be one or more of the following: <m>n2^{n - 1}</m> looks like a derivative, so try differentiating <m>\left( 1 + x \right)^{n}</m>; a reverse and add approach also works; or, first prove <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m> and then use it.
+          Some other ways to approach the previous identity might be one or more of the following: <m>n2^{n - 1}</m> looks like a derivative, so try differentiating <m>\left( 1 + x \right)^{n}</m>; a reverse and add approach also works; or, first prove <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m> and then use it.
         </p>
 
-        <activity>
+        <exploration>
           <statement>
             <p>
               Prove the Pascal recurrence: <m>\binom{n}{k} = \binom{n - 1}{k-1} + \binom{n - 1}{k}</m>.  Do this in two ways, first with a double counting style proof, and then a bijective proof.
@@ -1073,13 +1113,13 @@ many ways can you pair up the next person who isn't already paired up?
               If, on the other hand, <m>A</m> does not contain <m>a_{i}</m>, you can choose the <m>k</m> elements from the depressed set <m>\left\{ a_{1},a_{2},\ldots,a_{i - 1,}a_{i + 1,\ldots,}a_{n} \right\}</m> in <m>\binom{n - 1}{k}</m> ways. Since these two cases are mutually exclusive the theorem follows.
             </p>
           </solution>
-        </activity>
+        </exploration>
 
         <p>
           The above activity illustrates another important reason to use combinatorial proofs: to establish recurrence relations.  The next identity is also a recurrence, this time about <em>derangements</em>.
         </p>
 
-        <activity>
+        <example>
           <statement>
             <p>
               A <term>derangement</term> of a set of elements is a permutation of those elements so that no element appears in its original position.  For example, a derangement of <m>[4]</m> might be <m>3,1,4,2</m>, but the permutation <m>3,2,4,1</m> is not a derangement because <m>2</m> is still in the second position.
@@ -1087,17 +1127,17 @@ many ways can you pair up the next person who isn't already paired up?
             <p> Let <m>d_{n}</m> denote the number of derangements of <m>[n]</m>.  We will take <m>d_{0} = 1</m> and <m>d_{1} = 0</m>.  Prove that <m>d_{n} = (n - 1)(d_{n - 1}+ d_{n - 2})</m> for <m>n \geq 2</m>.
             </p>
           </statement>
-          <hint>
+          <!-- <hint>
             <p>
               Where can <m>n</m> go?
             </p>
-          </hint>
+          </hint> -->
         <solution>
           <p>
             In forming a derangement of <m>1, 2, 3, \ldots, n</m> the integer <m>n</m> can be placed in any of the <m>n - 1</m> spots <m>1, 2, 3, \ldots, n - 1</m>, say spot <m>i</m>. If <m>i</m> goes into spot <m>n</m> there are <m>d_{n - 2}</m> ways to finish it. If <m>i</m> does not go into spot <m>n</m> there are <m>d_{n - 1}</m> ways to complete the derangement.
           </p>
         </solution>
-      </activity>
+      </example>
 
       <p>
         Later we will use the Principle of Inclusion/Exclusion to derive a formula for <m>d_{n}</m> from which the new recursion <m>d_{n} = nd_{n - 1} + \left( - 1 \right)^{n}</m>, and the above recursion, can be derived.
@@ -1107,7 +1147,7 @@ many ways can you pair up the next person who isn't already paired up?
         Let's get back to binomial identities.
       </p>
 
-      <activity>
+      <example xml:id="eg_binom-squares-sum">
         <statement>
           <p>
             Prove, <m>\binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \ldots + \binom{n}{n}^{2} = \binom{2n}{n}</m>.
@@ -1126,18 +1166,69 @@ many ways can you pair up the next person who isn't already paired up?
             or choose 2 men and <m>n - 2</m> women in <m>\binom{n}{2} \binom{n}{n - 2} = \binom{n}{2}^{2}</m> ways and so on.
             Now add these disjoint cases.
           </p>
+          <p>
+            An alternate algebraic proof is less interesting: Extract the
+            coefficient of <m>x^{n}</m> from both sides
+            of <m>\left\lbrack \left( x + 1 \right)^{n} \right\rbrack^{2} = \left(x + 1 \right)^{2n}</m>
+          </p>
         </solution>
-      </activity>
+      </example>
 
-        <p>
-          An alternate algebraic proof is less interesting: Extract the
-          coefficient of <m>x^{n}</m> from both sides
-          of <m>\left\lbrack \left( x + 1 \right)^{n} \right\rbrack^{2} = \left(x + 1 \right)^{2n}</m>
-        </p>
+          <p>
+            Here is a interesting use of the previous identity, inside an unexpected proof.
+          </p>
 
-        <activity>
+        <example>
           <statement>
             <p>
+              Find a nice expression for the sum
+              <me>\binom{n}{1}^2 + 2 \binom{n}{2}^2 + 3 \binom{n}{3}^2 + \cdots + n\binom{n}{n}^2
+              </me>.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              We use the <q>reverse and add technique</q>, which we will see in <xref ref="subsec-recursionclosed"/> is usually reserved for summing arithmetic sums.  Surprisingly, it works here.
+            </p>
+
+        <sidebyside>
+        <tabular>
+          <col halign="right"/><col halign="left"/><col halign="left"/><col halign="left"/>
+          <row>
+            <cell><m>S  =</m></cell>
+            <cell></cell>
+            <cell><m>\binom{n}{1}^2+2\binom{n}{2}^2+3\binom{n}{3}^2 + </m></cell>
+            <cell><m>\cdots +(n-1)\binom{n}{n-1}^2+n\binom{n}{n}^2</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell><m>+ \quad S  =</m></cell>
+            <cell><m>n\binom{n}{n}^2 + </m></cell>
+            <cell><m>(n-1)\binom{n}{n-1}^2+ \cdots +</m></cell>
+            <cell><m>2\binom{n}{2}^2+\binom{n}{1}^2</m></cell>
+          </row>
+          <row>
+            <cell><m>2S  =</m></cell>
+            <cell><m>n\binom{n}{0}^2 + </m></cell>
+            <cell><m>n\binom{n}{1}^2 + n\binom{n}{2}^2+ n\binom{n}{3}^2 + </m></cell>
+            <cell><m>\cdots + n\binom{n}{n-1}^2+n\binom{n}{n}^2</m></cell>
+          </row>
+        </tabular>
+      </sidebyside>
+      <p>
+        This uses the identity <m>\binom{n}{k} = \binom{n}{n-k}</m>.  Now factor out an <m>n</m> to get <me>2S = n\left[\binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \ldots + \binom{n}{n}^{2}\right]</me>. 
+        Apply the identity in <xref ref="eg_binom-squares-sum"/> and divide by 2 to get
+        <me>S = \frac{n}{2}\binom{2n}{n}</me>.
+      </p>
+      </solution>
+        </example>
+
+        <p>
+          The next identity is an example of the famed <term>Hocky Stick Theorem</term> (find this indentity in Pascal's triangle!).  
+        </p>
+
+        <exploration>
+          <statement>
+            <p> Prove 
               <m>\binom{2}{2} + \binom{3}{2} + \binom{4}{2} + \ldots + \binom{n}{2} = \binom{n + 1}{3}</m>.
             </p>
           </statement>
@@ -1151,38 +1242,53 @@ many ways can you pair up the next person who isn't already paired up?
               The term <m>\binom{n + 1}{3}</m> is the number of binary strings of length <m>n + 1</m> consisting of three 1's (and the rest 0's). The left hand side counts these by where in the string the left-most 1 appears. Let <m>a_{1}a_{2}a_{3}\ldots a_{n + 1}</m> be a string of length <m>n + 1</m>. There are <m>\binom{n}{2}</m> strings when <m>a_{1} = 1</m>, <m>\binom{n - 1}{2}</m> strings when <m>a_{2} = 1</m> is the leftmost 1, and so on, up to <m>\binom{2}{2}</m> strings when <m>a_{n - 1} = 1</m> is the leftmost 1. In this last case the string looks like <m>000\ldots 0111</m>.
             </p>
           </solution>
-        </activity>
+        </exploration>
 
         <p>
-          For a non-combinatorial proof of the above, attempting a proof by mathematical induction is an easy option. An algebraic approach is not!
+          For a non-combinatorial proof of the Hocky Stick Theorem, a proof by mathematical induction is an easy option. An algebraic approach is not!
         </p>
 
         <p>
-          If you spend enough time working on these proofs, you might find yourself discovering new identities that use the same basic setup.
+          If you spend enough time working on these proofs, you might find yourself discovering new identities that use the same basic setup.  You can take the proof you gave for the Hocky Stick Theorem and with a small tweak, get the following.
         </p>
 
-        <activity>
+        <example>
           <statement>
             <p>
               Prove <m>1\cdot n + 2 \cdot (n-1) + 3 \cdot (n-2) + \cdots + n \cdot 1 = \binom{n+2}{3}</m>
             </p>
           </statement>
-          <hint>
+          <!-- <hint>
             <p>
               You could use bit strings again, but this time think about where the second 1 could go.  Or for variety, why not try asking about subsets of <m>[n+2]</m>?
             </p>
-          </hint>
+          </hint> -->
           <solution>
             <p>
-              <p>
+              You should try to use bit strings again, but this time think about where the <em>second</em> 1 could go.  Or for variety, why not try asking about subsets of <m>[n+2]</m>?
+            </p>
+            <p>
                 Let <m>S = \{1,1,2,\ldots,n + 2\}</m>. The number of subsets of <m>S</m> of size 3 is <m>\binom{n + 2}{3}</m>. Each one looks like <m>\{a, b, c\}</m> with <m>a \lt b \lt c</m>.
                 Let's count these by looking at the size of the middle element <m>b</m>. If <m>b=2</m>, there is one choice for <m>a</m>, namely <m>a=1</m> and <m>n</m> choices for <m>c</m> for a total of <m>1 \cdot n</m>. If <m>b=3</m> there are 2 choices for <m>a</m>, and <m>n - 1</m> choices for <m>c</m> for a total of <m>2(n - 1)</m>. If <m>b=4</m> the total is <m>3(n - 2)</m>, and so on. The total derived by looking at cases is <m>1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \cdot 1</m> and this must equal <m>\binom{n + 2}{3}</m> since the cases are disjoint.
-              </p>
             </p>
           </solution>
-        </activity>
+        </example>
 
-      <activity>
+      <exploration>
+        <statement>
+          <p>
+            The proof using subsets we gave for the previous identity asked about 3-element subsets of <m>[n+2]</m>.  What if we looked at 5-element subsets of <m>[n+3]</m> and considered which the middle (third) number was?  Write a binomial identity, with a proof, that uses this idea.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            The identity you should try to prove is 
+            <me>\binom{2}{2}\binom{n}{2} + \binom{3}{2}\binom{n-1}{2} + \cdots + \binom{n}{2}\binom{2}{2} = \binom{n+3}{5}.</me>
+          </p>
+        </hint>
+      </exploration>
+
+      <!-- <activity>
         <statement>
           <p>
             <m>\binom{3n}{3} = 3 \binom{n}{3} + 6n \binom{n}{2} + n^{3}</m>.
@@ -1198,9 +1304,9 @@ many ways can you pair up the next person who isn't already paired up?
             Suppose you have <m>n</m> bow ties, <m>n</m> fezzes and <m>n</m> pairs of sun glasses and you want to select three of the accessories.  There are <m>\binom{3n}{3}</m> ways to do this.  Or you could  select three bow ties, three fezzes or three pairs of sun glasses in <m>3 \binom{n}{3}</m> ways, or two of one and one of the other in  <m>6n \binom{n}{2}</m> ways, or one of each in <m>n^3</m> ways.
           </p>
         </solution>
-      </activity>
+      </activity> -->
 
-        <activity>
+        <exploration>
           <statement>
             <p>
               <m>1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! + \ldots + n \cdot n! = \left( n + 1 \right)! - 1</m>.
@@ -1222,18 +1328,24 @@ many ways can you pair up the next person who isn't already paired up?
               There are <m>\left(n - 2 \right)\left(n - 2 \right)!</m> ways, and so on.
             </p>
           </solution>
-        </activity>
+        </exploration>
 
         <p>
-          The previous identity can also be established using a collapsing sum or induction proof.
+          The previous identity can also be established using an inductive proof, or through a clever collapsing sum as follows.
         </p>
 
+        <example>
+          <p>
+            To compute the sum <m>1\cdot 1! + 2 \cdot 2! + \cdots + n \cdot n!</m>, note that <m>(n+1)! - n! = n\cdot n!</m> (just factor out an <m>n!</m>).  This then makes the sum
+            <me>(2! - 1!) + (3! - 2!) + \cdots + ((n+1)! - n!) = (n+1)! - 1 </me>. 
+          </p>
+        </example>
 
 
-        <activity>
+        <exploration>
           <statement>
             <p>
-            <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m>.
+              <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m>.
             </p>
           </statement>
           <hint>
@@ -1249,7 +1361,7 @@ many ways can you pair up the next person who isn't already paired up?
               Alternatively, you could first choose any one of the <m>n</m> people to serve as chair and then fill out the committee in <m>\binom{n - 1}{k - 1}</m> ways. There are <m>n \binom{n - 1}{k - 1}</m> ways to select a chaired subcommittee. Hence <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m>.
             </p>
           </solution>
-        </activity>
+        </exploration>
 
 
         <!-- <theorem>
@@ -1306,12 +1418,17 @@ many ways can you pair up the next person who isn't already paired up?
           </proof>
         </theorem> -->
 
-        <activity>
+        <exploration>
           <statement>
             <p>
               <m>\binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \binom{n}{2} d_{2} + \ldots + \binom{n}{n} d_{n} = n!</m> where <m>d_{n}</m> denotes the <m>n</m>th derangement number, <m>d_{0} = 1,d_{1} = 0</m>.
             </p>
           </statement>
+          <hint>
+            <p>
+              Think of partitioning the <m>n!</m> permutations.
+            </p>
+          </hint>
           <solution>
             <p>
               The right-hand side, <m>n!</m>, gives the number of permutations of <m>n</m> objects. So the left-hand side must provide the same enumeration. The left side partitions the permutations according to how many elements are deranged (and the rest fixed). The term <m>\binom{n}{i} d_{i} = \binom{n}{n - i} d_{i}</m> gives the number of permutations of <m>n</m> where <m>n - i</m> elements are fixed and the remaining <m>i</m> elements are deranged.
@@ -1319,7 +1436,7 @@ many ways can you pair up the next person who isn't already paired up?
               <me>\binom{n}{n} d_{0} + \binom{n}{n - 1} d_{1} + \cdots + \binom{n}{0} d_{n} = \binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \cdots + \binom{n}{n} d_{n} = n!</me>
             </p>
           </solution>
-        </activity>
+        </exploration>
 
         <!-- <p>
           Here is one that you might have found in <xref ref="sec_basic-pascal"/>.
@@ -1354,47 +1471,90 @@ many ways can you pair up the next person who isn't already paired up?
         To close this section, let's return to a binomial identity we considered before, and consider a few additional proofs.
       </p>
 
-        <theorem>
-          <statement>
-            <p>
+        <example>
+          <!-- <title>
               <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m> (revisited).
-            </p>
-          </statement>
-          <proof>
+          </title> -->
+ 
             <p>
-              We give three proofs:
+              We give three and a half proofs of the identity <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m>.
               <ol>
                 <li>
                   <p>
-                    How many lines that are not vertical or horizontal can you form by connecting the points that are on the positive <m>x</m> and <m>y</m> axes? Since we really want only lines that are formed by connecting the <m>m</m> points with the <m>n</m> points, we could say we have <m>mn</m> lines. Or we could consider all <m>m + n</m> points and pick 2 in <m>\binom{m+n}{2}</m> ways and then delete those choices where you took 2 from <m>m</m> or 2 from <m>n</m>, since these formed vertical and horizontal lines, respectively.  Thus <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m>.
+                    How many lines that are not vertical or horizontal can you form by connecting the points that are on the positive <m>x</m> and <m>y</m> axes? 
+                    </p>
+
+                <sidebyside widths="20% 70%" valign="middle">
+                  <image width="100%">
+                    <latex-image>
+                      \begin{tikzpicture} 
+                        \draw (0,0) -- (0,4) (0,0) -- (5,0);
+                        \foreach \x in {1,...,4}{
+                          \foreach \y in {1,...,3} {
+                            \draw (\x,0) -- (0,\y);
+                            \draw[fill=black] (\x, 0) circle (1pt);
+                            \draw[fill=black] (0, \y) circle (1pt);
+                          }
+                        }
+                      \end{tikzpicture} 
+                    </latex-image>
+                  </image>
+
+                    <p>
+                    Since we really want only lines that are formed by connecting the <m>m</m> points with the <m>n</m> points, we could say we have <m>mn</m> lines. Or we could consider all <m>m + n</m> points and pick 2 in <m>\binom{m+n}{2}</m> ways and then delete those choices where you took 2 from <m>m</m> or 2 from <m>n</m>, since these formed vertical and horizontal lines, respectively.  Thus <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m>.
                   </p>
+                  </sidebyside>
                 </li>
                 <li>
                   <p>
-                    There are <m>mn</m> one by one squares in the subdivided <m>m</m> by <m>n</m> rectangle.  Each choice of arrows (one horizontal, one vertical) specifies one of these squares.  Pick two arrows but don't take two from the top or two from the side.  Then <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m>.
+                    There are <m>mn</m> one by one squares in the subdivided <m>m</m> by <m>n</m> rectangle.  
                   </p>
+                  <sidebyside widths="70% 20%" margins="0% 0%" valign="top">
+                  <p>
+                    Each choice of arrows (one horizontal, one vertical) specifies one of these squares.  Pick two arrows but don't take two from the top or two from the side.  Then <m>\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn</m>.
+                  </p>
+
+                  <image>
+                    <latex-image>
+                      \begin{tikzpicture}
+                        \draw (0,0) grid (5,4);
+                        \draw[->] (3.5,5) -- (3.5,4.25);
+                        \draw[->] (6,1.5) -- (5.25,1.5);  
+                      \end{tikzpicture}
+                    </latex-image>
+                  </image>
+                  </sidebyside>
                 </li>
                 <li>
                   <p>
                     Take <m>m</m> people in one group and <m>n</m> in another. How many handshakes can be accomplished? Among the <m>m</m> people there are <m>\binom{m}{2}</m> handshakes; among the <m>n</m> people there are <m>\binom{n}{2}</m> handshakes and between the two groups, <m>mn</m>. But, <m>\binom{m + n}{2}</m> also represents the total number of handshakes among the people. Then we get: <m>\binom{m}{2} + \binom{n}{2} + mn = \binom{m + n}{2}</m>.
                   </p>
                 </li>
+                <li>
+                  <p>
+                    For <m>m = 3</m> and <m>n = 5</m>:
+                  </p>
+                    <image width="30%">
+                      <latex-image>
+                          \begin{tikzpicture} 
+                            \foreach \x in {0,...,6}{
+                              \foreach \y in {0,...,\x}{
+                                \draw (\x,\y) circle (2pt);
+                              }
+                            } 
+                            \draw[dashed] (1.5,0) -- (1.5,2.5) -- (6,2.5);
+                          \end{tikzpicture}
+                      </latex-image>
+                    </image>
+                    <p>
+                      Note that <m>\binom{3}{2} = 3</m> is the 2nd triangular number, <m>\binom{5}{2} = 10</m> is the 4th triangular number, and <m>\binom{8}{2}</m> is the 7th triangular number.
+                    </p>
+                  </li>
               </ol>
             </p>
-          </proof>
-        </theorem>
+
+        </example>
   </subsection>
-
-  <!-- <theorem xml:id="thm-prodprinc">
-    <title>The Product Principle</title>
-    <statement>
-      <p>
-        If event <m>A</m> can occur in <m>m</m> ways, and each possibility for <m>A</m> allows for exactly <m>n</m> ways for event <m>B</m>, then the event <q><m>A</m> and <m>B</m></q> can occur in <m>m \cdot n</m> ways.
-      </p>
-    </statement>
-  </theorem> -->
-<!--  Exercises!  -->
-
 
 
 </section>
