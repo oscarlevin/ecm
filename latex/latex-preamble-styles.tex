@@ -61,7 +61,7 @@
 
 \usepackage{svg}
 
-\usepackage[framemethod=tikz]{mdframed}
+% \usepackage[framemethod=tikz]{mdframed}
 
 
 
@@ -75,157 +75,157 @@
 %%%%%%%%%%%%%%%%%  Nicely styled environments: %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{tcolorbox}
-\tcbuselibrary{skins}
-\tcbuselibrary{breakable}
-\usetikzlibrary{positioning,shadows}
+% \usepackage{tcolorbox}
+% \tcbuselibrary{skins}
+% \tcbuselibrary{breakable}
+% \usetikzlibrary{positioning,shadows}
 
 
-\tcbset{probstyle/.style={%
-	breakable,
-	enhanced,
-	colback=white,
-	top=.5em,
-	before skip=1em,
-	after skip=.5em,
-	sharp corners=all,
-	frame hidden,
-	%Draw breakable decorations:
-	overlay first={%
-		\draw[black!60, path fading=west] (frame.north) -- (frame.north east) -- (frame.south east);
-		},
-	overlay middle={%
-		\draw[black!60] (frame.south east) -- (frame.north east);
-		},
-	 overlay last={%
-		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south) -- (frame.south east);
-		\draw[black!60] (frame.north east) -- (frame.south east);
-		},
-	overlay unbroken={%
-		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south) -- (frame.south east);
-		\draw[black!60, path fading=west] (frame.north) -- (frame.north east) -- (frame.south east);
-		}
-	}
-}
+% \tcbset{probstyle/.style={%
+% 	breakable,
+% 	enhanced,
+% 	colback=white,
+% 	top=.5em,
+% 	before skip=1em,
+% 	after skip=.5em,
+% 	sharp corners=all,
+% 	frame hidden,
+% 	%Draw breakable decorations:
+% 	overlay first={%
+% 		\draw[black!60, path fading=west] (frame.north) -- (frame.north east) -- (frame.south east);
+% 		},
+% 	overlay middle={%
+% 		\draw[black!60] (frame.south east) -- (frame.north east);
+% 		},
+% 	 overlay last={%
+% 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
+% 		\draw[black!60, path fading=west] (frame.south) -- (frame.south east);
+% 		\draw[black!60] (frame.north east) -- (frame.south east);
+% 		},
+% 	overlay unbroken={%
+% 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
+% 		\draw[black!60, path fading=west] (frame.south) -- (frame.south east);
+% 		\draw[black!60, path fading=west] (frame.north) -- (frame.north east) -- (frame.south east);
+% 		}
+% 	}
+% }
 
 
-\newtheorem{myproblem}[project]{Activity}
-
-%Redefine ``example'' to call the new mdexample, and put a paragraph break after it.
-\renewenvironment{activity}{%
-\begin{tcolorbox}[probstyle]
-\begin{myproblem}
-}{%
-\end{myproblem}
-\end{tcolorbox}
-\par\medskip
-}
+% \newtheorem{myproblem}[project]{Activity}
 
 
-
-%create a mdframe style for examples:
-\mdfdefinestyle{examplestyle}{%
-	leftmargin=1.5ex, %left/right margins for oneside
-	rightmargin=1.5ex,
-	outermargin=1.5ex, %inner/outer margins for twoside
-	innermargin=1.5ex,
-	innertopmargin=0pt,
-	innerbottommargin=1.5ex,
-	skipbelow=1.5em,
-	roundcorner=0pt,
-	topline=false,
-	rightline=false,
-  frametitleaboveskip=2pt,
-	frametitlebelowskip=2pt,
-	needspace=3em,
-}
-
-%Create indented ``example'' environment:
-\mdtheorem[style=examplestyle]{mdexample}[theorem]{Example}
-
-%Redefine ``example'' to call the new mdexample, and put a paragraph break after it.
-\renewenvironment{example}{%
-\mdexample
-}{%
-\endmdexample\par
-}
-
-
-% \LetLtxMacro\mdexample\oldexample
-% \let\endmdexample\endoldexample
-%
-% \newenvironment{mdexample}{%
-% \oldexample
+% \renewenvironment{activity}{%
+% \begin{tcolorbox}[probstyle]
+% \begin{myproblem}
 % }{%
-% \endoldexample\par
+% \end{myproblem}
+% \end{tcolorbox}
+% \par\medskip
 % }
 
 
-%% begin: assemblage
-%% minimally structured content, high visibility presentation
-%% One optional argument (title) with default value blank
-%% 3mm space below dropped title is increase over 2mm default
-\renewtcolorbox{assemblage}[1][]
-  {breakable, skin=enhanced, boxrule=0.5pt, sharp corners, colback=blue!5, colframe=blue!15,
-   colbacktitle=blue!20, coltitle=black, boxed title style={sharp corners, frame hidden},
-   fonttitle=\bfseries, attach boxed title to top left={xshift=4mm,yshift=-3mm}, top=3mm, title={#1}}
 
-%%Create ``investigation'' environment for in-text worksheet type problems:
-% \renewenvironment{investigation}{%
-% \mdfsetup{%
-% 	frametitle={\colorbox{white}{\large\space\space \textit{Investigate!} \space} },
-% 	frametitlealignment=\centering,
-% 	frametitleaboveskip=-1.5ex,
-% 	frametitlebelowskip=0pt,
-% 	frametitlealignment={\hspace*{2pt}},
-% 	innerbottommargin=2em,
-% 	innermargin=1ex,
-% 	outermargin=1ex,
-% 	leftmargin=1ex,
-% 	rightmargin=1ex,
-% %	topline=false,
-% %	bottomline=false,
-% 	linecolor=green!50!black,
-% 	linewidth=1pt,
-% 	skipabove=2em,
-% 	skipbelow=2em,
-% 	roundcorner=15pt,
-% 	needspace=2em,
+% %create a mdframe style for examples:
+% \mdfdefinestyle{examplestyle}{%
+% 	leftmargin=1.5ex, %left/right margins for oneside
+% 	rightmargin=1.5ex,
+% 	outermargin=1.5ex, %inner/outer margins for twoside
+% 	innermargin=1.5ex,
+% 	innertopmargin=0pt,
+% 	innerbottommargin=1.5ex,
+% 	skipbelow=1.5em,
+% 	roundcorner=0pt,
+% 	topline=false,
+% 	rightline=false,
+%   frametitleaboveskip=2pt,
+% 	frametitlebelowskip=2pt,
+% 	needspace=3em,
 % }
-% \vskip 1em
-% \begin{mdframed}
+
+% %Create indented ``example'' environment:
+% \mdtheorem[style=examplestyle]{mdexample}[theorem]{Example}
+
+% %Redefine ``example'' to call the new mdexample, and put a paragraph break after it.
+% \renewenvironment{example}{%
+% \mdexample
 % }{%
-% \end{mdframed}\vspace{-4em} \begin{center}\colorbox{white}{ \space\space\quad {\LARGE \color{red} \Stopsign} \quad \textbf{Attempt the above activity before proceeding} \quad {\LARGE\color{red} \Stopsign}\quad\space\space }  \end{center}\par
+% \endmdexample\par
 % }
 
 
-% redefine the assemblage environment for minor tweaking %
-% \renewenvironment{assemblage}[1][]{%
-% 	\mdfsetup{%
-% 	frametitle={\colorbox{blue!20}{\space#1\space}},
-% 	% frametitlealignment={\hspace*{1ex}},
-% 	frametitleaboveskip=-1.5ex,
-% 	% frametitlebelowskip=1ex,
-% 	skipabove=2ex,
-% 	skipbelow=1em,
-% 	roundcorner=1pt,
-% 	leftmargin=3pt,
-% 	rightmargin=3pt,
-% 	backgroundcolor=blue!5,
-% 	linecolor=blue!30,
-% 	linewidth=1.5pt,
-% 	innertopmargin=-.5ex,
-% 	innerbottommargin=1.15em,
-% 	needspace=2em,
-% }
-% \begin{mdframed}\par\medskip
-% }{%
-% \end{mdframed}\par
-% }
+% % \LetLtxMacro\mdexample\oldexample
+% % \let\endmdexample\endoldexample
+% %
+% % \newenvironment{mdexample}{%
+% % \oldexample
+% % }{%
+% % \endoldexample\par
+% % }
 
-%%%%%%%%%%%%%%%%%  End environments %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %% begin: assemblage
+% %% minimally structured content, high visibility presentation
+% %% One optional argument (title) with default value blank
+% %% 3mm space below dropped title is increase over 2mm default
+% \renewtcolorbox{assemblage}[1][]
+%   {breakable, skin=enhanced, boxrule=0.5pt, sharp corners, colback=blue!5, colframe=blue!15,
+%    colbacktitle=blue!20, coltitle=black, boxed title style={sharp corners, frame hidden},
+%    fonttitle=\bfseries, attach boxed title to top left={xshift=4mm,yshift=-3mm}, top=3mm, title={#1}}
+
+% %%Create ``investigation'' environment for in-text worksheet type problems:
+% % \renewenvironment{investigation}{%
+% % \mdfsetup{%
+% % 	frametitle={\colorbox{white}{\large\space\space \textit{Investigate!} \space} },
+% % 	frametitlealignment=\centering,
+% % 	frametitleaboveskip=-1.5ex,
+% % 	frametitlebelowskip=0pt,
+% % 	frametitlealignment={\hspace*{2pt}},
+% % 	innerbottommargin=2em,
+% % 	innermargin=1ex,
+% % 	outermargin=1ex,
+% % 	leftmargin=1ex,
+% % 	rightmargin=1ex,
+% % %	topline=false,
+% % %	bottomline=false,
+% % 	linecolor=green!50!black,
+% % 	linewidth=1pt,
+% % 	skipabove=2em,
+% % 	skipbelow=2em,
+% % 	roundcorner=15pt,
+% % 	needspace=2em,
+% % }
+% % \vskip 1em
+% % \begin{mdframed}
+% % }{%
+% % \end{mdframed}\vspace{-4em} \begin{center}\colorbox{white}{ \space\space\quad {\LARGE \color{red} \Stopsign} \quad \textbf{Attempt the above activity before proceeding} \quad {\LARGE\color{red} \Stopsign}\quad\space\space }  \end{center}\par
+% % }
+
+
+% % redefine the assemblage environment for minor tweaking %
+% % \renewenvironment{assemblage}[1][]{%
+% % 	\mdfsetup{%
+% % 	frametitle={\colorbox{blue!20}{\space#1\space}},
+% % 	% frametitlealignment={\hspace*{1ex}},
+% % 	frametitleaboveskip=-1.5ex,
+% % 	% frametitlebelowskip=1ex,
+% % 	skipabove=2ex,
+% % 	skipbelow=1em,
+% % 	roundcorner=1pt,
+% % 	leftmargin=3pt,
+% % 	rightmargin=3pt,
+% % 	backgroundcolor=blue!5,
+% % 	linecolor=blue!30,
+% % 	linewidth=1.5pt,
+% % 	innertopmargin=-.5ex,
+% % 	innerbottommargin=1.15em,
+% % 	needspace=2em,
+% % }
+% % \begin{mdframed}\par\medskip
+% % }{%
+% % \end{mdframed}\par
+% % }
+
+% %%%%%%%%%%%%%%%%%  End environments %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -248,57 +248,57 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%  Headers and footers %%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%  Headers and footers %%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}} %Removes word "chapter" from the \leftmark.
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}} %Removes word "chapter" from the \leftmark.
 
-\fancyhead{} % clear header fields
-\fancyhead[LE]{{\footnotesize \textsl{\thepage}}~~ \textsc{\scriptsize \nouppercase{\leftmark}}}
-\fancyhead[RO]{\textsc{\scriptsize \nouppercase{\rightmark}} ~~ {\footnotesize \textsl{\thepage}}  }
-\fancyfoot{}
-
-
+% \fancyhead{} % clear header fields
+% \fancyhead[LE]{{\footnotesize \textsl{\thepage}}~~ \textsc{\scriptsize \nouppercase{\leftmark}}}
+% \fancyhead[RO]{\textsc{\scriptsize \nouppercase{\rightmark}} ~~ {\footnotesize \textsl{\thepage}}  }
+% \fancyfoot{}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%    Chapter headings  %%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage[bf,sc,center,outermarks]{titlesec}
 
 
-%%%%% FIX FOR BUG IN TITLESEC %%%%%%%%%%%
-\usepackage{etoolbox}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%    Chapter headings  %%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\makeatletter
-\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
-\patchcmd{\ttlh@hang}{\noindent}{}{}{}
-\makeatother
-%%%%% END FIX %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[bf,sc,center,outermarks]{titlesec}
 
 
-\titleformat{\chapter}[display]
-	{\Large\filcenter}
-	{\rule[4pt]{.3\textwidth}{2pt} \hspace{2ex} \large\textsc{\chaptertitlename} \thechapter \hspace{3ex} \rule[4pt]{0.3\textwidth}{2pt} }
-	{1pc}
-	{\titlerule\vspace{1ex}\huge\textsc}
-	[\vspace{.75ex}\titlerule]
-\titlespacing*{\chapter}{0pt}{-2em}{2em}
+% %%%%% FIX FOR BUG IN TITLESEC %%%%%%%%%%%
+% \usepackage{etoolbox}
 
-\titleformat{\paragraph}[block]
-  {\normalfont\bfseries\filcenter}
-  {\theparagraph}
-  {}
-  {\textsc}
+% \makeatletter
+% \patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+% \patchcmd{\ttlh@hang}{\noindent}{}{}{}
+% \makeatother
+% %%%%% END FIX %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Start sections 2 and larger on new page:
-\newcommand{\sectionbreak}{\clearpage\phantomsection}
 
-%%%%%%%%%  End chapter/sectio headings %%%%%%%%%%%%%%%%%
+% \titleformat{\chapter}[display]
+% 	{\Large\filcenter}
+% 	{\rule[4pt]{.3\textwidth}{2pt} \hspace{2ex} \large\textsc{\chaptertitlename} \thechapter \hspace{3ex} \rule[4pt]{0.3\textwidth}{2pt} }
+% 	{1pc}
+% 	{\titlerule\vspace{1ex}\huge\textsc}
+% 	[\vspace{.75ex}\titlerule]
+% \titlespacing*{\chapter}{0pt}{-2em}{2em}
+
+% \titleformat{\paragraph}[block]
+%   {\normalfont\bfseries\filcenter}
+%   {\theparagraph}
+%   {}
+%   {\textsc}
+
+% % Start sections 2 and larger on new page:
+% \newcommand{\sectionbreak}{\clearpage\phantomsection}
+
+% %%%%%%%%%  End chapter/sectio headings %%%%%%%%%%%%%%%%%
 
 %%% End of File.

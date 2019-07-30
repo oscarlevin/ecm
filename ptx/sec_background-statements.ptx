@@ -433,14 +433,14 @@
       <statement>
 
         <p>
-          Suppose I tell Sue that if she gets a 93<percent/> on her final, then she will get an A in the class. Assuming that what I said is true, what can you conclude in the following cases:
+          Suppose I tell Sue that if she gets a 93% on her final, then she will get an A in the class. Assuming that what I said is true, what can you conclude in the following cases:
         </p>
 
         <p>
         <ol>
-          <li><p>Sue gets a 93<percent/> on her final.</p></li>
+          <li><p>Sue gets a 93% on her final.</p></li>
           <li><p>Sue gets an A in the class.</p></li>
-          <li><p>Sue does not get a 93<percent/> on her final.</p></li>
+          <li><p>Sue does not get a 93% on her final.</p></li>
           <li><p>Sue does not get an A in the class.</p></li>
         </ol>
       </p>
@@ -453,7 +453,7 @@
           <m>P</m> are both true statements,
           <m>Q</m> must be true as well. For this problem, take
           <m>P</m> to mean
-          <q>Sue gets a 93<percent/>
+          <q>Sue gets a 93%
                             on her final</q> and
           <m>Q</m> to mean
           <q>Sue will get an A in the class.</q>
@@ -468,17 +468,17 @@
           </li>
           <li>
             <p>
-              You cannot conclude anything. Sue could have gotten the A because she did extra credit for example. Notice that we do not know that if Sue gets an <m>A</m>, then she gets a 93<percent/> on her final. That is the converse of the original implication, so it might or might not be true.
+              You cannot conclude anything. Sue could have gotten the A because she did extra credit for example. Notice that we do not know that if Sue gets an <m>A</m>, then she gets a 93% on her final. That is the converse of the original implication, so it might or might not be true.
             </p>
           </li>
           <li>
             <p>
-              The contrapositive of the converse of <m>P \imp Q</m> is <m>\neg P \imp \neg Q</m>, which states that if Sue does not get a 93<percent/> on the final, then she will not get an A in the class. But this does not follow from the original implication. Again, we can conclude nothing. Sue could have done extra credit.
+              The contrapositive of the converse of <m>P \imp Q</m> is <m>\neg P \imp \neg Q</m>, which states that if Sue does not get a 93% on the final, then she will not get an A in the class. But this does not follow from the original implication. Again, we can conclude nothing. Sue could have done extra credit.
             </p>
           </li>
           <li>
             <p>
-              What would happen if Sue does not get an A but <em>did</em> get a 93<percent/> on the final? Then <m>P</m> would be true and <m>Q</m> would be false. This makes the implication <m>P \imp Q</m> false! It must be that Sue did not get a 93<percent/> on the final. Notice now we have the implication <m>\neg Q \imp \neg P</m> which is the contrapositive of <m>P \imp Q</m>. Since <m>P \imp Q</m> is assumed to be true, we know <m>\neg Q \imp \neg P</m> is true as well.
+              What would happen if Sue does not get an A but <em>did</em> get a 93% on the final? Then <m>P</m> would be true and <m>Q</m> would be false. This makes the implication <m>P \imp Q</m> false! It must be that Sue did not get a 93% on the final. Notice now we have the implication <m>\neg Q \imp \neg P</m> which is the contrapositive of <m>P \imp Q</m>. Since <m>P \imp Q</m> is assumed to be true, we know <m>\neg Q \imp \neg P</m> is true as well.
             </p>
           </li>
         </ol>

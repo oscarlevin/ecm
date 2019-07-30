@@ -53,7 +53,7 @@
         <p>
           <m>2n</m> people stand in line at a old-timey movie theater.
           Admission is 50 cents, (denoted by H), and the box office starts with no change.
-          <m>n</m> of the people have H and <m>n</m> have <dollar />1 (denoted D). In how many ways can the <m>2n</m> people line up so that all can be admitted?
+          <m>n</m> of the people have H and <m>n</m> have $1 (denoted D). In how many ways can the <m>2n</m> people line up so that all can be admitted?
         </p>
       </statement>
       <hint>

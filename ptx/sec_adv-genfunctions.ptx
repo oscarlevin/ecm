@@ -875,7 +875,7 @@
 
     <activity category="motivation">
       <statement>
-        <p>Suppose we deposit <dollar />5000 in a savings certificate that pays ten percent interest and also participate in a program to add <dollar />1000 to the certificate at the end of each year (from the end of the first year on) that follows (also subject to interest.) Assuming we make the <dollar />5000 deposit at the end of year 0, and letting <m>a_i</m> be the amount of money in the account at the end of year <m>i</m>, write a recurrence for the amount of money the certificate is worth at the end of year <m>n</m>. Solve this recurrence. How much money do we have in the account (after our year-end deposit) at the end of ten years?  At the end of 20 years?
+        <p>Suppose we deposit $5000 in a savings certificate that pays ten percent interest and also participate in a program to add $1000 to the certificate at the end of each year (from the end of the first year on) that follows (also subject to interest.) Assuming we make the $5000 deposit at the end of year 0, and letting <m>a_i</m> be the amount of money in the account at the end of year <m>i</m>, write a recurrence for the amount of money the certificate is worth at the end of year <m>n</m>. Solve this recurrence. How much money do we have in the account (after our year-end deposit) at the end of ten years?  At the end of 20 years?
         </p>
       </statement>
       <solution>
@@ -893,7 +893,7 @@
             +1000\sum_{k=0}^\infty \left(\sum_{i=0}^k(1.1)^i\right)x^k
             - 1000\sum_{i=0}^\infty (1.1)^ix^i</mrow>
           </md>
-          This gives us that <m>a_n= 4000(1.1)^n +1000 \frac{1-(1.1)^{n+1}}{-.1}</m>. This simplifies to <m>a_n= 4000(1.1)^n+10000(1.1)^{n+1}-10000 = 15,000(1.1)^n-10000</m>. Courtesy of Maple, after ten years we have <dollar />28,906.14 and after 20 years we have <dollar />90,912.50.
+          This gives us that <m>a_n= 4000(1.1)^n +1000 \frac{1-(1.1)^{n+1}}{-.1}</m>. This simplifies to <m>a_n= 4000(1.1)^n+10000(1.1)^{n+1}-10000 = 15,000(1.1)^n-10000</m>. Courtesy of Maple, after ten years we have $28,906.14 and after 20 years we have $90,912.50.
         </p>
       </solution>
     </activity>

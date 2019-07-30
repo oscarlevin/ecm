@@ -5,7 +5,7 @@
         <statement>
           <p>
             The dollar menu at your favorite tax-free fast food restaurant has 7 items. You have
-            <dollar/>10 to spend. How many different meals can you buy if you spend all your money and:
+            $10 to spend. How many different meals can you buy if you spend all your money and:
           <ol>
             <li>
               <p>
@@ -43,7 +43,7 @@
               <statement>
                 <p>
                   After a late night of math studying, you and your friends decide to go to your favorite tax-free fast food Mexican restaurant, <em>Burrito Chime</em>. You decide to order off of the dollar menu, which has 7 items. Your group has
-                  <dollar/>16 to spend (and will spend all of it).
+                  $16 to spend (and will spend all of it).
                 <ol>
                   <li>
                     <p>
@@ -63,8 +63,8 @@
                       <!-- <solution>
                         <p>
                           <m>\d{15 \choose 6}</m> - buy one of each item, using
-                          <dollar />7. This leaves you
-                          <dollar />11 to distribute to the 7 items, so 11 stars and 6 bars.
+                          $7. This leaves you
+                          $11 to distribute to the 7 items, so 11 stars and 6 bars.
                     </p>
                       </solution> -->
                     </p>

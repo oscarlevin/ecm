@@ -1502,8 +1502,8 @@ HI/.style={USA map/HI/.style={#1}}, AK/.style={USA map/AK/.style={#1}}, FL/.styl
 
 </latex-image-preamble>
 
-<rename element="investigation" lang="en-US">Puzzle</rename>
-<rename element="exploration" lang="en-US">Problem</rename>
+<rename element="investigation" xml:lang="en-US">Puzzle</rename>
+<rename element="exploration" xml:lang="en-US">Problem</rename>
 
 <!-- <rename element="question" lang="en-US">Puzzle</rename> -->
 
