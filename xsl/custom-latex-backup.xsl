@@ -10,10 +10,7 @@
 
 <!-- Parts of this file were adapted from the author guide at https://github.com/rbeezer/mathbook and the analagous file at https://github.com/twjudson/aata -->
 
-<!DOCTYPE xsl:stylesheet [
-    <!ENTITY % entities SYSTEM "entities.ent">
-    %entities;
-]>
+
 <!-- DMOI customizations for LaTeX runs -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
@@ -157,7 +154,7 @@
 <xsl:param name="project.solution" select="'no'" />
 
 <!-- Forward links to hints: -->
-<xsl:param name="debug.exercises.forward" select="'yes'" />
+<xsl:param name="debug.exercises.forward" select="'yes'">
 
 <!-- Include a style file at the end of the preamble: -->
 
@@ -472,9 +469,72 @@
 </xsl:template> -->
 
 
+<!-- Create a heading for each non-empty collection of solutions -->
+<!-- Format as appropriate LaTeX subdivision for this level      -->
+<!-- But number according to the actual Exercises section        -->
+<xsl:template match="exercises" mode="backmatter">
+    <xsl:variable name="nonempty" select="(.//hint and $exercise.backmatter.hint='yes') or (.//answer and $exercise.backmatter.answer='yes') or (.//solution and $exercise.backmatter.solution='yes')" />
+    <xsl:if test="$nonempty='true'">
+        <xsl:text>\</xsl:text>
+        <xsl:apply-templates select="." mode="division-name" />
+        <xsl:text>*{</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text> </xsl:text>
+        <xsl:apply-templates select="." mode="title-full" />
+        <xsl:text>}&#xa;</xsl:text>
+        <xsl:apply-templates select="*" mode="backmatter" />
+    </xsl:if>
+</xsl:template>
+
+<!-- Create a heading for each non-empty collection of solutions -->
+<!-- Format as appropriate LaTeX subdivision for this level      -->
+<!-- But number according to the actual Exercises section        -->
+<!-- This needs to be fixed! -->
+<!-- <xsl:template match="exercises" mode="backmatter">
+    <xsl:variable name="nonempty" select="(.//hint and $exercise.backmatter.hint='yes') or (.//answer and $exercise.backmatter.answer='yes') or (.//solution and $exercise.backmatter.solution='yes')" />
+    <xsl:if test="$nonempty='true'">
+        <xsl:text>\</xsl:text>
+        <xsl:apply-templates select="." mode="subdivision-name" />
+        <xsl:text>*{</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text> </xsl:text>
+        <xsl:apply-templates select="." mode="title-full" />
+        <xsl:text>}&#xa;</xsl:text>
+        <xsl:text>\markright{Solutions for Section &#xa;</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text>}&#xa;</xsl:text>
+        <xsl:apply-templates select="*" mode="backmatter" />
+    </xsl:if>
+</xsl:template> -->
 
 
 
+
+<!-- Set up solution list -->
+<!-- Print exercises with some solution component -->
+<!-- Respect switches about visibility ("knowl" is assumed to be 'no') -->
+<xsl:template match="exercise" mode="backmatter">
+    <xsl:if test="answer or solution"> <!-- revmoed hint, those are not displayed here.  If I move hints to the back, I need to put it back here too -->
+        <!-- Lead with the problem number and some space -->
+        <xsl:text>\noindent\textbf{</xsl:text>
+        <xsl:apply-templates select="." mode="number" /> <!-- changed serial-number to number -->
+        <xsl:text>.} </xsl:text>
+        <xsl:if test="$exercise.backmatter.statement='yes'">
+            <!-- TODO: not a "backmatter" template - make one possibly? Or not necessary -->
+            <xsl:apply-templates select="statement" />
+            <xsl:text>\par\smallskip&#xa;</xsl:text>
+        </xsl:if>
+        <xsl:if test="hint and $exercise.backmatter.hint='yes'">
+            <xsl:apply-templates select="hint" mode="backmatter" />
+        </xsl:if>
+        <xsl:if test="answer and $exercise.backmatter.answer='yes'">
+            <xsl:apply-templates select="answer" mode="backmatter" />
+        </xsl:if>
+        <xsl:if test="solution and $exercise.backmatter.solution='yes'">
+            <xsl:apply-templates select="solution" mode="backmatter" />
+        </xsl:if>
+    </xsl:if>
+</xsl:template>
 
 
 
@@ -497,15 +557,57 @@
 <!-- Hack backmatter to get hints to projects and tasks: -->
 
 
+<xsl:template match="solution-list">
+    <!-- TODO: check here once for backmatter switches set to "knowl", which is unrealizable -->
+    <!-- <xsl:apply-templates select="activity" mode="backmatter" /> -->
+    <xsl:text>\begin{itemize}[itemsep=1em]&#xa;</xsl:text>
+   <xsl:apply-templates select="//activity" mode="backmatter"/>
+   <xsl:text>\end{itemize}&#xa;</xsl:text>
+</xsl:template>
+
+<xsl:template match="activity" mode="backmatter">
+  <xsl:if test="hint and $project.backmatter.hint='yes'">
+        <!-- Lead with the problem number and some space -->
+        <xsl:text>\hypertarget{a-</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text>}{}\item[\textbf{\hyperref[</xsl:text>
+        <xsl:apply-templates select="." mode="internal-id"/>
+        <!-- <xsl:apply-templates select="." mode="number" /> -->
+        <xsl:text>]{</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text>.}}]&#xa;</xsl:text>
+    <!-- <xsl:text>\item[\textbf{</xsl:text>
+    <xsl:apply-templates select="." mode="serial-number" />
+    <xsl:text>}.]</xsl:text> -->
+    <xsl:apply-templates select="hint" mode="backmatter" />
+  </xsl:if>
+  <xsl:apply-templates select="task" mode="backmatter" />
+</xsl:template>
 
 
-
-
+<xsl:template match="task" mode="backmatter">
+  <xsl:if test="hint and $task.backmatter.hint='yes'">
+        <!-- Lead with the problem number and some space -->
+        <xsl:text>\hypertarget{a-</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text>}{}\item[\textbf{\hyperref[</xsl:text>
+        <xsl:apply-templates select="." mode="internal-id"/>
+        <!-- <xsl:apply-templates select="." mode="number" /> -->
+        <xsl:text>]{</xsl:text>
+        <xsl:apply-templates select="." mode="number" />
+        <xsl:text>.}}]&#xa;</xsl:text>
+    <!-- <xsl:text>\item[\textbf{</xsl:text>
+    <xsl:apply-templates select="." mode="number" />
+    <xsl:text>}.]</xsl:text> -->
+    <xsl:apply-templates select="hint" mode="backmatter" />
+  </xsl:if>
+  <xsl:apply-templates select="task" mode="backmatter" />
+</xsl:template>
 
 
 <!-- We print hints, answers, solutions with no heading. -->
 <!-- TODO: make heading on solution components configurable -->
-<!-- <xsl:template match="hint" mode="backmatter">
+<xsl:template match="hint" mode="backmatter">
     <xsl:apply-templates />
     <xsl:text>&#xa;</xsl:text>
 </xsl:template>
@@ -516,96 +618,53 @@
     <xsl:text>&#xa;</xsl:text>
 </xsl:template>
 
- -->
+<!-- Put hint markers on statements that have hints: -->
+<!-- This works, but does not look great. -->
+<!-- A project may have a hint, with switch control -->
+<xsl:template match="hint">
+    <xsl:if test="$project.text.hint = 'yes'">
+        <xsl:apply-templates select="." mode="solution-heading" />
+        <xsl:apply-templates />
+    </xsl:if>
+    <xsl:text>~\hfill{\tiny\hyperlink{a-</xsl:text>
+    <xsl:apply-templates select="../." mode="number" />
+    <xsl:text>}{[hint]}</xsl:text>
+    <xsl:text>\hypertarget{q-</xsl:text>
+    <xsl:apply-templates select="../." mode="number" />
+    <xsl:text>}{}}</xsl:text>
+</xsl:template>
+<xsl:template match="hint[2]">
+    <xsl:if test="$project.text.hint = 'yes'">
+        <xsl:apply-templates select="." mode="solution-heading" />
+        <xsl:apply-templates />
+    </xsl:if>
+</xsl:template>
 
-
-<!-- Fix style of forward links: -->
-
-<xsl:template match="exercise|webwork-reps/static|webwork-reps/static/stage|myopenmath|&EXAMPLE-LIKE;|&PROJECT-LIKE;|task" mode="exercise-components">
+<!-- <xsl:template match="hint">
     <xsl:param name="b-original" />
-    <xsl:param name="purpose" />
-    <xsl:param name="b-has-statement" />
-    <xsl:param name="b-has-hint" />
-    <xsl:param name="b-has-answer"  />
-    <xsl:param name="b-has-solution"  />
+    <xsl:param name="b-has-answer" />
+    <xsl:param name="b-has-solution" />
 
-    <!-- structured (with components) versus unstructured (simply a bare statement) -->
+    <xsl:apply-templates select="." mode="solution-heading">
+        <xsl:with-param name="b-original" select="$b-original" />
+    </xsl:apply-templates>
+    <xsl:apply-templates>
+        <xsl:with-param name="b-original" select="$b-original" />
+    </xsl:apply-templates>
     <xsl:choose>
-        <xsl:when test="statement">
-            <xsl:if test="$b-has-statement">
-                <xsl:apply-templates select="statement">
-                    <xsl:with-param name="b-original" select="$b-original" />
-                </xsl:apply-templates>
-                <xsl:if test="$b-original and ($debug.exercises.forward = 'yes')">
-                    <!-- if several, all exist together, so just work with first one -->
-                    <xsl:for-each select="hint[1]|answer[1]|solution[1]">
-                        <!-- closer is better, so mainmatter solutions first -->
-                        <xsl:choose>
-                            <xsl:when test="count(.|$solutions-mainmatter) = count($solutions-mainmatter)">
-                                <xsl:text>\qquad~\hfill{\tiny</xsl:text>
-                                <xsl:text>\hyperlink{</xsl:text>
-                                <xsl:apply-templates select="." mode="latex-id-duplicate">
-                                    <xsl:with-param name="suffix" select="'main'"/>
-                                </xsl:apply-templates>
-                                <xsl:text>}{[</xsl:text>
-                                <xsl:apply-templates select="." mode="type-name"/>
-                                <xsl:text>]}}</xsl:text>
-                            </xsl:when>
-                            <xsl:when test="count(.|$solutions-backmatter) = count($solutions-backmatter)">
-                                <xsl:text>\qquad~\hfill{\tiny</xsl:text>
-                                <xsl:text>\hyperlink{</xsl:text>
-                                <xsl:apply-templates select="." mode="latex-id-duplicate">
-                                    <xsl:with-param name="suffix" select="'back'"/>
-                                </xsl:apply-templates>
-                                <xsl:text>}{[</xsl:text>
-                                <xsl:apply-templates select="." mode="type-name"/>
-                                <xsl:text>]}}</xsl:text>
-                            </xsl:when>
-                        </xsl:choose>
-                    </xsl:for-each>
-                </xsl:if>
-                <xsl:if test="(hint and $b-has-hint) or (answer and $b-has-answer) or (solution and $b-has-solution)">
-                    <xsl:call-template name="exercise-component-separator" />
-                </xsl:if>
-            </xsl:if>
-            <xsl:if test="$b-has-hint">
-                <xsl:apply-templates select="hint">
-                    <xsl:with-param name="b-original" select="$b-original" />
-                    <xsl:with-param name="purpose" select="$purpose" />
-                    <xsl:with-param name="b-has-answer" select="$b-has-answer" />
-                    <xsl:with-param name="b-has-solution" select="$b-has-solution" />
-                </xsl:apply-templates>
-            </xsl:if>
-            <xsl:if test="$b-has-answer">
-                <xsl:apply-templates select="answer">
-                    <xsl:with-param name="b-original" select="$b-original" />
-                    <xsl:with-param name="purpose" select="$purpose" />
-                    <xsl:with-param name="b-has-solution" select="$b-has-solution" />
-                </xsl:apply-templates>
-            </xsl:if>
-            <xsl:if test="$b-has-solution">
-                <xsl:apply-templates select="solution">
-                    <xsl:with-param name="b-original" select="$b-original" />
-                    <xsl:with-param name="purpose" select="$purpose" />
-                </xsl:apply-templates>
-            </xsl:if>
+        <xsl:when test="following-sibling::hint">
+            <xsl:call-template name="exercise-component-separator" />
         </xsl:when>
         <xsl:otherwise>
-            <!-- no explicit "statement", so all content is the statement -->
-            <xsl:if test="$b-has-statement">
-                <xsl:apply-templates>
-                    <xsl:with-param name="b-original" select="$b-original" />
-                </xsl:apply-templates>
-                <!-- no separator, since no trailing components -->
+            <xsl:if test="(following-sibling::answer and $b-has-answer) or (following-sibling::solution and $b-has-solution)">
+                <xsl:call-template name="exercise-component-separator" />
             </xsl:if>
         </xsl:otherwise>
     </xsl:choose>
-</xsl:template>
-
-
-
-
-
+    <xsl:text>\hfill{\tiny\hyperlink{a-</xsl:text>
+    <xsl:apply-templates select="../." mode="number" />
+    <xsl:text>}{hint}}</xsl:text>
+</xsl:template> -->
 
 
 

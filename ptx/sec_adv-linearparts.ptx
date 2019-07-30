@@ -1213,7 +1213,7 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
                 </me>
                 </p>
                 <table xml:id="q-binomial-tab">
-                    <caption><m>-1</m>-binomial coefficients</caption>
+                    <title><m>-1</m>-binomial coefficients</title>
                     <tabular>
                         <col right="minor" halign="center" /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col />
                         <row bottom="minor">

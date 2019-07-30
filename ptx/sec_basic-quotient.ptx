@@ -39,8 +39,8 @@
       </statement>
       <solution>
         <table xml:id="tab_permsof3" >
-          <caption>The <m>3</m>-element permutations of <m>\{a,b,c,d,e\}</m> organized
-              by which <m>3</m>-element set they permute.</caption>
+          <title>The <m>3</m>-element permutations of <m>\{a,b,c,d,e\}</m> organized
+              by which <m>3</m>-element set they permute.</title>
           <tabular>
             <row>
               <cell><m>abc</m></cell>

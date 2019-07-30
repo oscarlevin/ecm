@@ -32,6 +32,7 @@
 <xsl:param name="html.chunk.level" select="''" />
 <!-- DO NOT USE -->
 
+
 <!-- An exercise has a statement, and may have hints,      -->
 <!-- answers and solutions.  An answer is just the         -->
 <!-- final number, expression, whatever; while a solution  -->
@@ -39,43 +40,47 @@
 <!-- the *visibility* of these four parts                  -->
 <!--                                                       -->
 <!-- Parameters are:                                       -->
-<!--   'yes' - immediately visible                         -->
-<!--   'knowl' - adjacent, but requires action to reveal   -->
-<!--    NB: HTML - 'knowl' not implemented or recognized   -->
-<!--       'yes' makes knowls for hints, etc *always*      -->
-<!--   'no' - not visible at all                           -->
+<!--   'yes' - visible                                     -->
+<!--   'no' - not visible                                  -->
 <!--                                                       -->
-<!-- First, an exercise in exercises section.              -->
+<!-- Five categories:                                      -->
+<!--   inline (checpoint) exercises                        -->
+<!--   divisional (inside an "exercises" division)         -->
+<!--   worksheet (inside a "worksheet" division)           -->
+<!--   reading (inside a "reading-questions" division)     -->
+<!--   project (on a project-like,                         -->
+<!--   or possibly on a terminal "task" of a project-like) -->
+<!--                                                       -->
 <!-- Default is "yes" for every part, so experiment        -->
 <!-- with parameters to make some parts hidden.            -->
-<xsl:param name="exercise.text.statement" select="'yes'" />
-<xsl:param name="exercise.text.hint" select="'no'" />
-<xsl:param name="exercise.text.answer" select="'no'" />
-<xsl:param name="exercise.text.solution" select="'no'" />
-<!-- Second, an exercise in a solutions list in backmatter.-->
-<xsl:param name="exercise.backmatter.statement" select="'no'" />
-<xsl:param name="exercise.backmatter.hint" select="'yes'" />
-<xsl:param name="exercise.backmatter.answer" select="'yes'" />
-<xsl:param name="exercise.backmatter.solution" select="'yes'" />
-<!-- Now project-like elements, in main text.  -->
-<!-- A task is a division of a project         -->
-<xsl:param name="project.text.statement" select="'yes'" /> <!-- not implemented -->
-<xsl:param name="project.text.hint" select="'yes'" />
-<xsl:param name="project.text.answer" select="'no'" />
-<xsl:param name="project.text.solution" select="'no'" />
-<xsl:param name="task.text.statement" select="'yes'" /> <!-- not implemented -->
-<xsl:param name="task.text.hint" select="'yes'" />
-<xsl:param name="task.text.answer" select="'no'" />
-<xsl:param name="task.text.solution" select="'no'" />
-<!-- And project-like elements, in back matter (none implemented). -->
-<xsl:param name="project.backmatter.statement" select="'no'" />
-<xsl:param name="project.backmatter.hint" select="'yes'" />
-<xsl:param name="project.backmatter.answer" select="'no'" />
-<xsl:param name="project.backmatter.solution" select="'no'" />
-<xsl:param name="task.backmatter.statement" select="'no'" />
-<xsl:param name="task.backmatter.hint" select="'yes'" />
-<xsl:param name="task.backmatter.answer" select="'no'" />
-<xsl:param name="task.backmatter.solution" select="'no'" />
+<!--                                                       -->
+<!-- These are global switches, so only need to be fed     -->
+<!-- into the construction of exercises via the            -->
+<!-- "exercise-components" template.                       -->
+<!-- N.B. "statement" switches are necessary or desirable  -->
+<!-- for alternate collections of solutions (only)         -->
+<xsl:param name="exercise.inline.statement" select="''" />
+<xsl:param name="exercise.inline.hint" select="''" />
+<xsl:param name="exercise.inline.answer" select="''" />
+<xsl:param name="exercise.inline.solution" select="''" />
+<xsl:param name="exercise.divisional.statement" select="''" />
+<xsl:param name="exercise.divisional.hint" select="''" />
+<xsl:param name="exercise.divisional.answer" select="''" />
+<xsl:param name="exercise.divisional.solution" select="''" />
+<xsl:param name="exercise.worksheet.statement" select="''" />
+<xsl:param name="exercise.worksheet.hint" select="''" />
+<xsl:param name="exercise.worksheet.answer" select="''" />
+<xsl:param name="exercise.worksheet.solution" select="''" />
+<xsl:param name="exercise.reading.statement" select="''" />
+<xsl:param name="exercise.reading.hint" select="''" />
+<xsl:param name="exercise.reading.answer" select="''" />
+<xsl:param name="exercise.reading.solution" select="''" />
+<xsl:param name="project.statement" select="''" />
+<xsl:param name="project.hint" select="''" />
+<xsl:param name="project.answer" select="''" />
+<xsl:param name="project.solution" select="''" />
+
+
 <!-- Author tools are for drafts, mostly "todo" items                 -->
 <!-- and "provisional" citations and cross-references                 -->
 <!-- Default is to hide todo's, inline provisionals                   -->

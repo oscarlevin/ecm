@@ -9,11 +9,14 @@
 
 
 
+  <solutions project="hint">
+    <title>Hints to selected activities and projects</title>
+  </solutions>
 
-  <appendix>
-      <title>Hints to Selected Activities</title>
-      <solution-list/>
-  </appendix>
+  <solutions divisional="solution">
+    <title>Solutions to selected exercises</title>
+  </solutions>
+
 
 
 
