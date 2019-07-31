@@ -8,6 +8,18 @@
   </p>
 
   <p>
+    Your favorite milk-shake dinner has 11 stools along the bar.  Patrons of the dinner have a rule that no two adjacent stools can be simultaneously occupied.  In how many ways can the stools be occupied by any number of patrons (including no patrons at all, leaving all stools unoccupied)?
+  </p>
+
+    <p>
+    A first attempt might be to start with stool 1 and realize that it can be sat on or not.  So there are two choices for stool 1.  But now you might have two choices for stool 2 (if stool 1 was not sat on) or only once choice (to keep stool 2 empty, if stool 1 was in use).  Okay, so the multiplicative principle doesn't help.
+  </p>
+
+
+  <p>
+    Say you can't think of anything else to try.  The problem seems just too hard.  So make it easier:  11 is way too big of a number; 1 would be much better.  How many ways could a row of 1 stool be occupied?  Let's call this number <m>S_1</m>.  Maybe then we also try the version with 2 and 3 stools.
+  </p>
+  <!-- <p>
     Given any graph <m>G = (V, E)</m>, an <term>independent set</term> (of vertices) is a subset <m>I \subseteq V</m> so that no two vertices in <m>I</m> are adjacent.  Suppose you wished to count the number of independent sets of a particular graph.  In this example, lets do so for the path <m>P_{10}</m> (i.e., the graph containing 11 vertices and 10 edges arranged in a line).
   </p>
 
@@ -21,9 +33,9 @@
 
   <p>
     Say you can't think of anything else to try.  The problem seems just too hard.  So make it easier.  10 is way too big of a number; 1 would be much better.  How many independent sets of <m>P_1</m> are there?  Maybe then we also try the version with 2 and 3.
-  </p>
+  </p> -->
 
-  <activity>
+  <!-- <activity>
     <statement>
       <p>
         List all independent sets of <m>P_1</m>, <m>P_2</m>, and <m>P_3</m>.  Don't forget the empty set! Do you notice a pattern among these numbers?
@@ -54,6 +66,40 @@
   <hint>
     <p>
       Which independent sets contain the vertex <m>n+1</m>?
+    </p>
+  </hint>
+</activity> -->
+  <activity>
+    <statement>
+      <p>
+        List all stool seating charts with 1, 2, and 3 stools.  Let the number of seating charts be called <m>S_1</m>, <m>S_2</m>, and <m>S_3</m> respectively.  Do you notice a pattern among these numbers?
+      </p>
+    </statement>
+    <hint>
+      <p>
+        You should find 3 seating arrangements with 2 stools.  There are 5 with three stools.
+      </p>
+    </hint>
+  </activity>
+
+
+<p>
+  We get a sequence <m>(S_n)_{n \ge 1}</m> which gives the number of seating charts.
+</p>
+
+<p>
+  The sequence we get is <m>2, 3, 5, 8, 13, \ldots</m>.  It <em>appears</em> that this sequence satisfies a familiar recurrence relation of the <term>Fibonacci sequence</term>: <m>S_n = S_{n-1} + S_{n-2}</m>.  But unlike the Fibonacci sequence, here the initial terms are <m>S_1 = 2</m> and <m>S_2 = 3</m>.  Is this appearance deceiving?  Can we explain why this sequence should satisfy this recurrence?
+</p>
+
+<activity>
+  <statement>
+    <p>
+      Explain why <m>S_n</m> satisfies the recurrence <m>S_n = S_{n-1} + S_{n-2}</m>.  You will need to consider seating charts with <m>n</m>, <m>n-1</m> and <m>n-2</m> stools.  Show how you can <q>find</q> the seating charts for <m>n-1</m> and <m>n-2</m> stools among those for <m>n</m> stools (perhaps using some sort of bijection).
+    </p>
+  </statement>
+  <hint>
+    <p>
+      Which seating charts have someone on stool <m>n+1</m>?
     </p>
   </hint>
 </activity>

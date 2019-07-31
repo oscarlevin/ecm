@@ -18,7 +18,7 @@
   <title>The Quotient Principle</title>
 
   <p>
-    In <xref ref="act-binomformula"/>, you showed proved the algebraic formula <m>\binom{n}{k} = \frac{n!}{(n-k)!k!}</m>.  However, this was done rather indirectly.  First you proved the binomial identity <m>P(n,k) = \binom{n}{k}k!</m> and then wrote <m>P(n,k) = \frac{n!}{(n-k)!}</m> and solved for <m>\binom{n}{k}</m>.
+    In <xref ref="act-binomformula"/>, you proved the algebraic formula <m>\binom{n}{k} = \frac{n!}{(n-k)!k!}</m>.  However, this was done rather indirectly.  First you proved the identity <m>P(n,k) = \binom{n}{k}k!</m>, then wrote <m>P(n,k) = \frac{n!}{(n-k)!}</m>, and finally solved for <m>\binom{n}{k}</m>.
   </p>
 
   <p>
@@ -146,6 +146,8 @@
     Let's look carefully at what we did above.  We had a set of permutations (all 60 of the 3-permutations of the set <m>\{a,b,c,d,e\}</m>).  Then we noticed that some of these permutations corresponded the the same subset.  Saying that these permutations were related like this feels like defining a equivalence relation.
   </p>
 
+  <!-- TODO: should define equivalence relation somewhere or at least give a reference to make this more friendly -->
+
   <activity>
     <introduction>
       <p>
@@ -188,6 +190,8 @@
     </task>
   </activity>
 
+  <!-- TODO: make more friendly: -->
+
   <p>
     This suggests a general approach to solving a counting problem.  Say we want to count the number of elements in a set <m>S</m>.  Suppose we can count the size of some set <m>T</m>, perhaps containing many more elements than we are actually interested in counting.  Then define an equivalence relation <m>\sim</m> on <m>T</m> so that there is a bijection between <m>S</m> and the set of equivalence classes <m>T/\sim</m>.  Then if we know the size of <m>T/\sim</m>, we have the size of <m>S</m>.
   </p>
@@ -219,7 +223,7 @@
     Like the product principle, the quotient principle is really just a statement about how division works.  Here are a few examples of how you can use it in counting.  In each of the following activities, make sure you can say exactly how the quotient principle could be used.
   </p>
 
-  <activity xml:id="roundtable" category="essential">
+  <exploration xml:id="roundtable" category="essential">
     <statement>
       <p>
         In how many ways may <m>n</m> people sit around a round
@@ -242,9 +246,9 @@
         The total number of ways to list how the <m>n</m> people sit around the table is <m>n!</m>. However, two lists are the same if we get one from the other by shifting everyone right the same number of places. This divides the set of lists up into sets of <m>n</m> mutually equivalent lists. The number <m>m</m> of such sets is the number of seating arrangements. However by the product principle, <m>mn=n!</m>, because we have partitioned up the set of <m>n!</m> lists into <m>m</m> sets of size <m>n</m>. Therefore <m>m=(n-1)!</m> A second solution may be obtained by choosing one of the <m>n</m> people and letting this person sit anywhere. Since all that matters is who is to the right of each person, it doesn't matter where this person sits. Once this person is seated, let everybody else sit down. If they sit down first in one order clockwise around the table and then in some other order, the person to the right of somebody has changed. Thus there are <m>(n-1)!</m> ways (the number of ways to seat everybody else) to seat the people around the table.
       </p>
     </solution>
-  </activity>
+  </exploration>
 
-  <activity xml:id="necklace" category="essential and interesting">
+  <exploration xml:id="necklace" category="essential and interesting">
     <statement>
       <p>
         In how many ways may we string <m>n</m> distinct beads on a necklace
@@ -273,9 +277,9 @@
         We can partition the permutations according to which necklace designs they create. Two permutations are in the same block if we get one either by circularly permuting the other or by reversing the other (this corresponds to flipping the necklace over in space). Thus each necklace corresponds to <m>2n</m> permutations so by the quotient principle we have <m>n!/2n=(n-1)!/2</m> ways to string <m>n</m> distinct beads on a necklace.
       </p>
     </solution>
-  </activity>
+  </exploration>
 
-  <activity xml:id="tennispairings2" category="interesting">
+  <exploration xml:id="tennispairings2" category="interesting">
       <introduction>
           <p>
       We first gave this problem as <xref ref="tennispairings1"/>. Now we have several ways to approach the problem. A tennis club has <m>2n</m> members. We want to pair up the members by twos for singles matches.
@@ -334,10 +338,10 @@
       </p>
     </solution>
   </task>
-  </activity>
+  </exploration>
 
 <!-- Activity 45 -->
-  <activity xml:id="twocolorsofbeads" category="essential">
+  <exploration xml:id="twocolorsofbeads" category="essential">
     <statement>
       <p>
         In how many ways may we attach two identical red beads
@@ -359,9 +363,9 @@
         we get two blocks, <m>\{RRBB, BRRB, BBRR, RBBR\}</m> and <m>\{RBRB, BRBR\}</m>.
       </p>
     </solution>
-  </activity>
+  </exploration>
 
-  <activity>
+  <example>
     <statement>
       <p>
         We have used the quotient principle to explain the formula <m>\binom{n}{k} = \frac{n!}{(n-k)!k!}</m> by thinking of this as <m>\binom{n}{k} = \frac{P(n,k)}{k!}</m>.  What if we don't involve <m>P(n,k)</m> at all?
@@ -371,7 +375,7 @@
         Describe a set of outcomes that has size <m>n!</m> that can be partitioned into blocks of size <m>(n-k)!k!</m> so that each block corresponds to something <m>\binom{n}{k}</m> counts.
       </p>
     </statement>
-    <hint>
+    <!-- <hint>
       <p>
         You might try the next problem first to get an idea.
       </p>
@@ -380,7 +384,7 @@
       <p>
         One thing that <m>\binom{n}{k}</m> counts is all bit strings of length <m>n</m> and weight <m>k</m>.  What if instead of bit strings, we wanted all strings made up out of some number of distinct symbols that come in two types?  How can you make this be counted by <m>n!</m>?
       </p>
-    </hint>
+    </hint> -->
     <solution>
       <p>
         Suppose you have <m>k</m> red balls and <m>n-k</m> blue balls.  Each ball has a different number printed on it.  Thus there are <m>n!</m> different ways to arrange the <m>n</m> balls in a line.  But what if we only care about the color pattern the balls make (perhaps the numbers have been printed in invisible ink and have now vanished).  We can arrange these permutations of all <m>n</m> balls into blocks, where two permutations are in the same block if and only if they have the same sequence of colors (RRBRB<ellipsis />).  There are <m>(n-k)!k!</m> permutations in each block, since the red balls can be arranged in <m>k!</m> ways and the blue balls can be arranged in <m>(n-k)!</m> ways.
@@ -390,9 +394,9 @@
         All this says that the number of two-color patterns of length <m>n</m> including <m>k</m> red balls is <m>\frac{n!}{(n-k)!k!}</m>.  But of course the answer is also <m>\binom{n}{k}</m> because of the <m>n</m> positions, we must choose <m>k</m> positions to put the identical red balls.
       </p>
     </solution>
-  </activity>
+  </example>
 
-  <activity>
+  <exploration>
     <statement>
       <p>
         How many anagrams of the word <q>anagram</q> are there? (An anagram is a rearrangement of <em>all</em> of the letters of a word.)
@@ -412,7 +416,7 @@
         Another approach is to first pick three of the seven positions for the a's.  This can be done in <m>\binom{7}{3}</m> ways.  Then you must permute the remaining 4 letters in the remaining 4 spots, in <m>4!</m> ways.  This give <m>\binom{7}{3}4!</m> anagrams.
       </p>
     </solution>
-  </activity>
+  </exploration>
 
 </subsection>
 
@@ -467,7 +471,7 @@
     </task>
   </activity>
 
-  <activity>
+  <exploration>
     <statement>
       <p>
         The number of <m>n</m>-bit strings of weight <m>k</m> is <m>\binom{n}{k}</m>, so a combination.  But in determining one bit string from another, all that matters is the order in which the <m>k</m> 1's and <m>n-k</m> 0's appear.  So does order matter?  In what sense does it not?
@@ -478,9 +482,9 @@
         Think about what <m>P(n,k)</m> would count when building a bit string.  Why does it make sense to quotient out by <m>k!</m>?
       </p>
     </hint>
-  </activity>
+  </exploration>
 
-  <activity>
+  <exploration>
     <statement>
       <p>
         Write a clear sentence or two saying specifically what we mean when we say <q>order matters</q> to distinguish between combinations and permutations.
@@ -491,10 +495,10 @@
         They key here is to think about the set of outcomes that we are counting.  Ask yourself, the order of what?
       </p>
     </hint>
-  </activity>
+  </exploration>
 
   <p>
-    Understanding the role of order in distinguishing outcomes often suggests the use of the quotient principle.  You might say we arrive at combinations by counting permutations and modding out by the order.  Each block that corresponds to a single combination is a group of permutations that are only different because of their order.  Let's see if we can apply this to other counting questions.
+    Understanding the role of order in distinguishing outcomes often suggests the use of the quotient principle.  You might say we arrive at combinations by counting permutations and <q>modding</q> out by the order.  Each block that corresponds to a single combination is a group of permutations that are only different because of their order.  Let's see if we can apply this to other counting questions.
   </p>
 
   <activity>
@@ -506,7 +510,7 @@
     <task>
       <statement>
         <p>
-          How many 3-scoop cones are possible?
+          How many 3-scoop cones are possible?  
         </p>
       </statement>
       <hint>
@@ -530,7 +534,10 @@
     <task>
       <statement>
         <p>
-          Why doesn't the quotient principle apply here?  What goes wrong?  You might want to list out all 3-scoop cones and form the equivalence classes of shakes to see the issue.
+          Why doesn't the quotient principle apply here?  What goes wrong?  
+        </p>
+        <p>
+          List out all 3-scoop cones and form the equivalence classes of shakes to see the issue.
         </p>
       </statement>
     </task>
@@ -638,7 +645,7 @@
     <task>
       <statement>
         <p>
-          If <m>P(n,k)</m> counts the number of ways to distribute <m>n</m> distinct objects to <m>k</m> distinct recipients in which each recipient receives exactly one object (do you see why this is?), then what distribution does <m>\binom{n}{k}</m> count?  Explain what is playing the roll of <q>order mattering</q> in a distribution problem.
+          If <m>P(n,k)</m> counts the number of ways to distribute <m>n</m> distinct objects to <m>k</m> distinct recipients in which each recipient receives exactly one object (do you see why this is?), then what distribution does <m>\binom{n}{k}</m> count?  Explain what is playing the role of <q>order mattering</q> in a distribution problem.
         </p>
       </statement>
     </task>
@@ -884,7 +891,7 @@
         </p>
       </statement>
     </theorem>
-
+  <!-- TODO: summarize this and include the usual stars and bars interpretations as an example -->
   <!-- TODO: Add a few review/practice questions? -->
 </subsection>
 
@@ -939,11 +946,11 @@
 </activity>
 
   <p>
-    The previous activity is an example of what we might call an <term>ordered surjection</term>.  As for ordered functions, we can apply the quotient principle to count distributions where the objects being distributed are no longer distinct.
+    The previous activity is an example of what we might call an <term>ordered surjection</term>.  Just like we did with ordered functions, we can apply the quotient principle to count distributions where the objects being distributed are no longer distinct.
   </p>
 
 
-<activity category="essential for this or the next section">
+<exploration category="essential for this or the next section">
   <statement>
     <p>
       In how many ways may we put <m>k</m> identical books onto <m>n</m>
@@ -969,43 +976,41 @@
       corresponds to an arrangement of identical books. Thus there are <m>\binom{k-1}{n-1}</m> ways to arrange identical books.
     </p>
   </solution>
-</activity>
+</exploration>
 
-<activity xml:id="compositionagian" category="essential for this or the next section">
+<!-- TODO: add example/activity introducing compositions?  Ask them to list some out! -->
+
+<example xml:id="compositionagian" category="essential for this or the next section">
   <statement>
     <p>
       A <term>composition</term> of the integer <m>k</m> into <m>n</m> parts is a list of <m>n</m> positive integers that add to <m>k</m>.  How many compositions are there of an integer <m>k</m> into <m>n</m> parts?
     </p>
   </statement>
-  <hint>
+  <!-- <hint>
     <p>
   Do you see a relationship between compositions and something else we have
   counted already?
     </p>
-  </hint>
+  </hint> -->
   <solution>
     <p>There is a bijection between compositions of <m>k</m> into <m>n</m> parts and arrangements of <m>k</m> identical books on <m>n</m> shelves so that each shelf gets a book. Namely, the number of books on shelf <m>i</m> is the <m>i</m>th element of the list. Thus the number of compositions of <m>k</m> into <m>n</m> parts is <m>\binom{k-1}{n-1}</m>.
     </p>
   </solution>
-</activity>
+</example>
 
-<activity category="interesting">
+<example category="interesting">
   <statement>
-    <p>Your answer in <xref ref="compositionagian"/> can be expressed as a binomial coefficient. This means it should be possible to interpret a composition as a subset of some set. Find a bijection between compositions of <m>k</m> into <m>n</m> parts and certain subsets of some set.  Explain explicitly how to get the composition from the subset and the subset from the composition.
+    <p>The answer in <xref ref="compositionagian"/> can be expressed as a binomial coefficient. This means it should be possible to interpret a composition as a subset of some set. Find a bijection between compositions of <m>k</m> into <m>n</m> parts and certain subsets of some set.  Explain explicitly how to get the composition from the subset and the subset from the composition.
     </p>
   </statement>
-  <hint>
-    <p>
-      If we line up <m>k</m> identical books, how many adjacencies are there in between books?
-    </p>
-  </hint>
+
   <solution>
     <p>If we line up <m>k</m> identical books, there are <m>k-1</m> places in between two books. If we choose <m>n-1</m> of these places and slip dividers into those places, then we have a first clump of books, a second clump of books, and so on. The <m>i</m>th element of our list is the number of books in the <m>i</m>th clump. Clearly using books is irrelevant; we could line up any <m>k</m> identical objects and make the same argument. Our bijection is between compositions and <m>(n-1)</m>-element subsets of the set of <m>k-1</m> spaces between our objects.
     </p>
   </solution>
-</activity>
+</example>
 
-<activity category="essential for this or the next section">
+<exploration category="essential for this or the next section">
   <statement>
     <p>
       Explain the connection between compositions of <m>k</m> into <m>n</m>
@@ -1021,7 +1026,7 @@
       of objects given to recipient number <m>i</m>.
     </p>
   </solution>
-</activity>
+</exploration>
 
   <p>
     So far, we have only considered distribution problems in which the recipients are distinct.  There are plenty of situations where we would want to consider recipients identical.  For example, a problem we will take up in <xref ref="ch_advanced"/> is how many ways we can partition an integer.  For example, we could partition 5 as <m>4+1</m> or <m>3+1+1</m>, but we would not want to also count <m>1+4</m> or <m>1+3+1</m> (doing so would be creating a <em>composition</em>, which we have already considered).  We can think of the integer partition problem as distributing the 5 units that make up 5 into some number of identical bins.
@@ -1031,7 +1036,7 @@
     Here is another example, which we already have the tools to address.
   </p>
 
-  <activity xml:id="brokenpermutation" category="essential for this or the next section, and interesting">
+  <exploration xml:id="brokenpermutation" category="essential for this or the next section, and interesting">
     <statement>
       <p>
         In how many ways may we stack <m>k</m> distinct books into <m>n</m> identical boxes so that there is a stack in every box? There are two distinct ways to answer this question.  Find them both.
@@ -1055,7 +1060,7 @@
         Alternately, we can take the number of ways to put <m>k</m> books onto <m>n</m> bookshelves so that each shelf gets at least one, and then divide by the number of shelves factorial. That gives us <m>k!\binom{k-1}{n-1}/n!</m> ways to arrange the books.
       </p>
     </solution>
-  </activity>
+  </exploration>
 
   <p>
     We can think of stacking books into identical boxes as partitioning the books and then ordering the blocks of the partition. This turns out not to be a useful computational way of visualizing the problem because the number of ways to order the books in the various stacks depends on the sizes of the stacks and not just the number of stacks. However this way of thinking actually led to the first hint in <xref ref="brokenpermutation" />. Instead of dividing a set up into non-overlapping parts, we may think of dividing a <em>permutation</em> (thought of as a list) of our <m>k</m> objects up into <m>n</m> ordered blocks. We will say that a set of ordered lists of elements of a set <m>S</m> is a <term>broken permutation</term>
