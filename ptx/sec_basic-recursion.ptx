@@ -114,23 +114,53 @@
   <title>Finding Recurrence Relations</title>
 
   <p>
-    Before investigating properties of sequences given by recurrence relations, we must be able to find those sequences and the recurrence relations.  The following activities give some practice with moving from a counting question to a recurrence relation for the sequence of answers.  Many of these context will be familiar, and you might be able to answer the counting questions with what we have already discovered.  Don't do this.  The point of these is to start thinking about these counting problems recursively.
+    Before investigating properties of sequences given by recurrence relations, we must be able to find those sequences and the recurrence relations.  The following activities give some practice with moving from a counting question to a recurrence relation for the sequence of answers.  You might be able to answer the counting questions with what we have already discovered, but do not do this.  The point of these is to start thinking about these counting problems recursively.
   </p>
 
-  <activity>
+  <p>
+    First, here is an example of what we are looking for.
+  </p>
+
+  <example>
     <statement>
       <p>
         Let <m>a_n</m> be the number of subsets of <m>[n]</m>.  Find a recurrence relation for the sequence <m>(a_n)_{n \ge 0}</m>.  Prove the recurrence relation is correct.
       </p>
     </statement>
-    <hint>
+    <!-- <hint>
       <p>
         You should ask yourself, how are the subsets of <m>[n]</m> related to the subsets of <m>[n-1]</m>.  If you are stuck, you could always <q>cheat</q> and use your knowledge of the value of <m>a_n</m>, but try to do this without thinking about that.
       </p>
-    </hint>
-  </activity>
+    </hint> -->
+    <solution>
+      <p>
+        Start by enumerating the sequence <m>(a_n)_{n \ge 0}</m>.  There is only 1 subset of the empty set (so <m>a_0 = 1</m>).  There are two subsets of <m>[1]</m>, and four subsets of <m>[2]</m>.  So the sequence looks like <m>1, 2, 4, 8, \ldots</m>.  It <em>appears</em> that the recurrence relation should be <m>a_n = 2a_{n-1}</m> with initial condition <m>a_0 = 1</m>.
+      </p>
 
-  <activity>
+      <p>
+        To prove this is correct, we <em>must</em> reference the things we are counting (saying that the recurrence agrees with the finitely many terms we have listed is NOT enough).  Consider the <m>a_{n-1}</m> different subsets of <m>[n-1]</m>.  Each of these is a subset of <m>[n]</m>, in particular, a subset of <m>[n]</m> that does not include the number <m>n</m> as an element.  Further, to each of these sets, we can add the element <m>n</m> to get another distinct subset of <m>[n]</m>.  So far, we have found <m>2a_{n-1}</m> subsets of <m>[n]</m>.  Actually, we have found all of them: every subset of <m>[n]</m> either includes <m>n</m> or it does not.   
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    Now here are some for you to try.
+  </p>
+
+  <exploration>
+  <statement>
+    <p>
+      Let <m>k_n</m> be the number of handshakes that take place if all <m>n</m> people in a room shake hands with everyone there exactly once.  Find a recurrence relation for the sequence <m>(k_n)_{n \ge 1}</m> and prove you are correct.
+    </p>
+  </statement>
+  <hint>
+    <p>
+      How many new handshakes occure when a new person enters the room?
+    </p>
+  </hint>
+</exploration>
+
+  <!-- <exploration>
     <statement>
       <p>
         Let <m>k_n</m> be the number of edges in the complete graph <m>K_n</m>.  Find a recurrence relation for the sequence <m>(k_n)_{n \ge 1}</m> and prove you are correct.
@@ -141,9 +171,9 @@
         What would you need to do to the graph <m>K_n</m> to get the graph <m>K_{n-1}</m>?  How does this affect the number of edges?
       </p>
     </hint>
-  </activity>
+  </exploration> -->
 
-  <activity>
+  <exploration>
     <statement>
       <p>
         Let <m>b_n</m> be the number of bijections from an <m>n</m>-element set to an <m>n</m>-element set.  Find a recurrence relation for the sequence <m>(b_n)_{n \ge 1}</m> and prove you are correct.
@@ -154,9 +184,9 @@
         To determine a bijection <m>f:[n] \to [n]</m>, you could first say what <m>f(n)</m> is.  What do you still need to do?  Your answer to this question should be one single step (that inductively, you know how to do).
       </p>
     </hint>
-  </activity>
+  </exploration>
 
-  <activity xml:id="HanoiProblem" category="interesting">
+  <exploration xml:id="HanoiProblem" category="interesting">
     <statement>
       <p>
         The <q>Towers of Hanoi</q> puzzle has three rods rising from a rectangular base with <m>n</m> rings of different sizes stacked in decreasing order of size on one rod. A legal move consists of moving a ring from one rod to another so that it does not land on top of a smaller ring. If <m>m_n</m> is the number of moves required to move all the rings from the initial rod to another rod that you choose, give a recurrence for <m>m_n</m>.
@@ -172,9 +202,9 @@
         We can solve the puzzle in one step if there is one ring, so <m>m_1=1</m>. If <m>n>0</m> and we want to move all the rings from the initial rod to rod 3, then first we solve the problem of moving all but the bottom ring to rod 2; this takes <m>m_{n-1}</m> steps, then we move the bottom ring to rod 3, then we solve the problem of moving all the remaining rings from rod 2 to rod 3. Thus we have <m>m_n=2m_{n-1}+1</m>.
       </p>
     </solution>
-  </activity>
+  </exploration>
 
-  <activity xml:id="circlesinplane" category="interesting">
+  <exploration xml:id="circlesinplane" category="interesting">
     <statement>
       <p>
         We draw <m>n</m> mutually intersecting circles in the plane so that each one crosses each other one exactly twice and no three intersect in the same point. (As examples, think of Venn diagrams with two or three mutually intersecting sets.) Find a recurrence for the number <m>r_n</m> of regions into which the plane is divided by <m>n</m> circles. (One circle divides the plane into two regions, the inside and the outside.) Find the number of regions with <m>n</m> circles. For what values of <m>n</m> can you draw a Venn diagram showing all the possible intersections of <m>n</m> sets using circles to represent each of the sets?
@@ -200,16 +230,16 @@
         Similarly, allowing a circle to go through the intersection point of two other circles could only reduce the number of regions. So with <m>n</m> circles we could never have more than <m>2+n(n-1)</m> regions. In particular with 4 circles we get just 14 regions, rather than the 16 that would be required in a Venn diagram for four sets. We could prove, again by induction, that <m>2+n(n-1)\lt 2^n</m> for all <m>n>3</m>, so it is not possible to draw a Venn diagram using circles to illustrate the intersections of four or more sets.
       </p>
     </solution>
-  </activity>
+  </exploration>
 
   <p>
-    The activities above all have relatively simple recurrence relations.  In particular, they all make reference only to one previous term.  This need not be the case, as we saw when counting independent sets of paths and as the next few activities demonstrate.
+    The sequences above all have relatively simple recurrence relations.  In particular, the recursions all make reference only to one previous term.  This need not be the case, as we saw when counting bar stool seating charts and as the next few problems demonstrate.
   </p>
 
-  <activity xml:id="act-dominoes">
+  <exploration xml:id="act-dominoes">
     <introduction>
       <p>
-        Suppose you have a large number of <m>1\times 1</m> squares and <m>1 \times 2</m> dominoes.  You wish to use these to tile a <m>1 \times n</m> path.  For <m>n = 4</m>, some examples of different paths are <m>ssss</m>, <m>ssd</m>, <m>sds</m>, <m>dss</m>, <m>dd</m> (in fact, these are all 5 of the possible paths).
+        Suppose you have a large number of <m>1\times 1</m> squares and <m>1 \times 2</m> dominoes.  You wish to use these to tile a <m>1 \times n</m> path.  For <m>n = 4</m>, some examples of different paths are <m>ssss</m>, <m>ssd</m>, <m>sds</m>, <m>dss</m>, <m>dd</m>, using <m>s</m> for square and <m>d</m> for domino (in fact, these are all 5 of the possible paths).
       </p>
     </introduction>
     <task>
@@ -227,13 +257,13 @@
     <task>
       <statement>
         <p>
-          Now suppose your squares come in 3 colors and the dominoes come in 4 colors.  Let <m>b_n</m> count the number of paths you can tile.  Find an justify a recurrence relation for <m>(b_n)_{n \ge 1}</m>.
+          Now suppose your squares come in 3 colors and the dominoes come in 4 colors.  Let <m>b_n</m> count the number of paths you can tile.  Find and justify a recurrence relation for <m>(b_n)_{n \ge 1}</m>.
         </p>
       </statement>
     </task>
-  </activity>
+  </exploration>
 
-  <activity>
+  <!-- <activity>
     <statement>
       <p>
         Let <m>c_n</m> be the number of independent sets of vertices in the cycle <m>C_n</m>.  For consistency, label the vertices of <m>C_n</m> with the integers <m>1, 2, \ldots, n</m> and assume <m>E = \{(i, i+1) \st 1 \le i \lt n\} \cup \{(n, 1)\}</m>. Find a recurrence relation for <m>(c_n)_{n\ge 4}</m> and prove you are correct.
@@ -244,9 +274,11 @@
         Consider what happens to <m>C_n</m> when you <term>contract</term> along the edge <m>(n,1)</m> (in other words, remove the edge and glue the vertices <m>1</m> and <m>n</m> together).  This should give you a copy of <m>C_{n-1}</m>.  Now think about which independent sets in <m>C_n</m> are not represented by independent sets in <m>C_{n-1}</m>.
       </p>
     </hint>
-  </activity>
+  </activity> -->
 
-  <activity xml:id="act-catalanfirst">
+
+  <!-- TODO: Make this into an example? -->
+  <exploration xml:id="act-catalanfirst">
     <statement>
       <p>
         Consider a convex <m>n</m>-gon with labeled vertices.  In how many ways can diagonals be inserted so as to decompose the <m>n</m>-gon into triangles? For <m>n = 5</m> the five
@@ -312,16 +344,18 @@
     </hint>
     <hint>
       <p>
-        Fix an edge of the polygon.  There will be exactly <m>n-2</m> triangles this edge could be part of.  For each of those, can you count the number of triangles that can be made of what ?
+        Fix an edge of the polygon.  There will be exactly <m>n-2</m> triangles this edge could be part of.  For each of those, can you count the number of triangles that can be made of what is left?
       </p>
     </hint>
-  </activity>
+  </exploration>
 
   <p>
-    We will study the recurrence relation in <xref ref="act-catalanfirst"/> again in <xref ref="sec_basic-catalan"/>.  We mention it here because it is a nice example of how sometimes recurrence relations use up to all the previous terms of the sequence.  Sometimes we can find a simpler recurrence relation that captures the same sequence.
+    We will study the recurrence relation in <xref ref="act-catalanfirst"/> again in <xref ref="sec_basic-catalan"/>.  We mention it here because it is a nice example of how sometimes recurrence relations use all the previous terms of the sequence.  Sometimes we can find a simpler recurrence relation that captures the same sequence.
   </p>
 
-  <activity>
+
+  <!-- TODO: example? -->
+  <exploration>
     <statement>
       <p>
         Consider the sequence <m>(a_n)_{n \ge 1}</m> which satisfies the recurrence relation <m>a_n = \sum_{i = 1}^{n-1} a_i</m>.  That is, each term of the sequence is the sum of <em>all</em> previous terms in the sequence.
@@ -336,7 +370,7 @@
         Try this out with some different initial conditions.  Once you see what the recurrence should be, proving it by induction should be easy.
       </p>
     </hint>
-  </activity>
+  </exploration>
 
   <!-- <p>
     The previous three activities all had recurrence relations that defined a term in the sequence purely in terms of other terms of the sequence.  This is not necessary.  The following are all fine recurrence relations:
@@ -385,7 +419,7 @@
     </statement>
     <hint>
       <p>
-        Again, if you write out the sequence, it would be easy to guess at a closed formula.  To see how the recurrence relation is used, try substituting in earlier values.
+        Again, if you write out the sequence, it would be easy to guess at a closed formula.  To see how the recurrence relation is used, try substituting in earlier values.  For example, <m>a_2 = 3a_1</m>, but <m> a_1 = 3a_0</m>, so <m>a_2 = 3(3a_0) = 3^2a_0</m>.
       </p>
     </hint>
   </activity>
@@ -408,14 +442,14 @@
     Most sequences are not arithmetic, but it is still helpful to look at the difference between terms.  Often if we know something about the sequence of differences, we can deduce something about the original sequence.   We can also think about this as starting with the sequence of differences.
   </p>
 
-  <activity>
-    <introduction>
-      <p>
-        Given any sequence <m>(a_n)_{n \ge 1}</m>, we can form the <term>sequence of partial sums</term> <m>(b_n)_{n \ge 1}</m> given by <m>b_n = \sum_{i = 1}^n a_n</m>.  That is, <m>b_n</m> tells you what you get if you add up the first <m>n</m> terms of <m>(a_n)</m>.
-      </p>
-    </introduction>
-    <task>
-      <statement>
+  <p>
+    Given any sequence <m>(a_n)_{n \ge 1}</m>, we can form the <term>sequence of partial sums</term> <m>(b_n)_{n \ge 1}</m> given by <m>b_n = \sum_{i = 1}^n a_n</m>.  That is, <m>b_n</m> tells you what you get if you add up the first <m>n</m> terms of <m>(a_n)</m>.
+  </p>
+
+  <p>
+    Note that <m>(b_n)</m> satisfies the recurrence relation <m>b_n = b_{n-1} + a_n</m>, or equivalently <m>b_n - b_{n-1} = a_n</m>.  So <m>(a_n)</m> is the sequence of differences of its sequence of partial sums!
+  </p>
+      <!-- <statement>
         <p>
           In general, what is a recurrence relation for <m>(b_n)</m>?
         </p>
@@ -425,38 +459,94 @@
           If you have calculated <m>b_{n-1}</m>, what do you need to do to get <m>b_n</m>?
         </p>
       </hint>
-    </task>
+       -->
+    <example>
+      <statement>
+        <p>
+          If <m>(a_n)_{n \ge 1}</m> is the familiar sequence <m>1, 2, 3, 4, \ldots,</m>, what is the sequence of partial sums?
+        </p>
+      </statement>
+      <solution>
+      <p>
+        The sequence of partial sums is <m>1, 3, 6, 10, 15, \ldots</m>; the <term>triangular numbers</term> (so called because you can arrange those numbers of dots into equilateral triangles).  A closed formula for these is <m>T_n = \frac{n(n+1)}{2}</m>, which can be found as follows:
+      </p>
+        <sidebyside>
+        <tabular>
+          <col halign="right"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/>
+          <row>
+            <cell><m>T_n  =</m></cell>
+            <cell><m>1</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>2</m></cell>
+            <cell><m>+ \cdots +</m></cell>
+            <cell><m>(n-1)</m></cell>
+            <cell><m>+</m></cell>
+            <cell>n</cell>
+          </row>
+          <row bottom="minor">
+            <cell><m>+ \quad T_n  =</m></cell>
+            <cell><m>n</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>(n-1)</m></cell>
+            <cell><m>+ \cdots +</m></cell>
+            <cell><m>2</m></cell>
+            <cell><m>+</m></cell>
+            <cell>1</cell>
+          </row>
+          <row>
+            <cell><m>2T_n  =</m></cell>
+            <cell><m>(n+1)</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>(n+1)</m></cell>
+            <cell><m>+ \cdots +</m></cell>
+            <cell><m>(n+1)</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>(n+1)</m></cell>
+          </row>
+        </tabular>
+      </sidebyside>
+      <p>
+        The right hand side contains <m>n</m> summands, all identical, so <m>2T_n = n(n+1)</m>.  Divide by 2!
+      </p>
+
+      <p>
+        Notice also that these triangular numbers appear as the third diagonal of Pascal's triangle.  That is, <m>T_n = \binom{n+1}{2}</m>.  Using the factorial formula for <m>\binom{n+1}{2}</m> confirms this.
+      </p>
+      </solution>
+    </example>
+
+  <exploration>
     <task>
       <statement>
         <p>
-          If <m>(a_n)_{n \ge 1}</m> is the sequence <m>1, 3, 5, 7, 9, \ldots</m>, find the sequence of partial sums <m>b_n</m>.
+          If <m>(a_n)_{n \ge 1}</m> is the sequence <m>1, 3, 5, 7, 9, \ldots</m>, find the sequence of partial sums <m>(b_n)</m>.
         </p>
       </statement>
     </task>
     <task>
       <statement>
         <p>
-          If <m>a_n = \binom{n}{2}</m>, find the sequence of partial sums <m>b_n</m>.
+          If <m>a_n = \binom{n}{2}</m>, find the sequence of partial sums <m>(b_n)</m>.
         </p>
       </statement>
     </task>
     <task>
       <statement>
         <p>
-          If <m>a_n = F_n</m>, the <m>n</m>-th Fibonacci number, find the sequence of partial sums <m>b_n</m>.
+          Consider the Fibonacci sequence <m>(F_n)_{n \ge 1}</m>, starting <m>1, 1, 2, 3, 5, \ldots</m>, and satisfying the recurrence relation <m> F_n = F_{n-1} + F_{n-2}</m>.  Find the sequence of partial sums.  How do the terms relate to the original sequence?
         </p>
       </statement>
     </task>
-  </activity>
+  </exploration>
 
   <p>
-    The sequences in the previous activity worked out nicely, but what can we say in general?  Here are a few things.
+    The sequences in the previous problem worked out nicely, but what can we say in general?  Here are a few things.
   </p>
 
   <activity>
     <introduction>
       <p>
-        Let <m>(a_n)_{n \ge 1}</m> be any arithmetic sequence.  Say <m>a_n = dn + c</m> (so <m>d</m> is the common difference and <m>c = a_0</m>).  What can we say about the closed formula for <m>b_n = \sum_{i=1}^n a_i</m>?
+        Let <m>(a_n)_{n \ge 1}</m> be any arithmetic sequence.  Say <m>a_n = dn + c</m> (so <m>d</m> is the common difference and <m>c = a_1 - d</m>, what <m>a_0</m> would be if it were part of the sequence).  What can we say about the closed formula for <m>b_n = \sum_{i=1}^n a_i</m>?
       </p>
     </introduction>
     <task>
@@ -518,7 +608,7 @@
     <task>
       <statement>
         <p>
-          Generalize the previous computation to find the closed formula for <m>b_n</m>.
+          Generalize the previous computation to find the closed formula for <m>b_n = \sum_{i=1}^n a_i</m>.
         </p>
       </statement>
     </task>
@@ -591,26 +681,59 @@
   </activity>
 
   <p>
-    This is a partial justification of the <term>characteristic root technique</term> (the polynomial whose roots are the base of the exponentials is called the <term>characteristic polynomial</term>).  Making the reasonable guess that recurrence relations which give <m>a_n</m> as a linear combination of <m>a_{n-1}</m> and <m>a_{n-2}</m> should have exponential closed formulas allows you to find the bases of those exponentials.  You can then use the initial conditions to find the constants <m>\alpha</m> and <m>\beta</m>.
+    This is a partial justification of the <term>characteristic root technique</term> (the polynomial whose roots are the base of the exponentials is called the <term>characteristic polynomial</term>).  Making the reasonable guess that recurrence relations which give <m>a_n</m> as a linear combination of <m>a_{n-1}</m> and <m>a_{n-2}</m> should have exponential closed formulas allows you to find the bases of those exponentials.  You can then use the initial conditions to find the constants <m>\alpha</m> and <m>\beta</m>.  Let's illustrate this process with an example.
   </p>
 
-  <activity>
+  <example>
     <statement>
       <p>
         Find a closed formula for the sequence <m>(a_n)_{n \ge 1}</m> given recursively by <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial conditions <m>a_1 = 3</m> and <m>a_2 = 13</m>.  (This is the sequence of square/domino paths from <xref ref="act-dominoes"/>.)
       </p>
     </statement>
-    <hint>
+    <!-- <hint>
       <p>
         Guess that <m>r^n</m> is a solution, and use this to find two roots <m>r_1, r_2</m> of a polynomial.  Then use <m>3 = \alpha r_1^1 + \beta r_2^1</m> and <m>13 = \alpha r_1^2 + \beta r_2^2</m> to find <m>\alpha</m> and <m>\beta</m>.
       </p>
-    </hint>
-  </activity>
+    </hint> -->
+    <solution>
+      <p>
+        From the recurrence relation we have <m>a_n - 3a_{n-1} - 4a_{n-2} = 0</m>.  We transform this into the characteristic equation <m>x^2 - 3x - 4 = 0</m>.  
+        This has roots <m>x = 4</m> and <m>x = -1</m>.  So we guess that the closed formula for <m>a_n</m> will be <m>a_n = \alpha 4^n + \beta (-1)^n</m>.
+      </p>
 
-  <activity xml:id="act-binet">
+      <p>
+        To find <m>\alpha</m> and <m>\beta</m>, we use the initial conditions.   When <m> n = 1</m> we have <m> 3 = 4\alpha -\beta</m>.  When <m>n = 2</m> we have <m> 13 = 16\alpha + \beta</m>.  It is easy to solve this system of two equations and two unknowns (simply adding them together eliminates the <m>\beta</m>).  We find <m>\alpha = \frac{4}{5}</m> and <m>\beta = \frac{1}{5}</m>. 
+      </p>
+
+      <p>
+        Thus the closed formula is <me>a_n = \frac{4}{5} 4^n + \frac{1}{5} (-1)^n</me>.
+      </p>
+    </solution>
+  </example>
+
+  <exploration>
+    <introduction>
+      <p>
+        How many <m>1\times n</m> paths can you make from <m>1\times 1</m> squares that come in 2 colors and <m>1\times 2</m> dominoes that come in 3 colors?
+      </p>
+    </introduction>
+    <task>
+      <p>
+        First write down a recurrence relation and initial conditions for this problem.
+      </p>
+    </task>
+    <task>
+      <p>
+        Solve the recurrence relation using the characteristic root technique.
+      </p>
+    </task>
+  </exploration>
+
+
+  <exploration xml:id="act-binet">
     <statement>
       <p>
-        Find a closed formula for the <m>n</m>th Fibonacci number.  This is called Binet's Formula.
+        Find a closed formula for the <m>n</m>th Fibonacci number.  Since <m>F_n = F_{n-1} + F_{n-2}</m>, the characteristic root technique should work here.  (The formula you will find is called Binet's Formula.)
       </p>
     </statement>
     <hint>
@@ -618,7 +741,66 @@
         You will need to use the quadratic formula to find the roots, and some careful algebra to find the coefficients.  The closed formula will include <m>\frac{1+\sqrt{5}}{2}</m>, the <em>Golden Ratio</em>.
       </p>
     </hint>
+  </exploration>
+
+  <p>
+    There are many subtle and interesting variations on solving recurrence relations, and we will not explore them all here.  To conclude though, we consider one interesting case that will show up later as well.
+  </p>
+
+  <activity>
+    <introduction>
+      <p>
+        Consider the recurrence relation <m>a_n = 2a_{n-1} - a_{n-2}</m> with initial conditions <m>a_0 = 1</m> and <m>a_1 = 2</m>.  
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          What goes wrong when you (blindly) apply the characteristic root technique?
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Write out the first few terms of the sequence to guess at the closed formula.  Verify it is correct.
+        </p>
+      </statement>
+    </task>
   </activity>
+
+  <p>
+    As you saw above, something goes wrong with the characteristic root technique when the roots of the characteristic equation are repeated.  One way around this is to guess that the closed formula should be <me>a_n = \alpha r^n + \beta nr^n</me>, where <m>r</m> is the repeated root and <m>\alpha</m> and <m>\beta</m> are constants determined by the initial conditions as normal. The key here is to add an extra multiple of <m>n</m> to the second term.  
+  </p>
+
+  <exploration>
+    <introduction>
+      <p>
+        Consider the recurrence relation <m>a_n = 4a_{n-1} - 4a_{n-2}</m>.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Find the general solution (leaving <m>\alpha</m> and <m>\beta</m> as parameters.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Find the solution with initial conditions <m>a_0 = 1</m> and <m>a_1 = 2</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Find the solution with initial conditions <m>a_0 = 1</m> and <m>a_1 = 8</m>.
+        </p>
+      </statement>
+    </task>
+  </exploration>
 
 
 </subsection>
@@ -628,36 +810,44 @@
   <title>Exploring the Fibonacci Sequence</title>
 
   <p>
-    We now have the tools to do a deep dive into the Fibonacci numbers, the most famous recursively defined sequence.  The following activities are not strictly necessary for later material, but provide good practice in the techniques we have developed and are interesting in their own right.
+    Even though we are thinking of sequences as a tool for solving counting questions, it is often very rewarding to step back and observe the beauty and elegance of a sequence in its own right.  So to conclude this section, we will consider a few delightful observations about the most famous recursively defined sequence: the Fibonacci numbers.
   </p>
 
   <p>
     For consistency, let's agree that <m>F_n</m> is the <m>n</m>th Fibonacci number, where <m>F_0 = 0</m> and <m>F_1 = 1</m>, and for all other <m>n</m>, <m>F_n = F_{n-1} + F_{n-2}</m>.
   </p>
-
-  <activity>
-    <introduction>
+  
+  <example>
+    <statement>
       <p>
-        Determine a formula for each of the following sums, and prove you are correct.
+        Determine a formula for the sum <m>F_{0} + F_{1} + F_{2} + \ldots + F_{n}</m>.
       </p>
-    </introduction>
-    <task>
-      <statement>
-        <p>
-          <m>F_{0} + F_{1} + F_{2} + \ldots + F_{n}</m>.
-        </p>
-      </statement>
-    </task>
-    <task>
-      <statement>
-        <p>
-          <m>F_{0} + F_{2} + F_{4} + \ldots + F_{2n}</m>.
-        </p>
-      </statement>
-    </task>
-  </activity>
+    </statement>
+    <solution>
+      <p>
+        If we collect some initial data we see that the sequence of partial sums is <m>0, 1, 2, 4, 7, 12, 20, \ldots</m>.  We might recognize these numbers as always one less than a Fibonacci number, and guess that 
+        <me>F_0 + F_1 + F_2 + \cdot + F_n = F_{n+1} - 1.</me>
+      </p>
+      <p>
+        We could prove this by induction, but for fun, here is a clevery observation that finishes the problem: <m>F_k = F_{k+1} - F_{k-1}</m> (just rearrange the recurrence relation).  Now replace each term after <m>F_0</m>:
+        <me> F_0 + (F_2 - F_0) + (F_3 - F_1) + (F_4 - F_2) + (F_5 - F_3) + \cdots + (F_{n+1} - F_{n-1})</me>.
+        Almost every term cancels (telescopes) leaving only 
+        <me>-F_1 + F_{n+1}</me>
+        which is of course what we are looking for.
+      </p>
+    </solution>
+  </example>
 
-  <activity>
+
+  <exploration>
+    <statement>
+      <p>
+        Determine a formula for the sum  <m>F_{0} + F_{2} + F_{4} + \ldots + F_{2n}</m>.
+        </p>
+      </statement>
+  </exploration>
+
+  <exploration>
     <introduction>
       <p>
         Prove each of the following identities.
@@ -673,35 +863,35 @@
         <m>F_{k}^{2} = F_{k}(F_{k + 1} - F_{k - 1})</m>.
       </p>
     </task>
-</activity>
+</exploration>
 
-<activity>
+<exploration>
   <statement>
     <p>Determine a closed expression for <m>F_{0}F_{3}
         + F_{1}F_{4} + \cdots +
         F_{n-1}F_{n+2}</m> using <xref ref="diff-fib-squares" />.
     </p>
   </statement>
-</activity>
+</exploration>
 
 
-  <activity xml:id="fib-sum-squares">
+  <exploration xml:id="fib-sum-squares">
       <statement>
         <p>
           Determine a formula for <m>F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2}</m> in two ways.  First collect data and then prove your conjecture by mathematical induction.  Second, use <xref ref="fib-squares" /> and telescoping sums.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Give a geometrical <q>proof</q> for the result in <xref ref="fib-sum-squares" />.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity xml:id="fib-matrix">
+    <exploration xml:id="fib-matrix">
       <statement>
         <p>
           Consider the <m>2\times 2</m> matrix <m>Q =
@@ -720,33 +910,33 @@
           \end{pmatrix}</m>.  Now prove this by induction.
         </p>
       </hint>
-    </activity>
+    </exploration>
 
-    <activity xml:id="fib-neg-one">
+    <exploration xml:id="fib-neg-one">
       <statement>
         <p>
-          Prove that <m>F_{n - 1}F_{n + 1} - F_{n}^{2} = (-1)^{n}</m> in two ways:  First use mathematical induction.  Then us <xref ref="fib-matrix" /> and determinants.
+          Prove that <m>F_{n - 1}F_{n + 1} - F_{n}^{2} = (-1)^{n}</m> in two ways:  First use mathematical induction.  Then use <xref ref="fib-matrix" /> and determinants.  There is also a nice <q>picture proof.</q>
         </p>
       </statement>
-    </activity>
+    </exploration>
 
 
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Is there a result analogous to that in <xref ref="fib-neg-one" /> for just the positive integers <m>1, 2, 3, 4, \ldots</m>?
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Show that <m>Q^{2n + 1} = Q^{n}Q^{n+1}</m> and that <m>F_{2n + 1} = F_{n + 1}^{2} + F_{n}^{2}</m> .
         </p>
       </statement>
-    </activity>
+    </exploration>
 
     <!-- <activity>
       <statement>
@@ -756,15 +946,17 @@
       </statement>
     </activity> -->
 
-    <activity>
+
+    <exploration>
+    <!-- TODO: example! -->
       <statement>
         <p>
-          Prove <m>\left( \frac{n}{0} \right)F_{0} + \left( \frac{n}{1} \right)F_{1} + \ldots + \left( \frac{n}{n} \right)F_{n} = F_{2n}</m> in two ways.  First, use the Binet Formula from <xref ref="act-binet"/>.  Then, use <m>Q</m>.
+          Prove <m>\binom{n}{0}F_{0} + \binom{n}{1}F_{1} + \ldots + \binom{n}{n}F_{n} = F_{2n}</m> in two ways.  First, use the Binet Formula from <xref ref="act-binet"/>.  Then, use <m>Q</m>.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p> Prove that <m>\sum_{n = 2}^{\infty}\frac{1}{F_{n - 1}F_{n + 1}} = 1</m>. </p>
     </statement>
@@ -773,64 +965,69 @@
     <m>\frac{1}{F_{n - 1}F_{n + 1}} = \frac{1}{F_{n - 1}F_{n}} -
     \frac{1}{F_{n}F_{n + 1}}</m>.</p>
     </hint>
-  </activity>
+  </exploration>
 
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Prove that <m>\sum_{n = 2}^{\infty}\frac{F_{n}}{F_{n - 1}F_{n + 1}} = 2.</m>
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
-          Prove that <m>\lim_{n\to\infty}\frac{F_{n + 1}}{F_{n}} = \frac{1 + \sqrt{5}}{2}.</m>
+          Prove, directly from the recursion for <m>F_n</m>, that <m>\lim_{n\to\infty}\frac{F_{n + 1}}{F_{n}} = \frac{1 + \sqrt{5}}{2}.</m>
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           For which values of <m>n</m> is <m>F^{n}</m> a multiple of 3?
         </p>
       </statement>
-    </activity>
+      <hint>
+        Make a table of Fibonacci numbers to get your conjecture.
+      </hint>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Can you have four distinct positive Fibonacci numbers in arithmetic progression?
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity>
+    <!-- <activity>
       <statement>
         <p>
           How many Fibonacci numbers are perfect squares?
         </p>
       </statement>
-    </activity>
+    </activity> -->
 
-    <activity>
+    <exploration>
+    <!-- TODO: make into example. -->
       <statement>
         <p>
           Find a closed formula for <m>\frac{1}{F_{1}} + \frac{1}{F_{2}} + \frac{1}{F_{4}} + \frac{1}{F_{8}} + \ldots.</m>
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
+    <!-- TODO: Use earlier as ex of showing sequences are equal when they satisfy the same recursive def. -->
       <statement>
         <p>
           Conjecture and prove a formula for <m>\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2} + \cdots</m>.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
     <!-- <activity>
       <statement>
@@ -840,7 +1037,7 @@
       </statement>
     </activity> -->
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Prove that <m>F_{5n + 5} = 3F_{5n} + 5F_{5n + 1}</m>.
@@ -851,23 +1048,23 @@
           Use <m>Q^{5n + 5}</m>.
         </p>
       </hint>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Let <m>\varphi</m> be the positive root of <m>x^{2} - x - 1 = 0</m>. Prove that <m>\varphi^{n} = F_{n}\varphi + F_{n - 1}</m>.
         </p>
       </statement>
-  </activity>
+  </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Can every positive integer be written as a sum of distinct Fibonacci numbers?  In fact, can every positive integer be written as a sum of non-consecutive Fibonacci numbers?  Further, can every positive integer be written as a sum of at most 5 non-consecutive Fibonacci numbers?  Prove your answers (i.e., either give a proof or provide a counterexample).
         </p>
       </statement>
-    </activity>
+    </exploration>
 
 
 </subsection>
