@@ -1418,7 +1418,7 @@ many ways can you pair up the next person who isn't already paired up?
           </proof>
         </theorem> -->
 
-        <exploration>
+        <exploration xml:id="act_derangement-binom">
           <statement>
             <p>
               <m>\binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \binom{n}{2} d_{2} + \ldots + \binom{n}{n} d_{n} = n!</m> where <m>d_{n}</m> denotes the <m>n</m>th derangement number, <m>d_{0} = 1,d_{1} = 0</m>.

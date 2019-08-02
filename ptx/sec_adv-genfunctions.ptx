@@ -37,12 +37,14 @@
 
     <activity xml:id="act_genfun-twodice">
       <introduction>
-        A standard problem to use when introducing probability is to ask for the probability of rolling a particular sum on two regular number cubes (dice numbered 1 through 6).  Students might not immediately see that some sums are more likely to occur than others.  You can illustrate this by creating a table.
+        <p>  
+          A standard problem to use when introducing probability is to ask for the probability of rolling a particular sum on two regular number cubes (dice numbered 1 through 6).  Students might not immediately see that some sums are more likely to occur than others.  You can illustrate this by creating a table.
+        </p>
       </introduction>
       <task>
         <statement>
           <p>
-            Complete the standard addition table used to count the number of ways each sum of two dice can be achieved.  What would you do with the entries in the table to find the number of ways to roll an 8, for example?
+            Complete the standard addition table used to count the number of ways each sum of two regular dice can be achieved.  What would you do with the entries in the table to find the number of ways to roll an 8, for example?
           </p>
         </statement>
       </task>

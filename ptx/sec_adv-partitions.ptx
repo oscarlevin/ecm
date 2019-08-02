@@ -3,6 +3,33 @@
   <title>Counting Partitions</title>
   <introduction>
     <p>
+      Partitions are one of the core ideas in discrete mathematics.  Recall that a <term>partition</term> of a set <m>S</m> is a collection of mutually disjoint subsets of <m>S</m> whose union is all of <m>S</m>.  In other words, every element of <m>S</m> belongs to exactly one of the subsets of the partition.  We call the subsets that make up the partition <term>blocks</term> or <term>parts</term> of the partition.
+    </p>
+    <p>
+      The integers can be naturally partitioned into evens and odds.  In fact, this is just a specific case of partitioning the integers by their reminder when divided by a fixed constant; another example is that every integer has remainder 0, 1, or 2 when divided by 3.
+    </p>
+    <p>
+      Finite sets also have natural partitions: the set of all 4-bit strings can be partitioned according to weight: <me>\B^4_0 \cup \B^4_1 \cup B_4^2 \cup \B^4_3 \cup \B^4_4 = \B^4</me>.
+      Using the sum principle on these disjoint sets leads directly to the identity
+      <m>\binom{4}{0} + \binom{4}{1} + \binom{4}{2} + \binom{4}{3} + \binom{4}{4} = 2^4</m>
+      (and of course the 4 can be replaced with any <m>n</m> here).
+    </p>
+
+    <p>
+      In fact, many of the identities we established in <xref ref="sec_basic-proofs" /> using a combinatorial proof work precisely because we can count a set of outcomes all at once and also by counting the size of each block in a particular partition.  For example, in <xref ref="act_derangement-binom" /> we proved that
+      <me>\binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \binom{n}{2} d_{2} + \ldots + \binom{n}{n} d_{n} = n!</me>
+      by partitioning the <m>n!</m> permutations of <m>[n]</m> into blocks according to how many are fixed in position while the rest are deranged.  
+    </p>
+
+    <p>
+      Even the formula for binomial coefficients, <m>\binom{n}{k} = \frac{n!}{(n-k)!k!}</m> comes from partitioning the <m>k</m>-permutations of <m>[n]</m> into blocks according to which subset of <m>[n]</m> is selected (and then <m>\binom{n}{k}</m> is precisely the number of blocks).
+    </p>
+
+    <p>
+      In this section we will abstract this fundamental idea of partitions by one level.  Instead of using particular partitions to answer counting questions, we will ask counting questions about partitions themselves.  As we will see, this helps us solve yet more counting questions. 
+    </p>
+
+    <p>
       In <xref ref="sec_basic-quotient"/> we considered some ways to distribute items to recipients.  Most basic counting formulas can be thought of as counting the number of ways to distribute either distinct or identical items to distinct recipients.  For example, distributing <m>k</m> distinct items to <m>n</m> distinct recipients can be done in <m>n^k</m> ways, if recipients can receive any number of items, or <m>P(n,k)</m> ways if recipients can receive at most one item.  If the items are identical, the corresponding number of ways to distribute them are <m>\mchoose{n}{k}</m> and <m>\binom{n}{k}</m>.
     </p>
 
@@ -13,7 +40,7 @@
     <activity xml:id="act_stirlingintro">
       <introduction>
         <p>
-          Suppose you have <m>3</m> distinct books you want to put in <m>5</m> identical boxes.
+          Suppose you have <m>3</m> distinct books you want to put into <m>5</m> identical boxes.
         </p>
       </introduction>
       <task>
@@ -70,10 +97,10 @@
   </introduction>
 
   <subsection>
-  <title>Partitions of Sets</title>
+    <title>Partitions of Sets</title>
 
     <p>
-      Recall that a <term>partition</term> of a set <m>A</m> is a set of subsets of <m>A</m> such that every element of <m>A</m> is in exactly one of the subsets.  Sometimes we will call the subsets that make up a partition <term>blocks</term>.
+      We would like to count the number of ways to partition a set.
     </p>
 
     <definition xml:id="def-stirling">
@@ -85,7 +112,7 @@
     </definition>
 
     <p>
-      Note that we write <m>S(k,n)</m> instead of <m>S(n,k)</m> here because we try to use <m>k</m> for the number of elements being distributed and <m>n</m> for the number of recipients.  When other books use <m>S(n,k)</m>, they mean the number of partitions of <m>[n]</m> into exactly <m>k</m> blocks.  This is the same definition as we give, but with renamed variables, formulas might look different.
+      Note that we write <m>S(k,n)</m> instead of <m>S(n,k)</m> here because we try to use <m>k</m> for the number of elements being distributed and <m>n</m> for the number of recipients.  When other books use <m>S(n,k)</m>, they mean the number of partitions of <m>[n]</m> into exactly <m>k</m> blocks.  This is the same definition as we give, but with our renamed variables the formulas we get might look different.
     </p>
 
     <p>
@@ -208,25 +235,82 @@
     </sidebyside>
 
     <p>
-      How were these found?  Sure, I could have written out all 25 of the partitions of <m>[5]</m> into exactly <m>3</m> blocks, but I didn't.  Could there be some way to get 25 from the entries above it?  That is, what is the recurrence relation among the Stirling numbers?
+      How were these found?  Sure, we could have written out all 25 of the partitions of <m>[5]</m> into exactly <m>3</m> blocks, but we didn't.  Could there be some way to get 25 from the entries above it?  That is, what is the recurrence relation among the Stirling numbers?
     </p>
 
     <activity>
-      <task>
+      <!-- <task> -->
         <statement>
           <p>
             Write down (if you haven't already) all 6 partitions of <m>[4]</m> into <m>3</m> blocks.  Break these into two cases by where 4 is: is 4 in solitary confinement (in a singleton set) or does he have a cellmate?
           </p>
         </statement>
-      </task>
-      <task>
-        <statement>
+      <!-- </task>
+      <task> -->
+        <!-- <statement>
           <p>
             How could you take the <m>S(4,2) = 7</m> partitions of <m>[4]</m> into 2 sets and the <m>S(4,3) = 6</m> partitions of <m>[4]</m> into 3 sets and form all the <m>S(5,3) = 25</m> partitions of <m>[5]</m> into <m>3</m> sets?
           </p>
-        </statement>
-      </task>
+        </statement> -->
+      <!-- </task> -->
     </activity>
+
+    <p>
+      Now that you have some experience with listing the <m>S(4,3)</m> partitions of <m>[4]</m>, the next example will help us to generalize.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Let's see how to take <m>S(4,2) = 7</m> and <m>S(4,3) = 6</m> to compute <m>S(5,3) = 25</m>.  First, here are the partitions of <m>[4]</m> into 2 blocks (group A) or 3 blocks (group B), side by side:
+        </p>
+        
+        <sidebyside widths="50% 30%" valign="top">
+          <p>
+            Group A: 
+            <md>
+              <mrow>\{1\}, ~ \{2,3,4\}\qquad \amp \{1,2\}, ~ \{3, 4\}</mrow>
+              <mrow>\{2\}, ~ \{1,3,4\}\qquad \amp \{1,3\}, ~ \{2, 4\}</mrow>
+              <mrow>\{3\}, ~ \{1,2,4\} \qquad \amp \{2,3\}, ~ \{1, 4\}</mrow>
+              <mrow>\{4\}, ~ \{1,2,3\} \qquad\amp </mrow>
+            </md>
+          </p>
+          
+          <p>
+            Group B: 
+            <md>
+              <mrow>\{2\}, ~ \{1,2\}, ~ \{4\}</mrow>
+              <mrow>\{2\}, ~ \{1,3\}, ~ \{4\}</mrow>
+              <mrow>\{2\}, ~ \{1,4\}, ~ \{3\}</mrow>
+              <mrow>\{1\}, ~ \{2,3\}, ~ \{4\}</mrow>
+              <mrow>\{1\}, ~ \{2,4\}, ~ \{3\}</mrow>
+              <mrow>\{1\}, ~ \{3,4\}, ~ \{2\}</mrow>
+            </md>
+          </p>
+        </sidebyside>
+        
+        <p>
+          (Notice the <m>\binom{4}{2}</m> ways of listing the middle column in group B.)
+        </p>
+        
+        <p>
+          Now, to list the <m>S(5,3)</m> partitions of <m>[5]</m> into <m>3</m> parts, we need to add 5 somewhere.  We can either
+          <ol label="a.">
+            <li>
+              <p>
+                Let 5 be a singleton block, along with any of the partitions from group A; or
+              </p>
+            </li>
+            <li>
+              <p>
+                Let 5 join any of the blocks in any of the partitions of group B.  
+              </p>
+            </li>
+          </ol>
+          The second option can be accomplished in <m>3\cdot 6</m> ways.  Thus <m>S(5,3) = 7 + 3\cdot 6</m>.
+        </p>
+      </statement>
+    </example>
 
     <activity xml:id="secondstirlingrecurrence" category="essential and interesting">
         <statement>
@@ -259,7 +343,7 @@
     </activity>
 
 
-    <activity category="interesting">
+    <exploration category="interesting">
       <statement>
         <p>
           Find a recurrence for the Lah numbers <m>L(k,n)</m> similar to the one in <xref ref="secondstirlingrecurrence"/>.
@@ -279,10 +363,10 @@
           set into <m>n-1</m> blocks. Thus <m>L(k,n)=L(k-1,n-1) + (n+k-1)L(k-1,n)</m>.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
 
-    <activity xml:id="sandwiches">
+    <exploration xml:id="sandwiches">
       <statement>
           <p>
             Extend Stirling's triangle enough to allow you to answer the following question and answer it. (Don't fill in the rows all the way; the work becomes quite tedious if you do. Only fill in what you need to answer this question.) A caterer is preparing three bag lunches for hikers. The caterer has nine different sandwiches. In how many ways can these nine sandwiches be distributed into three identical lunch bags so that each bag gets at least one?
@@ -330,14 +414,14 @@
             into the lunch bags.
           </p>
         </solution>
-      </activity>
+      </exploration>
 
       <p>
         We have often thought of counting problems as asking about how many functions there are from a <m>k</m>-elements set to an <m>n</m>-element set.  The answer to this question is <m>n^k</m> for all functions and <m>P(n,k)</m> for injective functions.  What about surjective functions?  There is a reason we haven't asked this question yet, but now we can at least get an expression for the number of surjections in terms of Stirling numbers.
       </p>
 
 
-    <activity category="motivation">
+    <exploration category="motivation">
       <statement>
         <p>
           Given a function <m>f</m> from a <m>k</m>-element set <m>K</m> to an <m>n</m>-element set, we can define a partition of <m>K</m> by putting <m>x</m> and <m>y</m> in the same block of the partition if and only if <m>f(x)=f(y)</m>. How many blocks does the partition have if <m>f</m> is surjective? How is the number of functions from a <m>k</m>-element set <em>onto</em> an <m>n</m>-element set related to a Stirling number? Be as precise in your answer as you can.<idx><h>function</h><h>surjective!and Stirling Numbers</h></idx><idx><h>surjective function</h><h>counting</h></idx>
@@ -355,7 +439,7 @@
           If <m>f</m> is onto, the number of blocks of the partition is <m>n</m>. The number of onto functions from a <m>k</m>-element set onto an <m>n</m>-element set is <m>S(k,n)n!</m>, because we have a one-to-one function from the blocks to the <m>n</m>-element set.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
     <p>
       We do not have an explicit formula for either the number of surjections or for <m>S(k,n)</m> yet, but note that if we could find either, we would now have both.  We will see one approach to this in <xref ref="sec_adv-pie"/>.
@@ -363,7 +447,7 @@
 
 
 
-        <activity xml:id="Stirlingfalling" category="essential">
+        <exploration xml:id="Stirlingfalling" category="essential">
           <statement>
             <p>
               Each function from a <m>k</m>-element set <m>K</m> to an <m>n</m>-element set <m>N</m> is a function from <m>K</m> onto <em>some</em> subset of <m>N</m>. If <m>J</m> is a subset of <m>N</m> of size <m>j</m>, you know how to compute the number of functions that map onto <m>J</m> in terms of Stirling numbers. Suppose you add the number of functions mapping onto <m>J</m> over all possible subsets <m>J</m> of <m>N</m>. What simple value should this sum equal? Write the equation this gives you.
@@ -382,9 +466,9 @@
               <m>\sum_{j=0}^n P(n,j)S(k,j) = n^k.</m>
             </p>
           </solution>
-        </activity>
+        </exploration>
 
-        <activity category="motivation">
+        <exploration category="motivation">
           <statement>
             <p>
               In how many ways can the sandwiches of <xref ref="sandwiches"/> be placed into three distinct bags so that each bag gets at least one?
@@ -395,7 +479,7 @@
               <m>S(9,3)\cdot3!= 55,980</m>.
             </p>
           </solution>
-        </activity>
+        </exploration>
 
 
 
@@ -411,24 +495,20 @@
         </p>
       </statement>
     </definition>
+    
+    <example>
+      <p>
+        There are five partitions of <m>[3]</m>:
+        <md>
+          <mrow>\{1\}, \{2\},\{3\}</mrow>
+          <mrow>\{1,2\},\{3\} \qquad \{1,3\},\{2\} \qquad \{1\}, \{2,3\}</mrow>
+          <mrow>\{1,2,3\}</mrow>.
+        </md>
+        Note that <m>B_3 = S(3,1)+S(3,2)+S(3,3) = 1 + 3 + 1</m>.
+      </p>
+    </example>
 
     <activity xml:id="BellNumberIntro" category="essential for this or the next section">
-      <task>
-        <statement>
-          <p>
-            Show, by explicitly exhibiting the partitions, that
-            <m>B_1 = 1</m>, <m>B_2 = 2</m>, and <m>B_3 = 5</m>.
-          </p>
-        </statement>
-        <solution>
-          <p>
-            The five partitions of <m>[3]</m> are the sets <me>\{\{1\},
-            \{2\},\{3\}\},\
-            \{\{1,2\},\{3\}\},\ \{\{1,3\},\{2\}\},\ \{\{1\},\{2,3\}\},\text{ and }
-            \{\{1,2,3\}\}</me>.
-          </p>
-        </solution>
-      </task>
       <task>
         <statement>
           <p>
@@ -472,7 +552,7 @@
       <task>
         <statement>
           <p>
-            Find <m>B_k</m> for <m>k=4,5,6</m>.
+            Find <m>B_k</m> for <m>k=1,2,4,5,6</m>.
           </p>
         </statement>
         <solution>
@@ -511,18 +591,21 @@
       A multiset of positive integers that add to <m>n</m> is called a <term>partition</term><idx><h>partition of an integer</h></idx> of <m>n</m>. Thus the partitions of 3 are 1+1+1, 1+2 (which is the same as 2+1) and 3. The number of partitions of <m>k</m> is denoted by <m>p(k)</m>; in computing the partitions of 3 we showed that <m>p(3) = 3</m>. It is traditional to use Greek letters like <m>\lambda</m> to stand for partitions; we might write <m>\lambda = 1,1,1</m>, <m>\gamma= 2,1</m> and <m>\tau = 3</m> to stand for the three partitions we just described. We also write <m>\lambda = 1^3</m> as a shorthand for <m>\lambda = 1,1,1</m>, and we write <m>\lambda \dashv 3</m> as a shorthand for <q><m>\lambda</m> is a partition of three.</q>
     </p>
 
+    <example>
+      There are 5 partitions of 4 (so <m>p(4) = 5</m>).  They are <m>4=1+1+1+1</m>, <m>4=2+1+1</m>, <m>4=2+1</m>, <m>4=3+1</m>, and <m>4=4</m>.
+    </example>
+
+
     <activity category="motivation">
       <statement>
         <p>
-          Find all partitions of 4 and find all partitions of 5, thereby
-          computing <m>p(4)</m> and <m>p(5)</m>.
+          Write out all partitions of of 5, to compute <m>p(5)</m>.
         </p>
       </statement>
       <solution>
         <p>
-          <m>4=1+1+1+1</m>, <m>4=2+1+1</m>, <m>4=2+1</m>, <m>4=3+1</m>, <m>4=4</m>, so that
-          <m>P(4)=5</m>. <m>5=1+1+1+1+1</m>, <m>5=2+1+1+1</m>, <m>5=2+2+1</m>, <m>5=3+1+1</m>, <m>5=3+2</m>,
-          <m>5=4+1</m>, <m>5=5</m>, so that <m>P(5)=7</m>.
+           <m>5=1+1+1+1+1</m>, <m>5=2+1+1+1</m>, <m>5=2+2+1</m>, <m>5=3+1+1</m>, <m>5=3+2</m>,
+          <m>5=4+1</m>, <m>5=5</m>, so <m>P(5)=7</m>.
         </p>
       </solution>
     </activity>
@@ -531,6 +614,12 @@
     <p>
       A <term>partition of the integer <m>k</m> into <m>n</m> parts</term><idx><h>partition of an integer</h><h>into <m>n</m> parts</h></idx> is a multiset of <m>n</m> positive integers that add to <m>k</m>. We use <m>p_n(k)</m> to denote the number of partitions of <m>k</m> into <m>n</m> parts. Thus <m>p_n(k)</m> is the number of ways to distribute <m>k</m> identical objects to <m>n</m> identical recipients so that each gets at least one.
     </p>
+    
+    <example>
+      <p>
+        Here are the partitions of 7 into two parts: <m>6+1</m>, <m>5+2</m>, <m>4+3</m>.  Thus <m>p_2(7) = 3</m>.
+      </p>
+    </example>
 
     <activity category="motivation">
       <statement>
@@ -548,7 +637,7 @@
     </activity>
 
 
-    <activity category="motivation">
+    <exploration category="motivation">
         <statement>
           <p>
             How many solutions are there in the positive integers to the
@@ -564,8 +653,9 @@
             one must be larger than two, so there are four such solutions.
           </p>
         </solution>
-    </activity>
-    <activity>
+    </exploration>
+    
+    <exploration>
         <statement>
           <p>
             Explain the relationship between partitions of <m>k</m> into <m>n</m> parts and lists <m>x_1,x_2,\ldots,x_n</m> of positive integers with <m>x_1 + x_2 + \cdots + x_n = k</m> and <m>x_1\ge x_2\ge\ldots \ge x_n</m>. Such a representation of a partition is called a <term>decreasing list</term><idx><h>partition of an integer</h><h>decreasing list</h></idx> representation of the partition.
@@ -576,9 +666,9 @@
             There is a bijection between partitions of <m>k</m> into <m>n</m> parts and lists, in nonincreasing order, of <m>n</m> positive integers that add to <m>k</m>, because each multiset of numbers that adds to <m>k</m> can be listed in nonincreasing order in exactly one way.
           </p>
         </solution>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Show that <m>p_n(k)</m> is at least <m>\frac{1}{n!}\binom{k-1}{n-1}</m>.
@@ -586,7 +676,7 @@
       </statement>
       <hint>
         <p>
-          How many compositions are there of <m>k</m> into n parts? What is the maximum number of compositions that could correspond to a given partition of <m>k</m> into <m>n</m> parts?
+          How many compositions are there of <m>k</m> into <m>n</m> parts? What is the maximum number of compositions that could correspond to a given partition of <m>k</m> into <m>n</m> parts?
         </p>
       </hint>
       <solution>
@@ -594,13 +684,13 @@
           The number of compositions of <m>k</m> into <m>n</m> parts is <m>\binom{k-1}{n-1}</m>. We can divide the compositions into blocks, where two compositions are in the same block if and only if one is a rearrangement of the other. Then the blocks correspond bijectively to partitions of <m>k</m> into <m>n</m> parts. However we cannot compute the number of blocks by dividing by the number of compositions per block since the number of compositions per block ranges from <m>1</m> to <m>n!</m>.  But then if we divide the number of compositions by <m>n!</m> we will get a number less than the number of blocks because <m>n!</m> times the number of blocks would be, by the sum principle, greater than the number of partitions.
         </p>
       </solution>
-  </activity>
+  </exploration>
 
 
-    <activity category="motivation">
+    <exploration category="motivation">
         <statement>
           <p>
-            Describe the relationship between partitions of <m>k</m> and lists or vectors <m>(x_1,x_2,\ldots,x_n)</m> such that <m>x_1+2x_2+\ldots kx_k = k</m>.  Such a representation of a partition is called a <term>type vector</term> representation of a partition, and it is typical to leave the trailing zeros out of such a representation; for example <m>(2,1)</m> stands for the same partition as <m>(2,1,0,0)</m>. What is the decreasing list representation for this partition, and what number does it partition?<idx><h>partition of an integer</h><h>type vector</h></idx><idx><h>type vector for a partition of an integer</h></idx>
+            Describe the relationship between partitions of <m>k</m> and lists of vectors <m>(x_1,x_2,\ldots,x_n)</m> such that <m>x_1+2x_2+\ldots kx_k = k</m>.  Such a representation of a partition is called a <term>type vector</term> representation of a partition, and it is typical to leave the trailing zeros out of such a representation; for example <m>(2,1)</m> stands for the same partition as <m>(2,1,0,0)</m>. What is the decreasing list representation for this partition, and what number does it partition?<idx><h>partition of an integer</h><h>type vector</h></idx><idx><h>type vector for a partition of an integer</h></idx>
           </p>
         </statement>
         <solution>
@@ -611,8 +701,9 @@
             partitions.
           </p>
         </solution>
-    </activity>
-    <activity>
+    </exploration>
+    
+    <exploration>
         <statement>
           <p>
             How does the number of partitions of <m>k</m> relate to the number of partitions of <m>k+1</m> whose smallest part is one?
@@ -632,7 +723,7 @@
             one), they are still different.
           </p>
         </solution>
-    </activity>
+    </exploration>
 
     <p>
       When we write a partition as <m>\lambda = \lambda_1,\lambda_2,\ldots,\lambda_n</m>, it is customary to write the list of <m>\lambda_i</m>s as a decreasing list. When we have a type vector <m>(t_1,t_2,\ldots,t_m)</m> for a partition, we write either <m>\lambda = 1^{t_1}2^{t_2}\cdots m^{t_m}</m> or <m>\lambda = m^{t_m}(m-1)^{t_{m-1}}\cdots 2^{t_2}1^{t_1}</m>. Henceforth we will use the second of these. When we write <m>\lambda=\lambda_1^{i_1}\lambda_2^{i_2}\cdots\lambda_n^{i_n}</m>, we will assume that <m>\lambda_i>\lambda_i+1</m>.
@@ -666,6 +757,7 @@
     </p>
 
     <activity xml:id="numberpartitionrecurrence" category="essential for this or the next section, and interesting">
+      <!-- TODO: clean up or make example.  or give an example first. -->
         <introduction>
             <p>
         In this problem we will study the two operations and see which one seems more useful for getting a recurrence for <m>p_n(k)</m>.

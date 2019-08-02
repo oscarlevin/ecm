@@ -104,6 +104,9 @@
         </solution>
       </activity>
 
+      <!-- TODO: Add summary with Venn diagrams.  Perhaps an activity that asks to explain why PIE works using the Venn diagram -->
+
+
     </subsection>
 
     <subsection>
@@ -133,7 +136,7 @@
       </activity>
 
       <p>
-        The difficulty of generalizing <xref ref="threesetintersection"/> to
+        The difficulty of generalizing <xref ref="threesetintersection"/> and
         <xref ref="nsetintersection"/> is not likely to be one of being able to
         see what the right conjecture is, but of finding a good notation to
         express your conjecture. In fact, it would be easier for some people to
@@ -164,7 +167,7 @@
         </mdn>
       </p>
 
-      <activity xml:id="inclusion-exclusionunion" category="essential">
+      <exploration xml:id="inclusion-exclusionunion" category="essential">
         <statement>
           <p>
             Use notation something like that of <xref ref="intersectionnotation">Equation</xref> and <xref ref="notationsolution">Equation</xref> to express
@@ -196,9 +199,14 @@
             <m>S</m> was empty.
           </p>
         </solution>
-      </activity>
+      </exploration>
 
-      <activity xml:id="hatcheck" category="essential">
+      <p>
+        Whether we try to write down a nice expression for the size of a union or whether we just have the basic idea, we should now be able to answer counting questions like the following.  We will return to this sort of problem in more detail later, but the adventurous reader can attempt it here.
+      </p>
+
+
+      <exploration xml:id="hatcheck" category="essential">
           <introduction>
               <p>
             A group of <m>n</m> students goes to a restaurant carrying backpacks.
@@ -312,7 +320,7 @@
           </p>
         </solution>
       </task>
-      </activity>
+    </exploration>
 
       <p>
         <xref ref="hatcheck"/> is <q>classically</q> called the <term>hatcheck
@@ -342,14 +350,14 @@
         the formula first adds (includes) all the sizes of the sets, then
         subtracts (excludes) all the sizes of the intersections of two sets, then
         adds (includes) all the sizes of the intersections of three sets, and so
-        on.   Notice that we haven't yet proved the principle. There are a variety of proofs.  Perhaps one of the most straightforward (though not the most elegant) is an iductive proof that relies on the fact that
+        on.   Notice that we haven't yet proved the principle. There are a variety of proofs.  Perhaps one of the most straightforward (though not the most elegant) is an inductive proof that relies on the fact that
         <me>
           A_1 \cup A_2 \cup \cdots \cup A_n = \left(A_1 \cup A_2 \cup \cdots \cup A_{n-1}\right) \cup A_n
         </me>
-        and the formula for the size of a union of two sets.
+        and the formula for the size of a union of two sets: <m>\card{A \cup B} = \card{A} + \card{B} - \card{A\cap B}</m>.
       </p>
 
-      <activity>
+      <exploration>
         <statement>
           <p>
             Give a proof of your formula for the principle of inclusion and exclusion.
@@ -397,33 +405,29 @@
             where the last line follows because every nonempty subset of <m>[n]</m> is either (1) a nonempty subset of <m>[n-1]</m>, (2) a nonempty subset of <m>[n-1]</m> with  <m>n</m> added in, or (3) the set <m>\{n\}</m>.  Thus by the principle of mathematical induction, the formula for the principle of inclusion and exclusion holds for all nonnegative integers <m>n</m>.
           </p>
         </solution>
-      </activity>
+      </exploration>
 
 
 
 
-
-      <activity xml:id="compunion">
-        <statement>
           <p>
             Frequently when we apply the principle of inclusion and exclusion, we will have a situation like that of part (d) of <xref ref="hatcheckprobpart" />.  That is, we will have a set <m>A</m> and subsets <m>A_1, A_2, \ldots, A_n</m> and we will want the size or the probability of the set of elements in <m>A</m> that are <em>not</em> in the union.  This set is known as the <term>complement</term> <idx><h>complement</h></idx> of the union of the <m>A_i</m>s in <m>A</m>, and is denoted by <m>A \setminus \bigcup_{i=1}^n A_i</m>, or if <m>A</m> is clear from context, by <m>\overline{\bigcup_{i=1}^n A_i}</m>.
-            Give the fomula for <m>\overline{\bigcup_{i=1}^n A_i}</m>.  The principle of inclusion and exclusion generall refers to both this formula and the one for the union.
           </p>
-        </statement>
-        <solution>
           <p>
             Since all the <m>A_i</m>s are subsets of <m>A</m>, one way to write this size is as <m>|A| - \sum_{S:S \subseteq [n], S \ne \emptyset}(-1)^{|S|-1} |\bigcap_{i:i \in S}A_i|</m>.  Letting <m>|A| = \left|\bigcap_{i:i \in \emptyset} A_i\right|</m>, we may write <m>\left|\overline{\bigcup_{i=1}^n A_i}\right| = \sum_{S:S \subseteq [n]} (-1)^{|S|}\left| \bigcap_{i:i\in S} A_i\right|</m>.
           </p>
-        </solution>
-      </activity>
+          <!-- <p>
+            We can find a very elegant way of writing the formula in <xref ref="compunion"/> if we let <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.  for this reason, if we have a family of subsets <m>A_i</m> of a set <m>A</m>, we define<fn>
+            For those interested in logic and set theory, given a family of subsets <m>A_i</m> of a set <m>A</m>, we define <m>\bigcap_{i:i\in S}A_i</m> to be the set of all members <m>x</m> of <m>A</m> that are in <m>A_i</m> for all <m>i \in S</m>.  (Note that this allows <m>x</m> to be in some other <m>A_j</m>s as well.)  Then if <m>S = \emptyset</m>, our intersection consists of all members <m>x</m> of <m>A</m> that satisfy the statement <q>if <m>i\in \emptyset</m>, then <m>x \in A_i</m>.</q>
+            But since the hypothesis of the <q>if-then</q> statement is false, the statement itself is true for all <m>x \in A</m>.  Therefore <m>\bigcap_{i:i \in \emptyset}A_i = A</m>.
+          </fn> <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.
+        </p> -->
+          <p>
+            The principle of inclusion and exclusion generally refers to both this formula and the one for the union.  Both formulas are notationally horrific, but the idea is straight forward.  To find the size of the union, we add the sizes of each set individually, then subtract each of the sizes of the intersections of pairs of sets, then add back in the sizes of the intersections of triples of sets, subtract 4-tuple intersections, add 5-tuple intersections, and so on until we are done.  The compliment can be calculated by subtracting the union from the size of the original set.
+          </p>
 
 
-      <p>
-        We can find a very elegant way of writing the formula in <xref ref="compunion"/> if we let <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.  for this reason, if we have a family of subsets <m>A_i</m> of a set <m>A</m>, we define<fn>
-        For those interested in logic and set theory, given a family of subsets <m>A_i</m> of a set <m>A</m>, we define <m>\bigcap_{i:i\in S}A_i</m> to be the set of all members <m>x</m> of <m>A</m> that are in <m>A_i</m> for all <m>i \in S</m>.  (Note that this allows <m>x</m> to be in some other <m>A_j</m>s as well.)  Then if <m>S = \emptyset</m>, our intersection consists of all members <m>x</m> of <m>A</m> that satisfy the statement <q>if <m>i\in \emptyset</m>, then <m>x \in A_i</m>.</q>
-        But since the hypothesis of the <q>if-then</q> statement is false, the statement itself is true for all <m>x \in A</m>.  Therefor <m>\bigcap_{i:i \in \emptyset}A_i = A</m>.
-        </fn> <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.
-      </p>
+
 
     </subsection>
 
@@ -434,7 +438,7 @@
     <paragraphs>
       <title>Multisets with restricted numbers of elements</title>
 
-        <activity xml:id="act_restrictedmultisetspie">
+        <exploration xml:id="act_restrictedmultisetspie">
           <statement>
             <p>
               In how many ways may we distribute <m>k</m> identical apples to <m>n</m>
@@ -468,12 +472,12 @@
               </md>.
             </p>
           </solution>
-      </activity>
+      </exploration>
   </paragraphs>
 
   <paragraphs xml:id="sec-menage">
     <title>The Menage Problem</title>
-      <activity xml:id="relaxedmenage" category="interesting">
+      <exploration xml:id="relaxedmenage" category="interesting">
         <statement>
           <p>
             A group of <m>n</m> married couples comes to a group discussion session
@@ -516,9 +520,9 @@
             </md>.
           </p>
         </solution>
-      </activity>
+      </exploration>
 
-      <activity category="interesting and difficult">
+      <exploration category="interesting and difficult">
         <statement>
           <p>
             A group of <m>n</m> married couples comes to a group
@@ -605,7 +609,7 @@
             that no couple sits together.
           </p>
         </solution>
-      </activity>
+      </exploration>
     </paragraphs>
 
     <paragraphs xml:id="subsec_derangements">
@@ -622,14 +626,53 @@
       </p>
 
       <p>
-        If we go up to 4 elements, there are 24 permutations (because we have 4 choices for the first element, 3 choices for the second, 2 choices for the third leaving only 1 choice for the last). How many of these are derangements? If you list out all 24 permutations and eliminate those which are not derangements, you will be left with just 9 derangements. Let's see how we can get that number using PIE.
+        If we go up to 4 elements, there are <m>4! = 24</m> permutations. How many of these are derangements? If you list out all 24 permutations and eliminate those which are not derangements, you will be left with just 9 derangements. Let's see how we can get that number using PIE.
       </p>
       <activity>
-        <statement>
-          <p>
-            How many derangements are there of 4 elements?
-          </p>
-        </statement>
+        <task>
+          <statement>
+            <p>
+              Write out all 24 permutations of <m>[4]</m> and circle the 9 that are derangements.
+            </p>
+          </statement>
+          <hint>
+            <p>
+              Note that 2341 should be circled, but 2314 should not be circled.
+            </p>
+          </hint>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Locate the permutations that leave 1 fixed (so 1 is the first number in the permutation).  How many are there, and does this make sense?  Check there are an equal number that leave 2 fixed, and that leave 3 fixed, and that leave 4 fixed.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Notice that there are permutations that leave both 1 and 2 fixed.  Which ones are these, and how many are there?  Again, verify that there are just as many that leave any pair of numbers fixed.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Repeat the previous task for triples of elements fixed and for all four elements fixed.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              We can use the principle of inclusion and exclusion to find the total number of derrangements as follows:
+              <me>
+                d_4 = 4! - \left[{4 \choose 1}3! - {4 \choose 2}2! + {4 \choose 3} 1! - {4 \choose 4}0!\right].
+              </me>
+              Explain why this is correct.  In particular, for the permutation 1234 (where everything is fixed), where in the expression above is it counted?
+            </p>
+          </statement>
+        </task>
         <solution>
           <p>
             We count all permutations, and subtract those which are not derangements. There are <m>4! = 24</m> permutations of 4 elements. Now for a permutation to <em>not</em> be a derangement, at least one of the 4 elements must be fixed. There are <m>{4 \choose 1}</m> choices for which single element we fix. Once fixed, we need to find a permutation of the other three elements. There are <m>3!</m> permutations on 3 elements. But now we have counted too many non-derangements, so we must subtract those permutations which fix two elements. There are <m>{4 \choose 2}</m> choices for which two elements we fix, and then for each pair, <m>2!</m> permutations of the remaining elements. But this subtracts too many, so add back in permutations which fix 3 elements, all <m>{4 \choose 3}1!</m> of them. Finally subtract the <m>{4 \choose 4}0!</m> permutations (recall <m>0! = 1</m>) which fix all four elements. All together we get that the number of derangements of 4 elements is:
@@ -639,10 +682,12 @@
           </p>
         </solution>
       </activity>
+      
+      
       <p>
         Of course we can use a similar formula to count the derangements of any number of elements. However, the more elements we have, the longer the formula gets. Here is another example:
       </p>
-      <activity>
+      <exploration>
         <statement>
           <p>
             Five gentlemen attend a party, leaving their hats at the door. At the end of the party, they hastily grab hats on their way out. How many different ways could this happen so that none of the gentlemen leave with their own hat?
@@ -656,7 +701,7 @@
             </me>
           </p>
         </solution>
-      </activity>
+      </exploration>
 
 
 
@@ -666,14 +711,64 @@
 
     <paragraphs>
       <title>Counting surjective functions</title>
+      
+      <p> 
+        There are six surjective functions  <m>f:[3]\to [2]</m>, which happens to be <m>2^3 - 2</m>.  This makes sense because there are eight functions all together, but two are not surjective (do you see why?).
+      </p>
+    
+      <p>
+        Consider functions <m>f:[3]\to [3]</m>.  Since each element of the domain has three potential images, there are <m>3^3</m> such functions.  If we only count the injective (one-to-one) functions, we will find <m>3! = 6</m>.  Since the size of the domain and codomain are equal, this is also the number of surjective functions (since every injective function is surjective in this case).  
+      </p>
+      
+      <p>
+        However, when the size of the codomain is larger than the size of the domain, there will be no injections and plenty of surjections.  To see how to count surjections in general, let's explore the case above where we know the answer already. 
+      </p>
+      <activity>
+        <introduction>
+          Write out all 27 functions <m>f:[3] \to [3]</m>.  You could use two-line notation here, but to save space, perhaps just write the bottom line.  So the function that sends 1 to 1, 2 to 3 and 3 to 3 can be represented as (1,3,3). 
+        </introduction>
+        <task>
+          <p>
+            Circle the functions you found above that are surjective.  Verify that there are just 6.
+          </p>
+        </task>
+        <task>
+          <p>
+            There are various ways that a function might fail to be surjective.  One way is for 1 to not be in the range.  How many functions are there like this (identify them)?  Does this number make sense?  Check this is the same number of functions that do not include 2 in the range.
+          </p>
+        </task>
+        <task>
+          <p>
+            How many functions do not have 1 or 2 in the range?  Does this number make sense as well?
+          </p>
+        </task>
+        <task>
+          <p>
+            Explain what all this has to do with the expression 
+            <me>
+              3^3 - \left[ \binom{3}{1}2^3 - \binom{3}{2}1^3 + \binom{3}{3}0^3\right]
+            </me>.
+          </p>
+        </task>
+      </activity>
+      
+      <p>
+        Let's generalize!
+      </p>
+      
       <activity xml:id="numontofun" category="essential">
         <statement>
           <p>
             Given a function <m>f</m> from the <m>k</m>-element set <m>K</m> to the
             <m>n</m>-element set <m>[n]</m>, we say <m>f</m> is in the set <m>A_i</m> if <m>f(x)\not= i</m> for
-            every <m>x</m> in
-            <m>K</m>. How many of these  sets does an onto function belong to? What is
-            the number of functions from a <m>k</m>-element set onto an <m>n</m>-element
+            any <m>x</m> in
+            <m>K</m>. 
+          </p>
+          <p>
+            How many of these sets does a surjective function belong to? 
+          </p>
+          <p>
+            Use this to find the number of functions from a <m>k</m>-element set onto an <m>n</m>-element
             set?<idx><h>onto functions</h><h>number of</h></idx><idx><h>surjections</h><h>number
             of</h></idx><idx><h>functions</h><h>onto!number of</h></idx>
           </p>
@@ -692,6 +787,51 @@
         </solution>
       </activity>
 
+      <p>
+        The following problem is due to Polya.
+      </p>
+      
+      <activity>
+        <introduction>
+          <p>
+            Suppose you wished to paint <m>k</m> houses and you have <m>n</m> different colors available.  Each house will get a single color, but you want to ensure that each color is used at least once.
+          </p>
+        </introduction>
+        
+        <task>
+          <statement>
+            <p>
+              Use the principle of inclusion and exclusion to write a formula for the number of ways to paint the houses.
+            </p>
+          </statement>
+          <hint>
+            <p>
+              In what way is this problem like counting functions?
+            </p>
+          </hint>
+        </task>
+        <task>
+          <statement>
+            <p>
+              What about the paint colors and the houses does <m>S(k,n)</m> count?  Why does this NOT answer the question?  By what factor are we off?
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Conclude that a formula for the Stirling numbers is 
+              <me>
+                S(k,n) = \frac{1}{n!}\sum_{s=0}^n (-1)^s\binom{n}{s}(n-s)^k.
+              </me>.
+              You might want to write out the sum the long way.
+            </p>
+          </statement>
+        </task>
+      </activity>
+
+
+<!-- 
       <activity category="interesting" xml:id="act_stirlingpie">
         <statement>
           <p>
@@ -713,8 +853,10 @@
             </me>
           </p>
         </solution>
-      </activity>
-      <activity>
+      </activity> -->
+      
+      
+      <exploration>
           <introduction>
               <p>
                   If we roll a die eight times, we get a sequence of 8 numbers, the number of dots on top on the first roll, the number on the second roll, and so on.
@@ -747,7 +889,7 @@
           <task>
               <statement>
                   <p>
-                      How many times do we have to roll the die to have probability at least one half that all six numbers appear in our sequence. To answer this question, you will likely need a computer algebra package, programmable calculator, or spreadsheet.
+                      How many times do we have to roll the die to have probability at least one half that all six numbers appear in our sequence? To answer this question, you will likely need a computer algebra package, programmable calculator, or spreadsheet.
                   </p>
               </statement>
               <solution>
@@ -757,7 +899,7 @@
               </solution>
           </task>
 
-      </activity>
+      </exploration>
 
 
   </paragraphs>

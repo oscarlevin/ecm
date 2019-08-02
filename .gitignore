@@ -29,5 +29,6 @@
 *.fdb*
 *.fls
 *.html
+.vscode/
 html/images/*.svg
 Makefile.paths

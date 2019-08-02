@@ -8,7 +8,7 @@
 </p>
 
 <p>
-  Not all of combinatorics is like this.  There are natural questions for which we do not have neat closed formulas.  This might be because we (mathematicians) have not yet figured out how to think about this problems in the <q>right</q> way, or because there is really no clean approach to solve these problems.
+  Not all of combinatorics is like this.  There are natural questions for which we do not have neat closed formulas.  This might be because we (mathematicians) have not yet figured out how to think about these problems in the <q>right</q> way, or because there is really no clean approach to solve these problems.
 </p>
 
 <p>
@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  The plan for this chapter is as follows.  We will begin by considering some natural extensions of distribution problems first introduced in <xref ref="sec_basic-quotient"/>: partitioning sets and integers.  Motivated by these and similar problems, we will consider two combinatorial tools: generating functions and the Principle of Inclusion Exclusion.  We will then take a closer look at partitioning sets and integers with these new tools in hand.
+  The plan for this chapter is as follows.  We will begin by considering some natural extensions of distribution problems first introduced in <xref ref="sec_basic-quotient"/>: partitioning sets and integers.  Motivated by these and similar problems, we will consider two combinatorial tools: generating functions and the Principle of Inclusion and Exclusion.  We will then take a closer look at partitioning sets and integers with these new tools in hand.
 </p>
 
 </introduction>
