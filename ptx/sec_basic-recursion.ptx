@@ -684,7 +684,7 @@
     This is a partial justification of the <term>characteristic root technique</term> (the polynomial whose roots are the base of the exponentials is called the <term>characteristic polynomial</term>).  Making the reasonable guess that recurrence relations which give <m>a_n</m> as a linear combination of <m>a_{n-1}</m> and <m>a_{n-2}</m> should have exponential closed formulas allows you to find the bases of those exponentials.  You can then use the initial conditions to find the constants <m>\alpha</m> and <m>\beta</m>.  Let's illustrate this process with an example.
   </p>
 
-  <example>
+  <example xml:id="eg_char-roots">
     <statement>
       <p>
         Find a closed formula for the sequence <m>(a_n)_{n \ge 1}</m> given recursively by <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial conditions <m>a_1 = 3</m> and <m>a_2 = 13</m>.  (This is the sequence of square/domino paths from <xref ref="act-dominoes"/>.)

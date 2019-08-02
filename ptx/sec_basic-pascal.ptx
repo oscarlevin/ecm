@@ -518,8 +518,8 @@
         </statement>
         <solution>
           <p>
-            Partition the <m>n</m>-bit string of weight <m>k</m> into two disjoint sets: those that start with a 0 and those that start with a 1.  Consider the remainder of each bit string (after that first bit). Each <m>n</m>-bit string that starts with a 1 ends with an <m>(n-1)</m>-bit string of weight <m>k-1</m>.  There are <m>|\B^{n-1}_{k-1}</m> of these.
-            Each <m>n</m>-bit strings that starts with a 0 ends with an <m>(n-1)</m>-bit string that of weight <m>k</m>.  There are <m>|\B^{n-1}_k|</m> of these.  So all together <m>|\B^n_k| = |\B^{n-1}_{k-1}| + |\B^{n-1}_k|</m>.
+            Partition the <m>n</m>-bit strings of weight <m>k</m> into two disjoint sets: those that start with a 0 and those that start with a 1.  Consider the remainder of each bit string (after that first bit). Each <m>n</m>-bit string that starts with a 1 ends with an <m>(n-1)</m>-bit string of weight <m>k-1</m>.  There are <m>|\B^{n-1}_{k-1}|</m> of these.
+            Each <m>n</m>-bit string that starts with a 0 ends with an <m>(n-1)</m>-bit string of weight <m>k</m>.  There are <m>|\B^{n-1}_k|</m> of these.  So all together <m>|\B^n_k| = |\B^{n-1}_{k-1}| + |\B^{n-1}_k|</m>.
           </p>
         </solution>
       </example>

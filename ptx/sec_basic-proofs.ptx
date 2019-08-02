@@ -111,7 +111,7 @@
           <me>
             \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}.
           </me>
-          Now apply the induction hypothese to the right hand side.  We get
+          Now apply the induction hypothesis to the right hand side.  We get
           <me>
             \binom{n-1}{k-1} + \binom{n-1}{k} = \binom{n-1}{n-1-(k-1)} + \binom{n-1}{n-1 -k} = \binom{n-1}{n-k} + \binom{n-1}{n-k-1}.
           </me>
@@ -247,7 +247,7 @@
         </p>
 
         <p>
-          The above is a complete proof, but really <m>\binom{n}{k}</m> can be thought of as <em>defined</em> as the size of the set <m>\B^n_k</m>.  But then <m>\binom{n}{n-1}</m> is the size of the set <m>\B^n_{n-k}</m>.  So what we are really saying here is that <m>|\B^n_k| = |\B^n_{n-k}|</m>, which is true because the function that switches 0's to 1's and 1's to 0's in a bit string is a bijection between these two sets.
+          The above is a complete proof, but really <m>\binom{n}{k}</m> can be thought of as <em>defined</em> as the size of the set <m>\B^n_k</m>.  But then <m>\binom{n}{n-k}</m> is the size of the set <m>\B^n_{n-k}</m>.  So what we are really saying here is that <m>|\B^n_k| = |\B^n_{n-k}|</m>, which is true because the function that switches 0's to 1's and 1's to 0's in a bit string is a bijection between these two sets.
         </p>
       </solution>
     </example>

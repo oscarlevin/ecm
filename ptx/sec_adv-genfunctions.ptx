@@ -333,7 +333,7 @@
 
       <p>
           In <xref ref="reprovingbinomialtheorem"/> we see that we can think of the process of expanding the polynomial <m>(1+x)^n</m> as a way of <q>generating</q> the binomial coefficients <m>\binom{n}{k}</m> as the coefficients of <m>x^k</m> in the expansion of <m>(1+x)^n</m>. For this reason, we say that <m>(1+x)^n</m> is the <q>generating function</q> for the binomial coefficients <m>\binom{n}{k}</m>. 
-          More generally, the <term>generating function</term> for a sequence <m>a_i</m>, defined for <m>i</m> with <m>0\le i\le n</m> is the expression <m>\sum_{i=0}^n a_ix^i = a_0 + a_1x + a_2x^2 + \codts + a_nx^n</m>, and the <term>generating function</term><idx><h>generating function</h></idx> for the sequence <m>a_i</m> with <m>i\ge 0</m> is the expression <m>\sum_{i=0}^\infty a_ix^i</m>. 
+          More generally, the <term>generating function</term> for a sequence <m>a_i</m>, defined for <m>i</m> with <m>0\le i\le n</m> is the expression <m>\sum_{i=0}^n a_ix^i = a_0 + a_1x + a_2x^2 + \cdots + a_nx^n</m>, and the <term>generating function</term><idx><h>generating function</h></idx> for the sequence <m>a_i</m> with <m>i\ge 0</m> is the expression <m>\sum_{i=0}^\infty a_ix^i</m>. 
         </p>
           
         <example>
@@ -591,15 +591,37 @@
 
   <subsection>
       <title>The extended binomial theorem and multisets</title>
+      
+      <p>
+        The binomial theorem tells us how to expand the binomial <m>(1+x)^n</m>:
+        <me>
+          (1+x)^n = \binom{n}{0} + \binom{n}{1}x + \binom{n}{2}x^2 + \cdots + \binom{n}{n}x^n
+        </me>.
+        This works for any positive integer <m>n</m>. 
+      </p>
+      
+      <p>
+        We will now consider the <em>extended</em> binomial theorem, which tells us what to do if <m>n</m> is a negative integer.  In particular, we will see how to expand <m>(1+x)^{-n} = \frac{1}{(1+x)^n}</m> (here taking <m>n</m> positive again).
+      </p>
+      
+      <p>
+        Although we could use calculus-like tricks to manipulate series directly (and we will demonstrate this in a bit), let's first try to develop the formula combinatorially using generating functions.  After all, <m>(1+x)^n</m> is the generating function for the number <m>k</m>-element subsets of <m>[n]</m> (you should be able to say why for two good reasons now). 
+      </p>
+      
+      <p>
+        What happens when we instead count the number of <m>k</m>-element <em>multisets</em> of <m>[n]</m>?  Remember, we saw in <xref ref="thm-multisetsize"/> that this can be expressed as the binomial coefficeint <m>\mchoose{n}{k} = \binom{n+k-1}{k}</m>.  Let's put this into a generating function.
+      </p>
+      
+      
       <activity category="essential">
           <introduction>
               <p>
-                  Suppose once again that <m>i</m> is an integer between 1 and <m>n</m>.
+                  Suppose that <m>i</m> is an integer between 1 and <m>n</m>.
               </p>
           </introduction>
           <task>
               <statement>
-                  <p>What is the generating function in which the coefficient of <m>x^k</m> is <m>1</m>? This series is an example of what is called an <term>infinite geometric series</term>.<idx><h>geometric series</h></idx><idx><h>series</h><h>geometric</h></idx> In the next part of this problem, it will be useful to interpret the coefficient one as the number of multisets of size <m>k</m> chosen from the singleton set <m>\{i\}</m>. Namely, there is only one way to choose a multiset of size <m>k</m> from <m>\{i\}</m>: choose <m>i</m> exactly <m>k</m> times.
+                  <p>What is the generating function in which the coefficient of <m>x^k</m> is <m>1</m>? This series is an example of what is called an <term>infinite geometric series</term>.<idx><h>geometric series</h></idx><idx><h>series</h><h>geometric</h></idx>
                   </p>
               </statement>
               <solution>
@@ -610,7 +632,13 @@
           </task>
           <task>
               <statement>
-                  <p>Express the generating function in which the coefficient of <m>x^k</m> is the number of multisets chosen from <m>[n]</m> as a power of a power series.  What does <xref ref="thm-multisetsize"/> (in which your answer could be expressed as a binomial coefficient) tell you about what this generating function equals?
+                  <p>Express the generating function in which the coefficient of <m>x^k</m> is the number of <m>k</m>-element multisets chosen from <m>[n]</m> as a <em>power</em> of a power series. 
+                </p>
+                <p>
+                   Note, it is useful to interpret the coefficient 1 as the number of multisets of size <m>k</m> chosen from the <em>singleton</em> set <m>\{i\}</m>. Namely, there is only one way to choose a multiset of size <m>k</m> from <m>\{i\}</m>: choose <m>i</m> exactly <m>k</m> times.
+                </p>
+                <p>
+                   What does this, together with the binomial coefficient for multisets tell you about what this generating function equals?
                   </p>
               </statement>
               <hint>
@@ -633,11 +661,7 @@
       <activity category="motivation">
           <statement>
               <p>
-                  What is the product <m>(1-x)\sum_{k=0}^n x^k</m>? What is
-                  the product
-                  <me>
-                      (1-x)\sum_{k=0}^\infty x^k?
-                  </me>
+                  Compute the product <m>(1-x)\sum_{k=0}^n x^k = (1-x)(1+x+x^2+\cdots+x^n)</m>.  Then compute the product <m>(1-x)\sum_{k=0}^\infty x^k</m>.
               </p>
           </statement>
           <solution>
@@ -653,6 +677,15 @@
               </p>
           </solution>
       </activity>
+
+
+          <p>
+            Another way to arrive at the conclusion of the previous activity is the following.  Set <m>S = 1 + x + x^2 + \cdots</m>.  Then <m>xS = x + x^2 + x^3 + \cdots</m>.  Consider the difference <m>S - xS</m>.  Combining like terms we find <m>S-xS = (1-x)S = 1</m>, as every power of <m>x</m> cancels except the first.  Therefore we find 
+            <me>
+              1 + x + x^2 + \cdots = \frac{1}{1-x}
+            </me>.
+          </p>
+
 
       <activity xml:id="multisetgenfn" category="essential and interesting">
           <statement>
@@ -675,16 +708,23 @@
               </p>
           </solution>
       </activity>
+      
+      <p>
+        We can now put this all together to get a special case of the extended binomial theorem.
+      </p>
+      
 
       <activity xml:id="negnchoosek" category="essential">
           <statement>
               <p>
-                  Find a formula for <m>(1+x)^{-n}</m> as a power series whose coefficients involve binomial coefficients. What does this formula tell you about how we should define <m>\binom{-n}{k}</m> when <m>n</m> is positive?
-              </p>
+                  Find a formula for <m>(1+x)^{-n} = \frac{1}{(1+x)^n}</m> as a power series whose coefficients involve binomial coefficients. 
+                </p>
+                  
+                  <!-- What does this formula tell you about how we should define <m>\binom{-n}{k}</m> when <m>n</m> is positive? -->
           </statement>
           <hint>
               <p>
-                  While you could use calculus techniques, there is a much simpler approach.
+                  The only tricky thing here is that we have <m>\frac{1}{(1+x)^n}</m> instead of <m>\frac{1}{(1-x)^n}</m> which we know something about already.
                   Note that <m>1 + x = 1 - (-x)</m>.
               </p>
           </hint>
@@ -699,24 +739,86 @@
                       (1+x)^{-n}=(1-(-x))^{-n}=\sum_{i=0}^\infty
                       \binom{n+i-1}{i}(-x)^i=\sum_{i=0}^\infty (-1)^i\binom{n+i-1}{i}x^i.
                   </me>
-                  We want the coefficient of <m>x^k</m> in <m>(1+x)^{-n}</m> to be <m>\binom{-n}{k}</m>, so we want <m>\binom{-n}{k}= (-1)^k\binom{n+k-1}{k}</m>.
+                  <!-- We want the coefficient of <m>x^k</m> in <m>(1+x)^{-n}</m> to be <m>\binom{-n}{k}</m>, so we want <m>\binom{-n}{k}= (-1)^k\binom{n+k-1}{k}</m>. -->
               </p>
           </solution>
       </activity>
 
-      <activity category="essential and interesting">
+      <!-- <activity category="essential and interesting">
           <statement>
-              <p>If you define <m>\binom{-n}{k}</m> in the way you described in <xref ref="negnchoosek"/>, you can write down a version of the binomial theorem for <m>(x+y)^n</m> that is valid for both nonnegative and negative values of <m>n</m>. Do so. This is called the <term>extended binomial theorem</term><idx><h>binomial theorem</h><h> extended</h></idx><idx><h>extended binomial theorem</h></idx>. Write down a special case with <m>n</m> negative, like <m>n=-3</m>, to see an interesting surprise that suggests why we do not use this formula later on.
+              <p>
+                If you define <m>\binom{-n}{k}</m> in the way you described in <xref ref="negnchoosek"/>, you can write down a version of the binomial theorem for <m>(x+y)^n</m> that is valid for both nonnegative and negative values of <m>n</m>. Do so. This is called the <term>extended binomial theorem</term><idx><h>binomial theorem</h><h> extended</h></idx><idx><h>extended binomial theorem</h></idx>. Write down a special case with <m>n</m> negative, like <m>n=-3</m>, to see an interesting surprise that suggests why we do not use this formula later on.
               </p>
           </statement>
           <solution>
               <p>
-                  <m>(x+y)^n=\sum_{i=0}^\infty\binom{n}{i}x^i</m>. The proof consists of writing <m>(x+y)=y(\frac{x}{y}+1)</m> and applying the <xref ref="negnchoosek"/> when <m>n</m> is negative. When <m>n</m> is positive, we recall that <m>\binom{n}{k}</m> is zero when <m>k>n</m>, so replacing the upper limit of <m>n</m> in the standard version of the binomial theorem by <m>\infty</m> doesn't change the value of the sum. When <m>n=-3</m> we get <m>(x+y)^n = \sum_{i=0}^\infty \binom{-3}{i}x^iy^{-3-i} = \sum_{i=0}^\infty (-1)^i \binom{3+i-1}{i}x^iy^{-3-i}</m>. Expanding our binomial coefficients gives <m>(x+y)^{-3} = \binom{2}{0}x^0y^{-3} -\binom{3}{1}x^1y^{-4} + \binom{4}{2}x^2y^{-5}-\cdots.</m> The surprise is that we get an infinite series in positive and negative powers of variables. In order to limit ourselves to infinite series with nonnegative exponents, we do not pursue this idea further.
+                  <m>(x+y)^n=\sum_{i=0}^\infty\binom{n}{i}x^i</m>. The proof consists of writing <m>(x+y)=y(\frac{x}{y}+1)</m> and applying the <xref ref="negnchoosek"/> when <m>n</m> is negative. When <m>n</m> is positive, we recall that <m>\binom{n}{k}</m> is zero when <m>k>n</m>, so replacing the upper limit of <m>n</m> in the standard version of the binomial theorem by <m>\infty</m> doesn't change the value of the sum. 
+                  When <m>n=-3</m> we get <m>(x+y)^n = \sum_{i=0}^\infty \binom{-3}{i}x^iy^{-3-i} = \sum_{i=0}^\infty (-1)^i \binom{3+i-1}{i}x^iy^{-3-i}</m>. 
+                  Expanding our binomial coefficients gives <m>(x+y)^{-3} = \binom{2}{0}x^0y^{-3} -\binom{3}{1}x^1y^{-4} + \binom{4}{2}x^2y^{-5}-\cdots.</m> The surprise is that we get an infinite series in positive and negative powers of variables. In order to limit ourselves to infinite series with nonnegative exponents, we do not pursue this idea further.
               </p>
           </solution>
+      </activity> -->
+
+      <p>
+        For variety, here is another way you can get to the extended binomial theorem.
+      </p>
+      
+      <activity>
+        <introduction>
+          <p>
+            We start with the geometric series 
+            <me>
+              \frac{1}{1-x} = 1 + x + x^2 + x^3+ \cdots
+            </me>.
+          </p>
+        </introduction>
+          
+          <task>
+            <statement>
+              <p>
+              What happens if we take a derivative of both sides?  Do this to get a power series for <m>\frac{1}{(1-x^2)}</m>. 
+            </p>
+          </statement>  
+          <hint>
+            <p>
+              You will get
+              <me>
+              \frac{1}{(1-x)^2} = 1 + 2x + 3x^2 + 4x^3 + \cdots
+              </me>.
+            </p>
+            </hint>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Take another derivative and divide both sides by 2 to get a power series for <m>\frac{1}{(1-x)^3}</m>.  Then write the coefficients in the power series as binomial coefficients (use the factorial formula).
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Prove, by mathematical induction on <m>n</m> that 
+                <me>
+                  \frac{1}{(1-x)^{n}} = \binom{n-1}{0} + \binom{n}{1}x + \binom{n+1}{2}x^2 + \cdots + \binom{n+k-1}{k}x^k+ \cdots
+                </me>.
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Finally, substitute <m>-x</m> for <m>x</m> on both sides.
+              </p>
+            </statement>
+          </task>
       </activity>
 
-      <activity xml:id="candygenfn" category="essential and interesting">
+      <p>
+        We used generating functions for multisets to get the extended binomial theorem, but these generating functions are useful in themselves.  We close with a few counting problems related to these.
+      </p>
+
+      <exploration xml:id="candygenfn" category="essential and interesting">
           <statement>
               <p>
                   Write down the generating function for the number of ways to distribute identical pieces of candy to three children so that no child gets more than 4 pieces. Write this generating function as a quotient of polynomials. Using both the extended binomial theorem and the original binomial theorem, find out in how many ways we can pass out exactly ten pieces.
@@ -749,9 +851,9 @@
 <!--                <p>A second solution technique that is appropriate is inclusion-exclusion counting. We let property <m>i</m> be that child <m>i</m> gets more than four pieces of fruit. The number of ways to pass out <m>n</m> pieces of fruit with a set <m>J</m> of size <m>j</m> properties is <m>\binom{n-5j+3-1}{n-5j}=\binom{n-5j+2}{2}</m>. By <xref ref="incexempty">Equation</xref> we have <m>N_{\mbox{e} }(\emptyset) = \sum_{j=0}^3 (-1)^j\binom{3}{j}\binom{n-5j+2}{2}</m>. Using <m>n=10</m> gives us <m>\binom{12}{2}-3\binom{7}{2} +3\binom{2}{2} =6.</m> (You can either note that <m>\binom{-3}{2}</m> is 0 or note that with 10 pieces of candy, there is no way to pass out five pieces to each of three children. In this second case we would revise our statement about the number of ways to pass out <m>n</m> pieces of fruit to three children with the properties in <m>J</m> to note that it is zero if <m>5j>n</m>, and otherwise is <m>\binom{n-5j+2}{2}</m>.)
               </p>-->
           </solution>
-      </activity>
+      </exploration>
 
-      <activity>
+      <exploration>
         <statement>
           <p>
             Another way to count the number of ways to distribute 10 identical pieces of candy to 3 children so no child gets more than 4 is to use the Principle of Inclusion and Exclusion.  Do this, and compare this calculation to what you found in <xref ref="candygenfn"/>.
@@ -771,10 +873,10 @@
               This is precisely the same form as you get in <xref ref="candygenfn"/>.
           </p>
         </solution>
-      </activity>
+      </exploration>
 
 
-      <activity category="essential">
+      <exploration category="essential">
           <statement>
               <p>What is the generating function for the number of multisets chosen from an <m>n</m>-element set so that each element appears at least <m>j</m> times and less than <m>m</m> times? Write this generating function as a quotient of polynomials, then as a product of a polynomial and a power series.
               </p>
@@ -796,32 +898,73 @@
                   </md>
               </p>
           </solution>
-      </activity>
+      </exploration>
 
   </subsection>
 
+
+
   <subsection>
-  <title>Generating Functions and Recurrence Relations</title>
+    <title>Generating Functions and Recurrence Relations</title>
 
     <p>Recall that a recurrence relation for a sequence <m>a_n</m> expresses <m>a_n</m> in terms of values <m>a_i</m> for <m>i\lt n</m>. For example, the equation <m>a_i=3a_{i-1} +2^i</m> is a first order linear constant coefficient recurrence.
     </p>
 
     <p>
-      Algebraic
-      manipulations with generating functions can sometimes reveal the
-      solutions to a recurrence relation.
+      Algebraic manipulations with generating functions can sometimes reveal the
+      solutions to a recurrence relation.  
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Find a generating functions for the recurrence relation <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial conditions <m>a_1 = 3</m> and <m>a_2 = 13</m> (this is the same recurrence relation we solved using the characteristic root technique in <xref ref="eg_char-roots"/>).
+        </p>
+      </statement>
+      <solution>
+        <p>
+          In general, we have some generating function <m>f(x) = a_0 + a_1x + a_2x^2 + \cdots</m>.  In this case, we know that <m>a_1 = 3</m> and <m>a_2 = 13</m>; we can find <m>a_3 = 51</m> and, by working backwards, <m>a_0 = 1</m>.  Having these values makes writing the following out a little clearer.
+        </p>
+        
+        <p>
+          In addition to <m>f(x)</m> we will also consider <m>3x\cdot f(x)</m> and <m>4x^2 f(x)</m>.
+          <md>
+            <mrow>f(x) = \amp 1 + 3x + 13x^2 + 51 x^3 + \cdots </mrow>
+            <mrow> 3x f(x) = \amp 3x + 9x^2 + 39x^3 + 153 x^4 +  </mrow>
+            <mrow> 4x^2 f(x) = \amp 4x^2 + 12x^3 + 52x^4 + 204 x^5 +  </mrow>
+          </md>
+          Now subtract: <m>f(x) - 3xf(x) - 4x^2f(x) = 1</m>.  That's it.  Everything else on the right and side cancels.  Why?  Well, if you consider the <m>x^n</m> term, it will be <m>a_n x^n - 3a_{n-1}x^n - 4a_{n-2}x^n</m>.  The recurrence relation tells us that the coefficient will be zero!
+        </p>
+        
+        <p>
+          Simplifying this a bit more, we find <m>[1- 3x - 4x^2]f(x) = 1</m>, or that the generating function for the sequence is
+          <me>
+            f(x) = \frac{1}{1-3x-4x^2}
+          </me>.
+        </p>
+        
+        <p>
+          Now the question becomes, why does this help?  We would like to find a closed formula for <m>a_n</m>.  Right now, we just know that <m>a_n</m> is the coefficient of <m>x^n</m> in the power series for <m>\frac{1}{1-3x-4x^2}</m>.  Very soon we will see how to proceed.
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+      Of course there is no need to use generating functions to solve recurrences like the one above, since we could use the characteristic root technique.  It gets more interesting when we consider recurrence relations for which the characteristic root technique fails.
     </p>
 
     <activity xml:id="substituteandsolve" category="essential">
         <introduction>
             <p>
-        Suppose that <m>a_i=3a_{i-1} + 3^i</m>.
+        Consider the recurrence relation <m>a_i=3a_{i-1} + 3^i</m> with initial term <m>a_0 = 1</m>.
             </p>
         </introduction>
       <task>
         <statement>
           <p>
-            Multiply both sides by <m>x^i</m> and sum both the left hand side and right hand side from <m>i=1</m> to infinity.  In the left-hand side use the fact that
+            Write out the first few terms of the sequence.  Then write down the generating series <m>f(x) = a_0 + a_1x + a_2x^2 + \cdots</m> (that is, just substitute in the right values for <m>a_i</m>).
+            
+            <!-- Multiply both sides by <m>x^i</m> and sum both the left hand side and right hand side from <m>i=1</m> to infinity.  In the left-hand side use the fact that
             <me>
               \sum_{i=1}^\infty a_ix^i = (\sum_{i=0}^\infty a_ix^i) - a_0
             </me>
@@ -834,10 +977,10 @@
             <m>j</m> for <m>i-1</m> to see explicitly how to change the limits of summation, a
             surprisingly useful trick) to rewrite the equation in terms of the power series
             <m>\sum_{i=0}^\infty a_ix^i</m>.  Solve the resulting equation for the power series
-            <m>\sum_{i=0}^\infty a_ix^i</m>. You can save a lot of writing by using a variable like <m>y</m> to stand for the power series.
+            <m>\sum_{i=0}^\infty a_ix^i</m>. You can save a lot of writing by using a variable like <m>y</m> to stand for the power series. -->
           </p>
         </statement>
-        <solution>
+        <!-- <solution>
             <p>
                 <md>
             <mrow>\sum_{i=1}^\infty a_ix^i  =\amp 3\sum_{i=1}^\infty
@@ -850,15 +993,27 @@
             <mrow>\sum_{i=0}^\infty a_ix^i  =\amp \frac{a_0-1}{1-3x}+\frac{1}{(1-3x)^2}</mrow>
                 </md>
             </p>
-        </solution>
+        </solution> -->
       </task>
       <task>
         <statement>
           <p>
-            Use the previous part to get a formula for <m>a_i</m> in terms of <m>a_0</m>.
+            Write out the series for <m>3x f(x)</m>.  Does it make sense why <m>3x</m> is the right thing to multiply by?
           </p>
         </statement>
-        <solution>
+      </task>
+      <task>
+        <p>
+          Now subtract <m>f(x) - 3xf(x)</m> to get a series for <m>(1-3x)\cdot f(x)</m>.  Show how this proves that the generating function for <m>(a_n)</m> is <me>f(x) = \frac{1}{(1-3x)^2}</me>.
+        </p>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Now explain why the coefficient of <m>x^n</m> is <m>\binom{n+1}{1}3^n</m> and what that tells us about the sequence <m>(a_n)</m>.
+          </p>
+        </statement>
+        <!-- <solution>
             <p>
                 <md>
             <mrow>\sum_{i=0}^\infty a_i x^i  =\amp \frac{a_0-1}{1-3x} + \frac{1}{(1-3x)^2}</mrow>
@@ -866,22 +1021,22 @@
           </md>
             which gives us <m>a_n=(a_0-1) 3^i + (i+1)3^i=(a_0+i)3^i</m>.
           </p>
-        </solution>
+        </solution> -->
       </task>
-      <task>
+    </activity>
+    
+    
+    <!-- <exploration>
         <statement>
           <p>
-            Now suppose that <m>a_i=3a_{i-1} + 2^i</m>.  Repeat the previous two
-            steps for this recurrence relation.  (There is a way to do this part
-            using what you already know.  Later on we shall introduce yet another way
-            to deal with the kind of generating function that arises here.)
+            Repeat the previous approach to solve the recurrence relation <m>a_i=3a_{i-1} + 2^i</m>
           </p>
         </statement>
-        <hint>
+         <hint>
             <p>
                 You may run into a product of the form <m>\sum_{i=0}^\infty a^ix^i\sum_{j=0}^\infty b^jx^j</m>. Note that in the product, the coefficient of <m>x^k</m> is <m>\sum_{i=0}^k a^ib^{k-i} = \sum_{i=0}^k \frac{a^i}{b^i}</m>.
             </p>
-        </hint>
+        </hint> 
         <solution>
             <p>
           <md>
@@ -913,9 +1068,9 @@
           </p>
         </solution>
       </task>
-    </activity>
+    </activity> -->
 
-    <activity category="motivation">
+    <exploration category="motivation">
       <statement>
         <p>Suppose we deposit $5000 in a savings certificate that pays ten percent interest and also participate in a program to add $1000 to the certificate at the end of each year (from the end of the first year on) that follows (also subject to interest.) Assuming we make the $5000 deposit at the end of year 0, and letting <m>a_i</m> be the amount of money in the account at the end of year <m>i</m>, write a recurrence for the amount of money the certificate is worth at the end of year <m>n</m>. Solve this recurrence. How much money do we have in the account (after our year-end deposit) at the end of ten years?  At the end of 20 years?
         </p>
@@ -938,7 +1093,7 @@
           This gives us that <m>a_n= 4000(1.1)^n +1000 \frac{1-(1.1)^{n+1}}{-.1}</m>. This simplifies to <m>a_n= 4000(1.1)^n+10000(1.1)^{n+1}-10000 = 15,000(1.1)^n-10000</m>. Courtesy of Maple, after ten years we have $28,906.14 and after 20 years we have $90,912.50.
         </p>
       </solution>
-    </activity>
+    </exploration>
   </subsection>
 
 

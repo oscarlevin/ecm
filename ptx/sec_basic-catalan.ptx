@@ -767,7 +767,7 @@
       <!-- TODO: add picture or describe better -->
         <statement>
           <p>
-            Draw a <m>n</m> by <m>n</m> right triangle using squares on graph paper (a sort of staircase shape, made up of <m>\frac{n(n+1)}{2}</m> squares).  Shade the squares using exactly <m>n</m> colors so that each color makes a rectangle (but not all colors are rectangles of the same dimension.  How many ways can this be done?
+            Draw a <m>n</m> by <m>n</m> right triangle using squares on graph paper (a sort of staircase shape, made up of <m>\frac{n(n+1)}{2}</m> squares).  Shade the squares using exactly <m>n</m> colors so that each color makes a rectangle (but not all colors are rectangles of the same dimension).  How many ways can this be done?
           </p>
         </statement>
       </exploration>
