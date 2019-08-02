@@ -100,13 +100,13 @@
     <activity>
       <introduction>
         <p>
-          It is also possible to multiply infinite polynomials (i.e., power series).  As long as we are only interested in the first few terms, we can find these by multiplying a small number of terms from the two infinite polynomials.
+          It is also possible to multiply infinite polynomials (i.e., power series).  As long as we are only interested in the first few terms, we can find these by multiplying a small number of terms from the two infinite polynomials.  Multiply the following series out through at least <m>x^7</m>.
         </p>
       </introduction>
       <task>
         <statement>
           <p>
-            Multiply <m>(1+x+x^2+x^3 + \cdots)(1+ x + x^2 + x^3+ \cdots)</m>.
+            Multiply <m>(1+x+x^2+x^3 + \cdots)(1+ x + x^2 + x^3+ \cdots)</m>. 
           </p>
         </statement>
       </task>
@@ -208,7 +208,7 @@
       <p>We choose this language because the picture enumerator lists, or enumerates, all the elements of <m>S</m> according to their pictures. Thus <xref ref="uptothreefruits">Formula</xref> is the picture enumerator the set of all multisets of fruit with between one and three apples, one and two pears, and one and two bananas.
       </p>
 
-      <activity xml:id="zerotothreeapples" category="motivation">
+      <exploration xml:id="zerotothreeapples" category="motivation">
           <statement>
               <p>How would you write down a polynomial in the variable <m>A</m> that says you should take between zero and three apples?
               </p>
@@ -218,9 +218,9 @@
                   <m>A^0+A^1+A^2+A^3</m>.
               </p>
           </solution>
-      </activity>
+      </exploration>
 
-      <activity xml:id="zerotothreefruits" category="essential">
+      <exploration xml:id="zerotothreefruits" category="essential">
           <statement>
               <p>How would you write down a picture enumerator that says we take between zero and three apples, between zero and three pears, and between zero and three bananas?
               </p>
@@ -230,11 +230,16 @@
                   <m>(A^0+A^1+A^2+A^3)(P^0+P^1+P^2+P^3)(B^0+B^1+B^2+B^3).</m>
               </p>
           </solution>
-      </activity>
+      </exploration>
 
-      <activity category="essential for this or the next section">
+      <p>
+        Notice that when we used <m>A^2</m> to stand for taking two apples, and <m>P^3</m> to stand for taking three pears, then we used the product <m>A^2P^3</m> to stand for taking two apples and three pears. Thus we have chosen the picture of the ordered pair (2 apples, 3 pears) to be the product of the pictures of a multiset of two apples and a multiset of three pears.
+      </p>
+
+      <exploration category="essential for this or the next section">
           <statement>
-              <p>Notice that when we used <m>A^2</m> to stand for taking two apples, and <m>P^3</m> to stand for taking three pears, then we used the product <m>A^2P^3</m> to stand for taking two apples and three pears. Thus we have chosen the picture of the ordered pair (2 apples, 3 pears) to be the product of the pictures of a multiset of two apples and a multiset of three pears. Show that if <m>S_1</m> and <m>S_2</m> are sets with picture functions <m>P_1</m> and <m>P_2</m> defined on them, and if we define the picture of an ordered pair <m>(x_1,x_2)\in S_1\times S_2</m> to be <m>P((x_1,x_2))= P_1(x_1)P_2(x_2)</m>, then the picture enumerator of <m>P</m> on the set <m>S_1\times S_2</m> is <m>E_{P_1}(S_1)E_{P_2}(S_2)</m>. We call this the <term>product principle for picture enumerators</term>.<idx><h>product principle</h><h>picture enumerators</h></idx><idx><h>picture enumerators</h><h>product principle for</h></idx>
+              <p> 
+                Show that if <m>S_1</m> and <m>S_2</m> are sets with picture functions <m>P_1</m> and <m>P_2</m> defined on them, and if we define the picture of an ordered pair <m>(x_1,x_2)\in S_1\times S_2</m> to be <m>P((x_1,x_2))= P_1(x_1)P_2(x_2)</m>, then the picture enumerator of <m>P</m> on the set <m>S_1\times S_2</m> is <m>E_{P_1}(S_1)E_{P_2}(S_2)</m>. We call this the <term>product principle for picture enumerators</term>.<idx><h>product principle</h><h>picture enumerators</h></idx><idx><h>picture enumerators</h><h>product principle for</h></idx>
               </p>
           </statement>
           <solution>
@@ -251,45 +256,49 @@
                   </md>
               </p>
           </solution>
-      </activity>
+      </exploration>
   </subsection>
 
   <subsection>
       <title>Generating functions</title>
-      <activity category="essential">
+      
+      <!-- TODO: Needs intro paragraph. -->
+      <example category="essential">
           <statement>
-              <p>Suppose you are going to choose a snack of between zero and three apples, between zero and three pears, and between zero and three bananas. Write down a polynomial in one variable <m>x</m> such that the coefficient of <m>x^n</m> is the number of ways to choose a snack with <m>n</m> pieces of fruit.
+              <p>
+                Suppose you are going to choose a snack of between zero and three apples, between zero and three pears, and between zero and three bananas. Write down a polynomial in one variable <m>x</m> such that the coefficient of <m>x^n</m> is the number of ways to choose a snack with <m>n</m> pieces of fruit.
               </p>
           </statement>
-          <hint>
-              <p>Substitute something for <m>A</m>, <m>P</m> and <m>B</m> in your formula from <xref ref="zerotothreefruits" />.
+          <solution>
+            <p>
+              We have a polynomial in three variables <m>A</m>, <m>P</m> and <m>B</m> for this situation: <me>
+              (1+A +A^2 +A^3)(1+P+P^2+P^3)(1+B+B^2+B^3)
+            </me>. 
+             Now we substitute <m>x</m> for each of those variables to get
+            <me>(1+x+x^2+x^3)^3</me>
+          </p>
+        </solution>
+      </example>
+
+      <exploration category="motivation">
+        <statement>
+          <p>
+            Suppose an apple costs 20 cents, a banana costs 25 cents, and a pear costs 30 cents. What should you substitute for <m>A</m>, <m>P</m>, and <m>B</m> in <xref ref="zerotothreefruits"/> in order to get a polynomial in which the coefficient of <m>x^n</m> is the number of ways to choose a selection of fruit that costs <m>n</m> cents?
+          </p>
+        </statement>
+        <hint>
+              <p>
+                For example, to get the cost of the fruit selection <m>AP B</m> you would want to get <m>x^{20} x^{25} x^{30} = x^{75}</m>.
               </p>
           </hint>
           <solution>
-              <p>
-                  <m>(1+x+x^2+x^3)^3</m>
-              </p>
+            <p>
+              Substitute <m>x^{20}</m> for <m>A</m>, <m>x^{25}</m> for <m>B</m> and <m>x^{30}</m> for <m>P</m>.
+            </p>
           </solution>
-      </activity>
+      </exploration>
 
-      <activity category="motivation">
-          <statement>
-              <p>Suppose an apple costs 20 cents, a banana costs 25 cents, and a pear costs 30 cents. What should you substitute for <m>A</m>, <m>P</m>, and <m>B</m> in <xref ref="zerotothreefruits"/> in order to get a polynomial in which the coefficient of <m>x^n</m> is the number of ways to choose a selection of fruit that costs <m>n</m> cents?
-              </p>
-          </statement>
-          <hint>
-              <p>
-                  For example, to get the cost of the fruit selection <m>AP B</m> you would want to get <m>x^{20} x^{25} x^{30} = x^{75}</m>.
-              </p>
-          </hint>
-          <solution>
-              <p>
-                  Substitute <m>x^{20}</m> for <m>A</m>, <m>x^{25}</m> for <m>B</m> and <m>x^{30}</m> for <m>P</m>.
-              </p>
-          </solution>
-      </activity>
-
-      <activity category="essential">
+      <exploration category="essential">
           <statement>
               <p>Suppose an apple has 40 calories, a pear has 60 calories, and a banana has 80 calories. What should you substitute for <m>A</m>, <m>P</m>, and <m>B</m> in <xref ref="zerotothreefruits"/> in order to get a polynomial in which the coefficient of <m>x^n</m> is the number of ways to choose a selection of fruit with a total of <m>n</m> calories?
               </p>
@@ -299,11 +308,11 @@
                   Substitute <m>x^{40}</m> for <m>A</m>, <m>x^{60}</m> for <m>P</m>, and <m>x^{80}</m> for <m>B</m>.
               </p>
           </solution>
-      </activity>
+      </exploration>
 
-      <activity xml:id="reprovingbinomialtheorem" category="essential">
+      <exploration xml:id="reprovingbinomialtheorem" category="essential">
           <statement>
-              <p>We are going to choose a subset of the set <m>[n]=\{1,2,\ldots, n\}</m>. Suppose we use <m>x_1</m> to be the picture of choosing 1 to be in our subset. What is the picture enumerator for either choosing 1 or not choosing 1? Suppose that for each <m>i</m> between 1 and <m>n</m>, we use <m>x_i</m> to be the picture of choosing <m>i</m> to be in our subset. What is the picture enumerator for either choosing <m>i</m> or not choosing <m>i</m> to be in our subset? What is the picture enumerator for all possible choices of subsets of <m>[n]</m>? What should we substitute for <m>x_i</m> in order to get a polynomial in <m>x</m> such that the coefficient of <m>x^k</m> is the number of ways to choose a <m>k</m>-element subset of <m>n</m>? What theorem have we just reproved (a special case of)?
+              <p>We are going to choose a subset of the set <m>\{1,2,\ldots, n\}</m>. Suppose we use <m>x_1</m> to be the picture of choosing 1 to be in our subset. What is the picture enumerator for either choosing 1 or not choosing 1? Suppose that for each <m>i</m> between 1 and <m>n</m>, we use <m>x_i</m> to be the picture of choosing <m>i</m> to be in our subset. What is the picture enumerator for either choosing <m>i</m> or not choosing <m>i</m> to be in our subset? What is the picture enumerator for all possible choices of subsets of <m>[n]</m>? What should we substitute for <m>x_i</m> in order to get a polynomial in <m>x</m> such that the coefficient of <m>x^k</m> is the number of ways to choose a <m>k</m>-element subset of <m>n</m>? What theorem have we just reproved (a special case of)?
               </p>
           </statement>
           <hint>
@@ -320,13 +329,41 @@
                   </me>
               </p>
           </solution>
-      </activity>
+      </exploration>
 
       <p>
-          In <xref ref="reprovingbinomialtheorem"/> we see that we can think of the process of expanding the polynomial <m>(1+x)^n</m> as a way of <q>generating</q> the binomial coefficients <m>\binom{n}{k}</m> as the coefficients of <m>x^k</m> in the expansion of <m>(1+x)^n</m>. For this reason, we say that <m>(1+x)^n</m> is the <q>generating function</q> for the binomial coefficients <m>\binom{n}{k}</m>. More generally, the <term>generating function</term> for a sequence <m>a_i</m>, defined for <m>i</m> with <m>0\le i\le n</m> is the expression <m>\sum_{i=0}^n a_ix^i</m>, and the <term>generating function</term><idx><h>generating function</h></idx> for the sequence <m>a_i</m> with <m>i\ge 0</m> is the expression <m>\sum_{i=0}^\infty a_ix^i</m>. This last expression is an example of a power series. In calculus it is important to think about whether a power series converges in order to determine whether or not it represents a function. In a nice twist of language, even though we use the phrase generating function as the name of a power series in combinatorics, we don't require the power series to actually represent a function in the usual sense, and so we don't have to worry about convergence.<fn>In the evolution of our current mathematical terminology, the word function evolved through several meanings, starting with very imprecise meanings and ending with our current rather precise meaning.  The terminology <q>generating function</q> may be thought of as an example of one of the earlier usages of the term function.</fn> Instead we think of a power series as a convenient way of representing the terms of a sequence of numbers of interest to us. The only justification for saying that such a representation is convenient is because of the way algebraic properties of power series capture some of the important properties of some sequences that are of combinatorial importance. The remainder of this chapter is devoted to giving examples of how the algebra of power series reflects combinatorial ideas.
+          In <xref ref="reprovingbinomialtheorem"/> we see that we can think of the process of expanding the polynomial <m>(1+x)^n</m> as a way of <q>generating</q> the binomial coefficients <m>\binom{n}{k}</m> as the coefficients of <m>x^k</m> in the expansion of <m>(1+x)^n</m>. For this reason, we say that <m>(1+x)^n</m> is the <q>generating function</q> for the binomial coefficients <m>\binom{n}{k}</m>. 
+          More generally, the <term>generating function</term> for a sequence <m>a_i</m>, defined for <m>i</m> with <m>0\le i\le n</m> is the expression <m>\sum_{i=0}^n a_ix^i = a_0 + a_1x + a_2x^2 + \codts + a_nx^n</m>, and the <term>generating function</term><idx><h>generating function</h></idx> for the sequence <m>a_i</m> with <m>i\ge 0</m> is the expression <m>\sum_{i=0}^\infty a_ix^i</m>. 
+        </p>
+          
+        <example>
+          <statement>
+            <p>
+              The generating function for the sequence <m>1, 2, 4, 8, \ldots</m> is <me>1 + 2x + 4x^2 + 8x^3 + \cdots</me>
+              which we will see later can be expressed as 
+              <me>
+                1+(2x) + (2x)^2 + (2x)^3 + \cdots = \frac{1}{1-2x}
+              </me>.
+            </p>
+            
+            <p>
+              The sequence <m>1, 3, 5, 7,\ldots</m> has generating function 
+              <me>
+                1+3x + 5x^2 +7x^3 + \cdots = \frac{1+x}{(1-x)^2}
+              </me>.
+              We will soon see why you can write the infinite series in this nice way.
+              
+            </p>
+          </statement>
+
+        </example>  
+          
+        <p>  
+          Generating functions for infinite sequences are examples of power series. In calculus it is important to think about whether a power series converges in order to determine whether or not it represents a function. In a nice twist of language, even though we use the phrase generating function as the name of a power series in combinatorics, we don't require the power series to actually represent a function in the usual sense, and so we don't have to worry about convergence.<fn>In the evolution of our current mathematical terminology, the word function evolved through several meanings, starting with very imprecise meanings and ending with our current rather precise meaning.  The terminology <q>generating function</q> may be thought of as an example of one of the earlier usages of the term function.</fn> Instead we think of a power series as a convenient way of representing the terms of a sequence of numbers of interest to us. The only justification for saying that such a representation is convenient is because of the way algebraic properties of power series capture some of the important properties of some sequences that are of combinatorial importance. The remainder of this chapter is devoted to giving examples of how the algebra of power series reflects combinatorial ideas.
       </p>
 
-      <p>Because we choose to think of power series as strings of symbols that we manipulate by using the ordinary rules of algebra and we choose to ignore issues of convergence, we have to avoid manipulating power series in a way that would require us to add infinitely many real numbers. For example, we cannot make the substitution of <m>y+1</m> for <m>x</m> in the power series <m>\sum_{i=0}^\infty x^i</m>, because in order to interpret <m>\sum_{i=0}^\infty (y+1)^i</m> as a power series we would have to apply the binomial theorem to each of the <m>(y+1)^i</m> terms, and then collect like terms, giving us infinitely many ones added together as the coefficient of <m>y^0</m>, and in fact infinitely many numbers added together for the coefficient of any<nbsp /><m>y^i</m>. (On the other hand, it would be fine to substitute <m>y+y^2</m> for <m>x</m>. Can you see why?)
+      <p>
+        Because we choose to think of power series as strings of symbols that we manipulate by using the ordinary rules of algebra and we choose to ignore issues of convergence, we have to avoid manipulating power series in a way that would require us to add infinitely many real numbers. For example, we cannot make the substitution of <m>y+1</m> for <m>x</m> in the power series <m>\sum_{i=0}^\infty x^i</m>, because in order to interpret <m>\sum_{i=0}^\infty (y+1)^i</m> as a power series we would have to apply the binomial theorem to each of the <m>(y+1)^i</m> terms, and then collect like terms, giving us infinitely many ones added together as the coefficient of <m>y^0</m>, and in fact infinitely many numbers added together for the coefficient of any<nbsp /><m>y^i</m>. (On the other hand, it would be fine to substitute <m>y+y^2</m> for <m>x</m>. Can you see why?)
       </p>
   </subsection>
 
@@ -337,7 +374,7 @@
 
       <activity xml:id="coeffinproduct" category="essential">
           <statement>
-              <p>In the polynomial <m>(a_0 +a_1x+a_2x^2)(b_0+b_1x+b_2x^2+b_3x^3)</m>, what is the coefficient of <m>x^2</m>? What is the coefficient of <m>x^4</m>?
+              <p>Multiply out the polynomial <m>(a_0 +a_1x+a_2x^2)(b_0+b_1x+b_2x^2+b_3x^3)</m>. What is the coefficient of <m>x^2</m>? What is the coefficient of <m>x^4</m>? 
               </p>
           </statement>
           <solution>
@@ -375,8 +412,8 @@
           <hint>
               <p>
                   For the last two questions, try multiplying out something simpler first, say <m>(a_0 + a_1 x + a_2 x^2 )(b_0 + b_1 x + b_2 x^2 )</m> . If this problem seems difficult the part that seems to cause students the most problems is converting the expression they get for a product like this into summation notation. If you are having this kind of problem, expand the product <m>(a_0 + a_1 x + a_2 x^2 )(b_0 + b_1 x + b_2 x^2 )</m> and then figure out what the coefficient of <m>x^2</m> is. Try to write that in summation notation.
-</p>
-</hint>
+                </p>
+            </hint>
 
           <solution>
               <p>There is a <m>b_0</m> because it can be paired with an <m>a_2</m> to give the term <m>a_2b_0x^4</m>. Similarly there is a <m>b_1</m> because it can be paired with <m>a_1</m> for the same purpose. However there is no <m>a_i</m> that we can pair with <m>b_0</m> to get a coefficient of <m>x^4</m> and no <m>a_i</m> that we can pair with <m>b_3</m> to get a coefficient of <m>x^4</m>.
@@ -410,11 +447,11 @@
               </p>
           </statement>
           <hint>
-<p>
-    Write down the formulas for the coefficients of <m>x^0</m>, <m>x^1</m>, <m>x^2</m> and <m>x^3</m> in
-    <me>\left(\sum_{i=0}^n a_ix^i\right)\left(\sum_{j=0}^m b_jx^j\right)</me>.
-</p>
-</hint>
+            <p>
+                Write down the formulas for the coefficients of <m>x^0</m>, <m>x^1</m>, <m>x^2</m> and <m>x^3</m> in
+                <me>\left(\sum_{i=0}^n a_ix^i\right)\left(\sum_{j=0}^m b_jx^j\right)</me>.
+            </p>
+            </hint>
 
           <solution>
               <p>
@@ -433,9 +470,10 @@
               </p>
           </statement>
           <hint>
-<p>How is this problem different from <xref ref="coeffinproduct2" />? Is this an important difference from the point of view of the coefficient of <m>x^k</m>?
-</p>
-</hint>
+            <p>
+              How is this problem different from <xref ref="coeffinproduct2" />? Is this an important difference from the point of view of the coefficient of <m>x^k</m>?
+            </p>
+            </hint>
 
           <solution>
               <p>
@@ -461,7 +499,9 @@
 
   <subsection>
       <title>Product principle for generating functions</title>
-      <p>Each time that we converted a picture function to a generating function by substituting <m>x</m> or some power of <m>x</m> for each picture, the coefficient of <m>x</m> had a meaning that was significant to us. For example, with the picture enumerator for selecting between zero and three each of apples, pears, and bananas, when we substituted <m>x</m> for each of our pictures, the exponent <m>i</m> in the power <m>x^i</m> is the number of pieces of fruit in the fruit selection that led us to <m>x^i</m>. After we simplify our product by collecting together all like powers of <m>x</m>, the coefficient of <m>x^i</m> is the number of fruit selections that use <m>i</m> pieces of fruit. In the same way, if we substitute <m>x^c</m> for a picture, where <m>c</m> is the number of calories in that particular kind of fruit, then the <m>i</m> in an <m>x^i</m> term in our generating function stands for the number of calories in a fruit selection that gave rise to <m>x^i</m>, and the coefficient of <m>x^i</m> in our generating function is the number of fruit selections with <m>i</m> calories.  The product principle of picture enumerators translates directly into a product principle for generating functions.
+      <!-- TODO: Perhaps just ax this section entirely.  Or just point out the amazing fact the multiplication does the right thing. -->
+      <p>
+        Each time that we converted a picture function to a generating function by substituting <m>x</m> or some power of <m>x</m> for each picture, the coefficient of <m>x</m> had a meaning that was significant to us. For example, with the picture enumerator for selecting between zero and three each of apples, pears, and bananas, when we substituted <m>x</m> for each of our pictures, the exponent <m>i</m> in the power <m>x^i</m> is the number of pieces of fruit in the fruit selection that led us to <m>x^i</m>. After we simplify our product by collecting together all like powers of <m>x</m>, the coefficient of <m>x^i</m> is the number of fruit selections that use <m>i</m> pieces of fruit. In the same way, if we substitute <m>x^c</m> for a picture, where <m>c</m> is the number of calories in that particular kind of fruit, then the <m>i</m> in an <m>x^i</m> term in our generating function stands for the number of calories in a fruit selection that gave rise to <m>x^i</m>, and the coefficient of <m>x^i</m> in our generating function is the number of fruit selections with <m>i</m> calories.  The product principle of picture enumerators translates directly into a product principle for generating functions.
       </p>
 
       <activity xml:id="ProductPrincipleOGF" category="essential">
