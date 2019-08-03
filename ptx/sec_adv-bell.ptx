@@ -55,13 +55,13 @@
       the first column as well as along the outside diagonal.
     </p>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Why does this triangle construction give you the Bell numbers?  Explain in terms of set partitions.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
 
     <p>
@@ -69,21 +69,21 @@
       properties.
     </p>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           If the sum of a row is added to the Bell number at the end of that row, the next Bell number is obtained. For example, the sum of the fourth row plus the Bell number at the end of the row: <m>15 + 20 + 27 + 37 + 52 + 52</m> is 203, the next Bell number.  Why does this happen?
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Another pattern you might notice: the numbers of the second diagonal <m>1, 3, 10, 37, 151, 674, \ldots</m> are the sums of the horizontal rows.  Prove this!
         </p>
       </statement>
-    </activity>
+    </exploration>
 
     <p>
       Rotating the triangle slightly creates a <em>difference</em> triangle analogous to Pascal's Triangle. The entries that are formed recursively by adding in Pascal's Triangle are now differences of the two numbers above them in the Bell triangle.
@@ -124,13 +124,13 @@
       </tabular>
     </sidebyside>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Explain why the differences work as they do in the rotated triangle.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
     <p>
       Finally, rewriting the Bell triangle recursively indicates a nice
@@ -187,13 +187,13 @@
       This pattern suggests the <m>{(n + 1)}^{\text{th}}</m> Bell Number can be represented recursively by <m>B_{n + 1} = \binom{n}{0} B_{0} + \binom{n}{1} B_{1} + \binom{n}{2}B_{2} + \ldots + \binom{n}{n} B_{n}</m>. The coefficients of this equation are the entries of the <m>n</m>th row of Pascal's triangle.
     </p>
 
-    <activity xml:id="act_bellrecurrence">
+    <exploration xml:id="act_bellrecurrence">
       <statement>
         <p>
           Prove the recurrence <me>B_{k + 1} = \binom{k}{0} B_{0} + \binom{k}{1} B_{1} + \binom{k}{2}B_{2} + \ldots + \binom{k}{k} B_{k}</me>
         </p>
       </statement>
-    </activity>
+    </exploration>
 
 
     <p>
@@ -236,9 +236,9 @@
     </p>
 
     <p>
-      We conclude with an interesting activity.
+      We conclude with an interesting exercise.
     </p>
-    <activity>
+    <exploration>
       <statement>
         <p>
           The set <m>\{u_{0}, u_{1}, u_{2}, \ldots \}</m> where <m>u_{0} = 1</m>, <m>u_{1} = x</m>, <m>u_{2} = x(x - 1)</m>, <m>u_{3} = x(x - 1)(x - 2)</m>, etc., is a basis for the vector space <m>V</m> of all polynomials with real coefficients.
@@ -274,6 +274,6 @@
           </ol>
         </p>
       </statement>
-    </activity>
+    </exploration>
 
 </section>

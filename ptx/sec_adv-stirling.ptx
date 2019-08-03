@@ -15,7 +15,7 @@
       <me>
         S(k,n) = nS(k-1,n) + S(k-1, n-1).
       </me>
-      This recursion is justified by dividing the partitions of <m>[k]</m> into those which contain <m>k</m> as a singleton set (there are <m>S(k-1, n-1)</m> of these) and those that don't (there are <m>n</m> choices for where <m>k</m> could for each of the <m>S(k-1, n)</m> partitions of <m>[k-1]</m> into <m>n</m> blocks).
+      This recursion is justified by dividing the partitions of <m>[k]</m> into those which contain <m>k</m> as a singleton set (there are <m>S(k-1, n-1)</m> of these) and those that don't (there are <m>n</m> choices for where <m>k</m> could be for each of the <m>S(k-1, n)</m> partitions of <m>[k-1]</m> into <m>n</m> blocks).
     </p>
 
     <p>
@@ -76,13 +76,13 @@
       </tabular>
     </sidebyside>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Use the recursion to find the 6th row of the triangle.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
     <p>
       In the remainder of this section we will look at ways to compute Stirling numbers directly, and some consequences of the formulas we find.
@@ -98,7 +98,7 @@
       While we might not have a nice closed formula for all Stirling numbers in terms of <m>k</m> and <m>n</m>, we can give closed formulas for those Stirling numbers close to the edges of the triangle.  We have already considered some of these in <xref ref="act_stirlingcomputations"/>.  To get back into the right mindset, start by reproving one of these.
     </p>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Prove <m>S(k, k-1) = \binom{k}{2}</m>.
@@ -114,7 +114,7 @@
           If a partition has <m>k-1</m> parts, then one part has two elements, so once we choose those two elements from the <m>k</m> elements, we are done.  Therefore <m>S(k,k-1) = \binom{k}{2}</m>.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
     <p>
       The proof of the formula above suggests that looking at the sizes of the blocks might be helpful.  Let's see what this might look like with an example.
@@ -450,7 +450,7 @@
       </statement>
     </theorem>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Prove <xref ref="thm-stirling-closed"/>
@@ -479,7 +479,7 @@
           </p>
         </proof>
       </solution>
-    </activity>
+    </exploration>
 
     <activity>
       <statement>
@@ -513,7 +513,7 @@
 
     </theorem>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Prove <xref ref="thm-stirling-polynomial"/>
@@ -532,7 +532,7 @@
           </p>
         </proof>
       </solution>
-    </activity>
+    </exploration>
 
     <p>
       It is in this form that James Stirling originally developed these numbers.
@@ -547,65 +547,100 @@
       </statement>
     </theorem>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Prove <xref ref="thm-stirling-polynomial2"/>
         </p>
       </statement>
-    </activity>
-
+    </exploration>
+    
+    <p>
+      Let's illustrate the last two theorems with an example.  Consider how to write <m>x^3</m>.
+    </p>
+    
+    <p>
+      Using <xref ref="thm-stirling-polynomial"/>, we can write
+      <me>
+        x^3 = S(3,1)x + S(3,2)x(x-1) + S(3,3)x(x-1)(x-2) = x + 3x(x-1) + x(x-1)(x-2)
+      </me>.
+      Recognizing that the factors that involve <m>x</m> look like a factorial, we can convert them into binomial coefficients, which is what <xref ref="thm_stirling-polynomial2"/> says:
+      <me>
+        x^3 = \binom{x}{1} + 3\binom{x}{2}2! + \binom{x}{3}3! = \binom{x}{1} + 6\binom{x}{2} + 6 \binom{x}{3}.
+      </me>
+    </p>
+    
+    <p>
+      Less we think this is nothing more than an interesting factoid, we can use it to establish the following.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          Prove that <m>1^3 + 2^3 + 3^3 + \cdots + n^3 = \left(\frac{n(n+1)}{2}\right)^2</m>.  In other words, the square of any triangular number is the sum of cubes!
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We recognize that each cube on the left-hand side can be expressed as <m>\binom{x}{1} + 6 \binom{x}{2} + 6\binom{x}{3}</m>.  Thus
+          <md>
+            <mrow>1^3 + 2^3 + \cdots + n^3 = \amp \sum_{x=1}^n \left(\binom{x}{1} + 6 \binom{x}{2} + 6\binom{x}{3}\right)</mrow>
+            <mrow> = \amp \sum_{x=1}^n \binom{x}{1} + 6 \sum_{x=1}^n \binom{x}{2} + 6 \sum_{x=1}^n \binom{x}{3}</mrow>
+          </md>.
+          Now each of the three sums of binomial coefficients can be simplified using the Hocky Stick Theorem, to get
+          <md>
+            <mrow> =  \amp \binom{n+1}{2} + 6 \binom{n+1}{3} + 6 \binom{n+1}{4} </mrow>
+            <mrow> = \amp \binom{n+1}{2} + 6\left(\binom{n+1}{3}+\binom{n+1}{4}\right) </mrow>
+            <mrow> = \amp \binom{n+1}{2} + 6\binom{n+2}{4} </mrow>
+          </md>
+          where the last step uses the Pascal triangle recurrence.
+        </p>
+        <p>
+          Finally, write these last two binomial coefficients using the factorial formula and simplify:
+          <me>
+            \frac{n(n+1)}{2} + \frac{(n+2)(n+1)n(n-1)}{4} = \left(\frac{n(n+1)}{2}\right)^2
+          </me>.
+          
+        </p>
+      </solution>
+    </example>
+    
     <p>
       The remainder of this section contains some additional activities related to the identities above and Stirling numbers in general.
     </p>
 
 
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           List the sequence of elements that are row sums of the Stirling Triangle.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           How many subsets <m>\{a,b,c\}</m> are there of <m>\{2,3,4,\ldots\}</m> such that <m>abc = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17</m>?
         </p>
       </statement>
-    </activity>
+    </exploration>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Let <m>S = \{2,3,4,\ldots\}</m>.  How many ordered triples <m>(a,b,c)</m> are there in <m>S\times S \times S</m> such that <m>abc = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17</m>?
         </p>
       </statement>
-    </activity>
+    </exploration>
 
+    
 
-
-    <activity xml:id="ex-stirling-cubic">
-      <statement>
-        <p>
-          Express <m>x^3</m> as suggested in <xref ref="thm-stirling-polynomial"/>.  Also, multiply your answer out to verify.
-        </p>
-      </statement>
-    </activity>
-
-    <activity>
-      <statement>
-        <p>
-          Use your results in <xref ref="ex-stirling-cubic"/> to express <m>x^3</m> as a linear combination of the binomial coefficients <m>\binom{x}{1}</m>, <m>\binom{x}{2}</m>, and <m>\binom{x}{3}</m>.
-        </p>
-      </statement>
-    </activity>
 
 <!-- 11 -->
-    <activity>
+    <exploration>
       <introduction>
         <p>
           Determine the following:
@@ -625,25 +660,25 @@
           </p>
         </statement>
       </task>
-    </activity>
+    </exploration>
 
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Express <m>1^4 + 2^4 + 3^4 + \cdots + n^4</m> as a polynomial in <m>n</m>.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
 
-    <activity>
+    <exploration>
       <statement>
         <p>
-          Why is <m>4^n - 4\cdot 3^n + 6\cdot 2^n - 4</m> always divisible by 24?
+          Why is <m>4^k - 4\cdot 3^k + 6\cdot 2^k - 4</m> always divisible by 24?
         </p>
       </statement>
-    </activity>
+    </exploration>
 
 </subsection>
 
