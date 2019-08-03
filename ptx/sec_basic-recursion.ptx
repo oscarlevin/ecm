@@ -632,19 +632,215 @@
       </p>
     </statement>
   </activity>
-
+  
   <p>
-    It is helpful to have a guess for the <em>form</em> of a closed formula.  For example, if you believe that a sequence should have a closed formula that is say a cubic polynomial, then you can find a cubic polynomial that agrees with the first 4 terms of the sequence.  This would be done by setting up a system of 4 equations with 4 unknowns and solving the system.
+    The above observations can be generalized: a cubic sequence will have quadratic difference, a quartic sequence will have cubic differences, and so on.  This allows us to guess at the <em>form</em> of a closed formula for a polynomial sequence by taking successive differences.  If the <q>third differences</q> of a sequence are constant, then we would guess we could find a cubic polynomial.  Given the first 4 terms, we can fit the cubic to them by setting up a system of 4 equations and 4 unknowns.
   </p>
 
+
+
+   <p>
+    Sequences of partial sums are also useful for geometric sequences.  The following technique will likely be familiar from calculus when you worked with geometric series.
+  </p>
+  
+  <activity>
+    <statement>
+      <p>
+        What is <m>3 + 6 + 12 + 24 + \cdots + 12288</m>?  Call the sum <m>S</m> and compute <m>S - 2S</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Multiply each term by 2, the common ratio.
+        You get <m>2S = 6 + 12 + 24 + \cdots + 24576</m>.
+        Now subtract: <m>2S - S = -3 + 24576 = 24573</m>.
+        Since <m>2S - S = S</m>, we have our answer.
+      </p>
+    </solution>
+  </activity>
+
   <p>
-    Another time this guess-and-check approach is reasonable is when we believe a sequence to be exponential.
+    To better see what happened in the above example, try writing it this way:
+  </p>
+
+  <sidebyside>
+
+    <tabular>
+      <col halign="right"/>
+      <col/>
+      <col halign="left"/>
+      <col/>
+      <row>
+        <cell><m>S=</m></cell>
+        <cell><m>3 \, +</m></cell>
+        <cell><m>6 + 12 + 24 + \cdots + 12288</m></cell>
+        <cell/>
+      </row>
+      <row bottom="minor">
+        <cell><m>- \qquad 2S=</m></cell>
+        <cell/>
+        <cell><m>6 + 12 + 24 + \cdots + 12288</m></cell>
+        <cell><m> + 24576</m></cell>
+      </row>
+      <row>
+        <cell><m>-S = </m></cell>
+        <cell><m>3 \, +</m></cell>
+        <cell><m>0 + 0 + 0 +  \cdots + 0 </m></cell>
+        <cell><m>-24576</m></cell>
+      </row>
+    </tabular>
+
+  </sidebyside>
+
+  <p>
+    Then divide both sides by <m>-1</m> and we have the same result for <m>S</m>.
+    The idea is, by multiplying the sum by the common ratio,
+    each term becomes the next term.
+    We shift over the sum to get the subtraction to mostly cancel out,
+    leaving just the first term and new last term.
+  </p>
+
+  <exploration>
+    <statement>
+      <p>
+        Find a closed formula for <m>S_n = 2 + 10 + 50 + \cdots + 2\cdot 5^n</m>.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Compute <m>S_n - 5S_n</m>
+      </p>
+    </hint>
+    <solution>
+      <p>
+        The common ratio is 5.
+        So we have
+      </p>
+
+      <sidebyside>
+
+        <tabular>
+          <col halign="right"/>
+          <col/>
+          <row>
+            <cell><m>S</m></cell>
+            <cell><m>= 2 + 10 + 50 + \cdots + 2\cdot 5^n</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell><m>- \qquad 5S</m></cell>
+            <cell><m>= ~~~~~~10 + 50 + \cdots + 2\cdot 5^n + 2\cdot5^{n+1}</m></cell>
+          </row>
+          <row>
+            <cell><m>-4S</m></cell>
+            <cell><m>= 2  - 2\cdot5^{n+1}</m></cell>
+          </row>
+        </tabular>
+
+      </sidebyside>
+
+      <p>
+        Thus <m>S = \dfrac{2-2\cdot 5^{n+1}}{-4}</m>
+      </p>
+    </solution>
+  </exploration>
+
+  <p>
+    Notice that this is precisely the standard method used for converting repeating decimals to fractions.
+  </p>
+
+  <exploration>
+    <statement>
+      <p>
+        Express <m>N = 0.464646\ldots</m> as a fraction by computing <m>N - 0.01N</m>.  Why is this the same as computing an infinite geometric sum?
+      </p>
+    </statement>
+    
+    <solution>
+      <p>
+        Let <m>N = 0.46464646\ldots</m>.
+        Consider <m>0.01N</m>.
+        We get:
+      </p>
+
+      <sidebyside>
+
+        <tabular>
+          <col halign="right"/>
+          <col/>
+          <row>
+            <cell><m>N =</m></cell>
+            <cell><m>0.4646464\ldots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell><m>- \qquad 0.01N =</m></cell>
+            <cell><m>0.00464646\ldots</m></cell>
+          </row>
+          <row>
+            <cell><m>0.99N =</m></cell>
+            <cell><m>0.46</m></cell>
+          </row>
+        </tabular>
+
+      </sidebyside>
+
+      <p>
+        So <m>N = \frac{46}{99}</m>.
+        What have we done?
+        We viewed the repeating decimal
+        <m>0.464646\ldots</m> as a sum of the geometric sequence
+        <m>0.46, 0.0046, 0.000046, \ldots</m> The common ratio is <m>0.01</m>.
+        The only real difference is that we are now computing an
+        <em>infinite</em> geometric sum,
+        we do not have the extra <q>last</q> term to consider.
+        Really, this is the result of taking a limit as you would in calculus when you compute
+        <em>infinite</em> geometric sums.
+      </p>
+    </solution>
+  </exploration>
+
+  <p>
+  Here is a surprising use of these geometric sums to answer a counting question: 
+  </p>
+  <exploration>
+    <introduction>
+      <p>
+         How many license plates consist of 6 symbols, using only the three numerals 1, 2, and 3 and the four letters a, b, c, and d, so that no numeral appears after any letter?  For example, <q>31ddac</q> and <q>12321</q> are acceptable license plates, but <q>13ba2c</q> is not.
+       </p>
+      </introduction>
+      
+        <task>
+            <statement>
+              <p>
+                First answer this question by considering different cases: how many of the license plates contain no numerals?  How many contain one numeral, etc.  Find the sum.
+              </p>
+            </statement>
+            <hint>
+              <p>
+                The number of plates that have 2 numerals and (therefore) 4 letters is <m>3^2\cdot 4^4</m>, as there are 3 choices for each of the numerals, and 4 choices for each of the letters.
+              </p>
+            </hint>
+          </task>
+          <task>
+            <p>
+              Recognize that that the total <m>S</m> when written this way is the sum of a (finite) geometric sequence.  Compute <m>S - \frac{3}{4}S</m> to conclude that the answer can be expressed as <m>4^7 - 3^7</m>.
+            </p>
+          </task>
+          <task>
+            <p>
+              Generalize! What if a license plate has <m>n</m> symbols?
+            </p>
+          </task>
+        </exploration> 
+  
+  
+  <p>
+    Guessing the form of a closed formula is also reasonable when we believe a sequence to be exponential.
   </p>
 
   <activity>
     <introduction>
       <p>
-        Consider the recurrence relation <m>a_n = 5a_{n-1} - 6a_{n-2}</m>.
+        Consider the recurrence relation <m>a_n = 5a_{n-1} - 6a_{n-2}</m>.  Listing terms (with some reasonable initial conditions) suggests that this sequence grows exponentially.
       </p>
     </introduction>
     <task>
@@ -773,7 +969,7 @@
     As you saw above, something goes wrong with the characteristic root technique when the roots of the characteristic equation are repeated.  One way around this is to guess that the closed formula should be <me>a_n = \alpha r^n + \beta nr^n</me>, where <m>r</m> is the repeated root and <m>\alpha</m> and <m>\beta</m> are constants determined by the initial conditions as normal. The key here is to add an extra multiple of <m>n</m> to the second term.  
   </p>
 
-  <exploration>
+  <exploration xml:id="ex_char-rep-root">
     <introduction>
       <p>
         Consider the recurrence relation <m>a_n = 4a_{n-1} - 4a_{n-2}</m>.
@@ -782,7 +978,7 @@
     <task>
       <statement>
         <p>
-          Find the general solution (leaving <m>\alpha</m> and <m>\beta</m> as parameters.
+          Find the general solution (leaving <m>\alpha</m> and <m>\beta</m> as parameters).
         </p>
       </statement>
     </task>

@@ -227,6 +227,43 @@
       [\normalsize\authorsptx]&#xa;</xsl:text>
 </xsl:template>
 
+
+<!-- Restyle paragraphs: -->
+<!-- "paragraphs" -->
+<!-- Body:  \begin{paragraphs}{title}{label}   -->
+<!-- "titlesec" package, Subsection 9.2 has LaTeX defaults -->
+<!-- We drop the indentation, and we pass the title itself -->
+<!-- explicity with macro parameter #1 since we do not save-->
+<!-- off the title in a PTX macro.  None of this is meant  -->
+<!-- to support customization in a style.                  -->
+<!-- Once a tcolorbox, see warnings as part of divisional  -->
+<!-- introductions and conclusions.                        -->
+<xsl:template match="paragraphs" mode="environment">
+    <xsl:text>%% paragraphs: the terminal, pseudo-division&#xa;</xsl:text>
+    <xsl:text>%% We use the lowest LaTeX traditional division&#xa;</xsl:text>
+    <xsl:text>\titleformat{\subparagraph}[block]{\normalfont\filcenter\scshape\bfseries}{\thesubparagraph}{0em}{#1}&#xa;</xsl:text>
+    <xsl:text>\titlespacing*{\subparagraph}{0pt}{3.25ex plus 1ex minus .2ex}{1ex}&#xa;</xsl:text>
+    <xsl:text>\NewDocumentEnvironment{paragraphs}{mm}&#xa;</xsl:text>
+    <xsl:text>{\subparagraph*{#1}\hypertarget{#2}{}}{}&#xa;</xsl:text>
+</xsl:template>
+<!-- Paragraphs -->
+<!-- Non-structural, even if they appear to be -->
+<xsl:template match="paragraphs">
+    <!-- Warn about paragraph deprecation -->
+    <xsl:text>\begin{paragraphs}</xsl:text>
+    <xsl:text>{</xsl:text>
+    <!-- Get rid of punctuation: (change title-punctuated to title-full) -->
+    <xsl:apply-templates select="." mode="title-full" />
+    <xsl:text>}</xsl:text>
+    <xsl:text>{</xsl:text>
+    <xsl:apply-templates select="." mode="latex-id" />
+    <xsl:text>}</xsl:text>
+    <xsl:text>%&#xa;</xsl:text>
+    <xsl:apply-templates/>
+    <xsl:text>\end{paragraphs}%&#xa;</xsl:text>
+</xsl:template>
+
+
 <!-- %%%%%%%%%%%%%%%% -->
 <!-- End Title Stiles -->
 <!-- %%%%%%%%%%%%%%%% -->

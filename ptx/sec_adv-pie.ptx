@@ -791,7 +791,7 @@
         The following problem is due to Polya.
       </p>
       
-      <activity>
+      <activity xml:id="act_stirlingpie">
         <introduction>
           <p>
             Suppose you wished to paint <m>k</m> houses and you have <m>n</m> different colors available.  Each house will get a single color, but you want to ensure that each color is used at least once.

@@ -497,9 +497,9 @@
       </p>
   </subsection>
 
-  <subsection>
+  <!-- TODO: Perhaps just ax this section entirely.  Or just point out the amazing fact the multiplication does the right thing. -->
+  <!-- <subsection>
       <title>Product principle for generating functions</title>
-      <!-- TODO: Perhaps just ax this section entirely.  Or just point out the amazing fact the multiplication does the right thing. -->
       <p>
         Each time that we converted a picture function to a generating function by substituting <m>x</m> or some power of <m>x</m> for each picture, the coefficient of <m>x</m> had a meaning that was significant to us. For example, with the picture enumerator for selecting between zero and three each of apples, pears, and bananas, when we substituted <m>x</m> for each of our pictures, the exponent <m>i</m> in the power <m>x^i</m> is the number of pieces of fruit in the fruit selection that led us to <m>x^i</m>. After we simplify our product by collecting together all like powers of <m>x</m>, the coefficient of <m>x^i</m> is the number of fruit selections that use <m>i</m> pieces of fruit. In the same way, if we substitute <m>x^c</m> for a picture, where <m>c</m> is the number of calories in that particular kind of fruit, then the <m>i</m> in an <m>x^i</m> term in our generating function stands for the number of calories in a fruit selection that gave rise to <m>x^i</m>, and the coefficient of <m>x^i</m> in our generating function is the number of fruit selections with <m>i</m> calories.  The product principle of picture enumerators translates directly into a product principle for generating functions.
       </p>
@@ -545,52 +545,52 @@
               </p>
           </statement>
       </theorem>
-<!--        <activity category="essential">
-          <p>
-              Let <m>i</m> denote an integer between 1 and <m>n</m>.
-          </p>
-          <task>
-              <statement>
-                  <p>
-                      What is the generating function for the number of subsets of <m>\{i\}</m> of
-                      each possible size? (Notice that the only subsets of <m>\{i\}</m> are
-                      <m>\emptyset</m> and <m>\{i\}</m>.)
-                  </p>
-              </statement>
-              <solution>
-                  <p>
-                      <m>1+x</m>.
-                  </p>
-              </solution>
-          </task>
-          <task>
-              <statement>
-                  <p>
-                      Use the product principle for generating functions to prove the
-                      binomial theorem.
-                  </p>
-              </statement>
-              <solution>
-                  <p>
-                      The generating function for number of <m>n</m>-tuples of 0s and 1s with
-                      <m>k</m> ones is, by the product principle for generating functions (extended to
-                      <m>n</m> factors) <m>(1+x)^n</m>. However the number of <m>n</m>-tuples of 0s and 1s with
-                      <m>k</m> ones is the number of <m>k</m>-element subsets of an <m>n</m>-element set.
-                      Therefore <m>(1+x)^n =\sum_{i=0}^n \binom{n}{i}x^i</m>. To get the <m>(x+y)^n</m> form
-                      of the binomial theorem, note that <m>x+y = y(1+\frac{x}{y})</m>, so that
-                      <md>
-                          <mrow>(x+y)^n  =\amp  y^n\left(\frac{x}{y}+1\right)^n</mrow>
-                          <mrow> =\amp y^n\sum_{i=0}^n \binom{n}{i}\frac{x^i}{y^i}</mrow>
-                          <mrow> =\amp  \sum_{i=0}^n\binom{n}{i}x^iy^{n-i}.</mrow>
-                      </md>
-                  </p>
-              </solution>
-          </task>
-      </activity>-->
-  </subsection>
+  </subsection> -->
 
   <subsection>
       <title>The extended binomial theorem and multisets</title>
+      <!-- <activity category="essential">
+        <p>
+          Let <m>i</m> denote an integer between 1 and <m>n</m>.
+        </p>
+        <task>
+          <statement>
+            <p>
+              What is the generating function for the number of subsets of <m>\{i\}</m> of
+              each possible size? (Notice that the only subsets of <m>\{i\}</m> are
+              <m>\emptyset</m> and <m>\{i\}</m>.)
+            </p>
+          </statement>
+          <solution>
+            <p>
+              <m>1+x</m>.
+            </p>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Use the product principle for generating functions to prove the
+              binomial theorem.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              The generating function for number of <m>n</m>-tuples of 0s and 1s with
+              <m>k</m> ones is, by the product principle for generating functions (extended to
+              <m>n</m> factors) <m>(1+x)^n</m>. However the number of <m>n</m>-tuples of 0s and 1s with
+              <m>k</m> ones is the number of <m>k</m>-element subsets of an <m>n</m>-element set.
+              Therefore <m>(1+x)^n =\sum_{i=0}^n \binom{n}{i}x^i</m>. To get the <m>(x+y)^n</m> form
+              of the binomial theorem, note that <m>x+y = y(1+\frac{x}{y})</m>, so that
+              <md>
+                <mrow>(x+y)^n  =\amp  y^n\left(\frac{x}{y}+1\right)^n</mrow>
+                <mrow> =\amp y^n\sum_{i=0}^n \binom{n}{i}\frac{x^i}{y^i}</mrow>
+                <mrow> =\amp  \sum_{i=0}^n\binom{n}{i}x^iy^{n-i}.</mrow>
+              </md>
+            </p>
+          </solution>
+        </task>
+      </activity> -->
       
       <p>
         The binomial theorem tells us how to expand the binomial <m>(1+x)^n</m>:
@@ -776,7 +776,7 @@
           <task>
             <statement>
               <p>
-              What happens if we take a derivative of both sides?  Do this to get a power series for <m>\frac{1}{(1-x^2)}</m>. 
+              What happens if we take a derivative of both sides?  Do this to get a power series for <m>\frac{1}{(1-x)^2}</m>. 
             </p>
           </statement>  
           <hint>
@@ -883,7 +883,7 @@
           </statement>
           <hint>
               <p>
-                  Intepret <xref ref="candygenfn" /> in terms of multisets.
+                  Interpret <xref ref="candygenfn" /> in terms of multisets.
               </p>
           </hint>
           <solution>
@@ -915,7 +915,7 @@
       solutions to a recurrence relation.  
     </p>
 
-    <example>
+    <example xml:id="eg_genfun-recursion">
       <statement>
         <p>
           Find a generating functions for the recurrence relation <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial conditions <m>a_1 = 3</m> and <m>a_2 = 13</m> (this is the same recurrence relation we solved using the characteristic root technique in <xref ref="eg_char-roots"/>).
@@ -944,13 +944,39 @@
         </p>
         
         <p>
-          Now the question becomes, why does this help?  We would like to find a closed formula for <m>a_n</m>.  Right now, we just know that <m>a_n</m> is the coefficient of <m>x^n</m> in the power series for <m>\frac{1}{1-3x-4x^2}</m>.  Very soon we will see how to proceed.
+          Now the question becomes, why does this help?  We would like to find a closed formula for <m>a_n</m>.  Right now, we just know that <m>a_n</m> is the coefficient of <m>x^n</m> in the power series for <m>\frac{1}{1-3x-4x^2}</m>.  We will come back to this in the next subsection.
         </p>
       </solution>
     </example>
     
+    <exploration xml:id="secondordernonhomo" category="interesting">
+      <statement>
+        <p>
+          Find the generating function for the solutions to the recurrence
+          <me>
+            a_i=5a_{i-1}-6a_{i-2} + 2^i.
+          </me>
+        </p>
+      </statement>
+      <solution>
+          <p>
+          <md>
+          <mrow>\sum_{i=2}^\infty a_ix^i  \amp=  \sum_{i=2}^\infty
+          5a_{i-1}x^i-\sum_{i=2}^\infty 6a_{i-2}x^i + \sum_{i=2}^\infty 2^ix^i</mrow>
+          <mrow>\sum_{i=0}^\infty a_ix^i -a_0-a_1x  \amp=
+          5x\left(\sum_{i=0}^\infty
+          a_{i}x^i-a_0\right)-6x^2\sum_{i=0}^\infty a_{i}x^i + \sum_{n=0}^\infty
+          2^ix^i-1-2x</mrow>
+          <mrow>(1-5x+6x^2)\sum_{i=0}^\infty a_ix^i \amp= a_0-1+(a_1-5a_0-2)x +
+          \sum_{n=0}^\infty 2^ix^i</mrow>
+          <mrow>\sum_{i=0}^\infty a_ix^i \amp=  \frac{a_0-1+(a_1-5a_0-2)x}{1-5x+6x^2}+ \frac{1}{1-5x+6x^2}\cdot\frac{1}{1-2x}</mrow>
+          </md>
+          </p>
+      </solution>
+    </exploration>
+    
     <p>
-      Of course there is no need to use generating functions to solve recurrences like the one above, since we could use the characteristic root technique.  It gets more interesting when we consider recurrence relations for which the characteristic root technique fails.
+      Of course there is no need to use generating functions to solve recurrences like the ones above, since we could use the characteristic root technique.  It gets more interesting when we consider recurrence relations for which the characteristic root technique fails.
     </p>
 
     <activity xml:id="substituteandsolve" category="essential">
@@ -1026,10 +1052,10 @@
     </activity>
     
     
-    <!-- <exploration>
+    <exploration>
         <statement>
           <p>
-            Repeat the previous approach to solve the recurrence relation <m>a_i=3a_{i-1} + 2^i</m>
+            Use the previous approach to solve the recurrence relation <m>a_i=3a_{i-1} + 2^i</m>.  Do this in general, for any initial value <m>a_0</m>.
           </p>
         </statement>
          <hint>
@@ -1067,8 +1093,7 @@
             <m>a_i =(a_0+2)3^i -2^{i+1}</m>.
           </p>
         </solution>
-      </task>
-    </activity> -->
+    </exploration>
 
     <exploration category="motivation">
       <statement>
@@ -1094,24 +1119,34 @@
         </p>
       </solution>
     </exploration>
-  </subsection>
+  <!-- </subsection>
 
 
     <subsection>
         <title>Fibonacci numbers</title>
-        <p>The sequence of problems that follows (culminating in <xref ref="solveFibonacci" />) describes a number of hypotheses we might make about a fictional population of rabbits. We use the example of a rabbit population for historic reasons; our goal is a classical sequence of numbers called Fibonacci numbers. When Fibonacci<fn>Apparently Leanardo de Pisa was given the name Fibonacci posthumously. It is a shortening of <q>son of Bonacci</q> in Italian.</fn> introduced them, he did so with a fictional population of rabbits.<idx><h>Fibonacci numbers</h></idx>
-        </p>
+      -->
+        <p>
+          The sequence of problems that follows (culminating in <xref ref="solveFibonacci" />) describes a number of hypotheses we might make about a fictional population of rabbits. We use the example of a rabbit population for historic reasons; our goal is a classical sequence of numbers called Fibonacci numbers. When Fibonacci<fn>Apparently Leanardo de Pisa was given the name Fibonacci posthumously. It is a shortening of <q>son of Bonacci</q> in Italian.</fn> introduced them, he did so with a fictional population of rabbits.<idx><h>Fibonacci numbers</h></idx>
+        </p> 
 
 
-    <activity xml:id="secondorderintroduction" category="essential">
+    <exploration xml:id="secondorderintroduction" category="essential">
       <statement>
-        <p>Suppose we start (at the end of month 0) with 10 pairs of baby rabbits, and that after baby rabbits mature for one month they begin to reproduce, with each pair producing two new pairs at the end of each month afterwards. Suppose further that over the time we observe the rabbits, none die. Let <m>a_n</m> be the number of rabbits we have at the end of month <m>n</m>. Show that <m>a_n=a_{n-1} + 2a_{n-2}</m>. This is an example of a <term>second order</term><idx><h>recurrence</h><h>second order</h></idx><idx><h>second order recurrence</h></idx> <em>linear</em><idx><h>recurrence</h><h>linear</h></idx><idx><h>linear recurrence</h><h>second order</h></idx> recurrence with constant coefficients.<idx><h>recurrence</h><h>constant coefficient</h></idx> Using a method similar to that of <xref ref="substituteandsolve"/>, show that
-          <me>
-            \sum_{i=0}^\infty a_ix^i = \frac{10}{1-x-2x^2}.
-          </me>
-          This gives us the generating function for the sequence <m>a_i</m> giving the population in month <m>i</m>; shortly we shall see a method for converting this to a solution to the recurrence.
+        <p>
+          Suppose we start (at the end of month 0) with 10 pairs of baby rabbits, and that after baby rabbits mature for one month they begin to reproduce, with each pair producing two new pairs at the end of each month afterwards. Suppose further that over the time we observe the rabbits, none die. 
         </p>
-      </statement>
+        
+        <p>    
+          Let <m>a_n</m> be the number of rabbits we have at the end of month <m>n</m>. So we have <m>a_0 = 10</m>, <m>a_1 = 10</m>, <m>a_2 = 30</m>, and so on.  Show that <m>a_n=a_{n-1} + 2a_{n-2}</m>. This is an example of a <term>second order</term><idx><h>recurrence</h><h>second order</h></idx><idx><h>second order recurrence</h></idx> <em>linear</em><idx><h>recurrence</h><h>linear</h></idx><idx><h>linear recurrence</h><h>second order</h></idx> recurrence with constant coefficients.<idx><h>recurrence</h><h>constant coefficient</h></idx>
+        </p>
+        <p>  
+         Using a method similar to that of <xref ref="substituteandsolve"/>, show that
+            <me>
+              \sum_{i=0}^\infty a_ix^i = \frac{10}{1-x-2x^2}.
+            </me>
+            This gives us the generating function for the sequence <m>a_i</m> giving the population in month <m>i</m>; shortly we shall see a method for converting this to a solution to the recurrence.
+          </p>
+        </statement>
       <solution>
           <p>
               <md>
@@ -1129,16 +1164,16 @@
           In this problem <m>a_0=a_1=10</m> because we start with ten pairs of baby rabbits, so they have to mature for a month before they begin reproducing. Thus <m>\displaystyle\sum_{n=0}^\infty a_nx^n = \frac{10}{(1-x-2x^2)}</m>.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
-    <activity xml:id="originalFibonacci" category="essential">
+    <exploration xml:id="originalFibonacci" category="essential">
       <statement>
-        <p>In Fibonacci's original problem, each pair of mature rabbits produces one new pair at the end of each month, but otherwise the situation is the same as in <xref ref="secondorderintroduction"/>.  Assuming that we start with one pair of baby rabbits (at the end of month 0), find the generating function for the number of pairs of rabbits we have at the end on <m>n</m> months.
+        <p>In Fibonacci's original problem, each pair of mature rabbits produces one new pair at the end of each month, but otherwise the situation is the same as in <xref ref="secondorderintroduction"/>.  Assuming that we start with one pair of baby rabbits (at the end of month 0), find the generating function for the number of pairs of rabbits we have at the end of <m>n</m> months.
         </p>
       </statement>
       <hint>
           <p>
-              Our recurrence becomes <m>a_n = a_{n-1} + a_{n-2}</m>.
+              Our recurrence becomes <m>a_n = a_{n-1} + a_{n-2}</m>, which of course is the Fibonacci recurrence.
           </p>
       </hint>
       <solution>
@@ -1157,36 +1192,42 @@
           \frac{1}{1-x-x^2}</m>.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
-    <activity xml:id="secondordernonhomo" category="interesting">
+    <p>
+      In the next section we will see how to use the generating functions for these recursions to find closed formulas for the sequence, including a closed formula for the Fibonacci numbers.  While we are here though, consider the following example of another reason why having a generating function for the Fibonacci numbers is useful.
+    </p>
+    
+    <example>
       <statement>
         <p>
-          Find the generating function for the solutions to the recurrence
-          <me>
-            a_i=5a_{i-1}-6a_{i-2} + 2^i.
-          </me>
+          Use generating functions to prove the identity <m>F_{n+1} = \binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2} + \cdots </m> (note this is a finite sum).
         </p>
       </statement>
       <solution>
-          <p>
+        <p>
+          Start with the generating function for the sequence <m>1, 1, 2, 3, 5</m>, which we saw above is 
+          <me>\frac{1}{1-x-x^2} = 1 + x + 2x^2 + \cdots + F_{n+1}x^n+ \cdots</me>.
+          Of course we also have 
+          <me>
+            \frac{1}{1-x} = 1 + x + x^2 + \cdots
+          </me>
+          and this is almost the same thing.  In fact, if we replace <m>x</m> with <m>x+x^2</m> we get the Fibonacci generating function:
           <md>
-          <mrow>\sum_{i=2}^\infty a_ix^i  \amp=  \sum_{i=2}^\infty
-          5a_{i-1}x^i-\sum_{i=2}^\infty 6a_{i-2}x^i + \sum_{i=2}^\infty 2^ix^i</mrow>
-          <mrow>\sum_{i=0}^\infty a_ix^i -a_0-a_1x  \amp=
-          5x\left(\sum_{i=0}^\infty
-          a_{i}x^i-a_0\right)-6x^2\sum_{i=0}^\infty a_{i}x^i + \sum_{n=0}^\infty
-          2^ix^i-1-2x</mrow>
-          <mrow>(1-5x+6x^2)\sum_{i=0}^\infty a_ix^i \amp= a_0-1+(a_1-5a_0-2)x +
-          \sum_{n=0}^\infty 2^ix^i</mrow>
-          <mrow>\sum_{i=0}^\infty a_ix^i \amp=  \frac{a_0-1+(a_1-5a_0-2)x}{1-5x+6x^2}+ \frac{1}{1-5x+6x^2}\cdot\frac{1}{1-2x}</mrow>
-          </md>
-          </p>
+            <mrow>\frac{1}{1-(x+x^2)} = \amp 1 + (x+x^2) + (x+x^2)^2 + \cdots </mrow>
+            <mrow> = \amp 1 + x(1+x) + x^2(1+x)^2 + x^3(1+x)^3 + \cdots</mrow>
+          </md>.
+          Now use the binomial theorem on each of the <m>(1+x)^n</m> terms and distribute:
+          <md>
+            <mrow>1 + x + x^2 + (x^2 +\amp 2x^3 + x^4)</mrow>
+            <mrow> + (\amp x^3 + 3x^4 + 3x^5 + x^6)</mrow>
+            <mrow> \amp + (x^4 + 4x^5 + 6x^6 + 4x^7 + x^8) + \cdots </mrow>
+          </md>.
+          Look at the coefficient of <m>x^4</m>, for example.  We have <m>F_5 = 1 + 3 + 1 = \binom{4}{0} + \binom{3}{1} + \binom{2}{2}</m>.  It should be clear that this works in general: the coefficient of <m>x^n</m> will be <m>F_{n+1}</m> on the one hand, and <m>\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2}+ \cdots</m> on the other
+        </p>
       </solution>
-    </activity>
+    </example>
 
-    <p>The recurrence relations we have seen in this section are called <term>second order</term><idx><h>recurrence</h><h>second order</h></idx> because they specify <m>a_i</m> in terms of <m>a_{i-1}</m> and <m>a_{i-2}</m>, they are called <term>linear</term><idx><h>recurrence</h><h>linear</h></idx><idx><h>linear recurrence</h></idx> because <m>a_{i-1}</m> and <m>a_{i-2}</m> each appear to the first power, and they are called <term>constant coefficient recurrences</term><idx><h>recurrence</h><h>constant coefficient</h></idx> because the coefficients in front of <m>a_{i-1}</m> and <m>a_{i-2}</m> are constants.
-    </p>
   </subsection>
 
   <subsection>
@@ -1280,12 +1321,57 @@
     <p>Writing down the equations in <xref ref="partialfractions1"/> and solving them is called the <term>method of partial fractions</term>.<idx><h>partial fractions</h><h>method of</h></idx> This method will let you find power series expansions for generating functions of the type you found in <xref ref="secondorderintroduction">Problems</xref> to <xref ref="secondordernonhomo"></xref>. However you have to be able to factor the quadratic polynomials that are in the denominators of your generating functions.
     </p>
 
-    <activity category="essential">
+    <example>
       <statement>
-        <p>Use the method of partial fractions to convert the generating function of <xref ref="secondorderintroduction"/> into the form
+        <p>
+          Let's return to our familiar recurrence relation <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial terms <m>a_1 = 3</m> and <m>a_2 = 13</m>.
+        </p>
+        <p>
+         In <xref ref="eg_char-roots"/> we used the characteristic root technique to find the closed formula <me>a_n = \frac{4}{5} 4^n + \frac{1}{5} (-1)^n </me>.  In <xref ref="eg_genfun-recursion"/> we found that the generating function for the sequence was <me>
+           f(x) = \frac{1}{1-3x - 4x^2}
+         </me>.
+         
+         We can use partial fractions to reconcile these two results.         
+        </p>
+        
+        <p>
+          Note that the denominator of the generating function factors as <m>(1+x)(1-4x)</m>.  We write
           <me>
-            \frac{c}{x-r_1} + \frac{d}{x-r_2}
+            \frac{1}{1-3x-4x^2} = \frac{c}{1+x}+\frac{d}{1+4x}
+          </me>
+          and solve for <m>c</m> and <m>d</m>.  This is done by finding a common denominator and equating the numerators to get
+          <me>
+            1 = c(1-4x) + d(1+x)
+          </me>
+          Note that if <m>x = -1</m> this gives use <m>1 = 5c</m> so <m>c = \frac{1}{5}</m>.  Similarly, if <m>x = \frac{1}{4}</m> we find <m>1 = \frac{5}{4}d</m> so <m>d = \frac{4}{5}</m>.  (These constants should look familiar.)
+        </p>
+        
+        <p>
+          So what?  The generating function for <m>a_n</m> can now be expressed as the sum of two generating functions: <m>\frac{1/5}{1+x}</m> and <m>\frac{4/5}{1-4x}</m>.  What's more, these generating functions have nice power series:
+          <me>
+            \frac{1/5}{1+x} = \frac{1}{5}\left( 1-x+x^2-x^3+\cdots +(-1)^nx^n+\cdots\right)
+          </me>;
+          <me>
+            \frac{4/5}{(1-4x)} = \frac{4}{5} \left(1+4x + 16x^2 + \cdots + 4^nx^n+ \cdots \right)
           </me>.
+          Both of these were found by substituting a value (either <m>-x</m> or <m>4x</m>) into the power series for <m>\frac{1}{1-x}</m>.
+        </p>
+        
+        <p>
+          Since <m>a_n</m> is the coefficient of <m>x^n</m>, we get 
+          <me>
+            a_n = \frac{1}{5}(-1)^n + \frac{4}{5}4^n
+          </me>
+          as expected.
+        </p>
+      </statement>
+    </example>
+
+
+    <exploration category="essential">
+      <statement>
+        <p>
+          Use the method of partial fractions to convert the generating function <m>\frac{10}{(1-x-2x^2)}</m> from <xref ref="secondorderintroduction"/> into the sum of two nicer generating functions.
           Use this to find a formula for <m>a_n</m>.
         </p>
       </statement>
@@ -1301,11 +1387,12 @@
           Thus <m>a_i=\frac{20}{3}2^i +\frac{10}{3}(-1)^i</m>.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
-    <activity xml:id="factorFibonacci" category="essential">
+    <exploration xml:id="factorFibonacci" category="essential">
       <statement>
-        <p>Use the quadratic formula to find the solutions to <m>x^2+x-1=0</m>, and use that information to factor <m>x^2+x-1</m>.
+        <p>
+          Use the quadratic formula to find the solutions to <m>x^2+x-1=0</m>, and use that information to factor <m>x^2+x-1</m>.
         </p>
       </statement>
       <solution>
@@ -1315,9 +1402,9 @@
           <m>x^2+x-1=(x-\frac{-1+\sqrt{5}}{2})(x-\frac{-1-\sqrt{5}}{2})</m>.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
-    <activity xml:id="fractionFibonacci" category="essential">
+    <exploration xml:id="fractionFibonacci" category="essential">
       <statement>
         <p>
           Use the factors you found in <xref ref="factorFibonacci"/> to
@@ -1348,9 +1435,9 @@
           </me>.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
-    <activity xml:id="solveFibonacci" category="essential">
+    <exploration xml:id="solveFibonacci" category="essential">
       <task>
         <statement>
           <p>Use the partial fractions decomposition you found in <xref ref="factorFibonacci"/> to write the generating function you found in <xref ref="originalFibonacci"/> in the form
@@ -1412,7 +1499,7 @@
         </task>
         <task category="important">
             <statement>
-                <p>Find an algebraic explanation (not using the recurrence equation) of what happens to make the square roots of five go away.
+                <p>Find an algebraic explanation (not using the recurrence equation) of what happens to make the square roots of 5 go away.
                 </p>
             </statement>
             <hint>
@@ -1444,7 +1531,7 @@
       </task>
       <task category="important and difficult">
         <statement>
-        <p>As a challenge (which the author has not yet done), see if you can find a way to show algebraically (not using the recurrence relation, but rather the formula you get by removing the square roots of five) that the formula for the Fibonacci numbers yields integers.
+        <p>As a challenge (which the authors have not yet done), see if you can find a way to show algebraically (not using the recurrence relation, but rather the formula you get by removing the square roots of five) that the formula Binet for the Fibonacci numbers yields integers.
         </p>
         </statement>
         <solution>
@@ -1453,11 +1540,16 @@
         </p>
         </solution>
       </task>
-  </activity>
+  </exploration>
+  
+  <!-- TODO: Fix up the next activity to point out the repeated root, lnking back to characteristic roots -->
+  
+  
+  
   <activity>
       <statement>
       <p>
-        Solve the recurrence <m>a_n= 4a_{n-1} - 4a_{n-2}</m>.
+        Solve the recurrence <m>a_n= 4a_{n-1} - 4a_{n-2}</m>.  You did this already in <xref ref="ex_char-rep-root"/> using the characteristic root technique, but there you had to be careful of the repeated root.  How does that manifest itself here?
       </p>
       </statement>
       <solution>
@@ -1481,19 +1573,35 @@
       </p>
       </solution>
     </activity>
-  </subsection>
+    
+    <p>
+      The point of the previous exercise is to notice how generating functions illustrat where the extra factor of <m>n</m> comes from in the general form <m>a_n = \alpha r^n + \beta n r^n</m> you get for a closed formula when using the characteristic root technique on a recurrence that gives you a repeated root <m>r</m>.  For any <m>r</m>, we have the power series
+      <me>
+        \frac{1}{(1-rx)^2} = 1 + 2(rx) + 3(rx)^2 + \cdots + (n+1)(rx)^n + \cdots
+      </me>,
+      using the extended binomial theorem and substituting <m>rx</m> for <m>x</m>.  The coefficient of <m>x^n</m> is then <m>(n+1)r^n = r^n + nr^n</m>.
+    </p>
 
-  <subsection>
+
+  <paragraphs>
     <title>Catalan Numbers</title>
-    <activity xml:id="CatalanRecurrence" category="interesting">
+    <exploration xml:id="CatalanRecurrence" category="interesting">
       <introduction>
         <p>
           Recall the recurrence for the Catalan numbers is
           <me>
               C_n = \sum_{i=1}^{n-1} C_{i-1}C_{n-i}
-              </me>.
+            </me>.
+              
         </p>
       </introduction>
+      <task>
+        <statement>
+          <p>
+            Use <m>C_0 = 1</m> and compute <m>C_1, C_2, C_3, C_4, C_5</m>.
+          </p>
+        </statement>
+      </task>
         <task>
             <statement>
                 <p>
@@ -1527,7 +1635,7 @@
                 </me>
                 holds for any number real number <m>r</m>, where <m>\binom{r}{i}</m> is defined to be
                 <me>
-                    \frac{r^{\underline{i}}}{i!} = \frac{r(r-1)\cdots(r-i+1)}{i!}</me>.  Use this and your solution for <m>y</m> (note that of the two possible values for <m>y</m> that you get from the quadratic formula, only one gives an actual power series) to get a formula for the Catalan numbers.<idx><h>Catalan number</h><h>generating function for</h></idx>
+                    \frac{P(r,i)}{i!} = \frac{r(r-1)\cdots(r-i+1)}{i!}</me>.  Use this and your solution for <m>y</m> (note that of the two possible values for <m>y</m> that you get from the quadratic formula, only one gives an actual power series) to get a formula for the Catalan numbers.<idx><h>Catalan number</h><h>generating function for</h></idx>
         </p>
             </statement>
             <hint>
@@ -1552,7 +1660,8 @@
         </p>
       </solution>
         </task>
-    </activity>
+    </exploration>
+  </paragraphs>
   </subsection>
 
 
