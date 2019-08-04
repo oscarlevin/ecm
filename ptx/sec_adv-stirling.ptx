@@ -1,13 +1,597 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="sec_adv-stirling" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Stirling Numbers of the Second Kind</title>
+  <title>Partitions of Sets</title>
 
   <introduction>
+    <p>
+      Partitions are one of the core ideas in discrete mathematics.  Recall that a <term>partition</term> of a set <m>S</m> is a collection of mutually disjoint subsets of <m>S</m> whose union is all of <m>S</m>.  In other words, every element of <m>S</m> belongs to exactly one of the subsets of the partition.  We call the subsets that make up the partition <term>blocks</term> or <term>parts</term> of the partition.
+    </p>
+    <p>
+      The integers can be naturally partitioned into evens and odds.  In fact, this is just a specific case of partitioning the integers by their reminder when divided by a fixed constant; another example is that every integer has remainder 0, 1, or 2 when divided by 3.
+    </p>
+    <p>
+      Finite sets also have natural partitions: the set of all 4-bit strings can be partitioned according to weight: <me>\B^4_0 \cup \B^4_1 \cup B_4^2 \cup \B^4_3 \cup \B^4_4 = \B^4</me>.
+      Using the sum principle on these disjoint sets leads directly to the identity
+      <m>\binom{4}{0} + \binom{4}{1} + \binom{4}{2} + \binom{4}{3} + \binom{4}{4} = 2^4</m>
+      (and of course the 4 can be replaced with any <m>n</m> here).
+    </p>
+
+    <p>
+      In fact, many of the identities we established in <xref ref="sec_basic-proofs" /> using a combinatorial proof work precisely because we can count a set of outcomes all at once and also by counting the size of each block in a particular partition.  For example, in <xref ref="act_derangement-binom" /> we proved that
+      <me>\binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \binom{n}{2} d_{2} + \ldots + \binom{n}{n} d_{n} = n!</me>
+      by partitioning the <m>n!</m> permutations of <m>[n]</m> into blocks according to how many are fixed in position while the rest are deranged.  
+    </p>
+
+    <p>
+      Even the formula for binomial coefficients, <m>\binom{n}{k} = \frac{n!}{(n-k)!k!}</m> comes from partitioning the <m>k</m>-permutations of <m>[n]</m> into blocks according to which subset of <m>[n]</m> is selected (and then <m>\binom{n}{k}</m> is precisely the number of blocks).
+    </p>
+
+    <p>
+      In this section we will abstract this fundamental idea of partitions by one level.  Instead of using particular partitions to answer counting questions, we will ask counting questions about partitions themselves.  As we will see, this helps us solve yet more counting questions. 
+    </p>
+
+    <p>
+      In <xref ref="sec_basic-quotient"/> we considered some ways to distribute items to recipients.  Most basic counting formulas can be thought of as counting the number of ways to distribute either distinct or identical items to distinct recipients.  For example, distributing <m>k</m> distinct items to <m>n</m> distinct recipients can be done in <m>n^k</m> ways, if recipients can receive any number of items, or <m>P(n,k)</m> ways if recipients can receive at most one item.  If the items are identical, the corresponding number of ways to distribute them are <m>\mchoose{n}{k}</m> and <m>\binom{n}{k}</m>.
+    </p>
+
+    <p>
+      What if the recipients are not distinct?  Say we wish to distribute <m>k</m> books (either distinct or identical) to <m>n</m> identical boxes.  This is a perfectly natural extension, but we will see the answer is not.  First, let's get a feel for what this might look like for some small values of <m>k</m> and <m>n</m>.
+    </p>
+
+    <activity xml:id="act_stirlingintro">
+      <introduction>
+        <p>
+          Suppose you have <m>3</m> distinct books you want to put into <m>5</m> identical boxes.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            How many ways can you do this if each box can have at most one book?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many ways can you do this if any box can have any number of books?  You might want to consider three cases: one, two, or three boxes are used.  Assume we do not care about the order in which the books are placed inside boxes.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Describe the outcomes we are counting in abstract mathematical terms.  What sort of mathematical objects are we counting?
+          </p>
+        </statement>
+      </task>
+    </activity>
+
+    <activity xml:id="act_intpartintro">
+      <introduction>
+        <p>
+          Suppose you have <m>3</m> identical books you want to put in <m>5</m> identical boxes.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            How many ways can you do this if each box can have at most one book?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many ways can you do this if any box can have any number of books?  Again, you should consider three cases.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What mathematical objects are we counting here?
+          </p>
+        </statement>
+      </task>
+    </activity>
+    
+    <p>
+      Both of the previous two activities can be solved by counting partitions.  The difference comes down to whether we partition a set of distinct objects or identical objects.  It is not immediately clear how to model partitiong identical objects, and we will put this off until <xref ref="sec_adv-linearparts"/>.  Partitioning <em>distinct</em> objects simply means finding a partition of a set, the topic of the current section.
+    </p>
+    
+  </introduction>
+
+
+  <subsection>
+    <title>Stirling Numbers of the Second Kind</title>
+
+    <p>
+      We would like to count the number of ways to partition a set.
+    </p>
+
+    <definition xml:id="def-stirling">
+      <statement>
+        <p>
+          Denote by <m>S(k,n)</m> the number of partitions of <m>[k]</m> into exactly <m>n</m> subsets.  We call <m>S(k,n)</m> a <term>Stirling number (of the second kind)</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      Note that we write <m>S(k,n)</m> instead of <m>S(n,k)</m> here because we try to use <m>k</m> for the number of elements being distributed and <m>n</m> for the number of recipients.  When other books use <m>S(n,k)</m>, they mean the number of partitions of <m>[n]</m> into exactly <m>k</m> blocks.  This is the same definition as we give, but with our renamed variables the formulas we get might look different.
+    </p>
+
+    <p>
+      For example, consider how to partition <m>[3]</m> into exactly two sets:
+      <me>
+        \{1,2\}, \{3\} \qquad \qquad \{1,3\},\{2\} \qquad \qquad \{2,3\},\{1\}
+      </me>
+      and that is all, so <m>S(3,2) = 3</m>.  We do not care about the order the elements appear in each block, nor the order in which the blocks appear.  Thus we see the Stirling numbers count the number of ways to distribute <m>k</m> distinct items to <m>n</m> identical recipients so that each recipient gets at least one item.
+    </p>
+
+    <activity xml:id="act_stirlingcomputations">
+      <introduction>
+        <p>
+          Get to know the Stirling numbers by finding some.  List the set of partitions and count them.
+        </p>
+      </introduction>
+
+      <task>
+        <statement>
+          <p>
+            Find <m>S(3,1)</m>, <m>S(4,1)</m> and <m>S(k,1)</m>.
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Compute <m>S(2,2)</m>, <m>S(3,2)</m> and <m>S(4,2)</m>.  Find a formula for <m>S(k,2)</m> and prove it is correct.
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Compute <m>S(3,3)</m>, and <m>S(4,3)</m>.
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Find formulas and give proofs for <m>S(k,k)</m> and
+            <m>S(k,k - 1)</m>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            What are the possible sizes of parts?
+          </p>
+        </hint>
+        <solution>
+          <p>
+            If a partition has <m>k-1</m> parts, then one part has two elements, so once we choose those two elements from the <m>k</m> elements, we are done.  Therefore <m>S(k,k-1) = \binom{k}{2}</m>.
+          </p>
+        </solution>
+      </task>
+    </activity>
+
 
 
     <p>
-      Let's take a closer look at the Stirling numbers, first introduced in <xref ref="sec_adv-partitions"/>.  Recall, we use the notation <m>S(k,n)</m> to stand for the number of partitions of a
-      <m>k</m> element set with <m>n</m> blocks.  Here is a brief summary of what we have already discovered.
+      We can arrange the Stirling numbers into a triangle (called <term>Stirling's second triangle</term>).  The first five rows are shown below.  The entries are indexed differently than in Pascal's triangle: the top 1 represents <m>S(1,1)</m>, so for example, <m>S(5,2) = 15</m>.
+    </p>
+
+    <sidebyside width="50%">
+      <tabular>
+        <row>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell>1</cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell/><cell/><cell/>
+          <cell>1</cell>
+          <cell></cell>
+          <cell>1</cell>
+          <cell/><cell/><cell/>
+        </row>
+        <row>
+          <cell/><cell/>
+          <cell>1</cell>
+          <cell></cell>
+          <cell>3</cell>
+          <cell></cell>
+          <cell>1</cell>
+          <cell/><cell/>
+        </row>
+        <row>
+          <cell/>
+          <cell>1</cell>
+          <cell></cell>
+          <cell>7</cell>
+          <cell></cell>
+          <cell>6</cell>
+          <cell></cell>
+          <cell>1</cell>
+          <cell/>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell></cell>
+          <cell>15</cell>
+          <cell></cell>
+          <cell>25</cell>
+          <cell></cell>
+          <cell>10</cell>
+          <cell></cell>
+          <cell>1</cell>
+        </row>
+      </tabular>
+    </sidebyside>
+
+    <p>
+      How were these found?  Sure, we could have written out all 25 of the partitions of <m>[5]</m> into exactly <m>3</m> blocks, but we didn't.  Could there be some way to get 25 from the entries above it?  That is, what is the recurrence relation among the Stirling numbers?
+    </p>
+
+    <activity>
+      <!-- <task> -->
+        <statement>
+          <p>
+            Write down (if you haven't already) all 6 partitions of <m>[4]</m> into <m>3</m> blocks.  Break these into two cases by where 4 is: is 4 in solitary confinement (in a singleton set) or does he have a cellmate?
+          </p>
+        </statement>
+      <!-- </task>
+      <task> -->
+        <!-- <statement>
+          <p>
+            How could you take the <m>S(4,2) = 7</m> partitions of <m>[4]</m> into 2 sets and the <m>S(4,3) = 6</m> partitions of <m>[4]</m> into 3 sets and form all the <m>S(5,3) = 25</m> partitions of <m>[5]</m> into <m>3</m> sets?
+          </p>
+        </statement> -->
+      <!-- </task> -->
+    </activity>
+
+    <p>
+      Now that you have some experience with listing the <m>S(4,3)</m> partitions of <m>[4]</m>, the next example will help us to generalize.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Let's see how to take <m>S(4,2) = 7</m> and <m>S(4,3) = 6</m> to compute <m>S(5,3) = 25</m>.  First, here are the partitions of <m>[4]</m> into 2 blocks (group A) or 3 blocks (group B), side by side:
+        </p>
+        
+        <sidebyside widths="50% 30%" valign="top">
+          <p>
+            Group A: 
+            <md>
+              <mrow>\{1\}, ~ \{2,3,4\}\qquad \amp \{1,2\}, ~ \{3, 4\}</mrow>
+              <mrow>\{2\}, ~ \{1,3,4\}\qquad \amp \{1,3\}, ~ \{2, 4\}</mrow>
+              <mrow>\{3\}, ~ \{1,2,4\} \qquad \amp \{2,3\}, ~ \{1, 4\}</mrow>
+              <mrow>\{4\}, ~ \{1,2,3\} \qquad\amp </mrow>
+            </md>
+          </p>
+          
+          <p>
+            Group B: 
+            <md>
+              <mrow>\{2\}, ~ \{1,2\}, ~ \{4\}</mrow>
+              <mrow>\{2\}, ~ \{1,3\}, ~ \{4\}</mrow>
+              <mrow>\{2\}, ~ \{1,4\}, ~ \{3\}</mrow>
+              <mrow>\{1\}, ~ \{2,3\}, ~ \{4\}</mrow>
+              <mrow>\{1\}, ~ \{2,4\}, ~ \{3\}</mrow>
+              <mrow>\{1\}, ~ \{3,4\}, ~ \{2\}</mrow>
+            </md>
+          </p>
+        </sidebyside>
+        
+        <p>
+          (Notice the <m>\binom{4}{2}</m> ways of listing the middle column in group B.)
+        </p>
+        
+        <p>
+          Now, to list the <m>S(5,3)</m> partitions of <m>[5]</m> into <m>3</m> parts, we need to add 5 somewhere.  We can either
+          <ol label="a.">
+            <li>
+              <p>
+                Let 5 be a singleton block, along with any of the partitions from group A; or
+              </p>
+            </li>
+            <li>
+              <p>
+                Let 5 join any of the blocks in any of the partitions of group B.  
+              </p>
+            </li>
+          </ol>
+          The second option can be accomplished in <m>3\cdot 6</m> ways.  Thus <m>S(5,3) = 7 + 3\cdot 6</m>.
+        </p>
+      </statement>
+    </example>
+
+    <activity xml:id="secondstirlingrecurrence" category="essential and interesting">
+        <statement>
+          <p>
+            Now generalize.  In a partition of the set <m>[k]</m>, the number <m>k</m> is either in a block by itself, or it is not.  Find a two variable recurrence for <m>S(k,n)</m>, valid for <m>k</m> and <m>n</m> larger than one.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            The number of partitions of <m>[k]</m> into <m>n</m> parts in which <m>k</m> is not in a block relates to the number of partitions of <m>k-1</m> into some number of blocks in a way that involves <m>n</m>. With this in mind, review how you proved Pascal's (recurrence) equation.
+          </p>
+        </hint>
+
+        <solution>
+          <p>
+            The number of partitions of <m>[k]</m> into <m>n</m> parts in which
+            <m>k</m> is in a block with other elements of <m>[k]</m> is equal
+            <m>n</m> times the number of partitions of <m>[k-1]</m> into
+            <m>n</m> blocks, because <m>k</m> could be in any of the <m>n</m>
+            parts, and since it is in a block with other elements of
+            <m>[k-1]</m>, removing it leaves a partition of <m>[k-1]</m> into
+            <m>n</m> blocks. The number of partitions of <m>[k]</m> into
+            <m>n</m> blocks in which <m>k</m> is in a block by itself is the
+            number of partitions of <m>[k]</m> into <m>n-1</m> blocks, because
+            you can get any such partition by deleting the block containing
+            <m>k</m> from a partition of <m>[k]</m> in which <m>k</m> is in a
+            block by itself. Thus <m>S(k,n) = S(k-1,n-1) + nS(k-1,n)</m>.
+          </p>
+        </solution>
+    </activity>
+
+
+    <exploration category="interesting">
+      <statement>
+        <p>
+          Find a recurrence for the Lah numbers <m>L(k,n)</m> similar to the one in <xref ref="secondstirlingrecurrence"/>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+      To see how many broken permutations of a <m>k</m> element set into <m>n</m> parts do not have <m>k</m> is a part by itself, ask yourself how many broken permutations of <m>[7]</m> result from adding 7 to the one of the two permutations in the broken permutation <m>\{14, 2356\}</m>.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          <m>L(k,n)</m> is the number of broken permutations of a
+          <m>k</m>-element set into <m>n</m> parts. Either <m>k</m> is in an ordered block with other numbers, or it is in a block by itself. If it is with other elements, it can go after any of the <m>k-1</m> other
+          elements, or it can go at the beginning of any of the <m>n</m> blocks. If
+          it is by itself, deleting it gives a broken permutation of a <m>k-1</m>-element
+          set into <m>n-1</m> blocks. Thus <m>L(k,n)=L(k-1,n-1) + (n+k-1)L(k-1,n)</m>.
+        </p>
+      </solution>
+    </exploration>
+
+
+    <exploration xml:id="sandwiches">
+      <statement>
+          <p>
+            Extend Stirling's triangle enough to allow you to answer the following question and answer it. (Don't fill in the rows all the way; the work becomes quite tedious if you do. Only fill in what you need to answer this question.) A caterer is preparing three bag lunches for hikers. The caterer has nine different sandwiches. In how many ways can these nine sandwiches be distributed into three identical lunch bags so that each bag gets at least one?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We need <m>S(9,3)</m>. Thus we need to extend our table for four
+            more rows, but only out to the column labeled 3. These rows are,
+          </p>
+          <sidebyside width="50%">
+            <tabular>
+              <row>
+                <cell right="minor">6</cell>
+                <cell>1</cell>
+                <cell>31</cell>
+                <cell>90</cell>
+                <cell><ellipsis /></cell>
+              </row>
+              <row>
+                <cell right="minor">7</cell>
+                <cell>1</cell>
+                <cell>63</cell>
+                <cell>101</cell>
+                <cell><ellipsis /></cell>
+              </row>
+              <row>
+                <cell right="minor">8</cell>
+                <cell>1</cell>
+                <cell>127</cell>
+                <cell>966</cell>
+                <cell><ellipsis /></cell>
+              </row>
+              <row>
+                <cell right="minor">9</cell>
+                <cell>1</cell>
+                <cell>255</cell>
+                <cell>3025</cell>
+                <cell><ellipsis /></cell>
+              </row>
+            </tabular>
+          </sidebyside>
+          <p>
+            Thus there are 3025 ways to distribute the sandwiches
+            into the lunch bags.
+          </p>
+        </solution>
+      </exploration>
+
+      <p>
+        We have often thought of counting problems as asking about how many functions there are from a <m>k</m>-elements set to an <m>n</m>-element set.  The answer to this question is <m>n^k</m> for all functions and <m>P(n,k)</m> for injective functions.  What about surjective functions?  There is a reason we haven't asked this question yet, but now we can at least get an expression for the number of surjections in terms of Stirling numbers.
+      </p>
+
+
+    <exploration category="motivation">
+      <statement>
+        <p>
+          Given a function <m>f</m> from a <m>k</m>-element set <m>K</m> to an <m>n</m>-element set, we can define a partition of <m>K</m> by putting <m>x</m> and <m>y</m> in the same block of the partition if and only if <m>f(x)=f(y)</m>. How many blocks does the partition have if <m>f</m> is surjective? How is the number of functions from a <m>k</m>-element set <em>onto</em> an <m>n</m>-element set related to a Stirling number? Be as precise in your answer as you can.<idx><h>function</h><h>surjective!and Stirling Numbers</h></idx><idx><h>surjective function</h><h>counting</h></idx>
+        </p>
+      </statement>
+      <hint>
+        <p>
+      You can think of a function as assigning values to the blocks of its
+      partition. If you permute the values assigned to the blocks, do you always
+      change the function?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          If <m>f</m> is onto, the number of blocks of the partition is <m>n</m>. The number of onto functions from a <m>k</m>-element set onto an <m>n</m>-element set is <m>S(k,n)n!</m>, because we have a one-to-one function from the blocks to the <m>n</m>-element set.
+        </p>
+      </solution>
+    </exploration>
+
+    <p>
+      We do not have an explicit formula for either the number of surjections or for <m>S(k,n)</m> yet, but note that if we could find either, we would now have both.  We will see one approach to this in <xref ref="sec_adv-pie"/>.
+    </p>
+
+
+
+        <exploration xml:id="Stirlingfalling" category="essential">
+          <statement>
+            <p>
+              Each function from a <m>k</m>-element set <m>K</m> to an <m>n</m>-element set <m>N</m> is a function from <m>K</m> onto <em>some</em> subset of <m>N</m>. If <m>J</m> is a subset of <m>N</m> of size <m>j</m>, you know how to compute the number of functions that map onto <m>J</m> in terms of Stirling numbers. Suppose you add the number of functions mapping onto <m>J</m> over all possible subsets <m>J</m> of <m>N</m>. What simple value should this sum equal? Write the equation this gives you.
+            </p>
+          </statement>
+          <hint>
+            <p>
+          When you add the number of functions mapping onto <m>J</m> over all possible subsets <m>J</m> of <m>N</m>, what is the set of functions whose size you are computing?
+            </p>
+          </hint>
+          <solution>
+            <p>
+              The sum should equal the number of functions, <m>n^k</m>. Thus
+              we get <m>\sum_{j=0}^n \binom{n}{j}S(k,j)j! = n^k</m>. By using the fact
+              that <m>\binom{n}{j}= P(n,j)/j!</m>, this may be rewritten as
+              <m>\sum_{j=0}^n P(n,j)S(k,j) = n^k.</m>
+            </p>
+          </solution>
+        </exploration>
+
+        <exploration category="motivation">
+          <statement>
+            <p>
+              In how many ways can the sandwiches of <xref ref="sandwiches"/> be placed into three distinct bags so that each bag gets at least one?
+            </p>
+          </statement>
+          <solution>
+            <p>
+              <m>S(9,3)\cdot3!= 55,980</m>.
+            </p>
+          </solution>
+        </exploration>
+
+
+
+    <p>
+      We will further investigate Stirling numbers in the rest of this section, but first, notice that we have not looked at the number of ways to partition a set into <em>any</em> number of blocks.
+    </p>
+
+    <definition xml:id="def-bell">
+      <idx><h>Bell Number</h></idx><idx><h>partitions of a set</h><h>number of</h></idx>
+      <statement>
+        <p>
+          The total number of partitions of a <m>k</m>-element set is denoted by <m>B_k</m> and is called the <m>k</m>-th <term>Bell number</term>.
+        </p>
+      </statement>
+    </definition>
+    
+    <example>
+      <p>
+        There are five partitions of <m>[3]</m>:
+        <md>
+          <mrow>\{1\}, \{2\},\{3\}</mrow>
+          <mrow>\{1,2\},\{3\} \qquad \{1,3\},\{2\} \qquad \{1\}, \{2,3\}</mrow>
+          <mrow>\{1,2,3\}</mrow>.
+        </md>
+        Note that <m>B_3 = S(3,1)+S(3,2)+S(3,3) = 1 + 3 + 1</m>.
+      </p>
+    </example>
+
+    <activity xml:id="BellNumberIntro" category="essential for this or the next section">
+      <task>
+        <statement>
+          <p>
+            Why is <m>B_k = \sum_{n=1}^{k} S(k,n)</m>, but <m>n^k \ne \sum_{n=1}^k S(k,n)n!</m>?  Why is this a meaningful question?
+          </p>
+        </statement>
+        <hint>
+          <p>
+            As to why this is a reasonable question, think of distributing <m>k</m> items to <m>n</m> recipients.  All four expressions count the number of ways to do this under different restrictions.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Find a recurrence that expresses <m>B_k</m> in terms of <m>B_n</m> for
+            <m>n\lt  k</m> and prove your formula correct in as many ways as you can.
+          </p>
+        </statement>
+        <hint>
+          <p>
+        Here it is helpful to think about what happens if you delete the entire block containing <m>k</m> rather than thinking about whether <m>k</m> is in a block by itself or not.
+          </p>
+        </hint>
+        <solution>
+          <p>
+            If we delete the block containing <m>k</m>, we get a partition of
+            a subset of <m>[k-1]</m>. Thus <m>B_k</m> is the sum over all subsets of
+            <m>[k-1]</m> of the number of partitions of that subset. This gives us
+            <m>B_k= \sum_{n=0}^{k-1}\binom{k-1}{n}B_n</m>.
+          </p>
+
+          <p>
+            Alternatively, we can show by the same sort of argument that
+            <m>S(k,n)=\sum_{i=0}^{k-1} \binom{k-1}{i}S(i,n-1)</m> and then use the fact
+            that <m>B_k =\sum_{n=0}^k S(k,n)</m> to get the recurrence for <m>B_k</m>.
+          </p>
+        </solution>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Find <m>B_k</m> for <m>k=1,2,4,5,6</m>.
+          </p>
+        </statement>
+        <solution>
+            <p>
+                <me>
+                    B_4 =\binom{3}{0}B_0 +\binom{3}{1}B_1 +\binom{3}{2}B_2 +
+                    \binom{3}{3}B_3=1 +3+3\cdot2 +5=15
+                </me>
+                <me>
+                    B_5 = \sum_{n=0}^4 \binom{4}{n}B_n = 1 +4+6\cdot2 +4\cdot5 + 15=52
+                </me>
+                <me>
+                    B_6 = \sum_{n=0}^5 \binom{5}{n}B_n =1+5 +10\cdot2 +10\cdot 5
+                    +5\cdot 15 +52=203
+                </me>
+            </p>
+        </solution>
+      </task>
+    </activity>
+
+    <p>
+      The Bell numbers are interesting in their own right, and we will look at them more in <xref ref="subsec_bell"/>.
+    </p>
+
+  </subsection>
+
+
+  <subsection xml:id="subsec-stirlingformulas">
+    <title>Formulas for Stirling Numbers (of the second kind)</title>
+
+    <p>
+      Here is a brief summary of what we have already discovered.
     </p>
 
     <p>
@@ -85,14 +669,8 @@
     </exploration>
 
     <p>
-      In the remainder of this section we will look at ways to compute Stirling numbers directly, and some consequences of the formulas we find.
+      Let's consider some ways to compute Stirling numbers directly.
     </p>
-
-  </introduction>
-
-
-  <subsection xml:id="subsec-stirlingformulas">
-    <title>Formulas for Stirling Numbers (of the second kind)</title>
 
     <p>
       While we might not have a nice closed formula for all Stirling numbers in terms of <m>k</m> and <m>n</m>, we can give closed formulas for those Stirling numbers close to the edges of the triangle.  We have already considered some of these in <xref ref="act_stirlingcomputations"/>.  To get back into the right mindset, start by reproving one of these.
@@ -450,7 +1028,51 @@
       </statement>
     </theorem>
 
-    <exploration>
+    <p>
+      We will prove this following an approach due to Polya.  The idea is compare Stirling numbers to surjections, which we know how to count using the principle of inclusion and exclusion (see <xref ref="subsec_apps-of-pie"/>).
+    </p>
+    
+    <activity xml:id="act_stirlingpie">
+      <introduction>
+        <p>
+          Suppose you wished to paint <m>k</m> houses and you have <m>n</m> different colors available.  Each house will get a single color, but you want to ensure that each color is used at least once.
+        </p>
+      </introduction>
+      
+      <task>
+        <statement>
+          <p>
+            Use the principle of inclusion and exclusion to write a formula for the number of ways to paint the houses.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            In what way is this problem like counting functions?
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What about the paint colors and the houses does <m>S(k,n)</m> count?  Why does this NOT answer the question?  By what factor are we off?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Conclude that a formula for the Stirling numbers is 
+            <me>
+              S(k,n) = \frac{1}{n!}\sum_{s=0}^n (-1)^s\binom{n}{s}(n-s)^k.
+            </me>.
+          </p>
+        </statement>
+      </task>
+    </activity>
+
+
+
+    <!-- <exploration>
       <statement>
         <p>
           Prove <xref ref="thm-stirling-closed"/>
@@ -479,7 +1101,7 @@
           </p>
         </proof>
       </solution>
-    </exploration>
+    </exploration> -->
 
     <activity>
       <statement>
@@ -680,6 +1302,285 @@
       </statement>
     </exploration>
 
+</subsection>
+
+<subsection xml:id="subsec_bell">
+  <title>Bell Numbers</title>
+
+    <p>
+      The Bell number, <m>B_{k}</m>, denotes the number of ways that a set of <m>k</m> objects can be partitioned into nonempty subsets.
+      We have already seen how to partition a set of <m>k</m> objects into exactly <m>n</m> subsets: <m>S(k,n)</m>.  So on its face, <m>B_k = \sum_{n=1}^kS(k,n)</m>.
+    </p>
+
+    <p>
+      The sequence of Bell numbers starts
+      <me>
+        1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, 115975, \ldots
+      </me>
+      Notice that the first four numbers look like Catalan numbers.  In fact, one of the many things the Catalan numbers count are <em>non-intersecting</em> set partitions.  Once you believe this, you see that <m>C_n \le B_n</m> for all <m>n</m>.
+    </p>
+
+
+    <p>
+      The Bell numbers can be generated by constructing what is called the Bell Triangle. To construct this triangle, begin with a 1 at the top and a 1 below it. Add these two numbers together and put the sum 2, to the right of the 1 in the second column. This 2 is also the first entry of the third row. The second entry in the third row is found by adding the 2 to the number 1 above it. This sum is 3 and goes to the right of the 2. The 3 is now below a 2. Adding these two numbers produces the last number, 5, in the third row. Since 5 has no number above it, the third row is complete. 5 now becomes the first number in the fourth row and the process continues.
+    </p>
+
+    <sidebyside width="70%">
+      <tabular>
+      <row><cell>1</cell> <cell> </cell> <cell> </cell> <cell> </cell> <cell></cell><cell/><cell/> </row>
+      <row><cell>1 </cell><cell> 2 </cell><cell> </cell><cell> </cell><cell> </cell><cell/><cell/> </row>
+      <row><cell>2 </cell><cell> 3 </cell><cell> 5 </cell><cell> </cell><cell> </cell><cell/><cell/> </row>
+      <row><cell>5 </cell><cell> 7 </cell><cell> 10 </cell><cell> 15 </cell><cell> </cell><cell/><cell/> </row>
+      <row><cell>15 </cell><cell> 20 </cell><cell> 27 </cell><cell> 37 </cell><cell> 52</cell><cell/><cell/> </row>
+      <row> <cell>52 </cell><cell>67</cell><cell> 87</cell><cell> 114</cell><cell> 151</cell><cell> 203</cell><cell/></row>
+
+      <row><cell> 203 </cell><cell>255</cell><cell> 322</cell><cell> 409</cell><cell> 523</cell><cell> 674</cell><cell> 877</cell></row>
+    </tabular>
+    </sidebyside>
+
+
+    <p>
+      To summarize, construction of the triangle follows two basic rules:
+      <ol>
+        <li>
+          <p>
+            The last number of each row is the first number of the next row.
+          </p>
+        </li>
+        <li>
+          <p>
+            All other numbers are found by adding the number to the left of the
+            missing number to the number directly above this same number.
+          </p>
+        </li>
+      </ol>
+
+      When the triangle is extended, as above, the Bell Numbers are found down
+      the first column as well as along the outside diagonal.
+    </p>
+
+    <exploration>
+      <statement>
+        <p>
+          Why does this triangle construction give you the Bell numbers?  Explain in terms of set partitions.
+        </p>
+      </statement>
+    </exploration>
+
+
+    <p>
+      As with Pascal's Triangle, the Bell triangle has several interesting
+      properties.
+    </p>
+
+    <exploration>
+      <statement>
+        <p>
+          If the sum of a row is added to the Bell number at the end of that row, the next Bell number is obtained. For example, the sum of the fourth row plus the Bell number at the end of the row: <m>15 + 20 + 27 + 37 + 52 + 52</m> is 203, the next Bell number.  Why does this happen?
+        </p>
+      </statement>
+    </exploration>
+
+    <exploration>
+      <statement>
+        <p>
+          Another pattern you might notice: the numbers of the second diagonal <m>1, 3, 10, 37, 151, 674, \ldots</m> are the sums of the horizontal rows.  Prove this!
+        </p>
+      </statement>
+    </exploration>
+
+    <p>
+      Rotating the triangle slightly creates a <em>difference</em> triangle analogous to Pascal's Triangle. The entries that are formed recursively by adding in Pascal's Triangle are now differences of the two numbers above them in the Bell triangle.
+    </p>
+
+    <sidebyside width="100%">
+      <tabular>
+        <row>
+          <cell>1</cell><cell/><cell>2</cell><cell/><cell>5</cell><cell/><cell>15</cell><cell/><cell>52</cell><cell/><cell>203</cell><cell/><cell>877</cell><cell><m>\ldots</m></cell>
+        </row>
+        <row>
+          <cell/><cell>1</cell><cell/><cell>3</cell><cell/><cell>10</cell><cell/><cell>37</cell><cell/><cell>151</cell><cell/><cell>674</cell><cell><m>\ldots</m></cell><cell/>
+        </row>
+        <row>
+          <cell/><cell/>
+          <cell>2</cell><cell/><cell>7</cell><cell/><cell>27</cell><cell/><cell>114</cell><cell/><cell>523</cell><cell><m>\ldots</m></cell><cell/><cell/>
+        </row>
+        <row>
+          <cell/><cell/><cell/>
+          <cell>5</cell>
+          <cell/><cell>20</cell><cell/><cell>87</cell><cell/><cell>409</cell><cell><m>\ldots</m></cell><cell/><cell/><cell/>
+        </row>
+        <row>
+          <cell/><cell/><cell/><cell/>
+          <cell>15</cell>
+          <cell/><cell>67</cell><cell/><cell>322</cell><cell><m>\ldots</m></cell><cell/><cell/><cell/><cell/>
+        </row>
+        <row>
+          <cell/><cell/><cell/><cell/><cell/>
+          <cell>52</cell>
+          <cell/><cell>255</cell><cell><m>\ldots</m></cell><cell/><cell/><cell/><cell/><cell/>
+        </row>
+        <row>
+          <cell/><cell/><cell/><cell/><cell/><cell/>
+          <cell>203</cell>
+          <cell><m>\ldots</m></cell><cell/><cell/><cell/><cell/><cell/><cell/>
+        </row>
+      </tabular>
+    </sidebyside>
+
+    <exploration>
+      <statement>
+        <p>
+          Explain why the differences work as they do in the rotated triangle.
+        </p>
+      </statement>
+    </exploration>
+
+    <p>
+      Finally, rewriting the Bell triangle recursively indicates a nice
+      connection of the Bell Numbers to Pascal's triangle.
+    </p>
+
+    <sidebyside width="100%">
+      <tabular>
+        <row>
+          <cell>
+            <m>B_{0} = B_{1}</m>
+          </cell>
+          <cell/><cell/><cell/>
+        </row>
+        <row>
+          <cell>
+            <m>B_{1}</m>
+          </cell>
+          <cell>
+            <m>B_{0} + B_{1} = B_{2}</m>
+          </cell>
+          <cell/><cell/>
+        </row>
+        <row>
+          <cell>
+            <m>B_{2}</m>
+          </cell>
+          <cell>
+            <m>B_{1} + B_{2}</m>
+          </cell>
+          <cell>
+            <m>B_{0} + 2B_{1} + B_{2} = B_{3}</m>
+          </cell>
+          <cell/>
+        </row>
+        <row>
+          <cell>
+            <m>B_{3}</m>
+          </cell>
+          <cell>
+            <m>B_{2} + B_{3}</m>
+          </cell>
+          <cell>
+            <m>B_{1} + B_{2} + B_{2} + B_{3}</m>
+          </cell>
+          <cell>
+            <m>B_{0} + 3B_{1} + 3B_{2} + B_{3} = B_{4}</m>
+          </cell>
+        </row>
+      </tabular>
+    </sidebyside>
+
+    <p>
+      This pattern suggests the <m>{(n + 1)}^{\text{th}}</m> Bell Number can be represented recursively by <m>B_{n + 1} = \binom{n}{0} B_{0} + \binom{n}{1} B_{1} + \binom{n}{2}B_{2} + \ldots + \binom{n}{n} B_{n}</m>. The coefficients of this equation are the entries of the <m>n</m>th row of Pascal's triangle.
+    </p>
+
+    <exploration xml:id="act_bellrecurrence">
+      <statement>
+        <p>
+          Prove the recurrence <me>B_{k + 1} = \binom{k}{0} B_{0} + \binom{k}{1} B_{1} + \binom{k}{2}B_{2} + \ldots + \binom{k}{k} B_{k}</me>
+        </p>
+      </statement>
+    </exploration>
+
+
+    <p>
+      The Bell numbers are related to the Stirling numbers and can be defined
+      as the sum of the Stirling numbers of the second kind.
+      That is, <m>B_{k} = S(k,1) + S(k,2) + \cdots + S(k,k)</m>, where <m>S(k,n)</m> represents the number of ways of grouping <m>k</m> elements into <m>n</m> subsets.
+      So <m>B_{3} = S(3,1) + S(3,2) + S(3,3) = 1 + 3 + 1 = 5</m>.
+      Since the Bell numbers count the partitions of a set of elements, they are used in prime-number theory to enumerate the number of ways to factor a number with distinct prime factors.
+      For example, 42 has three distinct prime factors: 2, 3, and 7.
+      Since <m>B_{3} = 5</m> , we know there are five ways of factoring 42.
+      These are <m>2 \times 3 \times 7</m>, <m>2 \times 21</m>, <m>3 \times 14</m>, <m>6 \times 7</m>, and <m>42</m>.
+      So the number <m>210</m>, which has 4 distinct factors, 2, 3, 5, and 7, can be factored in <m>B_{4} = 15</m> ways.
+    </p>
+
+
+
+    <p>
+      The Bell numbers can be used to model many real-life situations. For
+      example, the number of different ways two people can sleep in unlabeled
+      twin beds is <m>B_{2} = 2</m> ways: They can sleep in the same bed or in
+      separate beds. The number of ways of serving a dinner consisting of
+      three items, such as a salad, bread, and fish is <m>B_{3} = 5</m> ways:
+      each could be served on a separate plate, salad and bread could be on
+      one plate and fish on another, salad and fish on one plate and bread on
+      another, or all three items could be on the same plate. This example
+      serves as a model for the five ways three people can occupy three
+      unlabeled beds, the five ways three prisoners can be handcuffed
+      together, the five ways three nations can be form alliances, or any
+      situation of partitioning three distinct elements into non-empty
+      subsets.
+    </p>
+
+    <p>
+      One interesting application of Bell numbers is in counting the number of
+      rhyme schemes possible for a stanza in poetry. There are <m>B_{2} = 2</m> possibilities for a two-line stanza: the lines can either rhyme or not
+      rhyme. The possible rhyme schemes of a three-line stanza can be
+      described as aaa, aab, aba, abb, and abc: thus there are 5 or <m>B_{3}</m> possible rhyme schemes. The Japanese used diagrams depicting possible
+      rhyme schemes of a five-line stanza <m>B_{5} = 52</m> as early as 1000
+      A.D. in the <em>Tale of the Genji</em> by Lady Shikibu Murasaki.
+    </p>
+
+    <p>
+      We conclude with an interesting exercise.
+    </p>
+    <exploration>
+      <statement>
+        <p>
+          The set <m>\{u_{0}, u_{1}, u_{2}, \ldots \}</m> where <m>u_{0} = 1</m>, <m>u_{1} = x</m>, <m>u_{2} = x(x - 1)</m>, <m>u_{3} = x(x - 1)(x - 2)</m>, etc., is a basis for the vector space <m>V</m> of all polynomials with real coefficients.
+          Let <m>P(x) = c_{0}u_{0} + c_{1}u_{1} + c_{2}u_{2} + \cdots</m> be any element of <m>V</m>, and define the functional <m>L</m> as follows: <m>L\lbrack P(x)\rbrack = c_{0} + c_{1} + \cdots</m>.
+        </p>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Prove that <m>L\left\lbrack P\left( x \right) + Q\left( x \right) \right\rbrack = L\left\lbrack P\left( x \right) \right\rbrack + L\left\lbrack Q\left( x \right) \right\rbrack.</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that <m>L\left\lbrack rP \left( x \right) \right\rbrack = rL\lbrack P\left( x \right)\rbrack</m> for <m>r \in \R</m> (the Reals).
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that <m>B_{n} = L\lbrack x^{n}\rbrack</m> .
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that <m>L\left\lbrack x^{n + 1} \right\rbrack = L\lbrack\left( x + 1 \right)^{n}\rbrack</m> .
+              </p>
+            </li>
+            <li>
+              <p>
+                Derive the recursion in <xref ref="act_bellrecurrence"/> using the previous part.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exploration>
+
+  
 </subsection>
 
 </section>

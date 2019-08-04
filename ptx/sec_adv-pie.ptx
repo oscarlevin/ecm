@@ -437,7 +437,7 @@
 
 
 
-    <subsection>
+    <subsection xml:id="subsec_apps-of-pie">
     <title>Application of Inclusion and Exclusion</title>
     <paragraphs>
       <title>Multisets with restricted numbers of elements</title>
@@ -779,7 +779,6 @@
       </exploration>
       
 
-      <!-- TODO: Here or in the homework, it would be nice to illustrate the more general closed formula for an n-derangement -->
 
     </paragraphs>
 
@@ -861,49 +860,7 @@
         </solution>
       </activity>
 
-      <p>
-        The following problem is due to Polya.
-      </p>
-      
-      <activity xml:id="act_stirlingpie">
-        <introduction>
-          <p>
-            Suppose you wished to paint <m>k</m> houses and you have <m>n</m> different colors available.  Each house will get a single color, but you want to ensure that each color is used at least once.
-          </p>
-        </introduction>
-        
-        <task>
-          <statement>
-            <p>
-              Use the principle of inclusion and exclusion to write a formula for the number of ways to paint the houses.
-            </p>
-          </statement>
-          <hint>
-            <p>
-              In what way is this problem like counting functions?
-            </p>
-          </hint>
-        </task>
-        <task>
-          <statement>
-            <p>
-              What about the paint colors and the houses does <m>S(k,n)</m> count?  Why does this NOT answer the question?  By what factor are we off?
-            </p>
-          </statement>
-        </task>
-        <task>
-          <statement>
-            <p>
-              Conclude that a formula for the Stirling numbers is 
-              <me>
-                S(k,n) = \frac{1}{n!}\sum_{s=0}^n (-1)^s\binom{n}{s}(n-s)^k.
-              </me>.
-              You might want to write out the sum the long way.
-            </p>
-          </statement>
-        </task>
-      </activity>
-
+    
 
 <!-- 
       <activity category="interesting" xml:id="act_stirlingpie">

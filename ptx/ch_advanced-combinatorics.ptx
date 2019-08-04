@@ -16,15 +16,15 @@
 </p>
 
 <p>
-  The plan for this chapter is as follows.  We will begin by considering some natural extensions of distribution problems first introduced in <xref ref="sec_basic-quotient"/>: partitioning sets and integers.  Motivated by these and similar problems, we will consider two combinatorial tools: generating functions and the Principle of Inclusion and Exclusion.  We will then take a closer look at partitioning sets and integers with these new tools in hand.
+  The plan for this chapter is as follows.  We will start with two combinatorial tools.  First, the Principle of Inclusion and Exclusion  and then generating functions.   We will then consider some natural extensions of distribution problems first introduced in <xref ref="sec_basic-quotient"/>: partitioning sets and integers. 
 </p>
 
 </introduction>
-  <xi:include href="sec_adv-partitions.ptx"/>
+  <!-- <xi:include href="sec_adv-partitions.ptx"/> -->
   <xi:include href="sec_adv-pie.ptx"/>
   <xi:include href="sec_adv-genfunctions.ptx"/>
   <xi:include href="sec_adv-stirling.ptx"/>
-  <xi:include href="sec_adv-bell.ptx"/>
+  <!-- <xi:include href="sec_adv-bell.ptx"/> Included in stirling now-->
   <xi:include href="sec_adv-linearparts.ptx"/>
   <!-- <xi:include href="sec_adv-conc.ptx"/> -->
 
