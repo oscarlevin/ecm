@@ -818,6 +818,12 @@
         We used generating functions for multisets to get the extended binomial theorem, but these generating functions are useful in themselves.  We close with a few counting problems related to these.
       </p>
 
+      <commentary>
+        <p>
+          The following two exercises are great homework assignments that really get students to see the connection between PIE and generating functions.
+        </p>
+      </commentary>
+
       <exploration xml:id="candygenfn" category="essential and interesting">
           <statement>
               <p>
@@ -1192,6 +1198,12 @@
           \frac{1}{1-x-x^2}</m>.
         </p>
       </solution>
+    </exploration>
+    
+    <exploration>
+      <p>
+        Use long division on <m>\dfrac{x}{1-x-x^2}</m> and see what pops out.
+      </p>
     </exploration>
 
     <p>

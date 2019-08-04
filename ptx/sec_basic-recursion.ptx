@@ -1142,15 +1142,43 @@
       </statement>
     </activity> -->
 
+    <p>
+      You were asked above to prove the following <term>Binet formula</term>:
+      <me>
+        F_n = \frac{a^n-b^n}{a-b}
+      </me>
+      where <m>a</m> and <m>b</m> are the roots of <m>x^2 - x - 1</m>.  The next example shows an interesting use of this formula.
+    </p>
 
-    <exploration>
-    <!-- TODO: example! -->
+    <example>
       <statement>
         <p>
-          Prove <m>\binom{n}{0}F_{0} + \binom{n}{1}F_{1} + \ldots + \binom{n}{n}F_{n} = F_{2n}</m> in two ways.  First, use the Binet Formula from <xref ref="act-binet"/>.  Then, use <m>Q</m>.
+          Prove <m>\binom{n}{0}F_{0} + \binom{n}{1}F_{1} + \ldots + \binom{n}{n}F_{n} = F_{2n}</m> in two ways.  First, use the Binet Formula from <xref ref="act-binet"/>.  
         </p>
       </statement>
-    </exploration>
+      <solution>
+        <p>
+          Starting on the right side, use the Binet formula and the fact that <m>a</m> and <m>b</m> satisfy <m>x^2 - x - 1 = 0</m>:
+          <me>
+            F_{2n} = \frac{a^{2n} - b^{2n}}{a-b} = \frac{(a+1)^n - (b+1)^n}{a-b}
+          </me>.
+          Then expand the two binomials using the binomial theorem:
+          <me>
+            F_{2n} = \frac{\binom{n}{0} + \binom{n}{1}a + \cdots + \binom{n}{n}a^n - \left[\binom{n}{0} + \binom{n}{1}b + \cdots + \binom{n}{n}b^n\right]}{a-b}
+          </me>.
+          Now group like terms:
+          <md>
+            <mrow>F_{2n} = \amp \binom{n}{0}\frac{a^0-b^0}{a-b} + \binom{n}{1}\frac{a-b}{a-b} + \binom{n}{2}\frac{a^2-b^2}{a-b}+\cdots + \binom{n}{n}\frac{a^n-b^n}{a-b} </mrow>
+            <mrow> = \amp \binom{n}{0}F_0 + \binom{n}{1}F_1 + \cdots + \binom{n}{n}F_n </mrow>
+            
+          </md>.
+          
+        </p>
+        <p>
+          You might also try proving this using the matrix <m>Q</m>.
+        </p>
+      </solution>
+    </example>
 
     <exploration>
       <statement>

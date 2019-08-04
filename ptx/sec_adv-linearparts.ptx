@@ -148,11 +148,11 @@
     <activity category="essential">
       <statement>
         <p>
-          The partition <m>(\lambda_1,\lambda_2,\ldots, \lambda_n)</m> is called the <term>conjugate</term><idx><h>conjugate of an integer partition</h></idx><idx><h>partition of an integer</h><h>conjugate of</h></idx> of the partition <m>(\gamma_1,\gamma_2,\ldots, \gamma_m)</m> if we obtain the Young diagram of one from the Young diagram of the other by flipping one around the line with slope -1 that extends the diagonal of the top left square. See <xref ref="conjugateYoung">Figure</xref> for an example.
+          The partition <m>(\lambda_1,\lambda_2,\ldots, \lambda_n)</m> is called the <term>conjugate</term><idx><h>conjugate of an integer partition</h></idx><idx><h>partition of an integer</h><h>conjugate of</h></idx> of the partition <m>(\gamma_1,\gamma_2,\ldots, \gamma_m)</m> if we obtain the Young diagram of one from the Young diagram of the other by flipping one around the line with slope -1 that extends the diagonal of the top left square. (Equivalently, simply interchanging rows and columns, like taking the transpose of a matrix.) See <xref ref="conjugateYoung">Figure</xref> for an example.
         </p>
 
         <figure xml:id="conjugateYoung" >
-          <caption>The Ferrers
+          <caption>The Young
           diagram the partition
           (5,3,3,2) and its conjugate.</caption>
           <image width="50%" source="images/conjugateYoung" />
@@ -229,6 +229,56 @@
         </solution>
       </activity>
 
+      <example>
+        <statement>
+          <p>
+            Restricting the number or type of parts often leads to intersting relationships.  We must be careful about what we mean here though.  For example, here are three different sorts of <q>even</q> partitions for <m>k = 10</m>: 
+          </p>
+          
+          <sidebyside width="30%" valign="top">
+              <p>
+                Even parts:
+                <md>
+                  <mrow>(10) </mrow>
+                  <mrow> (8, 2)</mrow>
+                  <mrow> (6, 4)</mrow>
+                  <mrow> (6, 2, 2)</mrow>
+                  <mrow> (4,4,2)</mrow>
+                  <mrow> (4,2,2,2)</mrow>
+                  <mrow> (2,2,2,2,2)</mrow>
+                </md>
+              </p>
+              
+              <p>
+                Even number of parts:
+                <md>
+                  <mrow>(9,1) </mrow>
+                  <mrow>(8,2) </mrow>
+                  <mrow>(7,3) </mrow>
+                  <mrow>(6,4) </mrow>
+                  <mrow>(5,5) </mrow>
+                  <mrow>(4,3,2,1) </mrow>
+                </md>
+              </p>
+              
+              <p>
+                Parts with even multiplicity:
+                <md>
+                  <mrow>(5,5) </mrow>
+                  <mrow>(4,4,1,1) </mrow>
+                  <mrow>(3,3,2,2) </mrow>
+                  <mrow>(3,3,1,1,1,1) </mrow>
+                  <mrow>(2,2,2,2,1,1) </mrow>
+                  <mrow>(2,2,1,1,1,1,1,1) </mrow>
+                  <mrow>(1,1,1,1,1,1,1,1,1,1) </mrow>
+                </md>
+              </p>
+          </sidebyside>
+        </statement>
+
+      </example>
+
+
       <activity xml:id="partition-even-mult-even-use">
         <statement>
           <p>
@@ -265,7 +315,7 @@
         </solution>
     </activity>
 
-    <activity xml:id="rectanglecomplement" category="interesting">
+    <exploration xml:id="rectanglecomplement" category="interesting">
         <statement>
           <p>
             Show that the number of partitions of <m>k</m> into four parts equals the number of partitions of <m>3k</m> into four parts of size at most <m>k-1</m> (or <m>3k-4</m> into four parts of size at most <m>k-2</m> or <m>3k-4</m> into four parts of size at most <m>k</m>).
@@ -294,9 +344,9 @@
             results.
           </p>
         </solution>
-      </activity>
+      </exploration>
 
-      <activity>
+      <exploration>
           <introduction>
               <p>
             The idea of conjugation of a partition could be defined without the geometric interpretation of a Young diagram, but it would seem far less natural without the geometric interpretation. Another idea that seems much more natural in a geometric context is this. Suppose we have a partition of <m>k</m> into <m>n</m> parts with largest part <m>m</m>. Then the Young diagram of the partition can fit into a rectangle that is <m>m</m> or more units wide (horizontally) and <m>n</m> or more units deep. Suppose we place the Young diagram of our partition in the top left-hand corner of an <m>m'</m> unit wide and <m>n'</m> unit deep rectangle with <m>m'\ge m</m> and <m>n' \ge n</m>, as in <xref ref="complementpartition" />.
@@ -394,9 +444,9 @@
               </p>
             </solution>
           </task>
-    </activity>
+    </exploration>
 
-    <activity category="interesting">
+    <exploration category="interesting">
         <statement>
           <p>
             Suppose we take a partition of <m>k</m> into <m>n</m> parts with largest part <m>m</m>, complement it in the smallest rectangle it will fit into, complement the result in the smallest rectangle it will fit into, and continue the process until we get the partition 1 of one into one part.  What can you say about the partition with which we started?
@@ -457,7 +507,7 @@
             where <m>\lambda_i>\lambda_{i+1}</m> and <m>\lambda_0>\lambda_1+1</m>. Thus a partition results in a single part of size 1 after some number of encomplementations if and only if it has the form of <xref ref="form1">Equation</xref> or <xref ref="form2">Equation</xref>.
           </p>
         </solution>
-      </activity>
+      </exploration>
 
   </introduction>
   <subsubsection>
@@ -465,48 +515,45 @@
     <p>Often <m>q_n(k)</m> is used to denote the number of partitions of <m>k</m> into distinct parts, that is, parts that are different from each other.
     </p>
 
-    <activity>
-      <statement>
-        <p>
-          Show that
-          <me>
-            q_n(k) \le \frac{1}{n!}\binom{k-1}{n-1}.
-          </me>
-        </p>
-      </statement>
-      <hint>
-        <p>
-      How does the number of compositions of <m>k</m> into <m>n</m> distinct parts compare to the number of compositions of <m>k</m> into <m>n</m> parts (not necessarily distinct)?
-      What do compositions have to do with partitions?
-        </p>
-      </hint>
-      <solution>
-        <p>
-          The number of compositions of <m>k</m> into <m>n</m> parts is <m>\binom{k-1}{n-1}</m>. Thus the number of compositions of <m>k</m> into <m>n</m> distinct parts is less than <m>\binom{k-1}{n-1}</m>. Divide the compositions of <m>k</m> into <m>n</m> distinct parts into blocks with two compositions in the same block if one is a rearrangement of the other. Because the parts are distinct, each block has <m>n!</m> members. Further, there is a bijection between the blocks of this partition and the partitions of <m>k</m> into <m>n</m> distinct parts. Since the number of compositions of <m>k</m> into <m>n</m> distinct parts is less than <m>\binom{k-1}{n-1}</m>, the number of partitions of <m>k</m> into <m>n</m> distinct parts is less than <m>\frac{1}{n!}  \binom{k-1}{n-1}</m>.
-        </p>
-      </solution>
-    </activity>
 
-    <activity category="interesting">
+
+    <example category="interesting">
       <statement>
         <p>
-          Show that the number of partitions of 7 into 3 parts equals the
-          number of partitions of 10 into three distinct parts.
+          Show that the number of partitions of 7 into three parts equals the number of partitions of 10 into three distinct parts.
         </p>
       </statement>
-      <hint>
+      <!-- <hint>
         <p>
           While you could simply display partitions of 7 into three parts and partitions of 10 into three parts, we hope you won't. Perhaps you could write down the partitions of 4 into two parts and the partitions of 5 into two distinct parts and look for a natural bijection between them. So the hope is that you will discover a bijection from the set of partitions of 7 into three parts and the partitions of 10 into three distinct parts. It could help to draw the Young diagrams of partitions of 4 into two parts and the partitions of 5 into two distinct parts.
         </p>
-      </hint>
+      </hint> -->
       <solution>
+        <p>
+          To get a feel for this, list them out:
+          <md>
+            <mrow>(5,1,1) \qquad \amp \qquad (7,2,1)</mrow>
+            <mrow>(4,2,1) \qquad \amp \qquad (6,3,1)</mrow>
+            <mrow>(3,3,1) \qquad \amp \qquad (5,4,1)</mrow>
+            <mrow>(3,2,2) \qquad \amp \qquad (5,3,2)</mrow>
+          </md>
+          There are four of each sort, which shows what we want.  But what is the connection?  It's to add 210!
+        </p>
         <p>
           Given a partition <m>\lambda</m> of 7 in decreasing list form <m>\lambda_1,\lambda_2,\lambda_3</m>, if we add 0 to <m>\lambda_3</m>, <m>1</m> to <m>\lambda_2</m> and 2 to <m>\lambda_1</m> the resulting partition of 10 has distinct parts. If we take a partition <m>\lambda'</m> of 10 with distinct parts, then <m>\lambda'_1\ge\lambda'_2+1</m>, <m>\lambda'_1\ge\lambda'_2+2</m>, and <m>\lambda'_2\ge \lambda'_3+1</m>. Therefore if we subtract 2 from <m>\lambda'_1</m> to get <m>\lambda_1</m>, subtract 1 from <m>\lambda'_2</m> to get <m>\lambda_2</m> and let <m>\lambda_3= \lambda'_3</m>, then <m>\lambda_1,\lambda_2,\lambda_3</m> is the decreasing list representation of a partition of <m>10-3=7</m>. Thus there is a bijection between partitions of <m>7</m> into three parts and partitions of <m>10</m> into three distinct parts.
         </p>
       </solution>
-    </activity>
+    </example>
+    
+    <exploration>
+      <statement>
+        <p>
+          Show that the number of partitions of <m>10</m> into three parts equals the number of partitions of 13 into three distinct parts. 
+        </p>
+      </statement>
+    </exploration>
 
-    <activity category="essential for this or the next section, and interesting">
+    <exploration category="essential for this or the next section, and interesting">
       <statement>
         <p>
           There is a relationship between <m>p_n(k)</m> and <m>q_n(m)</m> for some other number <m>m</m>. Find the number <m>m</m> that gives you the nicest possible relationship.
@@ -523,7 +570,7 @@
           The number of partitions of <m>k</m> into <m>n</m> parts is equal to the number of partitions of <m>k+\binom{n}{2}</m> into n distinct parts.  The bijection from partitions of <m>k</m> with <m>n</m> parts to partitions of <m>k+\binom{n}{2}</m> with <m>n</m> distinct parts that proves this is the one that takes a partition <m>\lambda_n\lambda_{n-1}\cdots\lambda_1</m> of <m>k</m> with <m>\lambda_i>\lambda_{i+1}</m> and adds <m>i-1</m> to <m>\lambda_i</m> to get <m>\lambda'_i</m>. Then <m>\lambda'</m> is a partition into distinct parts, and the number it partitions is <m>k+1+2+\cdots+n-1=k+\binom{n}{2}</m>. The proof that it is a bijection is the fact that subtracting <m>n-i</m> from the <m>i</m>\/th part of a partition of <m>k</m> into distinct parts yields a partition of <m>k</m>, because part <m>i+j</m> is at least <m>j</m> smaller than part <m>i</m>.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
     <activity category="essential for this or the next section">
       <statement>
@@ -542,9 +589,14 @@
       </solution>
     </activity>
 
-    <activity category="interesting and difficult">
+    <p>
+      The following exercise is interesting, but difficult.  The adventurous reader can try it directly here.  We will establish the same result using generating functions in the next section.
+    </p>
+
+    <exploration category="interesting and difficult">
       <statement>
-        <p>Show that the number of partitions of <m>k</m> into distinct parts equals the number of partitions of <m>k</m> into odd parts.
+        <p>
+          Show that the number of partitions of <m>k</m> into distinct parts equals the number of partitions of <m>k</m> into odd parts.
         </p>
       </statement>
       <hint>
@@ -559,11 +611,16 @@
         <p>Now consider a partition <m>\pi</m> of <m>k</m> whose parts are all odd. Let <m>\pi=\pi_1^{r_1}\pi_2^{r_2}\cdots \pi_t^{r_t}</m>, with <m>\pi_i>\pi_{i+1}</m>. (In terms of the multiplicity function <m>m</m>, <m>m(\pi_i) =r_i</m>, and <m>\sum_{i=1}^t r_i\pi_i = k</m>.) We are going to write the binary expansion of each <m>r_i</m> as <m>r_i = \sum_{j= 0}^{\lfloor \log_2 r_i\rfloor} 2^{ja_{ij}}</m>, where <m>a_{ij}</m> is 1 if <m>2^j</m> appears in the binary expansion of <m>r_i</m>, and 0 otherwise. All of the numbers <m>\pi_i2^{ja_{ij}}</m> are distinct, because a power of two times one odd number cannot equal a power of two times another odd number. The numbers <m>\pi_i2^{ja_{ij}}</m> add to <m>k</m>, so they are the parts of a partition <m>\pi'</m> of <m>k</m> into distinct parts. When we apply the function constructed in the first part of the solution to <m>\pi'</m>, we get <m>\pi</m>, so the correspondence between <m>\pi</m> and <m>\pi'</m> is a bijection.
         </p>
       </solution>
-    </activity>
+    </exploration>
 
-    <activity category="interesting and difficult">
+    <p>
+      Here is another challenging exercise.
+    </p>
+
+    <exploration category="interesting and difficult">
       <statement>
-        <p>Euler showed that if <m>k\not= \frac{3j^2+j}{2}</m>, then the number of partitions of <m>k</m> into an even number of distinct parts is the same as the number of partitions of <m>k</m> into an odd number of distinct parts. Prove this, and in the exceptional case find out how the two numbers relate to each other.
+        <p>
+          Euler showed that if <m>k\not= \frac{3j^2+j}{2}</m>, then the number of partitions of <m>k</m> into an even number of distinct parts is the same as the number of partitions of <m>k</m> into an odd number of distinct parts. Prove this, and in the exceptional case find out how the two numbers relate to each other.
         </p>
       </statement>
       <hint>
@@ -588,7 +645,32 @@
         <p>If <m>k= \frac{3j^2\pm j}{2}</m> and <m>j</m> is even, then there is one diagram of a partition of <m>k</m> that is not in the domain of the bijection and has an even number of rows, so in this case there will be one more partition with an even number of parts than with an odd number. If <m>k= \frac{3j^2\pm j}{2}</m> and <m>j</m> is odd, there is one diagram with an odd number of rows not in the domain and so in this case there is one more partition with an odd number of parts than with an even number. This completes the exceptional cases of the problem.
         </p>
       </solution>
-    </activity>
+    </exploration>
+    
+    <p>
+      And finally, a much simpler, purely combinatorial result.
+    </p>
+    <exploration>
+      <statement>
+        <p>
+          Show that
+          <me>
+            q_n(k) \le \frac{1}{n!}\binom{k-1}{n-1}.
+          </me>
+        </p>
+      </statement>
+      <hint>
+        <p>
+      How does the number of compositions of <m>k</m> into <m>n</m> distinct parts compare to the number of compositions of <m>k</m> into <m>n</m> parts (not necessarily distinct)?
+      What do compositions have to do with partitions?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The number of compositions of <m>k</m> into <m>n</m> parts is <m>\binom{k-1}{n-1}</m>. Thus the number of compositions of <m>k</m> into <m>n</m> distinct parts is less than <m>\binom{k-1}{n-1}</m>. Divide the compositions of <m>k</m> into <m>n</m> distinct parts into blocks with two compositions in the same block if one is a rearrangement of the other. Because the parts are distinct, each block has <m>n!</m> members. Further, there is a bijection between the blocks of this partition and the partitions of <m>k</m> into <m>n</m> distinct parts. Since the number of compositions of <m>k</m> into <m>n</m> distinct parts is less than <m>\binom{k-1}{n-1}</m>, the number of partitions of <m>k</m> into <m>n</m> distinct parts is less than <m>\frac{1}{n!}  \binom{k-1}{n-1}</m>.
+        </p>
+      </solution>
+    </exploration>
   </subsubsection>
 
 </subsection>
@@ -596,6 +678,10 @@
 
 <subsection xml:id="sec_genfns-int-parts" >
   <title>Using Generating Functions</title>
+  
+  <p>
+    I this final section we will see that generating functions are especially well suited for the study of integer partitions.  We will start with a classic example.
+  </p>
   <activity xml:id="change-making" category="essential">
       <statement>
           <p>If we have five identical pennies, five identical nickels, five identical dimes, and five identical quarters, give the picture enumerator for the combinations of coins we can form and convert it to a generating function for the number of ways to make <m>k</m> cents with the coins we have. Do the same thing assuming we have an unlimited supply of pennies, nickels, dimes, and quarters.
@@ -603,7 +689,7 @@
       </statement>
       <hint>
           <p>
-              This is a good place to apply the product principle for picture enumerators.
+              This is a good place to apply the product principle for picture enumerators.  Don't be afraid to use technology to finish the problem.
           </p>
       </hint>
       <solution>
@@ -628,6 +714,9 @@
           </p>
       </solution>
   </activity>
+
+
+  <!-- TODO: add example of something similar to the above -->
 
   <activity category="essential">
       <introduction>
@@ -673,12 +762,13 @@
   <activity xml:id="atmostmparts" category="essential">
       <statement>
           <p>
-              In <xref ref="largestpartatmostm"/> you gave the generating function for the number of partitions of an integer into parts of size at most <m>m</m>. Explain why this is also the generating function for partitions of an integer into at most <m>m</m> parts. Notice that this is the generating function for the number of partitions whose Young diagram fits into the space between the line <m>y=0</m> and the line <m>y=m</m>.
+              In <xref ref="largestpartatmostm"/> you gave the generating function for the number of partitions of an integer into parts of size at most <m>m</m>. Can you see why this is also the generating function for partitions of an integer into at most <m>m</m> parts. 
           </p>
       </statement>
       <hint>
           <p>
               Think about conjugate partitions.
+              <image width="50%" source="images/conjugateYoung" />
           </p>
       </hint>
       <solution>
@@ -688,6 +778,42 @@
       </solution>
   </activity>
 
+  <example xml:id="genfunpartitions">
+    <statement>
+      <p>
+        The generating function for the number of partitions of an integer into parts of any size is 
+        <me>
+          \frac{1}{(1-q)(1-q^2)(1-q^3) \cdots} = (1+q+q^2+q^3+\cdots)(1+q^2+q^4+\cdots)(1+q^3+\cdots)\cdots
+        </me>.
+        The coefficient of <m>q^4</m> is 4.  Where does this come from exactly?
+      </p>
+      
+      <p>
+        First notice that the <m>q^4</m> in the second factor is really <m>q^{2\cdot 2}</m>.  Here are all the ways of forming <m>q^4</m>, and their corresponding partition.
+        <md>
+          <mrow>1\cdot q^4 \amp \leftrightarrow \amp (4) </mrow>
+          <mrow>q\cdot q^3 \amp \leftrightarrow \amp (3,1) </mrow>
+          <mrow>q^2\cdot q^2 \amp \leftrightarrow \amp (2,1,1) </mrow>
+          <mrow>q^4 \cdot 1 \amp \leftrightarrow \amp (1,1,1,1) </mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  
+  <exploration>
+    <statement>
+      <p>
+        Illustrate the partitions of 5 and their correspondence to the ways to get <m>x^5</m> in the generating function for the number of partitions of an integer.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Note that <m>1+x^2+x^4+x^6+\cdots</m> in the generating function is really <m>1+x^2 + x^{2\cdot 2}</m>
+      </p>
+    </hint>
+  </exploration>
+
+<!-- 
     <activity xml:id="genfunpartitions" category="essential">
         <introduction>
             <p>When studying partitions of integers, it is inconvenient to restrict ourselves to partitions with at most <m>m</m> parts or partitions with maximum part size <m>m</m>.
@@ -771,11 +897,12 @@
                  </p>
              </solution>
         </task>
-    </activity>
+    </activity> -->
 
-    <activity category="interesting">
+    <!-- <activity category="interesting">
         <statement>
-            <p>In <xref ref="genfunpartitions"/>, we multiplied together infinitely many power series. Here are two notations for infinite products that look rather similar:
+            <p>
+              In <xref ref="genfunpartitions"/>, we multiplied together infinitely many power series. Here are two notations for infinite products that look rather similar:
             <me>
                 \prod_{i=1}^\infty 1 + x + x^2 +\cdots+ x^i\qquad\mbox{and}\qquad
                 \prod_{i=1}^\infty 1 +x^i +x^{2i} +\cdots + x^{i^2}.
@@ -800,9 +927,22 @@ If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, wo
                 <m>\prod_{i=1}^\infty 1 +x^i +x^{2i} +\cdots + x^{i^2}</m> makes sense because when we look for ways of choosing one summand from each factor so that the summands multiply together to give us <m>x^k</m>, we will find only finitely many ways of making those choices, so the coefficient of <m>x^k</m> can be taken to be the number of such choices. On the other hand, in the expression <m>\prod_{i=1}^\infty 1 + x + x^2 +\cdots+ x^i</m>, there are infinitely many ways to choose <m>x</m> from one term and <m>1</m> from all the rest of the terms so that the product of these summands is <m>x</m>. Thus we can't even specify what the coefficient of <m>x</m> is in the product. On the basis of this analysis, we see that for <m>\prod_{i=1}^\infty 1 +p_i(x)</m> to make sense, we need to assume that for each possible positive integer <m>n</m>, there are only a finite number of polynomials <m>p_i</m> whose lowest degree term has degree less than or equal to <m>n</m>. In that way, for each positive integer, there will be only finitely many ways to chose a summand from each factor so that the product of the summands is a multiple of <m>x^k</m>. The same assumption works when the <m>p_i</m> are power series, for the same reason.
             </p>
         </solution>
-    </activity>
+    </activity> -->
 
-    <activity category="essential">
+
+    <example>
+      <statement>
+        <p>
+          The generating function for the number of partitions of an integer in which each part is even is 
+          <me>
+            \frac{1}{(1-q^2)(1-q^4)(1-q^6)\cdots}
+          </me>
+          
+        </p>
+      </statement>
+    </example>
+
+    <!-- <activity category="essential">
         <statement>
             <p>What is the generating function (using <m>q</m> for the variable) for the number of partitions of an integer in which each part is even?
             </p>
@@ -820,9 +960,53 @@ If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, wo
                 \sum_{j=0}^\infty q^{2ij}</m>.
             </p>
         </solution>
-    </activity>
+    </activity> -->
 
-    <activity category="essential">
+
+    <exploration>
+      <introduction>
+        <p>
+          Give the generating function for the number of partitions of <m>n</m> with each of the following restrictions
+        </p>
+      </introduction>
+      <task>
+        <p>
+          Each part is used at most once (i.e., a partition into distinct parts).
+        </p>
+      </task>
+      <task>
+        <p>
+          No part is larger than 3.
+        </p>
+      </task>
+      <task>
+        <p>
+          All parts are odd.
+        </p>
+      </task>
+      <task>
+        <p>
+          All parts are distinct and odd.
+        </p>
+      </task>
+      <task>
+        <p>
+          Only even parts may be repeated.
+        </p>
+      </task>
+      <task>
+        <p>
+          No part appears more than twice.
+        </p>
+      </task>
+      <task>
+        <p>
+          All parts are in the set <m>\{3,8\}</m>.  (This might remind you of a stamp problem.)
+        </p>
+      </task>
+    </exploration>
+
+    <!-- <activity category="essential">
         <statement>
             <p>What is the generating function (using <m>q</m> as the variable) for the number of partitions of an integer into distinct parts, that is, in which each part is used at most once?
             </p>
@@ -839,9 +1023,9 @@ If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, wo
                 \prod_{i=1}^\infty(1+q^i)</m>.
             </p>
         </solution>
-    </activity>
+    </activity> -->
 
-    <activity category="essential">
+    <exploration category="essential">
         <statement>
             <p>Use generating functions to explain why the number of partitions of an integer in which each part is used an even number of times equals the number of partitions of an integer in which each part is even.
             </p>
@@ -858,9 +1042,9 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
             <p>In the generating function <m>\displaystyle\prod_{i=1}^\infty \sum_{j=0}^\infty q^{2ij}</m>, we may interpret the <m>2ij</m> in <m>q^{2ji}</m> the value of using <m>2i</m> as a part <m>j</m> times or as the value of using <m>i</m> as a part <m>2j</m> times. Therefore this is the generating function both for the number of partitions of integers into parts that are even and the number of partitions into parts that are used an even number of times. Therefore the number of partitions of <m>n</m> in which each part is even equals the number of partitions of <m>n</m> in which each part is used an even number of times. In <xref ref="partition-even-mult-even-use" /> we got the same result bijectively.
             </p>
         </solution>
-    </activity>
+    </exploration>
 
-    <activity category="essential and interesting">
+    <exploration category="essential and interesting">
         <statement>
             <p>Use the fact that
             <me>
@@ -887,9 +1071,19 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
                     are odd numbers.
                 </p>
             </solution>
-    </activity>
+    </exploration>
 
-    <activity>
+
+    <exploration>
+      <statement>
+        <p>
+          Verify that the number of partitions of <m>n=5</m> is equal to the number of partitions of <m>10</m> into exactly 5 parts.  Generalize.
+        </p>
+      </statement>
+    </exploration>
+
+
+    <exploration>
       <task>
         <statement>
           <p>
@@ -945,11 +1139,11 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
           </p>
         </solution>
       </task>
-    </activity>
+    </exploration>
 
 
 
-    <activity>
+    <!-- <activity>
         <statement>
             <p>Write down the generating function for the number of ways to partition an integer into parts of size no more than <m>m</m>, each used an odd number of times. Write down the generating function for the number of partitions of an integer into parts of size no more than <m>m</m>, each used an even number of times. Use these two generating functions to get a relationship between the two sequences for which you wrote down the generating functions.
             </p>
@@ -972,10 +1166,10 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
                     is the generating function for the number of partitions of an integer into parts of size no more than <m>m</m>, each used an even number of times. Therefore the number of partitions of <m>k</m> into parts of size no more than <m>m</m>, each used an even number of times is the number of partitions of <m>k+\binom{m+1}{2}</m>, into parts of size no more than <m>m</m>, each used an odd number of times.
             </p>
         </solution>
-    </activity>
+    </activity> -->
 
     <!-- This is, in some sense, the problem from hell when it comes to structure. In the first pass, we're going to break into more tasks than Bogart had. This really should become more than one activity in the final version. -->
-    <activity xml:id="qtorialformula" category="interesting">
+    <!-- <activity xml:id="qtorialformula" category="interesting">
         <introduction>
             <p>In <xref ref="largestpartatmostm"/> and <xref ref="atmostmparts"/> you gave the generating functions for, respectively, the number of partitions of <m>k</m> into parts the largest of which is at most <m>m</m> and for the number of partitions of <m>k</m> into at most <m>m</m> parts. In this problem we will give the generating function for the number of partitions of <m>k</m> into at most <m>n</m> parts, the largest of which is at most <m>m</m>. That is we will analyze <m>\sum_{i=0}^\infty a_kq^k</m> where <m>a_k</m> is the number of partitions of <m>k</m> into at most <m>n</m> parts, the largest of which is at most <m>m</m>. Geometrically, it is the generating function for partitions whose Young diagram fits into an <m>m</m> by <m>n</m> rectangle, as in <xref ref="rectanglecomplement"/>. This generating function has significant analogs to the binomial coefficient <m>\binom{m+n}{n}</m>, and so it is denoted by <m>\qchoose{m+n}{n}</m>. It is called a <term><m>q</m>-binomial coefficient</term>.<idx><h><m>q</m>-binomial coefficient</h></idx><idx><h>binomial coefficient</h><h><m>q</m>-binomial</h></idx>
             </p>
@@ -1366,6 +1560,6 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
                 </p>
             </solution>
         </task>
-    </activity>
+    </activity> -->
   </subsection>
 </section>

@@ -741,20 +741,24 @@
       <image width="45%" source="images/FerrersYoung" />
     </figure>
 
-    <activity>
+    <exploration>
       <statement>
         <p>
           Just for practice, draw all the Young diagrams for the partitions of 4 and 5.
         </p>
       </statement>
-    </activity>
+    </exploration>
 
 
 
     <p>
       With the binomial coefficients, with Stirling numbers of the second kind, and with the Lah numbers, we were able to find a recurrence by asking what happens to our subset, partition, or broken permutation of a set <m>S</m> of numbers if we remove the largest element of <m>S</m>. Thus it is natural to look for a recurrence to count the number of partitions of <m>k</m> into <m>n</m> parts by doing something similar. Unfortunately, since we are counting distributions in which all the objects are identical, there is no way for us to identify a largest element. However if we think geometrically, we can ask what we could remove from a Young diagram to get a Young diagram.
+    </p>
+    <p>
       Two natural ways to get a partition of a smaller integer from a partition of <m>n</m> would be to remove the top row of the Young diagram of the partition and to remove the left column of the Young diagram of the partition. These two operations correspond to removing the largest part from the partition and to subtracting 1 from each part of the partition respectively. Even though these have some sort of geometric symmetry, the two operations are not symmetric with respect to the number of parts. Thus one might be much more useful than the other for finding a recurrence for the number of partitions of <m>k</m> into <m>n</m> parts.
     </p>
+
+    
 
     <activity xml:id="numberpartitionrecurrence" category="essential for this or the next section, and interesting">
       <!-- TODO: clean up or make example.  or give an example first. -->
@@ -833,7 +837,7 @@
 
         <solution>
           <p>
-            The second bijection is to the set of partitions of <m>k-1</m> into <m>n</m> or fewer parts, and this makes the second bijection sound easier to work with. We get <m>p_n(k)=\sum_{i=1}^n p_i(k-n)</m>. The proof is the bijection we already described; in particular a partition of <m>k-n</m> into <m>i</m> parts corresponds to the partition of <m>k</m> we get by adding one to each of the <m>i</m> parts and then creating <m>n-i</m> parts of size one.
+            The second bijection is to the set of partitions of <m>k-n</m> into <m>n</m> or fewer parts, and this makes the second bijection sound easier to work with. We get <m>p_n(k)=\sum_{i=1}^n p_i(k-n)</m>. The proof is the bijection we already described; in particular a partition of <m>k-n</m> into <m>i</m> parts corresponds to the partition of <m>k</m> we get by adding one to each of the <m>i</m> parts and then creating <m>n-i</m> parts of size one.
           </p>
         </solution>
       </task>

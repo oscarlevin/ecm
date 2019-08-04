@@ -82,29 +82,33 @@
           </p>
         </solution>
       </activity>
+      
+      
 
       <activity xml:id="threesetintersection" category="essential">
         <statement>
           <p>
-            Give a formula for the size of <m>A\cup B\cup C</m> in terms of
-            the sizes of <m>A</m>, <m>B</m>, <m>C</m> and the intersections of these
-            sets.
+            A formula for the size of <m>A\cup B\cup C</m> in terms of
+            the sizes of <m>A</m>, <m>B</m>, <m>C</m> and the intersections of these sets is 
+            <me>|A\cup B\cup C|=|A|+|B|+|C|-|A\cap B|- |A\cap C| - |B\cap
+              C| +|A\cap B\cap C|</me>.
           </p>
+          <sidebyside widths="65% 25%" margins="0% 0%" valign="top">
+            <p>
+              Explain why this is correct using a Venn diagram. In particular, how many times are elements are in <m>A \cap B \cap C</m> counted?  What about the other regions of the Venn diagram?
+            </p>
+            <image xml:id="three-set-empty-PIE">
+              <latex-image>
+                \begin{tikzpicture}[scale=.60, fill=gray!50]
+                \draw[thick] \circleA \circleAlabel \circleB \circleBlabel \circleC \circleClabel \threesetbox;
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+            
+          </sidebyside>
         </statement>
-        <hint>
-          <p>
-            Try drawing a Venn Diagram.
-          </p>
-        </hint>
-        <solution>
-          <p>
-            <m>|A\cup B\cup C|=|A|+|B|+|C|-|A\cap B|- |A\cap C| - |B\cap
-            C| +|A\cap B\cap C|</m>.
-          </p>
-        </solution>
       </activity>
 
-      <!-- TODO: Add summary with Venn diagrams.  Perhaps an activity that asks to explain why PIE works using the Venn diagram -->
 
 
     </subsection>
@@ -665,7 +669,7 @@
         <task>
           <statement>
             <p>
-              We can use the principle of inclusion and exclusion to find the total number of derrangements as follows:
+              We can use the principle of inclusion and exclusion to find the total number of derangements as follows:
               <me>
                 d_4 = 4! - \left[{4 \choose 1}3! - {4 \choose 2}2! + {4 \choose 3} 1! - {4 \choose 4}0!\right].
               </me>
@@ -703,7 +707,77 @@
         </solution>
       </exploration>
 
-
+      <p>
+        Derangments are in interesting are in combinatorics in their own right.  In <xref ref="sec_basic-proofs"/> you were  proved a few results using combinatorial proofs.  In particular, we established the following, which you might try to prove again here.
+      </p>
+      
+      <theorem xml:id="thm-derangement-recursion">
+        <statement>
+          <p>
+            Let <m>d_n</m> denote the number of derangments of <m>n</m>, with <m>d_0 = 1</m> and <m>d_1 = 0</m>.  Then <m>d_n = (n-1)(d_{n-1}+d_{n-2})</m>.
+          </p>
+        </statement>
+      </theorem>
+      
+      <theorem xml:id="thm-derangment-sum">
+        <statement>
+          <p>
+            Let <m>d_n</m> denote the number of derangments of <m>n</m>, with <m>d_0 = 1</m> and <m>d_1 = 0</m>.  Then
+            <me>
+              \binom{n}{0}d_0 + \binom{n}{1}d_1 + \binom{n}{2}d_2 + \cdots + \binom{n}{n}d_n = n!
+            </me>
+          </p>
+        </statement>
+      </theorem>
+      
+      <p>
+        Here is another recursion you can explore.
+      </p>
+      
+      <exploration>
+        <statement>
+          <p>
+            Use the principle of inclusion and exclusion to derive the recursion
+            <me>
+              d_n = nd_{n-1} + (-1)^n
+            </me>.
+          </p>
+        </statement>
+      </exploration>
+      
+      <p>
+        The non-recursive formula for derangments is messy due to the use of the principle of inclusion and exclusion.  Actually, it can be cleaned up a bit, which leads to a remarkable result.
+      </p>
+      
+      <exploration>
+        <task>
+          <statement>
+            <p>
+              We know that <m>d_3 = 3! - \left(\binom{3}{1}2! - \binom{3}{2}1! + \binom{3}{3}0! \right)</m>.  Use the factorial formula for <m>\binom{n}{k}</m> to simplify this.  Factor out a <m>3!</m> leaving terms that are each nice unit fractions.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Generalize the previous part to give a nice clean expression for <m>d_n</m>.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              The alternating sum of unit fractions you get might look familiar if you have thought about Taylor series from calculus recently.  For large <m>n</m>, what fraction of all permutations are derangements?
+            </p>
+          </statement>
+          <hint>
+            <p>
+              The Taylor series for <m>e^x</m> is <m>1+x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \cdots</m>.  What happens if you replace <m>x</m> with <m>-1</m>?
+            </p>
+          </hint>
+        </task>
+      </exploration>
+      
 
       <!-- TODO: Here or in the homework, it would be nice to illustrate the more general closed formula for an n-derangement -->
 

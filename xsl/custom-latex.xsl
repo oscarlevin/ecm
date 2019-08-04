@@ -401,11 +401,11 @@
   <xsl:text>
     breakable,
 	enhanced,
-    attach title to upper, after title={.\space}, fonttitle=\bfseries, coltitle=black,
+    attach title to upper, after title={.\space}, fonttitle=\bfseries\sffamily, coltitle=black,
 	colback=white,
 	top=.5em,
 	before skip=1em,
-	after skip=.5em,
+	after skip=1em,
 	sharp corners=all,
 	frame hidden,
 	%Draw breakable decorations:
@@ -579,7 +579,7 @@
                         <!-- closer is better, so mainmatter solutions first -->
                         <xsl:choose>
                             <xsl:when test="count(.|$solutions-mainmatter) = count($solutions-mainmatter)">
-                                <xsl:text>\qquad~\hfill{\tiny</xsl:text>
+                                <xsl:text>\space\hspace*{0pt}\hfill{\tiny</xsl:text>
                                 <xsl:text>\hyperlink{</xsl:text>
                                 <xsl:apply-templates select="." mode="latex-id-duplicate">
                                     <xsl:with-param name="suffix" select="'main'"/>
@@ -589,7 +589,7 @@
                                 <xsl:text>]}}</xsl:text>
                             </xsl:when>
                             <xsl:when test="count(.|$solutions-backmatter) = count($solutions-backmatter)">
-                                <xsl:text>\qquad~\hfill{\tiny</xsl:text>
+                                <xsl:text>\space\hspace*{0pt}\hfill{\tiny</xsl:text>
                                 <xsl:text>\hyperlink{</xsl:text>
                                 <xsl:apply-templates select="." mode="latex-id-duplicate">
                                     <xsl:with-param name="suffix" select="'back'"/>

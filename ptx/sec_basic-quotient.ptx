@@ -563,7 +563,7 @@
     Our question now is, what <em>should</em> be in the numerator if not <m>n^k</m>?  First let's get more comfortable with thinking of multisets as a model for counting questions.
   </p>
 
-  <activity>
+  <activity xml:id="act_multisetintro">
     <introduction>
       <p>
         Explain why each of the following counting problems have an answer in the form <m>\mchoose{n}{k}</m> (say what <m>n</m> and <m>k</m> should be).  That is, show how each of them is counting the number of <m>k</m>-element multisets of <m>[n]</m> (or a different set of size <m>n</m>).
@@ -891,8 +891,197 @@
         </p>
       </statement>
     </theorem>
-  <!-- TODO: summarize this and include the usual stars and bars interpretations as an example -->
-  <!-- TODO: Add a few review/practice questions? -->
+    
+    
+    <p>
+      It is interesting that the number of <m>k</m>-element multisets of <m>[n]</m> can be expressed as a binomial coefficient.  This suggests there should be a way to describe a multiset as choosing <m>k</m> things from a collection of <m>n-1+k</m> things. Or perhaps thinking about each multiset as a <m>(n-1+k)</m>-bit string of weight <m>k</m>.
+    </p>
+    
+    <p>
+      There is a standard interpretation for this.  We call this approach <term>stars and bars</term> (others use <em>balls and wall</em> or <em>dashes and slashes</em>; the important thing is that it rhymes).  The idea is that we represent each multiset as a string of <m>k</m> <q>stars</q> and <m>n-1</m> <q>bars</q>.  These are really just bit strings in disguise, so the binomial coefficient becomes clear.  The only question is how do multisets correspond to the strings?
+    </p>
+    
+    <activity>
+      <introduction>
+        <p>
+          Consider <m>4</m>-element multisets of <m>[3]</m>.  Using the formula above, there are <m>\binom{6}{4} = 15</m> of these.  There are also <m>\binom{6}{4}</m> stars and bars strings using <m>4</m> stars and <m>2</m> bars.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Write out all 15 multisets and all 15 stars and bars strings.  Find a bijection between these that makes sense.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            The multiset <m>\{1,2, 2, 3\}</m> should correspond to the string <m>*|**|*</m>.  
+          </p>
+        </hint>
+      </task>
+      <task>
+        <p>
+          Why does it make sense that there are only 2 bars in these diagrams, but 3 elements that can go into the multiset?
+        </p>
+      </task>
+      <task>
+        <p>
+          What would go wrong if we used 3 bars and 3 stars (that is, confused <m>n</m> and <m>k</m>)?  Why does <m>*||**|</m> not make sense as a multiset here?
+        </p>
+      </task>
+    </activity>
+    
+    <p>
+      Thinking of these distribution problems as <q>stars and bars problems</q> can make solving them very quick.  The key step is deciding what part of the problem the stars correspond to, and what the bars correspond do.  The remaining exercises here should give you some practice with this.
+    </p>
+
+    <exploration>
+      <statement>
+        <p>
+          Each of the counting problems below can be solved with stars and bars.
+          For each, say what outcome the string
+          <me>
+            ***|*||**|
+          </me>
+          represents, if there are the correct number of stars and bars for the problem.
+          Otherwise, say why the diagram does not represent any outcome,
+          and what a correct diagram would look like.
+
+          <ol>
+            <li>
+              <p>
+                How many ways are there to select a handful of 6 jellybeans from a jar that contains 5 different flavors?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many ways can you distribute 5 identical lollipops to 6 kids?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many 6-letter words can you make using the 5 vowels in increasing order?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many solutions are there to the equation
+                <m>x_1 + x_2 + x_3 + x_4 = 6</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                You take 3 strawberry, 1 lime, 0 licorice, 2 blueberry and 0 bubblegum.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                This is backwards.
+                We don't want the stars to represent the kids because the kids are not identical,
+                but the stars are.
+                Instead we should use 5 stars
+                (for the lollipops)
+                and use 5 bars to switch between the 6 kids.
+                For example,
+                <me>
+                  **||***|||
+                </me>
+                would
+                represent the outcome with the first kid getting 2 lollipops,
+                the third kid getting 3, and the rest of the kids getting none.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                This is the word AAAEOO.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                This doesn't represent a solution.
+                Each star should represent one of the 6 units that add up to 6, and the bars should
+                <em>switch</em>
+                between the different variables.
+                We have one too many bars.
+                An example of a correct diagram would be
+                <me>
+                  *|**||***
+                </me>,
+                representing that
+                <m>x_1 = 1</m>,
+                <m>x_2 = 2</m>,
+                <m>x_3 = 0</m>, and
+                <m>x_4 = 3</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </exploration>
+
+    <exploration xml:id="act_multisetoutro">
+      <introduction>
+        <p>
+          In <xref ref="act_multisetintro"/> and <xref ref="act-distributionintro"/> you considered some counting questions we claimed could be expressed as multisets.  Now solve each of these using stars and bars and the formula in <xref ref="thm-multisetsize"/>.  Be sure to clearly state which part of the problem corresponds to the stars and which to the bars, and why this makes sense.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            If you have an unlimited supply of pennies, nickels, dimes and quarters, how many handfuls of 7 coins can you grab?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many non-negative integer solutions are there to the equation <m>x_1 + x_2 + x_3 + x_4 = 10</m>?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            You roll 10 regular 6-sided dice (because you enjoy playing two games of Yahtzee at once).  Assuming the dice are indistinguishable, how many different outcomes are possible?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many ways are there to distribute 7 identical cookies to 5 kids? Some kids might not get any cookies, but you should distribute all 7 cookies.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many functions <m>f:[5] \to [7]</m> are non-decreasing?  For example, one such function is <m>f = \twoline{1 \amp 2 \amp 3 \amp 4 \amp 5}{2 \amp 5 \amp 5 \amp 6 \amp 7}</m>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            How many ways can you put 10 identical books on the 4 shelves of a bookcase?  Assume each shelf could hold up to 10 books, and that all the books are always shoved all the way to the left (so we are not worried about where the books are on an individual shelf, just which shelf they go on).
+          </p>
+        </statement>
+      </task>
+    </exploration>
+
+
 </subsection>
 
 <subsection xml:id="subsec-moredistributions">
@@ -1010,7 +1199,7 @@
   </solution>
 </example>
 
-<exploration category="essential for this or the next section">
+<exploration xml:id="act-comp-dist" category="essential for this or the next section">
   <statement>
     <p>
       Explain the connection between compositions of <m>k</m> into <m>n</m>
@@ -1026,6 +1215,35 @@
       of objects given to recipient number <m>i</m>.
     </p>
   </solution>
+</exploration>
+
+<exploration>
+  <introduction>
+    <p>
+      The previous exercise suggests that you can represent compositions as stars and bars strings as well.  
+    </p>
+  </introduction>
+  <task>
+    <statement>
+      <p>
+        Consider the composition of 5 into 3 parts: <m>1+3+1</m>.  This is like giving 1 apple to the first kid, 3 to the second, and 1 to the last.  What stars and bars string would you use for this?
+      </p>
+    </statement>
+  </task>
+  <task>
+    <statement>
+      <p>
+        Explain why <m>*||****</m> does not represent any composition.  What must be true of a stars and bars string for it to correspond to a composition?
+      </p>
+    </statement>
+  </task>
+  <task>
+    <statement>
+      <p>
+        Use your classification of valid stars and bars strings to justify that there are <m>\binom{k-1}{n-1}</m> compositions of <m>k</m> into <m>n</m> parts.
+      </p>
+    </statement>
+  </task>
 </exploration>
 
   <p>
