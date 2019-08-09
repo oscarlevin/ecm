@@ -708,7 +708,7 @@
       </exploration>
 
       <p>
-        Derangments are in interesting are in combinatorics in their own right.  In <xref ref="sec_basic-proofs"/> you were  proved a few results using combinatorial proofs.  In particular, we established the following, which you might try to prove again here.
+        Derangments are interesting in their own right.  In <xref ref="sec_basic-proofs"/> you proved a few results using combinatorial proofs.  In particular, we established the following, which you might try to prove again here.
       </p>
       
       <theorem xml:id="thm-derangement-recursion">

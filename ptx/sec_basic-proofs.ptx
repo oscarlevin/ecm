@@ -958,8 +958,23 @@ many ways can you pair up the next person who isn't already paired up?
     </exploration>
 
     <p>
-      Notice that the only thing we needed to find the algebraic formula for binomial coefficients was the product principle and a willingness to solve a counting problem in two ways.  In <xref ref="sec_basic-quotient"/> we will consider this formula again from the other direction.
+      Notice that the only thing we needed to find the algebraic formula for binomial coefficients was the product principle and a willingness to solve a counting problem in two ways.  In <xref ref="sec_basic-quotient"/> we will consider this formula again from the other direction.  
     </p>
+
+    <p>
+      There are non-combinatorial proofs of this formula as well.
+    </p>
+
+    <exploration>
+      <statement>
+        <p>
+          Use the binomial theorem and the fact that <m>(x+1)^n = (x+1)^{n-1} + x(x+1)^{n-1}</m> to derive the factorial formula
+          <me>
+            \binom{n}{k} = \frac{n!}{(n-k)!k!}
+          </me>.
+        </p>
+      </statement>
+    </exploration>
 
   </subsection>
 
@@ -1556,5 +1571,104 @@ many ways can you pair up the next person who isn't already paired up?
         </example>
   </subsection>
 
+  <subsection xml:id="subsec-non-comb-proofs">
+    <title>Non-combinatorial Proofs in Combinatorics</title>
+    
+    <p>
+      In this section we have stressed a particular style of proof unique to combinatorics: <em>combinatorial proof</em>.  As suggested a few place above, there are often other interesting proofs of combinatorial results that don't use this technique.  We close this section with a few more examples of particularly elegant, non-combinatorial proofs.
+    </p>
+    
+    <p>
+      We start with a well known theorem about the relationship between square and triangular numbers.
+    </p>
+    
+    <theorem xml:id="thm-square-triangle-sum">
+      <statement>
+        <p>
+          <m>n^2 = \binom{n}{2} + \binom{n+1}{2}</m>. 
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The key insight here is that <m>\binom{n+1}{2} = T_{n}</m>, the <m>n</m>th triangular number.  With this, there is an easy <q>picture proof.</q>  Here is the picture for <m>n = 4</m>:
+        </p>
+        <image width="30%" xml:id="square-triangle-sum">
+          <latex-image>
+            \begin{tikzpicture}
+              \foreach \x in {0,...,3}{
+                \foreach \y in {0,...,3}{
+                  \draw[fill] (\x,\y) circle (2pt);
+                }
+              }
+              \draw (0.5,0) -- (3,2.5);
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <p>
+          Using the factorial formula for <m>\binom{n}{k}</m> is also straight forward, although dull.
+        </p>
+      </proof>
+    </theorem>
+    
+    <p>
+      This result is surprisingly useful.
+    </p>
+    
+    <example xml:id="eg-sum-of-squares">
+      <statement>
+        <p>
+          Prove <m>1^2 + 2^2 + 3^2 + \cdots + n^2 = \binom{n+2}{3} + \binom{n+1}{3}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The sum can be recharacterized using <m>n^2 = \binom{n}{2}+\binom{n+1}{2}</m> as follows:
+          <md>
+            <mrow> \amp 1^2 + \left[\binom{2}{2}+\binom{3}{2}\right]+ \left[\binom{3}{2} + \binom{4}{2}\right] + \cdots + \left[\binom{n}{2} + \binom{n+1}{2}\right] </mrow>
+            <mrow> = \amp \left[\binom{2}{2} + \binom{3}{2} + \binom{4}{2} + \cdots + \binom{n+1}{2}\right] + \left[\binom{2}{2} + \binom{3}{2} + \cdots + \binom{n}{2}\right] </mrow>
+            <mrow> = \amp \binom{n+2}{3} + \binom{n+1}{3}</mrow>
+          </md>
+          using the Hockey Stick Theorem twice.          
+        </p>
+      </solution>
+    </example>
+    
+    <exploration>
+      <statement>
+        <p>
+          Use <xref ref="thm-square-triangle-sum"/> to prove 
+          <m> 1^2 + 3^2 + 5^2 + \cdots + n^2 = \binom{n+2}{3}</m> for odd <m>n</m>.
+        </p>
+      </statement>
+    </exploration>
+    
+    <exploration>
+      <statement>
+        <p>
+          The following identity has its roots in the problem of enumerating the number of squares in an <m>n</m> by <m>n+1</m> checkerboard.
+          <me>
+            1\cdot n^2 + 2(n-1)^2 + 3(n-2)^2 + \cdots + n\cdot 1^2 = \binom{n+2}{4} + \binom{n+3}{4}
+          </me>.
+          Prove this.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Using <xref ref="eg-sum-of-squares"/> many times the left-hand side becomes can be decomposed as,
+          <md>
+            <mrow>1^2 + 2^2 + 3^2 + \cdots + n^2 = \amp \binom{n+1}{3} + \binom{n+2}{3} </mrow>
+            <mrow> 1^2 + 2^2 + \cdots +(n-1)^2 = \amp \binom{n}{3} + \binom{n+1}{3}</mrow>
+            <mrow> 1^2 + 2^2 + \cdots +(n-2)^2 = \amp \binom{n-1}{3} + \binom{n}{3}</mrow>
+            <mrow> \vdots \amp \vdots </mrow>
+            <mrow> 1^2 + 2^2 = \amp \binom{3}{3} + \binom{4}{3} </mrow>
+            <mrow> 1^2 = \amp  \binom{3}{3} </mrow>
+          </md>.
+          What does this have to do with the problem and why does it help?  Add all the columns!  
+        </p>
+      </hint>
+    </exploration>
+    
+
+  </subsection>
 
 </section>

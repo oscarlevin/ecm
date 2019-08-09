@@ -960,11 +960,14 @@
         <p>
           Find the generating function for the solutions to the recurrence
           <me>
+            a_i=5a_{i-1}-6a_{i-2}
+          </me>.
+          <!-- <me>
             a_i=5a_{i-1}-6a_{i-2} + 2^i.
-          </me>
+          </me> -->
         </p>
       </statement>
-      <solution>
+      <!-- <solution>
           <p>
           <md>
           <mrow>\sum_{i=2}^\infty a_ix^i  \amp=  \sum_{i=2}^\infty
@@ -978,7 +981,7 @@
           <mrow>\sum_{i=0}^\infty a_ix^i \amp=  \frac{a_0-1+(a_1-5a_0-2)x}{1-5x+6x^2}+ \frac{1}{1-5x+6x^2}\cdot\frac{1}{1-2x}</mrow>
           </md>
           </p>
-      </solution>
+      </solution> -->
     </exploration>
     
     <p>
@@ -1218,7 +1221,7 @@
       </statement>
       <solution>
         <p>
-          Start with the generating function for the sequence <m>1, 1, 2, 3, 5</m>, which we saw above is 
+          Start with the generating function for the sequence <m>1, 1, 2, 3, 5</m>, which we saw in <xref ref="originalFibonacci"/> is 
           <me>\frac{1}{1-x-x^2} = 1 + x + 2x^2 + \cdots + F_{n+1}x^n+ \cdots</me>.
           Of course we also have 
           <me>
@@ -1235,11 +1238,11 @@
             <mrow> + (\amp x^3 + 3x^4 + 3x^5 + x^6)</mrow>
             <mrow> \amp + (x^4 + 4x^5 + 6x^6 + 4x^7 + x^8) + \cdots </mrow>
           </md>.
-          Look at the coefficient of <m>x^4</m>, for example.  We have <m>F_5 = 1 + 3 + 1 = \binom{4}{0} + \binom{3}{1} + \binom{2}{2}</m>.  It should be clear that this works in general: the coefficient of <m>x^n</m> will be <m>F_{n+1}</m> on the one hand, and <m>\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2}+ \cdots</m> on the other
+          Look at the coefficient of <m>x^4</m>, for example.  We have <m>F_5 = 1 + 3 + 1 = \binom{4}{0} + \binom{3}{1} + \binom{2}{2}</m>.  It should be clear that this works in general: the coefficient of <m>x^n</m> will be <m>F_{n+1}</m> on the one hand, and <m>\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2}+ \cdots</m> on the other.
         </p>
       </solution>
     </example>
- <!-- TODO: should this go here? -->
+
     <p>
       We also point out that there are other techniques for getting the generating function for a sequence other than the <q>differencing</q> we have used above.  We illustrate this with an extreme example.
     </p>
@@ -1258,7 +1261,7 @@
         <p>
           First we note a sort of recurrence: <m>(n+1)a_{n+1} = (4n+2)a_n</m>.  To verify this use the factorial formula for <m>\binom{n}{k}</m>:
           <me>
-            (n+1)a_{n+1} = (n+1)\binom{2n+2}{n+1} = (n+1)\frac{(2n+2)(2n+1)}{(n+1)!(n+1)!}(2n)! = (4n+2)\binom{2n}{n} = (4n+2)a_n
+            (n+1)a_{n+1} = (n+1)\binom{2n+2}{n+1} = (n+1)\frac{(2n+2)(2n+1)}{(n+1)!(n+1)!}(2n)! = (4n+2)\binom{2n}{n} 
           </me>.
         </p>
         <p>
@@ -1273,7 +1276,7 @@
           
           Using the recurrence above, we have
           <me>
-            \sum_{n=0}^\infty (n+1)a_{n+1}x^n = 4\sum_{n=0}^\infty 4na_nx^n + 2\sum_{n=0}^\infty a_nx^n
+            \sum_{n=0}^\infty (n+1)a_{n+1}x^n = 4\sum_{n=0}^\infty na_nx^n + 2\sum_{n=0}^\infty a_nx^n
           </me>.
           This means 
           <me>
@@ -1398,9 +1401,9 @@
         </p>
         
         <p>
-          Note that the denominator of the generating function factors as <m>(1+x)(1-4x)</m>.  We write
+          Note that the denominator factors as <m>(1+x)(1-4x)</m>.  We write
           <me>
-            \frac{1}{1-3x-4x^2} = \frac{c}{1+x}+\frac{d}{1+4x}
+            \frac{1}{1-3x-4x^2} = \frac{c}{1+x}+\frac{d}{1-4x}
           </me>
           and solve for <m>c</m> and <m>d</m>.  This is done by finding a common denominator and equating the numerators to get
           <me>
@@ -1519,7 +1522,7 @@
     <exploration xml:id="solveFibonacci" category="essential">
       <task>
         <statement>
-          <p>Use the partial fractions decomposition you found in <xref ref="factorFibonacci"/> to write the generating function you found in <xref ref="originalFibonacci"/> in the form
+          <p>Use the partial fractions decomposition you found in <xref ref="fractionFibonacci"/> to write the generating function you found in <xref ref="originalFibonacci"/> in the form
             <me>
               \sum_{n=0}^\infty a_nx^i
             </me>
@@ -1652,7 +1655,7 @@
     </activity>
     
     <p>
-      The point of the previous exercise is to notice how generating functions illustrat where the extra factor of <m>n</m> comes from in the general form <m>a_n = \alpha r^n + \beta n r^n</m> you get for a closed formula when using the characteristic root technique on a recurrence that gives you a repeated root <m>r</m>.  For any <m>r</m>, we have the power series
+      The point of the previous exercise is to notice how generating functions illustrate where the extra factor of <m>n</m> comes from in the general form <m>a_n = \alpha r^n + \beta n r^n</m> you get for a closed formula when using the characteristic root technique on a recurrence that gives you a repeated root <m>r</m>.  For any <m>r</m>, we have the power series
       <me>
         \frac{1}{(1-rx)^2} = 1 + 2(rx) + 3(rx)^2 + \cdots + (n+1)(rx)^n + \cdots
       </me>,

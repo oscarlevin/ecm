@@ -22,7 +22,7 @@
     </p>
 
     <p>
-      Even the formula for binomial coefficients, <m>\binom{n}{k} = \frac{n!}{(n-k)!k!}</m> comes from partitioning the <m>k</m>-permutations of <m>[n]</m> into blocks according to which subset of <m>[n]</m> is selected (and then <m>\binom{n}{k}</m> is precisely the number of blocks).
+      Even the formula for binomial coefficients, <m>\binom{n}{k} = \frac{n!}{(n-k)!k!}</m>, comes from partitioning the <m>k</m>-permutations of <m>[n]</m> into blocks according to which subset of <m>[n]</m> is selected (and then <m>\binom{n}{k}</m> is precisely the number of blocks).
     </p>
 
     <p>

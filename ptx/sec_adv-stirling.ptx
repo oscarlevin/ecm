@@ -23,7 +23,7 @@
     </p>
 
     <p>
-      Even the formula for binomial coefficients, <m>\binom{n}{k} = \frac{n!}{(n-k)!k!}</m> comes from partitioning the <m>k</m>-permutations of <m>[n]</m> into blocks according to which subset of <m>[n]</m> is selected (and then <m>\binom{n}{k}</m> is precisely the number of blocks).
+      Even the formula for binomial coefficients, <m>\binom{n}{k} = \frac{n!}{(n-k)!k!}</m>, comes from partitioning the <m>k</m>-permutations of <m>[n]</m> into blocks according to which subset of <m>[n]</m> is selected (and then <m>\binom{n}{k}</m> is precisely the number of blocks).
     </p>
 
     <p>
@@ -97,7 +97,7 @@
     </activity>
     
     <p>
-      Both of the previous two activities can be solved by counting partitions.  The difference comes down to whether we partition a set of distinct objects or identical objects.  It is not immediately clear how to model partitiong identical objects, and we will put this off until <xref ref="sec_adv-linearparts"/>.  Partitioning <em>distinct</em> objects simply means finding a partition of a set, the topic of the current section.
+      Both of the previous two activities can be solved by counting partitions.  The difference comes down to whether we partition a set of distinct objects or identical objects.  It is not immediately clear how to model partitioning identical objects, and we will put this off until <xref ref="sec_adv-linearparts"/>.  Partitioning <em>distinct</em> objects simply means finding a partition of a set, the topic of the current section.
     </p>
     
   </introduction>
@@ -286,7 +286,7 @@
           <p>
             Group B: 
             <md>
-              <mrow>\{2\}, ~ \{1,2\}, ~ \{4\}</mrow>
+              <mrow>\{3\}, ~ \{1,2\}, ~ \{4\}</mrow>
               <mrow>\{2\}, ~ \{1,3\}, ~ \{4\}</mrow>
               <mrow>\{2\}, ~ \{1,4\}, ~ \{3\}</mrow>
               <mrow>\{1\}, ~ \{2,3\}, ~ \{4\}</mrow>
@@ -449,7 +449,7 @@
     </exploration>
 
     <p>
-      We do not have an explicit formula for either the number of surjections or for <m>S(k,n)</m> yet, but note that if we could find either, we would now have both.  We will see one approach to this in <xref ref="sec_adv-pie"/>.
+      We do not have an explicit formula for either the number of surjections or for <m>S(k,n)</m> yet, but note that if we could find either, we would now have both.  We will see one approach to this soon.
     </p>
 
 
@@ -906,6 +906,8 @@
       This is an example of a <term>multinomial coefficient</term>.  Although these are not directly related to Stirling numbers, we can use the ideas of type vectors to investigate them.  Let's do that now.
     </p>
 
+    <!-- TODO: needs examples? -->
+
     <activity category="essential">
         <statement>
           <p>
@@ -1017,7 +1019,7 @@
     <p>
       The entries in the Pascal Triangle, <m>\binom{n}{k}</m>, satisfy the nice recursion <m>\binom{n}{k} = \binom{n - 1}{k} + \binom{n - 1}{k - 1}</m> and also have a closed formula: <m>\binom{n}{k} = \frac{n!}{k!(n - k)!}</m>.
       <xref ref="secondstirlingrecurrence"/> gives us a
-      recursion for the Stirling numbers <m>S(n,k)</m> and, unfortunately, the best we can do for a <q>closed</q> formula is the following.<fn>This is not really a closed formula since the number of terms in the summation is not fixed.</fn>
+      recursion for the Stirling numbers <m>S(k,n)</m> and, unfortunately, the best we can do for a <q>closed</q> formula is the following.<fn>This is not really a closed formula since the number of terms in the summation is not fixed.</fn>
     </p>
 
     <theorem xml:id="thm-stirling-closed">
@@ -1029,7 +1031,7 @@
     </theorem>
 
     <p>
-      We will prove this following an approach due to Polya.  The idea is compare Stirling numbers to surjections, which we know how to count using the principle of inclusion and exclusion (see <xref ref="subsec_apps-of-pie"/>).
+      We will prove this following an approach due to Polya.  The idea is to compare Stirling numbers to surjections, which we know how to count using the principle of inclusion and exclusion (see <xref ref="subsec_apps-of-pie"/>).
     </p>
     
     <activity xml:id="act_stirlingpie">
@@ -1178,7 +1180,7 @@
     </exploration>
     
     <p>
-      As an example of the previous two theorem, consider how to write <m>x^3</m>.
+      As an example of the previous two theorems, consider how to write <m>x^3</m>.
     </p>
     
     <p>
@@ -1309,7 +1311,7 @@
 
     <p>
       The Bell number, <m>B_{k}</m>, denotes the number of ways that a set of <m>k</m> objects can be partitioned into nonempty subsets.
-      We have already seen how to partition a set of <m>k</m> objects into exactly <m>n</m> subsets: <m>S(k,n)</m>.  So on its face, <m>B_k = \sum_{n=1}^kS(k,n)</m>.
+      We have already seen how to partition a set of <m>k</m> objects into exactly <m>n</m> subsets: <m>S(k,n)</m>.  So then <m>B_k = \sum_{n=1}^kS(k,n)</m>.  We take <m>B_0 = 1</m>.
     </p>
 
     <p>
@@ -1317,7 +1319,7 @@
       <me>
         1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, 115975, \ldots
       </me>
-      Notice that the first four numbers look like Catalan numbers.  In fact, one of the many things the Catalan numbers count are <em>non-intersecting</em> set partitions.  Once you believe this, you see that <m>C_n \le B_n</m> for all <m>n</m>.
+      Notice that the first four numbers look like Catalan numbers.  In fact, one of the many things the Catalan numbers count are <em>non-crossing</em> set partitions.<fn>A set partition is said to be <term>non-crossing</term> as long as whenever <m>a,b</m> belong to one block and <m>c,d</m> belong to another, we have that <m>a</m> and <m>b</m> are both either larger or smaller than both of <m>c</m> and <m>d</m>.</fn>  So if <m>C_n</m> counts only some of the set partitions, then it must be that <m>C_n \le B_n</m> for all <m>n</m>.
     </p>
 
 
@@ -1538,6 +1540,23 @@
       rhyme schemes of a five-line stanza <m>B_{5} = 52</m> as early as 1000
       A.D. in the <em>Tale of the Genji</em> by Lady Shikibu Murasaki.
     </p>
+
+    <exploration>
+      <statement>
+        <p>
+          List all 15 rhyme schemes for a four-line stanza.  Identify the <m>C_4 = 14</m> such schemes that are <q>planar</q> (and say what this means).
+        </p>
+      </statement>
+    </exploration>
+    
+    <exploration>
+      <statement>
+        <p>
+          List all 15 set partitions of <m>[4]</m>.  Identify the <m>C_4 = 14</m> such partitions that are <q>non-crossing</q> (and say what this means).
+        </p>
+      </statement>
+    </exploration>
+    
 
     <p>
       We conclude with an interesting exercise.
