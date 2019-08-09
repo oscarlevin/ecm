@@ -1188,6 +1188,7 @@
 </example>
 
 <example category="interesting">
+  <!-- TODO: from RG, add picture -->
   <statement>
     <p>The answer in <xref ref="compositionagian"/> can be expressed as a binomial coefficient. This means it should be possible to interpret a composition as a subset of some set. Find a bijection between compositions of <m>k</m> into <m>n</m> parts and certain subsets of some set.  Explain explicitly how to get the composition from the subset and the subset from the composition.
     </p>
@@ -1253,6 +1254,8 @@
   <p>
     Here is another example, which we already have the tools to address.
   </p>
+
+<!-- TODO: Could use an example -->
 
   <exploration xml:id="brokenpermutation" category="essential for this or the next section, and interesting">
     <statement>

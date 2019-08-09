@@ -354,7 +354,7 @@
         </p>
         <p>
         First, notice that the lattice paths must have an equal number of R's and U's.  Similarly, the string of movie patrons must have an equal number of H's and D's. 
-        Further, every initial substring of R's and U's must have at least as many R's as U's, so that the path does not go above the line <m>y=x</m>.  Similarly, the every initial substring of H's and D's must have at least as many D's as H's, so that change can always be given.  
+        Further, every initial substring of R's and U's must have at least as many R's as U's, so that the path does not go above the line <m>y=x</m>.  Similarly, the every initial substring of H's and D's (half dollars and dollars) must have at least as many H's as D's, so that change can always be given.  The H's and R's must <em>dominate</em>.
         </p>
 
         <p>
@@ -578,7 +578,7 @@
     </activity>
 
     <p>
-      So <m>C_n = \binom{2n}{n} - \binom{2n}{n+1}</m>.  Another formula you might run into is <m>C_n = \frac{1}{n+1}\binom{2n}{n}</m>.  Why is also correct?
+      So <m>C_n = \binom{2n}{n} - \binom{2n}{n+1}</m>.  Another formula you might run into is <m>C_n = \frac{1}{n+1}\binom{2n}{n}</m>.  Why is this also correct?
     </p>
   <!-- TODO: add pascal triangle picture???? -->
     <exploration>
@@ -621,7 +621,7 @@
       <exploration>
         <statement>
           <p>
-            Show by example, how the bijection between Dyck words and valid parenthesizing works.  To do this, list the <m>C_4 = 14</m> valid Dyck words, then list the <m>C_4 = 14</m> ways to parenthesize <m>abcde</m>, in the corresponding order.
+            Show, by example, how the bijection between Dyck words and valid parenthesizing works.  To do this, list the <m>C_4 = 14</m> valid Dyck words, then list the <m>C_4 = 14</m> ways to parenthesize <m>abcde</m>, in the corresponding order.
           </p>
         </statement>
         <solution>
@@ -745,7 +745,7 @@
       <exploration>
         <statement>
           <p>
-            <m>2n</m> kids, all of different heights must line up for a class picture.  They will do this in two equal rows, but for variety, they will take a picture from the front and from the right.  How many ways can the kids line up so that both pictures don't have any taller kid blocking a shorter kid?
+            <m>2n</m> kids, all of different heights, must line up for a class picture.  They will do this in two equal rows, but for variety, they will take a picture from the front and from the right.  How many ways can the kids line up so that both pictures don't have any taller kid blocking a shorter kid?
           </p>
         </statement>
       </exploration>
@@ -753,7 +753,7 @@
       <exploration>
         <statement>
           <p>
-            Consider the graph <m>P_n</m> (a path with <m>n</m> edges and <m>n+1</m> vertices).  Call one of the endpoints of the path <m>v</m>.  How many walks of length <m>2n</m> start and stop at <m>v</m>?  Recall a walk in a graph is a sequence of adjacent vertices (think of tracing along edges of the graph), that does allow for repeated vertices.
+            Consider the graph <m>P_n</m> (a path with <m>n</m> edges and <m>n+1</m> vertices).  Call one of the endpoints of the path <m>v</m>.  How many walks of length <m>2n</m> start and stop at <m>v</m>?  A walk in a graph is a sequence of adjacent vertices (think of tracing along edges of the graph), that does allow for repeated vertices.
           </p>
         </statement>
         <solution>

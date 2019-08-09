@@ -8,7 +8,7 @@
   </p>
 
   <p>
-    Your favorite milk-shake dinner has 11 stools along the bar.  Patrons of the dinner have a rule that no two adjacent stools can be simultaneously occupied.  In how many ways can the stools be occupied by any number of patrons (including no patrons at all, leaving all stools unoccupied)?
+    Your favorite milk-shake diner has 11 stools along the bar.  Patrons of the diner have a rule that no two adjacent stools can be simultaneously occupied.  In how many ways can the stools be occupied by any number of patrons (including no patrons at all, leaving all stools unoccupied)?
   </p>
 
     <p>
@@ -155,7 +155,7 @@
   </statement>
   <hint>
     <p>
-      How many new handshakes occure when a new person enters the room?
+      How many new handshakes occur when a new person enters the room?
     </p>
   </hint>
 </exploration>
@@ -191,6 +191,9 @@
       <p>
         The <q>Towers of Hanoi</q> puzzle has three rods rising from a rectangular base with <m>n</m> rings of different sizes stacked in decreasing order of size on one rod. A legal move consists of moving a ring from one rod to another so that it does not land on top of a smaller ring. If <m>m_n</m> is the number of moves required to move all the rings from the initial rod to another rod that you choose, give a recurrence for <m>m_n</m>.
       </p>
+      <image width="50%" source="images/Hanoi">
+        
+      </image>
     </statement>
     <hint>
       <p>
@@ -222,7 +225,9 @@
     </hint>
     <solution>
       <p>
-        One circle defines two regions, the inside and outside. When we draw a second circle that intersects the first, we can start at one of the intersection points and go inside the first circle, cutting its region into two pieces, and then when we leave it we cut the outside region into two pieces. This suggests the general pattern. If we have drawn <m>n-1</m> circles and start a new one, each time we enter a circle, we start dividing a region into two pieces. Each time we leave a circle, we also start dividing a region into two pieces. Thus if we have <m>r_n</m> regions with <m>n</m> circles, to get the number of regions, we note that in going from <m>n-1</m> circles to <m>n</m> circles, we start with <m>r_{n-1}</m> regions, and divide <m>2(n-1)</m> of them in half, so we get <m>2n-2</m> new regions. This gives us <m>r_n=r_{n-1}+2(n-1)</m>. Notice that by substitution of the formula <m>r_{n-1}=r_{n-2} +2(n-2)</m>, we get <m>r_n=r_{n-2}+ 2(n-2) +2(n-1)</m>, and would guess that <m>r_n=r_{n-3}+2(n-3)+2(n-2) +2(n-1)</m>. This leads to the conjecture <me>   r_n=r_1  +2\cdot1+2\cdot2+\cdots+2\cdot(n-1)=r_1+2\sum_{i=1}^{n-1}   i=2+n(n-1). </me>
+        One circle defines two regions, the inside and outside. When we draw a second circle that intersects the first, we can start at one of the intersection points and go inside the first circle, cutting its region into two pieces, and then when we leave it we cut the outside region into two pieces. This suggests the general pattern. If we have drawn <m>n-1</m> circles and start a new one, each time we enter a circle, we start dividing a region into two pieces. Each time we leave a circle, we also start dividing a region into two pieces. 
+        Thus if we have <m>r_n</m> regions with <m>n</m> circles, to get the number of regions, we note that in going from <m>n-1</m> circles to <m>n</m> circles, we start with <m>r_{n-1}</m> regions, and divide <m>2(n-1)</m> of them in half, so we get <m>2n-2</m> new regions. This gives us <m>r_n=r_{n-1}+2(n-1)</m>. 
+        Notice that by substitution of the formula <m>r_{n-1}=r_{n-2} +2(n-2)</m>, we get <m>r_n=r_{n-2}+ 2(n-2) +2(n-1)</m>, and would guess that <m>r_n=r_{n-3}+2(n-3)+2(n-2) +2(n-1)</m>. This leads to the conjecture <me>   r_n=r_1  +2\cdot1+2\cdot2+\cdots+2\cdot(n-1)=r_1+2\sum_{i=1}^{n-1}   i=2+n(n-1). </me>
       </p>
 
       <p>
@@ -546,7 +551,7 @@
   <activity>
     <introduction>
       <p>
-        Let <m>(a_n)_{n \ge 1}</m> be any arithmetic sequence.  Say <m>a_n = dn + c</m> (so <m>d</m> is the common difference and <m>c = a_1 - d</m>, what <m>a_0</m> would be if it were part of the sequence).  What can we say about the closed formula for <m>b_n = \sum_{i=1}^n a_i</m>?
+        Let <m>(a_n)_{n \ge 1}</m> be any arithmetic sequence.  Say <m>a_n = dn + c</m> (so <m>d</m> is the common difference and <m>c = a_1 - d = a_0</m>, if <m>a_0</m> were part of the sequence).  What can we say about the closed formula for <m>b_n = \sum_{i=1}^n a_i</m>?
       </p>
     </introduction>
     <task>
@@ -615,7 +620,7 @@
     <task>
       <statement>
         <p>
-          What is special about sums of arithmetic sequences that allow you to do this computation?  Explain.
+          What is special about sums of arithmetic sequences that allows you to do this computation?  Explain.
         </p>
       </statement>
     </task>
@@ -883,7 +888,7 @@
   <example xml:id="eg_char-roots">
     <statement>
       <p>
-        Find a closed formula for the sequence <m>(a_n)_{n \ge 1}</m> given recursively by <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial conditions <m>a_1 = 3</m> and <m>a_2 = 13</m>.  (This is the sequence of square/domino paths from <xref ref="act-dominoes"/>.)
+        Find a closed formula for the sequence <m>(a_n)_{n \ge 1}</m> given recursively by <m>a_n = 3a_{n-1} + 4a_{n-2}</m> with initial conditions <m>a_1 = 3</m> and <m>a_2 = 13</m>.  (This is the sequence of colorful square/domino paths from <xref ref="act-dominoes"/>.)
       </p>
     </statement>
     <!-- <hint>
@@ -929,7 +934,7 @@
   <exploration xml:id="act-binet">
     <statement>
       <p>
-        Find a closed formula for the <m>n</m>th Fibonacci number.  Since <m>F_n = F_{n-1} + F_{n-2}</m>, the characteristic root technique should work here.  (The formula you will find is called Binet's Formula.)
+        Find a closed formula for the <m>n</m>th Fibonacci number <m>F_n</m>, where <m>F_1 = 1 = F_2</m> and <m>F_n = F_{n-1} + F_{n-2}</m>.  From the form of this recurrence, the characteristic root technique should work here.  (The formula you will find is called Binet's Formula.)
       </p>
     </statement>
     <hint>
@@ -1022,13 +1027,13 @@
     <solution>
       <p>
         If we collect some initial data we see that the sequence of partial sums is <m>0, 1, 2, 4, 7, 12, 20, \ldots</m>.  We might recognize these numbers as always one less than a Fibonacci number, and guess that 
-        <me>F_0 + F_1 + F_2 + \cdot + F_n = F_{n+1} - 1.</me>
+        <me>F_0 + F_1 + F_2 + \cdot + F_n = F_{n+2} - 1.</me>
       </p>
       <p>
-        We could prove this by induction, but for fun, here is a clevery observation that finishes the problem: <m>F_k = F_{k+1} - F_{k-1}</m> (just rearrange the recurrence relation).  Now replace each term after <m>F_0</m>:
-        <me> F_0 + (F_2 - F_0) + (F_3 - F_1) + (F_4 - F_2) + (F_5 - F_3) + \cdots + (F_{n+1} - F_{n-1})</me>.
+        We could prove this by induction, but for fun, here is a clever observation that finishes the problem: <m>F_k = F_{k+2} - F_{k+1}</m> (just rearrange the recurrence relation).  Now replace each term after <m>F_0</m>:
+        <me> F_0 + (F_3 - F_2) + (F_4 - F_3) + (F_5 - F_4) + \cdots + (F_{n+1} - F_n)+ (F_{n+2} - F_{n+1})</me>.
         Almost every term cancels (telescopes) leaving only 
-        <me>-F_1 + F_{n+1}</me>
+        <me>-F_1 + F_{n+2}</me>
         which is of course what we are looking for.
       </p>
     </solution>

@@ -9,7 +9,7 @@
       The integers can be naturally partitioned into evens and odds.  In fact, this is just a specific case of partitioning the integers by their reminder when divided by a fixed constant; another example is that every integer has remainder 0, 1, or 2 when divided by 3.
     </p>
     <p>
-      Finite sets also have natural partitions: the set of all 4-bit strings can be partitioned according to weight: <me>\B^4_0 \cup \B^4_1 \cup B_4^2 \cup \B^4_3 \cup \B^4_4 = \B^4</me>.
+      Finite sets also have natural partitions: the set of all 4-bit strings can be partitioned according to weight: <me>\B^4_0 \cup \B^4_1 \cup B^4_2 \cup \B^4_3 \cup \B^4_4 = \B^4</me>.
       Using the sum principle on these disjoint sets leads directly to the identity
       <m>\binom{4}{0} + \binom{4}{1} + \binom{4}{2} + \binom{4}{3} + \binom{4}{4} = 2^4</m>
       (and of course the 4 can be replaced with any <m>n</m> here).

@@ -566,10 +566,10 @@
       <example>
         <statement>
           <p>
-            Restricting the number or type of parts often leads to intersting relationships.  We must be careful about what we mean here though.  For example, here are three different sorts of <q>even</q> partitions for <m>k = 10</m>: 
+            Restricting the number or type of parts often leads to interesting relationships.  We must be careful about what we mean here though.  For example, here are three different sorts of <q>even</q> partitions for <m>k = 10</m>: 
           </p>
           
-          <sidebyside width="30%" valign="top">
+          <sidebyside widths="20% 30% 40%" valign="top">
               <p>
                 Even parts:
                 <md>
@@ -1282,6 +1282,35 @@ If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, wo
       </statement>
     </example>
 
+    <!-- TODO: check/fix this: -->
+    <example>
+      <statement>
+        <p>
+          Explain why the generating function for the number of partitions of an integer into exactly <m>m</m> parts is 
+          <me>
+            \frac{x^m}{(1-x)(1-x^2)\cdots(1-x^m)}
+          </me>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          By considering a Young diagram and its compliment, we saw that there is a one to one correspondence between partitions that have exactly <m>m</m> parts and partitions that have <m>m</m> as their largest part.  
+        </p>
+        <p>
+          The generating function for the number of partitions of integers having <em>at most</em> <m>m</m> parts is 
+          <me>
+            \frac{1}{(1-x)(1-x^2)\cdots (1-x^m)}
+          </me>.
+          Now subtract those having at most <m>m-1</m> parts:
+          <me>
+            \frac{1}{(1-x)(1-x^2)\cdots (1-x^m)} - \frac{1}{(1-x)(1-x^2)\cdots (1-x^{m-1})} = \frac{x^m}{(1-x)(1-x^2)\cdots(1-x^m)}
+          </me>.
+          
+          
+        </p>
+      </solution>
+    </example>
+
     <!-- <activity category="essential">
         <statement>
             <p>What is the generating function (using <m>q</m> for the variable) for the number of partitions of an integer in which each part is even?
@@ -1302,6 +1331,52 @@ If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, wo
         </solution>
     </activity> -->
 
+    <exploration>
+      <statement>
+        <p>
+          Show that the generating function for the number of partitions of integers into <em>exactly</em> <m>m</m> <em>distinct</em> parts is 
+          <me>
+            \frac{x^{\frac{m(m+1)}{2}}}{(1-x)(1-x^2)\cdots(1-x^m)}
+          </me>.
+        </p>
+      </statement>
+    </exploration>
+
+
+    <example>
+      <statement>
+        <p>
+          Let's illustrate these last few results with <m>m = 3</m>. 
+        </p>
+        <p>
+          First,
+          <me>
+            \frac{1}{(1-x)(1-x^2)(1-x^3)} = 1 + x + 2x^2 + 3x^3 + 4x^5 + 7x^6 + \cdots
+          </me>.
+          This shows that the number of partitions of <m>n = 6</m> into at most 3 parts is <m>7</m>.  The are
+          <md>
+            <mrow>(6) </mrow>
+            <mrow>(5,1) </mrow>
+            <mrow>(4,2) </mrow>
+            <mrow>(4,1,1) </mrow>
+            <mrow>(3,3) </mrow>
+            <mrow>(3,2,1) </mrow>
+            <mrow>(2,2,2) </mrow>
+          </md>.
+          Now multiply the series by <m>x^3</m>.  The term <m>3x^6</m> shows that there are <m>3</m> partitions of <m>n=6</m> in exactly 6 parts.
+        </p>
+        
+        <p>
+          Finally, multiply instead by <m>x^{\frac{m(m+1)}{2}} = x^6</m> (when <m>m = 3</m>) to get <m>x^6 + x^7 + 2x^8 + 3x^9+ 4x^{10} + \cdots</m>.  This shows that only one of the partitions of <m>n=6</m> into 3 parts has its parts distinct.  Further, there are <m>4</m> partitions of <m>n = 10</m> into exactly 3 distinct parts:
+          <md>
+            <mrow>(7,2,1) </mrow>
+            <mrow>(6,3,1) </mrow>
+            <mrow>(5,4,1) </mrow>
+            <mrow>(5,3,2) </mrow>
+          </md>.
+        </p>
+      </statement>
+    </example>
 
     <exploration>
       <introduction>

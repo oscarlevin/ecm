@@ -1223,7 +1223,7 @@ many ways can you pair up the next person who isn't already paired up?
         </example>
 
         <p>
-          The next identity is an example of the famed <term>Hocky Stick Theorem</term> (find this indentity in Pascal's triangle!).  
+          The next identity is an example of the famed <term>Hockey Stick Theorem</term> (find this identity in Pascal's triangle!).  
         </p>
 
         <exploration>
@@ -1245,11 +1245,11 @@ many ways can you pair up the next person who isn't already paired up?
         </exploration>
 
         <p>
-          For a non-combinatorial proof of the Hocky Stick Theorem, a proof by mathematical induction is an easy option. An algebraic approach is not!
+          For a non-combinatorial proof of the Hockey Stick Theorem, a proof by mathematical induction is an easy option. An algebraic approach is not!
         </p>
 
         <p>
-          If you spend enough time working on these proofs, you might find yourself discovering new identities that use the same basic setup.  You can take the proof you gave for the Hocky Stick Theorem and with a small tweak, get the following.
+          If you spend enough time working on these proofs, you might find yourself discovering new identities that use the same basic setup.  You can take the proof you gave for the Hockey Stick Theorem and with a small tweak, get the following.
         </p>
 
         <example>
@@ -1265,10 +1265,10 @@ many ways can you pair up the next person who isn't already paired up?
           </hint> -->
           <solution>
             <p>
-              You should try to use bit strings again, but this time think about where the <em>second</em> 1 could go.  Or for variety, why not try asking about subsets of <m>[n+2]</m>?
+              You should try to use bit strings again, but this time think about where the <em>second</em> 1 (from the left) in the bit string could go.  Or for variety, why not try asking about subsets of <m>[n+2]</m>?
             </p>
             <p>
-                Let <m>S = \{1,1,2,\ldots,n + 2\}</m>. The number of subsets of <m>S</m> of size 3 is <m>\binom{n + 2}{3}</m>. Each one looks like <m>\{a, b, c\}</m> with <m>a \lt b \lt c</m>.
+                Let <m>S = \{1,2,\ldots,n + 2\}</m>. The number of subsets of <m>S</m> of size 3 is <m>\binom{n + 2}{3}</m>. Each one looks like <m>\{a, b, c\}</m> with <m>a \lt b \lt c</m>.
                 Let's count these by looking at the size of the middle element <m>b</m>. If <m>b=2</m>, there is one choice for <m>a</m>, namely <m>a=1</m> and <m>n</m> choices for <m>c</m> for a total of <m>1 \cdot n</m>. If <m>b=3</m> there are 2 choices for <m>a</m>, and <m>n - 1</m> choices for <m>c</m> for a total of <m>2(n - 1)</m>. If <m>b=4</m> the total is <m>3(n - 2)</m>, and so on. The total derived by looking at cases is <m>1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \cdot 1</m> and this must equal <m>\binom{n + 2}{3}</m> since the cases are disjoint.
             </p>
           </solution>
