@@ -40,5 +40,6 @@ Before tackling questions like these, let's look at the basics of counting.
 <xi:include href="sec_basic-recursion.ptx"/>
 <xi:include href="sec_basic-catalan.ptx"/>
 
+<xi:include href="worksheets/distribution-problems.ptx"/>
 
 </chapter>

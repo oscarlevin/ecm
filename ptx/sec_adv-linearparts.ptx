@@ -1129,10 +1129,10 @@
       </p>
       
       <p>
-        First notice that the <m>x^4</m> in the second factor is really <m>x^{2\cdot 2}</m>.  That is, while the first factor's <m>x^4</m> represents using a four 1's, the second factor's <m>x^4</m> comes from <m>(x^2)^2</m> so represents using two 2's. The fourth factor's <m>x^4</m> means one 4.
+        First notice that the <m>x^4</m> in the second factor is really <m>x^{2\cdot 2}</m>.  That is, while the first factor's <m>x^4</m> represents using four 1's, the second factor's <m>x^4</m> comes from <m>(x^2)^2</m> so represents using two 2's. The fourth factor's <m>x^4</m> means one 4.
       </p>
       <p>  
-         Here are all the ways of forming <m>x^4</m> using the first four factors (we would never need anything beond this), and their corresponding partition.
+         Here are all the ways of forming <m>x^4</m> using the first four factors (we would never need anything beyond this), and their corresponding partition.
         <md>
           <mrow>1\cdot1 \cdot 1 \cdot  x^4 \amp \leftrightarrow  (4) </mrow>
           <mrow>x\cdot 1 \cdot x^3\cdot 1 \amp \leftrightarrow  (3,1) </mrow>
@@ -1367,7 +1367,7 @@ If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, wo
             <mrow>(3,2,1) </mrow>
             <mrow>(2,2,2) </mrow>
           </md>.
-          Now multiply the series by <m>x^3</m>.  The term <m>3x^6</m> shows that there are <m>3</m> partitions of <m>n=6</m> in exactly 6 parts.
+          Now multiply the series by <m>x^3</m>.  The term <m>3x^6</m> shows that there are <m>3</m> partitions of <m>n=6</m> into exactly 3 parts.
         </p>
         
         <p>

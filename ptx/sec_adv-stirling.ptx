@@ -269,7 +269,11 @@
     <example>
       <statement>
         <p>
-          Let's see how to take <m>S(4,2) = 7</m> and <m>S(4,3) = 6</m> to compute <m>S(5,3) = 25</m>.  First, here are the partitions of <m>[4]</m> into 2 blocks (group A) or 3 blocks (group B), side by side:
+          Let's see how to take <m>S(4,2) = 7</m> and <m>S(4,3) = 6</m> to compute <m>S(5,3) = 25</m>.  
+        </p>
+        
+        <p>
+          First, here are the partitions of <m>[4]</m> into 2 blocks (group A) or 3 blocks (group B), side by side:
         </p>
         
         <sidebyside widths="50% 30%" valign="top">

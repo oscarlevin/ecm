@@ -4,7 +4,7 @@
 <xi:include href="./bookinfo.ptx"/>
 
 <book xml:id="mdm">
-    <title>More Discrete Mathematics</title>
+    <title>Exploring Combinatorial Mathematics</title>
     <!-- <subtitle>via Graph Theory</subtitle> -->
 
 

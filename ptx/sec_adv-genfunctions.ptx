@@ -96,6 +96,40 @@
         </statement>
       </task>
     </activity>
+    
+    <exploration>
+      <introduction>
+        <p>
+          Using the connection between dice and polynomials, we can find interesting ways to label dice without modifying probabilities.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Show algebraically that <m>x+x^2 + x^3 + x^4 + x^5 + x^6 = x(1+x+x^2)(1+x)(1-x+x^2)</m>.  Try to do this by factoring instead of multiplying out the right-hand side.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Multiply out the polynomial <m>x(x+1)(x^2+x+1)</m> and also <m>x(x+1)(x^2+x+1)(x^2-x+1)^2</m>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Explain how the previous two parts together allow you to find another way to label dice so that the probability of throwing any number 2 to 12 is the same as for standard dice.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            The new labeling will be <m>\{1,2, 2, 3, 3, 4\}</m> and <m>\{1, 3, 4, 5, 6, 8\}</m>.  These are called Sicherman dice.  Now explain how the polynomials prove that the probabilities for these dice will match standard dice.
+          </p>
+        </hint>
+      </task>
+    </exploration>
 
     <activity>
       <introduction>
@@ -365,6 +399,7 @@
       <p>
         Because we choose to think of power series as strings of symbols that we manipulate by using the ordinary rules of algebra and we choose to ignore issues of convergence, we have to avoid manipulating power series in a way that would require us to add infinitely many real numbers. For example, we cannot make the substitution of <m>y+1</m> for <m>x</m> in the power series <m>\sum_{i=0}^\infty x^i</m>, because in order to interpret <m>\sum_{i=0}^\infty (y+1)^i</m> as a power series we would have to apply the binomial theorem to each of the <m>(y+1)^i</m> terms, and then collect like terms, giving us infinitely many ones added together as the coefficient of <m>y^0</m>, and in fact infinitely many numbers added together for the coefficient of any<nbsp /><m>y^i</m>. (On the other hand, it would be fine to substitute <m>y+y^2</m> for <m>x</m>. Can you see why?)
       </p>
+      
   </subsection>
 
   <subsection>
@@ -1282,7 +1317,7 @@
           <me>
             f'(x) = 4xf'(x) + 2f(x)
           </me>
-          or equivalently <me>\frac{f'(x)}{f(x) = \frac{2}{1-4x}}</me>.
+          or equivalently <me>\frac{f'(x)}{f(x)} = \frac{2}{1-4x}</me>.
           
           Now integrate!  We get <me>\ln f(x) = -\frac{1}{2}\ln(1-4x) + c</me>.
           Since <m>a_0 =1</m>, it must be <m>c = 0</m>.  Finally then, by exponentiating, we arrive at

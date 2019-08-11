@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<worksheet xmlns:xi="http://www.w3.org/2001/XInclude" margin=".5in" bottom=".5in" xml:id="ws_distribution-problems">
+    <title>Distributing <m>k</m> items to <m>n</m> recipients</title>
+
+    <introduction>        
+        <p>
+          Provide a counting formula (such as <m>\binom{n}{k}</m>) and a counting model (such as <q><m>k</m>-elements subsets of <m>[n]</m></q>) that enumerate the number of ways to distribute <m>k</m> items to <m>n</m> recipients under the given conditions.  Mark those that we do not know how to handle yet.
+        </p>
+        
+        <sidebyside width="30%">
+          <p>
+            How items are received:
+          </p>
+          <p>
+            <term>Distinct recipients:</term>
+          </p>
+          <p>
+            <term>Identical recipients:</term>
+          </p>
+        </sidebyside>
+    </introduction>
+
+      <p><term>Distinct items:</term></p>
+      <exercise workspace="3%">
+        <p>
+          No conditions.
+        </p>
+      </exercise>
+      <exercise workspace="3%">
+        <p>
+          Each gets at most one.
+        </p>
+      </exercise>
+      <exercise workspace="3%">
+        <p>
+          Each gets at least one.
+        </p>
+      </exercise>
+      <exercise workspace="3%">
+        <p>
+          Each gets exactly one.
+        </p>
+      </exercise>
+      <exercise workspace="3%">
+        <p>
+          Order matters.
+        </p>
+      </exercise>
+      <exercise workspace="3%">
+        <p>
+          Order matters and each gets at least one.
+        </p>
+      </exercise>
+
+
+    <p>
+      <term>Identical items:</term>
+    </p>
+      <exercise workspace="3%">
+        <p>
+          No conditions.
+        </p>
+      </exercise>
+      <exercise workspace="3%">
+        <p>
+          Each gets at most one.
+        </p>
+      </exercise>
+      <exercise workspace="3%">
+        <p>
+          Each gets at least one.
+        </p>
+      </exercise>
+      <exercise workspace="3%">
+        <p>
+          Each gets exactly one.
+        </p>
+      </exercise>
+
+
+</worksheet>
