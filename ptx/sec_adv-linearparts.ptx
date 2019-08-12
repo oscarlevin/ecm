@@ -1301,10 +1301,11 @@ If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, wo
           By considering a Young diagram and its compliment, we saw that there is a one to one correspondence between partitions that have exactly <m>m</m> parts and partitions that have <m>m</m> as their largest part.  
         </p>
         <p>
-          The generating function for the number of partitions of integers having <em>at most</em> <m>m</m> parts is 
+          The generating function for the number of partitions of integers having <em>largest</em> part <m>m</m> is 
           <me>
             \frac{1}{(1-x)(1-x^2)\cdots (1-x^m)}
           </me>.
+          Thus this is also the number of partitions of integers having <em>at most</em> <m>m</m> parts.
           Now subtract those having at most <m>m-1</m> parts:
           <me>
             \frac{1}{(1-x)(1-x^2)\cdots (1-x^m)} - \frac{1}{(1-x)(1-x^2)\cdots (1-x^{m-1})} = \frac{x^m}{(1-x)(1-x^2)\cdots(1-x^m)}
