@@ -274,11 +274,11 @@ So there is clearly a connection between the parity of vertex degrees and Euler 
 </theorem>
 
 <p>
-We will need to prove these theorems, and doing so will give us an excuse to think about proving theorems in general.  However, note that these theorems answer the bridges of Königsberg problem.  The graph has all four vertices with odd degree, there is no Euler path through the graph.  Thus there is no way for the townspeople to cross every bridge exactly once.
+Note that these theorems answer the bridges of Königsberg problem.  The graph has all four vertices with odd degree, there is no Euler path through the graph.  Thus there is no way for the townspeople to cross every bridge exactly once.
 </p>
 </subsection>
 
-<subsection>
+<!-- <subsection>
   <title>Interlude: Implications and Proofs</title>
   <p>
     We would like to prove the theorems we conjectured above about Euler paths and circuits.  To help us understand how we could do this, and to make sure our proof is correct, we should take a few moments to recall some basic facts about mathematical statements, their logical form, and how this can help us in writing proofs.  A more detailed discussion of these topics is found in <xref ref="sec_background-logic">Sections</xref> and <xref ref="sec_background-proofs" type="global"/>.
@@ -500,12 +500,13 @@ We will need to prove these theorems, and doing so will give us an excuse to thi
   <p>
     How do you prove a universally quantified statement is true?  You must prove the implication is true <em>for all</em> cases.  To prove that for all <m>n</m>, if <m>n^2</m> is even, then so is <m>n</m>, you must prove this for <m>n = 1</m>, <m>n = 2</m>, <m>n =3</m>, etc.  But to get on with your life, you might as well prove it for all of them at once.  Let <m>n</m> be an arbitrary integer.  Now prove the statement for that arbitrary <m>n</m>.  In this case, you might want to assume <m>n</m> is NOT even and prove that <m>n^2</m> is not even, to give a proof by contrapositive.  But since <m>n</m> was arbitrary, you have shown that your poof would work for <em>any</em> value of <m>n</m>.
   </p>
-</subsection>
+</subsection> -->
+
 <subsection>
   <title>Proofs for Euler Paths and Circuits</title>
 
   <p>
-    Now let's try to prove <xref ref="thm-eulercircuit">Theorems</xref> and <xref ref="thm-eulerpath" type="global"/>.  Actually, we really only need to prove one of these, and the other one should follow from it.
+    Let's try to prove <xref ref="thm-eulercircuit">Theorems</xref> and <xref ref="thm-eulerpath" type="global"/>.  Actually, we really only need to prove one of these, and the other one should follow from it.
   </p>
 
   <activity>

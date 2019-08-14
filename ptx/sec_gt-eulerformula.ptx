@@ -161,7 +161,7 @@ WARNING: you can only count faces when the graph is drawn in a planar way. For e
 <subsection>
   <title>Interlude: Mathematical Induction</title>
     <p>
-      The proof technique we will use to establish Euler's formula for planar graphs is called <term>mathematical induction</term>.  This is a technique we will return to many times throughout our studies, so let's take a few moments to understand the logical structure for this style of proof and why it is a valid proof technique.  Additional general practice on induction can be found in <xref ref="sec_background-induction"/>.
+      The proof technique we will use to establish Euler's formula for planar graphs is called <term>mathematical induction</term>.  This is a technique we use many times throughout our studies, so let's take a few moments to understand the logical structure for this style of proof and why it is a valid proof technique.  Additional general practice on induction can be found in <xref ref="sec_background-induction"/>.
     </p>
 
     <activity>

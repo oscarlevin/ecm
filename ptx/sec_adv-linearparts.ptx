@@ -566,7 +566,10 @@
       <example>
         <statement>
           <p>
-            Restricting the number or type of parts often leads to interesting relationships.  We must be careful about what we mean here though.  For example, here are three different sorts of <q>even</q> partitions for <m>k = 10</m>: 
+            Restricting the number or type of parts often leads to interesting relationships.  
+          </p>
+          <p>
+            We must be careful about what we mean.  For example, here are three different sorts of <q>even</q> partitions for <m>k = 10</m>: 
           </p>
           
           <sidebyside widths="20% 30% 40%" valign="top">

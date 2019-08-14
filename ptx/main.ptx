@@ -3,7 +3,7 @@
 
 <xi:include href="./bookinfo.ptx"/>
 
-<book xml:id="mdm">
+<book xml:id="ecm">
     <title>Exploring Combinatorial Mathematics</title>
     <!-- <subtitle>via Graph Theory</subtitle> -->
 

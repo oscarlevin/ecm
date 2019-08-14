@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
 <titlepage>
-<author>
-  <personname>Richard Grassl</personname>
-  <department>School of Mathematical Science</department>
-  <institution>University of Northern Colorado</institution>
-  </author>
-
-<author>
-<personname>Oscar Levin</personname>
-<department>School of Mathematical Science</department>
-<institution>University of Northern Colorado</institution>
-</author>
 
 <date><today/></date>
 </titlepage>
@@ -19,15 +8,30 @@
 
 
 <colophon>
+  <author>
+    <personname>Richard Grassl</personname>
+    <department>School of Mathematical Science</department>
+    <institution>University of Northern Colorado</institution>
+  </author>
+  
+  <author>
+    <personname>Oscar Levin</personname>
+    <department>School of Mathematical Science</department>
+    <institution>University of Northern Colorado</institution>
+  </author>
+  
   <website>
-    <name><c>discrete.openmathbooks.org/more/</c></name>
-    <address>http://discrete.openmathbooks.org/more/</address>
+    <name><c>discrete.openmathbooks.org/ecm/</c></name>
+    <address>http://discrete.openmathbooks.org/ecm/</address>
   </website>
+  <edition>
+    First Edition
+  </edition>
 
 
     <copyright>
-      <year>2018</year>
-      <holder>Oscar Levin</holder>
+      <year>2018-2019</year>
+      <holder>Richard Grassl &amp; Oscar Levin</holder>
       <!-- <minilicense><image source="../images/by-sa.png" /></minilicense> -->
       <minilicense>GFDL</minilicense>
       <shortlicense>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the appendix entitled <q><xref text="title" ref="appendix-gfdl" /></q>.
@@ -46,11 +50,7 @@
  </p> -->
 </colophon>
 
-<!-- <dedication>
-<p>
-  For Madeline and Teagan
-</p>
-</dedication> -->
+
 
 
 
@@ -85,7 +85,7 @@
 </p>
 
 <p>
-  First, we acknowledge that not everyone reading this book will be immediately familiar with the content of a standard undergraduate discrete mathematics course.  Little is assumed about the reader's previous work in the subject, beyond a general understanding of how abstract mathematics proceeds, as well as some basic ability with mathematical proof. Even here, the first chapter on Graph Theory serves as an excuse to review basic proof techniques.  For the reader completely unfamiliar with these and the basic objects of mathematical study (sets and functions), background material is included in an Appendix.
+  First, we acknowledge that not everyone reading this book will be immediately familiar with the content of a standard undergraduate discrete mathematics course.  Little is assumed about the reader's previous work in the subject, beyond a general understanding of how abstract mathematics proceeds, as well as some basic ability with mathematical proof.  For the reader completely unfamiliar with these and the basic objects of mathematical study (sets and functions), background material is included in an Appendix.
 </p>
 
 <p>
@@ -93,14 +93,18 @@
 </p>
 
 <p>
-  While this course is not a course on teaching mathematics, we have tried to model good pedagogical practice.  As you will see, almost all of the textbook consists of <q>Activities</q> that guide students to discover mathematics for themselves.  This will require quite a bit more work both from students and instructors, but we strongly believe that the best way to learn mathematics is by doing mathematics.  Most of all, discovering mathematics is fun.
+  While this course is not a course on teaching mathematics, we have tried to model good pedagogical practice.  As you will see, almost all of the textbook consists of <em>Activities</em> and <em>Exercises</em> that guide students to discover mathematics for themselves.  This will require quite a bit more work both from students and instructors, but we strongly believe that the best way to learn mathematics is by doing mathematics.  Most of all, discovering mathematics is fun.
 </p>
 
 <paragraphs>
   <title>How to use this book</title>
 
   <p>
-    This book is mostly about solving problems, and using those problems and their solutions to develop mathematics and mathematical understanding.  The main three chapters consist of more than 300 <em>activities</em> which the reader is asked to complete.  That is how you should use the book.  As you read, when you come to an activity, really take some time to try to solve it.  Many of the activities are broken down into tasks to help guide you to a solution.  If you get stuck, check for a hint.  In the pdf, problems with hints are marked with a small <q>[hint]</q> link that will take you to the hint in the back of the book; clicking on the number of the hint will return you to the activity.  The online version has expandable hint links under any activities for which they are provided. 
+    This book is mostly about solving problems, and using those problems and their solutions to develop mathematics and mathematical understanding.  The main three chapters consist of more than 300 <em>activities</em> and <em>exercises</em> which the reader is asked to complete.  That is how you should use the book.  As you read, when you come to an activity, really take some time to try to solve it.  Many of the activities are broken down into tasks to help guide you to a solution.  If you get stuck, check for a hint.  In the pdf, problems with hints are marked with a small <q>[hint]</q> link that will take you to the hint in the back of the book; clicking on the number of the hint will return you to the activity.  The online version has expandable hint links under any activities for which they are provided. 
+  </p>
+  
+  <p>
+    The exercises are similar to activities, but can be thought of as optional.  In particular, it is less important that you complete the exercise immediately, as they are not used to motivate the next part of the text.  Some of the exercises allow you to deepen your understanding of a topic; others are just for practice.
   </p>
   
   <p>
