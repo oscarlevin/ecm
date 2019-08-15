@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage[papersize={8.5in,11in}, hmargin={1in, 2in}, top=.25in, textheight=10in]{geometry}
+
+\definecolor{bg}{HTML}{DCD0C0}
+\definecolor{txt}{HTML}{333333}
+\definecolor{ltxt}{HTML}{F4F4F4}
+\definecolor{boxbg}{HTML}{333333}
+\definecolor{spine}{HTML}{91a191}
+\pagecolor{bg}
+
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext}
+\usepackage[vvarbb,cmintegrals,cmbraces,bigdelims]{newpxmath}
+\usepackage[scr=rsfso]{mathalfa}% \mathscr is fancier than \mathcal
+\linespread{1.04}         % adds more leading (space between lines)
+% quantifiers look strange, so change those back to normal:
+	\DeclareSymbolFont{mysymbols}{OMS}{cmsy}{b}{n} %note we make the figures bold to better match newpx.  Replace the ``b'' with an ``m'' to undo this.
+	%\SetSymbolFont{mysymbols}  {bold}{OMS}{cmsy}{b}{n}
+	%\DeclareSymbolFont{myoperators}   {OT1}{cmr} {m}{n}
+	%\SetSymbolFont{myoperators}{bold}{OT1}{cmr} {bx}{n}
+	\DeclareMathSymbol{\forall}{\mathord}{mysymbols}{"38}
+	\DeclareMathSymbol{\exists}{\mathord}{mysymbols}{"39}
+	%\DeclareMathSymbol{\pm}{\mathbin}{mysymbols}{"06}
+	%\DeclareMathSymbol{+}{\mathbin}{myoperators}{"2B}
+	%\DeclareMathSymbol{-}{\mathbin}{mysymbols}{"00}
+	%\DeclareMathSymbol{=}{\mathrel}{myoperators}{"3D}
+
+
+\begin{document}
+
+\pagestyle{empty}
+~
+
+\tikz[remember picture, overlay]{
+\draw[fill, boxbg, thick] (current page.north east) rectangle +(-8.5in, -1.25in);
+% \draw[fill, boxbg, thick] (current page.north west) rectangle +(8.5in, -.75in);
+\draw[fill, spine, thick] (current page.north east) rectangle +(-1in, -11in);
+}
+
+% \begin{center}
+% % \begin{tikzpicture}[yshift=-.75in, scale=.9, remember picture, overlay, color=bg!75]
+% % 	\coordinate (h9) at (0,0);
+% % 	\coordinate (h8) at (4,1);
+% % 	\coordinate (h7) at (2,1);
+% % 	\coordinate (h6) at (0,1);
+% % 	\coordinate (h5) at (-2,1);
+% % 	\coordinate (h4) at (-4,1);
+% % 	\coordinate (h3) at (3,2);
+% % 	\coordinate (h2) at (0,2);
+% % 	\coordinate (h1) at (-3,2);
+% % 	\coordinate (h0) at (0,3);
+% %
+% % 	\draw[color=bg!75] (h0) -- (h1) -- (h4) -- (h9) -- (h8) -- (h3) -- (h0) -- (h2) -- (h6) -- (h9) -- (h5) -- (h1) -- (h6) -- (h3) -- (h7) -- (h9);
+% % 	\foreach \i in {0,...,9}{
+% % 	\draw[fill=bg!75, color=bg!75] (h\i) circle (2pt);
+% % 	}
+% % \end{tikzpicture}
+% \end{center}
+\hspace{-3em}{\color{ltxt} Mathematics}
+
+\color{txt}
+\vskip 1.25in
+\center{\begin{minipage}{5in}
+\noindent This book consists of two parts: one, a primer designed to provide an adequate introduction to the essentials of abstract algebra and to some related number theory, and two, a workbook designed to enable the reader to interactively engage with colleagues in exploring the fascinating world of abstract algebra.
+\vskip 1em
+
+\noindent We have taken a problem solving approach -- the primer alone contains over 130 problems. So be prepared for minimal text material to read, combined with worksheets that extend and enhance text topics. These worksheets are designed to encourage discovery of interesting relationships between algebraic structures, geometry, mappings, and proofs.
+\vskip 1em
+
+\noindent Very little, if any, background in abstract algebra is needed for a course based on this Primer and the workbook. This material has been used successfully for over a decade with in-service secondary teachers seeking licensure or an MA degree in teaching mathematics.
+\vskip 1em
+
+\noindent In this book we embrace the oft-quoted maxim - ``You learn mathematics by doing mathematics.'' Such an effort leads to better understanding and deeper learning.
+\vskip 1em
+
+\noindent Finally, a valuable by-product: A significant number of teachers who have studied this material have incorporated a variety of the worksheets into their secondary curriculum as they encounter topics like closure, binary operations and their properties, modular arithmetic, and the structure of the integers (yes, GCD and LCM show up), and the rational and real numbers.
+
+
+
+\
+\end{minipage}
+}
+\vskip 5em
+\begin{center}
+This book is rebound under an open source license and is available\\ in electronic format for free at\\ \url{http://www.openmathbooks.org/someabstract/}.
+\end{center}
+
+\vfill
+
+\begin{flushleft}
+	\color{txt}
+	% \resizebox{.25\linewidth}{!}{\textit{Open Math Books}}
+	% \resizebox{.25\linewidth}{!}{$\mathbb{O}\mathrm{p}\mathrm{e}\mathrm{n}$ $\mathbb{M}\mathrm{a}\mathrm{t}\mathrm{h}$ $\mathbb{B}\infty\mathrm{k}\mathrm{s}$}
+	\resizebox{.2\linewidth}{!}{$\mathbb{O}\mathrm{p}\mathrm{e}\mathrm{n}$ $\mathbb{M}\mathrm{a}\mathrm{t}\mathrm{h}$ $\mathbb{B}\mathrm{oo}\mathrm{k}\mathrm{s}$}
+	% \resizebox{.25\linewidth}{!}{$\mathbb{O}{p}{e}{n}$ $\mathbb{M}{a}{t}{h}$ $\mathbb{B}\infty{k}{s}$}
+\end{flushleft}
+\clearpage
+
+\end{document}

@@ -1,0 +1,128 @@
+
+\documentclass[10pt]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage[papersize={7in,10in}, width=6in, height=8.5in, top=0.75in, ignoreheadfoot]{geometry}
+% Number 3:
+% \definecolor{bg}{HTML}{DCD0C0}
+% \definecolor{txt}{HTML}{333333}
+% \definecolor{ltxt}{HTML}{F4F4F4}
+% \definecolor{boxbg}{HTML}{333333}
+% \definecolor{spine}{HTML}{91a191}
+% Number 9:
+\definecolor{bg}{HTML}{F4ECD6}
+\definecolor{txt}{HTML}{121113}
+\definecolor{ltxt}{HTML}{F4ECD6}
+\definecolor{boxbg}{HTML}{1E555C}
+\definecolor{spine}{HTML}{574D68}
+\definecolor{fcolor}{HTML}{32936F}
+\pagecolor{bg}
+
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext}
+\usepackage[vvarbb,cmintegrals,cmbraces,bigdelims]{newpxmath}
+\usepackage[scr=rsfso]{mathalfa}% \mathscr is fancier than \mathcal
+\linespread{1.04}         % adds more leading (space between lines)
+% quantifiers look strange, so change those back to normal:
+	\DeclareSymbolFont{mysymbols}{OMS}{cmsy}{b}{n} %note we make the figures bold to better match newpx.  Replace the ``b'' with an ``m'' to undo this.
+	%\SetSymbolFont{mysymbols}  {bold}{OMS}{cmsy}{b}{n}
+	%\DeclareSymbolFont{myoperators}   {OT1}{cmr} {m}{n}
+	%\SetSymbolFont{myoperators}{bold}{OT1}{cmr} {bx}{n}
+	\DeclareMathSymbol{\forall}{\mathord}{mysymbols}{"38}
+	\DeclareMathSymbol{\exists}{\mathord}{mysymbols}{"39}
+	%\DeclareMathSymbol{\pm}{\mathbin}{mysymbols}{"06}
+	%\DeclareMathSymbol{+}{\mathbin}{myoperators}{"2B}
+	%\DeclareMathSymbol{-}{\mathbin}{mysymbols}{"00}
+	%\DeclareMathSymbol{=}{\mathrel}{myoperators}{"3D}
+
+
+\begin{document}
+
+\pagestyle{empty}
+
+\color{txt}
+
+
+% ~
+\tikz[remember picture, overlay]{
+% \draw[fill, boxbg, thick] (current page.south east) rectangle +(-7in, 3in);
+\draw[fill, boxbg, thick] (current page.south east) rectangle ([yshift=3in]current page.south west);
+
+\draw[line width=10pt, fcolor] (current page.south east) +(0, 3in) -- +(-7in, 3in);
+% \draw[fill, boxbg, thick] (current page.north west) rectangle +(8.5in, -.75in);
+\draw[fill, spine, thick] (current page.north west) rectangle +(1in, -10in);
+\draw[line width=10pt, fcolor] (current page.north west) +(1in,0) -- +(1in, -10in);
+}
+
+
+~
+\vskip 1in
+
+\begin{flushright}
+  \tikz[scale=0.6,yscale=.25]{\draw (0,0) rectangle (1,1);
+  \draw (1.4,0) rectangle (3.4, 1) (3.8,0) rectangle (4.8,1) (4.8,0) rectangle (5.8,1); \draw (6.2,0) rectangle (8.2,1) (8.2,0) rectangle (9.2,1) (9.6,0) rectangle (10.6,1) (10.6,0) rectangle (12.6,1) (13,0) rectangle (14,1) (14,0) rectangle (15,1) (15,0) rectangle (16,1);
+  }
+
+  \vskip 2em
+
+% \resizebox{\linewidth}{!}{\scshape Exploring Combinatorial Mathematics}
+\resizebox{.35\linewidth}{!}{\scshape Exploring}
+
+\vskip 1em
+\resizebox{.6\linewidth}{!}{\scshape Combinatorial}
+
+\vskip 1em
+\resizebox{.5\linewidth}{!}{\scshape Mathematics}
+\vskip 1em
+
+% {\Huge\scshape Exploring}
+% 
+% \vskip 1em
+% {\Huge\scshape Combinatorial}
+% 
+% \vskip 1em
+% {\Huge \scshape Mathematics}
+% \vskip 2em
+\tikz[scale=0.6,yscale=.25]{\draw (0,0) rectangle (1,1);
+\draw (1.4,0) rectangle (3.4, 1) (3.8,0) rectangle (4.8,1) (4.8,0) rectangle (5.8,1); \draw (6.2,0) rectangle (8.2,1) (8.2,0) rectangle (9.2,1) (9.6,0) rectangle (10.6,1) (10.6,0) rectangle (12.6,1) (13,0) rectangle (14,1) (14,0) rectangle (15,1) (15,0) rectangle (16,1);
+}
+
+\vskip 2em
+
+% \resizebox{.25\linewidth}{!}{\scshape via Graph Theory}
+
+
+%\tikz[scale=0.55]{\draw (0,0) rectangle (1,1);
+%\draw (1.4,0) rectangle (3.4, 1) (3.8,0) rectangle (4.8,1) (4.8,0) rectangle (5.8,1); \draw (6.2,0) rectangle (8.2,1) (8.2,0) rectangle (9.2,1) (9.6,0) rectangle (10.6,1) (10.6,0) rectangle (12.6,1) (13,0) rectangle (14,1) (14,0) rectangle (15,1) (15,0) rectangle (16,1);
+%}
+
+\vskip 3.25in
+{
+\color{ltxt}
+\resizebox{.65\linewidth}{!}{\scshape Richard Grassl \& Oscar Levin}
+
+\vskip .5in
+
+\resizebox{.4\linewidth}{!}{\scshape 1st Edition, Fall 2019}
+}
+
+\end{flushright}
+
+\clearpage
+
+%\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{frontmatter/cover2}
+%
+%
+
+\end{document}
+
+
+
+
+
+
+%\addtocontents{toc}{\protect\thispagestyle{plain}}

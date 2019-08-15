@@ -401,29 +401,29 @@
     <xsl:text>
       breakable,
       enhanced,
-      attach title to upper, after title={.\\}, fonttitle=\bfseries, coltitle=black,
+      attach title to upper, after title={.\\ \vskip 1ex}, fonttitle=\bfseries, coltitle=black,
       colback=white,
-      top=.5em,
+      top=0em,
       before skip=1em,
       after skip=1em,
       sharp corners=all,
       frame hidden,
       %Draw breakable decorations:
       overlay first={%
-      \draw[black!60, path fading=east] (frame.north) -- (frame.north west) -- (frame.south west);
+      \draw[black!60, path fading=east] (frame.north east) -- (frame.north west) -- (frame.south west);
       },
       overlay middle={%
       \draw[black!60] (frame.south west) -- (frame.north west);
       },
       overlay last={%
       \fill[left color=black!40, right color=white, white] ([xshift=4pt]frame.south west) -- ++(0,-4pt) to[out=4, in=182] (frame.south) -- cycle;
-      \draw[black!60, path fading=east] (frame.south) -- (frame.south west);
+      \draw[black!60, path fading=east] (frame.south east) -- (frame.south west);
       \draw[black!60] (frame.north west) -- (frame.south west);
       },
       overlay unbroken={%
       \fill[left color=black!40, right color=white, white] ([xshift=4pt]frame.south west) -- ++(0,-4pt) to[out=4, in=182] (frame.south) -- cycle;
-      \draw[black!60, path fading=east] (frame.south) -- (frame.south west);
-      \draw[black!60, path fading=east] (frame.north) -- (frame.north west) -- (frame.south west);
+      \draw[black!60, path fading=east] (frame.south east) -- (frame.south west);
+      \draw[black!60, path fading=east] (frame.north east) -- (frame.north west) -- (frame.south west);
       }
     </xsl:text>
 </xsl:template>
@@ -432,9 +432,9 @@
   <xsl:text>
     breakable,
 	enhanced,
-    attach title to upper, after title={.\\}, fonttitle=\bfseries, coltitle=black,
+    attach title to upper, after title={.\\ \vskip 1ex}, fonttitle=\bfseries, coltitle=black,
 	colback=white,
-	top=.5em,
+	top=0em,
 	before skip=1em,
 	after skip=1em,
 	sharp corners=all,
@@ -465,7 +465,7 @@
 <xsl:template match="&THEOREM-LIKE;" mode="tcb-style">
   <xsl:text>enhanced, toprule=0pt, bottomrule=0pt, leftrule=1pt, rightrule=1pt, sharp corners, colback=MidnightBlue!5, colframe=MidnightBlue!50!black,&#xa;</xsl:text>
   <xsl:text>colbacktitle=white, coltitle=black, </xsl:text>
-  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={\\}, top=.5em,
+  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={.\\ \vskip 1ex}, top=0em,
   before skip=1em,
   after skip=1em,&#xa;</xsl:text>
 </xsl:template>
@@ -487,7 +487,7 @@
 <xsl:template match="&DEFINITION-LIKE;" mode="tcb-style">
   <xsl:text>enhanced, toprule=0pt, bottomrule=0pt, leftrule=1pt, rightrule=1pt, sharp corners, colback=MidnightBlue!5, colframe=MidnightBlue!50!black,&#xa;</xsl:text>
   <xsl:text>colbacktitle=white, coltitle=black, boxed title style={sharp corners, frame hidden},&#xa;</xsl:text>
-  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={\\}, top=.5em,
+  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={.\\ \vskip 1ex}, top=0em,
   before skip=1em,
   after skip=1em,&#xa;</xsl:text>
 </xsl:template>

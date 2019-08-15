@@ -1,0 +1,44 @@
+\documentclass[10pt]{article}
+
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage[papersize={11in,2in}, hmargin={.5in, .5in}]{geometry}
+
+\definecolor{bg}{HTML}{DCD0C0}
+\definecolor{txt}{HTML}{333333}
+\definecolor{ltxt}{HTML}{F4F4F4}
+\definecolor{boxbg}{HTML}{333333}
+\definecolor{spine}{HTML}{91a191}
+\pagecolor{spine}
+
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext}
+\usepackage[vvarbb,cmintegrals,cmbraces,bigdelims]{newpxmath}
+\usepackage[scr=rsfso]{mathalfa}% \mathscr is fancier than \mathcal
+\linespread{1.04}         % adds more leading (space between lines)
+% quantifiers look strange, so change those back to normal:
+	\DeclareSymbolFont{mysymbols}{OMS}{cmsy}{b}{n} %note we make the figures bold to better match newpx.  Replace the ``b'' with an ``m'' to undo this.
+	%\SetSymbolFont{mysymbols}  {bold}{OMS}{cmsy}{b}{n}
+	%\DeclareSymbolFont{myoperators}   {OT1}{cmr} {m}{n}
+	%\SetSymbolFont{myoperators}{bold}{OT1}{cmr} {bx}{n}
+	\DeclareMathSymbol{\forall}{\mathord}{mysymbols}{"38}
+	\DeclareMathSymbol{\exists}{\mathord}{mysymbols}{"39}
+	%\DeclareMathSymbol{\pm}{\mathbin}{mysymbols}{"06}
+	%\DeclareMathSymbol{+}{\mathbin}{myoperators}{"2B}
+	%\DeclareMathSymbol{-}{\mathbin}{mysymbols}{"00}
+	%\DeclareMathSymbol{=}{\mathrel}{myoperators}{"3D}
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{empty}
+~
+\vfill
+\color{ltxt}
+{ \large\scshape Grassl $\cdot$ Mingus}\hfill {\scshape \LARGE Some Abstract Algebra} \hfill {\large \scshape Summer 2019 \qquad $\mathbb{O}$ $\mathbb{M}$ $\mathbb{B}$}
+
+
+\vfill
+
+\end{document}
