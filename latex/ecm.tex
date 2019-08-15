@@ -725,6 +725,7 @@ fonttitle=\bfseries, attach boxed title to top left={xshift=4mm,yshift=-4mm,yshi
 %% Hyperlinking active in electronic PDFs, all links solid and blue
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,filecolor=blue,urlcolor=blue}
 \hypersetup{pdftitle={Exploring Combinatorial Mathematics}}
+\hypersetup{hidelinks=true}
 %% If you manually remove hyperref, leave in this next command
 \providecommand\phantomsection{}
 %% Graphics Preamble Entries
@@ -12075,9 +12076,7 @@ n! =  \amp n!
 \begin{activitysolution}{17}{}{x:activity:act-pascalrowsum-binom}%
 \textbf{Hint}.\hypertarget{g:hint:idp315674870928-back}\quad{}Just do it.%
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.2.2\space\textperiodcentered\space{}Interlude: The Sum and Product Principles}
-\par\smallskip
+%
 \begin{explorationsolution}{23}{}{x:exploration:act-latticepaths2}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp315674945680-back}\quad{}Many students want this sort of question to be an example of the sum principle (presumably because to get an acceptable path you travel to \((4,7)\) and then add on a path that gets you the rest of the way.  But notice that you are really concatenating two paths, and there are lots of choices for the first path and lots for the second.  This sounds more like an ordered pair.%
@@ -12107,9 +12106,7 @@ n! =  \amp n!
 \item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp315675038368-back}\quad{}You have \(P(26,5) = \binom{26}{5}\cdot 5!\).  You know that \(P(26,5) = \frac{26!}{21!}\), so you should be able to easily ``solve'' for \(\binom{26}{5}\).%
 \end{enumerate}
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.2.3\space\textperiodcentered\space{}More Proofs}
-\par\smallskip
+%
 \begin{explorationsolution}{31}{}{x:exploration:act-bowtiefez}%
 \textbf{Hint}.\hypertarget{g:hint:idp315675066080-back}\quad{}The \(mn\) looks like an application of the product principle.  Say you had \(m\) bow ties and \(n\) fezzes.  What question should you ask, and why does the other side also answer this?  Alternatively, consider how this identity relates to that of \hyperref[x:example:act-redgreenballs]{Example~\ref{x:example:act-redgreenballs}}.%
 \end{explorationsolution}%
@@ -12229,9 +12226,7 @@ What does this have to do with the problem and why does it help?  Add all the co
 \item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp315675613392-back}\quad{}The multiset \(\{1,2, 2, 3\}\) should correspond to the string \(*|**|*\).%
 \end{enumerate}
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.3.3\space\textperiodcentered\space{}More Distribution Problems}
-\par\smallskip
+%
 \begin{activitysolution}{62}{}{x:activity:bookcaseeveryshelf}%
 \textbf{Hint}.\hypertarget{g:hint:idp315675651168-back}\quad{}How can you make sure that each shelf gets at least one book before you start the process described in \hyperref[x:activity:bookcase]{Activity~\ref{x:activity:bookcase}}?%
 \end{activitysolution}%
@@ -12276,9 +12271,7 @@ What does this have to do with the problem and why does it help?  Add all the co
 \begin{explorationsolution}{75}{}{g:exploration:idp315675841392}%
 \textbf{Hint}.\hypertarget{g:hint:idp315675844368-back}\quad{}Try this out with some different initial conditions.  Once you see what the recurrence should be, proving it by induction should be easy.%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.4.2\space\textperiodcentered\space{}Using Recurrence Relations}
-\par\smallskip
+%
 \begin{activitysolution}{76}{}{x:activity:act-arithmetic}%
 \textbf{Hint}.\hypertarget{g:hint:idp315675852992-back}\quad{}If you write out the sequence, it would be easy to guess at a closed formula, but the point here is to \emph{use} the recurrence relation somehow.  Consider rewriting the recurrence relation as \(a_n - a_{n-1} = 2\).  Note that \(a_n - a_0 = (a_n - a_{n-1}) + (a_{n-1} + a_{n-2}) + \cdots + (a_2 - a_1) + (a_1 - a_0)\).%
 \end{activitysolution}%
@@ -12307,9 +12300,7 @@ What does this have to do with the problem and why does it help?  Add all the co
 \begin{explorationsolution}{87}{}{x:exploration:act-binet}%
 \textbf{Hint}.\hypertarget{g:hint:idp315676057664-back}\quad{}You will need to use the quadratic formula to find the roots, and some careful algebra to find the coefficients.  The closed formula will include \(\frac{1+\sqrt{5}}{2}\), the \emph{Golden Ratio}.%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.4.3\space\textperiodcentered\space{}Exploring the Fibonacci Sequence}
-\par\smallskip
+%
 \begin{explorationsolution}{95}{}{x:exploration:fib-matrix}%
 \textbf{Hint}.\hypertarget{g:hint:idp315676105360-back}\quad{}You should find that \(Q^n = \begin{pmatrix}
 F_{n - 1} \amp F_{n}\\
@@ -12325,12 +12316,8 @@ F_{n} \amp F_{n + 1}
 \begin{explorationsolution}{106}{}{g:exploration:idp315676140608}%
 \textbf{Hint}.\hypertarget{g:hint:idp315676142480-back}\quad{}Use \(Q^{5n + 5}\).%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.5\space\textperiodcentered\space{}The Catalan Numbers}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}1.5.1\space\textperiodcentered\space{}A Few Counting Problems}
-\par\smallskip
+%
+%
 \begin{activitysolution}{110}{}{x:activity:act-hdseq}%
 \textbf{Hint}.\hypertarget{g:hint:idp315676168656-back}\quad{}Here we enumerate the number of workable sequences of \(n\) H's and \(n\) D's such that at each point in the sequence the number of H's is not less than the number of D's.  Try writing out all HD sequences and see which ones are acceptable and which are not.%
 \end{activitysolution}%
@@ -12376,21 +12363,13 @@ F_{n} \amp F_{n + 1}
 \item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp315676346624-back}\quad{}The algebraic formula for \(\binom{n}{k}\) would be appropriate here.%
 \end{enumerate}
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2\space\textperiodcentered\space{}Advanced Combinatorics}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}2.1\space\textperiodcentered\space{}The Principle of Inclusion and Exclusion: the Size of a Union}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}2.1.1\space\textperiodcentered\space{}Unions of two or three sets}
-\par\smallskip
+%
+%
+%
 \begin{activitysolution}{133}{}{x:activity:twosetintersection}%
 \textbf{Hint}.\hypertarget{g:hint:idp315676443888-back}\quad{}Try drawing a Venn Diagram.%
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.1.2\space\textperiodcentered\space{}Unions of an arbitrary number of sets}
-\par\smallskip
+%
 \begin{explorationsolution}{138}{}{x:exploration:hatcheck}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item[(b)]\textbf{Hint 1}.\hypertarget{g:hint:idp315676487968-back}\quad{}For each student, how big is the set of backpack distributions in which that student gets the correct backpack?  It might be a good idea to first consider cases with \(n=3\), \(4\), and \(5\).%
@@ -12412,9 +12391,7 @@ F_{n} \amp F_{n + 1}
 \end{align*}
 %
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.1.4\space\textperiodcentered\space{}Application of Inclusion and Exclusion}
-\par\smallskip
+%
 \begin{explorationsolution}{140}{}{x:exploration:act_restrictedmultisetspie}%
 \textbf{Hint}.\hypertarget{g:hint:idp315676555328-back}\quad{}Notice that it is straightforward to figure out how many ways we may pass out the apples so that child \(i\) gets five or more apples: give five apples to child \(i\) and then pass out the remaining apples however you choose. And if  we want to figure out how many ways we may pass out the apples so that a given set \(C\) of children each get five or more apples, we give five to each child in \(C\) and then pass out the remaining \(k-5|C|\) apples however we choose.%
 \end{explorationsolution}%
@@ -12450,9 +12427,7 @@ F_{n} \amp F_{n + 1}
 \begin{explorationsolution}{161}{}{x:exploration:reprovingbinomialtheorem}%
 \textbf{Hint}.\hypertarget{g:hint:idp315676868352-back}\quad{}Consider the example with \(n = 2\). Then we have two variables, \(x_1\) and \(x_2\) .  Forgetting about \(x_2\) , what sum says we either take \(x_1\) or we don't? Forgetting about \(x_1\) , what sum says we either take \(x_2\) or we don't? Now what product says we either take \(x_1\) or we don't \emph{and} we either take \(x_2\) or we don't?%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.2.4\space\textperiodcentered\space{}Power series}
-\par\smallskip
+%
 \begin{activitysolution}{163}{}{x:activity:coeffinproduct1}%
 \textbf{Hint}.\hypertarget{g:hint:idp315676917504-back}\quad{}For the last two questions, try multiplying out something simpler first, say \((a_0 + a_1 x + a_2 x^2 )(b_0 + b_1 x + b_2 x^2 )\) . If this problem seems difficult the part that seems to cause students the most problems is converting the expression they get for a product like this into summation notation. If you are having this kind of problem, expand the product \((a_0 + a_1 x + a_2 x^2 )(b_0 + b_1 x + b_2 x^2 )\) and then figure out what the coefficient of \(x^2\) is. Try to write that in summation notation.%
 \end{activitysolution}%
@@ -12510,9 +12485,7 @@ F_{n} \amp F_{n + 1}
 \begin{explorationsolution}{179}{}{x:exploration:originalFibonacci}%
 \textbf{Hint}.\hypertarget{g:hint:idp315677131968-back}\quad{}Our recurrence becomes \(a_n = a_{n-1} + a_{n-2}\), which of course is the Fibonacci recurrence.%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.2.7\space\textperiodcentered\space{}Partial fractions}
-\par\smallskip
+%
 \begin{activitysolution}{182}{}{x:activity:partialfractionsintro}%
 \textbf{Hint}.\hypertarget{g:hint:idp315677172832-back}\quad{}%
 \begin{equation*}
@@ -12558,12 +12531,8 @@ cx-r_2c+dx-r_1d =ax+b\text{.}
 %
 \end{enumerate}
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.3\space\textperiodcentered\space{}Partitions of Sets}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}2.3.1\space\textperiodcentered\space{}Stirling Numbers of the Second Kind}
-\par\smallskip
+%
+%
 \begin{activitysolution}{193}{}{x:activity:act_stirlingcomputations}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item[(d)]\textbf{Hint}.\hypertarget{g:hint:idp315677424736-back}\quad{}What are the possible sizes of parts?%
@@ -12624,9 +12593,7 @@ cx-r_2c+dx-r_1d =ax+b\text{.}
 \begin{activitysolution}{214}{}{g:activity:idp315677712304}%
 \textbf{Hint}.\hypertarget{g:hint:idp315677715040-back}\quad{}Think about how binomial coefficients relate to expanding a power of a binomial and note that the binomial coefficient \(\binom{n}{k}\) and the multinomial coefficient \(\binom{n}{k,n-k}\) are the same.%
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.3.3\space\textperiodcentered\space{}Identities with Stirling Numbers}
-\par\smallskip
+%
 \begin{activitysolution}{215}{}{x:activity:act_stirlingpie}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
 \item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp315677742032-back}\quad{}In what way is this problem like counting functions?%
@@ -12702,9 +12669,7 @@ cx-r_2c+dx-r_1d =ax+b\text{.}
 \begin{explorationsolution}{259}{}{g:exploration:idp315678348816}%
 \textbf{Hint}.\hypertarget{g:hint:idp315678350352-back}\quad{}How does the number of compositions of \(k\) into \(n\) distinct parts compare to the number of compositions of \(k\) into \(n\) parts (not necessarily distinct)? What do compositions have to do with partitions?%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.4.4\space\textperiodcentered\space{}Using Generating Functions}
-\par\smallskip
+%
 \begin{activitysolution}{260}{}{x:activity:change-making}%
 \textbf{Hint}.\hypertarget{g:hint:idp315678365904-back}\quad{}This is a good place to apply the product principle for picture enumerators.  Don't be afraid to use technology to finish the problem.%
 \end{activitysolution}%
@@ -12999,9 +12964,7 @@ For example, \(P(1,3)\) is false, as indicated by the F in the first row, third 
 \end{enumerate}
 %
 \end{divisionsolution}%
-\par\smallskip
-\noindent\textbf{\large{}B.2.5\space\textperiodcentered\space{}Exercises}
-\par\smallskip
+%
 \begin{divisionsolution}{B.2.5.1}{}{p:exercise:AUc}%
 \textbf{Solution}.\hypertarget{g:solution:idp315681755216-back}\quad{}%
 \begin{enumerate}[label=(\alph*)]
@@ -13190,9 +13153,7 @@ Note this is the same set as \(A \cap \overline{B}\text{.}\)%
 \par
 Therefore it must be that \(A = \{2,3\}\) and \(B = \{1, 2\}\)%
 \end{divisionsolution}%
-\par\smallskip
-\noindent\textbf{\large{}B.3.4\space\textperiodcentered\space{}Exercises}
-\par\smallskip
+%
 \begin{divisionsolution}{B.3.4.1}{}{p:exercise:blM}%
 \textbf{Solution}.\hypertarget{g:solution:idp315682774992-back}\quad{}%
 \begin{enumerate}[label=(\alph*)]
@@ -13302,9 +13263,7 @@ Let \(y\) be an element of the codomain \(\Z\). We will show there is an element
 \par
 More specifically, if \(f\) is injective, then \(\card{B} \ge \card{f\inv(B)}\) (since every element in \(B\) must come from at most one element from the domain). If \(f\) is surjective, then \(\card{B} \le \card{f\inv(B)}\) (since every element in \(B\) must come from at least one element of the domain). Thus if \(f\) is bijective then \(\card{B} = \card{f\inv(B)}\).%
 \end{divisionsolution}%
-\par\smallskip
-\noindent\textbf{\large{}B.4.5\space\textperiodcentered\space{}Exercises}
-\par\smallskip
+%
 \begin{divisionsolution}{B.4.5.1}{}{p:exercise:iCQ}%
 \textbf{Solution}.\hypertarget{p:solution:Bqo-back}\quad{}%
 \begin{enumerate}[label=(\alph*)]
@@ -13374,9 +13333,7 @@ If the statement is true, then both \(P\) and \(Q\) are false.%
 \end{enumerate}
 %
 \end{divisionsolution}%
-\par\smallskip
-\noindent\textbf{\large{}B.5.6\space\textperiodcentered\space{}Exercises}
-\par\smallskip
+%
 \begin{divisionsolution}{B.5.6.1}{}{p:exercise:ENx}%
 \textbf{Solution}.\hypertarget{p:solution:jPn-back}\quad{}%
 \begin{enumerate}[label=(\alph*)]
@@ -13424,9 +13381,7 @@ Suppose you roll 10 dice, but that there are NOT four matching rolls. This means
 \end{enumerate}
 %
 \end{divisionsolution}%
-\par\smallskip
-\noindent\textbf{\large{}B.6.5\space\textperiodcentered\space{}Exercises}
-\par\smallskip
+%
 \begin{divisionsolution}{B.6.5.1}{}{p:exercise:Qlr}%
 \textbf{Solution}.\hypertarget{p:solution:Mls-back}\quad{}%
 \begin{enumerate}[label=(\alph*)]
