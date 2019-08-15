@@ -7,4 +7,7 @@
 <xi:include href="sec_background-logic.ptx"/>
 <xi:include href="sec_background-proofs.ptx"/>
 <xi:include href="sec_background-induction.ptx"/>
+  <!-- <solutions divisional="solution">
+    <title>Solutions to selected exercises</title>
+  </solutions> -->
 </appendix>

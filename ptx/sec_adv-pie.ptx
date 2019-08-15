@@ -421,7 +421,7 @@
             Since all the <m>A_i</m>s are subsets of <m>A</m>, one way to write this size is as <m>|A| - \sum_{S:S \subseteq [n], S \ne \emptyset}(-1)^{|S|-1} |\bigcap_{i:i \in S}A_i|</m>.  Letting <m>|A| = \left|\bigcap_{i:i \in \emptyset} A_i\right|</m>, we may write <m>\left|\overline{\bigcup_{i=1}^n A_i}\right| = \sum_{S:S \subseteq [n]} (-1)^{|S|}\left| \bigcap_{i:i\in S} A_i\right|</m>.
           </p>
           <!-- <p>
-            We can find a very elegant way of writing the formula in <xref ref="compunion"/> if we let <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.  for this reason, if we have a family of subsets <m>A_i</m> of a set <m>A</m>, we define<fn>
+            We can find a very elegant way of writing the formula in <xref ref="nsetintersection"/> if we let <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.  for this reason, if we have a family of subsets <m>A_i</m> of a set <m>A</m>, we define<fn>
             For those interested in logic and set theory, given a family of subsets <m>A_i</m> of a set <m>A</m>, we define <m>\bigcap_{i:i\in S}A_i</m> to be the set of all members <m>x</m> of <m>A</m> that are in <m>A_i</m> for all <m>i \in S</m>.  (Note that this allows <m>x</m> to be in some other <m>A_j</m>s as well.)  Then if <m>S = \emptyset</m>, our intersection consists of all members <m>x</m> of <m>A</m> that satisfy the statement <q>if <m>i\in \emptyset</m>, then <m>x \in A_i</m>.</q>
             But since the hypothesis of the <q>if-then</q> statement is false, the statement itself is true for all <m>x \in A</m>.  Therefore <m>\bigcap_{i:i \in \emptyset}A_i = A</m>.
           </fn> <m>\bigcap_{i:i\in\emptyset}A_i = A</m>.
@@ -460,7 +460,7 @@
             <p>
                 Let <m>S</m> be the set of all distributions of <m>k</m> identical apples to the <m>n</m> children. Let <m>A_i</m> be the set of distributions in which child <m>i</m> gets five or more apples. Then
               we are asking for the number of distributions of apples that lie in none of the sets, so we are asking for <m>|\overline{A_1\cup A_2\cup \cdots \cup A_n}|</m>. From the formula you gave in
-              <xref ref="compunion" /> we see that to find this number we need to know
+              <xref ref="nsetintersection" /> we see that to find this number we need to know
               <m>|\bigcap_{i\in S}A_i|</m> for every subset <m>S</m> of <m>[n]</m>. But if
               <m>S</m> has size <m>s</m>, then <m>S</m> determines a distribution such that all the children in a particular set of size <m>s</m> will get five or more apples. We can pass out the apples so that the children in a particular set
               <m>\hat S</m> of children get at least five apples as follows: we give everyone in <m>\hat
@@ -468,7 +468,7 @@
               children in <m>\binom{k-5s+n-1}{k-5s}= \binom{k-5s+n-1}{n-1}</m> ways. This
               counts the number of ways to give at least five apples to every child in
               <m>\hat S</m>, and maybe give five apples to some other children as well. Thus
-              <m>|\bigcap_{i\in S}A_i| = = \binom{k-5|S|+n-1}{n-1}</m>. In particular, if <m>S=\emptyset</m>, we get <m>\binom{k+n-1}{n-1}</m>, which is the total number of ways to pass out <m>k</m> identical apples to <m>n</m> children. Applying the formula from <xref ref="compunion" /> gives us
+              <m>|\bigcap_{i\in S}A_i| = = \binom{k-5|S|+n-1}{n-1}</m>. In particular, if <m>S=\emptyset</m>, we get <m>\binom{k+n-1}{n-1}</m>, which is the total number of ways to pass out <m>k</m> identical apples to <m>n</m> children. Applying the formula from <xref ref="nsetintersection" /> gives us
               <md>
                 <mrow>\left| \overline{\bigcup_{i=1}^n A_i}\right|&amp;= \sum_{S:S\subseteq [n]}(-1)^{|S|}\left|\bigcap _{i\colon i\in S} A_i\right|</mrow>
                 <mrow> &amp;= \sum_{s=0}^n \binom{n}{s}(-1)^s \binom{k-5s+n-1}{n-1}</mrow>
@@ -516,7 +516,7 @@
             can sit down. Thus as long as <m>S</m> is nonempty, we have the right formula for <m>\left|\bigcap_{i\colon i\in S} A_i\right|</m>. Notice that in the case where <m>S=\emptyset</m> the formula gives us <m>(2n-1)!</m> seating arrangements, which is exactly the number of ways to seat <m>2n</m> people around a round table. This is the size of our set <m>A</m>. Therefore,
             <me>\left|\bigcap_{i\colon i\in S} A_i\right| = 2^{|S|}(2n-|S|-1)!
             </me>.
-            Substituting this into the formula from <xref ref="compunion" /> gives us
+            Substituting this into the formula from <xref ref="nsetintersection" /> gives us
             <md>
               <mrow>\left|\overline{\bigcup_{i=1}^n A_i}\right| &amp;=  \sum_{S:S\subseteq [n]}
               (-1)^{|S|} \left|\bigcap_{i\colon i\in S} A_i\right|</mrow>
@@ -600,7 +600,7 @@
           </p>
 
           <p>
-            Then from <xref ref="compunion" />
+            Then from <xref ref="nsetintersection" />
             <md>
               <mrow>\left|\overline{\bigcup_{i=1}^n A_i}\right|  &amp;= \sum_{S:S\subseteq [n]} (-1)^{|S|}\frac{(2n-|S|-1)!(n-|S|)!(n-|S|-1)!
               }{(2n-2|S|-1)!}</mrow>
@@ -849,7 +849,7 @@
         <solution>
           <p>
             An onto function is in none of these sets. Since we want the number of functions that are in none of these sets, we let our set <m>A</m> be the set of all functions from <m>K</m> to <m>[n]</m>. Then the number of onto functions is <m>|\overline{A_1\cup A_2\cup \cdots \cup A_n}|</m>. For a nonempty subset <m>S</m> of <m>[n]</m>, the set <m>\bigcap_{i\colon i\in S} A_i</m> is the set of functions functions from <m>K</m> to <m>[n]-S</m>. The size of this set
-             is <m>(n-|S|)^k</m>. When <m>S=\emptyset</m> this gives the size of <m>A</m>. Thus by <xref ref="compunion" />
+             is <m>(n-|S|)^k</m>. When <m>S=\emptyset</m> this gives the size of <m>A</m>. Thus by <xref ref="nsetintersection" />
             <md>
               <mrow>\left|\overline{\bigcup_{i=1}^n A_i}\right|&amp;=  \sum_{S:s\subseteq [n]} (-1)^{|S|}
               (n-|S|)^k</mrow>

@@ -20,10 +20,10 @@
   Let's start our investigation of combinatorics by examining Pascal's Triangle.  If you are already familiar with this mathematical object, try to see it with fresh eyes.  Look at the triangle as if you have no idea where it comes from.  What do you notice?
 </p>
 
+<idx><h>Pascal's triangle</h></idx>
 <sidebyside width="100%">
 
     <image xml:id="pascal-large">
-      <idx><h>Pascal's triangle</h></idx>
       <latex-image>
         \begin{tikzpicture}
       \def\r{.55}

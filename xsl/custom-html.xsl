@@ -55,9 +55,9 @@
 <xsl:param name="exercise.inline.answer" select="''" />
 <xsl:param name="exercise.inline.solution" select="''" />
 <xsl:param name="exercise.divisional.statement" select="''" />
-<xsl:param name="exercise.divisional.hint" select="''" />
-<xsl:param name="exercise.divisional.answer" select="''" />
-<xsl:param name="exercise.divisional.solution" select="''" />
+<xsl:param name="exercise.divisional.hint" select="'yes'" />
+<xsl:param name="exercise.divisional.answer" select="'no'" />
+<xsl:param name="exercise.divisional.solution" select="'yes'" />
 <xsl:param name="exercise.worksheet.statement" select="''" />
 <xsl:param name="exercise.worksheet.hint" select="''" />
 <xsl:param name="exercise.worksheet.answer" select="''" />
@@ -67,9 +67,9 @@
 <xsl:param name="exercise.reading.answer" select="''" />
 <xsl:param name="exercise.reading.solution" select="''" />
 <xsl:param name="project.statement" select="''" />
-<xsl:param name="project.hint" select="''" />
-<xsl:param name="project.answer" select="''" />
-<xsl:param name="project.solution" select="''" />
+<xsl:param name="project.hint" select="'yes'" />
+<xsl:param name="project.answer" select="'no'" />
+<xsl:param name="project.solution" select="'no'" />
 
 
 

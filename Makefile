@@ -148,7 +148,7 @@ ww-fresh: ww-extraction ww-merge
 #   Copies in image files from source directory
 #   Move to server: generated *.html and
 #   entire directories - /images and /knowl
-html:
+html: ww-merge
 	install -d $(HTMLOUT)
 	-rm $(HTMLOUT)/*.html
 	-rm $(HTMLOUT)/knowl/*.html
