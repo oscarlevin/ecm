@@ -159,7 +159,7 @@ html:
 html-fresh: ww-fresh html
 
 viewhtml:
-	$(HTMLVIEWER) $(HTMLOUT)/edm.html &
+	$(HTMLVIEWER) $(HTMLOUT)/ecm.html &
 
 # Full PDF version
 #   copies in all image files, which is overkill (SVG's)
@@ -191,7 +191,7 @@ viewhtml:
 #   Black on white, no live URLs, etc
 #   This is the "printable" downloadable Annual Edition
 latex: ww-merge
-	-rm $(PDFOUT)/edm.tex
+	-rm $(PDFOUT)/ecm.tex
 	install -d $(PDFOUT)
 	cp -a images $(PDFOUT)
 	cd $(PDFOUT); \

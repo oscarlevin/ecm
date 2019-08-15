@@ -24,50 +24,88 @@
 <xsl:param name="toc.level" select="''" />
 
 
-<!-- Exercises -->
-<!-- HTML: knowlize as available/appropriate -->
-<xsl:param name="exercise.text.statement" select="'yes'" />
-<xsl:param name="exercise.text.hint" select="'yes'" />
-<xsl:param name="exercise.text.answer" select="'no'" />
-<xsl:param name="exercise.text.solution" select="'no'" />
-<xsl:param name="exercise.backmatter.statement" select="'no'" />
-<xsl:param name="exercise.backmatter.hint" select="'no'" />
-<xsl:param name="exercise.backmatter.answer" select="'no'" />
-<xsl:param name="exercise.backmatter.solution" select="'no'" />
-
-<!-- Now project-like elements, in main text.  -->
-<!-- A task is a division of a project         -->
-<xsl:param name="project.text.statement" select="'yes'" /> <!-- not implemented -->
-<xsl:param name="project.text.hint" select="'yes'" />
-<xsl:param name="project.text.answer" select="'no'" />
-<xsl:param name="project.text.solution" select="'no'" />
-<xsl:param name="task.text.statement" select="'yes'" /> <!-- not implemented -->
-<xsl:param name="task.text.hint" select="'yes'" />
-<xsl:param name="task.text.answer" select="'no'" />
-<xsl:param name="task.text.solution" select="'no'" />
-<!-- And project-like elements, in back matter (none implemented). -->
-<xsl:param name="project.backmatter.statement" select="'no'" />
-<xsl:param name="project.backmatter.hint" select="'yes'" />
-<xsl:param name="project.backmatter.answer" select="'no'" />
-<xsl:param name="project.backmatter.solution" select="'no'" />
-<xsl:param name="task.backmatter.statement" select="'no'" />
-<xsl:param name="task.backmatter.hint" select="'yes'" />
-<xsl:param name="task.backmatter.answer" select="'no'" />
-<xsl:param name="task.backmatter.solution" select="'no'" />
-<!-- Changes to mimic in HTML via CSS/other changes? -->
-<!-- LaTeX: Bold and italic for terminology macro -->
-<!-- LaTeX: Proof to small caps -->
-<!-- LaTeX: Historical Notes -->
+<!-- An exercise has a statement, and may have hints,      -->
+<!-- answers and solutions.  An answer is just the         -->
+<!-- final number, expression, whatever; while a solution  -->
+<!-- includes intermediate steps. Parameters here control  -->
+<!-- the *visibility* of these four parts                  -->
+<!--                                                       -->
+<!-- Parameters are:                                       -->
+<!--   'yes' - visible                                     -->
+<!--   'no' - not visible                                  -->
+<!--                                                       -->
+<!-- Five categories:                                      -->
+<!--   inline (checpoint) exercises                        -->
+<!--   divisional (inside an "exercises" division)         -->
+<!--   worksheet (inside a "worksheet" division)           -->
+<!--   reading (inside a "reading-questions" division)     -->
+<!--   project (on a project-like,                         -->
+<!--   or possibly on a terminal "task" of a project-like) -->
+<!--                                                       -->
+<!-- Default is "yes" for every part, so experiment        -->
+<!-- with parameters to make some parts hidden.            -->
+<!--                                                       -->
+<!-- These are global switches, so only need to be fed     -->
+<!-- into the construction of exercises via the            -->
+<!-- "exercise-components" template.                       -->
+<!-- N.B. "statement" switches are necessary or desirable  -->
+<!-- for alternate collections of solutions (only)         -->
+<xsl:param name="exercise.inline.statement" select="''" />
+<xsl:param name="exercise.inline.hint" select="''" />
+<xsl:param name="exercise.inline.answer" select="''" />
+<xsl:param name="exercise.inline.solution" select="''" />
+<xsl:param name="exercise.divisional.statement" select="''" />
+<xsl:param name="exercise.divisional.hint" select="''" />
+<xsl:param name="exercise.divisional.answer" select="''" />
+<xsl:param name="exercise.divisional.solution" select="''" />
+<xsl:param name="exercise.worksheet.statement" select="''" />
+<xsl:param name="exercise.worksheet.hint" select="''" />
+<xsl:param name="exercise.worksheet.answer" select="''" />
+<xsl:param name="exercise.worksheet.solution" select="''" />
+<xsl:param name="exercise.reading.statement" select="''" />
+<xsl:param name="exercise.reading.hint" select="''" />
+<xsl:param name="exercise.reading.answer" select="''" />
+<xsl:param name="exercise.reading.solution" select="''" />
+<xsl:param name="project.statement" select="''" />
+<xsl:param name="project.hint" select="''" />
+<xsl:param name="project.answer" select="''" />
+<xsl:param name="project.solution" select="''" />
 
 
 
 
 <!-- Here are the options, taken from mathbook-html.xsl, changed as needed -->
+<!-- ################################################ -->
+<!-- Following is slated to migrate above, 2019-07-10 -->
+<!-- ################################################ -->
 
 <!-- Parameters -->
 <!-- Parameters to pass via xsltproc "stringparam" on command-line            -->
 <!-- Or make a thin customization layer and use 'select' to provide overrides -->
 <!-- See more generally applicable parameters in mathbook-common.xsl file     -->
+
+<!-- WeBWorK exercise may be rendered static="yes"    -->
+<!-- TODO: implement middle option static="preview"   -->
+<!-- Or static="no" makes an interactive problem      -->
+<!-- Also in play here are params from -common:       -->
+<!-- exercise.text.statement, exercise.text.hint, exercise.text.solution -->
+<!-- For a divisional exercise, when static="no", that is an intentional -->
+<!-- decision to show the live problem, which means the statement will   -->
+<!-- be shown, regardless of exercise.text.statement. If the problem was -->
+<!-- authored in PTX source, we can respect the values for               -->
+<!-- exercise.text.hint and exercise.text.solution. If the problem       -->
+<!-- source is on the webwork server, then hints and solutions will show -->
+<!-- no matter what.                                                     -->
+<!-- For a divisional exercise, when static="yes", each of the three     -->
+<!-- -common params will be respected. Effectively the content is        -->
+<!-- handled like a non-webwork exercise.                                -->
+<!-- For an inline exercise (webwork or otherwise) statements, hints,    -->
+<!-- and solutions are always shown. The -common params mentioned above  -->
+<!-- do not apply. Whether static is "yes" or "no" doesn't matter.       -->
+<xsl:param name="webwork.inline.static" select="'no'" />
+<xsl:param name="webwork.divisional.static" select="'yes'" />
+<xsl:param name="webwork.reading.static" select="'yes'" />
+<xsl:param name="webwork.worksheet.static" select="'yes'" />
 
 <!-- Content as Knowls -->
 <!-- These parameters control if content is      -->
@@ -87,20 +125,25 @@
 <!-- You may elect to have entire side-by-side   -->
 <!-- panels born as knowls, using the switch.    -->
 <!-- PROJECT-LIKE gets own switch here           -->
-
+<!-- "example" are set to 'yes' by default       -->
+<!-- so new authors know that knowls exist       -->
 <xsl:param name="html.knowl.theorem" select="'no'" />
-<xsl:param name="html.knowl.proof" select="'no'" />
+<xsl:param name="html.knowl.proof" select="'yes'" />
 <xsl:param name="html.knowl.definition" select="'no'" />
 <xsl:param name="html.knowl.example" select="'no'" />
 <xsl:param name="html.knowl.project" select="'no'" />
+<xsl:param name="html.knowl.task" select="'no'" />
 <xsl:param name="html.knowl.list" select="'no'" />
 <xsl:param name="html.knowl.remark" select="'no'" />
+<xsl:param name="html.knowl.objectives" select="'no'" />
+<xsl:param name="html.knowl.outcomes" select="'no'" />
 <xsl:param name="html.knowl.figure" select="'no'" />
 <xsl:param name="html.knowl.table" select="'no'" />
 <xsl:param name="html.knowl.listing" select="'no'" />
-<xsl:param name="html.knowl.sidebyside" select="'no'" />
 <xsl:param name="html.knowl.exercise.inline" select="'no'" />
 <xsl:param name="html.knowl.exercise.sectional" select="'no'" />
+<xsl:param name="html.knowl.exercise.worksheet" select="'no'" />
+<xsl:param name="html.knowl.exercise.readingquestion" select="'no'" />
 <!-- html.knowl.example.solution: always "yes", could be implemented -->
 
 <!-- CSS and Javascript Servers -->
@@ -108,15 +151,46 @@
 <!-- or to specify the particular CSS file, which may have   -->
 <!-- different color schemes.  The defaults should work      -->
 <!-- fine and will not need changes on initial or casual use -->
-<!-- #0 to #5 on mathbook-modern for different color schemes -->
-<!-- We just like #3 as the default                          -->
-<!-- N.B.:  This scheme is transitional and may change             -->
-<!-- N.B.:  without warning and without any deprecation indicators -->
-<xsl:param name="html.js.server"  select="'https://aimath.org'" />
-<xsl:param name="html.css.server" select="'https://aimath.org'" />
-<xsl:param name="html.css.file"   select="'mathbook-1.css'" />
+<!-- Files with name colors_*.css set the colors.            -->
+<!-- colors_default is similar to the old mathbook-3.css     -->
+<xsl:param name="html.css.server" select="'https://pretextbook.org'" />
+<xsl:param name="html.css.version" select="'0.2'" />
+<xsl:param name="html.js.server" select="'https://pretextbook.org'" />
+<xsl:param name="html.js.version" select="'0.12'" />
+<xsl:param name="html.css.colorfile" select="''" />
+<!-- A temporary variable for testing -->
+<xsl:param name="debug.colors" select="''"/>
+
+<xsl:variable name="html-css-colorfile">
+    <xsl:choose>
+        <!-- 2019-05-29: override with new files, no error-checking    -->
+        <!-- if not used, then previous scheme is employed identically -->
+        <xsl:when test="not($debug.colors = '')">
+            <xsl:text>colors_</xsl:text>
+            <xsl:value-of select="$debug.colors"/>
+            <xsl:text>.css</xsl:text>
+        </xsl:when>
+        <xsl:when test="$html.css.colorfile = ''">
+            <xsl:text>colors_default.css</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="$html.css.colorfile"/>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:variable>
 <!-- A space-separated list of CSS URLs (points to servers or local files) -->
-<xsl:param name="html.css.extra"  select="'custom-styles.css title-period-fix.css'" />
+<xsl:param name="html.css.extra"  select="'custom-styles.css'" />
+
+<!-- Calculator -->
+<!-- Possible values are geogebra-classic, geogebra-graphing -->
+<!-- geogebra-geometry, geogebra-3d                          -->
+<!-- Default is empty, meaning the calculator is not wanted. -->
+<xsl:param name="html.calculator" select="''" />
+<xsl:variable name="b-has-calculator" select="not($html.calculator = '')" />
+
+<!-- Annotation -->
+<xsl:param name="html.annotation" select="''" />
+<xsl:variable name="b-activate-hypothesis" select="boolean($html.annotation='hypothesis')" />
 
 <!-- Navigation -->
 <!-- Navigation may follow two different logical models:                     -->
@@ -133,13 +207,6 @@
 <!-- There are also "compact" versions of the navigation buttons in the top right -->
 <xsl:param name="html.navigation.style"  select="'full'" />
 
-<!-- WeBWorK -->
-<!-- There is no default server provided         -->
-<!-- Interactions are with an "anonymous" course -->
-<xsl:param name="webwork.server" select="''"/>
-<xsl:param name="webwork.course" select="'anonymous'" />
-<xsl:param name="webwork.userID" select="'anonymous'" />
-<xsl:param name="webwork.password" select="'anonymous'" />
 
 <!-- Permalinks -->
 <!-- Next to subdivision headings a "paragraph" symbol     -->
@@ -160,8 +227,11 @@
 <!-- 'none' - no permalinks anywhere                       -->
 <!-- 'stable' - only stable links (see paragraph above)    -->
 <!-- 'all' - every section heading, even if links are poor -->
-<xsl:param name="html.permalink"  select="'all'" />
-
+<xsl:param name="html.permalink"  select="'stable'" />
+<!-- Parameters -->
+<!-- Parameters to pass via xsltproc "stringparam" on command-line            -->
+<!-- Or make a thin customization layer and use 'select' to provide overrides -->
+<!-- See more generally applicable parameters in mathbook-common.xsl file     -->
 
 
 

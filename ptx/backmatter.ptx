@@ -10,10 +10,19 @@
 
 
   <solutions project="hint">
-    <title>Hints to selected activities and projects</title>
+    <title>Hints to selected activities and exercises</title>
+    <introduction>
+      <p>
+        Please resist the urge to look at a hint right away.  Try to complete the activity or exercise and only look at the hint for verification or if you are really stuck.
+      </p>
+      
+      <p>
+        A technical note: if you are using the pdf version, you can click on the title of the hint to link back to the original activity/exercise.  Those activities/exercises that have hints will display a link [hint] that will take you to the hint.
+      </p>
+    </introduction>
   </solutions>
 
-  <solutions divisional="solution">
+  <solutions divisional="solution" scope="ch_background">
     <title>Solutions to selected exercises</title>
   </solutions>
 

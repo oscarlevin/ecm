@@ -376,7 +376,7 @@
 <!-- Each just slightly different                   -->
 
 <!-- Example styling from CLP -->
-<xsl:template match="example" mode="tcb-style">
+<!-- <xsl:template match="example" mode="tcb-style">
     <xsl:text>
       enhanced,
       breakable,
@@ -384,7 +384,7 @@
       frame hidden,
       borderline west={1pt}{0mm}{MidnightBlue},
       overlay unbroken and last={
-        \draw[MidnightBlue, path fading=east, line width=.5pt] (frame.south west) -- (frame.south east);
+        \draw[MidnightBlue, path fading=east, line width=.5pt] (frame.south west) dashdash (frame.south east);
       },
       colback=white,
       coltitle=white,
@@ -395,13 +395,44 @@
       after skip=1em,
       before skip=1em,
     </xsl:text>
+</xsl:template> -->
+
+<xsl:template match="example" mode="tcb-style">
+    <xsl:text>
+      breakable,
+      enhanced,
+      attach title to upper, after title={.\\}, fonttitle=\bfseries, coltitle=black,
+      colback=white,
+      top=.5em,
+      before skip=1em,
+      after skip=1em,
+      sharp corners=all,
+      frame hidden,
+      %Draw breakable decorations:
+      overlay first={%
+      \draw[black!60, path fading=east] (frame.north) -- (frame.north west) -- (frame.south west);
+      },
+      overlay middle={%
+      \draw[black!60] (frame.south west) -- (frame.north west);
+      },
+      overlay last={%
+      \fill[left color=black!40, right color=white, white] ([xshift=4pt]frame.south west) -- ++(0,-4pt) to[out=4, in=182] (frame.south) -- cycle;
+      \draw[black!60, path fading=east] (frame.south) -- (frame.south west);
+      \draw[black!60] (frame.north west) -- (frame.south west);
+      },
+      overlay unbroken={%
+      \fill[left color=black!40, right color=white, white] ([xshift=4pt]frame.south west) -- ++(0,-4pt) to[out=4, in=182] (frame.south) -- cycle;
+      \draw[black!60, path fading=east] (frame.south) -- (frame.south west);
+      \draw[black!60, path fading=east] (frame.north) -- (frame.north west) -- (frame.south west);
+      }
+    </xsl:text>
 </xsl:template>
 
 <xsl:template match="activity|investigation|exploration" mode="tcb-style">
   <xsl:text>
     breakable,
 	enhanced,
-    attach title to upper, after title={.\space}, fonttitle=\bfseries\sffamily, coltitle=black,
+    attach title to upper, after title={.\\}, fonttitle=\bfseries, coltitle=black,
 	colback=white,
 	top=.5em,
 	before skip=1em,
@@ -410,20 +441,20 @@
 	frame hidden,
 	%Draw breakable decorations:
 	overlay first={%
-		\draw[black!60, path fading=west] (frame.north) -- (frame.north east) -- (frame.south east);
+		\draw[black!60, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
 		},
 	overlay middle={%
 		\draw[black!60] (frame.south east) -- (frame.north east);
 		},
 	 overlay last={%
 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south) -- (frame.south east);
+		\draw[black!60, path fading=west] (frame.south west) -- (frame.south east);
 		\draw[black!60] (frame.north east) -- (frame.south east);
 		},
 	overlay unbroken={%
 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south) -- (frame.south east);
-		\draw[black!60, path fading=west] (frame.north) -- (frame.north east) -- (frame.south east);
+		\draw[black!60, path fading=west] (frame.south west) -- (frame.south east);
+		\draw[black!60, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
 		}
   </xsl:text>
 </xsl:template>
@@ -431,9 +462,13 @@
 <!-- The following are blocks not yet styled (thus commented) -->
 <!-- but could be some day                                    -->
 
-<!-- <xsl:template match="&THEOREM-LIKE;" mode="tcb-style">
-  <xsl:text/>
-</xsl:template> -->
+<xsl:template match="&THEOREM-LIKE;" mode="tcb-style">
+  <xsl:text>enhanced, toprule=0pt, bottomrule=0pt, leftrule=1pt, rightrule=1pt, sharp corners, colback=MidnightBlue!5, colframe=MidnightBlue!50!black,&#xa;</xsl:text>
+  <xsl:text>colbacktitle=white, coltitle=black, </xsl:text>
+  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={\\}, top=.5em,
+  before skip=1em,
+  after skip=1em,&#xa;</xsl:text>
+</xsl:template>
 
 
 <!-- <xsl:template match="proof" mode="tcb-style">
@@ -449,6 +484,13 @@
 <!-- <xsl:template match="&DEFINITION-LIKE;" mode="tcb-style">
   <xsl:text>breakable, parbox=false, colframe=MidnightBlue, colback=MidnightBlue!5, colbacktitle=MidnightBlue!70, coltitle=black, enhanced, attach boxed title to top left={xshift=7mm, yshift*=-2ex},sharp corners=northwest, arc=10pt,</xsl:text>
 </xsl:template> -->
+<xsl:template match="&DEFINITION-LIKE;" mode="tcb-style">
+  <xsl:text>enhanced, toprule=0pt, bottomrule=0pt, leftrule=1pt, rightrule=1pt, sharp corners, colback=MidnightBlue!5, colframe=MidnightBlue!50!black,&#xa;</xsl:text>
+  <xsl:text>colbacktitle=white, coltitle=black, boxed title style={sharp corners, frame hidden},&#xa;</xsl:text>
+  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={\\}, top=.5em,
+  before skip=1em,
+  after skip=1em,&#xa;</xsl:text>
+</xsl:template>
 
 <!-- REMARK-LIKE: "remark", "convention", "note",   -->
 <!--            "observation", "warning", "insight" -->

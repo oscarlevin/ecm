@@ -77,8 +77,8 @@
 <xsl:param name="exercise.reading.solution" select="''" />
 <xsl:param name="project.statement" select="''" />
 <xsl:param name="project.hint" select="''" />
-<xsl:param name="project.answer" select="''" />
-<xsl:param name="project.solution" select="''" />
+<xsl:param name="project.answer" select="'no'" />
+<xsl:param name="project.solution" select="'no'" />
 
 
 <!-- Author tools are for drafts, mostly "todo" items                 -->
