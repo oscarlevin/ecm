@@ -401,9 +401,9 @@
     <xsl:text>
       breakable,
       enhanced,
-      attach title to upper, after title={.\\ \vskip 1ex}, fonttitle=\bfseries, coltitle=black,
+      attach title to upper, after title={.\vskip 0.1ex \noindent}, fonttitle=\bfseries, coltitle=black,
       colback=white,
-      top=0em,
+      top=.25em,
       before skip=1em,
       after skip=1em,
       sharp corners=all,
@@ -432,9 +432,9 @@
   <xsl:text>
     breakable,
 	enhanced,
-    attach title to upper, after title={.\\ \vskip 1ex}, fonttitle=\bfseries, coltitle=black,
+    attach title to upper, after title={.\vskip 0.1ex \noindent}, fonttitle=\bfseries, coltitle=black,
 	colback=white,
-	top=0em,
+	top=0.25em,
 	before skip=1em,
 	after skip=1em,
 	sharp corners=all,
@@ -465,7 +465,7 @@
 <xsl:template match="&THEOREM-LIKE;" mode="tcb-style">
   <xsl:text>enhanced, toprule=0pt, bottomrule=0pt, leftrule=1pt, rightrule=1pt, sharp corners, colback=MidnightBlue!5, colframe=MidnightBlue!50!black,&#xa;</xsl:text>
   <xsl:text>colbacktitle=white, coltitle=black, </xsl:text>
-  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={.\\ \vskip 1ex}, top=0em,
+  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={.\vskip 0.1ex \noindent}, top=0.25em,
   before skip=1em,
   after skip=1em,&#xa;</xsl:text>
 </xsl:template>
@@ -487,7 +487,7 @@
 <xsl:template match="&DEFINITION-LIKE;" mode="tcb-style">
   <xsl:text>enhanced, toprule=0pt, bottomrule=0pt, leftrule=1pt, rightrule=1pt, sharp corners, colback=MidnightBlue!5, colframe=MidnightBlue!50!black,&#xa;</xsl:text>
   <xsl:text>colbacktitle=white, coltitle=black, boxed title style={sharp corners, frame hidden},&#xa;</xsl:text>
-  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={.\\ \vskip 1ex}, top=0em,
+  <xsl:text>fonttitle=\bfseries, attach title to upper, after title={.\vskip 0.1ex \noindent}, top=.25em,
   before skip=1em,
   after skip=1em,&#xa;</xsl:text>
 </xsl:template>
