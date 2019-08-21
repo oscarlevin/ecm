@@ -6145,6 +6145,7 @@ These puzzles give you just a small glimpse into the myriad of applications grap
 \begin{activity}{}{g:activity:idp403346766768}%
 For now, let's say that a \terminology{graph} is simply a collection of vertices, some of which are connected by an edge.  Draw all graphs that have exactly five vertices and six edges.  How many are there?  How do you know?%
 \end{activity}
+\clearpage
 \begin{activity}{}{x:activity:activity-graphdiff}%
 Which (if any) of the graphs below are the same?%
 \begin{sidebyside}{5}{0.01}{0.01}{0.02}%
@@ -6641,6 +6642,7 @@ Vertices in a graph do not always have edges between them. If we add all possibl
 Each vertex in \(K_n\) is adjacent to \(n-1\) other vertices. We call the number of edges emanating from a given vertex the \terminology{degree} of that vertex. So every vertex in \(K_n\) has degree \(n-1\). How many edges does \(K_n\) have? One might think the answer should be \(n(n-1)\), since we count \(n-1\) edges \(n\) times (once for each vertex). However, each edge is incident to 2 vertices, so we counted every edge exactly twice. Thus there are \(n(n-1)/2\) edges in \(K_n\). %
 \par
 In general, if we know the degrees of all the vertices in a graph, we can find the number of edges. The sum of the degrees of all vertices will always be \emph{twice} the number of edges, since each edge adds to the degree of two vertices. Notice this means that the sum of the degrees of all vertices in any graph must be even!%
+\clearpage
 \begin{example}{}{g:example:idp403347019824}%
 At a recent math seminar, 9 mathematicians greeted each other by shaking hands. Is it possible that each mathematician shook hands with exactly 7 people at the seminar?%
 \par\smallskip%
@@ -12021,28 +12023,20 @@ Please resist the urge to look at a hint right away.  Try to complete the activi
 \par
 A technical note: if you are using the pdf version, you can click on the title of the hint to link back to the original activity\slash{}exercise.  Those activities\slash{}exercises that have hints will display a link [hint] that will take you to the hint.%
 \end{introduction}%
-\par\smallskip
-\noindent\textbf{\Large{}1\space\textperiodcentered\space{}Basic Combinatorics}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}1.1\space\textperiodcentered\space{}Pascal's Triangle and Binomial Coefficients}
-\par\smallskip
-\begin{activitysolution}{6}{}{g:activity:idp403328349376}%
+%
+%
+\begin{activitysolution}{6}{}{g:activity:idp315663817664}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403329562656-back}\quad{}This is a little harder.  It might help to notice that there is really nothing special about \([n]\) except that it contains \(n\) elements.  In fact, what can you say about the number of \(k\)-element subsets of \emph{any} \(n\)-element set?  Then, what \(n\)-element set would we look at when expanding \((x+y)^n\)?%
+\item[(c)]\hypertarget{g:hint:idp315660082000-back}\quad{}This is a little harder.  It might help to notice that there is really nothing special about \([n]\) except that it contains \(n\) elements.  In fact, what can you say about the number of \(k\)-element subsets of \emph{any} \(n\)-element set?  Then, what \(n\)-element set would we look at when expanding \((x+y)^n\)?%
 \end{enumerate}
 \end{activitysolution}%
-\begin{explorationsolution}{9}{}{g:exploration:idp403342683984}%
-\textbf{Hint}.\hypertarget{g:hint:idp403342686896-back}\quad{}What can you say about the composition of two bijections?%
+\begin{explorationsolution}{9}{}{g:exploration:idp315674439696}%
+\hypertarget{g:hint:idp315674442608-back}\quad{}What can you say about the composition of two bijections?%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.2\space\textperiodcentered\space{}Proofs in Combinatorics}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}1.2.1\space\textperiodcentered\space{}Two Motivating Examples}
-\par\smallskip
-\begin{activitysolution}{11}{}{g:activity:idp403342759920}%
-\textbf{Hint}.\hypertarget{g:hint:idp403342763184-back}\quad{}This should be really easy, but don't let that fool you.  Note that a correct proof must start with one side of the identity and manipulate it into the other side.  The following is NOT a correct proof, because it starts by assuming the statement you wish to prove.%
+%
+%
+\begin{activitysolution}{11}{}{g:activity:idp315674514656}%
+\hypertarget{g:hint:idp315674517920-back}\quad{}This should be really easy, but don't let that fool you.  Note that a correct proof must start with one side of the identity and manipulate it into the other side.  The following is NOT a correct proof, because it starts by assuming the statement you wish to prove.%
 \begin{align*}
 \binom{n}{k}  = \amp \binom{n}{n-k}\\
 \frac{n!}{k!(n-k)!} =  \amp \frac{n!}{(n-k)!(n-(n-k)!)}\\
@@ -12054,97 +12048,95 @@ n! =  \amp n!
 \end{activitysolution}%
 \begin{activitysolution}{12}{}{x:activity:act-pascalsym-dc}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343030688-back}\quad{}This is supposed to be very easy.%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403343035344-back}\quad{}What if you started with all bow ties in the suitcase and got rid of some?  How many do you need to remove?%
+\item[(a)]\hypertarget{g:hint:idp315674542416-back}\quad{}This is supposed to be very easy.%
+\item[(b)]\hypertarget{g:hint:idp315674790176-back}\quad{}What if you started with all bow ties in the suitcase and got rid of some?  How many do you need to remove?%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{13}{}{x:activity:act-pascalsym-bij}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(d)]\textbf{Hint}.\hypertarget{g:hint:idp403343057696-back}\quad{}Recall the bijection principle tells us that if \(f:X \to Y\) is a bijection, then \(\card{X} = \card{Y}\).  What is the cardinality of each of the subsets of \(\pow([n])\) that we are considering?%
+\item[(d)]\hypertarget{g:hint:idp315674812528-back}\quad{}Recall the bijection principle tells us that if \(f:X \to Y\) is a bijection, then \(\card{X} = \card{Y}\).  What is the cardinality of each of the subsets of \(\pow([n])\) that we are considering?%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{14}{}{x:activity:act-pascalrowsum-alg}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343082128-back}\quad{}We say ``should'', but please don't waste your time doing this all the way out.  Unless you are really bored.%
+\hypertarget{g:hint:idp315674836960-back}\quad{}We say ``should'', but please don't waste your time doing this all the way out.  Unless you are really bored.%
 \end{activitysolution}%
-\begin{activitysolution}{15}{}{g:activity:idp403343083584}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343085632-back}\quad{}Again, use the Pascal recurrence \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).  Doing this for all summands will give you some repeats.%
+\begin{activitysolution}{15}{}{g:activity:idp315674838416}%
+\hypertarget{g:hint:idp315674840464-back}\quad{}Again, use the Pascal recurrence \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).  Doing this for all summands will give you some repeats.%
 \end{activitysolution}%
 \begin{activitysolution}{16}{}{x:activity:activity-pascalrow-dc}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343098672-back}\quad{}Your final answer here should be a sum, since we have counted the number of subsets partitioned into disjoint collections.  You will be using the sum principle, which we will formally introduce in the next subsection.%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403343104416-back}\quad{}Think about how many choices you have for each element.  You could put 1 in the subset or not.  You could include \(2\) in the subset or not.%
+\item[(a)]\hypertarget{g:hint:idp315674853504-back}\quad{}Your final answer here should be a sum, since we have counted the number of subsets partitioned into disjoint collections.  You will be using the sum principle, which we will formally introduce in the next subsection.%
+\item[(b)]\hypertarget{g:hint:idp315674859248-back}\quad{}Think about how many choices you have for each element.  You could put 1 in the subset or not.  You could include \(2\) in the subset or not.%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{17}{}{x:activity:act-pascalrowsum-binom}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343116096-back}\quad{}Just do it.%
+\hypertarget{g:hint:idp315674870928-back}\quad{}Just do it.%
 \end{activitysolution}%
 %
 \begin{explorationsolution}{23}{}{x:exploration:act-latticepaths2}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343190896-back}\quad{}Many students want this sort of question to be an example of the sum principle (presumably because to get an acceptable path you travel to \((4,7)\) and then add on a path that gets you the rest of the way.  But notice that you are really concatenating two paths, and there are lots of choices for the first path and lots for the second.  This sounds more like an ordered pair.%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403343195136-back}\quad{}If you knew the answer to this part and the previous part, what is another way you could compute the number of paths from \((0,0)\) to \((10,10)\)?%
-\item[(d)]\textbf{Hint}.\hypertarget{g:hint:idp403343203040-back}\quad{}Compare to the question about how many playing cards are either red or a face card, and why the answer is not \(26 + 12\).%
+\item[(a)]\hypertarget{g:hint:idp315674945680-back}\quad{}Many students want this sort of question to be an example of the sum principle (presumably because to get an acceptable path you travel to \((4,7)\) and then add on a path that gets you the rest of the way.  But notice that you are really concatenating two paths, and there are lots of choices for the first path and lots for the second.  This sounds more like an ordered pair.%
+\item[(b)]\hypertarget{g:hint:idp315674949920-back}\quad{}If you knew the answer to this part and the previous part, what is another way you could compute the number of paths from \((0,0)\) to \((10,10)\)?%
+\item[(d)]\hypertarget{g:hint:idp315674957824-back}\quad{}Compare to the question about how many playing cards are either red or a face card, and why the answer is not \(26 + 12\).%
 \end{enumerate}
 \end{explorationsolution}%
 \begin{explorationsolution}{24}{}{x:exploration:SubsetsFirstTime}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343211168-back}\quad{}Try applying the product principle in the case \(n = 2\) and \(n = 3\). How might you apply it in general?%
+\hypertarget{g:hint:idp315674965888-back}\quad{}Try applying the product principle in the case \(n = 2\) and \(n = 3\). How might you apply it in general?%
 \end{explorationsolution}%
 \begin{explorationsolution}{25}{}{x:exploration:tennispairings1}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343219488-back}\quad{}Suppose you have a list in alphabetical order of names of the members of the club. In how many ways can you pair up the first person on the list? In how many ways can you pair up the next person who isn't already paired up?%
+\item[(a)]\hypertarget{g:hint:idp315674974144-back}\quad{}Suppose you have a list in alphabetical order of names of the members of the club. In how many ways can you pair up the first person on the list? In how many ways can you pair up the next person who isn't already paired up?%
 \end{enumerate}
 \end{explorationsolution}%
-\begin{explorationsolution}{26}{}{g:exploration:idp403343226128}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343228560-back}\quad{}In how many ways may you assign the men to their rows? The women? Once a woman and a man have a row to share, in how many ways may they choose their seats?%
+\begin{explorationsolution}{26}{}{g:exploration:idp315674980784}%
+\hypertarget{g:hint:idp315674983216-back}\quad{}In how many ways may you assign the men to their rows? The women? Once a woman and a man have a row to share, in how many ways may they choose their seats?%
 \end{explorationsolution}%
 \begin{activitysolution}{27}{}{g:activity:idp403343266816}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343269120-back}\quad{}We are not necessarily looking for a numerical answer here, but you should be able to express the answer using notation we have developed already.  Or by using some sort of triangle.%
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403343272336-back}\quad{}Should your answer be larger or smaller than if the books could be in any order?  How is this any different from throwing the books away?%
+\item[(a)]\hypertarget{g:hint:idp315675023792-back}\quad{}We are not necessarily looking for a numerical answer here, but you should be able to express the answer using notation we have developed already.  Or by using some sort of triangle.%
+\item[(c)]\hypertarget{g:hint:idp315675027008-back}\quad{}Should your answer be larger or smaller than if the books could be in any order?  How is this any different from throwing the books away?%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{28}{}{g:activity:idp403343278016}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403343283696-back}\quad{}You have \(P(26,5) = \binom{26}{5}\cdot 5!\).  You know that \(P(26,5) = \frac{26!}{21!}\), so you should be able to easily ``solve'' for \(\binom{26}{5}\).%
+\item[(c)]\hypertarget{g:hint:idp315675038368-back}\quad{}You have \(P(26,5) = \binom{26}{5}\cdot 5!\).  You know that \(P(26,5) = \frac{26!}{21!}\), so you should be able to easily ``solve'' for \(\binom{26}{5}\).%
 \end{enumerate}
 \end{activitysolution}%
 %
 \begin{explorationsolution}{31}{}{x:exploration:act-bowtiefez}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343311392-back}\quad{}The \(mn\) looks like an application of the product principle.  Say you had \(m\) bow ties and \(n\) fezzes.  What question should you ask, and why does the other side also answer this?  Alternatively, consider how this identity relates to that of \hyperref[x:example:act-redgreenballs]{Example~\ref{x:example:act-redgreenballs}}.%
+\hypertarget{g:hint:idp315675066080-back}\quad{}The \(mn\) looks like an application of the product principle.  Say you had \(m\) bow ties and \(n\) fezzes.  What question should you ask, and why does the other side also answer this?  Alternatively, consider how this identity relates to that of \hyperref[x:example:act-redgreenballs]{Example~\ref{x:example:act-redgreenballs}}.%
 \end{explorationsolution}%
-\begin{explorationsolution}{32}{}{g:exploration:idp403343319200}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343320864-back}\quad{}You will want to consider a lot of lattice paths, not all ending at the same point.  In fact, what do all the lattice paths have in common?%
+\begin{explorationsolution}{32}{}{g:exploration:idp315675073888}%
+\hypertarget{g:hint:idp315675075552-back}\quad{}You will want to consider a lot of lattice paths, not all ending at the same point.  In fact, what do all the lattice paths have in common?%
 \end{explorationsolution}%
-\begin{explorationsolution}{33}{}{g:exploration:idp403343323888}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343325520-back}\quad{}The answer looks like it might be almost the sum of a row in Pascal's triangle.  Why does this make sense?  You could think of including, or excluding numbers.%
+\begin{explorationsolution}{33}{}{g:exploration:idp315675078576}%
+\hypertarget{g:hint:idp315675080208-back}\quad{}The answer looks like it might be almost the sum of a row in Pascal's triangle.  Why does this make sense?  You could think of including, or excluding numbers.%
 \end{explorationsolution}%
-\begin{explorationsolution}{34}{}{g:exploration:idp403343342048}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343343712-back}\quad{}Bit strings are nice here.  What could the last bit of the bit string be?%
+\begin{explorationsolution}{34}{}{g:exploration:idp315675096800}%
+\hypertarget{g:hint:idp315675098464-back}\quad{}Bit strings are nice here.  What could the last bit of the bit string be?%
 \end{explorationsolution}%
-\begin{explorationsolution}{35}{}{g:exploration:idp403343402496}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343404064-back}\quad{}Try bit strings here.  What length and weight are we looking at?  Where might the first (left-most) one be?%
+\begin{explorationsolution}{35}{}{g:exploration:idp315675157152}%
+\hypertarget{g:hint:idp315675158720-back}\quad{}Try bit strings here.  What length and weight are we looking at?  Where might the first (left-most) one be?%
 \end{explorationsolution}%
-\begin{explorationsolution}{36}{}{g:exploration:idp403343426128}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343428320-back}\quad{}The identity you should try to prove is%
+\begin{explorationsolution}{36}{}{g:exploration:idp315675180880}%
+\hypertarget{g:hint:idp315675183072-back}\quad{}The identity you should try to prove is%
 \begin{equation*}
 \binom{2}{2}\binom{n}{2} + \binom{3}{2}\binom{n-1}{2} + \cdots + \binom{n}{2}\binom{2}{2} = \binom{n+3}{5}.
 \end{equation*}
 %
 \end{explorationsolution}%
-\begin{explorationsolution}{37}{}{g:exploration:idp403343429968}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343432464-back}\quad{}In how many ways can you arrange the \(n+1\) numbers \(0, 1, 2, \ldots, n\) so that they are \emph{not} in ascending order?%
+\begin{explorationsolution}{37}{}{g:exploration:idp315675184720}%
+\hypertarget{g:hint:idp315675187216-back}\quad{}In how many ways can you arrange the \(n+1\) numbers \(0, 1, 2, \ldots, n\) so that they are \emph{not} in ascending order?%
 \end{explorationsolution}%
-\begin{explorationsolution}{38}{}{g:exploration:idp403343449216}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343450704-back}\quad{}Look back at \hyperref[x:example:act_anysizecommittee]{Example~\ref{x:example:act_anysizecommittee}}.  This one is easier.%
+\begin{explorationsolution}{38}{}{g:exploration:idp315675203968}%
+\hypertarget{g:hint:idp315675205456-back}\quad{}Look back at \hyperref[x:example:act_anysizecommittee]{Example~\ref{x:example:act_anysizecommittee}}.  This one is easier.%
 \end{explorationsolution}%
 \begin{explorationsolution}{39}{}{x:exploration:act_derangement-binom}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343464320-back}\quad{}Think of partitioning the \(n!\) permutations.%
+\hypertarget{g:hint:idp315675219072-back}\quad{}Think of partitioning the \(n!\) permutations.%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.2.4\space\textperiodcentered\space{}Non-combinatorial Proofs in Combinatorics}
-\par\smallskip
-\begin{explorationsolution}{41}{}{g:exploration:idp403343517600}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343520160-back}\quad{}Using \hyperref[x:example:eg-sum-of-squares]{Example~\ref{x:example:eg-sum-of-squares}} many times the left-hand side becomes can be decomposed as,%
+%
+\begin{explorationsolution}{41}{}{g:exploration:idp315675272416}%
+\hypertarget{g:hint:idp315675274976-back}\quad{}Using \hyperref[x:example:eg-sum-of-squares]{Example~\ref{x:example:eg-sum-of-squares}} many times the left-hand side becomes can be decomposed as,%
 \begin{align*}
 1^2 + 2^2 + 3^2 + \cdots + n^2 = \amp \binom{n+1}{3} + \binom{n+2}{3} \\
 1^2 + 2^2 + \cdots +(n-1)^2 = \amp \binom{n}{3} + \binom{n+1}{3}\\
@@ -12155,237 +12147,223 @@ n! =  \amp n!
 \end{align*}
 What does this have to do with the problem and why does it help?  Add all the columns!%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.3\space\textperiodcentered\space{}Counting with Equivalence}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}1.3.1\space\textperiodcentered\space{}The Quotient Principle}
-\par\smallskip
-\begin{activitysolution}{43}{}{g:activity:idp403343598992}%
+%
+%
+\begin{activitysolution}{43}{}{g:activity:idp315675353952}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343603072-back}\quad{}One rule of this type would be, two permutations are equivalent if they start with the same letter.  This is not the one you want though.%
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403343611152-back}\quad{}You might think about the usual way you would write a subset.  Essentially what this question is asking is for you to pick a representative for each equivalence class.%
+\item[(a)]\hypertarget{g:hint:idp315675358032-back}\quad{}One rule of this type would be, two permutations are equivalent if they start with the same letter.  This is not the one you want though.%
+\item[(c)]\hypertarget{g:hint:idp315675366112-back}\quad{}You might think about the usual way you would write a subset.  Essentially what this question is asking is for you to pick a representative for each equivalence class.%
 \end{enumerate}
 \end{activitysolution}%
 \begin{explorationsolution}{44}{}{x:exploration:roundtable}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp403343630880-back}\quad{}The problem suggests that you think about how to get a list from a seating arrangement. Could every list of n distinct people come from a seating chart? How many lists of n distinct people are there? How many lists could we get from a given seating chart by taking different starting places?%
+\hypertarget{g:hint:idp315675385664-back}\quad{}The problem suggests that you think about how to get a list from a seating arrangement. Could every list of n distinct people come from a seating chart? How many lists of n distinct people are there? How many lists could we get from a given seating chart by taking different starting places?%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403343631968-back}\quad{}For a different way of doing the problem, suppose that you have chosen one person, say the first one in a list of the people in alphabetical order by name. Now seat that person. Does it matter where they sit? In how many ways can you seat the remaining people? Does it matter where the second person in alphabetical order sits?%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315675386752-back}\quad{}For a different way of doing the problem, suppose that you have chosen one person, say the first one in a list of the people in alphabetical order by name. Now seat that person. Does it matter where they sit? In how many ways can you seat the remaining people? Does it matter where the second person in alphabetical order sits?%
 \end{explorationsolution}%
 \begin{explorationsolution}{45}{}{x:exploration:necklace}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp403343642128-back}\quad{}How could we get a list of beads from a necklace?%
+\hypertarget{g:hint:idp315675396912-back}\quad{}How could we get a list of beads from a necklace?%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403343642976-back}\quad{}When we cut the necklace and string it out on a table, there are \(2n\) lists of beads we could get. Why is it \(2n\) rather than \(n\)?%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315675397760-back}\quad{}When we cut the necklace and string it out on a table, there are \(2n\) lists of beads we could get. Why is it \(2n\) rather than \(n\)?%
 \end{explorationsolution}%
 \begin{explorationsolution}{46}{}{x:exploration:tennispairings2}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343654736-back}\quad{}You might first choose the pairs of people. You might also choose to make a list of all the people and then take them by twos from the list.%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403343667264-back}\quad{}You might first choose ordered pairs of people, and have the first person in each pair serve first. You might also choose to make a list of all the people and then take them by twos from the list in order.%
+\item[(a)]\hypertarget{g:hint:idp315675409456-back}\quad{}You might first choose the pairs of people. You might also choose to make a list of all the people and then take them by twos from the list.%
+\item[(b)]\hypertarget{g:hint:idp315675421984-back}\quad{}You might first choose ordered pairs of people, and have the first person in each pair serve first. You might also choose to make a list of all the people and then take them by twos from the list in order.%
 \end{enumerate}
 \end{explorationsolution}%
 \begin{explorationsolution}{47}{}{x:exploration:twocolorsofbeads}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343679104-back}\quad{}It might be helpful to just draw some pictures of the possible configurations. There aren't that many.%
+\hypertarget{g:hint:idp315675433888-back}\quad{}It might be helpful to just draw some pictures of the possible configurations. There aren't that many.%
 \end{explorationsolution}%
-\begin{explorationsolution}{48}{}{g:exploration:idp403343696176}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343698160-back}\quad{}A much easier question would be, how many anagrams of the word ``anbgrcm''?  Then use the quotient principle.%
+\begin{explorationsolution}{48}{}{g:exploration:idp315675450960}%
+\hypertarget{g:hint:idp315675452992-back}\quad{}A much easier question would be, how many anagrams of the word ``anbgrcm''?  Then use the quotient principle.%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.3.2\space\textperiodcentered\space{}When does Order Matter?}
-\par\smallskip
-\begin{activitysolution}{49}{}{g:activity:idp403343710560}%
+%
+\begin{activitysolution}{49}{}{g:activity:idp315675465248}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343713040-back}\quad{}This is not intended to be a trick question.  In fact, this example would be a good one for thinking about how permutations and combinations are related in general.%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403343715376-back}\quad{}The point of this question is to push back against your conception of what ``order matters'' means.  Since you know the answers must be \(\binom{9}{5}\) or \(P(9,5)\), you should be able to answer correctly by deciding which set is bigger.%
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403343719872-back}\quad{}You might as well assume that \(k \le n\) (otherwise the answers would both be 0).  If you are stuck, write out some examples of each using two-line notation for the functions.  What decisions do you need to make?%
+\item[(a)]\hypertarget{g:hint:idp315675467728-back}\quad{}This is not intended to be a trick question.  In fact, this example would be a good one for thinking about how permutations and combinations are related in general.%
+\item[(b)]\hypertarget{g:hint:idp315675470064-back}\quad{}The point of this question is to push back against your conception of what ``order matters'' means.  Since you know the answers must be \(\binom{9}{5}\) or \(P(9,5)\), you should be able to answer correctly by deciding which set is bigger.%
+\item[(c)]\hypertarget{g:hint:idp315675474560-back}\quad{}You might as well assume that \(k \le n\) (otherwise the answers would both be 0).  If you are stuck, write out some examples of each using two-line notation for the functions.  What decisions do you need to make?%
 \end{enumerate}
 \end{activitysolution}%
-\begin{explorationsolution}{50}{}{g:exploration:idp403343721568}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343724880-back}\quad{}Think about what \(P(n,k)\) would count when building a bit string.  Why does it make sense to quotient out by \(k!\)?%
+\begin{explorationsolution}{50}{}{g:exploration:idp315675476256}%
+\hypertarget{g:hint:idp315675479568-back}\quad{}Think about what \(P(n,k)\) would count when building a bit string.  Why does it make sense to quotient out by \(k!\)?%
 \end{explorationsolution}%
-\begin{explorationsolution}{51}{}{g:exploration:idp403343726752}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343728368-back}\quad{}They key here is to think about the set of outcomes that we are counting.  Ask yourself, the order of what?%
+\begin{explorationsolution}{51}{}{g:exploration:idp315675481440}%
+\hypertarget{g:hint:idp315675483056-back}\quad{}They key here is to think about the set of outcomes that we are counting.  Ask yourself, the order of what?%
 \end{explorationsolution}%
 \begin{activitysolution}{52}{}{g:activity:idp403343730640}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343733024-back}\quad{}You should be able to use the multiplicative principle and nothing else here.%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403343735152-back}\quad{}Maybe the flavors are chocolate, vanilla, and strawberry.  Some of the outcomes are \(ccv\) and \(csv\), but notice that we would not also include \(cvc\) or \(vcs\) because in the blender, order doesn't matter.%
+\item[(a)]\hypertarget{g:hint:idp315675487712-back}\quad{}You should be able to use the multiplicative principle and nothing else here.%
+\item[(b)]\hypertarget{g:hint:idp315675489840-back}\quad{}Maybe the flavors are chocolate, vanilla, and strawberry.  Some of the outcomes are \(ccv\) and \(csv\), but notice that we would not also include \(cvc\) or \(vcs\) because in the blender, order doesn't matter.%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{57}{}{x:activity:bookcase}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403343797632-back}\quad{}If you decide to put it on a shelf that already has a book, you have two choices of where to put it on that shelf.%
-\item[(e)]\textbf{Hint}.\hypertarget{g:hint:idp403343804736-back}\quad{}Among all the places you could put books, on all the shelves, how many are to the immediate left of some book? How many other places are there?%
+\item[(c)]\hypertarget{g:hint:idp315675552352-back}\quad{}If you decide to put it on a shelf that already has a book, you have two choices of where to put it on that shelf.%
+\item[(e)]\hypertarget{g:hint:idp315675559504-back}\quad{}Among all the places you could put books, on all the shelves, how many are to the immediate left of some book? How many other places are there?%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{58}{}{g:activity:idp403343823216}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403343830320-back}\quad{}Note, there are 5 exclamation marks, but 6 shelves.%
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403343834288-back}\quad{}One such string is \textasteriskcentered{}!!\textasteriskcentered{}\textasteriskcentered{}\textasteriskcentered{}!\textasteriskcentered{}!\textasteriskcentered{}!, which looks a lot like 01100010101.%
+\item[(b)]\hypertarget{g:hint:idp315675585184-back}\quad{}Note, there are 5 exclamation marks, but 6 shelves.%
+\item[(c)]\hypertarget{g:hint:idp315675589152-back}\quad{}One such string is \textasteriskcentered{}!!\textasteriskcentered{}\textasteriskcentered{}\textasteriskcentered{}!\textasteriskcentered{}!\textasteriskcentered{}!, which looks a lot like 01100010101.%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{59}{}{g:activity:idp403343853696}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403343858528-back}\quad{}The multiset \(\{1,2, 2, 3\}\) should correspond to the string \(*|**|*\).%
+\item[(a)]\hypertarget{g:hint:idp315675613392-back}\quad{}The multiset \(\{1,2, 2, 3\}\) should correspond to the string \(*|**|*\).%
 \end{enumerate}
 \end{activitysolution}%
 %
 \begin{activitysolution}{62}{}{x:activity:bookcaseeveryshelf}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343896352-back}\quad{}How can you make sure that each shelf gets at least one book before you start the process described in \hyperref[x:activity:bookcase]{Activity~\ref{x:activity:bookcase}}?%
+\hypertarget{g:hint:idp315675651168-back}\quad{}How can you make sure that each shelf gets at least one book before you start the process described in \hyperref[x:activity:bookcase]{Activity~\ref{x:activity:bookcase}}?%
 \end{activitysolution}%
-\begin{explorationsolution}{63}{}{g:exploration:idp403343906144}%
-\textbf{Hint}.\hypertarget{g:hint:idp403343908384-back}\quad{}We already know how to place \(k\) distinct books onto \(n\) distinct shelves so that each shelf gets at least one. Suppose we replace the distinct books with identical ones. If we permute the distinct books before replacement, does that affect the final outcome? There are other ways to solve this problem.%
+\begin{explorationsolution}{63}{}{g:exploration:idp315675660960}%
+\hypertarget{g:hint:idp315675663200-back}\quad{}We already know how to place \(k\) distinct books onto \(n\) distinct shelves so that each shelf gets at least one. Suppose we replace the distinct books with identical ones. If we permute the distinct books before replacement, does that affect the final outcome? There are other ways to solve this problem.%
 \end{explorationsolution}%
 \begin{explorationsolution}{66}{}{x:exploration:brokenpermutation}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp403343953184-back}\quad{}Imagine taking a stack of \(k\) books, and breaking it up into stacks to put into the boxes in the same order they were originally stacked. If you are going to use \(n\) boxes, in how many places will you have to break the stack up into smaller stacks, and how many ways can you do this?%
+\hypertarget{g:hint:idp315675708112-back}\quad{}Imagine taking a stack of \(k\) books, and breaking it up into stacks to put into the boxes in the same order they were originally stacked. If you are going to use \(n\) boxes, in how many places will you have to break the stack up into smaller stacks, and how many ways can you do this?%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403343955056-back}\quad{}How many different bookcase arrangements correspond to the same way of stacking \(k\) books into \(n\) boxes so that each box has at least one book?%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315675709984-back}\quad{}How many different bookcase arrangements correspond to the same way of stacking \(k\) books into \(n\) boxes so that each box has at least one book?%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.4\space\textperiodcentered\space{}Counting with Recursion}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}1.4.1\space\textperiodcentered\space{}Finding Recurrence Relations}
-\par\smallskip
-\begin{explorationsolution}{69}{}{g:exploration:idp403344014544}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344017072-back}\quad{}How many new handshakes occur when a new person enters the room?%
+%
+%
+\begin{explorationsolution}{69}{}{g:exploration:idp315675769360}%
+\hypertarget{g:hint:idp315675771888-back}\quad{}How many new handshakes occur when a new person enters the room?%
 \end{explorationsolution}%
-\begin{explorationsolution}{70}{}{g:exploration:idp403344018224}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344021680-back}\quad{}To determine a bijection \(f:[n] \to [n]\), you could first say what \(f(n)\) is.  What do you still need to do?  Your answer to this question should be one single step (that inductively, you know how to do).%
+\begin{explorationsolution}{70}{}{g:exploration:idp315675773040}%
+\hypertarget{g:hint:idp315675776496-back}\quad{}To determine a bijection \(f:[n] \to [n]\), you could first say what \(f(n)\) is.  What do you still need to do?  Your answer to this question should be one single step (that inductively, you know how to do).%
 \end{explorationsolution}%
 \begin{explorationsolution}{71}{}{x:exploration:HanoiProblem}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344028352-back}\quad{}Suppose you already knew the number of moves needed to solve the puzzle with \(n-1\) rings.%
+\hypertarget{g:hint:idp315675783152-back}\quad{}Suppose you already knew the number of moves needed to solve the puzzle with \(n-1\) rings.%
 \end{explorationsolution}%
 \begin{explorationsolution}{72}{}{x:exploration:circlesinplane}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp403344037440-back}\quad{}If we have \(n - 1\) circles drawn in such a way that they define \(r_{n-1}\) regions, and we draw a new circle, each time it crosses another circle, except for the last time, it finishes dividing one region into two parts and starts dividing a new region into two parts.%
+\hypertarget{g:hint:idp315675792192-back}\quad{}If we have \(n - 1\) circles drawn in such a way that they define \(r_{n-1}\) regions, and we draw a new circle, each time it crosses another circle, except for the last time, it finishes dividing one region into two parts and starts dividing a new region into two parts.%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403344039360-back}\quad{}Compare \(r_n\) with the number of subsets of an \(n\)-element set.%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315675794112-back}\quad{}Compare \(r_n\) with the number of subsets of an \(n\)-element set.%
 \end{explorationsolution}%
 \begin{explorationsolution}{73}{}{x:exploration:act-dominoes}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403344065728-back}\quad{}List out the first few values of \(a_n\) by enumerating all paths.%
+\item[(a)]\hypertarget{g:hint:idp315675820640-back}\quad{}List out the first few values of \(a_n\) by enumerating all paths.%
 \end{enumerate}
 \end{explorationsolution}%
 \begin{explorationsolution}{74}{}{x:exploration:act-catalanfirst}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp403344082032-back}\quad{}Your recurrence relation will not have a fixed number of terms, but rather be in terms of all previous terms.%
+\hypertarget{g:hint:idp315675836832-back}\quad{}Your recurrence relation will not have a fixed number of terms, but rather be in terms of all previous terms.%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403344082944-back}\quad{}Fix an edge of the polygon.  There will be exactly \(n-2\) triangles this edge could be part of.  For each of those, can you count the number of triangles that can be made of what is left?%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315675837744-back}\quad{}Fix an edge of the polygon.  There will be exactly \(n-2\) triangles this edge could be part of.  For each of those, can you count the number of triangles that can be made of what is left?%
 \end{explorationsolution}%
-\begin{explorationsolution}{75}{}{g:exploration:idp403344086592}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344089568-back}\quad{}Try this out with some different initial conditions.  Once you see what the recurrence should be, proving it by induction should be easy.%
+\begin{explorationsolution}{75}{}{g:exploration:idp315675841392}%
+\hypertarget{g:hint:idp315675844368-back}\quad{}Try this out with some different initial conditions.  Once you see what the recurrence should be, proving it by induction should be easy.%
 \end{explorationsolution}%
 %
 \begin{activitysolution}{76}{}{x:activity:act-arithmetic}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344098256-back}\quad{}If you write out the sequence, it would be easy to guess at a closed formula, but the point here is to \emph{use} the recurrence relation somehow.  Consider rewriting the recurrence relation as \(a_n - a_{n-1} = 2\).  Note that \(a_n - a_0 = (a_n - a_{n-1}) + (a_{n-1} + a_{n-2}) + \cdots + (a_2 - a_1) + (a_1 - a_0)\).%
+\hypertarget{g:hint:idp315675852992-back}\quad{}If you write out the sequence, it would be easy to guess at a closed formula, but the point here is to \emph{use} the recurrence relation somehow.  Consider rewriting the recurrence relation as \(a_n - a_{n-1} = 2\).  Note that \(a_n - a_0 = (a_n - a_{n-1}) + (a_{n-1} + a_{n-2}) + \cdots + (a_2 - a_1) + (a_1 - a_0)\).%
 \end{activitysolution}%
 \begin{activitysolution}{77}{}{x:activity:act-geometric}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344105024-back}\quad{}Again, if you write out the sequence, it would be easy to guess at a closed formula.  To see how the recurrence relation is used, try substituting in earlier values.  For example, \(a_2 = 3a_1\), but \(a_1 = 3a_0\), so \(a_2 = 3(3a_0) = 3^2a_0\).%
+\hypertarget{g:hint:idp315675859696-back}\quad{}Again, if you write out the sequence, it would be easy to guess at a closed formula.  To see how the recurrence relation is used, try substituting in earlier values.  For example, \(a_2 = 3a_1\), but \(a_1 = 3a_0\), so \(a_2 = 3(3a_0) = 3^2a_0\).%
 \end{activitysolution}%
 \begin{activitysolution}{79}{}{g:activity:idp403344161936}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403344198160-back}\quad{}You will need to decide how many terms are on the right-hand side.%
+\item[(a)]\hypertarget{g:hint:idp315675952944-back}\quad{}You will need to decide how many terms are on the right-hand side.%
 \end{enumerate}
 \end{activitysolution}%
-\begin{explorationsolution}{82}{}{g:exploration:idp403344227072}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344228608-back}\quad{}Compute \(S_n - 5S_n\)%
+\begin{explorationsolution}{82}{}{g:exploration:idp315675981760}%
+\hypertarget{g:hint:idp315675983296-back}\quad{}Compute \(S_n - 5S_n\)%
 \end{explorationsolution}%
 \begin{explorationsolution}{84}{}{g:exploration:idp403344255968}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403344259792-back}\quad{}The number of plates that have 2 numerals and (therefore) 4 letters is \(3^2\cdot 4^4\), as there are 3 choices for each of the numerals, and 4 choices for each of the letters.%
+\item[(a)]\hypertarget{g:hint:idp315676014384-back}\quad{}The number of plates that have 2 numerals and (therefore) 4 letters is \(3^2\cdot 4^4\), as there are 3 choices for each of the numerals, and 4 choices for each of the letters.%
 \end{enumerate}
 \end{explorationsolution}%
 \begin{activitysolution}{85}{}{g:activity:idp403344265472}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403344269184-back}\quad{}You could do a full proof by induction here, but really you are just plugging these in to see if the recurrence works for them.%
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403344275744-back}\quad{}If you do the substitution, you will get a degree \(n\) polynomial equation in the variable \(r\).  Solving that equation amounts to finding the roots of the polynomial.%
+\item[(a)]\hypertarget{g:hint:idp315676023776-back}\quad{}You could do a full proof by induction here, but really you are just plugging these in to see if the recurrence works for them.%
+\item[(c)]\hypertarget{g:hint:idp315676030336-back}\quad{}If you do the substitution, you will get a degree \(n\) polynomial equation in the variable \(r\).  Solving that equation amounts to finding the roots of the polynomial.%
 \end{enumerate}
 \end{activitysolution}%
 \begin{explorationsolution}{87}{}{x:exploration:act-binet}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344303056-back}\quad{}You will need to use the quadratic formula to find the roots, and some careful algebra to find the coefficients.  The closed formula will include \(\frac{1+\sqrt{5}}{2}\), the \emph{Golden Ratio}.%
+\hypertarget{g:hint:idp315676057664-back}\quad{}You will need to use the quadratic formula to find the roots, and some careful algebra to find the coefficients.  The closed formula will include \(\frac{1+\sqrt{5}}{2}\), the \emph{Golden Ratio}.%
 \end{explorationsolution}%
 %
 \begin{explorationsolution}{95}{}{x:exploration:fib-matrix}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344350768-back}\quad{}You should find that \(Q^n = \begin{pmatrix}
+\hypertarget{g:hint:idp315676105360-back}\quad{}You should find that \(Q^n = \begin{pmatrix}
 F_{n - 1} \amp F_{n}\\
 F_{n} \amp F_{n + 1}
 \end{pmatrix}\).  Now prove this by induction.%
 \end{explorationsolution}%
-\begin{explorationsolution}{99}{}{g:exploration:idp403344370608}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344372112-back}\quad{}Show first that \(\frac{1}{F_{n - 1}F_{n + 1}} = \frac{1}{F_{n - 1}F_{n}} -
+\begin{explorationsolution}{99}{}{g:exploration:idp315676125248}%
+\hypertarget{g:hint:idp315676126800-back}\quad{}Show first that \(\frac{1}{F_{n - 1}F_{n + 1}} = \frac{1}{F_{n - 1}F_{n}} -
 \frac{1}{F_{n}F_{n + 1}}\).%
 \end{explorationsolution}%
-\begin{explorationsolution}{102}{}{g:exploration:idp403344377264}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344379216-back}\quad{}Make a table of Fibonacci numbers to get your conjecture.\end{explorationsolution}%
-\begin{explorationsolution}{106}{}{g:exploration:idp403344385920}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344387792-back}\quad{}Use \(Q^{5n + 5}\).%
+\begin{explorationsolution}{102}{}{g:exploration:idp315676131952}%
+\hypertarget{g:hint:idp315676133904-back}\quad{}Make a table of Fibonacci numbers to get your conjecture.\end{explorationsolution}%
+\begin{explorationsolution}{106}{}{g:exploration:idp315676140608}%
+\hypertarget{g:hint:idp315676142480-back}\quad{}Use \(Q^{5n + 5}\).%
 \end{explorationsolution}%
 %
 %
 \begin{activitysolution}{110}{}{x:activity:act-hdseq}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344414080-back}\quad{}Here we enumerate the number of workable sequences of \(n\) H's and \(n\) D's such that at each point in the sequence the number of H's is not less than the number of D's.  Try writing out all HD sequences and see which ones are acceptable and which are not.%
+\hypertarget{g:hint:idp315676168656-back}\quad{}Here we enumerate the number of workable sequences of \(n\) H's and \(n\) D's such that at each point in the sequence the number of H's is not less than the number of D's.  Try writing out all HD sequences and see which ones are acceptable and which are not.%
 \end{activitysolution}%
 \begin{activitysolution}{112}{}{x:activity:act-parenthesize}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344466848-back}\quad{}Try working recursively.   For a product of \(n+1\) symbols \(a_{1}a_{2}\ldots a_{n+1}\), break it at the \(k\)th symbol:%
+\hypertarget{g:hint:idp315676221472-back}\quad{}Try working recursively.   For a product of \(n+1\) symbols \(a_{1}a_{2}\ldots a_{n+1}\), break it at the \(k\)th symbol:%
 \begin{equation*}
 (a_{1}a_{2}a_{3}\ldots a_{k})(a_{k + 1}\ldots a_{n+1}).
 \end{equation*}
 %
 \end{activitysolution}%
 \begin{activitysolution}{113}{}{x:activity:act-traingulations}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344477424-back}\quad{}You might have found a recursion for the sequence of answers in \hyperref[x:exploration:act-catalanfirst]{Exercise~\ref{x:exploration:act-catalanfirst}}.%
+\hypertarget{g:hint:idp315676232096-back}\quad{}You might have found a recursion for the sequence of answers in \hyperref[x:exploration:act-catalanfirst]{Exercise~\ref{x:exploration:act-catalanfirst}}.%
 \end{activitysolution}%
 \begin{activitysolution}{114}{}{x:activity:act-rootedtrees}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344487072-back}\quad{}There should be 5 rooted binary trees with 4 leaves (the \(n = 3\) case).%
+\hypertarget{g:hint:idp315676241792-back}\quad{}There should be 5 rooted binary trees with 4 leaves (the \(n = 3\) case).%
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}1.5.2\space\textperiodcentered\space{}The Catalan Numbers}
-\par\smallskip
-\begin{activitysolution}{115}{}{g:activity:idp403344505760}%
+%
+\begin{activitysolution}{115}{}{g:activity:idp315676260512}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403344509136-back}\quad{}If you put the numbers into the tableau in order, for each number, you must decide to put it in the top row or the bottom row.  Do you have any other choices?  What would constitute a mistake?%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403344512768-back}\quad{}One way to parenthesize the product \(abcd\) is \(a((bc)d)\), but this is really \((a((bc)d))\), so that the outer set set of parentheses belong with the product of \(a\) and \(((bc)d)\).  Further, not that if we wrote this just as \((a((bcd\), there would be only one way to insert the right parentheses that would make the product parse correctly.%
+\item[(a)]\hypertarget{g:hint:idp315676263888-back}\quad{}If you put the numbers into the tableau in order, for each number, you must decide to put it in the top row or the bottom row.  Do you have any other choices?  What would constitute a mistake?%
+\item[(b)]\hypertarget{g:hint:idp315676267520-back}\quad{}One way to parenthesize the product \(abcd\) is \(a((bc)d)\), but this is really \((a((bc)d))\), so that the outer set set of parentheses belong with the product of \(a\) and \(((bc)d)\).  Further, not that if we wrote this just as \((a((bcd\), there would be only one way to insert the right parentheses that would make the product parse correctly.%
 \end{enumerate}
 \end{activitysolution}%
-\begin{explorationsolution}{116}{}{g:exploration:idp403344517216}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344519776-back}\quad{}Think about how students are taught to factor numbers.%
+\begin{explorationsolution}{116}{}{g:exploration:idp315676271968}%
+\hypertarget{g:hint:idp315676274528-back}\quad{}Think about how students are taught to factor numbers.%
 \end{explorationsolution}%
 \begin{activitysolution}{117}{}{g:activity:idp403344525392}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403344530752-back}\quad{}Look at rooted binary trees.  What happens when you remove the root?  You could also use the parenthesizing model by asking where ``main product'' occurs.%
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403344542768-back}\quad{}Fix an edge of the polygon.  There will be exactly \(n-2\) triangles this edge could be part of.  For each of those, can you count the number of triangles that can be made of what ?%
+\item[(b)]\hypertarget{g:hint:idp315676285552-back}\quad{}Look at rooted binary trees.  What happens when you remove the root?  You could also use the parenthesizing model by asking where ``main product'' occurs.%
+\item[(c)]\hypertarget{g:hint:idp315676297520-back}\quad{}Fix an edge of the polygon.  There will be exactly \(n-2\) triangles this edge could be part of.  For each of those, can you count the number of triangles that can be made of what ?%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{118}{}{g:activity:idp403344547872}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403344564544-back}\quad{}Given a path from \((0, 0)\) to \((n, n)\) which touches or crosses the line \(y = x + 1\), how can you modify the part of the path from \((0, 0)\) to the first touch of \(y = x + 1\) so that the modified path starts instead at \((-1, 1)\)? The trick is to do this in a systematic way that will give you your bijection.%
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403344585456-back}\quad{}A path either touches the line \(y = x + 1\) or it doesn't. This partitions the set of paths into two blocks.%
+\item[(b)]\hypertarget{g:hint:idp315676319344-back}\quad{}Given a path from \((0, 0)\) to \((n, n)\) which touches or crosses the line \(y = x + 1\), how can you modify the part of the path from \((0, 0)\) to the first touch of \(y = x + 1\) so that the modified path starts instead at \((-1, 1)\)? The trick is to do this in a systematic way that will give you your bijection.%
+\item[(c)]\hypertarget{g:hint:idp315676340208-back}\quad{}A path either touches the line \(y = x + 1\) or it doesn't. This partitions the set of paths into two blocks.%
 \end{enumerate}
 \end{activitysolution}%
 \begin{explorationsolution}{119}{}{g:exploration:idp403344590064}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403344591872-back}\quad{}The algebraic formula for \(\binom{n}{k}\) would be appropriate here.%
+\item[(a)]\hypertarget{g:hint:idp315676346624-back}\quad{}The algebraic formula for \(\binom{n}{k}\) would be appropriate here.%
 \end{enumerate}
 \end{explorationsolution}%
 %
 %
 %
 \begin{activitysolution}{133}{}{x:activity:twosetintersection}%
-\textbf{Hint}.\hypertarget{g:hint:idp403344688720-back}\quad{}Try drawing a Venn Diagram.%
+\hypertarget{g:hint:idp315676443888-back}\quad{}Try drawing a Venn Diagram.%
 \end{activitysolution}%
 %
 \begin{explorationsolution}{138}{}{x:exploration:hatcheck}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(b)]\textbf{Hint 1}.\hypertarget{g:hint:idp403344732592-back}\quad{}For each student, how big is the set of backpack distributions in which that student gets the correct backpack?  It might be a good idea to first consider cases with \(n=3\), \(4\), and \(5\).%
+\item[(b)]\hypertarget{g:hint:idp315676487968-back}\quad{}For each student, how big is the set of backpack distributions in which that student gets the correct backpack?  It might be a good idea to first consider cases with \(n=3\), \(4\), and \(5\).%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403344734768-back}\quad{}For each pair of students (say Mary and Jim, for example) how big is the set of backpack distributions in which the students in this pair get the correct backpack. What does the question have to do with unions or intersections of sets. Keep on increasing the number of students for which you ask this kind of question.%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315676490144-back}\quad{}For each pair of students (say Mary and Jim, for example) how big is the set of backpack distributions in which the students in this pair get the correct backpack. What does the question have to do with unions or intersections of sets. Keep on increasing the number of students for which you ask this kind of question.%
 \end{enumerate}
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.1.3\space\textperiodcentered\space{}The Principle of Inclusion and Exclusion}
-\par\smallskip
-\begin{explorationsolution}{139}{}{g:exploration:idp403344769280}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp403344770416-back}\quad{}Try induction.%
+%
+\begin{explorationsolution}{139}{}{g:exploration:idp315676524816}%
+\hypertarget{g:hint:idp315676525952-back}\quad{}Try induction.%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403344771232-back}\quad{}We can apply the formula of \hyperref[x:activity:twosetintersection]{Activity~\ref{x:activity:twosetintersection}} to get%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315676526768-back}\quad{}We can apply the formula of \hyperref[x:activity:twosetintersection]{Activity~\ref{x:activity:twosetintersection}} to get%
 \begin{align*}
 \left|\bigcup_{i=1}^n A_i \right| \amp = \left|\left(\bigcup_{i=1}^{n-1} A_i\right) \cup A_n \right| \\
 \amp = \left| \bigcup_{i=1}^{n-1} A_i\right| + |A_n| - \left|\left( \bigcup_{i=1}^{n-1} A_i\right) \cap A_n\right|\\
@@ -12395,72 +12373,66 @@ F_{n} \amp F_{n + 1}
 \end{explorationsolution}%
 %
 \begin{explorationsolution}{140}{}{x:exploration:act_restrictedmultisetspie}%
-\textbf{Hint}.\hypertarget{g:hint:idp315676555328-back}\quad{}Notice that it is straightforward to figure out how many ways we may pass out the apples so that child \(i\) gets five or more apples: give five apples to child \(i\) and then pass out the remaining apples however you choose. And if  we want to figure out how many ways we may pass out the apples so that a given set \(C\) of children each get five or more apples, we give five to each child in \(C\) and then pass out the remaining \(k-5|C|\) apples however we choose.%
+\hypertarget{g:hint:idp315676555328-back}\quad{}Notice that it is straightforward to figure out how many ways we may pass out the apples so that child \(i\) gets five or more apples: give five apples to child \(i\) and then pass out the remaining apples however you choose. And if  we want to figure out how many ways we may pass out the apples so that a given set \(C\) of children each get five or more apples, we give five to each child in \(C\) and then pass out the remaining \(k-5|C|\) apples however we choose.%
 \end{explorationsolution}%
 \begin{explorationsolution}{141}{}{x:exploration:relaxedmenage}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp315676576704-back}\quad{}Start with two questions that can apply to any inclusion-exclusion problem. Do you think you would be better off trying to compute the size of a union of sets or the size of a complement of a union of sets? What kinds of sets (that are conceivably of use to you) is it easy to compute the size of? (The second question can be interpreted in different ways, and for each way of interpreting it, the answer may help you see something you can use in solving the problem.)%
+\hypertarget{g:hint:idp315676576704-back}\quad{}Start with two questions that can apply to any inclusion-exclusion problem. Do you think you would be better off trying to compute the size of a union of sets or the size of a complement of a union of sets? What kinds of sets (that are conceivably of use to you) is it easy to compute the size of? (The second question can be interpreted in different ways, and for each way of interpreting it, the answer may help you see something you can use in solving the problem.)%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp315676578048-back}\quad{}Suppose we have a set \(S\) of couples whom we want to seat side by side. We can think of lining up \(|S|\) couples and \(2n - 2|S|\) individual people in a circle.  In how many ways can we arrange this many items in a circle?%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315676578048-back}\quad{}Suppose we have a set \(S\) of couples whom we want to seat side by side. We can think of lining up \(|S|\) couples and \(2n - 2|S|\) individual people in a circle.  In how many ways can we arrange this many items in a circle?%
 \end{explorationsolution}%
 \begin{explorationsolution}{142}{}{g:exploration:idp315676591904}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp315676594896-back}\quad{}Reason somewhat as you did in \hyperref[x:exploration:relaxedmenage]{Exercise~\ref{x:exploration:relaxedmenage}}, noting that if the set of couples who do sit side-by-side is nonempty, then the sex of the person at each place at the table is determined once we seat one couple in that set.%
+\hypertarget{g:hint:idp315676594896-back}\quad{}Reason somewhat as you did in \hyperref[x:exploration:relaxedmenage]{Exercise~\ref{x:exploration:relaxedmenage}}, noting that if the set of couples who do sit side-by-side is nonempty, then the sex of the person at each place at the table is determined once we seat one couple in that set.%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp315676596464-back}\quad{}Think in terms of the sets \(A_i\) of arrangements of people in which couple \(i\) sits side-by-side. What does the union of the sets \(A_i\) have to do with the problem?%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315676596464-back}\quad{}Think in terms of the sets \(A_i\) of arrangements of people in which couple \(i\) sits side-by-side. What does the union of the sets \(A_i\) have to do with the problem?%
 \end{explorationsolution}%
 \begin{activitysolution}{143}{}{g:activity:idp315676629232}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp315676631024-back}\quad{}Note that 2341 should be circled, but 2314 should not be circled.%
+\item[(a)]\hypertarget{g:hint:idp315676631024-back}\quad{}Note that 2341 should be circled, but 2314 should not be circled.%
 \end{enumerate}
 \end{activitysolution}%
 \begin{explorationsolution}{146}{}{g:exploration:idp315676660288}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp315676666528-back}\quad{}The Taylor series for \(e^x\) is \(1+x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \cdots\).  What happens if you replace \(x\) with \(-1\)?%
+\item[(c)]\hypertarget{g:hint:idp315676666528-back}\quad{}The Taylor series for \(e^x\) is \(1+x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \cdots\).  What happens if you replace \(x\) with \(-1\)?%
 \end{enumerate}
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.2\space\textperiodcentered\space{}Generating Functions}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}2.2.3\space\textperiodcentered\space{}Generating functions}
-\par\smallskip
-\begin{explorationsolution}{159}{}{g:exploration:idp403345088128}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345092272-back}\quad{}For example, to get the cost of the fruit selection \(AP B\) you would want to get \(x^{20} x^{25} x^{30} = x^{75}\).%
+%
+%
+\begin{explorationsolution}{159}{}{g:exploration:idp315676843056}%
+\hypertarget{g:hint:idp315676847200-back}\quad{}For example, to get the cost of the fruit selection \(AP B\) you would want to get \(x^{20} x^{25} x^{30} = x^{75}\).%
 \end{explorationsolution}%
 \begin{explorationsolution}{161}{}{x:exploration:reprovingbinomialtheorem}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345113312-back}\quad{}Consider the example with \(n = 2\). Then we have two variables, \(x_1\) and \(x_2\) .  Forgetting about \(x_2\) , what sum says we either take \(x_1\) or we don't? Forgetting about \(x_1\) , what sum says we either take \(x_2\) or we don't? Now what product says we either take \(x_1\) or we don't \emph{and} we either take \(x_2\) or we don't?%
+\hypertarget{g:hint:idp315676868352-back}\quad{}Consider the example with \(n = 2\). Then we have two variables, \(x_1\) and \(x_2\) .  Forgetting about \(x_2\) , what sum says we either take \(x_1\) or we don't? Forgetting about \(x_1\) , what sum says we either take \(x_2\) or we don't? Now what product says we either take \(x_1\) or we don't \emph{and} we either take \(x_2\) or we don't?%
 \end{explorationsolution}%
 %
 \begin{activitysolution}{163}{}{x:activity:coeffinproduct1}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345162528-back}\quad{}For the last two questions, try multiplying out something simpler first, say \((a_0 + a_1 x + a_2 x^2 )(b_0 + b_1 x + b_2 x^2 )\) . If this problem seems difficult the part that seems to cause students the most problems is converting the expression they get for a product like this into summation notation. If you are having this kind of problem, expand the product \((a_0 + a_1 x + a_2 x^2 )(b_0 + b_1 x + b_2 x^2 )\) and then figure out what the coefficient of \(x^2\) is. Try to write that in summation notation.%
+\hypertarget{g:hint:idp315676917504-back}\quad{}For the last two questions, try multiplying out something simpler first, say \((a_0 + a_1 x + a_2 x^2 )(b_0 + b_1 x + b_2 x^2 )\) . If this problem seems difficult the part that seems to cause students the most problems is converting the expression they get for a product like this into summation notation. If you are having this kind of problem, expand the product \((a_0 + a_1 x + a_2 x^2 )(b_0 + b_1 x + b_2 x^2 )\) and then figure out what the coefficient of \(x^2\) is. Try to write that in summation notation.%
 \end{activitysolution}%
 \begin{activitysolution}{164}{}{x:activity:coeffinproduct2}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345183280-back}\quad{}Write down the formulas for the coefficients of \(x^0\), \(x^1\), \(x^2\) and \(x^3\) in%
+\hypertarget{g:hint:idp315676938192-back}\quad{}Write down the formulas for the coefficients of \(x^0\), \(x^1\), \(x^2\) and \(x^3\) in%
 \begin{equation*}
 \left(\sum_{i=0}^n a_ix^i\right)\left(\sum_{j=0}^m b_jx^j\right)\text{.}
 \end{equation*}
 %
 \end{activitysolution}%
 \begin{activitysolution}{165}{}{x:activity:coeffinpowerseries}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345190480-back}\quad{}How is this problem different from \hyperref[x:activity:coeffinproduct2]{Activity~\ref{x:activity:coeffinproduct2}}? Is this an important difference from the point of view of the coefficient of \(x^k\)?%
+\hypertarget{g:hint:idp315676945328-back}\quad{}How is this problem different from \hyperref[x:activity:coeffinproduct2]{Activity~\ref{x:activity:coeffinproduct2}}? Is this an important difference from the point of view of the coefficient of \(x^k\)?%
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.2.5\space\textperiodcentered\space{}The extended binomial theorem and multisets}
-\par\smallskip
-\begin{activitysolution}{166}{}{g:activity:idp403345215648}%
+%
+\begin{activitysolution}{166}{}{g:activity:idp315676970496}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(b)]\textbf{Hint 1}.\hypertarget{g:hint:idp403345229840-back}\quad{}You might try applying the product principle for generating functions to an appropriate power of the generating function you got in the first part of this problem.%
+\item[(b)]\hypertarget{g:hint:idp315676984688-back}\quad{}You might try applying the product principle for generating functions to an appropriate power of the generating function you got in the first part of this problem.%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403345230832-back}\quad{}In \hyperref[x:theorem:thm-multisetsize]{Theorem~\ref{x:theorem:thm-multisetsize}} we have a formula for the number of \(k\)-element multisets chosen from an \(n\)-element set. Suppose you use this formula for \(a_k\) in \(\sum_{k=0}^\infty a_kx^k\). What do you get the generating function for?%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315676985680-back}\quad{}In \hyperref[x:theorem:thm-multisetsize]{Theorem~\ref{x:theorem:thm-multisetsize}} we have a formula for the number of \(k\)-element multisets chosen from an \(n\)-element set. Suppose you use this formula for \(a_k\) in \(\sum_{k=0}^\infty a_kx^k\). What do you get the generating function for?%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{169}{}{x:activity:negnchoosek}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp403345254944-back}\quad{}The only tricky thing here is that we have \(\frac{1}{(1+x)^n}\) instead of \(\frac{1}{(1-x)^n}\) which we know something about already. Note that \(1 + x = 1 - (-x)\).%
+\hypertarget{g:hint:idp315677009616-back}\quad{}The only tricky thing here is that we have \(\frac{1}{(1+x)^n}\) instead of \(\frac{1}{(1-x)^n}\) which we know something about already. Note that \(1 + x = 1 - (-x)\).%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403345257120-back}\quad{}Can you see a way to use \hyperref[x:activity:multisetgenfn]{Activity~\ref{x:activity:multisetgenfn}}?%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315677011792-back}\quad{}Can you see a way to use \hyperref[x:activity:multisetgenfn]{Activity~\ref{x:activity:multisetgenfn}}?%
 \end{activitysolution}%
 \begin{activitysolution}{170}{}{g:activity:idp403345261088}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403345266176-back}\quad{}You will get%
+\item[(a)]\hypertarget{g:hint:idp315677020848-back}\quad{}You will get%
 \begin{equation*}
 \frac{1}{(1-x)^2} = 1 + 2x + 3x^2 + 4x^3 + \cdots\text{.}
 \end{equation*}
@@ -12468,28 +12440,26 @@ F_{n} \amp F_{n + 1}
 \end{enumerate}
 \end{activitysolution}%
 \begin{explorationsolution}{171}{}{x:exploration:candygenfn}%
-\textbf{Hint 1}.\hypertarget{g:hint:idp403345277504-back}\quad{}Look for a power of a polynomial to get started.%
+\hypertarget{g:hint:idp315677032224-back}\quad{}Look for a power of a polynomial to get started.%
 \par\smallskip%
-\noindent\textbf{Hint 2}.\hypertarget{g:hint:idp403345278368-back}\quad{}The polynomial referred to in the first hint is a quotient of two polynomials.  The power of the denominator can be written as a power series.%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315677033088-back}\quad{}The polynomial referred to in the first hint is a quotient of two polynomials.  The power of the denominator can be written as a power series.%
 \end{explorationsolution}%
-\begin{explorationsolution}{172}{}{g:exploration:idp403345284272}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345287264-back}\quad{}You should have solved this problem more in general in \hyperref[x:exploration:act_restrictedmultisetspie]{Exercise~\ref{x:exploration:act_restrictedmultisetspie}}.%
+\begin{explorationsolution}{172}{}{g:exploration:idp315677038992}%
+\hypertarget{g:hint:idp315677041984-back}\quad{}You should have solved this problem more in general in \hyperref[x:exploration:act_restrictedmultisetspie]{Exercise~\ref{x:exploration:act_restrictedmultisetspie}}.%
 \end{explorationsolution}%
-\begin{explorationsolution}{173}{}{g:exploration:idp403345291024}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345293824-back}\quad{}Interpret \hyperref[x:exploration:candygenfn]{Exercise~\ref{x:exploration:candygenfn}} in terms of multisets.%
+\begin{explorationsolution}{173}{}{g:exploration:idp315677045744}%
+\hypertarget{g:hint:idp315677048592-back}\quad{}Interpret \hyperref[x:exploration:candygenfn]{Exercise~\ref{x:exploration:candygenfn}} in terms of multisets.%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.2.6\space\textperiodcentered\space{}Generating Functions and Recurrence Relations}
-\par\smallskip
-\begin{explorationsolution}{176}{}{g:exploration:idp403345335968}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345338528-back}\quad{}You may run into a product of the form \(\sum_{i=0}^\infty a^ix^i\sum_{j=0}^\infty b^jx^j\). Note that in the product, the coefficient of \(x^k\) is \(\sum_{i=0}^k a^ib^{k-i} = \sum_{i=0}^k \frac{a^i}{b^i}\).%
+%
+\begin{explorationsolution}{176}{}{g:exploration:idp315677090832}%
+\hypertarget{g:hint:idp315677093392-back}\quad{}You may run into a product of the form \(\sum_{i=0}^\infty a^ix^i\sum_{j=0}^\infty b^jx^j\). Note that in the product, the coefficient of \(x^k\) is \(\sum_{i=0}^k a^ib^{k-i} = \sum_{i=0}^k \frac{a^i}{b^i}\).%
 \end{explorationsolution}%
 \begin{explorationsolution}{179}{}{x:exploration:originalFibonacci}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345377104-back}\quad{}Our recurrence becomes \(a_n = a_{n-1} + a_{n-2}\), which of course is the Fibonacci recurrence.%
+\hypertarget{g:hint:idp315677131968-back}\quad{}Our recurrence becomes \(a_n = a_{n-1} + a_{n-2}\), which of course is the Fibonacci recurrence.%
 \end{explorationsolution}%
 %
 \begin{activitysolution}{182}{}{x:activity:partialfractionsintro}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345417984-back}\quad{}%
+\hypertarget{g:hint:idp315677172832-back}\quad{}%
 \begin{equation*}
 \frac{5x+1}{(x-3)(x-5)} = \frac{cx+5c+dx-3d}{(x-3)(x-5)}
 \end{equation*}
@@ -12501,7 +12471,7 @@ gives us%
 %
 \end{activitysolution}%
 \begin{activitysolution}{183}{}{x:activity:partialfractions1}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345432256-back}\quad{}To have%
+\hypertarget{g:hint:idp315677187216-back}\quad{}To have%
 \begin{equation*}
 \frac{ax+b}{(x-r_1)(x-r_2)} = \frac{c}{x-r_1} + \frac{d}{x-r_2}
 \end{equation*}
@@ -12511,246 +12481,265 @@ cx-r_2c+dx-r_1d =ax+b\text{.}
 \end{equation*}
 %
 \end{activitysolution}%
-\begin{explorationsolution}{185}{}{g:exploration:idp403345467744}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345469776-back}\quad{}\(3-4x+x^2 = (1-x)(3-x)\).  The power series for \(\frac{A}{1-x}\) should be easy to express, but \(\frac{B}{3-x}\) might make more sense written as \(\frac{B/3}{1-\frac{1}{3}x}\).%
+\begin{explorationsolution}{185}{}{g:exploration:idp315677222752}%
+\hypertarget{g:hint:idp315677224784-back}\quad{}\(3-4x+x^2 = (1-x)(3-x)\).  The power series for \(\frac{A}{1-x}\) should be easy to express, but \(\frac{B}{3-x}\) might make more sense written as \(\frac{B/3}{1-\frac{1}{3}x}\).%
 \end{explorationsolution}%
 \begin{explorationsolution}{187}{}{x:exploration:fractionFibonacci}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345480896-back}\quad{}You can save yourself a tremendous amount of frustrating algebra if you arbitrarily choose one of the solutions and call it \(r_1\) and call the other solution \(r_2\) and solve the problem using these algebraic symbols in place of the actual roots.\footnotemark{} Not only will you save yourself some work, but you will get a formula you could use in other problems. When you are done, substitute in the actual values of the solutions and simplify.%
+\hypertarget{g:hint:idp315677235888-back}\quad{}You can save yourself a tremendous amount of frustrating algebra if you arbitrarily choose one of the solutions and call it \(r_1\) and call the other solution \(r_2\) and solve the problem using these algebraic symbols in place of the actual roots.\footnotemark{} Not only will you save yourself some work, but you will get a formula you could use in other problems. When you are done, substitute in the actual values of the solutions and simplify.%
 \end{explorationsolution}%
 \begin{explorationsolution}{188}{}{x:exploration:solveFibonacci}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403345493536-back}\quad{}Once again it will save a lot of tedious algebra if you use the symbols \(r_1\) and \(r_2\) for the solutions as in \hyperref[x:exploration:fractionFibonacci]{Exercise~\ref{x:exploration:fractionFibonacci}} and substitute the actual values of the solutions once you have a formula for \(a_n\) in terms of \(r_1\) and \(r_2\).%
-\item[(d)]\textbf{Hint}.\hypertarget{g:hint:idp403345518672-back}\quad{}Think about how the binomial theorem might help you.%
+\item[(a)]\hypertarget{g:hint:idp315677248528-back}\quad{}Once again it will save a lot of tedious algebra if you use the symbols \(r_1\) and \(r_2\) for the solutions as in \hyperref[x:exploration:fractionFibonacci]{Exercise~\ref{x:exploration:fractionFibonacci}} and substitute the actual values of the solutions once you have a formula for \(a_n\) in terms of \(r_1\) and \(r_2\).%
+\item[(d)]\hypertarget{g:hint:idp315677273616-back}\quad{}Think about how the binomial theorem might help you.%
+\end{enumerate}
+\end{explorationsolution}%
+\begin{explorationsolution}{190}{}{x:exploration:CatalanRecurrence}%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item[(b)]\hypertarget{g:hint:idp315677301104-back}\quad{}Does the right-hand side of the recurrence remind you of some products you have worked with?%
+\item[(c)]\hypertarget{g:hint:idp315677311312-back}\quad{}%
+\begin{equation*}
+\frac{1\cdot 3\cdot 5\cdots (2i-3)}{i!} = \frac{(2i-2)!}{(i-1)!2^i i!}\text{.}
+\end{equation*}
+%
 \end{enumerate}
 \end{explorationsolution}%
 %
 %
 \begin{activitysolution}{193}{}{x:activity:act_stirlingcomputations}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(d)]\textbf{Hint}.\hypertarget{g:hint:idp403345669312-back}\quad{}What are the possible sizes of parts?%
+\item[(d)]\hypertarget{g:hint:idp315677424736-back}\quad{}What are the possible sizes of parts?%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{195}{}{x:activity:secondstirlingrecurrence}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345716080-back}\quad{}The number of partitions of \([k]\) into \(n\) parts in which \(k\) is not in a block relates to the number of partitions of \(k-1\) into some number of blocks in a way that involves \(n\). With this in mind, review how you proved Pascal's (recurrence) equation.%
+\hypertarget{g:hint:idp315677471472-back}\quad{}The number of partitions of \([k]\) into \(n\) parts in which \(k\) is not in a block relates to the number of partitions of \(k-1\) into some number of blocks in a way that involves \(n\). With this in mind, review how you proved Pascal's (recurrence) equation.%
 \end{activitysolution}%
-\begin{explorationsolution}{196}{}{g:exploration:idp403345729312}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345731696-back}\quad{}To see how many broken permutations of a \(k\) element set into \(n\) parts do not have \(k\) is a part by itself, ask yourself how many broken permutations of \([7]\) result from adding 7 to the one of the two permutations in the broken permutation \(\{14, 2356\}\).%
+\begin{explorationsolution}{196}{}{g:exploration:idp315677484704}%
+\hypertarget{g:hint:idp315677487088-back}\quad{}To see how many broken permutations of a \(k\) element set into \(n\) parts do not have \(k\) is a part by itself, ask yourself how many broken permutations of \([7]\) result from adding 7 to the one of the two permutations in the broken permutation \(\{14, 2356\}\).%
 \end{explorationsolution}%
-\begin{explorationsolution}{198}{}{g:exploration:idp403345758544}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345766688-back}\quad{}You can think of a function as assigning values to the blocks of its partition. If you permute the values assigned to the blocks, do you always change the function?%
+\begin{explorationsolution}{198}{}{g:exploration:idp315677514032}%
+\hypertarget{g:hint:idp315677522176-back}\quad{}You can think of a function as assigning values to the blocks of its partition. If you permute the values assigned to the blocks, do you always change the function?%
 \end{explorationsolution}%
 \begin{explorationsolution}{199}{}{x:exploration:Stirlingfalling}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345780128-back}\quad{}When you add the number of functions mapping onto \(J\) over all possible subsets \(J\) of \(N\), what is the set of functions whose size you are computing?%
+\hypertarget{g:hint:idp315677535664-back}\quad{}When you add the number of functions mapping onto \(J\) over all possible subsets \(J\) of \(N\), what is the set of functions whose size you are computing?%
 \end{explorationsolution}%
 \begin{activitysolution}{201}{}{x:activity:BellNumberIntro}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403345800864-back}\quad{}As to why this is a reasonable question, think of distributing \(k\) items to \(n\) recipients.  All four expressions count the number of ways to do this under different restrictions.%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403345805248-back}\quad{}Here it is helpful to think about what happens if you delete the entire block containing \(k\) rather than thinking about whether \(k\) is in a block by itself or not.%
+\item[(a)]\hypertarget{g:hint:idp315677556480-back}\quad{}As to why this is a reasonable question, think of distributing \(k\) items to \(n\) recipients.  All four expressions count the number of ways to do this under different restrictions.%
+\item[(b)]\hypertarget{g:hint:idp315677560816-back}\quad{}Here it is helpful to think about what happens if you delete the entire block containing \(k\) rather than thinking about whether \(k\) is in a block by itself or not.%
 \end{enumerate}
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.3.2\space\textperiodcentered\space{}Formulas for Stirling Numbers (of the second kind)}
-\par\smallskip
-\begin{explorationsolution}{203}{}{g:exploration:idp403345845568}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345847088-back}\quad{}What are the possible sizes of parts?%
+%
+\begin{explorationsolution}{203}{}{g:exploration:idp315677601200}%
+\hypertarget{g:hint:idp315677602720-back}\quad{}What are the possible sizes of parts?%
 \end{explorationsolution}%
 \begin{activitysolution}{204}{}{g:activity:idp403345850800}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403345856880-back}\quad{}Careful here.  The answer is NOT \(\binom{5}{2}\binom{3}{2}\).  Do you see why?%
-\item[(e)]\textbf{Hint}.\hypertarget{g:hint:idp403345871136-back}\quad{}If you found this formula for \(S(k,k-2)\) in part (e), then pretend your friend claims that \(S(k, k-2) = \binom{k}{3} + \frac{1}{2}\binom{k}{2}\binom{k-2}{2}\) and prove why that is correct too.%
+\item[(b)]\hypertarget{g:hint:idp315677612512-back}\quad{}Careful here.  The answer is NOT \(\binom{5}{2}\binom{3}{2}\).  Do you see why?%
+\item[(e)]\hypertarget{g:hint:idp315677626768-back}\quad{}If you found this formula for \(S(k,k-2)\) in part (e), then pretend your friend claims that \(S(k, k-2) = \binom{k}{3} + \frac{1}{2}\binom{k}{2}\binom{k-2}{2}\) and prove why that is correct too.%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{205}{}{g:activity:idp403345881952}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403345886800-back}\quad{}While you might not get this formula by conisdering type vectors, you should be shooting to prove \(S(k, k-3) = \binom{k}{4} + 10 \binom{k}{5} + 16 \binom{k}{6}\)%
+\item[(b)]\hypertarget{g:hint:idp315677642432-back}\quad{}While you might not get this formula by conisdering type vectors, you should be shooting to prove \(S(k, k-3) = \binom{k}{4} + 10 \binom{k}{5} + 16 \binom{k}{6}\)%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{206}{}{x:activity:partitionsgivenpartsize}%
-\textbf{Hint}.\hypertarget{g:hint:idp403345893648-back}\quad{}Suppose we make a list of the \(k\) items. We take the first \(a_1\) elements to be the blocks of size 1. How many elements do we need to take to get \(a_2\) blocks of size two? Which elements does it make sense to choose for this purpose?%
+\hypertarget{g:hint:idp315677649264-back}\quad{}Suppose we make a list of the \(k\) items. We take the first \(a_1\) elements to be the blocks of size 1. How many elements do we need to take to get \(a_2\) blocks of size two? Which elements does it make sense to choose for this purpose?%
+\end{activitysolution}%
+\begin{activitysolution}{209}{}{x:activity:caterer2}%
+\hypertarget{g:hint:idp315677668032-back}\quad{}What if the question asked about six sandwiches and two distinct bags? How does having identical bags change the answer?%
+\end{activitysolution}%
+\begin{activitysolution}{211}{}{g:activity:idp315677679184}%
+\hypertarget{g:hint:idp315677687824-back}\quad{}What if the \(j_i\)'s don't add to \(k\)?%
+\par\smallskip%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315677689456-back}\quad{}Think about listing the elements of the \(k\)-element set and labeling the first \(j_1\) elements with label number 1.%
+\end{activitysolution}%
+\begin{activitysolution}{212}{}{g:activity:idp315677698112}%
+\hypertarget{g:hint:idp315677700912-back}\quad{}The sum principle will help here.%
+\end{activitysolution}%
+\begin{activitysolution}{213}{}{g:activity:idp315677704560}%
+\hypertarget{g:hint:idp315677707360-back}\quad{}How are the relevant \(j_i\)'s in the multinomial coefficients you use here different from the \(j_i\)'s in the previous problem.%
+\end{activitysolution}%
+\begin{activitysolution}{214}{}{g:activity:idp315677712304}%
+\hypertarget{g:hint:idp315677715040-back}\quad{}Think about how binomial coefficients relate to expanding a power of a binomial and note that the binomial coefficient \(\binom{n}{k}\) and the multinomial coefficient \(\binom{n}{k,n-k}\) are the same.%
 \end{activitysolution}%
 %
 \begin{activitysolution}{215}{}{x:activity:act_stirlingpie}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403345986096-back}\quad{}In what way is this problem like counting functions?%
+\item[(a)]\hypertarget{g:hint:idp315677742032-back}\quad{}In what way is this problem like counting functions?%
 \end{enumerate}
 \end{activitysolution}%
-\begin{explorationsolution}{217}{}{g:exploration:idp403346000208}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346001760-back}\quad{}You have already done this as well, although not with \(x\).%
+\begin{explorationsolution}{217}{}{g:exploration:idp315677756144}%
+\hypertarget{g:hint:idp315677757696-back}\quad{}You have already done this as well, although not with \(x\).%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.4\space\textperiodcentered\space{}Partitions of Integers}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}2.4.1\space\textperiodcentered\space{}Partition numbers}
-\par\smallskip
-\begin{explorationsolution}{237}{}{g:exploration:idp403346235616}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346237584-back}\quad{}How many compositions are there of \(k\) into \(n\) parts? What is the maximum number of compositions that could correspond to a given partition of \(k\) into \(n\) parts?%
+%
+%
+\begin{explorationsolution}{237}{}{g:exploration:idp315677991680}%
+\hypertarget{g:hint:idp315677993648-back}\quad{}How many compositions are there of \(k\) into \(n\) parts? What is the maximum number of compositions that could correspond to a given partition of \(k\) into \(n\) parts?%
 \end{explorationsolution}%
-\begin{explorationsolution}{239}{}{g:exploration:idp403346252944}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346254912-back}\quad{}How can you start with a partition of \(k\) and make it into a new partition of \(k+1\) that is guaranteed to have a part of size one, even if the original partition didn't?%
+\begin{explorationsolution}{239}{}{g:exploration:idp315678009008}%
+\hypertarget{g:hint:idp315678010976-back}\quad{}How can you start with a partition of \(k\) and make it into a new partition of \(k+1\) that is guaranteed to have a part of size one, even if the original partition didn't?%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.4.2\space\textperiodcentered\space{}Using Geometry}
-\par\smallskip
-\begin{activitysolution}{242}{}{g:activity:idp403346326288}%
+%
+\begin{activitysolution}{242}{}{g:activity:idp315678082288}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403346329520-back}\quad{}Note that you get partitions always of the same number (which?) but into a different number of parts (why?).%
+\item[(a)]\hypertarget{g:hint:idp315678085520-back}\quad{}Note that you get partitions always of the same number (which?) but into a different number of parts (why?).%
 \end{enumerate}
 \end{activitysolution}%
-\begin{explorationsolution}{244}{}{g:exploration:idp403346335664}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346337200-back}\quad{}Since the recurrence is a sum of smaller partition numbers, we are claiming that we can break the partitions of \(k\) into \(n\) parts into different groups, and each group will correspond to a different collection of smaller partitions.  How can you describe these groups geometrically?%
+\begin{explorationsolution}{244}{}{g:exploration:idp315678091664}%
+\hypertarget{g:hint:idp315678093200-back}\quad{}Since the recurrence is a sum of smaller partition numbers, we are claiming that we can break the partitions of \(k\) into \(n\) parts into different groups, and each group will correspond to a different collection of smaller partitions.  How can you describe these groups geometrically?%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}2.4.3\space\textperiodcentered\space{}Partitions into distinct parts}
-\par\smallskip
-\begin{explorationsolution}{255}{}{g:exploration:idp403346500896}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346504064-back}\quad{}In the case \(k=4\) and \(n=2\), we have \(m=5\). In the case \(k = 7\) and \(n = 3\), we have \(m = 10\).%
-\end{explorationsolution}%
-\begin{activitysolution}{256}{}{g:activity:idp403346518224}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346520912-back}\quad{}What can you do to a Young diagram for a partition of \(k\) into \(n\) distinct parts to get a Young diagram of a partition of \(k-n\) into some number of distinct parts?%
+\begin{activitysolution}{247}{}{g:activity:idp315678108352}%
+\hypertarget{g:hint:idp315678109856-back}\quad{}Draw a line through the top-left corner and bottom-right corner of the top-left box.%
 \end{activitysolution}%
-\begin{explorationsolution}{257}{}{g:exploration:idp403346532144}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346534416-back}\quad{}For any partition of \(k\) into parts \(\lambda_1\), \(\lambda_2\), etc. we can get a partition of \(k\) into odd parts by factoring the highest power of two that we can from each \(\lambda_i\), writing \(\lambda_i = \gamma_i\cdot 2^k_i\).  Why is \(\gamma_i\) odd? Now partition \(k\) into \(2^{k_1}\) parts of size \(\gamma_1\), \(2^{k_2}\) parts of size \(\gamma_2\), etc. and you have a partition of \(k\) into odd parts.%
+\begin{activitysolution}{248}{}{g:activity:idp315678114400}%
+\hypertarget{g:hint:idp315678122832-back}\quad{}The largest part of a partition is the maximum number of boxes in a row of its Young diagram. What does the maximum number of boxes in a column tell us?%
+\end{activitysolution}%
+\begin{activitysolution}{249}{}{g:activity:idp315678126944}%
+\hypertarget{g:hint:idp315678130864-back}\quad{}Draw all self conjugate partitions of integers less than or equal to 8.  Draw all partitions of integers less than or equal to 8 into distinct odd parts (many of these will have just one part). Now try to see how to get from one set of drawings to the other in a consistent way.%
+\end{activitysolution}%
+\begin{activitysolution}{250}{}{x:activity:partition-even-mult-even-use}%
+\hypertarget{g:hint:idp315678154704-back}\quad{}Draw the partitions of six into even parts. Draw the partitions of six into parts used an even number of times. Look for a relationship between one set of diagrams and the other set of diagrams. If you have trouble, repeat the process using 8 or even 10 in place of 6.%
+\end{activitysolution}%
+\begin{explorationsolution}{251}{}{x:exploration:rectanglecomplement}%
+\hypertarget{g:hint:idp315678163504-back}\quad{}Draw a partition of ten into four parts. Assume each square has area one. Then draw a rectangle of area 40 enclosing your diagram that touches the top of your diagram, the left side of your diagram and the bottom of your diagram. How does this rectangle give you a partition of 30 into four parts?%
 \end{explorationsolution}%
-\begin{explorationsolution}{258}{}{g:exploration:idp403346562432}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346565280-back}\quad{}Suppose we have a partition of \(k\) into distinct parts. If the smallest part, say \(m\), is smaller than the number of parts, we may add one to each of the \(m\) largest parts and delete the smallest part, and we have changed the parity of the number of parts, but we still have distinct parts. On the other hand, suppose the smallest part, again say \(m\), is larger than or equal to the number of parts. Then we can subtract 1 from each part larger than \(m\), and add a part equal to the number of parts larger than \(m\). This changes the parity of the number of parts, but if the second smallest part is \(m+1\), the resulting partition does not have distinct parts. Thus this method does not work. Further, if it did always work, the case \(k \ne \frac{3j^2+j}{2}\) would be covered also. However you can modify this method by comparing \(m\) not to the total number of parts, but to the number of rows at the top of the Young diagram that differ by exactly one from the row above. Even in this situation, there are certain slight additional assumptions you need to make, so this hint leaves you a lot of work to do. (It is reasonable to expect problems because of that exceptional case.) However, it should lead you in a useful direction.%
+\begin{explorationsolution}{252}{}{g:exploration:idp315678171376}%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item[(c)]\hypertarget{g:hint:idp315678188336-back}\quad{}Consider two cases, \(m' \gt m\) and \(m' = m\).%
+\item[(d)]\hypertarget{g:hint:idp315678195920-back}\quad{}Consider two cases, \(n' \gt n\) and \(n' = n\).%
+\end{enumerate}
 \end{explorationsolution}%
-\begin{explorationsolution}{259}{}{g:exploration:idp403346592192}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346593728-back}\quad{}How does the number of compositions of \(k\) into \(n\) distinct parts compare to the number of compositions of \(k\) into \(n\) parts (not necessarily distinct)? What do compositions have to do with partitions?%
+\begin{explorationsolution}{253}{}{g:exploration:idp315678213984}%
+\hypertarget{g:hint:idp315678216864-back}\quad{}Suppose we take two repetitions of this complementation process. What rows and columns do we remove from the diagram?%
+\par\smallskip%
+\noindent\textit{Additional Hint}.\hypertarget{g:hint:idp315678217792-back}\quad{}To deal with an odd number of repetitions of the complementation process, think of it as an even number plus 1. Thus ask what kind of partition gives us the partition of one into one part after this complementation process.%
+\end{explorationsolution}%
+%
+\begin{explorationsolution}{255}{}{g:exploration:idp315678256800}%
+\hypertarget{g:hint:idp315678259968-back}\quad{}In the case \(k=4\) and \(n=2\), we have \(m=5\). In the case \(k = 7\) and \(n = 3\), we have \(m = 10\).%
+\end{explorationsolution}%
+\begin{activitysolution}{256}{}{g:activity:idp315678274272}%
+\hypertarget{g:hint:idp315678276960-back}\quad{}What can you do to a Young diagram for a partition of \(k\) into \(n\) distinct parts to get a Young diagram of a partition of \(k-n\) into some number of distinct parts?%
+\end{activitysolution}%
+\begin{explorationsolution}{257}{}{g:exploration:idp315678288192}%
+\hypertarget{g:hint:idp315678290464-back}\quad{}For any partition of \(k\) into parts \(\lambda_1\), \(\lambda_2\), etc. we can get a partition of \(k\) into odd parts by factoring the highest power of two that we can from each \(\lambda_i\), writing \(\lambda_i = \gamma_i\cdot 2^k_i\).  Why is \(\gamma_i\) odd? Now partition \(k\) into \(2^{k_1}\) parts of size \(\gamma_1\), \(2^{k_2}\) parts of size \(\gamma_2\), etc. and you have a partition of \(k\) into odd parts.%
+\end{explorationsolution}%
+\begin{explorationsolution}{258}{}{g:exploration:idp315678318576}%
+\hypertarget{g:hint:idp315678321424-back}\quad{}Suppose we have a partition of \(k\) into distinct parts. If the smallest part, say \(m\), is smaller than the number of parts, we may add one to each of the \(m\) largest parts and delete the smallest part, and we have changed the parity of the number of parts, but we still have distinct parts. On the other hand, suppose the smallest part, again say \(m\), is larger than or equal to the number of parts. Then we can subtract 1 from each part larger than \(m\), and add a part equal to the number of parts larger than \(m\). This changes the parity of the number of parts, but if the second smallest part is \(m+1\), the resulting partition does not have distinct parts. Thus this method does not work. Further, if it did always work, the case \(k \ne \frac{3j^2+j}{2}\) would be covered also. However you can modify this method by comparing \(m\) not to the total number of parts, but to the number of rows at the top of the Young diagram that differ by exactly one from the row above. Even in this situation, there are certain slight additional assumptions you need to make, so this hint leaves you a lot of work to do. (It is reasonable to expect problems because of that exceptional case.) However, it should lead you in a useful direction.%
+\end{explorationsolution}%
+\begin{explorationsolution}{259}{}{g:exploration:idp315678348816}%
+\hypertarget{g:hint:idp315678350352-back}\quad{}How does the number of compositions of \(k\) into \(n\) distinct parts compare to the number of compositions of \(k\) into \(n\) parts (not necessarily distinct)? What do compositions have to do with partitions?%
 \end{explorationsolution}%
 %
 \begin{activitysolution}{260}{}{x:activity:change-making}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346609472-back}\quad{}This is a good place to apply the product principle for picture enumerators.  Don't be afraid to use technology to finish the problem.%
+\hypertarget{g:hint:idp315678365904-back}\quad{}This is a good place to apply the product principle for picture enumerators.  Don't be afraid to use technology to finish the problem.%
 \end{activitysolution}%
 \begin{activitysolution}{261}{}{g:activity:idp403346618880}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403346622944-back}\quad{}The product principle for generating functions helps you break the generating function into a product of ten simpler ones.%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403346629536-back}\quad{}\(m\) was 10 in the previous part of this problem.%
+\item[(a)]\hypertarget{g:hint:idp315678379376-back}\quad{}The product principle for generating functions helps you break the generating function into a product of ten simpler ones.%
+\item[(b)]\hypertarget{g:hint:idp315678385856-back}\quad{}\(m\) was 10 in the previous part of this problem.%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{262}{}{x:activity:atmostmparts}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346635632-back}\quad{}Think about conjugate partitions. \begin{image}{0.25}{0.5}{0.25}%
+\hypertarget{g:hint:idp315678391840-back}\quad{}Think about conjugate partitions. \begin{image}{0.25}{0.5}{0.25}%
 \includegraphics[width=\linewidth]{images/conjugateYoung}
 \end{image}%
 %
 \end{activitysolution}%
-\begin{explorationsolution}{263}{}{g:exploration:idp403346651408}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346653008-back}\quad{}Note that \(1+x^2+x^4+x^6+\cdots\) in the generating function is really \(1+x^2 + x^{2\cdot 2}\)%
+\begin{explorationsolution}{263}{}{g:exploration:idp315678407504}%
+\hypertarget{g:hint:idp315678409104-back}\quad{}Note that \(1+x^2+x^4+x^6+\cdots\) in the generating function is really \(1+x^2 + x^{2\cdot 2}\)%
 \end{explorationsolution}%
-\begin{explorationsolution}{266}{}{g:exploration:idp403346697472}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346700016-back}\quad{}In the power series \(\sum_{j=0}^\infty x^{2ij}\), the \(2ij\) has a different interpretation if you think of it as \((2i) \cdot j\) or if you think of it as \(i \cdot (2j)\).%
+\begin{explorationsolution}{266}{}{g:exploration:idp315678453568}%
+\hypertarget{g:hint:idp315678456112-back}\quad{}In the power series \(\sum_{j=0}^\infty x^{2ij}\), the \(2ij\) has a different interpretation if you think of it as \((2i) \cdot j\) or if you think of it as \(i \cdot (2j)\).%
 \end{explorationsolution}%
-\begin{explorationsolution}{267}{}{g:exploration:idp403346708416}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346711328-back}\quad{}Note that%
+\begin{explorationsolution}{267}{}{g:exploration:idp315678464512}%
+\hypertarget{g:hint:idp315678467424-back}\quad{}Note that%
 \begin{equation*}
 \frac{1-x^2}{1-x}\cdot \frac{1-x^4}{1-x^2}\cdot \frac{1-x^6}{1-x^3}\cdot \frac{1-x^8}{1-x^4} = \frac{(1-x^6)(1-x^8)}{(1-x)(1-x^3)} \text{.}
 \end{equation*}
 %
 \end{explorationsolution}%
-\begin{explorationsolution}{269}{}{g:exploration:idp403346718032}%
-\textbf{Hint}.\hypertarget{g:hint:idp403346720304-back}\quad{}Note that \(q^i + x^{3i} + x^{5i} + \cdots = x^i (1 + x^2 + x^4 + \cdots)\).%
+\begin{explorationsolution}{269}{}{g:exploration:idp315678474128}%
+\hypertarget{g:hint:idp315678476400-back}\quad{}Note that \(q^i + x^{3i} + x^{5i} + \cdots = x^i (1 + x^2 + x^4 + \cdots)\).%
 \end{explorationsolution}%
-\par\smallskip
-\noindent\textbf{\Large{}3\space\textperiodcentered\space{}Graph Theory}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}3.2\space\textperiodcentered\space{}Walking Around Graphs}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}3.2.2\space\textperiodcentered\space{}Proofs for Euler Paths and Circuits}
-\par\smallskip
-\begin{activitysolution}{283}{}{g:activity:idp403347169536}%
+%
+%
+%
+\begin{activitysolution}{283}{}{g:activity:idp315678925472}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403347173136-back}\quad{}Add something to your graph so you can ``finish'' the Euler path.  Don't forget to consider the case that the start and end vertex are already adjacent.%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403347194240-back}\quad{}If there are no odd degree vertices, you are done.  If there are two, you could connect them with an edge, except maybe they are already adjacent.  What could you do then?%
+\item[(a)]\hypertarget{g:hint:idp315678929072-back}\quad{}Add something to your graph so you can ``finish'' the Euler path.  Don't forget to consider the case that the start and end vertex are already adjacent.%
+\item[(b)]\hypertarget{g:hint:idp315678950112-back}\quad{}If there are no odd degree vertices, you are done.  If there are two, you could connect them with an edge, except maybe they are already adjacent.  What could you do then?%
 \end{enumerate}
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}3.3\space\textperiodcentered\space{}Planar Graphs and Euler's Formula}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}3.3.1\space\textperiodcentered\space{}Interlude: Mathematical Induction}
-\par\smallskip
-\begin{activitysolution}{291}{}{g:activity:idp403347368336}%
+%
+%
+\begin{activitysolution}{291}{}{g:activity:idp315679124016}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403347372112-back}\quad{}Look at paths in the tree.  Let \(v_0, v_1, \ldots, v_n\) be a path of maximal length.  What can you say about \(v_0\) and \(v_n\)?%
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403347375568-back}\quad{}What is the smallest number of vertices that make sense?  You will need to prove that \emph{all} trees with one vertex have the correct number of edges.  This should be very easy.%
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403347381152-back}\quad{}To get to a tree with \(n-1\) vertices, you need to \emph{trim} \(T\) somehow.  Which vertex should you get rid of?  What will this do to the number of edges?%
+\item[(a)]\hypertarget{g:hint:idp315679127792-back}\quad{}Look at paths in the tree.  Let \(v_0, v_1, \ldots, v_n\) be a path of maximal length.  What can you say about \(v_0\) and \(v_n\)?%
+\item[(b)]\hypertarget{g:hint:idp315679131248-back}\quad{}What is the smallest number of vertices that make sense?  You will need to prove that \emph{all} trees with one vertex have the correct number of edges.  This should be very easy.%
+\item[(c)]\hypertarget{g:hint:idp315679136832-back}\quad{}To get to a tree with \(n-1\) vertices, you need to \emph{trim} \(T\) somehow.  Which vertex should you get rid of?  What will this do to the number of edges?%
 \end{enumerate}
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}3.3.2\space\textperiodcentered\space{}Proof of Euler's formula for planar graphs.}
-\par\smallskip
-\begin{activitysolution}{293}{}{g:activity:idp403347409536}%
-\textbf{Hint}.\hypertarget{g:hint:idp403347410688-back}\quad{}You can take \(n = e = 1\) as your base case.  For the inductive case, start with an arbitrary graph with \(n\) edges.  Consider two cases: either \(G\) contains a cycle or it does not.%
+%
+\begin{activitysolution}{293}{}{g:activity:idp315679165216}%
+\hypertarget{g:hint:idp315679166368-back}\quad{}You can take \(n = e = 1\) as your base case.  For the inductive case, start with an arbitrary graph with \(n\) edges.  Consider two cases: either \(G\) contains a cycle or it does not.%
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}3.4\space\textperiodcentered\space{}Applications of Euler's Formula}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}3.4.1\space\textperiodcentered\space{}Non-planar Graphs}
-\par\smallskip
-\begin{activitysolution}{296}{}{g:activity:idp403347466944}%
+%
+%
+\begin{activitysolution}{296}{}{g:activity:idp315679222688}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403347472512-back}\quad{}If you assume \(P\) and conclude \(Q\), but \(Q\) is true, can you say anything about \(P\)?  What row(s) of the truth table for \(P \imp Q\) are you in?%
+\item[(a)]\hypertarget{g:hint:idp315679228256-back}\quad{}If you assume \(P\) and conclude \(Q\), but \(Q\) is true, can you say anything about \(P\)?  What row(s) of the truth table for \(P \imp Q\) are you in?%
 \end{enumerate}
 \end{activitysolution}%
-\begin{activitysolution}{298}{}{g:activity:idp403347503296}%
-\textbf{Hint}.\hypertarget{g:hint:idp403347505648-back}\quad{}The girth of any graph is at least 3.%
+\begin{activitysolution}{298}{}{g:activity:idp315679259104}%
+\hypertarget{g:hint:idp315679261456-back}\quad{}The girth of any graph is at least 3.%
 \end{activitysolution}%
 \begin{activitysolution}{299}{}{x:activity:act-planardeg5}%
-\textbf{Hint}.\hypertarget{g:hint:idp403347512160-back}\quad{}Do a proof by contradiction.  What is the smallest number of edges such a graph would possess?%
+\hypertarget{g:hint:idp315679267904-back}\quad{}Do a proof by contradiction.  What is the smallest number of edges such a graph would possess?%
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}3.5\space\textperiodcentered\space{}Coloring}
-\par\smallskip
-\par\smallskip
-\noindent\textbf{\Large{}3.5.1\space\textperiodcentered\space{}Coloring in General}
-\par\smallskip
-\begin{activitysolution}{310}{}{g:activity:idp403347711728}%
+%
+%
+\begin{activitysolution}{310}{}{g:activity:idp315679466192}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(a)]\textbf{Hint}.\hypertarget{g:hint:idp403347715312-back}\quad{}If you find a proper \(5\)-coloring, could the chromatic number be more than \(5\)?  Could it be less than \(5\)?  What if you found a subgraph that you were sure had chromatic number \(5\)?%
+\item[(a)]\hypertarget{g:hint:idp315679469776-back}\quad{}If you find a proper \(5\)-coloring, could the chromatic number be more than \(5\)?  Could it be less than \(5\)?  What if you found a subgraph that you were sure had chromatic number \(5\)?%
 \end{enumerate}
 \end{activitysolution}%
 \begin{activitysolution}{311}{}{g:activity:idp403347732848}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403347737632-back}\quad{}Modify your \(K_3\)-free graph with chromatic number 3.%
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403347744432-back}\quad{}The smallest such graph contains 11 vertices.  Try starting with \(C_5\) and adding vertices creating a lot of odd cycles.%
+\item[(b)]\hypertarget{g:hint:idp315679492048-back}\quad{}Modify your \(K_3\)-free graph with chromatic number 3.%
+\item[(c)]\hypertarget{g:hint:idp315679498848-back}\quad{}The smallest such graph contains 11 vertices.  Try starting with \(C_5\) and adding vertices creating a lot of odd cycles.%
 \end{enumerate}
 \end{activitysolution}%
-\begin{activitysolution}{312}{}{g:activity:idp403347758800}%
-\textbf{Hint}.\hypertarget{g:hint:idp403347763360-back}\quad{}How many colors would you need to properly color the neighbors of \(v\)?%
+\begin{activitysolution}{312}{}{g:activity:idp315679513264}%
+\hypertarget{g:hint:idp315679517824-back}\quad{}How many colors would you need to properly color the neighbors of \(v\)?%
 \end{activitysolution}%
-\begin{activitysolution}{313}{}{g:activity:idp403347768128}%
-\textbf{Hint}.\hypertarget{g:hint:idp403347770144-back}\quad{}You could try a proof by induction, or more simply, just try coloring the graph in a \emph{greedy} way.%
+\begin{activitysolution}{313}{}{g:activity:idp315679522592}%
+\hypertarget{g:hint:idp315679524608-back}\quad{}You could try a proof by induction, or more simply, just try coloring the graph in a \emph{greedy} way.%
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}3.5.3\space\textperiodcentered\space{}Ramsey Theory}
-\par\smallskip
-\begin{activitysolution}{318}{}{g:activity:idp403347833424}%
-\textbf{Hint}.\hypertarget{g:hint:idp403347835824-back}\quad{}Often when there is a counter-example, there is one with a good deal of symmetry. (Caution: there is a difference between often and always!) One way to help yourself get a symmetric example, if there is one, is to put 8 vertices into a circle. Then, perhaps, you might draw green edges in some sort of regular fashion until it is impossible to draw another green edge between any two of the vertices without creating a green triangle.%
+%
+\begin{activitysolution}{318}{}{g:activity:idp315679587728}%
+\hypertarget{g:hint:idp315679590128-back}\quad{}Often when there is a counter-example, there is one with a good deal of symmetry. (Caution: there is a difference between often and always!) One way to help yourself get a symmetric example, if there is one, is to put 8 vertices into a circle. Then, perhaps, you might draw green edges in some sort of regular fashion until it is impossible to draw another green edge between any two of the vertices without creating a green triangle.%
 \end{activitysolution}%
-\begin{activitysolution}{319}{}{g:activity:idp403347838304}%
-\textbf{Hint}.\hypertarget{g:hint:idp403347839744-back}\quad{}All that is left is to decide what can happen with \(K_9\).  First explain why no matter how the edges are colored red and blue, there is at least one vertex incident to an even number of red edges and an even number of blue edges.  What could this even number of red edges be?%
+\begin{activitysolution}{319}{}{g:activity:idp315679592160}%
+\hypertarget{g:hint:idp315679593600-back}\quad{}All that is left is to decide what can happen with \(K_9\).  First explain why no matter how the edges are colored red and blue, there is at least one vertex incident to an even number of red edges and an even number of blue edges.  What could this even number of red edges be?%
 \end{activitysolution}%
 \begin{activitysolution}{320}{}{x:activity:Ramseyrecurrence}%
-\textbf{Hint}.\hypertarget{g:hint:idp403347848000-back}\quad{}What you need to show is that if there are \(R(m - 1, n) + R(m, n - 1)\) people in a room, then there are either \(m\) mutual acquaintances or \(n\) mutual strangers. As with earlier problems, it helps to start with a person and think about the number of people with whom this person is acquainted or nonacquainted. The generalized pigeonhole principle tells you something about these numbers.%
+\hypertarget{g:hint:idp315679601760-back}\quad{}What you need to show is that if there are \(R(m - 1, n) + R(m, n - 1)\) people in a room, then there are either \(m\) mutual acquaintances or \(n\) mutual strangers. As with earlier problems, it helps to start with a person and think about the number of people with whom this person is acquainted or nonacquainted. The generalized pigeonhole principle tells you something about these numbers.%
 \end{activitysolution}%
 \begin{activitysolution}{321}{}{x:activity:Ramseybound2}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(b)]\textbf{Hint}.\hypertarget{g:hint:idp403347868576-back}\quad{}If you could find four mutual acquaintances, you could assume person 1 is among them. And by the generalized pigeonhole principle and symmetry, so are two of the people to the first, second, fourth and eighth to the right. Now there are lots of possibilities for that fourth person. You now have the hard work of using symmetry and the definition of who is acquainted with whom to eliminate all possible combinations of four people. Then you have to think about non-acquaintances.%
+\item[(b)]\hypertarget{g:hint:idp315679622336-back}\quad{}If you could find four mutual acquaintances, you could assume person 1 is among them. And by the generalized pigeonhole principle and symmetry, so are two of the people to the first, second, fourth and eighth to the right. Now there are lots of possibilities for that fourth person. You now have the hard work of using symmetry and the definition of who is acquainted with whom to eliminate all possible combinations of four people. Then you have to think about non-acquaintances.%
 \end{enumerate}
 \end{activitysolution}%
-\par\smallskip
-\noindent\textbf{\Large{}3.6\space\textperiodcentered\space{}Matching in Bipartite Graphs}
-\par\smallskip
-\begin{activitysolution}{328}{}{g:activity:idp403347955936}%
+%
+\begin{activitysolution}{328}{}{g:activity:idp315679709648}%
 \begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
-\item[(c)]\textbf{Hint}.\hypertarget{g:hint:idp403347964912-back}\quad{}There is not much more to say now, except why \(b\) is not incident to any edge in \(M\), and what the augmenting path would be.%
+\item[(c)]\hypertarget{g:hint:idp315679718672-back}\quad{}There is not much more to say now, except why \(b\) is not incident to any edge in \(M\), and what the augmenting path would be.%
 \end{enumerate}
 \end{activitysolution}%
-\begin{activitysolution}{329}{}{g:activity:idp403347967600}%
-\textbf{Hint}.\hypertarget{g:hint:idp403347970384-back}\quad{}Take \(A\) to be the 13 piles and \(B\) to be the 13 values.  What would the matching condition need to say, and why is it satisfied.%
+\begin{activitysolution}{329}{}{g:activity:idp315679721360}%
+\hypertarget{g:hint:idp315679724144-back}\quad{}Take \(A\) to be the 13 piles and \(B\) to be the 13 values.  What would the matching condition need to say, and why is it satisfied.%
 \end{activitysolution}%
 \end{solutions-chapter}
 %
@@ -12759,10 +12748,8 @@ cx-r_2c+dx-r_1d =ax+b\text{.}
 \typeout{Appendix D Solutions to selected exercises}
 \typeout{************************************************}
 %
-\begin{solutions-chapter}{Solutions to selected exercises}{}{Solutions to selected exercises from the background material}{}{}{g:solutions:idp403353475888}
-Background Material\par\smallskip
-\noindent\textbf{\large{}B.1.4\space\textperiodcentered\space{}Exercises}
-\par\smallskip
+\begin{solutions-chapter}{Solutions to selected exercises}{}{Solutions to selected exercises from the background material}{}{}{g:solutions:idp315685227200}
+Background Material%
 \begin{divisionsolution}{B.1.4.1}{}{p:exercise:vWb}%
 \textbf{Solution}.\hypertarget{g:solution:idp403348603056-back}\quad{}%
 \begin{enumerate}[label=(\alph*)]
@@ -13451,6 +13438,7 @@ with the last equality due to the inductive hypothesis. But this simplifies to \
 \typeout{Appendix E GNU Free Documentation License}
 \typeout{************************************************}
 %
+\begin{footnotesize}
 \begin{appendixptx}{GNU Free Documentation License}{}{GNU Free Documentation License}{}{}{x:appendix:appendix-gfdl}
 Version 1.3, 3 November 2008%
 \par
@@ -13578,6 +13566,7 @@ An MMC is ``eligible for relicensing'' if it is licensed under this License, and
 The operator of an MMC Site may republish an MMC contained in the site under CC-BY-SA on the same site at any time before August 1, 2009, provided the MMC is eligible for relicensing.%
 \end{paragraphs}%
 \end{appendixptx}
+\end{footnotesize}
 %
 %
 \typeout{************************************************}
