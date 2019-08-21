@@ -486,20 +486,20 @@ fonttitle=\bfseries, attach title to upper, after title={\vskip 0.1ex \noindent}
       frame hidden,
       %Draw breakable decorations:
       overlay first={%
-      \draw[black!60, path fading=east] (frame.north east) -- (frame.north west) -- (frame.south west);
+      \draw[black!60, thick, path fading=east] (frame.north east) -- (frame.north west) -- (frame.south west);
       },
       overlay middle={%
-      \draw[black!60] (frame.south west) -- (frame.north west);
+      \draw[black!60, thick] (frame.south west) -- (frame.north west);
       },
       overlay last={%
       \fill[left color=black!40, right color=white, white] ([xshift=4pt]frame.south west) -- ++(0,-4pt) to[out=4, in=182] (frame.south) -- cycle;
-      \draw[black!60, path fading=east] (frame.south east) -- (frame.south west);
-      \draw[black!60] (frame.north west) -- (frame.south west);
+      \draw[black!60, thick, path fading=east] (frame.south east) -- (frame.south west);
+      \draw[black!60, thick] (frame.north west) -- (frame.south west);
       },
       overlay unbroken={%
       \fill[left color=black!40, right color=white, white] ([xshift=4pt]frame.south west) -- ++(0,-4pt) to[out=4, in=182] (frame.south) -- cycle;
-      \draw[black!60, path fading=east] (frame.south east) -- (frame.south west);
-      \draw[black!60, path fading=east] (frame.north east) -- (frame.north west) -- (frame.south west);
+      \draw[black!60, thick, path fading=east] (frame.south east) -- (frame.south west);
+      \draw[black!60, thick, path fading=east] (frame.north east) -- (frame.north west) -- (frame.south west);
       }
     } }
 \newtcolorbox[use counter from=block]{example}[2]{title={{Example~\thetcbcounter\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, after={\par}, examplestyle, }
@@ -519,20 +519,20 @@ fonttitle=\bfseries, attach title to upper, after title={\vskip 0.1ex \noindent}
 	frame hidden,
 	%Draw breakable decorations:
 	overlay first={%
-		\draw[black!60, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
 		},
 	overlay middle={%
-		\draw[black!60] (frame.south east) -- (frame.north east);
+		\draw[black!60, thick] (frame.south east) -- (frame.north east);
 		},
 	 overlay last={%
 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south west) -- (frame.south east);
-		\draw[black!60] (frame.north east) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.south west) -- (frame.south east);
+		\draw[black!60, thick] (frame.north east) -- (frame.south east);
 		},
 	overlay unbroken={%
 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south west) -- (frame.south east);
-		\draw[black!60, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.south west) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
 		}
   } }
 \newtcolorbox[use counter from=project-distinct]{activity}[2]{title={{Activity~\thetcbcounter\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, after={\par}, activitystyle, }
@@ -549,20 +549,20 @@ fonttitle=\bfseries, attach title to upper, after title={\vskip 0.1ex \noindent}
 	frame hidden,
 	%Draw breakable decorations:
 	overlay first={%
-		\draw[black!60, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
 		},
 	overlay middle={%
-		\draw[black!60] (frame.south east) -- (frame.north east);
+		\draw[black!60, thick] (frame.south east) -- (frame.north east);
 		},
 	 overlay last={%
 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south west) -- (frame.south east);
-		\draw[black!60] (frame.north east) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.south west) -- (frame.south east);
+		\draw[black!60, thick] (frame.north east) -- (frame.south east);
 		},
 	overlay unbroken={%
 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south west) -- (frame.south east);
-		\draw[black!60, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.south west) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
 		}
   } }
 \newtcolorbox[use counter from=project-distinct]{exploration}[2]{title={{Exercise~\thetcbcounter\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, after={\par}, explorationstyle, }
@@ -579,20 +579,20 @@ fonttitle=\bfseries, attach title to upper, after title={\vskip 0.1ex \noindent}
 	frame hidden,
 	%Draw breakable decorations:
 	overlay first={%
-		\draw[black!60, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
 		},
 	overlay middle={%
-		\draw[black!60] (frame.south east) -- (frame.north east);
+		\draw[black!60, thick] (frame.south east) -- (frame.north east);
 		},
 	 overlay last={%
 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south west) -- (frame.south east);
-		\draw[black!60] (frame.north east) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.south west) -- (frame.south east);
+		\draw[black!60, thick] (frame.north east) -- (frame.south east);
 		},
 	overlay unbroken={%
 		\fill[right color=black!40, left color=white, white] ([xshift=-4pt]frame.south east) -- ++(0,-4pt) to[out=176, in=-2] (frame.south) -- cycle;
-		\draw[black!60, path fading=west] (frame.south west) -- (frame.south east);
-		\draw[black!60, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.south west) -- (frame.south east);
+		\draw[black!60, thick, path fading=west] (frame.north west) -- (frame.north east) -- (frame.south east);
 		}
   } }
 \newtcolorbox[use counter from=project-distinct]{investigation}[2]{title={{Puzzle~\thetcbcounter\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, after={\par}, investigationstyle, }
@@ -725,7 +725,7 @@ fonttitle=\bfseries, attach boxed title to top left={xshift=4mm,yshift=-4mm,yshi
 %% Hyperlinking active in electronic PDFs, all links solid and blue
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,filecolor=blue,urlcolor=blue}
 \hypersetup{pdftitle={Exploring Combinatorial Mathematics}}
-\hypersetup{hidelinks=true}
+% \hypersetup{hidelinks=true}
 %% If you manually remove hyperref, leave in this next command
 \providecommand\phantomsection{}
 %% Graphics Preamble Entries
@@ -2456,6 +2456,7 @@ A \terminology{lattice path}\index{lattice path} is one of the shortest possible
 \item{}How many lattice paths are there between \((0,0)\) and \((2,2)\)? Draw or list them all to be sure.%
 \item{}How many lattice paths are there between \((0,0)\) and \((3,2)\)? How can you be sure?%
 \end{enumerate}
+\clearpage
 \end{activity}
 \begin{activity}{}{g:activity:idp315663174512}%
 Recall that a \terminology{subset} \(A\) of a set \(B\) is a set all of whose elements are also elements of \(B\); we write \(A \subseteq B\).  For example, some of the subsets of \(B = \{1,2,3,4,5\}\) are \(\{2,4,5\}\), \(\{1,2,3,4,5\}\) and \(\emptyset\).  Recall also that the \terminology{cardinality} of a set is simply the number of elements in it.%
