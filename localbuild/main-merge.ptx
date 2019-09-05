@@ -1568,7 +1568,7 @@ HI/.style={USA map/HI/.style={#1}}, AK/.style={USA map/AK/.style={#1}}, FL/.styl
     This book is a synthesis of three textbooks on discrete mathematics and combinatorics.  First, many of the problems, and indeed entire sections, come directly from <pubtitle>Combinatorics Through Guided Discovery</pubtitle> by Kenneth P. Bogart.  This is possible thanks to the Bogart estate's decision to release his book under an open license (the GFDL, the same license this text uses).  The format of this book has been made to match that of Bogart's text, with most of the exposition being driven by problems (which we call <em>activities</em>) for students to work on.  A copy of Bogart's book can be found for free at <url href="http://bogart.openmathbooks.org/">bogart.openmathbooks.org</url>.
   </p>
         <p>
-    The second source for material is <pubtitle>Discrete and Combinatorial Mathematics</pubtitle> by Richard Grassl.  This is a set of notes used for many years as the textbook for MATH 528 at the University of Northern Colorado.  We have tried to capture the flavor and emphasis of this book, and have used many of its exercises among our <em>activities</em>.
+    The second source for material is <pubtitle>Discrete and Combinatorial Mathematics</pubtitle> by Richard Grassl and Tabitha Mingus.  This is a set of notes used for many years as the textbook for MATH 528 at the University of Northern Colorado.  We have tried to capture the flavor and emphasis of this book, and have used many of its exercises among our <em>activities</em>.
   </p>
         <p>
     For the background material contained in the index, as well as much of the chapter on graph theory, material was borrowed from <pubtitle>Discrete Mathematics: an Open Introduction</pubtitle>, the book I wrote for the undergraduate discrete course at the University of Northern Colorado.  This book can be found (for free) at <url href="http://discrete.openmathbooks.org/">discrete.openmathbooks.org</url>.
@@ -2113,7 +2113,8 @@ Before tackling questions like these, let's look at the basics of counting.
         <title>Proofs in Combinatorics</title>
         <introduction>
           <p>
-      We have already seen some basic proof techniques when we considered graph theory: direct proofs, proof by contrapositive, proof by contradiction, and proof by induction.  In this section, we will consider a few proof techniques particular to combinatorics.  Along the way we will establish some basic counting principles and further develop our understanding of binomial coefficients.
+      <!-- We have already seen some basic proof techniques when we considered graph theory: direct proofs, proof by contrapositive, proof by contradiction, and proof by induction.   -->
+      In this section, we will consider a few proof techniques particular to combinatorics.  Along the way we will establish some basic counting principles and further develop our understanding of binomial coefficients.
     </p>
           <p>
       Why do we care about proofs?  It is not because we doubt the truth of so called theorems or wish to establish new results to further mathematics as an academic discipline (although there is nothing wrong with doing that as well).  Rather, it is through creating proofs that we gain a deeper understanding of the big ideas present in this subject.
@@ -2824,7 +2825,7 @@ many ways can you pair up the next person who isn't already paired up?
             </p>
           </li><li>
             <p>
-              The only thing that changes for the secon part is that no child can get more than one piece of fruit.  So while we have <m>n</m> choices for the first piece of fruit, we only have <m>n-1</m> for the second, and <m>n-2</m> for the third.  Continuing until all the fruit is gone gives us a total of,
+              The only thing that changes for the second part is that no child can get more than one piece of fruit.  So while we have <m>n</m> choices for the first piece of fruit, we only have <m>n-1</m> for the second, and <m>n-2</m> for the third.  Continuing until all the fruit is gone gives us a total of,
               <me> n \cdot (n-1) \cdot (n-2) \cdot \cdots \cdot (n-k+1) = \frac{n!}{(n-k)!} </me>
               ways to distribute the fruit.
             </p>
