@@ -4,7 +4,8 @@
 
   <introduction>
     <p>
-      We have already seen some basic proof techniques when we considered graph theory: direct proofs, proof by contrapositive, proof by contradiction, and proof by induction.  In this section, we will consider a few proof techniques particular to combinatorics.  Along the way we will establish some basic counting principles and further develop our understanding of binomial coefficients.
+      <!-- We have already seen some basic proof techniques when we considered graph theory: direct proofs, proof by contrapositive, proof by contradiction, and proof by induction.   -->
+      In this section, we will consider a few proof techniques particular to combinatorics.  Along the way we will establish some basic counting principles and further develop our understanding of binomial coefficients.
     </p>
 
     <p>
@@ -807,7 +808,7 @@ many ways can you pair up the next person who isn't already paired up?
 
           <li>
             <p>
-              The only thing that changes for the secon part is that no child can get more than one piece of fruit.  So while we have <m>n</m> choices for the first piece of fruit, we only have <m>n-1</m> for the second, and <m>n-2</m> for the third.  Continuing until all the fruit is gone gives us a total of,
+              The only thing that changes for the second part is that no child can get more than one piece of fruit.  So while we have <m>n</m> choices for the first piece of fruit, we only have <m>n-1</m> for the second, and <m>n-2</m> for the third.  Continuing until all the fruit is gone gives us a total of,
               <me> n \cdot (n-1) \cdot (n-2) \cdot \cdots \cdot (n-k+1) = \frac{n!}{(n-k)!} </me>
               ways to distribute the fruit.
             </p>
