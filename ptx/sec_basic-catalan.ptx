@@ -27,7 +27,7 @@
 
         <figure xml:id="catalanpathex">
           <caption> One of the acceptable lattice paths from <m>(0,0)</m> to <m>(3,3)</m>.</caption>
-          <image width="50%">
+          <image width="40%">
             <latex-image>
               \begin{tikzpicture}
                 \draw[very thin, color=gray!50] (0,0) grid (3.5, 3.5);
@@ -280,7 +280,7 @@
         <p>
           How many rooted binary trees have exactly <m>n+1</m> leaves?  Note that because we designate children as left or right, the two trees below are counted as distinct.
         </p>
-        <sidebyside widths="25%, 25%">
+        <sidebyside widths="20%, 20%">
           <image>
             <latex-image>
               \begin{tikzpicture}
@@ -423,6 +423,7 @@
       <caption>A triangulation of a 5-gon and associated rooted binary tree.</caption>
       <sidebyside width="25%">
         <image>
+        <latex-image>
           \begin{tikzpicture}
             \fivegon;
             \draw (d) -- (a) -- (c);
@@ -431,14 +432,17 @@
             \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \vr{$c$};
             \draw (1,1.2) -- (2,.7) \vr{$d$};
           \end{tikzpicture}
+        </latex-image>
         </image>
         <image>
+         <latex-image>
           \begin{tikzpicture}
             \draw (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \va{$a$};
             \draw (-1,1.3) -- (-.5,2.5) \va{$b$};
             \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \va{$d$};
             \draw (1,1.2) -- (.5,2.5) \va{$c$};
           \end{tikzpicture}
+         </latex-image>
         </image>
       </sidebyside>
     </figure>
@@ -656,11 +660,11 @@
               Suppose some initial segment of a bit string contains one more 1 than 0.  If you changed every 1 to a 0 and every 0 to a 1 in this initial segment, how many 0's and how many 1's would the entire bit string have?
             </p>
           </statement>
-          <statement>
+          <solution>
             <p>
               The resulting string will have one more 0 and one fewer 1.  That is, if the weight was originally <m>n</m>, the weight would now be <m>n-1</m>.
             </p>
-          </statement>
+          </solution>
         </task>
         <task>
           <statement>

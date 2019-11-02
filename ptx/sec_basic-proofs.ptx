@@ -1324,7 +1324,7 @@ many ways can you pair up the next person who isn't already paired up?
 
         <exploration>
           <statement>
-            <p>
+            <p> Prove 
               <m>1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! + \ldots + n \cdot n! = \left( n + 1 \right)! - 1</m>.
             </p>
           </statement>
@@ -1361,7 +1361,7 @@ many ways can you pair up the next person who isn't already paired up?
         <exploration>
           <statement>
             <p>
-              <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m>.
+              Prove the identity: <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m>.
             </p>
           </statement>
           <hint>
@@ -1436,7 +1436,7 @@ many ways can you pair up the next person who isn't already paired up?
 
         <exploration xml:id="act_derangement-binom">
           <statement>
-            <p>
+            <p> Prove 
               <m>\binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \binom{n}{2} d_{2} + \ldots + \binom{n}{n} d_{n} = n!</m> where <m>d_{n}</m> denotes the <m>n</m>th derangement number, <m>d_{0} = 1,d_{1} = 0</m>.
             </p>
           </statement>

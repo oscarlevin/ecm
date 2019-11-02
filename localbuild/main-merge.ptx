@@ -3309,7 +3309,7 @@ many ways can you pair up the next person who isn't already paired up?
       </activity> -->
           <exploration>
             <statement>
-              <p>
+              <p> Prove 
               <m>1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! + \ldots + n \cdot n! = \left( n + 1 \right)! - 1</m>.
             </p>
             </statement>
@@ -3342,7 +3342,7 @@ many ways can you pair up the next person who isn't already paired up?
           <exploration>
             <statement>
               <p>
-              <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m>.
+              Prove the identity: <m>k \binom{n}{k} = n \binom{n - 1}{k - 1}</m>.
             </p>
             </statement>
             <hint>
@@ -3411,7 +3411,7 @@ many ways can you pair up the next person who isn't already paired up?
         </theorem> -->
           <exploration xml:id="act_derangement-binom">
             <statement>
-              <p>
+              <p> Prove 
               <m>\binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \binom{n}{2} d_{2} + \ldots + \binom{n}{n} d_{n} = n!</m> where <m>d_{n}</m> denotes the <m>n</m>th derangement number, <m>d_{0} = 1,d_{1} = 0</m>.
             </p>
             </statement>
@@ -4307,10 +4307,10 @@ many ways can you pair up the next person who isn't already paired up?
             </task>
           </activity>
           <p>
-    The problems in <xref ref="act-distributionintro"/> are sometimes referred to as <q>distribution problems</q>, since we are asking for the number of ways to distribute some objects to some recipients.   This is a useful model for the other counting techniques we have seen as well.  For example, a permutation <m>P(n,k)</m> gives the number of ways to distribute <m>n</m> distinct objects to <m>k</m> distinct recipients, so that each recipient gets exactly one object.
+    The problems in <xref ref="act-distributionintro"/> are sometimes referred to as <q>distribution problems</q>, since we are asking for the number of ways to distribute some objects to some recipients.   This is a useful model for the other counting techniques we have seen as well.  For example, a permutation <m>P(n,k)</m> gives the number of ways to distribute <m>k</m> distinct objects to <m>n</m> distinct recipients, so that each recipient gets at most one object.
   </p>
           <p>
-    The claim implicit in <xref ref="act-distributionintro"/> is that the number of ways to distribute <m>n</m> identical objects to <m>k</m> distinct recipients (now allowing each recipient to receive any number of objects, including zero) is <m>\mchoose{n}{k}</m>.  If this is the case, then we should be able to think of the set of <m>k</m>-element multisets of <m>[n]</m> as a distribution.
+    The claim implicit in <xref ref="act-distributionintro"/> is that the number of ways to distribute <m>k</m> identical objects to <m>n</m> distinct recipients (now allowing each recipient to receive any number of objects, including zero) is <m>\mchoose{n}{k}</m>.  If this is the case, then we should be able to think of the set of <m>k</m>-element multisets of <m>[n]</m> as a distribution.
   </p>
           <activity>
             <statement>
@@ -4326,22 +4326,24 @@ many ways can you pair up the next person who isn't already paired up?
             <task>
               <statement>
                 <p>
-          If <m>P(n,k)</m> counts the number of ways to distribute <m>n</m> distinct objects to <m>k</m> distinct recipients in which each recipient receives exactly one object (do you see why this is?), then what distribution does <m>\binom{n}{k}</m> count?  Explain what is playing the role of <q>order mattering</q> in a distribution problem.
+          If <m>P(n,k)</m> counts the number of ways to distribute <m>k</m> distinct objects to <m>n</m> distinct recipients in which each recipient receives at most one object (do you see why this is?), then what distribution does <m>\binom{n}{k}</m> count?  Explain what is playing the role of <q>order mattering</q> in a distribution problem.
         </p>
               </statement>
             </task>
             <task>
               <statement>
                 <p>
-          We claim that counting the number of ways to distribute <m>n</m> identical books to <m>k</m> distinct shelves is counted by <m>\mchoose{n}{k}</m>, and this is a situation in which order does not matter (since we are counting multisets).  What would the distribution question be if order did matter?  Explain why the answer to that question is NOT <m>n^k</m>. (What distribution does <em>that</em> expression count?)
+          We claim that counting the number of ways to distribute <m>k</m> identical books to <m>n</m> distinct shelves is counted by <m>\mchoose{n}{k}</m>, and this is a situation in which order does not matter (since we are counting multisets).  What would the distribution question be if order did matter?  Explain why the answer to that question is NOT <m>n^k</m>. (What distribution does <em>that</em> expression count?)
         </p>
               </statement>
             </task>
           </activity>
           <p>
-    Consider the case where the books are distinct instead of identical.  Note also that in the next few activities, the usage of the variables <m>k</m> and <m>n</m> are reversed from above.  As you work through these next activities, think about why that choice was made.
+    Consider the case where the books are distinct instead of identical.  
   </p>
-          <!-- TODO: sort out n/k usage once and for all -->
+          <!-- TODO: sort out n/k usage once and for all:
+      DONE? k is always the number of items being distributed, n is always the number of recipients receiving the items.
+   -->
           <activity xml:id="bookcase" category="essential and interesting">
             <introduction>
               <p> Suppose we wish to place <m>k</m> distinct books onto the shelves
@@ -5804,7 +5806,7 @@ many ways can you pair up the next person who isn't already paired up?
           <exploration>
             <introduction>
               <p>
-         How many license plates consist of 6 symbols, using only the three numerals 1, 2, and 3 and the four letters a, b, c, and d, so that no numeral appears after any letter?  For example, <q>31ddac</q> and <q>12321</q> are acceptable license plates, but <q>13ba2c</q> is not.
+         How many license plates consist of 6 symbols, using only the three numerals 1, 2, and 3 and the four letters a, b, c, and d, so that no numeral appears after any letter?  For example, <q>31ddac</q> and <q>123211</q> are acceptable license plates, but <q>13ba2c</q> is not.
        </p>
             </introduction>
             <task>
@@ -6260,7 +6262,7 @@ many ways can you pair up the next person who isn't already paired up?
         </p>
               <figure xml:id="catalanpathex">
                 <caption> One of the acceptable lattice paths from <m>(0,0)</m> to <m>(3,3)</m>.</caption>
-                <image width="50%">
+                <image width="40%">
             <latex-image>
               \begin{tikzpicture}
                 \draw[very thin, color=gray!50] (0,0) grid (3.5, 3.5);
@@ -6491,7 +6493,7 @@ many ways can you pair up the next person who isn't already paired up?
               <p>
           How many rooted binary trees have exactly <m>n+1</m> leaves?  Note that because we designate children as left or right, the two trees below are counted as distinct.
         </p>
-              <sidebyside widths="25%, 25%">
+              <sidebyside widths="20%, 20%">
                 <image>
             <latex-image>
               \begin{tikzpicture}
@@ -6619,6 +6621,7 @@ many ways can you pair up the next person who isn't already paired up?
             <caption>A triangulation of a 5-gon and associated rooted binary tree.</caption>
             <sidebyside width="25%">
               <image>
+        <latex-image>
           \begin{tikzpicture}
             \fivegon;
             \draw (d) -- (a) -- (c);
@@ -6627,14 +6630,17 @@ many ways can you pair up the next person who isn't already paired up?
             \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \vr{$c$};
             \draw (1,1.2) -- (2,.7) \vr{$d$};
           \end{tikzpicture}
+        </latex-image>
         </image>
               <image>
+         <latex-image>
           \begin{tikzpicture}
             \draw (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \va{$a$};
             \draw (-1,1.3) -- (-.5,2.5) \va{$b$};
             \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \va{$d$};
             \draw (1,1.2) -- (.5,2.5) \va{$c$};
           \end{tikzpicture}
+         </latex-image>
         </image>
             </sidebyside>
           </figure>
@@ -6840,11 +6846,11 @@ many ways can you pair up the next person who isn't already paired up?
               Suppose some initial segment of a bit string contains one more 1 than 0.  If you changed every 1 to a 0 and every 0 to a 1 in this initial segment, how many 0's and how many 1's would the entire bit string have?
             </p>
               </statement>
-              <statement>
+              <solution>
                 <p>
               The resulting string will have one more 0 and one fewer 1.  That is, if the weight was originally <m>n</m>, the weight would now be <m>n-1</m>.
             </p>
-              </statement>
+              </solution>
             </task>
             <task>
               <statement>
