@@ -1311,10 +1311,14 @@ If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, wo
           Thus this is also the number of partitions of integers having <em>at most</em> <m>m</m> parts.
           Now subtract those having at most <m>m-1</m> parts:
           <me>
-            \frac{1}{(1-x)(1-x^2)\cdots (1-x^m)} - \frac{1}{(1-x)(1-x^2)\cdots (1-x^{m-1})} = \frac{x^m}{(1-x)(1-x^2)\cdots(1-x^m)}
+            \frac{1}{(1-x)\cdots (1-x^m)} - \frac{1}{(1-x)\cdots (1-x^{m-1})} = \frac{x^m}{(1-x)\cdots(1-x^m)}
           </me>.
           
           
+        </p>
+
+        <p>
+          Alternatively, instead of doing the algebra on the last step, we can use Young diagrams again.  There is a bijection between partitions of <m>k</m> into exactly <m>m</m> parts and partitions of <m>k-m</m> into at most <m>m</m> parts.  The bijection is: remove the first column!  So look at the infinite series for <m>\frac{1}{(1-x)(1-x^2)\cdots (1-x^m)}</m>.  The coefficient of <m>x^{k-m}</m> is the number of partitions of <m>k-m</m> into at most <m>m</m> parts.  So if we multiply each term by <m>x^m</m>, then the coefficient of <m>x^{k-m+m} = x^{k}</m> is the number of partitions of <m>k-m</m> into at most <m>m</m> parts.  But this is the number of partitions of <m>k</m> into <em>exactly</em> <m>m</m> parts, as required.
         </p>
       </solution>
     </example>
@@ -1348,6 +1352,14 @@ If infinitely many of the polynomials had a nonzero coefficient for <m>q</m>, wo
           </me>.
         </p>
       </statement>
+      <solution>
+        <p>
+          Thinking about the Young diagrams for partitions of <m>k</m> into exactly <m>m</m> distinct parts, each will have at least 1 sqaure in row <m>m</m>, at least 2 squares in row <m>m-1</m>, etc, and at least <m>m</m> squares in row 1.  If we remove these <m>1 + 2 +\cdots + m = \frac{m(m+1)}{2}</m> squares, we get a diagram for a partition of <m>k-\frac{m(m+1)}{2}</m> into at most <m>m</m> parts.  Further, if we started with a partition of <m>k-\frac{m(m+1)}{2}</m> into at most <m>m</m> parts, we can transform it into a partition for <m>k</m> into exactly <m>m</m> distinct parts by adding the triangle of <m>\frac{m(m+1)}{2}</m> squares.
+        </p>
+        <p>
+          Let <m>f(x)</m> be the generating function for the number of partitions of integers into exactly <m>m</m> distinct parts.  That is, in <m>f(x)</m>, the coefficient of <m>x^k</m> is the number of partitions of <m>k</m> into exactly <m>m</m> distinct parts.  Then <m>f(x)/x^{\frac{m(m+1)}{2}}</m> is the generating function for the number of partitions of integers into at most <m>m</m> parts.  But that is <m>\frac{1}{(1-x)(1-x^2)\cdots(1-x^m)}</m>.
+        </p>
+      </solution>
     </exploration>
 
 
@@ -1514,7 +1526,7 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
         </statement>
         <hint>
             <p>
-                Note that <m>q^i + x^{3i} + x^{5i} + \cdots = x^i (1 + x^2 + x^4 + \cdots)</m>.
+                Note that <m>x^i + x^{3i} + x^{5i} + \cdots = x^i (1 + x^2 + x^4 + \cdots)</m>.
             </p>
         </hint>
         <solution>
@@ -1536,7 +1548,9 @@ of it as <m>(2i) \cdot j</m> or if you think of it as <m>i \cdot (2j)</m>.
     <exploration>
       <statement>
         <p>
+        <!-- Is this wrong?  We have the LHS is \frac{1}{1-x}: every number can be represented in binary. -->
           Show algebraically that 
+          <!-- <me>(1+x)(1+x^2)(1+x^4)(1+x^8)\cdots = \frac{1}{(1-x)}</me>. -->
           <me>(1+x)(1+x^2)(1+x^4)(1+x^8)\cdots = \frac{1}{(1-x)(1-x^3)(1-x^5)\cdots}</me>.
           What does this identity tell you about partitions of integers?
         </p>
