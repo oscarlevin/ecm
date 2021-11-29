@@ -801,7 +801,7 @@
         </statement>
         <hint>
           <p>
-            While you might not get this formula by conisdering type vectors, you should be shooting to prove <m>S(k, k-3) = \binom{k}{4} + 10 \binom{k}{5} + 16 \binom{k}{6}</m>
+            While you might not get this formula by conisdering type vectors, you should be shooting to prove <m>S(k, k-3) = \binom{k}{4} + 10 \binom{k}{5} + 15 \binom{k}{6}</m>
           </p>
         </hint>
       </task>
