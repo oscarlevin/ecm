@@ -19,7 +19,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 <!-- Assumes current file is in discrete-text/xsl and that the mathbook repository is adjacent -->
-<xsl:import href="../../../mathbook/xsl/mathbook-latex.xsl" />
+<xsl:import pretext-href="pretext-latex.xsl" />
 <!-- Assumes next file can be found in discrete-text/xsl -->
 <xsl:import href="custom-common.xsl" />
 
