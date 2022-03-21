@@ -8064,7 +8064,7 @@ many ways can you pair up the next person who isn't already paired up?
           E_P(S) = \sum_{s: s\in S}  P(s).
       </me>
       </p>
-          <p>We choose this language because the picture enumerator lists, or enumerates, all the elements of <m>S</m> according to their pictures. Thus <xref ref="uptothreefruits">Formula</xref> is the picture enumerator the set of all multisets of fruit with between one and three apples, one and two pears, and one and two bananas.
+          <p>We choose this language because the picture enumerator lists, or enumerates, all the elements of <m>S</m> according to their pictures. Thus <xref ref="uptothreefruits">Formula</xref> is the picture enumerator on the set of all multisets of fruit with between one and three apples, one and two pears, and one and two bananas.
       </p>
           <exploration xml:id="zerotothreeapples" category="motivation">
             <statement>
